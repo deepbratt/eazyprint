@@ -9,7 +9,7 @@
 					<div class="nav-toggle"></div>
 				</div>
 				<!-- Search panel Start -->
-				<!--<div class="nav-search">
+				<div class="nav-search">
 					<div class="nav-search-button">
 						<i class="nav-search-icon"></i>
 					</div>
@@ -18,7 +18,7 @@
 							<input type="search" name="search" placeholder="Type Your Keywords">
 						</div>
 					</form>
-				</div>-->
+				</div>
 				<!-- Main Menus Wrapper -->
 				<div class="nav-menus-wrapper">
 					<ul class="nav-menu align-to-right">
