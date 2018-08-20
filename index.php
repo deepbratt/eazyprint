@@ -456,7 +456,7 @@
 		</div>
 	</section>
     
-	<footer style="margin-top:50px;">
+	<!-- <footer style="margin-top:50px;">
 		<div class="container-fluid">
 			<div class="container">
 				<div class="row">
@@ -467,7 +467,10 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
+	<?php
+	include("footer.php");
+	?>
     <!-- ***** All jQuery Plugins ***** -->
 
     <!-- Popper js -->
