@@ -75,10 +75,10 @@
 					
 				</div>
 				<div class="col-md-1"></div>
-				<div class="col-md-1"></div>
-				<div class="col-md-3">
+				
+				<div class="col-md-4">
 					<div class="border" style="text-align:center;">
-						<img src="images/hd-512.png" class="img-responsive" style="height:100px;border-radius:50%;">
+						<img src="images/hd-512.png" class="img-responsive" style="height:100px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">HIGH QUALITY PRINTING</a></h5>
@@ -90,21 +90,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="border" style="text-align:center;">
-						<img src="images/guarantee-checkmark-512.png" class="img-responsive" style="height:100px;border-radius:50%;">
+						<img src="images/guarantee-checkmark-512.png" class="img-responsive" style="height:100px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">SATISFACTION GUARANTEED</a></h5>
 								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-new">All products are Quality Checked before getting shipped.<br/>If there's still any issue with the product, we will make it right.</span>
+									<span class="price-new">All products are Quality Checked before getting shipped.If there's still any issue with the product, we will make it right.</span>
 								</p>
 							</div>
 							
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="border" style="text-align:center;">
 						<img src="images/free-shipping.png" class="img-responsive" style="height:100px;">
 						<div class="product-details">
@@ -118,7 +118,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1"></div>
+				
 				
 			</div>
 		</div>
