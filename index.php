@@ -277,7 +277,9 @@
 						</div>
 					</div>
 				</div>
-				
+				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
+      <span class="glyphicon glyphicon-print"></span> View all 
+    </a>
 			</div>
 		</div>
 	</section>
@@ -291,7 +293,7 @@
 			<div class="row pad0">
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/quote5.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -310,7 +312,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/quote3.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -329,7 +331,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/quote4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -348,7 +350,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/quote1.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -364,7 +366,10 @@
 						</div>
 					</div>
 				</div>
-				
+				<!-- <button type="button" class="btn btn-primary active" style="margin-left:600px;margin-top:25px;">View All</button> -->
+				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
+      <span class="glyphicon glyphicon-print"></span> View all 
+    </a>
 			</div>
 		</div>
 	</section>
@@ -378,7 +383,7 @@
 			<div class="row pad0">
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/abstract3.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -397,7 +402,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/abstract2.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -416,7 +421,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/abstract1.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -435,7 +440,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/Believe_Yourself_Yellow_Back_Case_for_iPhone_X-400x400.jpg" class="img-responsive" style="width:100%;height:100%;">
+						<img src="images/abstract4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -451,7 +456,9 @@
 						</div>
 					</div>
 				</div>
-				
+				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
+      <span class="glyphicon glyphicon-print"></span> View all 
+    </a>
 			</div>
 		</div>
 	</section>
