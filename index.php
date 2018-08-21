@@ -118,7 +118,7 @@
 
 	<section style="margin-top:50px;margin-bottom:50px;">
 		<div class="container-fluid" style="">
-			<h1 class="center" style="text-align:center;"> Customise with your memories  <span class="badge badge-secondary">New</span></h1>
+			<h1 class="center" style="text-align:center;"> Customise with your memories  <span class="badge badge-secondary" style="background-color:blue;">New</span></h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
 				<div class="col-md-3">
@@ -277,9 +277,9 @@
 						</div>
 					</div>
 				</div>
-				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
-      <span class="glyphicon glyphicon-print"></span> View all 
-    </a>
+				<a href="#" class="btn btn-danger btn-lg" style="margin-left:600px;margin-top:25px;">
+				  <span class="glyphicon glyphicon-print"></span> View all 
+				</a>
 			</div>
 		</div>
 	</section>
@@ -288,7 +288,7 @@
 
 	<section style="margin-top:50px;margin-bottom:50px;">
 		<div class="container-fluid" style="">
-			<h1 class="center" style="text-align:center;">Quotes that suits your personality</h1>
+			<h1 class="center" style="text-align:center;"><span class="badge badge-secondary" style="background-color:orange;">Quotes</span> that suits your personality</h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
 				<div class="col-md-3">
@@ -367,9 +367,9 @@
 					</div>
 				</div>
 				<!-- <button type="button" class="btn btn-primary active" style="margin-left:600px;margin-top:25px;">View All</button> -->
-				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
-      <span class="glyphicon glyphicon-print"></span> View all 
-    </a>
+				<a href="#" class="btn btn-danger btn-lg" style="margin-left:600px;margin-top:25px;">
+				  <span class="glyphicon glyphicon-print"></span> View all 
+				</a>
 			</div>
 		</div>
 	</section>
@@ -378,7 +378,7 @@
 
 	<section style="margin-top:50px;margin-bottom:50px;">
 		<div class="container-fluid" style="">
-			<h1 class="center" style="text-align:center;">Abstract designs to express </h1>
+			<h1 class="center" style="text-align:center;">Abstract <span class="badge badge-secondary" style="background-color:black;">designs</span> to express </h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
 				<div class="col-md-3">
@@ -456,7 +456,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="#" class="btn btn-success btn-lg" style="margin-left:600px;margin-top:25px;background-color:#0056b3;">
+				<a href="#" class="btn btn-danger btn-lg" style="margin-left:600px;margin-top:25px;">
       <span class="glyphicon glyphicon-print"></span> View all 
     </a>
 			</div>
