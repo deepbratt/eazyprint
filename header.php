@@ -268,9 +268,193 @@
 								</div>
 							</div>
 						</li>
-						<li><a href="../classy-shortcodes/index.html" target="_blank">MOTOROLA <span class="label label-pill label-primary">New</span></a></li>
-						<li><a href="../classy-onepage/all-demo-pages.html" target="_blank">OPPO</a></li>
-						<li><a href="../classy-onepage/all-demo-pages.html" target="_blank">MORE</a></li>
+						<li><a href="#">MOTOROLA</a>
+							<div class="megamenu-panel">
+								<div class="megamenu-lists">
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Moto C</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Moto E4 Plus</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Moto G4</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto G6</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X Play</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto E4</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Moto C Plus</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Moto E5</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Moto G4 Plus</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto G6 Play</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X Style</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto G3</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Moto E</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Moto G</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Moto G5</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto G6 Plus</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X2</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto G5s Plus</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Moto E 2nd Gen</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Moto G 2nd Gen</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Moto G5 Plus</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto M</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X4</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X Force</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Moto E3 Power</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Moto G Turbo</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Moto G5s</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto X</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">Moto Z2 Play</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">OPPO</a>
+							<div class="megamenu-panel">
+								<div class="megamenu-lists">
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Oppo A37</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Oppo F3</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Oppo N1</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Oppo A39</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Oppo F3 Plus</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Oppo R7</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Oppo A57</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Oppo F5</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Oppo Realme 1</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Oppo A71</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Oppo F5 Youth</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Oppo F1s</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Oppo A83 (2018)</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Oppo F7</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">Oppo Find 7</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">GOOGLE</a>
+							<div class="megamenu-panel">
+								<div class="megamenu-lists">
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Google Nexus 5</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Google Pixel XL</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Google Nexus 6</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">Google Pixel 2 XL</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Google Nexus 6P</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Google Pixel</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">Google Pixel 2</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#">MORE</a>
+							<div class="megamenu-panel">
+								<div class="megamenu-lists">
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">NOKIA</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">LG</a></li>
+										<li><a href="portfolio-masonary-2-column-no-gutter.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column-no-gutter.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column-no-gutter.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column-no-gutter.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width-no-gutter.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">ASUS</a></li>
+										<li><a href="portfolio-grid-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-grid-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-grid-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-grid-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-grid-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">COOLPAD</a></li>
+										<li><a href="portfolio-grid-2-column-no-gutter.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-grid-3-column-no-gutter.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-grid-4-column-no-gutter.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-grid-6-column-no-gutter.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-grid-full-width-no-gutter.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">GIONEE</a></li>
+										<li><a href="portfolio-details-embed-video.html" target="_blank">Embed Video</a></li>
+										<li><a href="portfolio-details-masonary-thumb.html" target="_blank">Masonary Thumb</a></li>
+										<li><a href="portfolio-details-single-thumb.html" target="_blank">Single Thumb</a></li>
+										<li><a href="portfolio-details-slider-gallery.html" target="_blank">Slider Gallery</a></li>
+										<li><a href="portfolio-details-youtube-video.html" target="_blank">YouTube Video</a></li>
+										<li><a href="portfolio-details-vimeo-video.html" target="_blank">Vimeo Video</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">HTC</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">LAVA</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">LENOVO</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">MICROMAX</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+									<ul class="megamenu-list list-col-5">
+										<li class="megamenu-list-title"><a href="#">MICROMAX</a></li>
+										<li><a href="portfolio-masonary-2-column.html" target="_blank">2 Column</a></li>
+										<li><a href="portfolio-masonary-3-column.html" target="_blank">3 Column</a></li>
+										<li><a href="portfolio-masonary-4-column.html" target="_blank">4 Column</a></li>
+										<li><a href="portfolio-masonary-6-column.html" target="_blank">6 Column</a></li>
+										<li><a href="portfolio-masonary-full-width.html" target="_blank">Full Width</a></li>
+									</ul>
+
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</nav>
