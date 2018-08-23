@@ -286,9 +286,6 @@
 				</div>
 				<div class="col-md-12">
 					<h5 style="text-align:center;margin-top:15px;font-weight:bold;">The unique piezoelectric technology implants the designs into specially coated plastics. We protect the device and the design.</h5>
-					<div style="text-align:center;padding:15px;">
-						<img src="images/designer-cases-description-incredible-designs.jpg" class="img-responsive" style="height:775px;">
-					</div>
 				</div>
 
 
