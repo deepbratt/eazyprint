@@ -63,7 +63,7 @@
 	<section>
 		<div class="container-fluid">
 		  <div class="row" style="height:100%;">
-				<div class="col-md-3 pad0">
+				<!-- <div class="col-md-3 pad0">
 				  <div class="col-md-12 pad0">
 					<img src="images/Duffle-bag-tile.jpg" class="img-responsive" style="width:100%;height:100%;">
 				  </div>
@@ -73,7 +73,7 @@
 				</div>
 
 				<!-- crousel starts -->
-				<div class="col-md-6 pad0">
+				<!-- <div class="col-md-6 pad0">
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 					  <ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -100,17 +100,29 @@
 						<span class="sr-only">Next</span>
 					  </a>
 					</div>
-				</div>
+				</div> -->
 				<!-- crousel ends -->
 
-				<div class="col-md-3 pad0">
+				<!-- <div class="col-md-3 pad0">
 				  <div class="col-md-12 pad0">
 					<img src="images/Duffle-bag-tile.jpg" class="img-responsive" style="width:100%;height:100%;">
 				  </div>
 				  <div class="col-md-12 pad0">
 					<img src="images/Duffle-bag-tile.jpg" class="img-responsive" style="width:100%;height:100%;">
 				  </div>
-				</div>
+				</div> -->
+
+				<div class="col-md-12 pad0">
+					<img src="images/Untitled-1 (2).png" class="img-responsive" style="width:100%;height:100%;">
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					  </a>
 		   </div>
 		</div>
 	<section>
@@ -286,6 +298,16 @@
 	
 	<!-- 2nd row of products -->
 
+<div class="container">
+  <div id="myCarousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="images/mobile_covers-01.jpg" alt="249">
+      </div>
+    </div>
+  </div>
+</div>
 	<section style="margin-top:50px;margin-bottom:50px;">
 		<div class="container-fluid" style="">
 			<h1 class="center" style="text-align:center;"><span class="badge badge-secondary" style="background-color:orange;">Quotes</span> that suits your personality</h1>
@@ -373,7 +395,12 @@
 			</div>
 		</div>
 	</section>
-
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Personalized Mobile Cover</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
 	<!-- 3rd row of products -->
 
 	<section style="margin-top:50px;margin-bottom:50px;">
@@ -402,7 +429,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/abstract2.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+						<img src="images/abstract7.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -421,7 +448,7 @@
 
 				<div class="col-md-3">
 					<div class="border">
-						<img src="images/abstract1.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+						<img src="images/abstract6.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
