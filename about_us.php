@@ -252,270 +252,52 @@
 			<h1 class="center" style="text-align:center;">About Us</h1>
 			<p>&nbsp;</p>
 			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-10">
-						<p style="text-align:center;">Eazyprint offers the best platform in India to customize Mobile Cases for 400+ phone & tablet models, Mugs, Plates, Key rings, Photo Frames, Fridge Magnets, Posters and more. We use the best transfer printing techniques to deliver the most unique products to you. Our design platform enables you to use your Images or Text to customize and design your products.</p>
-					
-				</div>
-				<div class="col-md-1"></div>
-				
-				<div class="col-md-4">
-					<div class="border" style="text-align:center;">
-						<img src="images/hd-512.png" class="img-responsive" style="height:100px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">HIGH QUALITY PRINTING</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-new">We use the Best Printing Techniques available in the Industry today to ensure that the Print is Durable and it looks Great on your Product.</span>
-								</p>
-							</div>
-							
-						</div>
+				<div class="col-md-12">
+					<h4 style="text-align:center;">Shop from the India's largest selection of Custom Printed Designer Funky Mobile Phone Cases, Flip Back Covers  Online in India. Free Shipping, COD Available, Easy Returns!</h4>
+					<h4 style="text-align:center;margin-top:15px;font-weight:bold;">Slim, Light & Sweet!</h4>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-easy-access.jpg" class="img-responsive" style="height:500px;">
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="border" style="text-align:center;">
-						<img src="images/guarantee-checkmark-512.png" class="img-responsive" style="height:100px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">SATISFACTION GUARANTEED</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-new">All products are Quality Checked before getting shipped.If there's still any issue with the product, we will make it right.</span>
-								</p>
-							</div>
-							
-						</div>
+				<div class="col-md-12">
+					<h5 style="text-align:center;">The phone cases designed by eazyprint.com have precise cutouts for buttons and ports that are easily accessible to feel and press.</h5>
+					<h5 style="text-align:center;margin-top:15px;">Superior quality of designing provides a snug and slim case, that's perfect for your pocket!</h5>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-screen-protection.jpg" class="img-responsive" style="height:500px;">
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="border" style="text-align:center;">
-						<img src="images/free-shipping.png" class="img-responsive" style="height:100px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-new">All our orders are dispatched within 2-4 working days of getting placed. Fast & Free shipping is applicable on all products sold on Eazyprint.</span>
-								</p>
-							</div>
-							
-						</div>
+				<div class="col-md-12">
+					<h5 style="text-align:center;margin-top:15px;font-weight:bold;">Raised bezels lift screen and camera off flat surfaces to offer worry-free Screen and Camera Protection.</h5>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-soft-touch-feel.jpg" class="img-responsive" style="height:500px;">
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+				<div class="col-md-12">
+					<h5 style="text-align:center;margin-top:15px;font-weight:bold;">The premium matte finish of the phone case provides soft touch feel with a rubbery grip that prevents accidental drops.</h5>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-all-round-design.jpg" class="img-responsive" style="height:500px;">
+					</div>
+				</div>
+				<div class="col-md-12">
+					<h5 style="text-align:center;margin-top:15px;font-weight:bold;">Best in class eazyprint 360 degree technology ensures Ultra HD image quality all around the Phone Case.</h5>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-design-never-peels.jpg" class="img-responsive" style="height:500px;">
+					</div>
+				</div>
+				<div class="col-md-12">
+					<h5 style="text-align:center;margin-top:15px;font-weight:bold;">The unique piezoelectric technology implants the designs into specially coated plastics. We protect the device and the design.</h5>
+					<div style="text-align:center;padding:15px;">
+						<img src="images/designer-cases-description-incredible-designs.jpg" class="img-responsive" style="height:775px;">
+					</div>
+				</div>
 
-	<!-- 3rd row of products -->
-	<section style="margin-top:50px;margin-bottom:50px;">
-		<div class="container">
-			<div class="page-header">
-				<h1 id="timeline" style="text-align:center;">Our Story</h1>
-			</div>
-			<ul class="timeline">
-				<li>
-				  <div class="timeline-badge info"><img src="images/office-hand-finger-pointing-straight-thumb-2-12546.png" style="height:30px;"></div>
-				  <div class="timeline-panel">
-					<div class="timeline-heading">
-					  <h4 class="timeline-title">Bootstrap released</h4>
-					  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> August 2011</small></p>
-					</div>
-					<div class="timeline-body">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-					  Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-					  dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-					  Aliquam in felis sit amet augue.</p>
-					</div>
-				  </div>
-				</li>
-				<li class="timeline-inverted">
-				  <div class="timeline-badge warning"><img src="images/717132.png" style="height:30px;"></i></div>
-				  <div class="timeline-panel">
-					<div class="timeline-heading">
-					  <h4 class="timeline-title">Bootstrap 2</h4>
-					</div>
-					<div class="timeline-body">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-					  Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-					  dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-					  Aliquam in felis sit amet augue.</p>
-					</div>
-				  </div>
-				</li>
-				<li>
-				  <div class="timeline-badge danger"><img src="images/homeicon.png" style="height:30px;"></i></div>
-				  <div class="timeline-panel">
-					<div class="timeline-heading">
-					  <h4 class="timeline-title">Left Event</h4>
-					  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 years ago</small></p>
-					</div>
-					<div class="timeline-body">
-					  <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
-					</div>
-				  </div>
-				</li>
-				<li class="timeline-inverted">
-				  <div class="timeline-badge default"><img src="images/homeicon.png" style="height:30px;"></div>
-				  <div class="timeline-panel">
-					<div class="timeline-heading">
-					  <h4 class="timeline-title">Right Event</h4>
-					</div>
-					<div class="timeline-body">
-					  <p>Add more progress events and milestones to the left or right side of the timeline. Each event can be tagged with a date and given a beautiful icon to symbolize it's spectacular meaning.</p>
-					</div>
-				  </div>
-				</li>
-			</ul>
-		</div>
-	</section>
 
-	<!-- 2nd row of products -->
-	<section style="margin-top:50px;margin-bottom:50px;">
-		<div class="container-fluid" style="">
-			<h1 class="center" style="text-align:center;">Our Partners</h1>
-			<p>&nbsp;</p>
-			<div class="row">
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-							
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-			</div>
-			<p>&nbsp;</p>
-			<div class="row">
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-							
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center;">
-						<img src="images/alliance tariff plans unlimited.png" class="img-responsive" style="height:75px;">
-						<div class="product-details">
-							<!--<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">FAST & FREE SHIPPING</a></h5>
-							</div>-->
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
 	
     
-	<footer style="margin-top:50px;">
-		<div class="container-fluid">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">s</div>
-					<div class="col-md-3">s</div>
-					<div class="col-md-3">s</div>
-					<div class="col-md-3">s</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<?php include("footer.php");?>
     <!-- ***** All jQuery Plugins ***** -->
 
     <!-- Popper js -->
