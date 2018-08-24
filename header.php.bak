@@ -8,7 +8,7 @@
 		   </div>
 		   <div class="col-md-5" style="margin-top:-10px;">
                <div class="float-right" style="margin-right: 5px; font-size: 15px padding:5px;">
-				<a class="text-white"><i class=" fas fa-user" aria-hidden="true"></i><span style="padding:5px;"><u>Login</u></span></a>
+				<a class="text-white"><i class=" fas fa-user" aria-hidden="true"></i><span style="padding:5px;"><legend>Login</legend></span></a>
 				<a class="text-white"><i class=" fa fa-user-plus" aria-hidden="true"></i><span style="padding:5px;"><u>Register</u></span></a>
 				<a class="text-white"><i class=" fas fa-envelope" aria-hidden="true"></i><span style="padding:5px;"><u>Order History</u></span></a>
 				<a class="text-white"><i class=" fas fa-heart" aria-hidden="true"></i><span style="padding:5px;"><u>Wishlist</u></span></a>

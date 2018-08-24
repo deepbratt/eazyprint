@@ -519,11 +519,15 @@
 			</div>
 		</div>
 	</section>
-<div class="jumbotron jumbotron-fluid" style="background:url(images/Studio-Rita-iPhone-cases-banner.jpg);height:300px;">
-  <!-- <div class="container">
-    <h1 class="display-4">Personalized Mobile Cover</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div> -->
+	<div class="container-fluid">
+  <div id="myCarousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="images/MOBILE BANNER.jpg">
+      </div>
+    </div>
+  </div>
 </div>
 	<!-- 3rd row of products -->
 
