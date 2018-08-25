@@ -264,16 +264,43 @@
 		<div class="container-fluid">
 			<p>&nbsp;</p>
 			<div class="container">
-				<div class="row" style="padding:10px;">
-					<div class="col-md-5" style="border:1px solid #cecece;text-align:center;padding:20px;border-radius:5px;" >
-						<img src="images/abstract7.png" style="max-height:300px;" class="img-responsive">
+				<div class="row" >
+					
+					<div class="col-md-5" style="border:1px solid #cecece;text-align:center;padding:20px;border-radius:5px;">
+						<div class="col-md-12" style="border-bottom:1px solid #CCC;padding:5px;">
+							<div class="row" style="text-align:center;">
+								<div class="col-md-4">
+									<button class="btn btn-warning">Add Image</button>
+								</div>
+
+								<div class="col-md-4">
+									<button class="btn btn-primary">Add Text</button>
+								</div>
+
+								<div class="col-md-4">
+									<button class="btn btn-success">Preview</button>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<p>&nbsp;</p>
+
+						<div class="col-md-12" >
+							<div style="border:1px solid red;">
+								<img src="back_case/iphone5s_back.png" style="max-height:400px;text-align:center;" class="img-responsive">
+								<img src="back_case/iphone5s_backtrasnparent.png" style="max-height:400px;text-align:center;position:absolute;margin-left:-189px;z-index:2;" class="img-responsive">
+								<img src="images/New-DIY-Fashion-Free-Design-Mobile-Phone-Protective-Bumber-Frame-PC-Bumber-Acrylic-Relievo-Back-Cover.jpg" style="max-height:400px;text-align:center;position:absolute;margin-left:-189px;z-index:1;overflow:hidden;" class="img-responsive">
+								<div class="clearfix"></div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-7">
 						<h5 style="padding:10px 10px 10px 0px;border-bottom:1px solid #535353;font-size:22px;">Custom Back Case for iPhone 5 5S</h5>
 						<p>&nbsp;</p>
 						<div class="row">
 							<div class="col-md-1 col-sm-1">
-								<div class="block-icon block-icon-left" style="background-color: rgb(241, 196, 15); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="margin-right: 5px; color: rgb(255, 255, 255); font-size: 18px" data-icon=""></i></div>
+								<div class="block-icon block-icon-left" style="background-color: rgb(241, 196, 15); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="color: rgb(255, 255, 255); font-size: 22px;padding:10px 12px;" class="fas fa-award"></i></div>
 							</div>
 							<div class="col-md-11 col-sm-11">
 								<h5 style="font-weight:bold;font-size:15px;">Premium Quality</h5>
@@ -283,7 +310,7 @@
 						
 						<div class="row" style="margin-top:10px;">
 							<div class="col-md-1 col-sm-1">
-								<div class="block-icon block-icon-left" style="background-color: rgb(221, 0, 23); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="margin-right: 5px; color: rgb(255, 255, 255); font-size: 18px" data-icon=""></i></div>
+								<div class="block-icon block-icon-left" style="background-color: rgb(221, 0, 23); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="color: rgb(255, 255, 255); font-size: 18px;padding:10px;" class="fas fa-handshake"></i></div>
 							</div>
 							<div class="col-md-11 col-sm-11">
 								<h5 style="font-weight:bold;font-size:15px;">Lifetime Print Warranty</h5>
@@ -293,19 +320,34 @@
 
 						<div class="row" style="margin-top:10px;">
 							<div class="col-md-1">
-								<div class="block-icon block-icon-left" style="background-color: rgb(88, 143, 39); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="margin-right: 5px; color: rgb(255, 255, 255); font-size: 18px" data-icon=""></i></div>
+								<div class="block-icon block-icon-left" style="background-color: rgb(88, 143, 39); width: 40px; height: 40px; line-height: 40px; border-radius: 3px"><i style="color: rgb(255, 255, 255); font-size: 18px;padding:10px;" class="fas fa-truck"></i></div>
 							</div>
 							<div class="col-md-11">
 								<h5 style="font-weight:bold;font-size:15px;">Free Shipping</h5>
 								<p style="font-size:13px;">Enjoy Free Shipping on All Your Orders. No minimum purchase required.</p>
 							</div>
 						</div>
+						
+						<!-- offer and coupons -->
+						<div class="row" style="margin-top:20px;">
+							<div class="col-md-12">
+								<h3 style="color:#ff0000;font-size:22px;">Limited Time Offer !</h3>
+							</div>
+
+							<div class="col-md-12">
+								<h4 style="font-size:18px;"><b>BUY 2</b> OR MORE, ENJOY FLAT <b>25% OFF</b>, Coupon Code : <b>B2G25</b></h4>
+								<p style="color:#009900;font-weight:bold;"><b>Extra 10% off on online payment.</b></p>
+							</div>
+						</div>
+
+						<!-- offer and coupons -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	
+
     
 	<?php include("footer.php");?>
     <!-- ***** All jQuery Plugins ***** -->
