@@ -58,7 +58,11 @@
 								  <div class="form-group">
                                       <label class="col-sm-2 control-label">Model Number</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the cost price here" name="brand_name"> 
+                                          <select class="js-example-basic-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+											  <option value="" selected="" disabled="">Choose Model Number</option>
+											  <option value="Lenovo Vibe K5 Note">Lenovo Vibe K5 Note</option>
+											  <option value="Samsung S6">Samsung S6</option>
+										  </select>
                                       </div>
                                   </div>
 								  

@@ -46,7 +46,7 @@
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-			  	   <th>Model Image</th>
+			  	   <th width="40%">Model Image</th>
                    <th>Brand Name</th>
 				   <th>Model Number</th>
 				   <th>Action</th>
