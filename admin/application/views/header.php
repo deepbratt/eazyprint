@@ -4,7 +4,7 @@
                   <i class="fa fa-bars"></i>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo">Eazy<span>print</span></a>
+            <a href="<?php echo base_url();?>dashboard" class="logo">Eazy<span>print</span></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
