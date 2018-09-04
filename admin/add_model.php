@@ -25,23 +25,58 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <!-- page start-->
-             
+              <!-- page start--> 
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
-                          <header class="panel-heading">
-                             Add Brand
-                          </header>
+                           <header class="panel-heading">
+								<div class="row">
+									<div class="col-sm-10" style="margin-top: 9px;">
+										 Add Model
+									</div>
+									<div class="col-sm-2 ">
+										<a href="listing_model.php" class="btn btn-default pull-right">Back</a>
+									</div>
+								</div>
+						  </header>
                           <div class="panel-body">
                               <form class="form-horizontal tasi-form" method="get">
                                   <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
+                                      <label class="col-sm-2 col-sm-2 control-label">Model Number</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the brand name here" name="brand_name"> 
+                                          <input type="text" class="form-control" placeholder="Enter the model number here" name="brand_name"> 
                                       </div>
                                   </div>
-                                  
+								  <div class="form-group">
+                                      <label class="col-sm-2 col-sm-2 control-label">Cost Price</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" placeholder="Enter the cost price here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  <div class="form-group">
+                                      <label class="col-sm-2 col-sm-2 control-label">Number of pieces</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" placeholder="Enter the number of pieces here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  <div class="form-group">
+                                      <label class="col-sm-2 col-sm-2 control-label">Type of covers</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" placeholder="Enter the type of cover here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  <div class="form-group">
+                                      <label class="col-sm-2 col-sm-2 control-label">Colour</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" placeholder="Enter the colour here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  <div class="form-group pull-right">
+								  	<div class="col-sm-12 ">
+										<button type="reset" class="btn btn-info">Reset</button>
+										<button type="submit" class="btn btn-info">Submit</button>
+									</div>
+								  </div>
                               </form>
                           </div>
                       </section>

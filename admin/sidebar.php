@@ -28,8 +28,8 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="general.html">Check Stock</a></li>
-                          <li><a  href="buttons.html">View Product</a></li>
-                          <li><a  href="modal.html">Add Product</a></li>
+                          <li><a  href="listing_product.php">View Product</a></li>
+                          <li><a  href="add_product.php">Add Product</a></li>
                       </ul>
                   </li>
 

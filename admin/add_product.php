@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
     <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
     <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-fileupload.css" />
   </head>
 
   <body>
@@ -29,24 +30,50 @@
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
-						 <header class="panel-heading">
+                           <header class="panel-heading">
 								<div class="row">
 									<div class="col-sm-10" style="margin-top: 9px;">
-										 Add Brand
+										 Add Model
 									</div>
 									<div class="col-sm-2 ">
-										<a href="listing_brand.php" class="btn btn-default pull-right">Back</a>
+										<a href="listing_model.php" class="btn btn-default pull-right">Back</a>
 									</div>
 								</div>
 						  </header>
                           <div class="panel-body">
                               <form class="form-horizontal tasi-form" method="get">
                                   <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
+                                      <label class="col-sm-2 control-label">Brand Name</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the brand name here" name="brand_name"> 
+                                          <input type="text" class="form-control" placeholder="Enter the model number here" name="brand_name"> 
                                       </div>
                                   </div>
+								  <div class="form-group">
+                                      <label class="col-sm-2 control-label">Model Number</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" placeholder="Enter the cost price here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  
+								  <div class="form-group last">
+									  <label class="control-label col-sm-2">Image Upload</label>
+									  <div class="col-sm-8">
+										  <div class="fileupload fileupload-new" data-provides="fileupload">
+											  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+												  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+											  </div>
+											  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+											  <div>
+											   <span class="btn btn-white btn-file">
+													<span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
+													<span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+													<input type="file" class="default">
+											   </span>
+												  <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
+											  </div>
+										  </div>
+									  </div>
+								  </div>
 								  <div class="form-group pull-right">
 								  	<div class="col-sm-12 ">
 										<button type="reset" class="btn btn-info">Reset</button>
@@ -76,8 +103,9 @@
 	<script src="js/slidebars.min.js"></script>
     <!--common script for all pages-->
     <script src="js/common-scripts.js"></script>
-	<!-- script for this page-->
-	<script src="js/form-component.js"></script>
+	<script type="text/javascript" src="js/bootstrap-fileupload.js"></script>
+	<!--this page  script only-->
+    <script src="js/advanced-form-components.js"></script>
 
   </body>
 </html>

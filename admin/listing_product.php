@@ -9,7 +9,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Eazyprint | View Brands</title>
+    <title>Eazyprint | View Products</title>
 
 	<?php include("metalinks.php");?>
     <!--dynamic table-->
@@ -33,11 +33,11 @@
               <section class="panel">
               <header class="panel-heading">
 					<div class="row">
-						<div class="col-sm-10"  style="margin-top: 9px;">
-							Brand Listing
+						<div class="col-sm-10" style="margin-top: 9px;">
+							Product Listing
 						</div>
 						<div class="col-sm-2 ">
-							<a href="add_brand.php" class="btn btn-danger pull-right">Add Brand</a>
+							<a href="add_product.php" class="btn btn-danger pull-right">Add Product</a>
 						</div>
 					</div>
               </header>
@@ -46,26 +46,31 @@
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-                   <th>Brand Name</th>
-				   <th>Models</th>
-                   <th class="hidden-phone">Action</th>
+			  	   <th>Model Image</th>
+                   <th>Brand Number</th>
+				   <th>Model Number</th>
+				   <th>Action</th>
               </tr>
               </thead>
               <tbody>
               <tr class="gradeX">
-                  <td>Nokia</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+                  <td><img src="../images/product_img/psd28.png" alt style="height:20%;"></td>
+				  <td>Lenovo</td>
+				  <td>Vibe k5 Note</td>
+                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
-              <tr class="gradeC">
-                  <td>Samsung</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+			  <tr class="gradeX">
+                  <td><img src="../images/product_img/psd6.png" alt style="height:20%;"></td>
+				  <td>Redmi</td>
+				  <td>Redmi Note5</td>
+                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
-              <tr class="gradeA">
-                  <td>Apple</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>   
+			  <tr class="gradeX">
+                  <td><img src="../images/product_img/psd11.png" alt style="height:20%;"></td>
+				  <td>Apple</td>
+				  <td>Iphone 6s</td>
+                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+              </tr>
 			  </tbody>
               </table>
               </div>
