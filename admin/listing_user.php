@@ -9,7 +9,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Eazyprint | View Products</title>
+    <title>Eazyprint | View User</title>
 
 	<?php include("metalinks.php");?>
     <!--dynamic table-->
@@ -34,10 +34,10 @@
               <header class="panel-heading">
 					<div class="row">
 						<div class="col-sm-10" style="margin-top: 9px;">
-							Product Listing
+							User Listing
 						</div>
 						<div class="col-sm-2 ">
-							<a href="add_product.php" class="btn btn-danger pull-right">Add Product</a>
+							<a href="add_user.php" class="btn btn-danger pull-right">Add User</a>
 						</div>
 					</div>
               </header>
@@ -46,31 +46,32 @@
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-			  	   <th>Model Image</th>
-                   <th>Brand Name</th>
-				   <th>Model Number</th>
+			  	   <th>Name</th>
+                   <th>Phone</th>
+				   <th>Email Id</th>
+				   <th>Shipping Address</th>
+				   <th>Billing Address</th>
 				   <th>Action</th>
               </tr>
               </thead>
               <tbody>
               <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd18.png" alt style="height:100px;"></td>
-				  <td>Lenovo</td>
-				  <td>Vibe k5 Note</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+                  <td>Debashis Nath</td>
+				  <td>9647312209</td>
+				  <td>debashisnath192@gmail.com</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+                  <td><div class="form-group" style="padding-right:15px;"><a href="add_user.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
 			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd16.png" alt style="height:100px;"></td>
-				  <td>Redmi</td>
-				  <td>Redmi Note5</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+                  <td>Debashis Nath</td>
+				  <td>9647312209</td>
+				  <td>debashisnath192@gmail.com</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+                  <td><div class="form-group" style="padding-right:15px;"><a href="add_user.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
-			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd19.png" alt style="height:100px;"></td>
-				  <td>Apple</td>
-				  <td>Iphone 6s</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
-              </tr>
+			 
 			  </tbody>
               </table>
               </div>

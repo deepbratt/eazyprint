@@ -46,25 +46,21 @@
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-                   <th>Brand Name</th>
-				   <th>Models</th>
+                   <th width="80%">Brand Name</th>
                    <th class="hidden-phone">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr class="gradeX">
                   <td>Nokia</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
               <tr class="gradeC">
                   <td>Samsung</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
-              <tr class="gradeA">
+              <tr class="gradeC">
                   <td>Apple</td>
-				  <td><a href="listing_model.php" class="btn btn-info">View Models</a></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_brand.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>   
 			  </tbody>
               </table>

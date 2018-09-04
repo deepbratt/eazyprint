@@ -9,14 +9,13 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Eazyprint | Add Brand</title>
+    <title>Eazyprint | Add User</title>
 
 	<?php include("metalinks.php");?>
     <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
     <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
     <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
-	<!--select 2-->
-    <link rel="stylesheet" type="text/css" href="css/select2.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-fileupload.css" />
   </head>
 
   <body>
@@ -34,55 +33,49 @@
                            <header class="panel-heading">
 								<div class="row">
 									<div class="col-sm-10" style="margin-top: 9px;">
-										 Add Model
+										 Add User
 									</div>
 									<div class="col-sm-2 ">
-										<a href="listing_model.php" class="btn btn-default pull-right">Back</a>
+										<a href="listing_user.php" class="btn btn-default pull-right">Back</a>
 									</div>
 								</div>
 						  </header>
                           <div class="panel-body">
                               <form class="form-horizontal tasi-form" method="get">
-							  	  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
-                                      <div class="col-sm-10">
-                                          <select class="js-example-basic-single select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-										  <option value="" selected="" disabled="">Choose Brand Name</option>
-                                          <option value="Nokia">Nokia</option>
-                                          <option value="Samsung">Samsung</option>
-                                      </select>
-                                      </div>
-                                  </div>
                                   <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Model Number</label>
+                                      <label class="col-sm-2 control-label">Name</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the model number here" name="brand_name"> 
+                                          <input type="text" class="form-control" placeholder="Enter the name here" name="brand_name"> 
                                       </div>
                                   </div>
 								  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Cost Price</label>
+                                      <label class="col-sm-2 control-label">Phone</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the cost price here" name="brand_name"> 
+                                          <input type="text" class="form-control" placeholder="Enter the phone number here" name="brand_name"> 
                                       </div>
                                   </div>
+
 								  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Number of pieces</label>
+                                      <label class="col-sm-2 control-label">Email Id</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the number of pieces here" name="brand_name"> 
+                                          <input type="email" class="form-control" placeholder="Enter the email id here" name="brand_name"> 
                                       </div>
                                   </div>
+
 								  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Type of covers</label>
+                                      <label class="col-sm-2 control-label">Shipping Address</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the type of cover here" name="brand_name"> 
+                                          <textarea name="shipping_address" class="form-control" placeholder="Enter the shipping address here"></textarea>
                                       </div>
                                   </div>
+
 								  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Colour</label>
+                                      <label class="col-sm-2 control-label">Billing Address</label>
                                       <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the colour here" name="brand_name"> 
+                                          <textarea name="shipping_address" class="form-control" placeholder="Enter the billing address here"></textarea>
                                       </div>
                                   </div>
+								
 								  <div class="form-group pull-right">
 								  	<div class="col-sm-12 ">
 										<button type="reset" class="btn btn-info">Reset</button>
@@ -112,18 +105,9 @@
 	<script src="js/slidebars.min.js"></script>
     <!--common script for all pages-->
     <script src="js/common-scripts.js"></script>
-	<!--select2-->
-	<script type="text/javascript" src="js/select2.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-fileupload.js"></script>
 	<!--this page  script only-->
-	<script src="js/advanced-form-components.js"></script>
+    <script src="js/advanced-form-components.js"></script>
 
-	<script type="text/javascript">
-
-      $(document).ready(function () {
-          $(".js-example-basic-single").select2();
-
-          $(".js-example-basic-multiple").select2();
-      });
-  </script>
   </body>
 </html>

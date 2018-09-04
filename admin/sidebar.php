@@ -21,6 +21,17 @@
                       </ul>
                   </li>
 
+				  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-mobile"></i>
+                          <span>Model</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="listing_model.php">View Model</a></li>
+                          <li><a  href="add_model.php">Add Model</a></li>
+                      </ul>
+                  </li>
+
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-book"></i>
@@ -35,22 +46,22 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
+                          <i class="fa fa-users"></i>
                           <span>Customers</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="grids.html">Users</a></li>
-                          <li><a  href="calendar.html">Super Users</a></li>
+                          <li><a  href="listing_user.php">Users</a></li>
+                          <li><a  href="listing_super_user.php">Super Users</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
+                          <i class="fa fa-truck"></i>
                           <span>Orders</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="form_component.html">Track Orders</a></li>
-                          <li><a  href="advanced_form_components.html">View Orders</a></li>
+                          <li><a  href="javascript:void(0);">Track Orders</a></li>
+                          <li><a  href="listing_order.php">View Orders</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -59,7 +70,8 @@
                           <span>Site Customization</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="basic_table.html">Front-end</a></li>
+					  	  <li><a  href="listing_frontend_customize.php">View Front-end</a></li>
+                          <li><a  href="image_customize_frontend.php">Add Front-end</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

@@ -9,7 +9,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Eazyprint | View Products</title>
+    <title>Eazyprint | View Orders</title>
 
 	<?php include("metalinks.php");?>
     <!--dynamic table-->
@@ -32,43 +32,48 @@
                 <div class="col-sm-12">
               <section class="panel">
               <header class="panel-heading">
-					<div class="row">
-						<div class="col-sm-10" style="margin-top: 9px;">
-							Product Listing
-						</div>
-						<div class="col-sm-2 ">
-							<a href="add_product.php" class="btn btn-danger pull-right">Add Product</a>
-						</div>
-					</div>
+					Orders Listing
               </header>
               <div class="panel-body">
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-			  	   <th>Model Image</th>
-                   <th>Brand Name</th>
-				   <th>Model Number</th>
+			  	   <th>Model Number</th>
+                   <th>Number of pieces</th>
+				   <th>Address</th>
+				   <th>Order Status</th>
+				   <th>Selling Address</th>
+				   <th>Date</th>
 				   <th>Action</th>
               </tr>
               </thead>
               <tbody>
               <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd18.png" alt style="height:100px;"></td>
-				  <td>Lenovo</td>
-				  <td>Vibe k5 Note</td>
+                  <td>Lenovo Vibe K5 Note</td>
+				  <td>10</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td>Delivered</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td><?php echo date("d/m/Y");?></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
 			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd16.png" alt style="height:100px;"></td>
-				  <td>Redmi</td>
-				  <td>Redmi Note5</td>
+                  <td>Lenovo Vibe K5 Note</td>
+				  <td>10</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td>Delivered</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td><?php echo date("d/m/Y");?></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
 			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd19.png" alt style="height:100px;"></td>
-				  <td>Apple</td>
-				  <td>Iphone 6s</td>
+                  <td>Lenovo Vibe K5 Note</td>
+				  <td>10</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td>Delivered</td>
+				  <td>2A Port Plaza, 32/2 Port Blair Lane, Barrackpore PIN:700120</td>
+				  <td><?php echo date("d/m/Y");?></td>
                   <td><div class="form-group" style="padding-right:15px;"><a href="add_product.php" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
               </tr>
 			  </tbody>
