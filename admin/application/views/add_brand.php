@@ -11,7 +11,7 @@
 
     <title>Eazyprint | Add Brand</title>
 
-	<?php include("metalinks.php");?>
+	<?php $this->load->view("metalinks");?>
     <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
     <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
     <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
@@ -20,8 +20,8 @@
   <body>
 
   <section id="container" class="">
-     <?php include("header.php");?>
-      <?php include("sidebar.php");?>
+  <?php $this->load->view("header");?>
+  <?php $this->load->view("sidebar");?>
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
@@ -40,7 +40,18 @@
 								</div>
 						  </header>
                           <div class="panel-body">
-                              <form class="form-horizontal tasi-form" method="get">
+						  		<?php
+								if($this->session->flashdata('add_brand_successfull')){
+								?>
+									<div class="alert alert-success"> <strong><?php echo $this->session->flashdata('add_brand_successfull');?></strong> </div>
+								<?php
+									}else if($this->session->flashdata('add_brand_failed')){
+								?>
+									<div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('add_brand_failed');?></strong> </div>
+								<?php
+									}
+								?>
+                              <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url('add_brand/new_brand');?>">
                                   <div class="form-group">
                                       <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
                                       <div class="col-sm-10">
@@ -62,8 +73,7 @@
           </section>
       </section>
       <!--main content end-->
-    
-     <?php include("footer.php");?>
+    <?php $this->load->view("footer");?>
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->

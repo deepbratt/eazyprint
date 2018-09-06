@@ -46,22 +46,32 @@
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
-                   <th width="80%">Brand Name</th>
+			  	   <th >Sl. No.</th>
+                   <th width="70%">Brand Name</th>
                    <th class="hidden-phone">Action</th>
               </tr>
               </thead>
               <tbody>
-              <tr class="gradeX">
-                  <td>Nokia</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_brand" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
-              </tr>
-              <tr class="gradeC">
-                  <td>Samsung</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_brand" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
-              </tr>
-              <tr class="gradeC">
-                  <td>Apple</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_brand" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>   
+			  	<?php
+					$i = 1;
+					foreach($get_all_brands AS $all_brands){
+				?>
+				  <tr class="gradeX">
+					  <td><?php echo $i;?></td>
+					  <td><?php echo $all_brands->brand_name; ?></td>
+					  <td>
+					  <div class="form-group" style="padding-right:15px;">
+						<a href="<?php echo base_url('edit_brand/');?><?php echo $all_brands->brand_id;?>" class="btn btn-success" style="padding:6px 19px;">Edit</a>
+					  </div>
+					  <div class="form-group">
+						 <input type="button" class="btn btn-danger" value="Delete">
+					  </div>
+					 </td>
+				  </tr>
+			  <?php
+					$i++;
+				 }		
+			  ?>
 			  </tbody>
               </table>
               </div>

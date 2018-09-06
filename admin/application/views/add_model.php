@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
 	<!--select 2-->
     <link rel="stylesheet" type="text/css" href="css/select2.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-fileupload.css" />
   </head>
 
   <body>
@@ -57,6 +58,36 @@
                                       <label class="col-sm-2 col-sm-2 control-label">Model Number</label>
                                       <div class="col-sm-10">
                                           <input type="text" class="form-control" placeholder="Enter the model number here" name="brand_name"> 
+                                      </div>
+                                  </div>
+								  <div class="form-group last">
+									  <label class="control-label col-sm-2">Frame Image</label>
+									  <div class="col-sm-8">
+										  <div class="fileupload fileupload-new" data-provides="fileupload">
+										    <div class="col-sm-4">
+											  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+												  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+											  </div>
+											  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+											</div>
+											  <div class="col-sm-8">
+											   <span class="btn btn-white btn-file">
+													<span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
+													<span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+													<input type="file" class="default">
+											   </span>
+												  <!--<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>-->
+											  </div>
+										  </div>
+									  </div>
+								  </div>
+								  <div class="form-group">
+                                      <label class="col-sm-2 control-label">Dimension</label>
+                                      <div class="col-sm-5">
+                                          <input type="text" class="form-control" placeholder="Enter the height here" name="brand_name">
+                                      </div>
+									  <div class="col-sm-5">
+                                          <input type="text" class="form-control" placeholder="Enter the width here" name="brand_name"> 
                                       </div>
                                   </div>
 								  <div class="form-group">
@@ -112,6 +143,7 @@
 	<script src="js/slidebars.min.js"></script>
     <!--common script for all pages-->
     <script src="js/common-scripts.js"></script>
+	<script type="text/javascript" src="js/bootstrap-fileupload.js"></script>
 	<!--select2-->
 	<script type="text/javascript" src="js/select2.min.js"></script>
 	<!--this page  script only-->
