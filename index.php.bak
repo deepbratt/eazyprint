@@ -11,7 +11,7 @@
 
     <title>Eazyprint | You are the brand</title>
 
-    <link rel="shortcut icon" href="img/core-img/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.png">
 
     <script src="js/jquery-2.2.4.min.js"></script>
 
@@ -257,9 +257,9 @@
 			<h1 class="center" style="text-align:center;"> Customise with your memories  <span class="badge badge-secondary" style="background-color:blue;">New</span></h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd17.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
+						<img src="images/product_imgs/psd17.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -269,16 +269,16 @@
 							</div>
 							
 							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+								
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd19.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
+						<img src="images/product_imgs/psd19.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -288,16 +288,16 @@
 							</div>
 							
 							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+								
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd10.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
+						<img src="images/product_imgs/psd10.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -307,16 +307,16 @@
 							</div>
 							
 							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+								
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd14.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
+						<img src="images/product_imgs/psd14.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -326,97 +326,54 @@
 							</div>
 							
 							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+								
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
+						<img src="images/product_imgs/psd14.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							
+							<div style="text-align:center;">
+								
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
+						<img src="images/product_imgs/psd14.png" class="img-responsive" style="height:300px;text-align:center;margin:15px;box-shadow:2px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							
+							<div style="text-align:center;">
+								
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
 			<p>&nbsp;</p>
-
-			<div class="row pad0">
-				<div class="col-md-3">
-					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd12.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
-								</p>
-							</div>
-							
-							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd11.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
-								</p>
-							</div>
-							
-							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/Untitled-1.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
-								</p>
-							</div>
-							
-							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="border"  style="background:#fff;text-align:center;">
-						<img src="images/product_imgs/psd18.png" class="img-responsive" style="height:350px;text-align:center;margin:15px;box-shadow:2px;">
-						<div class="product-details">
-							<div class="caption">
-								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
-								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
-									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
-								</p>
-							</div>
-							
-							<div style="text-align:center;">
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Order Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a href="#" class="btn btn-danger btn-lg" style="margin-left:600px;margin-top:25px;">
-				  <span class="glyphicon glyphicon-print"></span> View all 
-				</a>
-			</div>
 		</div>
 	</section>
 	
@@ -437,9 +394,10 @@
 			<h1 class="center" style="text-align:center;"><span class="badge badge-secondary" style="background-color:orange;">Quotes</span> that suits your personality</h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
-				<div class="col-md-3">
-					<div class="border">
-						<img src="images/quote5.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote5.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -449,16 +407,15 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
-						<img src="images/quote3.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote3.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -468,16 +425,15 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
-						<img src="images/quote4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote4.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -487,16 +443,15 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
-						<img src="images/quote1.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote1.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
 						<div class="product-details">
 							<div class="caption">
 								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
@@ -504,9 +459,41 @@
 									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
 								</p>
 							</div>
-							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote1.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							<div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="border" style="background:#fff;text-align:center;">
+						<img src="images/quote1.png" class="img-responsive" style="height:250px;text-align:center;margin:15px;box-shadow:2px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							<div>
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -519,16 +506,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="container-fluid">
-  <div id="myCarousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="images/Best_Instant_Printer_Banner_1.jpg" style="width:88%;">
-      </div>
-    </div>
-  </div>
-</div>
+
 	<!-- 3rd row of products -->
 
 	<section style="margin-top:50px;margin-bottom:50px;">
@@ -536,8 +514,8 @@
 			<h1 class="center" style="text-align:center;">Abstract <span class="badge badge-secondary" style="background-color:black;">designs</span> to express </h1>
 			<p>&nbsp;</p>
 			<div class="row pad0">
-				<div class="col-md-3">
-					<div class="border">
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
 						<img src="images/abstract3.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
@@ -548,15 +526,14 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
 						<img src="images/abstract7.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
@@ -567,15 +544,14 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
 						<img src="images/abstract6.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
@@ -586,15 +562,14 @@
 							</div>
 							
 							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-3">
-					<div class="border">
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
 						<img src="images/abstract4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
 						<div class="product-details">
 							<div class="caption">
@@ -604,16 +579,51 @@
 								</p>
 							</div>
 							
-							<div>
-								<a href="https://www.instamojo.com/@deepbratt/lb551355e76a9417b94758f945dc3dcb2/" rel="im-checkout" data-behaviour="remote" data-style="flat" data-text="Buy Now"></a><script src="https://js.instamojo.com/v1/button.js"></script>
+							<div> 
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
+						<img src="images/abstract4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							
+							<div> 
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="border"  style="background:#fff;text-align:center;">
+						<img src="images/abstract4.png" class="img-responsive" style="height:250px;margin-left:90px;margin-top:25px;">
+						<div class="product-details">
+							<div class="caption">
+								<h5 style="text-align:center;font-size:18px;margin-top:15px;"><a href="#">Green Scarf Back Case for iPhone X</a></h5>
+								<p class="price" style="text-align:center;font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;"><strike>Rs.499.00</strike></span> <span class="price-new">Rs.299.00</span>
+								</p>
+							</div>
+							
+							<div> 
 								<div class="clearfix"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<a href="#" class="btn btn-danger btn-lg" style="margin-left:600px;margin-top:25px;">
-      <span class="glyphicon glyphicon-print"></span> View all 
-    </a>
+				  <span class="glyphicon glyphicon-print"></span> View all 
+				</a>
 			</div>
 		</div>
 	</section>

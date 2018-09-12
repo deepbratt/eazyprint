@@ -94,7 +94,7 @@
 					
                     <!--end of row-->
                 </div>
-				<div class="col-md-12" style="margin-top: 20px;padding-bottom:20px;background:#212529;text-align:center;padding:10px;">
+				<div class="col-md-12" style="margin-top: 20px;padding-bottom:20px;background:#000;text-align:center;padding:10px;">
 							<span >&copy; 2018 Clickrstop Software Solutions Pvt Ltd | All rights reserved</span>
 				</div>
                 <!--end of container-->
