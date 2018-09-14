@@ -12,9 +12,9 @@
     <title>Eazyprint | Add Brand</title>
 
 	<?php $this->load->view("metalinks");?>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
-    <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
-    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/datepicker.css');?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/colorpicker.css');?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/daterangepicker.css');?>" />
   </head>
 
   <body>
@@ -39,7 +39,7 @@
 									</div>
 								</div>
 						  </header>
-                          <div class="panel-body">
+              <div class="panel-body">
 						  		<?php
 								if($this->session->flashdata('add_brand_successfull')){
 								?>
@@ -51,43 +51,43 @@
 								<?php
 									}
 								?>
-                              <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url('add_brand/new_brand');?>">
-                                  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
-                                      <div class="col-sm-10">
-                                          <input type="text" class="form-control" placeholder="Enter the brand name here" name="brand_name"> 
-                                      </div>
-                                  </div>
+              <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url('add_brand/new_brand');?>">
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" placeholder="Enter the brand name here" name="brand_name"> 
+                      </div>
+                  </div>
 								  <div class="form-group pull-right">
 								  	<div class="col-sm-12 ">
 										<button type="reset" class="btn btn-info">Reset</button>
 										<button type="submit" class="btn btn-info">Submit</button>
 									</div>
 								  </div>
-                              </form>
-                          </div>
-                      </section>
-                  </div>
-              </div>
-              <!-- page end-->
-          </section>
-      </section>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- page end-->
+</section>
+</section>
       <!--main content end-->
     <?php $this->load->view("footer");?>
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="js/slidebars.min.js"></script>
+    <script src="<?php echo base_url('js/jquery.js');?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.scrollTo.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.nicescroll.js');?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('js/jquery-ui-1.9.2.custom.min.js');?>"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url('js/jquery.dcjqaccordion.2.7.js');?>"></script>
+	  <script src="<?php echo base_url('js/slidebars.min.js');?>"></script>
     <!--common script for all pages-->
-    <script src="js/common-scripts.js"></script>
-	<!-- script for this page-->
-	<script src="js/form-component.js"></script>
+    <script src="<?php echo base_url('js/common-scripts.js');?>"></script>
+	  <!-- script for this page-->
+	  <script src="<?php echo base_url('js/form-component.js');?>"></script>
 
   </body>
 </html>

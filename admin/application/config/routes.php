@@ -53,3 +53,9 @@ $route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['edit_brand/(:num)'] = "edit_brand";
+$route['listing_brand/(:num)'] = "listing_brand";
+$route['edit_model/(:num)'] = "edit_model";
+$route['listing_model/(:num)'] = "listing_model";
+$route['edit_product/(:num)'] = "edit_product";
+$route['listing_product/(:num)'] = "listing_product";
+

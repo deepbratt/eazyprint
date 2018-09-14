@@ -42,36 +42,60 @@
 					</div>
               </header>
               <div class="panel-body">
+               <?php
+                if($this->session->flashdata('delete_product_successfull')){
+                ?>
+                  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('delete_product_successfull');?></strong> </div>
+                <?php
+                  }else if($this->session->flashdata('delete_product_failed')){
+                ?>
+                  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('delete_product_failed');?></strong> </div>
+                <?php
+                  }
+                ?>
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
               <tr>
 			  	   <th width="40%">Model Image</th>
                    <th>Brand Name</th>
-				   <th>Model Number</th>
-				   <th>Action</th>
+        				   <th>Model Number</th>
+        				   <th>Action</th>
               </tr>
               </thead>
               <tbody>
-              <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd18.png" alt style="height:100px;"></td>
-				  <td>Lenovo</td>
-				  <td>Vibe k5 Note</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_product" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
+              <?php
+                foreach($get_all_products AS $fetch_products){
+              ?>
+              <tr class="gradeX">                
+                  <td><img src="<?php echo base_url();?>/uploads/<?php echo $fetch_products->image;?>" alt style="height:100px;"></td>
+        				  <td>
+                   <?php 
+                      $brand_id = $fetch_products->brand_id;
+                      $this->load->model('listing_product_m');
+                      $get_brand_name = $this->listing_product_m->get_brand_name($brand_id);
+                      echo $get_brand_name->brand_name;
+                   ?>                      
+                  </td>
+        				  <td>
+                    <?php 
+                      $model_id = $fetch_products->model_id;
+                      $this->load->model('listing_product_m');
+                      $get_model_name = $this->listing_product_m->get_model_name($model_id);
+                      echo $get_model_name->model_number;
+                   ?>  
+                  </td>
+                  <td>
+                    <div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url('edit_product/');?><?php echo $fetch_products->product_id;?>" class="btn btn-success" style="padding:6px 19px;">Edit</a>
+                    </div>
+                    <div class="form-group"><a href="<?php echo base_url('listing_product/delete_product/');?><?php echo $fetch_products->product_id;?>" class="btn btn-danger" style="padding:6px 19px;">Delete</a>
+                    </div>
+                  </td>               
               </tr>
-			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd16.png" alt style="height:100px;"></td>
-				  <td>Redmi</td>
-				  <td>Redmi Note5</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_product" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
-              </tr>
-			  <tr class="gradeX">
-                  <td><img src="../images/product_imgs/psd19.png" alt style="height:100px;"></td>
-				  <td>Apple</td>
-				  <td>Iphone 6s</td>
-                  <td><div class="form-group" style="padding-right:15px;"><a href="<?php echo base_url();?>add_product" class="btn btn-success" style="padding:6px 19px;">Edit</a></div><div class="form-group"><input type="button" class="btn btn-danger" value="Delete"></div></td>
-              </tr>
-			  </tbody>
+               <?php
+                    }
+                ?>
+			       </tbody>
               </table>
               </div>
               </div>
@@ -85,25 +109,21 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="js/DT_bootstrap.js"></script>
-    <script src="js/respond.min.js" ></script>
-    <!--right slidebar-->
-    <script src="js/slidebars.min.js"></script>
-
-    <!--dynamic table initialization -->
-    <script src="js/dynamic_table_init.js"></script>
-
-
+    <script src="<?php echo base_url('js/jquery.js');?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.scrollTo.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.nicescroll.js');?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('js/jquery-ui-1.9.2.custom.min.js');?>"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url('js/jquery.dcjqaccordion.2.7.js');?>"></script>
+    <script src="<?php echo base_url('js/slidebars.min.js');?>"></script>
     <!--common script for all pages-->
-    <script src="js/common-scripts.js"></script>
+    <script src="<?php echo base_url('js/common-scripts.js');?>"></script>
+    <script type="text/javascript" language="javascript" src="<?php echo base_url('js/jquery.dataTables.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('js/DT_bootstrap.js');?>"></script>
+    <script src="<?php echo base_url('js/respond.min.js');?>" ></script>
+    <script src="<?php echo base_url('js/jquery-migrate-1.2.1.min.js');?>"></script>
+    <!--dynamic table initialization -->
+    <script src="<?php echo base_url('js/dynamic_table_init.js');?>"></script>
 
   </body>
 </html>

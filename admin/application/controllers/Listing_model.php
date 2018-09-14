@@ -3,24 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Listing_model extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
-		$this->load->view('listing_model');
+		$this->load->model('listing_model_m');
+		$data['fetch_all_models'] = $this->listing_model_m->fetch_model();
+		$this->load->view('listing_model',$data);
+	}
+	public function delete_model(){
+
+		$this->load->model('listing_model_m');
+		$del_model_id = $this->uri->segment(3);
+		$delete_model = $this->listing_model_m->delete_model_id($del_model_id);		
+		
+		if($delete_model){
+			$this->session->set_flashdata("delete_model_successfull", "The defined model has been deleted successfully...!");		
+				redirect('listing_model');
+		}else{
+			$this->session->set_flashdata("delete_model_failed", "Failed to delete the defined model...!");
+				redirect('listing_model');
+		}
 	}
 }
 ?>
