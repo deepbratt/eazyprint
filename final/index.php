@@ -582,25 +582,14 @@
                                   <li data-index="rs-124" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
                                     <img  src="images/FFEP-banner-desktop-new-1535825014.jpg" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
                                   </li>
-                                  <li data-index="rs-126" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="https://xtemos1.r.worldssl.net/basel/wp-content/plugins/revslider/admin/assets/images/transparent.png" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
 
-                                    <div class="tp-caption   tp-resizeme"
-                                         id="slide-126-layer-15"
-                                         data-x="['left','left','left','center']" data-hoffset="['119','30','27','0']"
-                                         data-y="['top','top','top','top']" data-voffset="['137','113','116','115']"
-                                         data-lineheight="['22','16','16','16']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-                                         data-type="text"
-                                         data-responsive_offset="on"data-frames='[{"delay":500,"speed":600,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":400,"frame":"999","to":"y:-50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[,,,]"
-                                         data-paddingright="[,,,]"
-                                         data-paddingbottom="[,,,]"
-                                         data-paddingleft="[,,,]"style="z-index: 10; white-space: nowrap; font-size: 16px; line-height: 22px; font-weight: 700; color: rgba(234,126,162,1); letter-spacing: ;font-family:Poppins;text-transform:uppercase;letter-spacing:3px;">summer collection
-                                    </div>
+                                  <li data-index="rs-126" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
+                                    <img  src="images/mobile cover banner insta.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                  </li>
+								  
+
+								  <li data-index="rs-128" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
+                                    <img  src="images/men-bestsellers-desktop-2-1536929043.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
                                   </li>
                                 </ul>
                                 <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;">
