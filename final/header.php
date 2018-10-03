@@ -1127,7 +1127,7 @@
                     </a>
                   </li>
                   <li id="menu-item-19907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-19907 menu-item-design-sized item-event-hover">
-                    <a href="#features/">Women
+                    <a href="#features/">Features
                     </a>
                     <style type="text/css">.menu-item-19907>.sub-menu-dropdown{
                       background-image:url(https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2015/11/menu-baner-1.jpg)}
@@ -1346,7 +1346,7 @@
             <div class="site-logo">
               <div class="basel-logo-wrap"> 
                 <a href="#" class="basel-logo basel-main-logo" rel="home"> 
-                  <img  src="images/logo-basel.svg" alt="Basel" /> 
+                  <img  src="images/logo.png" alt="Basel" /> 
                 </a>
               </div>
             </div>

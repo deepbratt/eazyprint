@@ -33,54 +33,9 @@
                               <div id="rev_slider_24_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.8">
                                 <ul>
                                   <li data-index="rs-122" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="https://xtemos1.r.worldssl.net/basel/wp-content/plugins/revslider/admin/assets/images/transparent.png" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
-                                    <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
-                                         id="slide-122-layer-15"
-                                         data-x="['left','left','left','left']" data-hoffset="['-1511','-215','-792','-709']"
-                                         data-y="['top','top','top','top']" data-voffset="['-62','-2','-23','-8']"
-                                         data-width="['1618','462','650','462']"
-                                         data-height="['731','624','626','624']"
-                                         data-whitespace="normal"
-                                         data-type="shape"
-                                         data-responsive_offset="on"data-frames='[{"delay":500,"speed":600,"frame":"0","from":"x:left;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":400,"frame":"999","to":"x:left;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"style="z-index: 5;background-color:rgba(182,61,68,1);">
-                                    </div>
-                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-1"
-                                         id="slide-122-layer-14"
-                                         data-x="['left','left','left','left']" data-hoffset="['81','10','-157','-532']"
-                                         data-y="['top','top','top','top']" data-voffset="['-12','-8','-12','-13']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-                                         data-type="image"
-                                         data-responsive_offset="on"data-frames='[{"delay":500,"speed":600,"frame":"0","from":"x:left;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":400,"frame":"999","to":"x:left;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"style="z-index: 6;">
-                                      <img  src="https://xtemos1.r.worldssl.net/basel/wp-content/uploads/revslider/mens/slider_1.jpg" alt="" data-ww="['520px','520px','520px','520px']" data-hh="['671px','671px','671px','671px']" width="1111" height="1434" data-no-retina>
-                                    </div>
-                                    <div class="tp-caption   tp-resizeme"
-                                         id="slide-122-layer-3"
-                                         data-x="['left','left','left','center']" data-hoffset="['700','542','346','-119']"
-                                         data-y="['top','top','top','top']" data-voffset="['119','115','120','117']"
-                                         data-fontweight="['600','500','500','500']"
-                                         data-width="none"
-                                         data-height="none"
-                                         data-whitespace="nowrap"
-                                         data-type="text"
-                                         data-responsive_offset="on"data-frames='[{"delay":500,"speed":300,"frame":"0","from":"y:top;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"y:-50px;opacity:0;","ease":"nothing"}]'
-                                         data-textAlign="['left','left','left','left']"
-                                         data-paddingtop="[0,0,0,0]"
-                                         data-paddingright="[0,0,0,0]"
-                                         data-paddingbottom="[0,0,0,0]"
-                                         data-paddingleft="[0,0,0,0]"style="z-index: 7; white-space: nowrap; font-size: 16px; line-height: 22px; font-weight: 600; color: rgba(226,71,77,1); letter-spacing: ;font-family:Poppins;">JUMPERS & JACKETS
-                                    </div>
+                                    <img  src="images/bannr1.png" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                   
+
                                     <div class="tp-caption   tp-resizeme"
                                          id="slide-122-layer-5"
                                          data-x="['left','left','left','left']" data-hoffset="['700','539','345','40']"
@@ -137,6 +92,7 @@
                                       <br> Men's Style
                                     </div>
                                   </li>
+
                                   <li data-index="rs-124" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
                                     <img  src="https://xtemos1.r.worldssl.net/basel/wp-content/plugins/revslider/admin/assets/images/transparent.png" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
                                     <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
