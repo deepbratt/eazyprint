@@ -53,32 +53,13 @@
 				<div class="row" >
 					
 					<div class="col-md-5" style="border:1px solid #cecece;text-align:center;padding:20px;border-radius:5px;">
-						<div class="col-md-12" style="border-bottom:1px solid #CCC;padding:5px;">
-							<div class="row" style="text-align:center;">
-								<div class="col-md-4">
-									<button class="btn btn-warning">Add Image</button>
-								</div>
-
-								<div class="col-md-4">
-									<button class="btn btn-primary">Add Text</button>
-								</div>
-
-								<div class="col-md-4">
-									<button class="btn btn-success">Preview</button>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-
-						<p>&nbsp;</p>
-
 						<div class="col-md-12" >
-							<div style="border:1px solid red;">
+							<div>
 								<img src="back_case/iphone5s_back.png" style="max-height:400px;text-align:center;" class="img-responsive">
 								<img src="back_case/iphone5s_backtrasnparent.png" style="max-height:400px;text-align:center;position:absolute;margin-left:-189px;z-index:2;" class="img-responsive">
-								<img src="images/New-DIY-Fashion-Free-Design-Mobile-Phone-Protective-Bumber-Frame-PC-Bumber-Acrylic-Relievo-Back-Cover.jpg" style="max-height:400px;text-align:center;position:absolute;margin-left:-189px;z-index:1;overflow:hidden;" class="img-responsive">
 								<div class="clearfix"></div>
 							</div>
+							
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -124,19 +105,93 @@
 								<h4 style="font-size:18px;"><b>BUY 2</b> OR MORE, ENJOY FLAT <b>25% OFF</b>, Coupon Code : <b>B2G25</b></h4>
 								<p style="color:#009900;font-weight:bold;"><b>Extra 10% off on online payment.</b></p>
 							</div>
+
+							<div class="col-md-12">
+								<p class="price" style="font-size:18px;margin-top:15px;">
+									<span class="price-old" style="color:#dd0017;font-size:14px;font-weight:bold;"><strike>Rs.499.00</strike></span> <span class="price-new" style="font-weight:bold;font-size:22px;">Rs.299.00</span>
+								</p>
+
+								<p style="color:#009900;font-weight:bold;">
+									<button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Add to cart</button> 
+									<button class="btn btn-warning" style="color:white;"><i class="fab fa-gratipay"></i> Whishlist</button> 
+								</p>
+							</div>
 						</div>
 
 						<!-- offer and coupons -->
 					</div>
 				</div>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+			</div>
+		</div>
+	</section>
+
+	<section style="background:#f5f5f5;">
+		<div class="container-fluid">
+			<p>&nbsp;</p>
+			<div class="container">
+				<nav>
+				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Details</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Reviews</a>
+					<!--<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>-->
+				  </div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent" style="border:1px solid #CCC;border-top:0px;background:#fff;padding:10px;">
+				  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+						<p>&nbsp;</p>
+						<div class="row">
+							<div class="col-md-12">
+								<h4 style="text-align:center;">Shop from the India's largest selection of Custom Printed Designer Funky Mobile Phone Cases, Flip Back Covers  Online in India. Free Shipping, COD Available, Easy Returns!</h4>
+								<h4 style="text-align:center;margin-top:15px;font-weight:bold;">Slim, Light & Sweet!</h4>
+								<div style="text-align:center;padding:15px;">
+									<img src="images/designer-cases-description-easy-access.jpg" class="img-responsive" style="height:300px;">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h5 style="text-align:center;">The phone cases designed by eazyprint.com have precise cutouts for buttons and ports that are easily accessible to feel and press.</h5>
+								<h5 style="text-align:center;margin-top:15px;">Superior quality of designing provides a snug and slim case, that's perfect for your pocket!</h5>
+								<div style="text-align:center;padding:15px;">
+									<img src="images/designer-cases-description-screen-protection.jpg" class="img-responsive" style="height:300px;">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h5 style="text-align:center;margin-top:15px;font-weight:bold;">Raised bezels lift screen and camera off flat surfaces to offer worry-free Screen and Camera Protection.</h5>
+								<div style="text-align:center;padding:15px;">
+									<img src="images/designer-cases-description-soft-touch-feel.jpg" class="img-responsive" style="height:300px;">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h5 style="text-align:center;margin-top:15px;font-weight:bold;">The premium matte finish of the phone case provides soft touch feel with a rubbery grip that prevents accidental drops.</h5>
+								<div style="text-align:center;padding:15px;">
+									<img src="images/designer-cases-description-all-round-design.jpg" class="img-responsive" style="height:300px;">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h5 style="text-align:center;margin-top:15px;font-weight:bold;">Best in class eazyprint 360 degree technology ensures Ultra HD image quality all around the Phone Case.</h5>
+								<div style="text-align:center;padding:15px;">
+									<img src="images/designer-cases-description-design-never-peels.jpg" class="img-responsive" style="height:300px;">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<h5 style="text-align:center;margin-top:15px;font-weight:bold;">The unique piezoelectric technology implants the designs into specially coated plastics. We protect the device and the design.</h5>
+							</div>
+							<p>&nbsp;</p>
+							
+						</div>
+				  </div>
+				  
+				  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">b</div>
+				  <!--<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">c</div>-->
+				</div>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
 			</div>
 		</div>
 	</section>
 	
-
-    
 	<?php include("footer.php");?>
-    <!-- ***** All jQuery Plugins ***** -->
 	
 		<script>
 		$(document).ready(function(){
@@ -172,17 +227,5 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 	<script src="js/slick.js"></script>
-
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/include-all-plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-
-
-
 </body>
 </html>

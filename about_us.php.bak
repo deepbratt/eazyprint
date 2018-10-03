@@ -86,40 +86,6 @@
 	
     
 	<?php include("footer.php");?>
-	
-		<script>
-		$(document).ready(function(){
-			$('.customer-logos').slick({
-				slidesToShow: 6,
-				slidesToScroll: 1,
-				autoplay: true,
-				autoplaySpeed: 1500,
-				arrows: false,
-				dots: false,
-				pauseOnHover: false,
-				responsive: [{
-					breakpoint: 768,
-					settings: {
-						slidesToShow: 4
-					}
-				}, {
-					breakpoint: 520,
-					settings: {
-						slidesToShow: 3
-					}
-				}]
-			});
-		});
-		</script>
 
-	<script src="js/jquery-2.2.0.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/include-all-plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-	<script src="js/slick.js"></script>
 </body>
 </html>
