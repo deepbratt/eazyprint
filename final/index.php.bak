@@ -13,9 +13,9 @@
     <?php include("metalinks.php");?>
   </head>
   <body class="page-template-default page page-id-24180 woocommerce-no-js wrapper-wide global-cart-design-1 global-search-full-screen global-header-shop mobile-nav-from-left basel-light catalog-mode-off categories-accordion-on global-wishlist-enable basel-top-bar-on basel-ajax-shop-on basel-ajax-search-on enable-sticky-header header-full-width sticky-header-real offcanvas-sidebar-mobile offcanvas-sidebar-tablet wpb-js-composer js-comp-ver-5.5.2 vc_responsive">
-	<!-- header Start-->
-	<?php include('header.php');?>
-	<!-- header Ends-->
+		<!-- header Start-->
+		<?php include('header.php');?>
+		<!-- header Ends-->
       <div class="clear">
       </div>
       <div class="main-page-wrapper">
