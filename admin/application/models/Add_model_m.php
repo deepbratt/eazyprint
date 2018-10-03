@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing_brand_m extends CI_Model {
+class Add_model_m extends CI_Model {
 
 	public function fetch_brands()
 	{
@@ -10,9 +10,10 @@ class Listing_brand_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function delete_brand_id($del_brand_id){
-		$this->db->where('brand_id', $del_brand_id);
-		$this->db->delete('brand');
+
+	public function add_new_modelz($model_info)
+	{
+		$this->db->insert('model', $model_info);
 		return true;
 	}
 	

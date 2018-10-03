@@ -42,6 +42,17 @@
 					</div>
               </header>
               <div class="panel-body">
+                 <?php
+                    if($this->session->flashdata('delete_brand_successfull')){
+                ?>
+                      <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('delete_brand_successfull');?></strong> </div>
+                <?php
+                  }else if($this->session->flashdata('delete_brand_failed')){
+                ?>
+                       <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('delete_brand_failed');?></strong> </div>
+                <?php
+                  }
+                ?>
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
@@ -61,11 +72,11 @@
 					  <td><?php echo $all_brands->brand_name; ?></td>
 					  <td>
 					  <div class="form-group" style="padding-right:15px;">
-						<a href="<?php echo base_url('edit_brand/');?><?php echo $all_brands->brand_id;?>" class="btn btn-success" style="padding:6px 19px;">Edit</a>
+						  <a href="<?php echo base_url('edit_brand/');?><?php echo $all_brands->brand_id;?>" class="btn btn-success" style="padding:6px 19px;">Edit</a>
 					  </div>
 					  <div class="form-group">
-						 <input type="button" class="btn btn-danger" value="Delete">
-					  </div>
+              <a href="<?php echo base_url('listing_brand/delete_brand/');?><?php echo $all_brands->brand_id;?>" class="btn btn-danger" style="padding:6px 19px;">Delete</a>
+            </div>
 					 </td>
 				  </tr>
 			  <?php
@@ -86,25 +97,20 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="js/DT_bootstrap.js"></script>
-    <script src="js/respond.min.js" ></script>
-    <!--right slidebar-->
-    <script src="js/slidebars.min.js"></script>
-
-    <!--dynamic table initialization -->
-    <script src="js/dynamic_table_init.js"></script>
-
-
+    <script src="<?php echo base_url('js/jquery.js');?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.scrollTo.min.js');?>"></script>
+    <script src="<?php echo base_url('js/jquery.nicescroll.js');?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('js/jquery-ui-1.9.2.custom.min.js');?>"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url('js/jquery.dcjqaccordion.2.7.js');?>"></script>
+	  <script src="<?php echo base_url('js/slidebars.min.js');?>"></script>
     <!--common script for all pages-->
-    <script src="js/common-scripts.js"></script>
-
+    <script src="<?php echo base_url('js/common-scripts.js');?>"></script>
+    <script type="text/javascript" language="javascript" src="<?php echo base_url('js/jquery.dataTables.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('js/DT_bootstrap.js');?>"></script>
+    <script src="<?php echo base_url('js/respond.min.js');?>" ></script>
+	  <script src="<?php echo base_url('js/jquery-migrate-1.2.1.min.js');?>"></script>
+    <!--dynamic table initialization -->
+    <script src="<?php echo base_url('js/dynamic_table_init.js');?>"></script>
   </body>
 </html>

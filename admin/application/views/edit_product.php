@@ -9,15 +9,15 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Eazyprint | Add Product</title>
+    <title>Eazyprint | Edit Product</title>
 
 	<?php include("metalinks.php");?>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
-    <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
-    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-fileupload.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap-fileupload.css" />
 	<!--select 2-->
-    <link rel="stylesheet" type="text/css" href="css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/select2.min.css"/>
 
   </head>
 
@@ -36,7 +36,7 @@
                            <header class="panel-heading">
 								<div class="row">
 									<div class="col-sm-10" style="margin-top: 9px;">
-										 Add Product
+										 Edit Product
 									</div>
 									<div class="col-sm-2 ">
 										<a href="<?php echo base_url();?>listing_product" class="btn btn-default pull-right">Back</a>
@@ -45,17 +45,17 @@
 						  </header>
               <div class="panel-body">
                  <?php
-                if($this->session->flashdata('add_product_successfull')){
+                if($this->session->flashdata('edit_product_successfull')){
                 ?>
-                  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('add_product_successfull');?></strong> </div>
+                  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('edit_product_successfull');?></strong> </div>
                 <?php
-                  }else if($this->session->flashdata('add_product_failed')){
+                  }else if($this->session->flashdata('edit_product_failed')){
                 ?>
-                  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('add_product_failed');?></strong> </div>
+                  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('edit_product_failed');?></strong> </div>
                 <?php
                   }
                 ?>
-                  <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url('add_product/add_new_product');?>" enctype="multipart/form-data">
+                  <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url('edit_product/update_new_product/');?><?php echo $this->uri->segment(2)?>" enctype="multipart/form-data">
                       <div class="form-group">
                           <label class="col-sm-2 control-label">Brand Name</label>
                           <div class="col-sm-10">
@@ -64,7 +64,7 @@
                                 <?php
                                   foreach($get_all_brands AS $fetch_brands){
                                 ?>
-        											  <option value="<?php echo $fetch_brands->brand_id;?>"><?php echo $fetch_brands->brand_name;?></option>
+        											  <option value="<?php echo $fetch_brands->brand_id;?>" <?php echo (($fetch_brands->brand_id == $fetch_all_product->brand_id)?'selected':'');?>><?php echo $fetch_brands->brand_name;?></option>
         											  <?php
                                     }
                                 ?>
@@ -79,7 +79,7 @@
 											  <?php
                           foreach($get_all_models AS $fetch_models){
                         ?>
-                        <option value="<?php echo $fetch_models->model_id;?>"><?php echo $fetch_models->model_number;?></option>
+                        <option value="<?php echo $fetch_models->model_id;?>" <?php echo (($fetch_models->model_id == $fetch_all_product->model_id)?'selected':'');?>><?php echo $fetch_models->model_number;?></option>
                         <?php
                             }
                         ?>
@@ -92,7 +92,17 @@
 									  <div class="col-sm-8">
 										  <div class="fileupload fileupload-new" data-provides="fileupload">
 											  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-												  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+												 <?php
+                        if(isset($fetch_all_product->image) && $fetch_all_product->image != ''){
+                       ?>
+                           <img src="<?php echo base_url();?>uploads/<?php echo $fetch_all_product->image;?>" alt="">
+                        <?php
+                          }else{
+                        ?>
+                           <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                        <?php
+                          }
+                        ?>
 											  </div>
 											  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 											  <div>
@@ -126,28 +136,28 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="js/slidebars.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url();?>js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url();?>js/jquery.dcjqaccordion.2.7.js"></script>
+	  <script src="<?php echo base_url();?>js/slidebars.min.js"></script>
     <!--common script for all pages-->
-    <script src="js/common-scripts.js"></script>
-	<script type="text/javascript" src="js/bootstrap-fileupload.js"></script>
-	<!--select2-->
-	<script type="text/javascript" src="js/select2.min.js"></script>
-	<!--this page  script only-->
-	<script src="js/advanced-form-components.js"></script>
+    <script src="<?php echo base_url();?>js/common-scripts.js"></script>
+  	<script type="text/javascript" src="<?php echo base_url();?>js/bootstrap-fileupload.js"></script>
+  	<!--select2-->
+  	<script type="text/javascript" src="<?php echo base_url();?>js/select2.min.js"></script>
+  	<!--this page  script only-->
+  	<script src="<?php echo base_url();?>js/advanced-form-components.js"></script>
 
-	<script type="text/javascript">
+  	<script type="text/javascript">
 
-      $(document).ready(function () {
-          $(".js-example-basic-single").select2();
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
 
-          $(".js-example-basic-multiple").select2();
-      });
-  </script>
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
   </body>
 </html>

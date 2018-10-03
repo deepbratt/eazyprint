@@ -44,17 +44,17 @@
 						  </header>
               <div class="panel-body">
                 <?php
-                if($this->session->flashdata('add_model_successfull')){
+                if($this->session->flashdata('update_model_successfull')){
                 ?>
-                  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('add_model_successfull');?></strong> </div>
+                  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('update_model_successfull');?></strong> </div>
                 <?php
-                  }else if($this->session->flashdata('add_model_failed')){
+                  }else if($this->session->flashdata('update_model_failed')){
                 ?>
-                  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('add_model_failed');?></strong> </div>
+                  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('update_model_failed');?></strong> </div>
                 <?php
                   }
                 ?>
-                <form class="form-horizontal tasi-form" method="POST" action="<?php echo base_url('add_model/add_new_model');?>" enctype="multipart/form-data">
+                <form class="form-horizontal tasi-form" method="POST" action="<?php echo base_url('edit_model/edit_new_model/');?><?php echo $this->uri->segment(2);?>" enctype="multipart/form-data">
 						  	  <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Brand Name</label>
                         <div class="col-sm-10">
@@ -63,7 +63,7 @@
                               <?php 
                                 foreach($get_all_brands AS $all_brands){
                               ?>
-                                   <option value="<?php echo $all_brands->brand_id;?>"><?php echo $all_brands->brand_name;?></option>
+                                   <option value="<?php echo $all_brands->brand_id;?>"<?php echo ((isset($fetch_all_models->brand_id) && $fetch_all_models->brand_id == $all_brands->brand_id)?'selected':'')?>><?php echo $all_brands->brand_name;?></option>
                               <?php
                                 }
                               ?>
@@ -73,7 +73,7 @@
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Model Number</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" placeholder="Enter the model number here" name="model_number"> 
+                          <input type="text" class="form-control" placeholder="Enter the model number here" name="model_number" value="<?php echo $fetch_all_models->model_number;?>"> 
                       </div>
                   </div>
 							  <div class="form-group last">
@@ -82,7 +82,17 @@
 									  <div class="fileupload fileupload-new" data-provides="fileupload">
 									    <div class="col-sm-4">
 										  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-											  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                       <?php
+                        if(isset($fetch_all_models->frame_image) && $fetch_all_models->frame_image != ''){
+                       ?>
+											     <img src="<?php echo base_url();?>uploads/<?php echo $fetch_all_models->frame_image;?>" alt="">
+                        <?php
+                          }else{
+                        ?>
+                           <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                        <?php
+                          }
+                        ?>
 										  </div>
 										  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 										</div>
@@ -90,44 +100,45 @@
 										   <span class="btn btn-white btn-file">
 												<span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
 												<span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-												<input type="file" class="default" name="blank_frame_image">
+												<input type="file" class="default" name="image">
 										   </span>
 											  <!--<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>-->
 										  </div>
 									  </div>
 								  </div>
 							  </div>
+                
 							  <div class="form-group">
                     <label class="col-sm-2 control-label">Dimension</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" placeholder="Enter the height here" name="height">
+                        <input type="text" class="form-control" placeholder="Enter the height here" name="height" value="<?php echo $fetch_all_models->frame_height;?>">
                     </div>
 								  <div class="col-sm-5">
-                        <input type="text" class="form-control" placeholder="Enter the width here" name="width"> 
+                        <input type="text" class="form-control" placeholder="Enter the width here" name="width" value="<?php echo $fetch_all_models->frame_width;?>"> 
                     </div>
                 </div>
 							  <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Cost Price</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter the cost price here" name="cost_price"> 
+                        <input type="text" class="form-control" placeholder="Enter the cost price here" name="cost_price" value="<?php echo $fetch_all_models->cost_price;?>"> 
                     </div>
                 </div>
 							  <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Number of pieces</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter the number of pieces here" name="number_of_pieces"> 
+                        <input type="text" class="form-control" placeholder="Enter the number of pieces here" name="number_of_pieces" value="<?php echo $fetch_all_models->no_pieces;?>"> 
                     </div>
                 </div>
 							  <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Type of covers</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter the type of cover here" name="cover_type"> 
+                        <input type="text" class="form-control" placeholder="Enter the type of cover here" name="cover_type" value="<?php echo $fetch_all_models->cover_type;?>"> 
                     </div>
                 </div>
 							  <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Colour</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter the colour here" name="color"> 
+                        <input type="text" class="form-control" placeholder="Enter the colour here" name="color" value="<?php echo $fetch_all_models->colour;?>"> 
                     </div>
                 </div>
 							  <div class="form-group pull-right">
