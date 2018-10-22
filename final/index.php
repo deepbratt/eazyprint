@@ -576,20 +576,24 @@
                               <div id="rev_slider_24_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.8">
                                 <ul>
                                   <li data-index="rs-122" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="images/bannr1.png" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>   
+                                    <img  src="images/bannr1.png" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina style="height:400px !important;">   
                                   </li>
 
                                   <li data-index="rs-124" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="images/FFEP-banner-desktop-new-1535825014.jpg" data-bgcolor='#f7f8f9' style='background:#f7f8f9' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                    <img  src="images/20181004123920.jpg" style='background:#f7f8f9;height:400px !important;'  class="rev-slidebg" >
                                   </li>
 
                                   <li data-index="rs-126" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="images/mobile cover banner insta.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                    <img  src="images/custom-tshirt-design-banner.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina style="height:400px !important;">
                                   </li>
 								  
 
 								  <li data-index="rs-128" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-                                    <img  src="images/men-bestsellers-desktop-2-1536929043.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                    <img  src="images/heat-transfer-printing-banner.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina style="height:400px !important;">
+                                  </li>
+
+								  <li data-index="rs-128" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
+                                    <img  src="images/screen-printing-banner.jpg" data-bgcolor='#f6f6f6' style='background:#f6f6f6' alt="" title="Home flat full-width"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina style="height:400px !important;">
                                   </li>
                                 </ul>
                                 <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;">
@@ -601,75 +605,8 @@
                       </div>
                     </div>
                   </div>
-                  <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1474215085667 vc_column-gap-10 vc_row-no-padding">
-                    <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-6 vc_col-md-6">
-                      <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                          <div class="promo-banner text-left vertical-alignment-middle banner- hover-4 color-scheme-light increased-padding "  >
-                            <div class="main-wrapp-img">
-                              <div class="banner-image"> 
-                                <img width="1500" height="800" src="https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1.jpg" class="promo-banner-image image-1 attachment-full" alt="" srcset="https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1.jpg 1500w, https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-300x160.jpg 300w, https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-768x410.jpg 768w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-1024x546.jpg 1024w, https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-270x144.jpg 270w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-280x149.jpg 280w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-263x140.jpg 263w, https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-1200x640.jpg 1200w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-1-526x281.jpg 526w" sizes="(max-width: 1500px) 100vw, 1500px" />
-                              </div>
-                            </div>
-                            <div class="wrapper-content-baner">
-                              <div class="banner-inner">
-                                </p>
-                              <h5 class="hidden-xs hidden-sm" style="color: #e2474d; margin-bottom: 5px;">MAKE YOUR LOOK
-                              </h5>
-                              <h1 style="font-size: 42px; margin-bottom: -5px;">
-                                <strong>STYLE &amp;
-                                </strong>
-                              </h1>
-                              <h1 style="font-size: 42px; margin-bottom: 0px;">
-                                <strong>FASHION
-                                </strong>
-                              </h1>
-                              <p class="hidden-xs hidden-sm" style="font-size: 16px;">Litora a ullamcorper nam elementum
-                                <br /> varius dictumst nunc cursus.
-                              </p>
-                              <p>
-                                <a class="btn btn-color-white btn-style-link btn-size-large" href="#">View Collection
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-6 vc_col-md-6">
-                    <div class="vc_column-inner ">
-                      <div class="wpb_wrapper">
-                        <div class="promo-banner text-right vertical-alignment-middle banner- hover-4 color-scheme-dark increased-padding "  >
-                          <div class="main-wrapp-img">
-                            <div class="banner-image"> 
-                              <img width="1500" height="800" src="https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2.jpg" class="promo-banner-image image-1 attachment-full" alt="" srcset="https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2.jpg 1500w, https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-300x160.jpg 300w, https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-768x410.jpg 768w, https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-1024x546.jpg 1024w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-270x144.jpg 270w, https://xtemos3.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-280x149.jpg 280w, https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-263x140.jpg 263w, https://xtemos2.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-1200x640.jpg 1200w, https://xtemos1.r.worldssl.net/basel/wp-content/uploads/2016/09/big-baner-flat-top-2-526x281.jpg 526w" sizes="(max-width: 1500px) 100vw, 1500px" />
-                            </div>
-                          </div>
-                          <div class="wrapper-content-baner">
-                            <div class="banner-inner">
-                              </p>
-                            <h5 class="hidden-xs hidden-sm" style="color: #e2474d; margin-bottom: 5px;">ALL DOLLED UP
-                            </h5>
-                            <h1 style="font-size: 42px; margin-bottom: -5px;">
-                              <strong>DESIGN &amp;
-                              </strong>
-                            </h1>
-                            <h1 style="font-size: 42px; margin-bottom: 0px;">
-                              <strong>TRANDING
-                              </strong>
-                            </h1>
-                            <p class="hidden-xs hidden-sm" style="font-size: 16px;">Litora a ullamcorper nam elementum
-                              <br /> varius dictumst nunc cursus.
-                            </p>
-                            <p>
-                              <a class="btn btn-color-default btn-style-link btn-size-large" href="#">View Collection
-                              </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
                 </div>
               <div class="vc_row-full-width vc_clearfix">
               </div>
