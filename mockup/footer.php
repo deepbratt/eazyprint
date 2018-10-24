@@ -13,6 +13,7 @@
 		</div>
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Dashboard Core -->
+
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/jquery.sparkline.min.js"></script>

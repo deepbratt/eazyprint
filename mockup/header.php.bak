@@ -1,4 +1,4 @@
-						<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
+<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
@@ -13,7 +13,7 @@
 						<div class="container-fluid">
 							<div class="d-flex">
 								<a class="header-brand" href="index.html">
-									<img alt="ren logo" class="header-brand-img" src="images/logo.png" style="height:60px;">
+									<img alt="ren logo" class="header-brand-img" src="images/logo_w.png" style="height:65px;">
 								</a>
 								<div class="d-flex order-lg-2 ml-auto">
 									<div class="">
@@ -167,27 +167,11 @@
 				<div class="ren-navbar" id="headerMenuCollapse">
 					<div class="container">
 						<ul class="nav">
-							<li class="nav-item with-sub">
+							<li class="nav-item">
 								<a class="nav-link active" href="#">
 									<i class="fas fa-home"></i>
-									<span> DASHBOARD</span>
+									<span> HOME </span>
 								</a>
-								<div class="sub-item">
-									<ul>
-										<li>
-											<a href="index.html">Dashboard 1</a>
-										</li>
-										<li>
-											<a href="index2.html">Dashboard 2</a>
-										</li>
-										<li>
-											<a href="index3.html">Dashboard 3</a>
-										</li>
-										<li>
-											<a href="index4.html">Dashboard 4</a>
-										</li>
-									</ul>
-								</div><!-- sub-item -->
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="widgets.html">
