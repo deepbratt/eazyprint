@@ -47,11 +47,46 @@
             <div class="card">
               <div class="card-status bg-success br-tr-3 br-tl-3">
               </div>
-              <div class="card-body" style="height:455px;">
-                <h1 class="text-center">Form With Banking Details
-                </h1>
+              <div class="card-body">
+                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Bank Name
+                      </label>
+                      <input type="text" class="form-control" placeholder="Bank Name">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Branch Name
+                      </label>
+                      <input type="text" class="form-control" placeholder="Branch Name">
+                    </div>
+                  </div>
+				  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Branch Code
+                      </label>
+                      <input type="text" class="form-control" placeholder="Branch Code">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">IFSC Code
+                      </label>
+                      <input type="text" class="form-control" placeholder="IFSC Code">
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <div class="card-footer text-right">
+                <button type="reset" class="btn btn-primary">Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">Submit
+                </button>
               </div>
             </div>
+
           </div>
         </div>
       </div>

@@ -46,17 +46,41 @@
             <div class="card">
               <div class="card-status bg-success br-tr-3 br-tl-3">
               </div>
-              <div class="card-body" style="height:350px;">
-                <h1 class="text-center">Billing Form
-                </h1>
+              <div class="card-body">
+                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Bank Name
+                      </label>
+                      <input type="text" class="form-control" placeholder="Bank Name">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Branch Name
+                      </label>
+                      <input type="text" class="form-control" placeholder="Branch Name">
+                    </div>
+                  </div>
+				  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Branch Code
+                      </label>
+                      <input type="text" class="form-control" placeholder="Branch Code">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">IFSC Code
+                      </label>
+                      <input type="text" class="form-control" placeholder="IFSC Code">
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-            <div class="example">
-              <div class="btn-list">
-                <a href="#" class="btn btn-pill btn-info">PAYMENT
-                </a>
+			  <div class="card-footer text-center">
+                <button type="submit" class="btn btn-info">PAYMENT
+                </button>
               </div>
             </div>
           </div>
