@@ -94,39 +94,47 @@
 								<div class="col-6 col-md-3 col-xs-6">
 								  <div class="footerlinks notAnimate">
 									<ul>
-									  <li>
-										<i class=" circleicon_light fa fa-rupee">
-										</i> COD Available
-									  </li> 
+								      <li class="showdesktop">
+										<span>
+										  <img src="images/logo.png" style="height:70px;">
+										</span>
+									  </li>
+
 									  <li class="showdesktop">
 										<span>
 										  <i class="circleicon_light fa fa-refresh">
-										  </i> 15 Day Easy Returns
+										  </i> support@eazyprint.com
 										</span>
-									  </li> 
-									  <li>
 									  </li>
+
+									  <li style="margin-top:10px;">
+										<button type="button" class="btn btn-facebook"><i class="fab fa-facebook mr-2"></i>Facebook</button>
+									  </li>
+
 									</ul>
 								  </div>
 								</div> 
 
 						  </div> 
 
-						  <div class="footersocial" style="text-align:center;">
-								<button type="button" class="btn btn-facebook"><i class="fab fa-facebook mr-2"></i>Facebook</button>
-								<button type="button" class="btn btn-twitter"><i class="fab fa-twitter mr-2"></i>Twitter</button>
-								<button type="button" class="btn btn-google"><i class="fab fa-google mr-2"></i>Google</button>
-								<button type="button" class="btn btn-youtube"><i class="fab fa-youtube mr-2"></i>Youtube</button>
-								<button type="button" class="btn btn-instagram"><i class="fab fa-instagram mr-2"></i>Instagram</button>
-						  </div> 
-
 					</div> 
 
 						<!-- footer top ends -->
+						
+						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
+							<div class="col-lg-6 col-sm-12">
+								100% Secure Payment: <img src="images/masterdcard.png" style="height:24px;margin:5px;"> <img src="images/paytm.png" style="height:24px;margin:5px"> <img src="images/cod.png" style="height:24px;margin:5px"> <img src="images/instamojo-logo-white_0.png" style="height:24px;margin:5px">
+							</div>
 
-						<div class="row align-items-center flex-row-reverse">
+							<div class="col-lg-6 col-sm-12">
+								Shipping Partners: <img src="images/fedex.png" style="height:30px;margin:5px;"> <img src="images/dtdc.png" style="height:30px;margin:5px"> <img src="images/delivery.png" style="height:30px;margin:5px">
+							</div>
+						</div>
+
+
+						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
 							<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-								Copyright &copy; 2018 <a href="#">Eazyprint</a>. Designed by <a href="#">Clickrstop Software solutions</a> All rights reserved.
+								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved.
 							</div>
 						</div>
 					</div>

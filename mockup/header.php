@@ -20,26 +20,11 @@
 										<form class="input-icon  mr-2">
 											<input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search">
 											<div class="input-icon-addon">
-												<i class="fe fe-search"></i>
+												<i class="fa fa-search"></i>
 											</div>
 										</form>
 									</div>
-									<div class="dropdown d-none d-md-flex">
-										<a class="nav-link icon" data-toggle="dropdown">
-											<i class="fas fa-user"></i>
-											<span class="nav-unread bg-green"></span>
-										</a>
-									</div>
 
-									<div class="dropdown d-none d-md-flex">
-										<a class="nav-link icon" data-toggle="dropdown">
-											<i class="fas fa-bell"></i>
-											<span class="nav-unread bg-danger"></span>
-										</a>
-									</div>
-									<div class="dropdown d-none d-md-flex">
-										<a class="nav-link icon" data-toggle="dropdown"><i class="fas fa-envelope"></i> <span class="badge badge-info badge-pill">2</span></a>
-									</div>
 									<div class="dropdown">
 										<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
 											<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
