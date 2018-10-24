@@ -86,11 +86,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="side-app">
-						<p>&nbsp;</p>
+					
 
 						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
 							<div class="example">
