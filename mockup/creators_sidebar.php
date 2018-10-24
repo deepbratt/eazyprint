@@ -74,7 +74,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark"><a href="creators_account.php">Account</a>
+          <h6 class="mediafont text-dark"><a href="creators_account.php">My Account</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -87,7 +87,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark"><a href="creators_settings.php">Settings</a>
+          <h6 class="mediafont text-dark"><a href="creators_settings.php">My Settings</a>
           </h6>
         </div>
         <!-- media-body -->
