@@ -15,7 +15,7 @@
 								<a class="header-brand" href="index.html">
 									<img alt="ren logo" class="header-brand-img" src="images/logo_w.png" style="height:60px;">
 								</a>
-								<div class="d-flex order-lg-2 ml-auto">
+								<div class="d-flex order-lg-2 ml-auto" style="margin-top:5px;">
 									<div class="">
 										<form class="input-icon  mr-2">
 											<input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search">

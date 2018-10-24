@@ -102,8 +102,7 @@
 
 									  <li class="showdesktop">
 										<span>
-										  <i class="circleicon_light fa fa-refresh">
-										  </i> support@eazyprint.com
+										  <i class="fa fa-email"></i> sales@eazyprint.com
 										</span>
 									  </li>
 
