@@ -17,7 +17,7 @@
 		<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | My Order</title>
+		<title>Eazyprint | Rewards</title>
 		<?php include("metalinks.php");?>
 		<link href="css/timeline.min.css" rel="stylesheet" />
 	</head>
@@ -32,7 +32,7 @@
 							<div class="card">
 								<div class="card-status bg-success br-tr-3 br-tl-3"></div>
 								<div class="card-body">
-									<h1 class="text-center">My Order</h1>
+									<h1 class="text-center">Rewards</h1>
 								</div>
 							</div>
 						</div>
@@ -45,7 +45,7 @@
 									<div class="media-list">
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-plus" aria-hidden="true"></i>
+												<i class="fas fa-box"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">My Order's</h6>
@@ -57,7 +57,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-upload" aria-hidden="true"></i>
+												<i class="fas fa-heart"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">My Wishlist</h6>
@@ -78,7 +78,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-search-dollar" aria-hidden="true"></i>
+												<i class="fas fa-briefcase"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">Rewards/Giftcards</h6>
@@ -89,7 +89,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-pencil-alt" aria-hidden="true"></i>
+												<i class="fas fa-phone"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">Support</h6>
@@ -116,48 +116,30 @@
 								<div class="card store">
 									<div class="card-status bg-success"></div>
 									<div class="table-responsive">
-										<table class="table card-table table-vcenter">
-											<tr>
-												<td><img src="images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-										</table>
+										<div class="card">
+								<div class="card-status bg-success br-tr-3 br-tl-3"></div>
+									<div class="panel panel-primary" style="height:455px;">
+										<div class="tab-menu-heading">
+											<div class="tabs-menu ">
+												<!-- Tabs -->
+												<ul class="nav panel-tabs">
+													<li class=""><a href="#rewards" class="active" data-toggle="tab">Rewards</a></li>
+													<li class=""><a href="#giftcards" data-toggle="tab">Giftcards</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="panel-body tabs-menu-body">
+											<div class="tab-content">
+												<div class="tab-pane active " id="rewards">
+													<p>Rewards</p>
+												</div>
+												<div class="tab-pane" id="giftcards">
+													<p>Giftcards</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 									</div>
 								</div>
 							</div>
