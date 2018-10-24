@@ -4,12 +4,13 @@
     </div>
     <div class="media-list">
       <div class="media mt-1 pb-2">
-        <div class="mediaicon">
+        
+		<div class="mediaicon">
           <i class="fas fa-plus" aria-hidden="true">
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">Create Design
+          <h6 class="mediafont text-dark"><a href="creators_create_design.php">Create Design</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -22,7 +23,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">Upload Design
+          <h6 class="mediafont text-dark"><a href="creators_submit_art_work.php">Upload Design</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -34,7 +35,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">My Sales
+          <h6 class="mediafont text-dark"><a href="creators_my_sales.php">My Sales</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -47,7 +48,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">My Transaction
+          <h6 class="mediafont text-dark"><a href="creators_my_transactions.php">My Transaction</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -60,7 +61,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">My Design's
+          <h6 class="mediafont text-dark"><a href="creators_my_design.php">My Design's</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -73,7 +74,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">Account
+          <h6 class="mediafont text-dark"><a href="creators_account.php">Account</a>
           </h6>
         </div>
         <!-- media-body -->
@@ -86,7 +87,7 @@
           </i>
         </div>
         <div class="media-body ml-5 mt-1">
-          <h6 class="mediafont text-dark">Settings
+          <h6 class="mediafont text-dark"><a href="creators_settings.php">Settings</a>
           </h6>
         </div>
         <!-- media-body -->
