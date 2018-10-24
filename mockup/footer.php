@@ -1,8 +1,20 @@
 <!--footer-->
+				<p style="border-top:1px solid #CCC:">&nbsp;</p>
 				<footer class="footer">
+			
+					
 					<div class="container">
 					    <!-- footer top -->
 						<div class="container">
+						  <div class="row" style="margin-bottom:20px;">
+								<div class="col-md-4"></div>
+								<div class="col-md-4" style="text-align:center;">
+										<a href="#"><img src="images/logo.png" style="background:#fff;height:70px;background:#fff;border:1px solid #CCC;margin-top:-70px;border-radius:15px;"></a>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+
+
 						  <div class="row">
 
 								<div class="col-6 col-md-3 col-xs-6">
@@ -93,13 +105,9 @@
 
 								<div class="col-6 col-md-3 col-xs-6">
 								  <div class="footerlinks notAnimate">
+									<h5 class="fred">CONTACT US
+									</h5>
 									<ul>
-								      <li class="showdesktop">
-										<span>
-										  <img src="images/logo.png" style="height:60px;">
-										</span>
-									  </li>
-
 									  <li class="showdesktop">
 										<i class="fas fa-envelope"></i>  <span style="margin-left:5px;">: sales@eazyprint.com </span>
 									  </li>
@@ -113,12 +121,7 @@
 									  </li>
 
 									  <li class="showdesktop">
-										<i class="fas fa-map-marked"></i> <span style="margin-left:5px;">: 15/12 Shitala Bari , Barrackpore , Kol-700122 </span>
-									  </li>
-
-										
-									  <li class="showdesktop">
-										<a href=""><i class="fab fa-facebook-square"></i></a> <a href=""><i class="fab fa-twitter-square"></i></a> <a href=""><i class="fab fa-instagram"></i></a>
+										<i class="fas fa-map-marked"></i> <span style="margin-left:5px;">: 15/12 Shitala Bari , Barrackpore , Kol-700122 , INDIA </span>
 									  </li>
 
 									</ul>
@@ -143,7 +146,7 @@
 
 						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
 							<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved.
+								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved. Made in <b>India</b> with love.
 							</div>
 						</div>
 					</div>
