@@ -19,6 +19,7 @@
 		<!-- Title -->
 		<title>Eazyprint | Home</title>
 		<?php include("metalinks.php");?>
+		<link href="css/timeline.min.css" rel="stylesheet" />
 	</head>
 	<body class="app">
 
@@ -114,7 +115,7 @@
 									</div>
 								</div>
 								<div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-									<div class="card card-danger">
+									<div class="card">
 										<img class="img-responsive img-effect" src="images/Banner-grey-bsda" style="height:188px;width:100%;background:#CCC;">
 									</div>
 								</div>
@@ -130,83 +131,96 @@
 						
 
 
+						
+						
+						<!--- how it works -->
+						
 						<div class="row">
-							<div class="col-lg-3 col-sm-6">
-								<div class="circle-tile text-white">
-									<a href="#">
-									<div class="circle-tile-heading bg-gradient-primary">
-										<i class="fas fa-users fa-fw fa-3x"></i>
-									</div></a>
-									<div class="circle-tile-content bg-gradient-primary">
-										<div class="circle-tile-description">
-											Customers
+							<div class="col-md-12">
+								<div class="">
+									<div class="card-body p-6">
+										<div class="timeline">
+											<div class="timeline__wrap">
+												<div class="timeline__items">
+													<div class="timeline__item">
+														<div class="timeline__content card ">
+														<div class="card-status bg-purple br-tr-3 br-tl-3"></div>
+															<h2>16th Aug 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
+															<h2>01st Aug 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-blue br-tr-3 br-tl-3"></div>
+															<h2>30th July 2018</h2>
+															<img src="assets/images/photos/2.jpg" alt="img">
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
+															<h2>25th July 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item ">
+														<div class="timeline__content card">
+															<div class="card-status bg-gray br-tr-3 br-tl-3"></div>
+															<h2>10th July 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-orange br-tr-3 br-tl-3"></div>
+															<h2>26th June 2018</h2>
+															<img src="assets/images/photos/5.jpg" alt="img">
+															<p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-green br-tr-3 br-tl-3"></div>
+															<h2>14th June 2018</h2>
+															<img src="assets/images/photos/12.jpg" alt="img">
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-pink br-tr-3 br-tl-3"></div>
+															<h2>31st May 2018</h2>
+															<img src="assets/images/photos/21.jpg" alt="img">
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										<div class="circle-tile-number">
-											265
-										</div><a class="circle-tile-footer" href="#">More Info <i class="fa fa-chevron-circle-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="circle-tile text-white">
-									<a href="#">
-									<div class="circle-tile-heading bg-gradient-success">
-										<i class="fas fa-users fa-fw fa-3x"></i>
-									</div></a>
-									<div class="circle-tile-content bg-gradient-success">
-										<div class="circle-tile-description">
-											Designers
-										</div>
-										<div class="circle-tile-number">
-											15
-										</div><a class="circle-tile-footer" href="#">More Info <i class="fa fa-chevron-circle-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="circle-tile text-white">
-									<a href="#">
-									<div class="circle-tile-heading bg-gradient-danger">
-										<i class="fas fa-users fa-fw fa-3x"></i>
-									</div></a>
-									<div class="circle-tile-content bg-gradient-danger">
-										<div class="circle-tile-description">
-											Suppliers
-										</div>
-										<div class="circle-tile-number">
-											05
-										</div><a class="circle-tile-footer" href="#">More Info <i class="fa fa-chevron-circle-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="circle-tile text-white">
-									<a href="#">
-									<div class="circle-tile-heading bg-gradient-teal">
-										<i class="fas fa-users fa-fw fa-3x"></i>
-									</div></a>
-									<div class="circle-tile-content bg-gradient-teal">
-										<div class="circle-tile-description">
-											Retail Outlets
-										</div>
-										<div class="circle-tile-number">
-											25
-										</div><a class="circle-tile-footer" href="#">More Info <i class="fa fa-chevron-circle-right"></i></a>
 									</div>
 								</div>
 							</div>
 						</div>
 
-
-
-						
-
-						
-
+						<!--- how it works -->
 
 					</div>
 					
 				</div>
 				<?php include("footer.php");?>
+				<script src="js/timeline.min.js"></script>
+				<script>
+					timeline(document.querySelectorAll('.timeline'), {
+						forceVerticalMode: 700,
+						mode: 'vertical',
+						verticalStartPosition: 'left',
+						visibleItems: 4
+					});
+				</script>
 	</body>
 </html>

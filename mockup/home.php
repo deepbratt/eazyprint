@@ -19,6 +19,7 @@
 		<!-- Title -->
 		<title>Eazyprint | Home</title>
 		<?php include("metalinks.php");?>
+		<link href="css/timeline.min.css" rel="stylesheet" />
 	</head>
 	<body class="app">
 
@@ -128,7 +129,81 @@
 						</div>
 
 						
+						<!--- how it works -->
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div class="">
+									<div class="card-body p-6">
+										<div class="timeline">
+											<div class="timeline__wrap">
+												<div class="timeline__items">
+													<div class="timeline__item">
+														<div class="timeline__content card ">
+														<div class="card-status bg-purple br-tr-3 br-tl-3"></div>
+															<h2>16th Aug 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
+															<h2>01st Aug 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-blue br-tr-3 br-tl-3"></div>
+															<h2>30th July 2018</h2>
+															<img src="assets/images/photos/2.jpg" alt="img">
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
+															<h2>25th July 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item ">
+														<div class="timeline__content card">
+															<div class="card-status bg-gray br-tr-3 br-tl-3"></div>
+															<h2>10th July 2018</h2>
+															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-orange br-tr-3 br-tl-3"></div>
+															<h2>26th June 2018</h2>
+															<img src="assets/images/photos/5.jpg" alt="img">
+															<p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-green br-tr-3 br-tl-3"></div>
+															<h2>14th June 2018</h2>
+															<img src="assets/images/photos/12.jpg" alt="img">
+														</div>
+													</div>
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-pink br-tr-3 br-tl-3"></div>
+															<h2>31st May 2018</h2>
+															<img src="assets/images/photos/21.jpg" alt="img">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
+						<!--- how it works -->
 
 						<div class="row">
 							<div class="col-lg-3 col-sm-6">
@@ -197,16 +272,18 @@
 							</div>
 						</div>
 
-
-
-						
-
-						
-
-
 					</div>
 					
 				</div>
 				<?php include("footer.php");?>
+				<script src="js/timeline.min.js"></script>
+				<script>
+					timeline(document.querySelectorAll('.timeline'), {
+						forceVerticalMode: 700,
+						mode: 'vertical',
+						verticalStartPosition: 'left',
+						visibleItems: 4
+					});
+				</script>
 	</body>
 </html>
