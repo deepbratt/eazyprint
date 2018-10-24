@@ -1,20 +1,8 @@
 <!--footer-->
-				<p style="border-top:1px solid #CCC:">&nbsp;</p>
 				<footer class="footer">
-			
-					
 					<div class="container">
 					    <!-- footer top -->
 						<div class="container">
-						  <div class="row" style="margin-bottom:20px;">
-								<div class="col-md-4"></div>
-								<div class="col-md-4" style="text-align:center;">
-										<a href="#"><img src="images/logo.png" style="background:#fff;height:70px;background:#fff;border:1px solid #CCC;margin-top:-70px;border-radius:15px;"></a>
-								</div>
-								<div class="col-md-4"></div>
-							</div>
-
-
 						  <div class="row">
 
 								<div class="col-6 col-md-3 col-xs-6">
@@ -105,23 +93,21 @@
 
 								<div class="col-6 col-md-3 col-xs-6">
 								  <div class="footerlinks notAnimate">
-									<h5 class="fred">CONTACT US
-									</h5>
 									<ul>
-									  <li class="showdesktop">
-										<i class="fas fa-envelope"></i>  <span style="margin-left:5px;">: sales@eazyprint.com </span>
+								      <li class="showdesktop">
+										<span>
+										  <img src="images/logo.png" style="height:60px;">
+										</span>
 									  </li>
 
 									  <li class="showdesktop">
-										<i class="fas fa-mobile-alt"></i> <span style="margin-left:7px;">: +91 72788 42023 </span>
+										<span>
+										  <i class="fa fa-email"></i> sales@eazyprint.com
+										</span>
 									  </li>
 
-									  <li class="showdesktop">
-										<i class="fas fa-mobile-alt"></i> <span style="margin-left:7px;">: +91 92308 41054 </span>
-									  </li>
-
-									  <li class="showdesktop">
-										<i class="fas fa-map-marked"></i> <span style="margin-left:5px;">: 15/12 Shitala Bari , Barrackpore , Kol-700122 , INDIA </span>
+									  <li style="margin-top:10px;">
+										<button type="button" class="btn btn-facebook"><i class="fab fa-facebook mr-2"></i>Facebook</button>
 									  </li>
 
 									</ul>
@@ -133,7 +119,8 @@
 					</div> 
 
 						<!-- footer top ends -->
-						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;">
+						
+						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
 							<div class="col-lg-6 col-sm-12">
 								100% Secure Payment: <img src="images/masterdcard.png" style="height:24px;margin:5px;"> <img src="images/paytm.png" style="height:24px;margin:5px"> <img src="images/cod.png" style="height:24px;margin:5px"> <img src="images/instamojo-logo-white_0.png" style="height:24px;margin:5px">
 							</div>
@@ -146,7 +133,7 @@
 
 						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
 							<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved. Made in <b>India</b> with love.
+								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved.
 							</div>
 						</div>
 					</div>
