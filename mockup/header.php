@@ -179,29 +179,29 @@
 							</li>
 
 							<li class="nav-item with-sub">
-								<a class="nav-link" href="#"><i class="fas fa-snowflake"></i> <span>CREATORS</span></a>
+								<a class="nav-link" href="#"><i class="far fa-edit"></i> <span>CREATORS</span></a>
 								<div class="sub-item">
 									<ul>
 										<li>
-											<a href="maps.html">Maps</a>
+											<a href="creators_create_design.php">Create Design</a>
 										</li>
 										<li>
-											<a href="chart-morris.html">Chart Morris </a>
+											<a href="creators_submit_art_work.php">Upload Design</a>
 										</li>
                                         <li>
-											<a href="chartjs.html">Chart js </a>
+											<a href="creators_my_sales.php">My Sales</a>
 										</li>
 										<li>
-											<a href="charts-peity.html">Charts Peity</a>
+											<a href="creators_my_transactions.php">My Transaction</a>
 										</li>
 										<li>
-											<a href="chart-flot.html">Chart Flot </a>
+											<a href="creators_my_design.php">My Design's</a>
 										</li>
 										<li>
-											<a href="chart-ricksaw.html">Chart Ricksaw </a>
+											<a href="creators_account.php">My Account</a>
 										</li>
-										<li class="align-items-center">
-											<a href="chart-chartist.html">Chart Chartist </a>
+										<li>
+											<a href="creators_settings.php">My Settings</a>
 										</li>
 									</ul>
 								</div>

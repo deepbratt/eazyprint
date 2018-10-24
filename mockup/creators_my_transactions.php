@@ -272,7 +272,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12 text-center">
             <div class="example">
               <div class="btn-list">
-                <a href="#" class="btn btn-pill btn-info">Withdraw Money
+                <a href="creators_withdraw.php" class="btn btn-pill btn-info">Withdraw Money
                 </a>
               </div>
             </div>
