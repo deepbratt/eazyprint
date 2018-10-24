@@ -101,13 +101,24 @@
 									  </li>
 
 									  <li class="showdesktop">
-										<span>
-										  <i class="fa fa-email"></i> sales@eazyprint.com
-										</span>
+										<i class="fas fa-envelope"></i>  <span style="margin-left:5px;">: sales@eazyprint.com </span>
 									  </li>
 
-									  <li style="margin-top:10px;">
-										<button type="button" class="btn btn-facebook"><i class="fab fa-facebook mr-2"></i>Facebook</button>
+									  <li class="showdesktop">
+										<i class="fas fa-mobile-alt"></i> <span style="margin-left:7px;">: +91 72788 42023 </span>
+									  </li>
+
+									  <li class="showdesktop">
+										<i class="fas fa-mobile-alt"></i> <span style="margin-left:7px;">: +91 92308 41054 </span>
+									  </li>
+
+									  <li class="showdesktop">
+										<i class="fas fa-map-marked"></i> <span style="margin-left:5px;">: 15/12 Shitala Bari , Barrackpore , Kol-700122 </span>
+									  </li>
+
+										
+									  <li class="showdesktop">
+										<a href=""><i class="fab fa-facebook-square"></i></a> <a href=""><i class="fab fa-twitter-square"></i></a> <a href=""><i class="fab fa-instagram"></i></a>
 									  </li>
 
 									</ul>
@@ -119,8 +130,7 @@
 					</div> 
 
 						<!-- footer top ends -->
-						
-						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
+						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;">
 							<div class="col-lg-6 col-sm-12">
 								100% Secure Payment: <img src="images/masterdcard.png" style="height:24px;margin:5px;"> <img src="images/paytm.png" style="height:24px;margin:5px"> <img src="images/cod.png" style="height:24px;margin:5px"> <img src="images/instamojo-logo-white_0.png" style="height:24px;margin:5px">
 							</div>
