@@ -48,12 +48,12 @@
 								<div class="card p-5 ">
 									<div class="card-status bg-orange br-tr-3 br-tl-3"></div>
 									<div class="card-title">
-										Contact &amp; Personal Info
+										My Dashboard
 									</div>
 									<div class="media-list">
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-plus" aria-hidden="true"></i>
+												<i class="fas fa-box"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">My Order's</h6>
@@ -65,7 +65,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-upload" aria-hidden="true"></i>
+												<i class="fas fa-heart"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">My Wishlist</h6>
@@ -78,17 +78,6 @@
 												<i class="fas fa-cart-plus" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<h6 class="mediafont text-dark">My Sales</h6>
-											</div>
-											<!-- media-body -->
-										</div>
-										<!-- media -->
-										<!-- media -->
-										<div class="media mt-1 pb-2">
-											<div class="mediaicon">
-												<i class="fas fa-search-dollar" aria-hidden="true"></i>
-											</div>
-											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">Cart</h6>
 											</div>
 											<!-- media-body -->
@@ -97,7 +86,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-pencil-alt" aria-hidden="true"></i>
+												<i class="fas fa-briefcase"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">Rewards/Giftcards</h6>
@@ -108,7 +97,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-user" aria-hidden="true"></i>
+												<i class="fas fa-phone"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">Support</h6>
@@ -119,7 +108,7 @@
 										<!-- media -->
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-cog" aria-hidden="true"></i>
+												<i class="fas fa-user" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
 												<h6 class="mediafont text-dark">My Account</h6>
