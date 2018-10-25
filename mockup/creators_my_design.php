@@ -18,6 +18,11 @@
     </title>
     <?php include("metalinks.php");?>
     <link href="css/timeline.min.css" rel="stylesheet" />
+	<style>
+		.img-fluid{
+		height:100px !important;
+	}
+	</style>
   </head>
   <body class="app">
     <?php include("header.php");?>
@@ -47,7 +52,7 @@
             <div class="card">
               <div class="card-status bg-success br-tr-3 br-tl-3">
               </div>
-              <div class="panel panel-primary" style="height:455px;">
+              <div class="panel panel-primary">
                 <div class="tab-menu-heading">
                   <div class="tabs-menu ">
                     <!-- Tabs -->
@@ -70,16 +75,116 @@
                 <div class="panel-body tabs-menu-body">
                   <div class="tab-content">
                     <div class="tab-pane active " id="all">
-                      <p>All Designs
-                      </p>
+                      <div class="row">
+					  <?php
+						for($i=0;$i<3;$i++){
+					  ?>
+					  	<div class="col-md-3 col-sm-12 col-xs-12">
+							<div class="card item-card">
+								<div class="card-body pb-0">
+									<div class="text-center">
+										<img src="images/14.png" alt="img" class="img-fluid">
+									</div>
+									<div class="card-body cardbody ">
+										<div class="cardtitle">
+											<span>Accessories</span>
+											<a>Sports Watch</a>
+										</div>
+										<div class="cardprice">
+											<span class="type--strikethrough">$999</span>
+											<span>$799</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+							}			
+						?>
+					  <?php
+						for($i=0;$i<5;$i++){
+					  ?>
+					  	<div class="col-md-3 col-sm-12 col-xs-12">
+							<div class="card item-card">
+								<div class="card-body pb-0">
+									<div class="text-center">
+										<img src="images/men-bestsellers-desktop-2-1536929043.jpg" alt="img" class="img-fluid">
+									</div>
+									<div class="card-body cardbody ">
+										<div class="cardtitle">
+											<span>Accessories</span>
+											<a>Sports Watch</a>
+										</div>
+										<div class="cardprice">
+											<span class="type--strikethrough">$999</span>
+											<span>$799</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+							}			
+						?>
+					  </div>
                     </div>
                     <div class="tab-pane" id="mobile">
-                      <p>Mobile Designs
-                      </p>
+					 <div class="row">
+                      <?php
+						for($i=0;$i<3;$i++){
+					  ?>
+					  	<div class="col-md-3 col-sm-12 col-xs-12">
+							<div class="card item-card">
+								<div class="card-body pb-0">
+									<div class="text-center">
+										<img src="images/mobile-cover-banner-facebook.jpg" alt="img" class="img-fluid">
+									</div>
+									<div class="card-body cardbody ">
+										<div class="cardtitle">
+											<span>Accessories</span>
+											<a>Sports Watch</a>
+										</div>
+										<div class="cardprice">
+											<span class="type--strikethrough">$999</span>
+											<span>$799</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+							}			
+						?>
+					</div>
                     </div>
                     <div class="tab-pane  " id="tshirt">
-                      <p>T-Shirt Designs
-                      </p>
+					 <div class="row">
+                      <?php
+						for($i=0;$i<5;$i++){
+					  ?>
+					  	<div class="col-md-3 col-sm-12 col-xs-12">
+							<div class="card item-card">
+								<div class="card-body pb-0">
+									<div class="text-center">
+										<img src="images/men-bestsellers-desktop-2-1536929043.jpg" alt="img" class="img-fluid">
+									</div>
+									<div class="card-body cardbody ">
+										<div class="cardtitle">
+											<span>Accessories</span>
+											<a>Sports Watch</a>
+										</div>
+										<div class="cardprice">
+											<span class="type--strikethrough">$999</span>
+											<span>$799</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+							}			
+						?>
+					</div>
                     </div>
                   </div>
                 </div>
