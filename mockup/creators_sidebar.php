@@ -1,6 +1,6 @@
 <div class="col-md-4 col-sm-12 col-xs-12">
   <div class="card p-5 ">
-    <div class="card-status bg-orange br-tr-3 br-tl-3">
+    <div class="card-status bg-success br-tr-3 br-tl-3">
     </div>
     <div class="media-list">
       <div class="media mt-1 pb-2">
