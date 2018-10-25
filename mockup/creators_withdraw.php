@@ -90,7 +90,7 @@
                   </div>
                   <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
-					<div class="col-md-12">
+                      <div class="col-md-12">
                         <div class="form-group text-right">
                           <label class="form-label" style="font-size:12px;font-weight:bold;">Note: There is no withdraw fee
                           </label>
@@ -186,15 +186,15 @@
       </div>
     </div>
     <?php include("footer.php");?>
-	<script src="js/jquery.dataTables.min.js">
-	</script>
-	<script src="js/dataTables.bootstrap4.min.js">
-	</script>
-	<script>
-	  $(function(e) {
-		$('#example').DataTable();
-	  }
-	   );
-	</script>
+    <script src="js/jquery.dataTables.min.js">
+    </script>
+    <script src="js/dataTables.bootstrap4.min.js">
+    </script>
+    <script>
+      $(function(e) {
+        $('#example').DataTable();
+      }
+       );
+    </script>
   </body>
 </html>
