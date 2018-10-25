@@ -17,7 +17,8 @@
     <title>Eazyprint | Dashboard
     </title>
     <?php include("metalinks.php");?>
-    <link href="css/timeline.min.css" rel="stylesheet" />
+    <!-- Data table css -->
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
   </head>
   <body class="app">
     <?php include("header.php");?>
@@ -89,19 +90,15 @@
                   </div>
                   <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group text-center">
-                          <label class="form-label" style="font-weight:bold;">You will receive
-                          </label>                   
-                          <span style="font-size:20px;font-weight:bold;">56,700 INR
-                          </span>
-                          <label class="form-label" style="font-size:12px;margin-top:0.375rem;">Note: There is no withdraw fee
+					<div class="col-md-12">
+                        <div class="form-group text-right">
+                          <label class="form-label" style="font-size:12px;font-weight:bold;">Note: There is no withdraw fee
                           </label>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="table-responsive">
-                          <table class="table card-table table-vcenter text-nowrap">
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead >
                               <tr>
                                 <th>ID
@@ -166,8 +163,8 @@
                                 </td>
                               </tr>
                             </tbody>
-                            <tfoot style="border-top:1px solid #ddd;">
-                              <th colspan="3">Total
+                            <tfoot>
+                              <th colspan="3">You will receive
                               </th>
                               <th>56,700
                               </th>
@@ -189,5 +186,15 @@
       </div>
     </div>
     <?php include("footer.php");?>
+	<script src="js/jquery.dataTables.min.js">
+	</script>
+	<script src="js/dataTables.bootstrap4.min.js">
+	</script>
+	<script>
+	  $(function(e) {
+		$('#example').DataTable();
+	  }
+	   );
+	</script>
   </body>
 </html>
