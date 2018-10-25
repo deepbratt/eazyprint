@@ -49,34 +49,36 @@
 
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div class="card">
-										<div class="card-body" style="height:80px;">
-											<h1 class="text-center">Order #123 was placed!</h1>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="card">
 										<div class="card-body" style="height:400px;">
-											<h1 class="text-center">Order Details</h1>
+											<h1 class="text-center">Description</h1>
 										</div>
 									</div>
 								</div>
 
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div class="row">
-										<div class="col-md-6">
-											<div class="card">
-												<div class="card-body" style="height:200px;">
-													<h1 class="text-center">Billing Address</h1>
-												</div>
+										<div class="col-md-4">
+											<div class="example">
+											  <div class="btn-list">
+												<a href="#" class="btn btn-pill btn-info">Order from store
+												</a>
+											  </div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="card">
-												<div class="card-body" style="height:200px;">
-													<h1 class="text-center">Shipping Address</h1>
-												</div>
+										<div class="col-md-4">
+											<div class="example">
+											  <div class="btn-list">
+												<a href="#" class="btn btn-pill btn-info">Create custom design
+												</a>
+											  </div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="example">
+											  <div class="btn-list">
+												<a href="#" class="btn btn-pill btn-info">Available Products
+												</a>
+											  </div>
 											</div>
 										</div>
 									</div>

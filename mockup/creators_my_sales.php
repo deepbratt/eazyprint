@@ -43,8 +43,7 @@
         <p>&nbsp;
         </p>
         <div class="row">
-          <?php include('creators_sidebar.php');?> 
-          <div class="col-md-8 col-sm-12 col-xs-12">
+          <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-md-12 col-lg-12">
                 <div class="card">

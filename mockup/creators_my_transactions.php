@@ -140,7 +140,7 @@
                   <div class="col">
                     <div class="text-muted">Available Balance
                     </div>
-                    <div class="h3 m-0  text-blue counter font-30">5,67,00
+                    <div class="h3 m-0  text-blue counter font-30">56,700
                     </div>
                   </div>
                   <div class="col-auto align-self-center">

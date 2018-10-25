@@ -77,6 +77,13 @@
                       <input type="text" class="form-control" placeholder="IFSC Code">
                     </div>
                   </div>
+				  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Account Number
+                      </label>
+                      <input type="text" class="form-control" placeholder="Account Number">
+                    </div>
+                  </div>
                 </div>
               </div>
 			  <div class="card-footer text-right">

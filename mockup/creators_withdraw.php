@@ -17,7 +17,8 @@
     <title>Eazyprint | Dashboard
     </title>
     <?php include("metalinks.php");?>
-    <link href="css/timeline.min.css" rel="stylesheet" />
+    <!-- Data table css -->
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
   </head>
   <body class="app">
     <?php include("header.php");?>
@@ -47,39 +48,136 @@
               <div class="card-status bg-success br-tr-3 br-tl-3">
               </div>
               <div class="card-body">
-                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="form-label">Bank Name
-                      </label>
-                      <input type="text" class="form-control" placeholder="Bank Name">
+                <div class="row">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">Bank Name
+                          </label>
+                          <input type="text" class="form-control" placeholder="Bank Name">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">Branch Name
+                          </label>
+                          <input type="text" class="form-control" placeholder="Branch Name">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">Branch Code
+                          </label>
+                          <input type="text" class="form-control" placeholder="Branch Code">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">IFSC Code
+                          </label>
+                          <input type="text" class="form-control" placeholder="IFSC Code">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">Account Number
+                          </label>
+                          <input type="text" class="form-control" placeholder="Account Number">
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="form-label">Branch Name
-                      </label>
-                      <input type="text" class="form-control" placeholder="Branch Name">
-                    </div>
-                  </div>
-				  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="form-label">Branch Code
-                      </label>
-                      <input type="text" class="form-control" placeholder="Branch Code">
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label class="form-label">IFSC Code
-                      </label>
-                      <input type="text" class="form-control" placeholder="IFSC Code">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group text-right">
+                          <label class="form-label" style="font-size:12px;font-weight:bold;">Note: There is no withdraw fee
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead >
+                              <tr>
+                                <th>ID
+                                </th>
+                                <th>Product Type
+                                </th>
+                                <th>Model ID
+                                </th>
+                                <th>Amount
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1
+                                </th>
+                                <td>T-Shirt
+                                </td>
+                                <td>T10125
+                                </td>
+                                <td>11,340
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2
+                                </th>
+                                <td>T-Shirt
+                                </td>
+                                <td>T51200
+                                </td>
+                                <td>11,340
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3
+                                </th>
+                                <td>Mobile
+                                </td>
+                                <td>M5684
+                                </td>
+                                <td>11,340
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4
+                                </th>
+                                <td>Mobile
+                                </td>
+                                <td>M78955
+                                </td>
+                                <td>11,340
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">5
+                                </th>
+                                <td>Mug
+                                </td>
+                                <td>MU4577
+                                </td>
+                                <td>11,340
+                                </td>
+                              </tr>
+                            </tbody>
+                            <tfoot>
+                              <th colspan="3">You will receive
+                              </th>
+                              <th>56,700
+                              </th>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-			  <div class="card-footer text-center">
-                <button type="submit" class="btn btn-info">PAYMENT
+              <div class="card-footer text-center">
+                <button type="submit" class="btn btn-info">Withdraw Funds
                 </button>
               </div>
             </div>
@@ -88,5 +186,15 @@
       </div>
     </div>
     <?php include("footer.php");?>
+    <script src="js/jquery.dataTables.min.js">
+    </script>
+    <script src="js/dataTables.bootstrap4.min.js">
+    </script>
+    <script>
+      $(function(e) {
+        $('#example').DataTable();
+      }
+       );
+    </script>
   </body>
 </html>
