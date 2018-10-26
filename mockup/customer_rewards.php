@@ -143,7 +143,7 @@
 															</div><span class="dash-box-title">Reward</span>
 														</div>
 														<div class="dash-box-action">
-															<a class="btn btn-d">Apply</a>
+															<a class="btn btn-d" data-toggle="tooltip" data-placement="bottom" title="Apply This Reward">Apply</a>
 														</div>
 													</div>
 												</div>
@@ -158,7 +158,7 @@
 															</div><span class="dash-box-title">Reward</span>
 														</div>
 														<div class="dash-box-action">
-															<a class="btn btn-d">Apply</a>
+															<a class="btn btn-d" data-toggle="tooltip" data-placement="bottom" title="Apply This Reward">Apply</a>
 														</div>
 													</div>
 												</div>
@@ -173,7 +173,7 @@
 															</div><span class="dash-box-title">Reward</span>
 														</div>
 														<div class="dash-box-action">
-															<a class="btn btn-d">Apply</a>
+															<a class="btn btn-d" data-toggle="tooltip" data-placement="bottom" title="Apply This Reward">Apply</a>
 														</div>
 													</div>
 												</div>
@@ -192,7 +192,7 @@
 																</div><span class="dash-box-title">Giftcard</span>
 															</div>
 															<div class="dash-box-action">
-																<a class="btn btn-warning">Redeem</a>
+																<a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Redeem Your Giftcard" >Redeem</a>
 															</div>
 														</div>
 													</div>
@@ -207,7 +207,7 @@
 																</div><span class="dash-box-title">Giftcard</span>
 															</div>
 															<div class="dash-box-action">
-																<a class="btn btn-warning">Redeem</a>
+																<a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Redeem Your Giftcard">Redeem</a>
 															</div>
 														</div>
 													</div>
@@ -222,7 +222,7 @@
 																</div><span class="dash-box-title">Giftcard</span>
 															</div>
 															<div class="dash-box-action">
-																<a class="btn btn-warning">Redeem</a>
+																<a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Redeem Your Giftcard">Redeem</a>
 															</div>
 														</div>
 													</div>
