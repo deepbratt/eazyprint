@@ -77,7 +77,7 @@
 
 											</div>
 											<div class="text-center border-top">
-												<a href="shop-des.html" class="btn btn-primary btn-sm mt-4 mb-4"> View More</a>
+												<a href="javascript:void(0)" class="btn btn-primary btn-sm mt-4 mb-4"> View More</a>
 												<a href="javascript:void(0)" class="btn btn-primary btn-sm mt-4 mb-4"><i class="fas fa-shopping-cart"></i> Add to cart</a>
 											</div>
 										</div>
