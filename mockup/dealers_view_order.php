@@ -31,7 +31,7 @@
 							<div class="card">
 								<div class="card-status bg-success br-tr-3 br-tl-3"></div>
 								<div class="card-body">
-									<h1 class="text-center">My Dashboard</h1>
+									<h1 class="text-center">Order Details</h1>
 								</div>
 							</div>
 						</div>

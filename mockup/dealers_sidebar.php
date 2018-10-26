@@ -34,15 +34,6 @@
 
 										<div class="media mt-1 pb-2">
 											<div class="mediaicon">
-												<i class="fas fa-percent" aria-hidden="true"></i>
-											</div>
-											<div class="media-body ml-5 mt-1">
-												<a href="dealers_commission.php"><h6 class="mediafont text-dark">Commission Rate</h6></a>
-											</div>
-										</div>
-										 
-										<div class="media mt-1 pb-2">
-											<div class="mediaicon">
 												<i class="fas fa-gift" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
@@ -55,7 +46,7 @@
 												<i class="fas fa-user" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<a href="dealers_accountsphp"><h6 class="mediafont text-dark">Account</h6></a>
+												<a href="dealers_account.php"><h6 class="mediafont text-dark">Account</h6></a>
 											</div>
 										</div>
 										 

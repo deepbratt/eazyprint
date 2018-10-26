@@ -31,7 +31,7 @@
 							<div class="card">
 								<div class="card-status bg-success br-tr-3 br-tl-3"></div>
 								<div class="card-body">
-									<h1 class="text-center">My Dashboard</h1>
+									<h1 class="text-center">Create Order</h1>
 								</div>
 							</div>
 						</div>
@@ -117,12 +117,9 @@
 																				<h1 class="text-center">EDITOR GOES HERE</h1>
 																			</div>
 																		  </div>
-																		  <div class="row" >
-																		  	  <div class="col-12" style="text-align:center;">
-																				  <button type="submit" class="btn btn-primary">
-																					  Create Order
-																				  </button>
-																			  </div>
+																		  <div class="card-footer text-center">
+																			<button type="submit" class="btn btn-primary">Create Order
+																			</button>
 																		  </div>
 																	  </form>
 																  </div>
@@ -201,12 +198,9 @@
 																				<h1 class="text-center">EDITOR GOES HERE</h1>
 																			</div>
 																		  </div>
-																		  <div class="row" >
-																		  	  <div class="col-12" style="text-align:center;">
-																				  <button type="submit" class="btn btn-primary">
-																					  Create Order
-																				  </button>
-																			  </div>
+																		   <div class="card-footer text-center">
+																			<button type="submit" class="btn btn-primary">Create Order
+																			</button>
 																		  </div>
 																	  </form>
 																  </div>
