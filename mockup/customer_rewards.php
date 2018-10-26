@@ -131,10 +131,102 @@
 										<div class="panel-body tabs-menu-body">
 											<div class="tab-content">
 												<div class="tab-pane active " id="rewards">
-													<p>Rewards</p>
+												 <div class="row">
+													<div class="col-md-4">
+													<div class="dash-box dash-box-color-1">
+														<div class="dash-box-icon">
+															<i class="fas fa-piggy-bank fa-2x"></i>
+														</div>
+														<div class="dash-box-body">
+															<div class="h3 m-0 text-white">
+																<b>INR 200</b>
+															</div><span class="dash-box-title">Reward</span>
+														</div>
+														<div class="dash-box-action">
+															<a class="btn btn-d">Apply</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="dash-box dash-box-color-1">
+														<div class="dash-box-icon">
+															<i class="fas fa-piggy-bank fa-2x"></i>
+														</div>
+														<div class="dash-box-body">
+															<div class="h3 m-0 text-white">
+																<b>INR 200</b>
+															</div><span class="dash-box-title">Reward</span>
+														</div>
+														<div class="dash-box-action">
+															<a class="btn btn-d">Apply</a>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="dash-box dash-box-color-1">
+														<div class="dash-box-icon">
+															<i class="fas fa-piggy-bank fa-2x"></i>
+														</div>
+														<div class="dash-box-body">
+															<div class="h3 m-0 text-white">
+																<b>INR 200</b>
+															</div><span class="dash-box-title">Reward</span>
+														</div>
+														<div class="dash-box-action">
+															<a class="btn btn-d">Apply</a>
+														</div>
+													</div>
+												</div>
+												</div>
 												</div>
 												<div class="tab-pane" id="giftcards">
-													<p>Giftcards</p>
+												 <div class="row">
+												 		<div class="col-md-4">
+														<div class="dash-box dash-box-color-2">
+															<div class="dash-box-icon">
+																<i class="fas fa-chess-queen fa-2x"></i>
+															</div>
+															<div class="dash-box-body">
+																<div class="h3 m-0 text-white">
+																	<b>INR 100</b>
+																</div><span class="dash-box-title">Giftcard</span>
+															</div>
+															<div class="dash-box-action">
+																<a class="btn btn-warning">Redeem</a>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="dash-box dash-box-color-2">
+															<div class="dash-box-icon">
+																<i class="fas fa-chess-queen fa-2x"></i>
+															</div>
+															<div class="dash-box-body">
+																<div class="h3 m-0 text-white">
+																	<b>INR 100</b>
+																</div><span class="dash-box-title">Giftcard</span>
+															</div>
+															<div class="dash-box-action">
+																<a class="btn btn-warning">Redeem</a>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div class="dash-box dash-box-color-2">
+															<div class="dash-box-icon">
+																<i class="fas fa-chess-queen fa-2x"></i>
+															</div>
+															<div class="dash-box-body">
+																<div class="h3 m-0 text-white">
+																	<b>INR 100</b>
+																</div><span class="dash-box-title">Giftcard</span>
+															</div>
+															<div class="dash-box-action">
+																<a class="btn btn-warning">Redeem</a>
+															</div>
+														</div>
+													</div>
+												 </div>
 												</div>
 											</div>
 										</div>

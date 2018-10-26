@@ -50,30 +50,57 @@
 									<div class="col-lg-4">
 										<div class="card item-card">
 											<div class="card-body pb-0">
-												<div class="text-center">
-													<a href=""><img src="images/14.png" alt="img" class="img-fluid"></a>
+												<div class="card">
+													<div class="card-body">
+														<div id="carousel-controls" class="carousel slide" data-ride="carousel">
+															<div class="carousel-inner">
+																<div class="carousel-item active">
+																	<img class="d-block w-100" alt="" src="images/14.png" data-holder-rendered="true">
+																</div>
+																<div class="carousel-item">
+																	<img class="d-block w-100" alt="" src="images/14.png" data-holder-rendered="true">
+																</div>
+																<div class="carousel-item">
+																	<img class="d-block w-100" alt="" src="images/14.png" data-holder-rendered="true">
+																</div>
+																<div class="carousel-item">
+																	<img class="d-block w-100" alt="" src="images/14.png" data-holder-rendered="true">
+																</div>
+																<div class="carousel-item">
+																	<img class="d-block w-100" alt="" src="images/14.png" data-holder-rendered="true">
+																</div>
+															</div>
+															<a class="carousel-control-prev" href="#carousel-controls" role="button" data-slide="prev">
+																<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+																<span class="sr-only">Previous</span>
+															</a>
+															<a class="carousel-control-next" href="#carousel-controls" role="button" data-slide="next">
+																<span class="carousel-control-next-icon" aria-hidden="true"></span>
+																<span class="sr-only">Next</span>
+															</a>
+														</div>
+													</div>
 												</div>
-												<div class="card-body cardbody ">
+												<div class="card-body cardbody" style="padding:0;text-align:center;">
 													<div class="cardtitle">
-														<span>Accessories</span>
-														<a>Sports Watch</a>
-													</div>
-													<div class="cardprice">
-														<span class="type--strikethrough">$999</span>
-														<span>$799</span>
-													</div>
+														<a>Moto G5 Plus backcover</a>
+														<p style="padding-top:5px;">$999</p>
+													</div>													
 												</div>
-
 											</div>
-											<div class="text-center border-top" style="padding:10px;">
+											<div class="border-top text-center" style="padding:10px;">
+											<div>
 												<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
 												<i class="fas fa-heart"></i>
 												</a>
 												<a href="#" class="btn btn-success btn-xs tip" title="Buy">
 											    <i class="fas fa-shopping-cart"></i>
 												</a>
+												<a class="btn btn-xs tip" style="background:#1cc8e3;color:white;"><i class="fas fa-star" style=""></i>		
+												</a>
 											</div>
 										</div>
+									  </div>
 									</div>
 								<?php
 								}
