@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 27, 2018 at 10:32 AM
+-- Generation Time: Oct 27, 2018 at 02:36 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -155,6 +155,108 @@ CREATE TABLE IF NOT EXISTS `eazycrew` (
   `crew_status` enum('0','1') NOT NULL,
   `crew_date` varchar(255) NOT NULL,
   PRIMARY KEY (`crew_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `product_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_category` varchar(255) NOT NULL,
+  `product_subcategory` varchar(255) NOT NULL,
+  `product_brand` varchar(255) NOT NULL,
+  `product_model_no` varchar(255) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `product_title` varchar(255) NOT NULL,
+  `product_desc` longtext NOT NULL,
+  `product_sku` varchar(255) NOT NULL,
+  `product_wholesale_price` varchar(255) NOT NULL,
+  `product_retail_price` varchar(255) NOT NULL,
+  `product_purchase_price` varchar(255) NOT NULL,
+  `product_material_type` int(255) NOT NULL,
+  `product_color` varchar(255) NOT NULL,
+  `product_size` varchar(255) NOT NULL,
+  `product_shapetype` varchar(255) NOT NULL,
+  `product_quantity` varchar(255) NOT NULL,
+  `product_dimension_length` varchar(255) NOT NULL,
+  `product_dimension_width` varchar(255) NOT NULL,
+  `product_dimension_height` varchar(255) NOT NULL,
+  `product_weight` varchar(255) NOT NULL,
+  `product_supplier_id` varchar(255) NOT NULL,
+  `product_status` enum('0','1') NOT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_color`
+--
+
+DROP TABLE IF EXISTS `product_color`;
+CREATE TABLE IF NOT EXISTS `product_color` (
+  `product_color_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_color_name` varchar(255) NOT NULL,
+  `product_color_code` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_color_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_image`
+--
+
+DROP TABLE IF EXISTS `product_image`;
+CREATE TABLE IF NOT EXISTS `product_image` (
+  `product_image_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_id` varchar(255) NOT NULL,
+  `product_image_path` longtext NOT NULL,
+  `product_thumb_path` longtext NOT NULL,
+  PRIMARY KEY (`product_image_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_material_type`
+--
+
+DROP TABLE IF EXISTS `product_material_type`;
+CREATE TABLE IF NOT EXISTS `product_material_type` (
+  `product_material_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_material_type` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_material_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_shapetype`
+--
+
+DROP TABLE IF EXISTS `product_shapetype`;
+CREATE TABLE IF NOT EXISTS `product_shapetype` (
+  `product_shape_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_shapetype_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_shape_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_size`
+--
+
+DROP TABLE IF EXISTS `product_size`;
+CREATE TABLE IF NOT EXISTS `product_size` (
+  `product_size_id` int(255) NOT NULL AUTO_INCREMENT,
+  `product_size_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_size_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
