@@ -19,7 +19,7 @@
 												<i class="fas fa-cart-plus" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<a href="dealers_orders.php"><h6 class="mediafont text-dark">My Orders</h6></a>
+												<a href="dealers_order.php"><h6 class="mediafont text-dark">My Orders</h6></a>
 											</div>
 										</div>
 
@@ -28,7 +28,7 @@
 												<i class="fas fa-plus" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<a href="dealers_create_orders.php"><h6 class="mediafont text-dark">Create Orders</h6></a>
+												<a href="dealers_create_order.php"><h6 class="mediafont text-dark">Create Orders</h6></a>
 											</div>
 										</div>
 
@@ -37,7 +37,7 @@
 												<i class="fas fa-gift" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<a href="dealers_offers.php"><h6 class="mediafont text-dark">Discount Coupons/Offers</h6></a>
+												<a href="dealers_offer.php"><h6 class="mediafont text-dark">Discount Coupons/Offers</h6></a>
 											</div>
 										</div>
 
@@ -55,7 +55,7 @@
 												<i class="fas fa-cog" aria-hidden="true"></i>
 											</div>
 											<div class="media-body ml-5 mt-1">
-												<a href="dealers_settings.php"><h6 class="mediafont text-dark">Settings</h6></a>
+												<a href="dealers_setting.php"><h6 class="mediafont text-dark">Settings</h6></a>
 											</div>
 										</div>
 
