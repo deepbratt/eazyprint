@@ -9,4 +9,3 @@
 <link href="css/plugin.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
 <link href="css/addSlider.css" rel="stylesheet" />
-
