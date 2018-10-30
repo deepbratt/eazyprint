@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'themify';
-  src: url("../fonts/themify/themify.eot?-fvbane");
-  src: url("../fonts/themify/themify.eot?#iefix-fvbane") format("embedded-opentype"), url("../fonts/themify/themify.woff?-fvbane") format("woff"), url("../fonts/themify/themify.ttf?-fvbane") format("truetype"), url("../fonts/themify/themify.svg?-fvbane#themify") format("svg");
+  src: url("../fonts/themify.eot?-fvbane");
+  src: url("../fonts/themify.eot?#iefix-fvbane") format("embedded-opentype"), url("../fonts/themify.woff?-fvbane") format("woff"), url("../fonts/themify.ttf?-fvbane") format("truetype"), url("../fonts/themify.svg?-fvbane#themify") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1450,8 +1450,8 @@
  */
 @font-face {
   font-family: 'weathericons';
-  src: url("../fonts/weathericons/weathericons-regular-webfont.eot");
-  src: url("../fonts/weathericons/weathericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/weathericons/weathericons-regular-webfont.woff2") format("woff2"), url("../fonts/weathericons/weathericons-regular-webfont.woff") format("woff"), url("../fonts/weathericons/weathericons-regular-webfont.ttf") format("truetype"), url("../fonts/weathericons/weathericons-regular-webfont.svg#weather_iconsregular") format("svg");
+  src: url("../fonts/weathericons-regular-webfont.eot");
+  src: url("../fonts/weathericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/weathericons-regular-webfont.woff2") format("woff2"), url("../fonts/weathericons-regular-webfont.woff") format("woff"), url("../fonts/weathericons-regular-webfont.ttf") format("truetype"), url("../fonts/weathericons-regular-webfont.svg#weather_iconsregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -3853,8 +3853,8 @@
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
-  src: url("fonts/materialdesignicons/materialdesignicons-webfont.eot?v=2.0.46");
-  src: url("fonts/materialdesignicons/materialdesignicons-webfont.eot?#iefix&v=2.0.46") format("embedded-opentype"), url("fonts/materialdesignicons/materialdesignicons-webfont.woff2?v=2.0.46") format("woff2"), url("fonts/materialdesignicons/materialdesignicons-webfont.woff?v=2.0.46") format("woff"), url("fonts/materialdesignicons/materialdesignicons-webfont.ttf?v=2.0.46") format("truetype"), url("fonts/materialdesignicons/materialdesignicons-webfont.svg?v=2.0.46#materialdesigniconsregular") format("svg");
+  src: url("../fonts/materialdesignicons-webfont.eot?v=2.0.46");
+  src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=2.0.46") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=2.0.46") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=2.0.46") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=2.0.46") format("truetype"), url("../fonts/materialdesignicons-webfont.svg?v=2.0.46#materialdesigniconsregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -12060,8 +12060,8 @@
 
 @font-face {
   font-family: 'simple-line-icons';
-  src: url("fonts/simple-line-icons/Simple-Line-Icons.eot?v=2.4.0");
-  src: url("fonts/simple-line-icons/Simple-Line-Icons.eot?v=2.4.0#iefix") format("embedded-opentype"), url("fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0") format("woff2"), url("fonts/simple-line-icons/Simple-Line-Icons.ttf?v=2.4.0") format("truetype"), url("fonts/simple-line-icons/Simple-Line-Icons.woff?v=2.4.0") format("woff"), url("fonts/simple-line-icons/Simple-Line-Icons.svg?v=2.4.0#simple-line-icons") format("svg");
+  src: url("../fonts/Simple-Line-Icons.eot?v=2.4.0");
+  src: url("../fonts/Simple-Line-Icons.eot?v=2.4.0#iefix") format("embedded-opentype"), url("../fonts/Simple-Line-Icons.woff2?v=2.4.0") format("woff2"), url("../fonts/Simple-Line-Icons.ttf?v=2.4.0") format("truetype"), url("../fonts/Simple-Line-Icons.woff?v=2.4.0") format("woff"), url("../fonts/Simple-Line-Icons.svg?v=2.4.0#simple-line-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
