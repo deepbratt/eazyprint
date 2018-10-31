@@ -20,7 +20,7 @@
 
         <?php include('metalinks.php');?>
 		<!-- Data table css -->
-		<link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="../css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 	</head>
 	<body class="app sidebar-mini rtl">
@@ -121,8 +121,8 @@
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 
 		<!-- Data tables -->
-		<script src="js/jquery.dataTables.min.js"></script>
-		<script src="js/dataTables.bootstrap4.min.js"></script>
+		<script src="../js/jquery.dataTables.min.js"></script>
+		<script src="../js/dataTables.bootstrap4.min.js"></script>
 		<!-- Data table js -->
 		<script>
 			$(function(e) {

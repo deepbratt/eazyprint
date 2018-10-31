@@ -20,7 +20,7 @@
 
         <?php include('metalinks.php');?>
 		<!-- Data table css -->
-		<link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="../css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 	</head>
 	<body class="app sidebar-mini rtl">
