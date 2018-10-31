@@ -39,57 +39,89 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_crew/add_crew');?>">
 									<div class="card-header">
 										<h3 class="card-title">Add Crew</h3>
 									</div>
+
 									<div class="card-body">
+										<?php
+											  if($this->session->flashdata('success')){
+											?>
+												<div class="alert alert-success">
+													<strong><?php echo $this->session->flashdata('success');?></strong>
+												</div>
+											<?php
+											}
+											if($this->session->flashdata('failed')){
+											?>
+												<div class="alert alert-danger">
+													<strong><?php echo $this->session->flashdata('failed');?></strong>
+												</div>
+											<?php
+											}
+											?>
 										 <div class="row">
+										 	
 											<div class="col-md-6">
 												<div class="form-group">
-												  <label class="form-label">Bank Name
+												  <label class="form-label">First Name
 												  </label>
-												  <input type="text" class="form-control" placeholder="Bank Name">
+												  <input type="text" class="form-control" name="f_name" placeholder="Enter First Name">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-												  <label class="form-label">Branch Name
+												  <label class="form-label">Last Name
 												  </label>
-												  <input type="text" class="form-control" placeholder="Branch Name">
+												  <input type="text" class="form-control" name="l_name" placeholder="Enter last Name">
 												</div>
 											</div>
 										 </div>
 										 <div class="row">
 											<div class="col-md-6">
 											<div class="form-group">
-											  <label class="form-label">Branch Code
+											  <label class="form-label">Email
 											  </label>
-											  <input type="text" class="form-control" placeholder="Branch Code">
+											  <input type="email" class="form-control" name="email" placeholder="Enter Email">
 											</div>
 										  </div>
 										  <div class="col-md-6">
 											<div class="form-group">
-											  <label class="form-label">IFSC Code
+											  <label class="form-label">Password
 											  </label>
-											  <input type="text" class="form-control" placeholder="IFSC Code">
+											  <input type="password" class="form-control" name="password" placeholder="Enter Password">
 											</div>
 										  </div>
 										 </div>
 										  
 										 <div class="row">
 											<div class="col-md-12">
-											<div class="form-group">
-											  <label class="form-label">Account Number
-											  </label>
-											  <input type="text" class="form-control" placeholder="Account Number">
+											<div class="form-group ">
+												<label class="form-label">Assign Role</label>
+												<div class="selectgroup selectgroup-pills">
+													<label class="selectgroup-item">
+														<input type="radio" name="role" value="admin" class="selectgroup-input">
+														<span class="selectgroup-button">Admin</span>
+													</label>
+													<label class="selectgroup-item">
+														<input type="radio" name="role" value="sales" class="selectgroup-input">
+														<span class="selectgroup-button">Sales</span>
+													</label>
+													<label class="selectgroup-item">
+														<input type="radio" name="role" value="operation" class="selectgroup-input">
+														<span class="selectgroup-button">Operation</span>
+													</label>
+													<label class="selectgroup-item">
+														<input type="radio" name="role" value="accounts" class="selectgroup-input">
+														<span class="selectgroup-button">Accounts</span>
+													</label>
+												</div>
 											</div>
 										  </div>
 										 </div>
 									  </div>
 									  <div class="card-footer text-center">
-										<button type="reset" class="btn btn-primary">Cancel
-										</button>
 										<button type="submit" class="btn btn-primary">Submit
 										</button>
 									  </div>
