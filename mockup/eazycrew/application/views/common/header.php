@@ -10,7 +10,7 @@
 					<!-- Navbar Right Menu-->
 					<div class="container-fluid">
 						<div class="d-flex">
-							<a class="header-brand" href="index.html">
+							<a class="header-brand" href="<?php echo base_url('admin_dashboard');?>">
 								<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_w.png">
 							</a>
 							<!-- Sidebar toggle button-->
@@ -26,19 +26,14 @@
 								</div>
 								<div class="dropdown">
 									<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
-										<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
+										<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('images');?>/favicon.png)"></span>
 										<span class="ml-2 d-none d-lg-block">
-											<span class="text-white">Sindy Scribner</span>
+											<span class="text-white"><?php echo $this->session->userdata['logged_in']['name'];?></span>
 										</span>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-										<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
-										<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
-										<a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
-										<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
-										<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+										<a class="dropdown-item" href="<?php echo base_url('admin_setting');?>"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
+										<a class="dropdown-item" href="<?php echo base_url('logout');?>"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
 									</div>
 								</div>
 							</div>

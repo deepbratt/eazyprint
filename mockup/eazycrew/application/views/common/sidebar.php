@@ -3,9 +3,9 @@
 					<div class="app-sidebar__user">
 						<div class="dropdown">
 							<a class="nav-link p-0 leading-none d-flex" data-toggle="dropdown" href="#">
-								<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
-								<span class="ml-2 "><span class="text-white app-sidebar__user-name font-weight-semibold">Sindy Scribner</span><br>
-									<span class="text-muted app-sidebar__user-name text-sm"> Ui Designer</span>
+								<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('images');?>/favicon.png)"></span>
+								<span class="ml-2 "><span class="text-white app-sidebar__user-name font-weight-semibold"><?php echo $this->session->userdata['logged_in']['name'];?></span><br>
+									<span class="text-muted app-sidebar__user-name text-sm"><?php echo $this->session->userdata['logged_in']['crew_role'];?></span>
 								</span>
 							</a>
 							
@@ -13,7 +13,7 @@
 					</div>
 					<ul class="side-menu">
 						<li class="slide">
-							<a class="side-menu__item" href="admin_dashboard.php"><i class="side-menu__icon fas fa-window-restore"></i><span class="side-menu__label">Dashboard</span></a>
+							<a class="side-menu__item" href="<?php echo base_url('admin_dashboard');?>"><i class="side-menu__icon fas fa-window-restore"></i><span class="side-menu__label">Dashboard</span></a>
 						</li>
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Category</span><i class="angle fas fa-angle-right"></i></a>
