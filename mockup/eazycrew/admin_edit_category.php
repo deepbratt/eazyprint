@@ -84,13 +84,13 @@
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
-		<script src="js/jquery.timepicker.js"></script>
-		<script src="js/toggles.min.js"></script>
+		<script src="../js/jquery.timepicker.js"></script>
+		<script src="../js/toggles.min.js"></script>
 
 		<!-- Datepicker js -->
-		<script src="js/spectrum.js"></script>
-		<script src="js/jquery-ui.js"></script>
-		<script src="js/jquery.maskedinput.js"></script>
+		<script src="../js/spectrum.js"></script>
+		<script src="../js/jquery-ui.js"></script>
+		<script src="../js/jquery.maskedinput.js"></script>
 	</body>
 
 </html>
