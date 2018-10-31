@@ -57,18 +57,21 @@
 											<a href="#" class="btn btn-success">Read More!</a>
 										</div>
 										<div class="col-md-6 bg-muted border p-5">
-											<form action="" method="post" novalidate="novalidate">
+											<div class="alert alert-danger">
+												<strong>Info:</strong> you should do an action.
+											</div>
+											<form class="needs-validation" novalidate action="<?php echo base_url('dealers_signup/add_account');?>" method="post" >
 											<div class="card-title">Creare your account</div>
 											  <div class="row">
 												  <div class="col-6">
 													  <div class="form-group">
 														  <label class="control-label mb-1">First Name</label>
-														  <input  name="cc-payment" type="text" placeholder="Enter First Name" class="form-control">
+														  <input  name="first_name" type="text" placeholder="Enter First Name" class="form-control">
 													  </div>
 												  </div>
 												  <div class="col-6">
 													  <label class="control-label mb-1">Last Name</label>
-													  <input  name="cc-payment" type="text" placeholder="Enter Last Name" class="form-control">
+													  <input  name="last_name" type="text" placeholder="Enter Last Name" class="form-control">
 												  </div>
 											  </div>
 
@@ -76,12 +79,12 @@
 												  <div class="col-6">
 													  <div class="form-group">
 														  <label class="control-label mb-1">Email</label>
-														  <input  name="cc-payment" type="text" placeholder="Enter Your Email" class="form-control">
+														  <input  name="email" type="email" placeholder="Enter Your Email" class="form-control">
 													  </div>
 												  </div>
 												  <div class="col-6">
 													  <label class="control-label mb-1">Phone</label>
-													  <input  name="cc-payment" type="text" placeholder="Enter Your Phone Number" class="form-control">
+													  <input  name="phone" type="number" placeholder="Enter Your Phone Number" class="form-control">
 												  </div>
 											  </div>
 
@@ -131,7 +134,7 @@
 												  </div>
 												  <div class="col-6">
 													  <label class="control-label mb-1">City</label>
-													  <input  name="cc-payment" type="text" placeholder="Enter Your City" class="form-control">
+													  <input  name="city" type="text" placeholder="Enter Your City" class="form-control">
 												  </div>
 											  </div>
 
@@ -139,7 +142,7 @@
 												  <div class="col-12">
 													  <div class="form-group">
 														  <label class="control-label mb-1">Address</label>
-														  <input  name="cc-payment" type="text" placeholder="Enter Your Address" class="form-control">
+														  <input  name="address" type="text" placeholder="Enter Your Address" class="form-control">
 													  </div>
 												  </div>
 											  </div>
@@ -148,7 +151,7 @@
 												  <div class="col-12">
 													  <div class="form-group">
 														  <label class="control-label mb-1">Shop Name</label>
-														  <input  name="cc-payment" type="text" placeholder="Enter Shop Name" class="form-control">
+														  <input  name="shop_name" type="text" placeholder="Enter Shop Name" class="form-control">
 													  </div>
 												  </div>
 											  </div>
@@ -158,18 +161,32 @@
 												  <div class="col-6">
 													  <div class="form-group">
 														  <label class="control-label mb-1">GST</label>
-														  <input  name="cc-payment" type="text" placeholder="Enter Your GST Number" class="form-control">
+														  <input  name="gst" type="text" placeholder="Enter Your GST Number" class="form-control">
 													  </div>
 												  </div>
 												  <div class="col-6">
 													  <label class="control-label mb-1">Trade License</label>
-													  <input  name="cc-payment" type="text" placeholder="Enter Your Trade License Number" class="form-control">
+													  <input  name="trade_license" type="text" placeholder="Enter Your Trade License Number" class="form-control">
+												  </div>
+											  </div>
+
+											  <div class="row">
+												  <div class="col-6">
+													  <div class="form-group">
+														  <label class="control-label mb-1">Password</label>
+														  <input  name="password" type="password" placeholder="Enter Your GST Number" class="form-control">
+													  </div>
+												  </div>
+												  <div class="col-6">
+													  <label class="control-label mb-1">Confirm Password</label>
+													  <input  name="confirm_password" type="password" placeholder="Enter Your Trade License Number" class="form-control">
+													  <span style="color:red;font-weight: bold;">Password Doesn't Match</span>
 												  </div>
 											  </div>
 											  
 
 											  <div class="card-footer">
-												<a href="<?php echo base_url('dealers_dashboard');?>" class="btn btn-primary">Sign Up</a>&nbsp;OR&nbsp;
+												<button type="submit" class="btn btn-primary">Sign Up</button>&nbsp;OR&nbsp;
 												<a href="<?php echo base_url('dealers_login');?>" class="btn btn-primary">Login Here</a>
 											  </div>
 										  </form>
@@ -182,6 +199,27 @@
 				</div>
 
 				<?php $this->load->view("common/footer");?>
+
+				<script>
+				// Example starter JavaScript for disabling form submissions if there are invalid fields
+				(function() {
+				  'use strict';
+				  window.addEventListener('load', function() {
+					// Fetch all the forms we want to apply custom Bootstrap validation styles to
+					var forms = document.getElementsByClassName('needs-validation');
+					// Loop over them and prevent submission
+					var validation = Array.prototype.filter.call(forms, function(form) {
+					  form.addEventListener('submit', function(event) {
+						if (form.checkValidity() === false) {
+						  event.preventDefault();
+						  event.stopPropagation();
+						}
+						form.classList.add('was-validated');
+					  }, false);
+					});
+				  }, false);
+				})();
+				</script>
 				
 	</body>
 </html>
