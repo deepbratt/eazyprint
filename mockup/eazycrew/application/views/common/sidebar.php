@@ -15,6 +15,24 @@
 						<li class="slide">
 							<a class="side-menu__item" href="<?php echo base_url('admin_dashboard');?>"><i class="side-menu__icon fas fa-window-restore"></i><span class="side-menu__label">Dashboard</span></a>
 						</li>
+						<?php
+						if($this->session->userdata['logged_in']['crew_role'] == 'admin')
+						{
+						?>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Crew Member</span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_crew');?>" class="slide-item">Add Crew Member</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_crew_listing');?>" class="slide-item">View Crew Members</a>
+								</li>
+							</ul>
+						</li>
+						<?php
+						}
+						?>
 						<li class="slide">
 							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Category</span><i class="angle fas fa-angle-right"></i></a>
 							<ul class="slide-menu">
