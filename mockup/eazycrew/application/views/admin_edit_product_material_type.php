@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Edit Subcategory</title>
+		<title>Eazyprint | Edit Product Metarial Type</title>
 
 <?php
 $this->load->view("common/metalinks");
@@ -37,10 +37,10 @@ $this->load->view("common/sidebar");
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Edit Subcategory</h4>
+							<h4 class="page-title">Edit Product Metarial Type</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Edit Subcategory</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Product Metarial Type</li>
 							</ol>
 						</div>
 						<div class="row">
@@ -50,34 +50,17 @@ $this->load->view("common/sidebar");
 
 								<form  method="post" class="card">
 									<div class="card-header">
-										<h3 class="card-title">Edit Subcategory</h3>
+										<h3 class="card-title">Edit Product Metarial Type</h3>
 									</div>
 									<div class="card-body">
 									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Choose Category</label>
+												<label class="form-label">Product Metarial Type</label>
 											</div>
 											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Category</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
-												</select>
-											</div>
-										  </div>
-										</div>
-									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Subcategory Name</label>
-											</div>
-											<div class="col-md-10">
-												<input type="text" class="form-control" placeholder="New Subcategory Name">
+											 <input type="text" class="form-control" placeholder="New Product Metarial Type">
 											</div>
 										  </div>
 										</div>

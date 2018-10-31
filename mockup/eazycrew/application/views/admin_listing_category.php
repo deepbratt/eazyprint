@@ -12,31 +12,37 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
 		<title>Eazyprint | Listing Category</title>
 
-        <?php include('metalinks.php');?>
+<?php
+$this->load->view("common/metalinks");
+?>
 		<!-- Data table css -->
-		<link href="../css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url();?>css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 	</head>
 	<body class="app sidebar-mini rtl">
 		<div class="page">
 			<div class="page-main">
-				<?php include('header.php');?>
+<?php
+$this->load->view("common/header");
+?>
 
-				<?php include('sidebar.php');?>
+<?php
+$this->load->view("common/sidebar");
+?>
 
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing Category</h4>
+							<h4 class="page-title">Category Listing</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Elements</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
+								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Category Listing</li>
 							</ol>
 						</div>
 						<div class="row">
@@ -70,7 +76,7 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_category.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_category" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
@@ -82,7 +88,7 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_category.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_category" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
@@ -94,7 +100,7 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_category.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_category" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
@@ -111,7 +117,9 @@
 						</div>
 					</div>
 					<!--footer-->
-					<?php include('footer.php');?>
+<?php
+$this->load->view("common/footer");
+?>
 					<!-- End Footer-->
 				</div>
 			</div>
@@ -121,8 +129,8 @@
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 
 		<!-- Data tables -->
-		<script src="../js/jquery.dataTables.min.js"></script>
-		<script src="../js/dataTables.bootstrap4.min.js"></script>
+		<script src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
+		<script src="<?php echo base_url();?>js/dataTables.bootstrap4.min.js"></script>
 		<!-- Data table js -->
 		<script>
 			$(function(e) {

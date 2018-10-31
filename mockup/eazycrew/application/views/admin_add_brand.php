@@ -12,8 +12,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
 		<title>Eazyprint | Add Brand</title>
@@ -39,8 +39,8 @@ $this->load->view("common/sidebar");
 						<div class="page-header">
 							<h4 class="page-title">Add Brand</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Elements</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
+								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Add Brand</li>
 							</ol>
 						</div>
 						<div class="row">
@@ -62,23 +62,6 @@ $this->load->view("common/sidebar");
 													<option value="Electronics">Electronics</option>
 													<option value="Fashion">Fashion</option>
 													<option value="Gift Items" >Gift Items</option>
-												</select>
-											</div>
-										  </div>
-										</div>
-									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Choose Subcategory</label>
-											</div>
-											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Subcategory</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
 												</select>
 											</div>
 										  </div>

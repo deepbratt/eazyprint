@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Listing Brand</title>
+		<title>Eazyprint | Listing Product Shape</title>
 
 <?php
 $this->load->view("common/metalinks");
@@ -39,10 +39,10 @@ $this->load->view("common/sidebar");
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Brand Listing</h4>
+							<h4 class="page-title">Product Shape Listing</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Brand Listing</li>
+								<li class="breadcrumb-item active" aria-current="page">Product Shape Listing</li>
 							</ol>
 						</div>
 						<div class="row">
@@ -50,18 +50,16 @@ $this->load->view("common/sidebar");
 								<div class="card">
 									<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
 									<div class="card-header">
-										<div class="card-title">Listing Brand</div>
+										<div class="card-title">Listing Product Shape</div>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Brand Id
+													<th class="wd-15p">Product Shape Id
 													</th>
-													<th class="wd-15p">Subcategory Name
-													</th>
-													<th class="wd-15p">Brand Name
+													<th class="wd-15p">Product Shape
 													</th>
 													<th class="wd-20p">Added Date
 													</th>
@@ -73,59 +71,40 @@ $this->load->view("common/sidebar");
 												  <tr>
 													<td>0001
 													</td>
-													<td>Mobile Case
-													</td>
-													<td>Nokia
+													<td>Electronics
 													</td>
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
 												  <tr>
 													<td>0002
 													</td>
-													<td>Mobile Case
-													</td>
-													<td>Samsung
+													<td>Fashion
 													</td>
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
 												  <tr>
 													<td>0003
 													</td>
-													<td>T-Shirt
-													</td>
-													<td>Adidas
+													<td>Gift Items
 													</td>
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
-												  <tr>
-													<td>0004
-													</td>
-													<td>Mugs
-													</td>
-													<td>China Clay
-													</td>
-													<td>26/10/2018
-													</td>
-													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
-													</td>
-												  </tr>
+													
 												</tbody>
 											  </table>
 										</div>
