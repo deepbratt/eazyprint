@@ -59,8 +59,8 @@ $this->load->view("common/sidebar");
 													<th class="wd-15p">Crew Name</th>
 													<th class="wd-15p">Crew Email</th>
 													<th class="wd-20p">Crew Role</th>
-													<th class="wd-20p">Crew Status</th>
 													<th class="wd-20p">Crew Joining Date</th>
+													<th class="wd-20p">Crew Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
@@ -72,11 +72,15 @@ $this->load->view("common/sidebar");
 													<td><?php echo $get_details->crew_fname;?>&nbsp<?php echo $get_details->crew_lname;?></td>
 													<td><?php echo $get_details->crew_email;?></td>
 													<td><?php echo $get_details->crew_role;?></td>
-													<td><?php echo (($get_details->crew_status == 1)?'Active':'Inactive');?></td>
 													<td><?php echo date('d/m/Y',$get_details->crew_date);?></td>
 													<td>
-														<a href="<?php echo base_url();?>admin_edit_category" class="btn btn-primary">Edit</a>
-														<a href="javascript:void(0);" class="btn btn-primary">Inactive</a>
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($get_details->crew_status == 1)?'checked':'');?> onchange="change_status('<?php echo $get_details->crew_id?>','<?php echo $get_details->crew_status?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
+													<td>
+														<a href="<?php echo base_url('admin_edit_crew');?>/<?php echo  $get_details->crew_id;?>" class="btn btn-primary">Edit</a>
 													</td>
 												  </tr>
 												<?php
@@ -113,6 +117,11 @@ $this->load->view("common/footer");
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(crew_id,crew_status)
+			{
+				alert(crew_status);
+			}
 		</script>
 
 
