@@ -14,7 +14,7 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
+		<link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet">
 		<!-- Title -->
 		<title>Eazyprint | Add Design</title>
 
@@ -123,16 +123,11 @@
 													<label class="form-label">Image</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="file" class="form-control" id="images" name="userfile[]" onchange="preview_images();" multiple/>
+												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple"/>
 												</div>
 											  </div>
 										</div>
-										<div class="form-group">
-		                                    <label class="col-lg-2 col-sm-2 control-label"></label>
-		                                    <div class="col-lg-12">
-		                                        <div class="row" id="image_preview"></div>
-		                                    </div>
-		                                </div>
+										
 									  
 									</div>
 									<div class="card-footer text-right">
@@ -164,15 +159,12 @@
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
-		<script>
-			function preview_images(){
-			 var total_file=document.getElementById("images").files.length;
-			 for(var i=0;i<total_file;i++)
-			 {
-			  $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' style='height:100px;padding:3px;' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
-			 }
-			}
-		</script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                $('input[type="file"]').imageuploadify();
+            })
+        </script>
 		<script>
 			function cat_id(e){
 			/*ajax code start*/

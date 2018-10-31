@@ -14,9 +14,9 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
+		<link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet">
 		<!-- Title -->
-		<title>Eazyprint | Add Design</title>
+		<title>Eazyprint | Edit Design</title>
 
 	<?php
 	$this->load->view("common/metalinks");
@@ -37,17 +37,17 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Design</h4>
+							<h4 class="page-title">Edit Design</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Admin</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Design</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Design</li>
 							</ol>
 						</div>
 						<div class="row">
 						<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_add_design/add_design');?>" enctype="multipart/form-data">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_design/update_design');?>" enctype="multipart/form-data">
 									<div class="card-header">
-										<h3 class="card-title">Add Design</h3>
+										<h3 class="card-title">Edit Design</h3>
 									</div>
 									<div class="card-body">
 										<?php
@@ -123,16 +123,11 @@
 													<label class="form-label">Image</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="file" class="form-control" id="images" name="userfile[]" onchange="preview_images();" multiple/>
+												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple"/>
 												</div>
 											  </div>
 										</div>
-										<div class="form-group">
-		                                    <label class="col-lg-2 col-sm-2 control-label"></label>
-		                                    <div class="col-lg-12">
-		                                        <div class="row" id="image_preview"></div>
-		                                    </div>
-		                                </div>
+										
 									  
 									</div>
 									<div class="card-footer text-right">
@@ -164,20 +159,17 @@
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
-		<script>
-			function preview_images(){
-			 var total_file=document.getElementById("images").files.length;
-			 for(var i=0;i<total_file;i++)
-			 {
-			  $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' style='height:100px;padding:3px;' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
-			 }
-			}
-		</script>
+		<script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                $('input[type="file"]').imageuploadify();
+            })
+        </script>
 		<script>
 			function cat_id(e){
 			/*ajax code start*/
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
+		        url: '<?php echo base_url();?>admin_edit_design/ajax_fetch_sub_category',
 		        data: {'category_id': e,}, // change this to send js object
 		        type: "post",
 		        success: function(response){
