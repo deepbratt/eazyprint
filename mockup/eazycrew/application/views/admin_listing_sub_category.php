@@ -45,6 +45,16 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Subcategory Listing</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -63,56 +73,35 @@ $this->load->view("common/sidebar");
 													</th>
 													<th class="wd-15p">Subcategory Name
 													</th>
-													<th class="wd-20p">Added Date
-													</th>
 													<th class="wd-15p">Action
 													</th>
 												  </tr>
 												</thead>
 												<tbody>
+												<?php
+												$i = 1;
+												foreach($sub_category_fetch AS $sub_cat_fetch)
+												{
+												?>
 												  <tr>
-													<td>0001
-													</td>
-													<td>Electronics
-													</td>
-													<td>Phone Cases
-													</td>
-													<td>26/10/2018
+													<td><?php echo $i; ?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_sub_category" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<?php 
+														$cat_id = $sub_cat_fetch->parent_cat_id;
+														$this->load->model('admin_listing_sub_category_m');
+														$category = $this->admin_listing_sub_category_m->cat_name($cat_id);
+														echo $category->category_name;
+													?>
 													</td>
-												  </tr>
-												  <tr>
-													<td>0002
-													</td>
-													<td>Fashion
-													</td>
-													<td>T-Shirt
-													</td>
-													<td>26/10/2018
+													<td><?php echo $sub_cat_fetch->sub_category_name;?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_sub_category" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<a href="<?php echo base_url('admin_edit_sub_category');?>/<?php echo $sub_cat_fetch->sub_category_id;?>" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url('admin_listing_sub_category');?>/dlt_sub_category/<?php echo $sub_cat_fetch->sub_category_id;?>" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
-												  <tr>
-													<td>0003
-													</td>
-													<td>Gift Items
-													</td>
-													<td>Mugs
-													</td>
-													<td>26/10/2018
-													</td>
-													<td>
-													<a href="<?php echo base_url();?>admin_edit_sub_category" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
-													</td>
-												  </tr>
-													
+												<?php $i++; } ?>
 												</tbody>
 											  </table>
 										</div>

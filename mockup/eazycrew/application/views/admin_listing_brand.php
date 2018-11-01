@@ -45,6 +45,16 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Brand Listing</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -63,69 +73,36 @@ $this->load->view("common/sidebar");
 													</th>
 													<th class="wd-15p">Brand Name
 													</th>
-													<th class="wd-20p">Added Date
-													</th>
 													<th class="wd-15p">Action
 													</th>
 												  </tr>
 												</thead>
 												<tbody>
+												<?php
+												$i = 1;
+												foreach($brand_fetch AS $fetch_brand)
+												{
+												?>
 												  <tr>
-													<td>0001
-													</td>
-													<td>Mobile Case
-													</td>
-													<td>Nokia
-													</td>
-													<td>26/10/2018
+													<td><?php echo $i;?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<?php 
+														$sub_category = $fetch_brand->sub_category;
+														$this->load->model('admin_listing_brand_m');
+														$get_sub_name = $this->admin_listing_brand_m->fetch_category_name($sub_category);
+														echo $get_sub_name->sub_category_name; 
+														
+													?>
 													</td>
-												  </tr>
-												  <tr>
-													<td>0002
-													</td>
-													<td>Mobile Case
-													</td>
-													<td>Samsung
-													</td>
-													<td>26/10/2018
+													<td><?php echo $fetch_brand->brand_name;?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<a href="<?php echo base_url();?>admin_edit_brand/<?php echo $fetch_brand->brand_id;?>" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url('admin_listing_brand');?>/dlt_brand/<?php echo $fetch_brand->brand_id;?>" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
-												  <tr>
-													<td>0003
-													</td>
-													<td>T-Shirt
-													</td>
-													<td>Adidas
-													</td>
-													<td>26/10/2018
-													</td>
-													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
-													</td>
-												  </tr>
-												  <tr>
-													<td>0004
-													</td>
-													<td>Mugs
-													</td>
-													<td>China Clay
-													</td>
-													<td>26/10/2018
-													</td>
-													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
-													</td>
-												  </tr>
+												 <?php $i++; } ?>
 												</tbody>
 											  </table>
 										</div>

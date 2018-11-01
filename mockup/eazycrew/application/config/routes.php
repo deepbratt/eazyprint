@@ -52,9 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-<<<<<<< HEAD
 $route['admin_edit_category/(:num)'] = "admin_edit_category";
-$route['admin_edit_category/dlt_category/(:num)'] = "admin_edit_category";
-=======
+$route['admin_edit_category/(:num)'] = "admin_edit_category";
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
->>>>>>> fd7d6a404092c14fdb08dca65b6c3cc3233cef51
+$route['admin_listing_brand/(:num)'] = "admin_listing_brand";
+$route['admin_edit_brand/(:num)'] = "admin_edit_brand";
+$route['admin_listing_sub_category/(:num)'] = "admin_listing_sub_category";
+$route['admin_edit_sub_category/(:num)'] = "admin_edit_sub_category";

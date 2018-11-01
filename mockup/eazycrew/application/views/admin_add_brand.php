@@ -43,36 +43,57 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Brand</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_add_brand');?>/admin_add_brand">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_brand');?>/brand_add">
 									<div class="card-header">
 										<h3 class="card-title">Add Brand</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Choose Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="cat_name" id="select-countries" class="form-control custom-select">
+												<select name="cat_name" id="select-countries" class="form-control custom-select" onchange="add_sub(this.value);">
 													<option value="" selected="">Choose Category</option>
 											<?php
-												$this->load->model('admin_add_sub_category_m');
-												$get_category = $this->admin_add_sub_category_m->fetch_category();
+												$this->load->model('admin_add_brand_m');
+												$get_category = $this->admin_add_brand_m->fetch_category();
 												foreach($get_category AS $cat_get)
 												{
 											?>
-													<option value="<?php echo $cat_get->category_name;?>"><?php echo $cat_get->category_name;?></option>
+													<option value="<?php echo $cat_get->category_id;?>"><?php echo $cat_get->category_name;?></option>
 											<?php } ?>
 												</select>
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
+
+									  	<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Subcategory</label>
+											</div>
+											<div class="col-md-10">
+												<select name="sub_category" class="form-control custom-select sub_categoryz">
+													<option value="" selected="">Choose Subcategory</option>
+												</select>
+											</div>
+										  </div>
+										</div>
+									 
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-2">
@@ -83,8 +104,7 @@ $this->load->view("common/sidebar");
 												</div>
 											  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
+									  
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-2">
@@ -96,7 +116,6 @@ $this->load->view("common/sidebar");
 											  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
@@ -118,6 +137,20 @@ $this->load->view("common/footer");
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
+			<script>
+			function add_sub(e){
+			/*ajax code start*/
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_add_brand/ajax_fetch_sub_category',
+		        data: {'category_id': e,}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+		          $('.sub_categoryz').html(response);
+		        }
+		      });
+    		 /* ajax code ends*/
+    	}
+		</script>
 		<!-- Timepicker js -->
 		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
 		<script src="<?php echo base_url();?>js/toggles.min.js"></script>
