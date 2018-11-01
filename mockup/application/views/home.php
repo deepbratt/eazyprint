@@ -278,7 +278,7 @@ $this->load->view("common/header");
 
 					
 						
-						<!--<p>&nbsp;</p>
+						<p>&nbsp;</p>
 						<h1 class="page-title" style="text-align:center;font-size:26px;"> About Us </h1>
 						<p>&nbsp;</p>
 
@@ -290,7 +290,7 @@ $this->load->view("common/header");
 									</div>
 									<div class="col-md-12 col-lg-6  pl-0 ">
 										<div class="card-body p-6 about-con pabout">
-											<h2 class="mb-4 font-weight-semibold">Who we are ?</h2>
+											<h2 class="mb-4 font-weight-semibold">What we are doing?</h2>
 											<h4 class="leading-normal">majority have suffered alteration in some form, by injected humour</h4>
 											<p class="leading-normal">There are many variations of passages of Lorem Ipsum available, but the majority have suffered  by injected humour, or randomised words which don't look even slightly believable.
 											If you are going to use a passage of Lorem Ipsum, you need to as necessary</p>
@@ -298,7 +298,7 @@ $this->load->view("common/header");
 									</div>
 									<div class="col-md-12 col-lg-6  pr-0 ">
 										<div class="card-body p-6 pabout">
-											<h2 class="mb-4 font-weight-semibold">What we are doing?</h2>
+											<h2 class="mb-4 font-weight-semibold">Why eazyprint?</h2>
 											<h4 class="leading-normal">majority have suffered alteration in some form, by injected humour</h4>
 											<p class="leading-normal">There are many variations of passages of Lorem Ipsum available, but the majority have suffered  by injected humour, or randomised words which don't look even slightly believable.
 											If you are going to use a passage of Lorem Ipsum, you need to as necessary</p>
@@ -310,8 +310,7 @@ $this->load->view("common/header");
 								</div>
 							</div>
 						</div>
-						-->
-						<!--- how it works -->
+						
 						<p>&nbsp;</p>
 						<h1 class="page-title" style="text-align:center;font-size:26px;"> How it works </h1>
 
@@ -322,6 +321,14 @@ $this->load->view("common/header");
 										<div class="timeline">
 											<div class="timeline__wrap">
 												<div class="timeline__items">
+													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
+															<h2>Choose / Design</h2>
+															<p>Design yourself or choose premade designs by designers</p>
+														</div>
+													</div>
+
 													<div class="timeline__item">
 														<div class="timeline__content card ">
 														<div class="card-status bg-purple br-tr-3 br-tl-3"></div>
@@ -339,16 +346,11 @@ $this->load->view("common/header");
 													<div class="timeline__item">
 														<div class="timeline__content card">
 															<div class="card-status bg-blue br-tr-3 br-tl-3"></div>
-															<img src="images/banners/what-we-do.jpg" alt="img">
+															<h2>Delivery</h2>
+															<p>Logistics take product from supplier and deliver to your doorsteps.</p>
 														</div>
 													</div>
-													<div class="timeline__item">
-														<div class="timeline__content card">
-															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
-															<h2>25th July 2018</h2>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
-														</div>
-													</div>
+													
 
 			
 												</div>
