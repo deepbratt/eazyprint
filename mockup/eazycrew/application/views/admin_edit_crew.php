@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Add Crew</title>
+		<title>Eazyprint | Edit Crew</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -31,17 +31,17 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Crew</h4>
+							<h4 class="page-title">Edit Crew</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Crew</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Crew</li>
 							</ol>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_add_crew/add_crew');?>">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_crew/update_crew');?>/<?php echo $this->uri->segment(2);?>">
 									<div class="card-header">
-										<h3 class="card-title">Add Crew</h3>
+										<h3 class="card-title">Edit Crew</h3>
 									</div>
 
 									<div class="card-body">
@@ -53,13 +53,6 @@
 												</div>
 											<?php
 											}
-											if($this->session->flashdata('failed')){
-											?>
-												<div class="alert alert-danger">
-													<strong><?php echo $this->session->flashdata('failed');?></strong>
-												</div>
-											<?php
-											}
 											?>
 											<div class="form-group">
 												<div class="row">
@@ -67,7 +60,7 @@
 													<label class="form-label">First Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" name="f_name" placeholder="Enter First Name">
+													<input type="text" class="form-control" value="<?php echo $crew_details->crew_fname;?>" name="f_name" placeholder="Enter First Name">
 												  </div>
 												</div>
 											</div>
@@ -78,7 +71,7 @@
 													<label class="form-label">Last Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" name="l_name" placeholder="Enter last Name">
+													<input type="text" class="form-control" value="<?php echo $crew_details->crew_lname;?>" name="l_name" placeholder="Enter last Name">
 												  </div>
 												</div>
 											</div>
@@ -89,22 +82,11 @@
 													<label class="form-label">Email</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="email" class="form-control" name="email" placeholder="Enter Email">
+													<input type="email" class="form-control" value="<?php echo $crew_details->crew_email;?>" name="email" placeholder="Enter Email">
 												  </div>
 												</div>
 											</div>
 										
-											<div class="form-group">
-												<div class="row">
-												  <div class="col-md-2">
-													<label class="form-label">Password</label>
-												  </div>
-												  <div class="col-md-10">
-													<input type="password" class="form-control" name="password" placeholder="Enter Password">
-												  </div>
-												</div>
-											</div>
-									  
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
@@ -113,20 +95,20 @@
 												  <div class="col-md-10">
 													<div class="selectgroup selectgroup-pills">
 														<label class="selectgroup-item">
-															<input type="radio" name="role" value="admin" class="selectgroup-input">
+															<input type="radio" name="role" value="admin" class="selectgroup-input" <?php echo(($crew_details->crew_role == 'admin')?'checked':'');?>>
 															<span class="selectgroup-button">Admin</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="radio" name="role" value="sales" class="selectgroup-input">
-															<span class="selectgroup-button">Sales</span>
+															<input type="radio" name="role" value="sales" class="selectgroup-input" <?php echo(($crew_details->crew_role == 'sales')?'checked':'');?>>
+															<span class="selectgroup-button" >Sales</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="radio" name="role" value="operation" class="selectgroup-input">
-															<span class="selectgroup-button">Operation</span>
+															<input type="radio" name="role" value="operation" class="selectgroup-input" <?php echo(($crew_details->crew_role == 'operation')?'checked':'');?>>
+															<span class="selectgroup-button" >Operation</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="radio" name="role" value="accounts" class="selectgroup-input">
-															<span class="selectgroup-button">Accounts</span>
+															<input type="radio" name="role" value="accounts" class="selectgroup-input" <?php echo(($crew_details->crew_role == 'accounts')?'checked':'');?>>
+															<span class="selectgroup-button" >Accounts</span>
 														</label>
 													</div>
 												  </div>
