@@ -45,7 +45,7 @@ $this->load->view("common/sidebar");
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_brand');?>/admin_add_brand">
 									<div class="card-header">
 										<h3 class="card-title">Add Brand</h3>
 									</div>
@@ -57,11 +57,16 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Choose Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
+												<select name="cat_name" id="select-countries" class="form-control custom-select">
 													<option value="" selected="">Choose Category</option>
-													<option value="Electronics">Electronics</option>
-													<option value="Fashion">Fashion</option>
-													<option value="Gift Items" >Gift Items</option>
+											<?php
+												$this->load->model('admin_add_sub_category_m');
+												$get_category = $this->admin_add_sub_category_m->fetch_category();
+												foreach($get_category AS $cat_get)
+												{
+											?>
+													<option value="<?php echo $cat_get->category_name;?>"><?php echo $cat_get->category_name;?></option>
+											<?php } ?>
 												</select>
 											</div>
 										  </div>
@@ -74,7 +79,7 @@ $this->load->view("common/sidebar");
 													<label class="form-label">Add Brand Name</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="text" class="form-control" placeholder="New Brand Name">
+												 <input type="text" class="form-control" name="brand_name" placeholder="New Brand Name">
 												</div>
 											  </div>
 										</div>
@@ -86,7 +91,7 @@ $this->load->view("common/sidebar");
 													<label class="form-label">Add Brand Code</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="text" class="form-control" placeholder="New Brand Code">
+												 <input type="text" class="form-control" name="brand_code" placeholder="New Brand Code">
 												</div>
 											  </div>
 										</div>

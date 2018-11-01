@@ -43,12 +43,19 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Subcategory</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
-
-
-
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_sub_category');?>/add_sub_category">
 									<div class="card-header">
 										<h3 class="card-title">Add Subcategory</h3>
 									</div>
@@ -59,12 +66,18 @@ $this->load->view("common/sidebar");
 											<div class="col-md-2">
 												<label class="form-label">Choose Category</label>
 											</div>
+												
 											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Category</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
+												<select id="select-countries" name="cat_name" class="form-control custom-select">
+													<option value="">Choose Category</option>
+												<?php
+													$this->load->model('admin_add_sub_category_m');
+													$get_category = $this->admin_add_sub_category_m->fetch_category();
+													foreach($get_category AS $cat_get)
+													{
+												?>
+													<option value="<?php echo $cat_get->category_name;?>"><?php echo $cat_get->category_name;?></option>
+												<?php } ?>
 												</select>
 											</div>
 										  </div>
@@ -77,7 +90,7 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Subcategory Name</label>
 											</div>
 											<div class="col-md-10">
-												<input type="text" class="form-control" placeholder="New Subcategory Name">
+												<input type="text" class="form-control" name="sub_cat_name" placeholder="New Subcategory Name">
 											</div>
 										  </div>
 										</div>

@@ -43,9 +43,20 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Category</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
+
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_category');?>/add_category">
 									<div class="card-header">
 										<h3 class="card-title">Add Category</h3>
 									</div>
@@ -57,7 +68,7 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Category Name</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Category Name">
+											 <input type="text" class="form-control" name="category_name" placeholder="New Category Name">
 											</div>
 										  </div>
 										</div>
