@@ -43,9 +43,19 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Edit Brand</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_brand');?>/edit_brand">
 									<div class="card-header">
 										<h3 class="card-title">Edit Brand</h3>
 									</div>
@@ -54,14 +64,38 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
+												<label class="form-label">Choose category</label>
+											</div>
+											<div class="col-md-10">
+												<select name="category" id="select-countries" class="form-control custom-select" onchange="add_brand(this.value);">
+													<option value="" selected="">Choose Category</option>
+											<?php
+													$this->load->model('admin_edit_brand_m');
+													$edit_brand = $this->admin_edit_brand_m->brand_edit();
+													$sub_category = $brand_fetch->sub_category;
+													$get_cat_id = $this->admin_edit_brand_m->get_something($sub_category);
+													$get_category = $get_cat_id->parent_cat_id;
+													foreach($edit_brand AS $brand_edt)
+													{
+											?>
+													<option value="<?php echo $brand_edt->category_id;?>" <?php echo (($brand_edt->category_id == $get_category)?'selected':'')?>><?php echo $brand_edt->category_name;?></option>
+											<?php } ?>
+												</select>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="col-md-12">
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
 												<label class="form-label">Choose Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Subcategory</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
+												<select id="select-countries" name="sub_category" class="form-control custom-select sub_categoryz">
+
+													<option value="<?php echo $sub_category;?>" selected=""><?php echo $get_cat_id->sub_category_name; ?></option>
+													
 												</select>
 											</div>
 										  </div>
@@ -74,7 +108,7 @@ $this->load->view("common/sidebar");
 													<label class="form-label">Add Brand Name</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="text" class="form-control" placeholder="New Brand Name">
+												 <input type="text" class="form-control" placeholder="New Brand Name" name="brand_name" value="<?php echo $brand_fetch->brand_name;?>">
 												</div>
 											  </div>
 										</div>
@@ -86,7 +120,8 @@ $this->load->view("common/sidebar");
 													<label class="form-label">Add Brand Code</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="text" class="form-control" placeholder="New Brand Code">
+												 <input type="text" class="form-control" placeholder="New Brand Code" name="brand_code" value="<?php echo $brand_fetch->brand_code;?>">
+												 <input type="hidden" name="brand_id" value="<?php echo $brand_fetch->brand_id;?>">
 												</div>
 											  </div>
 										</div>
@@ -113,6 +148,22 @@ $this->load->view("common/footer");
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
+
+		<script>
+			function add_brand(f){
+			/*ajax code start*/
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_edit_brand/ajax_fetch_sub_brand',
+		        data: {'category_id': f,}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+		          $('.sub_categoryz').html(response);
+		        }
+		      });
+    		 /* ajax code ends*/
+    	}
+		</script>
+
 		<!-- Timepicker js -->
 		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
 		<script src="<?php echo base_url();?>js/toggles.min.js"></script>

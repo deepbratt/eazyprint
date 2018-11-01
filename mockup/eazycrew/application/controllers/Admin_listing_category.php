@@ -18,7 +18,7 @@ class Admin_listing_category extends CI_Controller {
 		$dlt_category = $this->admin_listing_category_m->ct_dlt($category_id);
 		if($dlt_category)
 		{
-			$this->session->set_flashdata("success", "You have successfully delete the category!");
+			$this->session->set_flashdata("success", "You have successfully deleted the category!");
 			redirect('admin_listing_category');	
 		}
 		else

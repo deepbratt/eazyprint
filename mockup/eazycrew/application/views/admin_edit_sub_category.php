@@ -43,12 +43,22 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Edit Subcategory</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
 
 
 
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_sub_category');?>/edit_sub_cat">
 									<div class="card-header">
 										<h3 class="card-title">Edit Subcategory</h3>
 									</div>
@@ -60,11 +70,18 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Choose Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
+												<select name="category" id="select-countries" class="form-control custom-select">
 													<option value="" selected="">Choose Category</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
+											<?php
+													$get_category = $sub_cat_fetch->parent_cat_id;
+													$this->load->model('admin_edit_sub_category_m');
+													$edit_sub_cat = $this->admin_edit_sub_category_m->sub_cat_edit();
+													foreach($edit_sub_cat AS $cat_sub_edt)
+													{
+											?>
+													<option value="<?php echo $cat_sub_edt->category_id;?>" <?php echo (($cat_sub_edt->category_id == $get_category)?'selected':'')?>><?php echo $cat_sub_edt->category_name;?></option>
+											<?php } ?>
+																							
 												</select>
 											</div>
 										  </div>
@@ -77,12 +94,13 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Subcategory Name</label>
 											</div>
 											<div class="col-md-10">
-												<input type="text" class="form-control" placeholder="New Subcategory Name">
+												<input type="text" class="form-control" name="sub_category" value="<?php echo $sub_cat_fetch->sub_category_name;?>" placeholder="New Subcategory Name">
 											</div>
 										  </div>
 										</div>
 									  </div>
 									</div>
+									<input type="hidden" name="sub_cat_id" value="<?php echo $sub_cat_fetch->sub_category_id;?>">
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>

@@ -76,7 +76,7 @@ $this->load->view("common/sidebar");
 													foreach($get_category AS $cat_get)
 													{
 												?>
-													<option value="<?php echo $cat_get->category_name;?>"><?php echo $cat_get->category_name;?></option>
+													<option value="<?php echo $cat_get->category_id;?>"><?php echo $cat_get->category_name;?></option>
 												<?php } ?>
 												</select>
 											</div>
