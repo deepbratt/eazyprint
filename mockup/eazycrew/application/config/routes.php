@@ -53,15 +53,9 @@ $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin_edit_category/(:num)'] = "admin_edit_category";
-<<<<<<< HEAD
-$route['admin_edit_category/(:num)'] = "admin_edit_category";
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
 $route['admin_listing_brand/(:num)'] = "admin_listing_brand";
 $route['admin_edit_brand/(:num)'] = "admin_edit_brand";
 $route['admin_listing_sub_category/(:num)'] = "admin_listing_sub_category";
 $route['admin_edit_sub_category/(:num)'] = "admin_edit_sub_category";
-=======
-$route['admin_edit_category/dlt_category/(:num)'] = "admin_edit_category";
-$route['admin_edit_crew/(:num)'] = "admin_edit_crew";
-$route['admin_edit_design/(:num)'] = "admin_edit_design";
->>>>>>> e46181c46eb605bf19e53f07913b5fdbf3e6490d
+

@@ -115,6 +115,19 @@
 												</div>
 											  </div>
 										</div>
+
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Material Color</label>
+											</div>
+											<div class="col-md-10">
+												<select name="sub_category" class="form-control custom-select sub_categoryz">
+													<option value="" selected="">Choose Subcategory</option>
+												</select>
+											</div>
+										  </div>
+										</div>
 									
 									  
 										<div class="form-group">
