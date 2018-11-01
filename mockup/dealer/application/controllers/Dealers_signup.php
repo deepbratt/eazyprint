@@ -23,8 +23,8 @@ class Dealers_signup extends CI_Controller {
 		$trade_license = $this->input->post("trade_license");
 		$date = time();
 
-		$check_exist = $this->dealers_signup_m->check_dealer($email,$phone);
-		
+		$check_exist = $this->dealers_signup_m->	;
+
 	}
 
 }

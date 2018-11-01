@@ -12,31 +12,37 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
 		<title>Eazyprint | Listing Brand</title>
 
-        <?php include('metalinks.php');?>
+<?php
+$this->load->view("common/metalinks");
+?>
 		<!-- Data table css -->
-		<link href="../css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url();?>css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 	</head>
 	<body class="app sidebar-mini rtl">
 		<div class="page">
 			<div class="page-main">
-				<?php include('header.php');?>
+<?php
+$this->load->view("common/header");
+?>
 
-				<?php include('sidebar.php');?>
+<?php
+$this->load->view("common/sidebar");
+?>
 
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing Brand</h4>
+							<h4 class="page-title">Brand Listing</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Elements</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
+								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Brand Listing</li>
 							</ol>
 						</div>
 						<div class="row">
@@ -53,8 +59,6 @@
 												  <tr>
 													<th class="wd-15p">Brand Id
 													</th>
-													<th class="wd-15p">Category Name
-													</th>
 													<th class="wd-15p">Subcategory Name
 													</th>
 													<th class="wd-15p">Brand Name
@@ -69,8 +73,6 @@
 												  <tr>
 													<td>0001
 													</td>
-													<td>Electronics
-													</td>
 													<td>Mobile Case
 													</td>
 													<td>Nokia
@@ -78,14 +80,12 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_brand.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
 												  <tr>
 													<td>0002
-													</td>
-													<td>Electronics
 													</td>
 													<td>Mobile Case
 													</td>
@@ -94,14 +94,12 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_brand.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
 												  <tr>
 													<td>0003
-													</td>
-													<td>Fashion
 													</td>
 													<td>T-Shirt
 													</td>
@@ -110,14 +108,12 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_brand.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
 												  <tr>
 													<td>0004
-													</td>
-													<td>Gift Items
 													</td>
 													<td>Mugs
 													</td>
@@ -126,7 +122,7 @@
 													<td>26/10/2018
 													</td>
 													<td>
-													<a href="admin_edit_brand.php" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_brand" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
@@ -142,7 +138,9 @@
 						</div>
 					</div>
 					<!--footer-->
-					<?php include('footer.php');?>
+<?php
+$this->load->view("common/footer");
+?>
 					<!-- End Footer-->
 				</div>
 			</div>
@@ -152,8 +150,8 @@
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 
 		<!-- Data tables -->
-		<script src="../js/jquery.dataTables.min.js"></script>
-		<script src="../js/dataTables.bootstrap4.min.js"></script>
+		<script src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
+		<script src="<?php echo base_url();?>js/dataTables.bootstrap4.min.js"></script>
 		<!-- Data table js -->
 		<script>
 			$(function(e) {

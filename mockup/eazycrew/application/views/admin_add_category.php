@@ -12,34 +12,51 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
 
 		<!-- Title -->
 		<title>Eazyprint | Add Category</title>
 
-       <?php include('metalinks.php');?>
+<?php
+$this->load->view("common/metalinks");
+?>
 	</head>
 	<body class="app sidebar-mini rtl">
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
 		<div class="page">
 			<div class="page-main">
-				<?php include('header.php');?>
+<?php
+$this->load->view("common/header");
+?>
 
-				<?php include('sidebar.php');?>
+<?php
+$this->load->view("common/sidebar");
+?>
 
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
 							<h4 class="page-title">Add Category</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Elements</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
+								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Add Category</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
+
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_category');?>/add_category">
 									<div class="card-header">
 										<h3 class="card-title">Add Category</h3>
 									</div>
@@ -51,7 +68,7 @@
 												<label class="form-label">Category Name</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Category Name">
+											 <input type="text" class="form-control" name="category_name" placeholder="New Category Name">
 											</div>
 										  </div>
 										</div>
@@ -72,7 +89,9 @@
 						</div>
 					</div>
 					<!--footer-->
-					<?php include('footer.php');?>
+<?php
+$this->load->view("common/footer");
+?>
 					<!-- End Footer-->
 				</div>
 			</div>
@@ -81,13 +100,13 @@
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
-		<script src="../js/jquery.timepicker.js"></script>
-		<script src="../js/toggles.min.js"></script>
+		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
+		<script src="<?php echo base_url();?>js/toggles.min.js"></script>
 
 		<!-- Datepicker js -->
-		<script src="../js/spectrum.js"></script>
-		<script src="../js/jquery-ui.js"></script>
-		<script src="../js/jquery.maskedinput.js"></script>
+		<script src="<?php echo base_url();?>js/spectrum.js"></script>
+		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
+		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
 	</body>
 
 </html>
