@@ -53,3 +53,4 @@ $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
+$route['admin_edit_design/(:num)'] = "admin_edit_design";

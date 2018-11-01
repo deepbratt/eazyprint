@@ -87,10 +87,11 @@
 													</td>
 													<td><?php echo $each_designs->designed_by;?>
 													</td>
-													<td><img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">
+													<td><a href="<?php echo base_url();?>admin_view_design/<?php echo $each_designs->design_id;?>" class="btn btn-primary">View Design</a>
+														<!--<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">-->
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_design" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url();?>admin_edit_design/<?php echo $each_designs->design_id;?>" class="btn btn-primary">Edit</a>
 													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>

@@ -51,13 +51,13 @@
 									</div>
 									<div class="card-body">
 										<?php
-			                                if($this->session->flashdata('admin_add_design_success')){
+			                                if($this->session->flashdata('admin_edit_design_success')){
 			                            ?>
-			                                <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('admin_add_design_success');?></strong> </div>
+			                                <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('admin_edit_design_success');?></strong> </div>
 			                            <?php
-			                                }else if($this->session->flashdata('admin_add_design_failed')){
+			                                }else if($this->session->flashdata('admin_edit_design_failed')){
 			                            ?>
-			                                <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('admin_add_design_failed');?></strong> </div>
+			                                <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('admin_edit_design_failed');?></strong> </div>
 			                            <?php
 			                                }
 			                            ?>
@@ -90,7 +90,13 @@
 											</div>
 											<div class="col-md-10">
 												<select name="sub_category" class="form-control custom-select sub_categoryz">
-													<option value="" selected="">Choose Subcategory</option>
+													<?php
+														foreach($fetch_all_subcategories AS $each_subcat){
+													?>
+													<option value="<?php echo $each_subcat->sub_category_id;?>" <?php echo (($each_subcat->sub_category_id == $fetch_design_info->sub_category_id)?'selected':'')?>><?php echo $each_subcat->sub_category_name;?></option>
+													<?php
+														}
+													?>
 												</select>
 											</div>
 										  </div>
@@ -105,12 +111,12 @@
 												<div class="col-md-10">
 												 <select name="designed_by" class="form-control custom-select">
 													<option value="" selected="">Choose Designer</option>
-													<option value="Pipon Das">Pipon Das</option>
-													<option value="Rajdeep Ghosh">Rajdeep Ghosh</option>
-													<option value="Shuvradeb Mondal">Shuvradeb Mondal</option>
-													<option value="Himadri Majumder">Himadri Majumder</option>
-													<option value="Sujit Sarkar">Sujit Sarkar</option>
-													<option value="Debashis Nath">Debashis Nath</option>
+													<option value="Pipon Das" <?php echo (($fetch_design_info->designed_by == 'Pipon Das')?'selected':'')?>>Pipon Das</option>
+													<option value="Rajdeep Ghosh" <?php echo (($fetch_design_info->designed_by == 'Rajdeep Ghosh')?'selected':'')?>>Rajdeep Ghosh</option>
+													<option value="Shuvradeb Mondal" <?php echo (($fetch_design_info->designed_by == 'Shuvradeb Mondal')?'selected':'')?>>Shuvradeb Mondal</option>
+													<option value="Himadri Majumder" <?php echo (($fetch_design_info->designed_by == 'Himadri Majumder')?'selected':'')?>>Himadri Majumder</option>
+													<option value="Sujit Sarkar" <?php echo (($fetch_design_info->designed_by == 'Sujit Sarkar')?'selected':'')?>>Sujit Sarkar</option>
+													<option value="Debashis Nath" <?php echo (($fetch_design_info->designed_by == 'Debashis Nath')?'selected':'')?>>Debashis Nath</option>
 												</select>
 												</div>
 											  </div>
@@ -123,17 +129,17 @@
 													<label class="form-label">Image</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple"/>
+												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple" value=""/>
+												 <img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" style="height:120px;">
 												</div>
 											  </div>
 										</div>
-										
-									  
+
 									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<button type="reset" class="btn btn-link">Cancel</button>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
+											<button type="submit" class="btn btn-primary ml-auto">Update</button>
 										</div>
 									</div>
 								</form>

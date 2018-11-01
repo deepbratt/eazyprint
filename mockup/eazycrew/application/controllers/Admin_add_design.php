@@ -30,13 +30,11 @@ class Admin_add_design extends CI_Controller {
 		$cat_id = $this->input->post('category');
 		$subcat_id = $this->input->post('sub_category');
 		$designed_by = $this->input->post('designed_by');
-		echo $designed_by;
-		exit;
+
 		$this->load->library('upload');
 	    $dataInfo = array();
 	    $files = $_FILES;
 	    $cpt = count($_FILES['userfile']['name']);
-
 	    for($i=0; $i<$cpt; $i++){           
 	        
 	        $_FILES['userfile']['name']= $files['userfile']['name'][$i];
@@ -56,10 +54,8 @@ class Admin_add_design extends CI_Controller {
 				'sub_category_id' => $subcat_id,
 				'status' => '1'
 			);
-			print_r($records);
-			//$insert_new_designs = $this->admin_add_design_m->insert_new_designs_info($records);	
+			$insert_new_designs = $this->admin_add_design_m->insert_new_designs_info($records);	
 		}
-		exit;
 
 		if($insert_new_designs){
 			$this->session->set_flashdata("admin_add_design_success", "The new design has been added successfully...!");
