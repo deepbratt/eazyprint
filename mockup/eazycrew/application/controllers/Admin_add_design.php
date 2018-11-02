@@ -2,6 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_add_design extends CI_Controller {
+	
+	function __construct(){
+        parent::__construct();
+        if(!$this->session->userdata['logged_in']['user_id']){
+            redirect('admin_login');
+        }
+    }
 
 	public function index()
 	{
@@ -15,6 +22,9 @@ class Admin_add_design extends CI_Controller {
 		$this->load->model('admin_add_design_m');
 		$cat_id = $this->input->post('category_id');
 		$ajax_fetch_all_subcategories = $this->admin_add_design_m->ajax_fetch_subcategories($cat_id);
+	?>
+		<option selected disabled>Choose Subcategory</option>
+	<?php
 		
 		foreach($ajax_fetch_all_subcategories AS $each_subcategory){
 	 ?>
@@ -73,6 +83,7 @@ class Admin_add_design extends CI_Controller {
 	    $config = array();
 	    $config['upload_path'] = 'uploads/designs';
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+		$config['file_name'] = rand(999,99999).$_FILES['userfile']['name'];
 
 	    return $config;
 	}

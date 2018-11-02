@@ -143,6 +143,15 @@ $this->load->view("common/metalinks");
 			.slick-arrow.slick-hidden {
 				display: none;
 			}
+			.img_op{
+				opacity:1;
+			}
+			.img_op:hover{
+				opacity:0.6;
+			}
+			.product_ttl{
+				padding:10px;margin-top:-70px;background:url(images/item_name.png);z-index:2;position:absolute;width:100%;
+			}
 		</style>
 	</head>
 	<body class="app">
@@ -159,7 +168,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/Untitled-1 (2).png" alt="First slide" style="width:100%;height:550px;">
+								<img class="first-slide" src="<?php echo base_url();?>images/banners/slide_mobcase.png" alt="First slide" style="width:100%;height:550px;">
 								<div class="container">
 								  <div class="carousel-caption text-left">
 									<!--<h1>Example headline.</h1>
@@ -178,16 +187,9 @@ $this->load->view("common/header");
 								  </div>
 								</div>
 							  </div>
-							  <div class="carousel-item">
-								<img class="third-slide" src="<?php echo base_url();?>images/mobile-cover-bannerrr-2018.jpg" alt="Third slide" style="width:100%;height:550px;">
-								<div class="container">
-								  <div class="carousel-caption text-right">
-									<!--<h1>One more for good measure.</h1>
-									<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-									<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>-->
-								  </div>
-								</div>
-							  </div>
+
+
+
 							</div>
 							<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
 							  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -207,68 +209,91 @@ $this->load->view("common/header");
 						<p>&nbsp;</p>
 
 						<div class="row">
-							<div class="col-md-6 col-sm-12 col-xs-12">
+							<div class="col-md-4 col-sm-12 col-xs-12">
+								<div class="card card-primary text-center ">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mugs_thumb.png" >
+									</a>
+									<a href="#">
+										<h3 class="product_ttl">Mugs & Bottles</h3>
+									</a>
+								</div>
+
+							</div>
+
+							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<img class="img-responsive img-effect" src="<?php echo base_url();?>images/20180206023106-1.jpg"  style="height:400px;width:100%;background:#CCC;">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mobile_cases_thumb.png" >
+									</a>
+									<a href="#">
+										<h3 class="product_ttl">Mobile Covers</h3>
+									</a>
 								</div>
 							</div>
 
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-									<div class="card">
-										<img class="img-responsive img-effect" src="<?php echo base_url();?>images/92e7dc9c-4787-495a-ad2e-88cea992f3ce.jpg" style="height:188px;width:100%;background:#CCC;">
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-									<div class="card">
-										<img class="img-responsive img-effect" src="<?php echo base_url();?>images/Banner-grey-background.jpg" style="height:188px;width:100%;background:#CCC;">
-									</div>
+							<div class="col-md-4 col-sm-12 col-xs-12">
+								<div class="card card-primary text-center">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/tshirts_thumb.png">
+									</a>
+									<a href="#">
+										<h3 class="product_ttl">Clothing & Fashion</h3>
+									</a>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row">
-							<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<img class="img-responsive img-effect" src="<?php echo base_url();?>images/20180206023225-1.jpg"  style="height:200px;width:100%;background:#CCC;">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/roomtiles_thumb2.png" >
+									</a>
+									<a href="#">
+										<h3 class="product_ttl"> Floor Tiles </h3>
+									</a>
+								</div>
+							</div>
+
+							<div class="col-md-4 col-sm-12 col-xs-12">
+								<div class="card card-primary text-center">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_cases_thumb.png" >
+									</a>
+									<a href="#">
+										<h3 class="product_ttl"> Dinner Plates </h3>
+									</a>
+								</div>
+							</div>
+
+							<div class="col-md-4 col-sm-12 col-xs-12">
+								<div class="card card-primary text-center">
+									<a href="#" class="bg-dark">
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/cussions_cases_thumb.png" >
+									</a>
+									<a href="#">
+										<h3 class="product_ttl"> Pillows & Cusions </h3>
+									</a>
 								</div>
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-									<div class="card">
-										<img class="img-responsive img-effect" src="<?php echo base_url();?>images/92e7dc9c-4787-495a-ad2e-88c" style="height:188px;width:100%;background:#CCC;">
-									</div>
-								</div>
-								<div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-									<div class="card">
-										<img class="img-responsive img-effect" src="<?php echo base_url();?>images/Banner-grey-bsda" style="height:188px;width:100%;background:#CCC;">
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<div class="card card-primary text-center">
-									<img class="img-responsive img-effect" src="<?php echo base_url();?>images/20180206023asd"  style="height:400px;width:100%;background:#CCC;">
-								</div>
-							</div>
-						</div>
+					
 						
 						<p>&nbsp;</p>
-						<h1 class="page-title" style="text-align:center;font-size:26px;"> About Us </h1>
+						<!--<h1 class="page-title" style="text-align:center;font-size:26px;"> About Us </h1>
 						<p>&nbsp;</p>
 
 						<div class="">
 							<div class="card">
 								<div class="row">
 									<div class="col-md-12 col-lg-6 pr-0 d-none d-lg-block">
-										<img src="<?php echo base_url();?>images/thumb1.jpg" alt="img" class="br-tl-3 ">
+										<img src="<?php echo base_url();?>images/banners/20861947_1457996564281005_7190183760002547666_o.jpg" alt="img" class="br-tl-3 ">
 									</div>
 									<div class="col-md-12 col-lg-6  pl-0 ">
 										<div class="card-body p-6 about-con pabout">
-											<h2 class="mb-4 font-weight-semibold">Who we are ?</h2>
+											<h2 class="mb-4 font-weight-semibold">What we are doing?</h2>
 											<h4 class="leading-normal">majority have suffered alteration in some form, by injected humour</h4>
 											<p class="leading-normal">There are many variations of passages of Lorem Ipsum available, but the majority have suffered  by injected humour, or randomised words which don't look even slightly believable.
 											If you are going to use a passage of Lorem Ipsum, you need to as necessary</p>
@@ -276,20 +301,19 @@ $this->load->view("common/header");
 									</div>
 									<div class="col-md-12 col-lg-6  pr-0 ">
 										<div class="card-body p-6 pabout">
-											<h2 class="mb-4 font-weight-semibold">What we are doing?</h2>
+											<h2 class="mb-4 font-weight-semibold">Why eazyprint?</h2>
 											<h4 class="leading-normal">majority have suffered alteration in some form, by injected humour</h4>
 											<p class="leading-normal">There are many variations of passages of Lorem Ipsum available, but the majority have suffered  by injected humour, or randomised words which don't look even slightly believable.
 											If you are going to use a passage of Lorem Ipsum, you need to as necessary</p>
 										</div>
 									</div>
 									<div class="col-md-12 col-lg-6 pl-0 d-none d-lg-block">
-										<img src="<?php echo base_url();?>images/thumb4.jpg" alt="img" class=" br-br-3">
+										<img src="<?php echo base_url();?>images/banners/what_we_do2.png" alt="img" class=" br-br-3">
 									</div>
 								</div>
 							</div>
 						</div>
 						
-						<!--- how it works -->
 						<p>&nbsp;</p>
 						<h1 class="page-title" style="text-align:center;font-size:26px;"> How it works </h1>
 
@@ -301,33 +325,35 @@ $this->load->view("common/header");
 											<div class="timeline__wrap">
 												<div class="timeline__items">
 													<div class="timeline__item">
+														<div class="timeline__content card">
+															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
+															<h2>Choose / Design</h2>
+															<p>Design yourself or choose premade designs by designers</p>
+														</div>
+													</div>
+
+													<div class="timeline__item">
 														<div class="timeline__content card ">
 														<div class="card-status bg-purple br-tr-3 br-tl-3"></div>
-															<h2>16th Aug 2018</h2>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+															<h2>Place Your Order</h2>
+															<p>Directly online / dealer outlet stores.</p>
 														</div>
 													</div>
 													<div class="timeline__item">
 														<div class="timeline__content card">
 															<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
-															<h2>01st Aug 2018</h2>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+															<h2>Order Processing</h2>
+															<p>Order processed by supplier based on price and location.</p>
 														</div>
 													</div>
 													<div class="timeline__item">
 														<div class="timeline__content card">
 															<div class="card-status bg-blue br-tr-3 br-tl-3"></div>
-															<h2>30th July 2018</h2>
-															<img src="assets/images/photos/2.jpg" alt="img">
+															<h2>Delivery</h2>
+															<p>Logistics take product from supplier and deliver to your doorsteps.</p>
 														</div>
 													</div>
-													<div class="timeline__item">
-														<div class="timeline__content card">
-															<div class="card-status bg-teal br-tr-3 br-tl-3"></div>
-															<h2>25th July 2018</h2>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
-														</div>
-													</div>
+													
 
 			
 												</div>
@@ -336,7 +362,7 @@ $this->load->view("common/header");
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<!--- how it works -->
 
