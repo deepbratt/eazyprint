@@ -43,29 +43,61 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Edit Product Metarial Type</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
 
-
-
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_product_material_type');?>/edit_product_material_type">
 									<div class="card-header">
 										<h3 class="card-title">Edit Product Metarial Type</h3>
 									</div>
+									<?php
+										$sub_cat_id = $product_material_type_fetch->sub_category_id;
+									?>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Metarial Type</label>
+												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Metarial Type">
+												<select name="sub_category" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Subcategory</option>
+											<?php
+												$this->load->model('admin_edit_product_material_type_m');
+												$edit_product_material_type = $this->admin_edit_product_material_type_m->product_material_type_edit();
+												foreach($edit_product_material_type AS $product_material_type_edt)
+												{
+
+											?>
+													<option value="<?php echo $product_material_type_edt->sub_category_id;?>" <?php echo (($product_material_type_edt->sub_category_id == $sub_cat_id)?'selected':'')?> ><?php echo $product_material_type_edt->sub_category_name;?></option>
+											<?php } ?>
+											    </select>
+											</div>
+										  </div>
+										</div>
+									
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Product Type</label>
+											</div>
+											<div class="col-md-10">
+											 <input type="text" class="form-control" placeholder="New Product Metarial Type Name" name="product_metarial" value="<?php echo $product_material_type_fetch->product_material_type;?>">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
+									  <input type="hidden" name="sub_cat_id" value="<?php echo $product_material_type_fetch->product_material_id;?>">
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
@@ -73,9 +105,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
 
 							</div>
 						</div>

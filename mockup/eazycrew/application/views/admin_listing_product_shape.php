@@ -45,6 +45,16 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Product Shape Listing</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -59,52 +69,39 @@ $this->load->view("common/sidebar");
 												  <tr>
 													<th class="wd-15p">Product Shape Id
 													</th>
-													<th class="wd-15p">Product Shape
+													<th class="wd-15p">Subcategory Name
 													</th>
-													<th class="wd-20p">Added Date
+													<th class="wd-20p">Product Shape
 													</th>
 													<th class="wd-15p">Action
 													</th>
 												  </tr>
 												</thead>
 												<tbody>
+												<?php
+												$i = 1;
+												foreach($product_shape_fetch AS $fetch_product_shape)
+												{
+												?>
 												  <tr>
-													<td>0001
-													</td>
-													<td>Electronics
-													</td>
-													<td>26/10/2018
+													<td><?php echo $i; ?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<?php 
+														$cat_sub_id = $fetch_product_shape->sub_category_id;
+														$this->load->model('admin_listing_product_shape_m');
+														$sub_category = $this->admin_listing_product_shape_m->cat_name($cat_sub_id);
+														echo $sub_category->sub_category_name;
+													?>
 													</td>
-												  </tr>
-												  <tr>
-													<td>0002
-													</td>
-													<td>Fashion
-													</td>
-													<td>26/10/2018
+													<td><?php echo $fetch_product_shape->product_shapetype_name;?>
 													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+													<a href="<?php echo base_url('admin_edit_product_shape');?>/<?php echo $fetch_product_shape->product_shape_id;?>" class="btn btn-primary">Edit</a>
+													<a href="<?php echo base_url('admin_listing_product_shape');?>/dlt_product_shape/<?php echo $fetch_product_shape->product_shape_id;?>" class="btn btn-primary">Delete</a>
 													</td>
 												  </tr>
-												  <tr>
-													<td>0003
-													</td>
-													<td>Gift Items
-													</td>
-													<td>26/10/2018
-													</td>
-													<td>
-													<a href="<?php echo base_url();?>admin_edit_product_shape" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
-													</td>
-												  </tr>
-													
+												<?php $i++; } ?>
 												</tbody>
 											  </table>
 										</div>
