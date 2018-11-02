@@ -58,4 +58,5 @@ $route['admin_listing_brand/(:num)'] = "admin_listing_brand";
 $route['admin_edit_brand/(:num)'] = "admin_edit_brand";
 $route['admin_listing_sub_category/(:num)'] = "admin_listing_sub_category";
 $route['admin_edit_sub_category/(:num)'] = "admin_edit_sub_category";
+$route['admin_edit_customer/(:num)'] = "admin_edit_customer";
 
