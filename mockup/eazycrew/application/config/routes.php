@@ -62,4 +62,5 @@ $route['admin_listing_product_shape/(:num)'] = "admin_listing_product_shape";
 $route['admin_edit_product_shape/(:num)'] = "admin_edit_product_shape";
 $route['admin_listing_product_size/(:num)'] = "admin_listing_product_size";
 $route['admin_edit_product_size/(:num)'] = "admin_edit_product_size";
-
+$route['admin_edit_dealer/(:num)'] = "admin_edit_dealer";
+$route['admin_edit_creator/(:num)'] = "admin_edit_creator";
