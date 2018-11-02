@@ -52,20 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['admin_edit_category/(:num)'] = "admin_edit_category";
-<<<<<<< HEAD
-$route['admin_edit_category/(:num)'] = "admin_edit_category";
-=======
->>>>>>> 32857f0db6be7681a9520a021409fa351eae7a63
-$route['admin_edit_crew/(:num)'] = "admin_edit_crew";
-$route['admin_listing_brand/(:num)'] = "admin_listing_brand";
-$route['admin_edit_brand/(:num)'] = "admin_edit_brand";
-$route['admin_listing_sub_category/(:num)'] = "admin_listing_sub_category";
-$route['admin_edit_sub_category/(:num)'] = "admin_edit_sub_category";
-<<<<<<< HEAD
-$route['admin_edit_customer/(:num)'] = "admin_edit_customer";
-=======
-<<<<<<< HEAD
+
 $route['admin_edit_category/(:num)'] = "admin_edit_category";
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
 $route['admin_edit_design/(:num)'] = "admin_edit_design";
@@ -75,7 +62,4 @@ $route['admin_listing_product_shape/(:num)'] = "admin_listing_product_shape";
 $route['admin_edit_product_shape/(:num)'] = "admin_edit_product_shape";
 $route['admin_listing_product_size/(:num)'] = "admin_listing_product_size";
 $route['admin_edit_product_size/(:num)'] = "admin_edit_product_size";
-=======
->>>>>>> fa2d81bee572de5c2fde1e0e78d74c423db8a606
 
->>>>>>> 32857f0db6be7681a9520a021409fa351eae7a63
