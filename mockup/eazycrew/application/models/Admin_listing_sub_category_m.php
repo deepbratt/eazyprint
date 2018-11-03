@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_listing_sub_category_m extends CI_Model {
 
-	public function fetch_product_material_type()
+	public function fetch_sub_category()
 	{
 		$this->db->select('*');
 		$this->db->from('sub_category');

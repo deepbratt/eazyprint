@@ -91,7 +91,7 @@ $this->load->view("common/sidebar");
 														$cat_id = $sub_cat_fetch->parent_cat_id;
 														$this->load->model('admin_listing_sub_category_m');
 														$category = $this->admin_listing_sub_category_m->cat_name($cat_id);
-														echo $category->category_name;
+														echo $category -> category_name;
 													?>
 													</td>
 													<td><?php echo $sub_cat_fetch->sub_category_name;?>

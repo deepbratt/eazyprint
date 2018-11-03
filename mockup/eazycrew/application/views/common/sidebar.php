@@ -81,6 +81,42 @@
 								</li>
 							</ul>
 						</li>
+
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product_shape' || $this->uri->segment(1) == 'admin_listing_product_shape' ||$this->uri->segment(1) == 'admin_edit_product_shape')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product_shape' || $this->uri->segment(1) == 'admin_listing_product_shape' ||$this->uri->segment(1) == 'admin_edit_product_shape')?'active':'');?>" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Product Shape </span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_product_shape');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_product_shape')?'active_sidebar_submenu':'');?>">Add Product Shape</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_product_shape');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_product_shape')?'active_sidebar_submenu':'');?>">View Product Shape</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product_size' || $this->uri->segment(1) == 'admin_listing_product_size' ||$this->uri->segment(1) == 'admin_edit_product_size')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product_size' || $this->uri->segment(1) == 'admin_listing_product_size' ||$this->uri->segment(1) == 'admin_edit_product_size')?'active':'');?>" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Product Size </span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_product_size');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_product_size')?'active_sidebar_submenu':'');?>">Add Product Size</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_product_size');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_product_size')?'active_sidebar_submenu':'');?>">View Product Size</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product_color' || $this->uri->segment(1) == 'admin_listing_product_color' ||$this->uri->segment(1) == 'admin_edit_product_color')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product_color' || $this->uri->segment(1) == 'admin_listing_product_color' ||$this->uri->segment(1) == 'admin_edit_product_color')?'active':'');?>" data-toggle="slide" href="#"><i class="side-menu__icon fas fa-chart-bar"></i><span class="side-menu__label">Product Color </span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_product_color');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_product_color')?'active_sidebar_submenu':'');?>">Add Product Color</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_product_color');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_product_color')?'active_sidebar_submenu':'');?>">View Product Color</a>
+								</li>
+							</ul>
+						</li>
 						
 						
 					</ul>

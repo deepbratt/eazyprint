@@ -24,11 +24,8 @@ class Admin_listing_brand extends CI_Controller {
 		{
 			$this->session->set_flashdata("failed", "Something went wrong!");
 			redirect('admin_listing_brand');
-		}
-
-	
+		}	
 	}
-
 }
 
 /* End of file Home.php */
