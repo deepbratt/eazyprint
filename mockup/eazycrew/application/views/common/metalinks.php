@@ -9,3 +9,12 @@
 <link href="<?php echo base_url();?>css/plugin.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/addSlider.css" rel="stylesheet" />
+
+<!-- DO NOT DELETE THIS -->
+<style>
+.active_sidebar_submenu{
+	    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+		color: #fff !important;
+}
+</style>
+<!-- DO NOT DELETE THIS -->

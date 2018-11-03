@@ -43,9 +43,19 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Product Metarial Type</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_product_material_type');?>/add_product_material_type">
 									<div class="card-header">
 										<h3 class="card-title">Add Product Metarial Type</h3>
 									</div>
@@ -54,10 +64,32 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Metarial Type</label>
+												<label class="form-label">Choose Subcategory</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Metarial Type">
+												<select name="sub_cat" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Subcategory</option>
+											<?php
+												$this->load->model('admin_add_product_material_type_m');
+												$get_product_material_type = $this->admin_add_product_material_type_m->fetch_product_material_type();
+												foreach($get_product_material_type AS $product_material_type_get)
+												{
+											?>
+													<option value="<?php echo $product_material_type_get->sub_category_id;?>" ><?php echo $product_material_type_get->sub_category_name;?></option>
+											<?php } ?>
+												</select>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="col-md-12">
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Product Metarial Type Name</label>
+											</div>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type Name">
 											</div>
 										  </div>
 										</div>
@@ -70,9 +102,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
 
 							</div>
 						</div>

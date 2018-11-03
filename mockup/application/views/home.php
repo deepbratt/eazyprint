@@ -144,10 +144,13 @@ $this->load->view("common/metalinks");
 				display: none;
 			}
 			.img_op{
-				opacity:0.6;
+				opacity:1;
 			}
 			.img_op:hover{
-				opacity:0.9;
+				opacity:0.6;
+			}
+			.product_ttl{
+				padding:10px;margin-top:-70px;background:url(images/item_name.png);z-index:2;position:absolute;width:100%;
 			}
 		</style>
 	</head>
@@ -165,7 +168,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/Untitled-1 (2).png" alt="First slide" style="width:100%;height:550px;">
+								<img class="first-slide" src="<?php echo base_url();?>images/banners/slide_mobcase.png" alt="First slide" style="width:100%;height:550px;">
 								<div class="container">
 								  <div class="carousel-caption text-left">
 									<!--<h1>Example headline.</h1>
@@ -211,8 +214,8 @@ $this->load->view("common/header");
 									<a href="#" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mugs_thumb.png" >
 									</a>
-									<a href="#" >
-										<h3 style="margin-top:10px;">Mugs & Bottles</h3>
+									<a href="#">
+										<h3 class="product_ttl">Mugs & Bottles</h3>
 									</a>
 								</div>
 
@@ -224,7 +227,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mobile_cases_thumb.png" >
 									</a>
 									<a href="#">
-										<h3 style="margin-top:10px;">Mobile Covers</h3>
+										<h3 class="product_ttl">Mobile Covers</h3>
 									</a>
 								</div>
 							</div>
@@ -235,7 +238,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/tshirts_thumb.png">
 									</a>
 									<a href="#">
-										<h3 style="margin-top:10px;">Clothing & Fashion</h3>
+										<h3 class="product_ttl">Clothing & Fashion</h3>
 									</a>
 								</div>
 							</div>
@@ -248,7 +251,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/roomtiles_thumb2.png" >
 									</a>
 									<a href="#">
-										<h3 style="margin-top:10px;"> Floor Tiles </h3>
+										<h3 class="product_ttl"> Floor Tiles </h3>
 									</a>
 								</div>
 							</div>
@@ -259,7 +262,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_cases_thumb.png" >
 									</a>
 									<a href="#">
-										<h3 style="margin-top:10px;"> Dinner Plates </h3>
+										<h3 class="product_ttl"> Dinner Plates </h3>
 									</a>
 								</div>
 							</div>
@@ -270,7 +273,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/cussions_cases_thumb.png" >
 									</a>
 									<a href="#">
-										<h3 style="margin-top:10px;"> Pillows & Cusions </h3>
+										<h3 class="product_ttl"> Pillows & Cusions </h3>
 									</a>
 								</div>
 							</div>
@@ -279,7 +282,7 @@ $this->load->view("common/header");
 					
 						
 						<p>&nbsp;</p>
-						<h1 class="page-title" style="text-align:center;font-size:26px;"> About Us </h1>
+						<!--<h1 class="page-title" style="text-align:center;font-size:26px;"> About Us </h1>
 						<p>&nbsp;</p>
 
 						<div class="">
@@ -359,7 +362,7 @@ $this->load->view("common/header");
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<!--- how it works -->
 

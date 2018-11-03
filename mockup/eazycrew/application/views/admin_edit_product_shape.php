@@ -43,29 +43,61 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Edit Product Shape</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
 
-
-
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_product_shape');?>/edit_product_shape">
 									<div class="card-header">
 										<h3 class="card-title">Edit Product Shape</h3>
 									</div>
+									<?php
+										$sub_cat_id = $product_shape_fetch->sub_category_id;
+									?>
 									<div class="card-body">
-									  <div class="col-md-12">
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Subcategory</label>
+											</div>
+											<div class="col-md-10">
+												<select name="sub_category" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Subcategory</option>
+											<?php
+												$this->load->model('admin_edit_product_shape_m');
+												$edit_product_shape = $this->admin_edit_product_shape_m->product_shape_edit();
+												foreach($edit_product_shape AS $product_shape_edt)
+												{
+
+											?>
+													<option value="<?php echo $product_shape_edt->sub_category_id;?>" <?php echo (($product_shape_edt->sub_category_id == $sub_cat_id)?'selected':'')?> ><?php echo $product_shape_edt->sub_category_name;?></option>
+											<?php } ?>
+											    </select>
+											</div>
+										  </div>
+										</div>
+									
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Product Shape</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Shape">
+											 <input type="text" class="form-control" placeholder="New Product Metarial Type Name" name="product_shape" value="<?php echo $product_shape_fetch->product_shapetype_name;?>">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
+									  <input type="hidden" name="sub_cat_id" value="<?php echo $product_shape_fetch->product_shape_id;?>">
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
