@@ -43,26 +43,54 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Product Shape</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_product_shape');?>/add_product_shape">
 									<div class="card-header">
-										<h3 class="card-title">Add Product Shape</h3>
+										<h3 class="card-title">Add Product Metarial Shape</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Shape</label>
+												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Shape">
+												<select name="sub_cat" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Subcategory</option>
+											<?php
+												$this->load->model('admin_add_product_shape_m');
+												$get_product_shape = $this->admin_add_product_shape_m->fetch_product_shape();
+												foreach($get_product_shape AS $get_product_shape_get)
+												{
+											?>
+													<option value="<?php echo $get_product_shape_get->sub_category_id;?>" ><?php echo $get_product_shape_get->sub_category_name;?></option>
+											<?php } ?>
+												</select>
+											</div>
+										  </div>
+										</div>
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Metarial Shape</label>
+											</div>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="product_shape" placeholder="Product Metarial Shape">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>

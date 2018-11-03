@@ -1,19 +1,5 @@
 <!--footer-->
-				<p style="border-top:1px solid #CCC:">&nbsp;</p>
-				<footer class="footer">
-					<div class="container">
-					    <!-- footer top -->
-						<div class="container">
-						 <div class="col-md-12 col-sm-12 mt-3 mt-lg-0 ">
-						<!-- footer top ends -->
-						<div class="row align-items-center flex-row-reverse" style="margin-top:10px;">
-							<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-								Copyright &copy; 2018 <a href="#">Eazyprint</a>. All rights reserved. Made in <b>India</b> with love.
-							</div>
-						</div>
-					  </div>
-					</div>
-				</footer>
+		
 				<!-- End Footer-->
             </div>
 		</div>

@@ -43,38 +43,65 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Add Product Size</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_product_size');?>/add_product_size">
 									<div class="card-header">
 										<h3 class="card-title">Add Product Size</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Size Name</label>
+												<label class="form-label">Subcategory</label>
 											</div>
+										
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Shape">
+												<select name="sub_cat" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Subcategory</option>
+											<?php
+												$this->load->model('admin_add_product_size_m');
+												$get_product_size = $this->admin_add_product_size_m->fetch_product_size();											
+												foreach($get_product_size AS $product_size_get)
+												{
+											?>
+													<option value="<?php echo $product_size_get->sub_category_id;?>"><?php echo $product_size_get->sub_category_name;?></option>
+											<?php } ?>
+												</select>
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Product Size</label>
+											</div>
+											<div class="col-md-10">
+											 <input type="text" class="form-control" name="product_size" placeholder="New Product Size">
+											</div>
+										  </div>
+										</div>
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Product Dimension</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Dimension">
+											 <input type="text" class="form-control" name="dimension" placeholder="Product Dimension">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
@@ -82,9 +109,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
 
 							</div>
 						</div>

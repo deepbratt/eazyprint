@@ -10,21 +10,14 @@
 					<div class="container-fluid">
 						<div class="d-flex">
 							<a class="header-brand" href="<?php echo base_url('admin_dashboard');?>">
-								<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_w.png">
+								<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_w.png" style="height: 53px;padding-left: 40px;">
 							</a>
 							<!-- Sidebar toggle button-->
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
 							<div class="d-flex order-lg-2 ml-auto">
-								<div class="">
-									<form class="input-icon  mr-2">
-										<input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search">
-										<div class="input-icon-addon">
-											<i class="fe fe-search"></i>
-										</div>
-									</form>
-								</div>
+								
 								<div class="dropdown">
-									<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
+									<a class="nav-link pr-0 leading-none d-flex" style="margin-top:3px !important;" data-toggle="dropdown" href="#">
 										<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('images');?>/favicon.png)"></span>
 										<span class="ml-2 d-none d-lg-block">
 											<span class="text-white"><?php echo $this->session->userdata['logged_in']['name'];?></span>

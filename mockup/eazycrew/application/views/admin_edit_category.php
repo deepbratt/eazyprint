@@ -64,11 +64,10 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Edit Category</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Category Name</label>
+												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
 											 <input type="text" class="form-control" placeholder="New Category Name" value="<?php echo $cat_fetch->category_name;?>" name="category_name">
@@ -77,7 +76,6 @@ $this->load->view("common/sidebar");
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
