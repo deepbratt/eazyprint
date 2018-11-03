@@ -150,7 +150,7 @@ $this->load->view("common/metalinks");
 				opacity:0.6;
 			}
 			.product_ttl{
-				padding:10px;margin-top:-70px;background:url(images/item_name.png);z-index:2;position:absolute;width:100%;
+				padding:10px;margin-top:-60px;background:url(images/item_name.png);z-index:2;position:absolute;width:100%;
 			}
 		</style>
 	</head>
@@ -168,7 +168,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/Untitled-1 (2).png" alt="First slide" style="width:100%;height:550px;">
+								<img class="first-slide" src="<?php echo base_url();?>images/banners/slide_mobcase.png" alt="First slide" class="img-responsive" >
 								<div class="container">
 								  <div class="carousel-caption text-left">
 									<!--<h1>Example headline.</h1>
@@ -178,7 +178,7 @@ $this->load->view("common/header");
 								</div>
 							  </div>
 							  <div class="carousel-item">
-								<img class="second-slide" src="<?php echo base_url();?>images/Screenprinting-banner.jpg" alt="Second slide" style="width:100%;height:550px;">
+								<img class="second-slide" src="<?php echo base_url();?>images/banners/tshirt_slide.png" alt="Second slide" style="width:100%;height:550px;">
 								<div class="container">
 								  <div class="carousel-caption">
 									<!--<h1>Another example headline.</h1>
@@ -224,10 +224,10 @@ $this->load->view("common/header");
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
 									<a href="#" class="bg-dark">
-										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mobile_cases_thumb.png" >
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mob_case.png" >
 									</a>
 									<a href="#">
-										<h3 class="product_ttl">Mobile Covers</h3>
+										<h3 class="product_ttl">Mobile Back Covers</h3>
 									</a>
 								</div>
 							</div>
@@ -251,7 +251,7 @@ $this->load->view("common/header");
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/roomtiles_thumb2.png" >
 									</a>
 									<a href="#">
-										<h3 class="product_ttl"> Floor Tiles </h3>
+										<h3 class="product_ttl"> Floor Tiles & Frames </h3>
 									</a>
 								</div>
 							</div>
@@ -259,7 +259,7 @@ $this->load->view("common/header");
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
 									<a href="#" class="bg-dark">
-										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_cases_thumb.png" >
+										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_thmb.png" >
 									</a>
 									<a href="#">
 										<h3 class="product_ttl"> Dinner Plates </h3>
@@ -366,7 +366,7 @@ $this->load->view("common/header");
 
 						<!--- how it works -->
 
-						<div class="container">
+						<!--<div class="container">
 						  <h2>Our  Partners</h2>
 						   <section class="customer-logos slider">
 							  <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
@@ -378,7 +378,7 @@ $this->load->view("common/header");
 							  <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg"></div>
 							  <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
 						   </section>
-						</div>
+						</div>-->
 					</div>
 					<p>&nbsp;</p>
 					
