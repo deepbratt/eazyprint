@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -15,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Add Crew</title>
+		<title>Eazyprint | Add Creator</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,17 +31,17 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Crew</h4>
+							<h4 class="page-title">Add Creator</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Crew</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Creator</li>
 							</ol>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_add_crew/add_crew');?>">
+								<form  method="post" class="card" action="<?php echo base_url('admin_add_creator/add_creator');?>">
 									<div class="card-header">
-										<h3 class="card-title">Add Crew</h3>
+										<h3 class="card-title">Add Creator</h3>
 									</div>
 
 									<div class="card-body">
@@ -103,34 +104,100 @@
 												  </div>
 												</div>
 											</div>
-									  
+
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
-													<label class="form-label">Assign Role</label>
+													<label class="form-label">Phone</label>
 												  </div>
 												  <div class="col-md-10">
-													<div class="selectgroup selectgroup-pills">
-														<label class="selectgroup-item">
-															<input type="radio" name="role" value="admin" class="selectgroup-input">
-															<span class="selectgroup-button">Admin</span>
-														</label>
-														<label class="selectgroup-item">
-															<input type="radio" name="role" value="sales" class="selectgroup-input">
-															<span class="selectgroup-button">Sales</span>
-														</label>
-														<label class="selectgroup-item">
-															<input type="radio" name="role" value="operation" class="selectgroup-input">
-															<span class="selectgroup-button">Operation</span>
-														</label>
-														<label class="selectgroup-item">
-															<input type="radio" name="role" value="accounts" class="selectgroup-input">
-															<span class="selectgroup-button">Accounts</span>
-														</label>
-													</div>
+													<input type="text" class="form-control" name="phone" placeholder="Enter phone number">
 												  </div>
 												</div>
 											</div>
+
+											<div class="form-group">
+												<div class="row">
+												  <div class="col-md-2">
+													<label class="form-label">Address</label>
+												  </div>
+												  <div class="col-md-10">
+													<textarea class="form-control" name="address" placeholder="Enter address here"></textarea>
+												  </div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="row">
+												  <div class="col-md-2">
+													<label class="form-label">Pincode</label>
+												  </div>
+												  <div class="col-md-10">
+													<input type="text" class="form-control" name="pincode" placeholder="Enter pincode">
+												  </div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="row">
+												  <div class="col-md-2">
+													<label class="form-label">State</label>
+												  </div>
+												  <div class="col-md-10">
+													<select name="state" class="form-control custom-select">
+														<option selected disabled>Select State</option>
+														<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+														<option value="Andhra Pradesh">Andhra Pradesh</option>
+														<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+														<option value="Assam">Assam</option>
+														<option value="Bihar">Bihar</option>
+														<option value="Chandigarh">Chandigarh</option>
+														<option value="Chhattisgarh">Chhattisgarh</option>
+														<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+														<option value="Daman and Diu">Daman and Diu</option>
+														<option value="Delhi">Delhi</option>
+														<option value="Goa">Goa</option>
+														<option value="Gujarat">Gujarat</option>
+														<option value="Haryana">Haryana</option>
+														<option value="Himachal Pradesh">Himachal Pradesh</option>
+														<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+														<option value="Jharkhand">Jharkhand</option>
+														<option value="Karnataka">Karnataka</option>
+														<option value="Kerala">Kerala</option>
+														<option value="Lakshadweep">Lakshadweep</option>
+														<option value="Madhya Pradesh">Madhya Pradesh</option>
+														<option value="Maharashtra">Maharashtra</option>
+														<option value="Manipur">Manipur</option>
+														<option value="Meghalaya">Meghalaya</option>
+														<option value="Mizoram">Mizoram</option>
+														<option value="Nagaland">Nagaland</option>
+														<option value="Orissa">Orissa</option>
+														<option value="Pondicherry">Pondicherry</option>
+														<option value="Punjab">Punjab</option>
+														<option value="Rajasthan">Rajasthan</option>
+														<option value="Sikkim">Sikkim</option>
+														<option value="Tamil Nadu">Tamil Nadu</option>
+														<option value="Tripura">Tripura</option>
+														<option value="Uttaranchal">Uttaranchal</option>
+														<option value="Uttar Pradesh">Uttar Pradesh</option>
+														<option value="West Bengal">West Bengal</option>
+													  </select>
+												  </div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="row">
+												  <div class="col-md-2">
+													<label class="form-label">City</label>
+												  </div>
+												  <div class="col-md-10">
+													<input type="text" class="form-control" name="city" placeholder="Enter city">
+												  </div>
+												</div>
+											</div>
+
+											
 									  </div>
 									  <div class="card-footer text-center">
 										<button type="submit" class="btn btn-primary">Submit
