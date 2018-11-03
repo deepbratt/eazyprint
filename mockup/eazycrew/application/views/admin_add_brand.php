@@ -63,7 +63,7 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Choose Category</label>
+												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
 												<select name="cat_name" id="select-countries" class="form-control custom-select" onchange="add_sub(this.value);">

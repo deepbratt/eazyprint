@@ -60,11 +60,10 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Add Product Metarial Type</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Choose Subcategory</label>
+												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
 												<select name="sub_cat" id="select-countries" class="form-control custom-select">
@@ -81,20 +80,17 @@ $this->load->view("common/sidebar");
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Metarial Type Name</label>
+												<label class="form-label">Product Metarial</label>
 											</div>
 											<div class="col-md-10">
-												<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type Name">
+												<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>

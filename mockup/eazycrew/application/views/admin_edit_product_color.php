@@ -43,41 +43,74 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Edit Product Color</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('failed')){
+						?>
+						  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+						<?php
+						  }
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php } ?>
 						<div class="row">
 							<div class="col-lg-12">
 
-
-
-								<form  method="post" class="card">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_product_color');?>/edit_product_color">
 									<div class="card-header">
 										<h3 class="card-title">Edit Product Color</h3>
 									</div>
+									<?php
+										$sub_cat_id = $product_color_fetch->sub_category_id;
+									?>
 									<div class="card-body">
-									  <div class="col-md-12">
+									<div class="form-group">
+									 <div class="row">
+										<div class="col-md-2">
+											<label class="form-label">Subcategory</label>
+										</div>
+										<div class="col-md-10">
+											<select name="sub_category" id="select-countries" class="form-control custom-select">
+												<option value="" selected="">Subcategory</option>
+										<?php
+											$this->load->model('admin_edit_product_color_m');
+											$edit_product_color = $this->admin_edit_product_color_m->product_color_edit();
+											foreach($edit_product_color AS $product_color_edt)
+											{
+
+										?>
+												<option value="<?php echo $product_color_edt->sub_category_id;?>" <?php echo (($product_color_edt->sub_category_id == $sub_cat_id)?'selected':'')?> ><?php echo $product_color_edt->sub_category_name;?></option>
+										<?php } ?>
+											</select>
+									   </div>
+									  </div>
+									  </div>
+									  
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Color Name</label>
+												<label class="form-label">Product Color</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Color Name">
+											 <input type="text" class="form-control" placeholder="New Product Color Name" name="product_color" value="<?php echo $product_color_fetch->product_color_name;?>">
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
+									 
+									  
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Product Color Code</label>
 											</div>
-											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Color Code">
+											<div class="col-md-2">
+											 <input type="color" class="form-control" placeholder="New Product Color Code" name="color_code" value="<?php echo $product_color_fetch->product_color_code;?>" style="height:45px;">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
+									
+									<input type="hidden" name="sub_cat_id" value="<?php echo $product_color_fetch->product_color_id;?>">
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
@@ -85,10 +118,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
-
 							</div>
 						</div>
 					</div>

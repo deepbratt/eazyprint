@@ -105,10 +105,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
-
 							</div>
 						</div>
 					</div>

@@ -52,7 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-<<<<<<< HEAD
 $route['admin_edit_category/(:num)'] = "admin_edit_category";
 $route['admin_listing_category/(:num)'] = "admin_listing_category";
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
@@ -60,11 +59,6 @@ $route['admin_listing_brand/(:num)'] = "admin_listing_brand";
 $route['admin_edit_brand/(:num)'] = "admin_edit_brand";
 $route['admin_listing_sub_category/(:num)'] = "admin_listing_sub_category";
 $route['admin_edit_sub_category/(:num)'] = "admin_edit_sub_category";
-=======
-
->>>>>>> 8c6878d2dd953beaf1b12b63dc92d161c011b93b
-$route['admin_edit_category/(:num)'] = "admin_edit_category";
-$route['admin_edit_crew/(:num)'] = "admin_edit_crew";
 $route['admin_edit_design/(:num)'] = "admin_edit_design";
 $route['admin_listing_product_material_type/(:num)'] = "admin_listing_product_material_type";
 $route['admin_edit_product_material_type/(:num)'] = "admin_edit_product_material_type";
@@ -72,8 +66,7 @@ $route['admin_listing_product_shape/(:num)'] = "admin_listing_product_shape";
 $route['admin_edit_product_shape/(:num)'] = "admin_edit_product_shape";
 $route['admin_listing_product_size/(:num)'] = "admin_listing_product_size";
 $route['admin_edit_product_size/(:num)'] = "admin_edit_product_size";
-<<<<<<< HEAD
-=======
 $route['admin_edit_dealer/(:num)'] = "admin_edit_dealer";
 $route['admin_edit_creator/(:num)'] = "admin_edit_creator";
->>>>>>> 8c6878d2dd953beaf1b12b63dc92d161c011b93b
+$route['admin_listing_product_color/(:num)'] = "admin_listing_product_color";
+$route['admin_edit_product_color/(:num)'] = "admin_edit_product_color";

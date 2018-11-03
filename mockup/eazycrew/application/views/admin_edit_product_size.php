@@ -89,7 +89,7 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Size Name</label>
+												<label class="form-label">Product Size</label>
 											</div>
 											<div class="col-md-10">
 											 <input type="text" class="form-control" placeholder="New Product Size" name="product_size" value="<?php echo $product_size_fetch->product_size_name;?>">

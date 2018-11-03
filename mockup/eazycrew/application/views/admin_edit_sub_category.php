@@ -63,7 +63,6 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Edit Subcategory</h3>
 									</div>
 									<div class="card-body">
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
@@ -86,8 +85,6 @@ $this->load->view("common/sidebar");
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
@@ -99,7 +96,6 @@ $this->load->view("common/sidebar");
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<input type="hidden" name="sub_cat_id" value="<?php echo $sub_cat_fetch->sub_category_id;?>">
 									<div class="card-footer text-right">
 										<div class="d-flex">
@@ -108,9 +104,6 @@ $this->load->view("common/sidebar");
 										</div>
 									</div>
 								</form>
-
-
-
 
 							</div>
 						</div>

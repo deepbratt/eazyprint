@@ -60,11 +60,10 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Add Product Size</h3>
 									</div>
 									<div class="card-body">
-									<div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Choose Subcategory</label>
+												<label class="form-label">Subcategory</label>
 											</div>
 										
 											<div class="col-md-10">
@@ -72,9 +71,7 @@ $this->load->view("common/sidebar");
 													<option value="" selected="">Choose Subcategory</option>
 											<?php
 												$this->load->model('admin_add_product_size_m');
-												$get_product_size = $this->admin_add_product_size_m->fetch_product_size();
-												print_r($get_product_size);
-												
+												$get_product_size = $this->admin_add_product_size_m->fetch_product_size();											
 												foreach($get_product_size AS $product_size_get)
 												{
 											?>
@@ -84,32 +81,27 @@ $this->load->view("common/sidebar");
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
-												<label class="form-label">Product Size Name</label>
+												<label class="form-label">Product Size</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" name="product_size" placeholder="New Product Shape">
+											 <input type="text" class="form-control" name="product_size" placeholder="New Product Size">
 											</div>
 										  </div>
 										</div>
-									  </div>
-									  <div class="col-md-12">
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Product Dimension</label>
 											</div>
 											<div class="col-md-10">
-											 <input type="text" class="form-control" name="dimension" placeholder="Product Dimension Start">
+											 <input type="text" class="form-control" name="dimension" placeholder="Product Dimension">
 											</div>
 										  </div>
 										</div>
 									  </div>
-									</div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
 											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
