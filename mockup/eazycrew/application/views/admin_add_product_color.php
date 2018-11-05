@@ -70,38 +70,38 @@ $this->load->view("common/sidebar");
 											<select name="sub_cat" id="select-countries" class="form-control custom-select">
 											<option value="" selected="">Choose Subcategory</option>
 											<?php
-												$this->load->model('admin_add_product_color_m');
-												$get_product_color = $this->admin_add_product_color_m->fetch_product_color();										foreach($get_product_color AS $product_color_get)
-												{
+												foreach($get_product_color AS $product_color_get){
 											?>
 												<option value="<?php echo $product_color_get->sub_category_id;?>"><?php echo $product_color_get->sub_category_name;?></option>
-											<?php } ?>
+											<?php 
+												} 
+											?>
 											</select>
 											</div>
 										  </div>
 										</div>
 									  
 										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Product Color</label>
+											<div class="main_div">
+											 <div class="row" style="margin-bottom:10px;">
+												<div class="col-md-2">
+													<label class="form-label">Product Color</label>
+												</div>
+												<div class="col-md-4">
+												 <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value="">
+												</div>
+												<div class="col-md-2">
+												 <input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value="">
+												</div>
+											  </div>
 											</div>
-											<div class="col-md-10">
-											 <input type="text" class="form-control" name="product_color" placeholder="New Product Color Name" value="">
+											<div class="row" style="">
+												<div class="col-md-3 offset-md-2">
+													<a href="javascript:void(0);" onclick="add_another();" class="btn btn-primary">Add More</a>
+												</div>
 											</div>
-										  </div>
 										</div>
-									  
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Product Color Code</label>
-											</div>
-											<div class="col-md-2">
-											 <input type="color" class="form-control" name="color_code" placeholder="New Product Color Code"  style="height:45px;" value="">
-											</div>
-										  </div>
-										</div>
+
 									  </div>
 									<div class="card-footer text-right">
 										<div class="d-flex">
@@ -128,6 +128,28 @@ $this->load->view("common/footer");
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
+
+
+
+<script>
+		function add_another() 
+{
+	
+	var max_fields      = 5; 
+    var wrapper         = $(".main_div");
+	var htmlcontent = '<div class="row atrri_add_cont" style="margin-bottom:10px;"><div class="col-md-2"><label class="form-label">&nbsp;</label></div><div class="col-md-4"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div><div class="col-md-2"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div><div class="row" style=""><div class="col-md-3"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div>';
+	
+	var x = 1;
+
+        if(x < max_fields){ 
+          x++; 
+          $(wrapper).append(htmlcontent); 
+        }
+	$("body").on("click",".remove",function(){ 
+	  $(this).parents(".atrri_add_cont").remove();
+  });
+}
+</script>
 		<!-- Timepicker js -->
 		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
 		<script src="<?php echo base_url();?>js/toggles.min.js"></script>

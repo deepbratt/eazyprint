@@ -18,9 +18,9 @@ class Admin_edit_product_color_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function product_color_update($records,$product_color_id)
+	public function product_color_update($records,$cat_sub_id)
 	{
-		$where  = array('product_color_id' => $product_color_id);
+		$where  = array('product_color_id' => $cat_sub_id);
 		$this->db->where($where);
 		$query = $this->db->update('product_color', $records);
 		return true;
