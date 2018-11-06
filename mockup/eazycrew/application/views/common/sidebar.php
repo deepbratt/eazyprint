@@ -19,14 +19,14 @@
 						if($this->session->userdata['logged_in']['crew_role'] == 'admin')
 						{
 						?>
-						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_crew_listing' ||$this->uri->segment(1) == 'admin_edit_crew')?'is-expanded':'');?>">
-							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_crew_listing' ||$this->uri->segment(1) == 'admin_edit_crew')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Crew Member</span><i class="angle fas fa-angle-right"></i></a>
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Crew Member</span><i class="angle fas fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo base_url('admin_add_crew');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_crew')?'active_sidebar_submenu':'');?>">Add Crew Member</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('admin_crew_listing');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_crew_listing')?'active_sidebar_submenu':'');?>">View Crew Members</a>
+									<a href="<?php echo base_url('admin_listing_crew');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_crew')?'active_sidebar_submenu':'');?>">View Crew Members</a>
 								</li>
 							</ul>
 						</li>

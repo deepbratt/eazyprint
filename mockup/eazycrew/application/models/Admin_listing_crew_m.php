@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_crew_listing_m extends CI_Model {
+class Admin_listing_crew_m extends CI_Model {
 
 	public function fetch_crew($user_id)
 	{

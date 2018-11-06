@@ -11,7 +11,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
@@ -36,6 +36,22 @@
 								<li class="breadcrumb-item active" aria-current="page">Add Crew</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('success');?></strong>
+							</div>
+						<?php
+						}
+						if($this->session->flashdata('failed')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('failed');?></strong>
+							</div>
+						<?php
+						}
+						?>
 						<div class="row">
 							<div class="col-md-12">
 								<form  method="post" class="card" action="<?php echo base_url('admin_add_crew/add_crew');?>">
@@ -44,22 +60,7 @@
 									</div>
 
 									<div class="card-body">
-										<?php
-											  if($this->session->flashdata('success')){
-											?>
-												<div class="alert alert-success">
-													<strong><?php echo $this->session->flashdata('success');?></strong>
-												</div>
-											<?php
-											}
-											if($this->session->flashdata('failed')){
-											?>
-												<div class="alert alert-danger">
-													<strong><?php echo $this->session->flashdata('failed');?></strong>
-												</div>
-											<?php
-											}
-											?>
+											
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
@@ -132,9 +133,10 @@
 												</div>
 											</div>
 									  </div>
-									  <div class="card-footer text-center">
+									  <div class="card-footer text-right">
 										<button type="submit" class="btn btn-primary">Submit
 										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									  </div>
 								</form>
 

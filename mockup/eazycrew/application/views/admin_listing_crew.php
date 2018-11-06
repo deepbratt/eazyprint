@@ -45,6 +45,9 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Crew Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -52,9 +55,7 @@ $this->load->view("common/sidebar");
 										<div class="card-title">Listing Crew</div>
 									</div>
 									<div class="card-body">
-										<div class="alert alert-success success_div" style="display:none;">
-											<strong>Status Changed!</strong>
-										</div>
+										
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
