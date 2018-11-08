@@ -93,8 +93,11 @@ $this->load->view("common/sidebar");
 												<div class="col-md-4">
 												 <input type="text" class="form-control" name="product_color" placeholder="New Product Color Name" value="<?php echo $product_color_fetch->product_color_name;?>">
 												</div>
-												<div class="col-md-2">
-												 <input type="color" class="form-control" name="color_code" placeholder="New Product Color Code"  style="height:42px;" value="<?php echo $product_color_fetch->product_color_code;?>">
+												<div class="col-md-1">
+													&nbsp;
+												</div>
+												<div class="col-md-1" >
+												 <input type="color" class="form-control" name="color_code" placeholder="New Product Color Code"  style="height:47px;width:47px;padding:0px;border:none;margin-top: -3px;" value="<?php echo $product_color_fetch->product_color_code;?>">
 												</div>
 											  </div>
 											</div>
@@ -102,13 +105,10 @@ $this->load->view("common/sidebar");
 										</div>
 									  
 									  </div>
-									
-									
 									<div class="card-footer text-right">
-										<div class="d-flex">
-											<button type="reset" class="btn btn-link">Cancel</button>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
-										</div>
+										<button type="submit" class="btn btn-primary">Submit
+										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									</div>
 								</form>
 							</div>
