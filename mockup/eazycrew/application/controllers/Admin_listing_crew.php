@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_crew_listing extends CI_Controller {
+class Admin_listing_crew extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -12,15 +12,15 @@ class Admin_crew_listing extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('admin_crew_listing_m');
+		$this->load->model('admin_listing_crew_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$data['fetch_crew'] = $this->admin_crew_listing_m->fetch_crew($user_id);
-		$this->load->view('admin_crew_listing',$data);
+		$data['fetch_crew'] = $this->admin_listing_crew_m->fetch_crew($user_id);
+		$this->load->view('admin_listing_crew',$data);
 	}
 
 	public function change_status()
 	{
-		$this->load->model('admin_crew_listing_m');
+		$this->load->model('admin_listing_crew_m');
 		$crew_id = $this->input->post('crew_id');
 		$crew_status = $this->input->post('crew_status');
 		if($crew_status == 1){
@@ -29,7 +29,7 @@ class Admin_crew_listing extends CI_Controller {
 			$changed_status = "1";
 		}
 		$update_array = array('crew_status' => $changed_status);
-		$update_crew = $this->admin_crew_listing_m->update_crew($crew_id,$update_array);
+		$update_crew = $this->admin_listing_crew_m->update_crew($crew_id,$update_array);
 ?>
 		<label class="custom-switch">
 			<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($changed_status == 1)?'checked':'');?> onchange="change_status('<?php echo $crew_id;?>','<?php echo $changed_status;?>');">

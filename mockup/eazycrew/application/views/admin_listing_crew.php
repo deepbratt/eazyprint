@@ -12,8 +12,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
+		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
 		<title>Eazyprint | Crew Listing</title>
@@ -45,6 +45,9 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Crew Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -52,9 +55,7 @@ $this->load->view("common/sidebar");
 										<div class="card-title">Listing Crew</div>
 									</div>
 									<div class="card-body">
-										<div class="alert alert-success success_div" style="display:none;">
-											<strong>Status Changed!</strong>
-										</div>
+										
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
@@ -124,9 +125,8 @@ $this->load->view("common/footer");
 			function change_status(crew_id,crew_status)
 			{
 				
-				
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_crew_listing/change_status',
+		        url: '<?php echo base_url();?>admin_listing_crew/change_status',
 		        data: {'crew_id': crew_id,'crew_status':crew_status}, // change this to send js object
 		        type: "post",
 		        success: function(response){

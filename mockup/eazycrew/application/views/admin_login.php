@@ -12,8 +12,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
 
 		<!-- Title -->
 		<title>Eazyprint | Login</title>
@@ -35,6 +35,16 @@
 
 		<!---Font icons-->
 		<link href="<?php echo base_url();?>css/plugin.css" rel="stylesheet" />
+		<style>
+		.field-icon {
+		  float: right;
+		  margin-right: 5px;
+		  margin-top: -29px;
+		  position: relative;
+		  font-size:18px;
+		  z-index: 2;
+		}
+		</style>
 
   </head>
 	<body class="login-img bg-gradient">
@@ -68,7 +78,8 @@
 									<div class="form-group">
 										<label class="form-label">Password
 										</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+										<input type="password" class="form-control" id="password-field" name="password" placeholder="Password">
+										<span toggle="#password-field" class="fe fe-eye field-icon toggle-password"></span>
 									</div>
 									
 									<div class="form-footer">
@@ -82,7 +93,7 @@
 			</div>
 		</div>
 
-
+		
 		<!-- Dashboard js -->
 		<script src="<?php echo base_url('js');?>/jquery-3.2.1.min.js"></script>
 		<script src="<?php echo base_url('js');?>/bootstrap.bundle.min.js"></script>
@@ -105,6 +116,19 @@
 
 		<!-- custom js -->
 		<script src="<?php echo base_url('js');?>/custom.js"></script>
+
+		<script>
+		$(".toggle-password").click(function() {
+
+		  $(this).toggleClass("fe-eye-off");
+		  var input = $($(this).attr("toggle"));
+		  if (input.attr("type") == "password") {
+			input.attr("type", "text");
+		  } else {
+			input.attr("type", "password");
+		  }
+		});
+		</script>
 			
 	</body>
 </html>

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -12,9 +11,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
 		<!-- Title -->
 		<title>Eazyprint | Edit Crew</title>
 
@@ -37,23 +35,23 @@
 								<li class="breadcrumb-item active" aria-current="page">Edit Crew</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('success');?></strong>
+							</div>
+						<?php
+						}
+						?>
 						<div class="row">
 							<div class="col-md-12">
 								<form  method="post" class="card" action="<?php echo base_url('admin_edit_crew/update_crew');?>/<?php echo $this->uri->segment(2);?>">
 									<div class="card-header">
 										<h3 class="card-title">Edit Crew</h3>
 									</div>
-
 									<div class="card-body">
-										<?php
-											  if($this->session->flashdata('success')){
-											?>
-												<div class="alert alert-success">
-													<strong><?php echo $this->session->flashdata('success');?></strong>
-												</div>
-											<?php
-											}
-											?>
+											
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
@@ -115,9 +113,10 @@
 												</div>
 											</div>
 									  </div>
-									  <div class="card-footer text-center">
+									  <div class="card-footer text-right">
 										<button type="submit" class="btn btn-primary">Submit
 										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									  </div>
 								</form>
 

@@ -12,8 +12,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
 		<title>Eazyprint | Add Product Size</title>
@@ -103,10 +103,9 @@ $this->load->view("common/sidebar");
 										</div>
 									  </div>
 									<div class="card-footer text-right">
-										<div class="d-flex">
-											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
-										</div>
+										<button type="submit" class="btn btn-primary">Submit
+										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									</div>
 								</form>
 
