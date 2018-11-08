@@ -5,9 +5,9 @@
 					<header class="">
 						<div class="container">
 							<div class="container-fluid">
-								<div class="d-flex">
-										<a class="header-brand" href="<?php echo base_url();?>home.php">
-											<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_w.png" style="height:60px;">
+								<div class="">
+										<a class="header-brand" href="<?php echo base_url();?>home.php" >
+											<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:60px;">
 										</a>
 										<!--
 										<div class="d-flex order-lg-3 ml-auto" style="margin-top:5px;">
@@ -38,9 +38,7 @@
 												</div>
 											</div>
 										</div>-->
-										<a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
-											<span class="header-toggler-icon"></span>
-										</a>
+										
 									</div>
 								</div>
 							</div>
@@ -50,7 +48,7 @@
 				<div class="ren-navbar" id="headerMenuCollapse">
 					<div class="container">
 						<div class="row">
-							<a class="nav-link" href="#" style="text-align:center">
+							<a class="nav-link" href="#" style="text-align:center;" class="hidden-sm hidden-xs">
 								<span> <img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;"> </span>
 							</a>
 						
