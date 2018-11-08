@@ -12,8 +12,8 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-		<link rel="icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon"/>
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico" />
+		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
 		<title>Eazyprint | Listing Brand</title>
