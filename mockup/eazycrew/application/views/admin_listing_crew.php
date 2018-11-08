@@ -12,11 +12,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
-<<<<<<< HEAD
 		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
-=======
-		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
->>>>>>> e78fe12ff1d40ab8a35a32345a8c8ee9c8a195d8
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
