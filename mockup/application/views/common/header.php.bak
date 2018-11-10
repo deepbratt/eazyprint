@@ -2,56 +2,60 @@
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
-					<header class="">
+					<header class="app-header header shadow-none relative">
 						<div class="container">
-							<div class="container-fluid">
-								<div class="">
-										<a class="header-brand" href="<?php echo base_url();?>home.php" <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
-											<span class="header-toggler-icon"></span>
-										</a>>
-											<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:60px;">
-										</a>
-										<!--
-										<div class="d-flex order-lg-3 ml-auto" style="margin-top:5px;">
-											<div class="">
-												<form class="input-icon  mr-3">
-													<input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search">
-													<div class="input-icon-addon">
-														<i class="fa fa-search"></i>
-													</div>
-												</form>
+						
+						<!-- Header Background Animation-->
+						
+						<!-- Navbar Right Menu-->
+						<div class="container-fluid">
+							<div class="d-flex">
+								<a class="header-brand" href="<?php echo base_url();?>home.php">
+									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_w.png" style="height:60px;">
+								</a>
+								<div class="d-flex order-lg-3 ml-auto" style="margin-top:5px;">
+									<div class="">
+										<form class="input-icon  mr-3">
+											<input class="form-control header-search" placeholder="Search&hellip;" tabindex="1" type="search">
+											<div class="input-icon-addon">
+												<i class="fa fa-search"></i>
 											</div>
+										</form>
+									</div>
 
-											<div class="dropdown">
-												<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
-													<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
-													<span class="ml-2 d-none d-lg-block">
-														<span class="text-white">Sindy Scribner</span>
-													</span>
-												</a>
-												<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-													<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
-													<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
-													<a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
-													<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
-													<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
-												</div>
-											</div>
-										</div>-->
-										
+									<div class="dropdown">
+										<a class="nav-link pr-0 leading-none d-flex" data-toggle="dropdown" href="#">
+											<span class="avatar avatar-md brround" style="background-image: url(assets/images/faces/female/25.jpg)"></span>
+											<span class="ml-2 d-none d-lg-block">
+												<span class="text-white">Sindy Scribner</span>
+											</span>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
+											<a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
+											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+										</div>
 									</div>
 								</div>
+								<a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+									<span class="header-toggler-icon"></span>
+								</a>
 							</div>
-				     </header>
+						</div>
+					</div>
+				</header>
 				
 				<!-- Horizantal menu-->
 				<div class="ren-navbar" id="headerMenuCollapse">
 					<div class="container">
 						<div class="row">
-							<a class="nav-link" href="#" style="text-align:center;" class="hidden-sm hidden-xs">
-								<span> <img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;"> </span>
+							<a class="nav-link" href="#" style="text-align:center">
+								<i class="fas fa-home"></i>
+								<span> HOME </span>
 							</a>
 						
 							<ul class="nav pull-left">

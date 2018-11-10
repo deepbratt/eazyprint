@@ -168,7 +168,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/banners/slide_mobcase.png" alt="First slide" class="img-responsive" >
+								<img class="first-slide" src="<?php echo base_url();?>images/banners/slide_mobcase.png" alt="First slide" class="img-responsive">
 								<div class="container">
 								  <div class="carousel-caption text-left">
 									<!--<h1>Example headline.</h1>
