@@ -45,8 +45,8 @@
     margin: 0 5px 0 0;
 }
 .tab_wrapper > ul li.active {
-  border-color: #7b41d8;
-  background: #7b41d8;
+  border-color: #009fdc;
+  background: #009fdc;
   color:#fff;
 }
 .tab_wrapper > ul li.active:after {
@@ -231,7 +231,7 @@
   width: 5px;
   height: 100%;
   content: "";
-  background: #7b41d8;
+  background: #009fdc;
 }
 .tab_wrapper.right_side > ul li.active:before {
   left: -2px;
