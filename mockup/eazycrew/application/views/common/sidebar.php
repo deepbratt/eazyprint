@@ -34,7 +34,7 @@
 						}
 						?>
 						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Category</h5>
+                            <h5 class="sidebar_header_uppercase">Product Tier</h5>
                         </li>
 						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_category' || $this->uri->segment(1) == 'admin_listing_category' ||$this->uri->segment(1) == 'admin_edit_category')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_category' || $this->uri->segment(1) == 'admin_listing_category' ||$this->uri->segment(1) == 'admin_edit_category')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-newspaper" style="padding-right:5px;"></i><span class="side-menu__label">Category</span><i class="angle fas fa-angle-right"></i></a>
