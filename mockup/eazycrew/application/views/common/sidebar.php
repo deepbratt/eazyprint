@@ -19,6 +19,9 @@
 						if($this->session->userdata['logged_in']['crew_role'] == 'admin')
 						{
 						?>
+						<li class="sidebar_header">
+                            <h5 class="sidebar_header_uppercase">Eazycrew</h5>
+                        </li>
 						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Crew Member</span><i class="angle fas fa-angle-right"></i></a>
 							<ul class="slide-menu">
