@@ -95,7 +95,7 @@
 													<td>
 														<div class="demo-gallery">
 															<ul id="lightgallery_<?php echo $i;?>" class="list-unstyled row">
-																<li class="col-xs-6 col-sm-4 col-md-3" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>" >
+																<li class="col-xs-6 col-sm-4 col-md-6" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p>Material Color: </p>" >
 																	<a href="javascript:void(0);">
 																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">
 																	</a>
