@@ -16,5 +16,16 @@
 	    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
 		color: #fff !important;
 }
+.sidebar_header{
+	font-size:14px;
+	font-weight:300;
+	color:#ffffff;
+	padding:15px;
+}
+.sidebar_header_uppercase{
+	padding:0px;
+	margin:0px;
+	text-transform:uppercase;
+}
 </style>
 <!-- DO NOT DELETE THIS -->
