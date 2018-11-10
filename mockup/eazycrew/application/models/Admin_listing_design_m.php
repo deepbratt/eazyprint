@@ -19,6 +19,14 @@ class Admin_listing_design_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function fetch_design_name($designed_id){
+		$this->db->select('*');
+		$this->db->from('creators');
+		$this->db->where('creator_id',$designed_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 }
 
 /* End of file Admin_listing_design_m.php */

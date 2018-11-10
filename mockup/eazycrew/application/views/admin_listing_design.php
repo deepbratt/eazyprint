@@ -23,7 +23,8 @@
 		?>
 		<!-- Data table css -->
 		<link href="<?php echo base_url();?>css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-
+		<!-- Gallery Plugin -->
+		<link href="<?php echo base_url();?>css/gallery.css" rel="stylesheet">
 	</head>
 	<body class="app sidebar-mini rtl">
 		<div class="page">
@@ -85,9 +86,23 @@
 															echo $fetch_sub_cat_name->sub_category_name;
 														?>
 													</td>
-													<td><?php echo $each_designs->designed_by;?>
+													<td><?php 
+														$designed_id = $each_designs->designed_by;
+														$fetch_name = $this->admin_listing_design_m->fetch_design_name($designed_id);
+														echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;
+													?>
 													</td>
-													<td><a href="<?php echo base_url();?>admin_view_design/<?php echo $each_designs->design_id;?>" class="btn btn-primary">View Design</a>
+													<td>
+														<div class="demo-gallery">
+															<ul id="lightgallery_<?php echo $i;?>" class="list-unstyled row">
+																<li class="col-xs-6 col-sm-4 col-md-6" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p>Material Color: </p>" >
+																	<a href="javascript:void(0);">
+																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">
+																	</a>
+																</li>
+															</ul>
+														</div>
+
 														<!--<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">-->
 													</td>
 													<td>
@@ -131,7 +146,25 @@
 				$('#example').DataTable();
 			} );
 		</script>
-
-
+		<!-- Gallery js -->
+		<script src="<?php echo base_url();?>js/picturefill.js"></script>
+        <script src="<?php echo base_url();?>js/lightgallery.js"></script>
+        <script src="<?php echo base_url();?>js/lg-pager.js"></script>
+        <script src="<?php echo base_url();?>js/lg-autoplay.js"></script>
+        <script src="<?php echo base_url();?>js/lg-fullscreen.js"></script>
+        <script src="<?php echo base_url();?>js/lg-zoom.js"></script>
+        <script src="<?php echo base_url();?>js/lg-hash.js"></script>
+        <script src="<?php echo base_url();?>js/lg-share.js"></script>
+        <!-- Gallery js -->
+        <?php
+        	$count_images = count($fetch_design_info);
+        	for($i=1; $i<=$count_images;$i++){
+        ?>
+		<script>
+            lightGallery(document.getElementById('lightgallery_<?php echo $i;?>'));
+        </script>
+        <?php
+    		}
+        ?>
 	</body>
 </html>

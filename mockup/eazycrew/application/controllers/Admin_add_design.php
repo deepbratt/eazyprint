@@ -15,6 +15,7 @@ class Admin_add_design extends CI_Controller {
 		$this->load->model('admin_add_design_m');
 		$data['fetch_all_categories'] = $this->admin_add_design_m->fetch_categories();
 		$data['fetch_all_subcategories'] = $this->admin_add_design_m->fetch_all_subcategories();
+		$data['fetch_all_designer'] = $this->admin_add_design_m->fetch_all_designer();
 		$this->load->view('admin_add_design',$data);
 	}
 
@@ -34,12 +35,30 @@ class Admin_add_design extends CI_Controller {
 		}
 	}
 
+	public function ajax_fetch_color(){
+		$this->load->model('admin_add_design_m');
+		$sub_id = $this->input->post('sub_id');
+		$fetch_color = $this->admin_add_design_m->fetch_color($sub_id);
+	?>
+		<option selected disabled>Choose Material Color</option>
+	<?php
+		
+		foreach($fetch_color AS $get_color){
+	 ?>
+		 	<option value="<?php echo $get_color->product_color_code;?>"><?php echo $get_color->product_color_name;?></option>
+	 <?php
+			
+		}
+	}
+
 	public function add_design(){
 		$this->load->model('admin_add_design_m');
 
 		$cat_id = $this->input->post('category');
 		$subcat_id = $this->input->post('sub_category');
+		$color = $this->input->post('color');
 		$designed_by = $this->input->post('designed_by');
+		$date = time();
 
 		$this->load->library('upload');
 	    $dataInfo = array();
@@ -62,6 +81,8 @@ class Admin_add_design extends CI_Controller {
 				'designed_by' => $designed_by,
 				'designed_image' => $dataInfo[$i]['file_name'],
 				'sub_category_id' => $subcat_id,
+				'designed_color' => $color,
+				'designed_date' => $date,
 				'status' => '1'
 			);
 			$insert_new_designs = $this->admin_add_design_m->insert_new_designs_info($records);	
