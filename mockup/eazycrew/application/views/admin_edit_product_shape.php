@@ -98,12 +98,11 @@ $this->load->view("common/sidebar");
 										</div>
 									  </div>
 									  <input type="hidden" name="sub_cat_id" value="<?php echo $product_shape_fetch->product_shape_id;?>">
-									<div class="card-footer text-right">
-										<div class="d-flex">
-											<button type="reset" class="btn btn-link">Cancel</button>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
-										</div>
-									</div>
+									  <div class="card-footer text-right">
+										<button type="submit" class="btn btn-primary">Submit
+										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
+									 </div>
 								</form>
 							</div>
 						</div>

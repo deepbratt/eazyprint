@@ -13,7 +13,7 @@
 					</div>
 					<ul class="side-menu">
 						<li class="slide">
-							<a class="side-menu__item" href="<?php echo base_url('admin_dashboard');?>"><i class="far fa-address-card" style="padding-right:5px;"></i><span class="side-menu__label">Dashboard</span></a>
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_dashboard')?'active':'');?>" href="<?php echo base_url('admin_dashboard');?>"><i class="far fa-address-card" style="padding-right:5px;"></i><span class="side-menu__label">Dashboard</span></a>
 						</li>
 						<?php
 						if($this->session->userdata['logged_in']['crew_role'] == 'admin')
@@ -118,5 +118,8 @@
 							</ul>
 						</li>
 						
+						<li class="slide">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_setting')?'active':'');?>"" href="<?php echo base_url('admin_setting');?>"><i class="fas fa-cog" style="padding-right:5px;"></i><span class="side-menu__label">Setting</span></a>
+						</li>
 					</ul>
 				</aside>
