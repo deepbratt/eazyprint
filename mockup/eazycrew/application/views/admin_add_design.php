@@ -89,31 +89,11 @@
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz">
+												<select name="sub_category" class="form-control custom-select sub_categoryz"  onchange="get_color(this.value);">
 													<option value="" selected="">Choose Subcategory</option>
 												</select>
 											</div>
 										  </div>
-										</div>
-									 
-									  
-										<div class="form-group">
-											<div class="row">
-												<div class="col-md-2">
-													<label class="form-label">Designed By</label>
-												</div>
-												<div class="col-md-10">
-												 <select name="designed_by" class="form-control custom-select">
-													<option value="" selected="">Choose Designer</option>
-													<option value="Pipon Das">Pipon Das</option>
-													<option value="Rajdeep Ghosh">Rajdeep Ghosh</option>
-													<option value="Shuvradeb Mondal">Shuvradeb Mondal</option>
-													<option value="Himadri Majumder">Himadri Majumder</option>
-													<option value="Sujit Sarkar">Sujit Sarkar</option>
-													<option value="Debashis Nath">Debashis Nath</option>
-												</select>
-												</div>
-											  </div>
 										</div>
 
 										<div class="form-group">
@@ -122,11 +102,31 @@
 												<label class="form-label">Material Color</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz">
-													<option value="" selected="">Choose Subcategory</option>
+												<select name="color" class="form-control custom-select mat_color">
+													<option value="" selected="">Choose Material Color</option>
 												</select>
 											</div>
 										  </div>
+										</div>
+
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-2">
+													<label class="form-label">Designed By</label>
+												</div>
+												<div class="col-md-10">
+												 <select name="designed_by" class="form-control custom-select">
+													<option value="" selected="">Choose Designer</option>
+													<?php
+													foreach($fetch_all_designer as $fetch_designer){
+													?>
+													<option value="<?php echo $fetch_designer->creator_id;?>"><?php echo ucfirst($fetch_designer->creator_fname);?>&nbsp;<?php echo ucfirst($fetch_designer->creator_lname);?></option>
+													<?php
+													}
+													?>
+												</select>
+												</div>
+											  </div>
 										</div>
 									
 									  
@@ -144,10 +144,9 @@
 									  
 									</div>
 									<div class="card-footer text-right">
-										<div class="d-flex">
-											<button type="reset" class="btn btn-link">Cancel</button>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
-										</div>
+										<button type="submit" class="btn btn-primary">Submit
+										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									</div>
 								</form>
 							</div>
@@ -190,7 +189,21 @@
 		        }
 		      });
     		 /* ajax code ends*/
-    	}
+    		}
+
+			function get_color(sub_id)
+			{
+				/*ajax code start*/
+				 $.ajax({
+					url: '<?php echo base_url();?>admin_add_design/ajax_fetch_color',
+					data: {'sub_id': sub_id,}, // change this to send js object
+					type: "post",
+					success: function(response){
+					  $('.mat_color').html(response);
+					}
+				  });
+				 /* ajax code ends*/
+			}
 		</script>
 	</body>
 
