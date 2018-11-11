@@ -17,7 +17,7 @@
 		<link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet">
 		<!-- Title -->
 		<title>Eazyprint | Edit Design</title>
-
+		
 	<?php
 	$this->load->view("common/metalinks");
 	?>
@@ -68,12 +68,17 @@
 												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
+												<?php
+													$sub_cat = $fetch_design_info->sub_category_id;
+													$get_cat = $this->admin_edit_design_m->get_cat($sub_cat);
+													$cat_id = $get_cat->category_id;
+												?>
 												<select name="category" id="" class="form-control custom-select" onchange="cat_id(this.value);">
 													<option value="" selected="">Choose Category</option>
 													<?php
 														foreach($fetch_all_categories As $each_cat){
 													?>
-													<option value="<?php echo $each_cat->category_id;?>"><?php echo ucfirst($each_cat->category_name);?></option>
+													<option value="<?php echo $each_cat->category_id;?>"<?php echo (($each_cat->category_id == $cat_id)?'selected':'')?>><?php echo ucfirst($each_cat->category_name);?></option>
 													<?php
 														}
 													?>
@@ -89,9 +94,10 @@
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz">
+												<select name="sub_category" class="form-control custom-select sub_categoryz" onchange="get_color(this.value);">
 													<?php
-														foreach($fetch_all_subcategories AS $each_subcat){
+														$get_resul_sub = $this->admin_edit_design_m->ajax_fetch_subcategories($cat_id);
+														foreach($get_resul_sub AS $each_subcat){
 													?>
 													<option value="<?php echo $each_subcat->sub_category_id;?>" <?php echo (($each_subcat->sub_category_id == $fetch_design_info->sub_category_id)?'selected':'')?>><?php echo $each_subcat->sub_category_name;?></option>
 													<?php
@@ -102,7 +108,44 @@
 										  </div>
 										</div>
 									 
-									  
+									  <!--<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Material Color</label>
+											</div>
+											<div class="col-md-10">
+												<select name="color" class="form-control custom-select mat_color">
+													<option value="" selected="">Choose Material Color</option>
+												</select>
+											</div>
+										  </div>
+										</div>-->
+
+										<div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Material Color</label>
+											  </div>
+											  <div class="col-md-10">
+												<div class="row gutters-xs mat_color">
+													<?php
+														$fetch_colors = $this->admin_edit_design_m->fetch_color($sub_cat);
+														foreach($fetch_colors AS $each_colors){
+													?>
+													<div class="col-auto ">
+														<label class="colorinput ">
+															<input name="color" type="checkbox" value="<?php echo $each_colors->product_color_code;?>" class="colorinput-input" <?php echo (($each_colors->product_color_code == $fetch_design_info->designed_color)?'checked':'');?>>
+															<span class="colorinput-color" style="background-color:<?php echo $each_colors->product_color_code;?>"></span>
+														</label>
+													</div>
+													<?php
+														}
+													?>
+												</div>
+											  </div>
+											</div>
+										</div>
+
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-2">
@@ -110,13 +153,15 @@
 												</div>
 												<div class="col-md-10">
 												 <select name="designed_by" class="form-control custom-select">
-													<option value="" selected="">Choose Designer</option>
-													<option value="Pipon Das" <?php echo (($fetch_design_info->designed_by == 'Pipon Das')?'selected':'')?>>Pipon Das</option>
-													<option value="Rajdeep Ghosh" <?php echo (($fetch_design_info->designed_by == 'Rajdeep Ghosh')?'selected':'')?>>Rajdeep Ghosh</option>
-													<option value="Shuvradeb Mondal" <?php echo (($fetch_design_info->designed_by == 'Shuvradeb Mondal')?'selected':'')?>>Shuvradeb Mondal</option>
-													<option value="Himadri Majumder" <?php echo (($fetch_design_info->designed_by == 'Himadri Majumder')?'selected':'')?>>Himadri Majumder</option>
-													<option value="Sujit Sarkar" <?php echo (($fetch_design_info->designed_by == 'Sujit Sarkar')?'selected':'')?>>Sujit Sarkar</option>
-													<option value="Debashis Nath" <?php echo (($fetch_design_info->designed_by == 'Debashis Nath')?'selected':'')?>>Debashis Nath</option>
+													<option value="" selected="" disabled="">Choose Designer</option>
+													<?php
+														foreach($fetch_all_designer AS $each_designer){
+													?>
+														<option value="<?php echo $each_designer->creator_id;?>" <?php echo (($fetch_design_info->designed_by == $each_designer->creator_id)?'selected':'')?>><?php echo ucfirst($each_designer->creator_fname);?>&nbsp;<?php echo ucfirst($each_designer->creator_lname);?>
+														</option>
+													<?php
+														}
+													?>
 												</select>
 												</div>
 											  </div>
@@ -128,19 +173,22 @@
 												<div class="col-md-2">
 													<label class="form-label">Image</label>
 												</div>
+
 												<div class="col-md-10">
-												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple" value=""/>
-												 <img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" style="height:120px;">
+													<div class="custom-file">
+														<input type="file" class="custom-file-input" name="userfile" accept="image/*" multiple="multiple" onchange="readURL(this);">
+														<label class="custom-file-label">Choose file</label>
+													</div>
+												 	<img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" style="height:120px;padding-top:15px;" id="blah">
 												</div>
 											  </div>
 										</div>
 
 									</div>
 									<div class="card-footer text-right">
-										<div class="d-flex">
-											<button type="reset" class="btn btn-link">Cancel</button>
-											<button type="submit" class="btn btn-primary ml-auto">Update</button>
-										</div>
+										<button type="submit" class="btn btn-primary">Submit
+										</button>
+										<button type="reset" class="btn btn-secondary">Cancel</button>
 									</div>
 								</form>
 							</div>
@@ -165,12 +213,25 @@
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script>
+		<!--<script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script>
 		<script type="text/javascript">
             $(document).ready(function() {
                 $('input[type="file"]').imageuploadify();
             })
-        </script>
+        </script>-->
+        <script type="text/javascript">
+	        function readURL(input) {
+	            if (input.files && input.files[0]) {
+	                var reader = new FileReader();
+
+	                reader.onload = function (e) {
+	                    $('#blah').attr('src', e.target.result);
+	                }
+
+	                reader.readAsDataURL(input.files[0]);
+	            }
+	        }
+	    </script>
 		<script>
 			function cat_id(e){
 			/*ajax code start*/
@@ -184,6 +245,21 @@
 		      });
     		 /* ajax code ends*/
     	}
+    	function get_color(sub_id)
+			{
+				
+				/*ajax code start*/
+				 $.ajax({
+					url: '<?php echo base_url();?>admin_edit_design/ajax_fetch_color',
+					data: {'sub_id': sub_id,}, // change this to send js object
+					type: "post",
+					success: function(response){
+						//alert(response);
+					  $('.mat_color').html(response);
+					}
+				  });
+				 /* ajax code ends*/
+			}
 		</script>
 	</body>
 

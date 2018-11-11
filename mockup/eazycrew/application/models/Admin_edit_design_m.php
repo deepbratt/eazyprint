@@ -19,12 +19,21 @@ class Admin_edit_design_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_all_subcategories(){
+	public function fetch_all_designer(){
 		$this->db->select('*');
-		$this->db->from('sub_category');
-		$this->db->where('sub_category_status','1');
+		$this->db->from('creators');
+		$this->db->where('creator_status','1');
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	public function get_cat($sub_cat){
+		$this->db->select('*');
+		$this->db->from('sub_category');
+		$this->db->join('category','category.category_id = sub_category.parent_cat_id');
+		$this->db->where('sub_category.sub_category_id',$sub_cat);
+		$query = $this->db->get();
+		return $query->row();
 	}
 
 	public function ajax_fetch_subcategories($cat_id){
@@ -32,6 +41,14 @@ class Admin_edit_design_m extends CI_Model {
 		$this->db->from('sub_category');
 		$this->db->where('parent_cat_id',$cat_id);
 		$this->db->where('sub_category_status','1');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function fetch_color($sub_id){
+		$this->db->select('*');
+		$this->db->from('product_color');
+		$this->db->where('sub_category_id',$sub_id);
 		$query = $this->db->get();
 		return $query->result();
 	}
