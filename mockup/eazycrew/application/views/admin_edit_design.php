@@ -45,7 +45,7 @@
 						</div>
 						<div class="row">
 						<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_edit_design/update_design');?>" enctype="multipart/form-data">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_design/update_design');?>/<?php echo $this->uri->segment(2);?>" enctype="multipart/form-data">
 									<div class="card-header">
 										<h3 class="card-title">Edit Design</h3>
 									</div>
@@ -176,7 +176,7 @@
 
 												<div class="col-md-10">
 													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="userfile" accept="image/*" multiple="multiple" onchange="readURL(this);">
+														<input type="file" class="custom-file-input" name="image" accept="image/*" multiple="multiple" onchange="readURL(this);">
 														<label class="custom-file-label">Choose file</label>
 													</div>
 												 	<img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" style="height:120px;padding-top:15px;" id="blah">

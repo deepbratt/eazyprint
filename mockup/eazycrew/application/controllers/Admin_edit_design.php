@@ -44,7 +44,7 @@ class Admin_edit_design extends CI_Controller {
 	 ?>
 		 <div class="col-auto ">
 			<label class="colorinput mat_color">
-				<input name="color" type="radio" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
+				<input name="color" type="checknox" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
 				<span class="colorinput-color" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
 			</label>
 		</div>
@@ -55,33 +55,45 @@ class Admin_edit_design extends CI_Controller {
 
 	public function update_design(){
 		$this->load->model('admin_edit_design_m');
-		$design_id = $this->uri->segment(2);
+		$design_id = $this->uri->segment(3);
 		$cat_id = $this->input->post('category');
 		$subcat_id = $this->input->post('sub_category');
 		$color = $this->input->post('color');
 		$designed_by = $this->input->post('designed_by');
 
-		$this->load->library('upload');
-	    $files = $_FILES;
-
-	        $_FILES['userfile']['name']= $files['userfile']['name'];
-	        $_FILES['userfile']['type']= $files['userfile']['type'];
-	        $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'];
-	        $_FILES['userfile']['error']= $files['userfile']['error'];
-	        $_FILES['userfile']['size']= $files['userfile']['size'];    
-
-	        $this->upload->initialize($this->set_upload_options());
-	        $this->upload->do_upload();
-	        $dataInfo = $this->upload->data();
-
-	        $records = array(
-				'designed_by' => $designed_by,
-				'designed_image' => $dataInfo['file_name'],
-				'sub_category_id' => $subcat_id,
-				'designed_color' => $color,
-				'status' => '1'
-			);
-			$update_new_designs_info = $this->admin_edit_design_m->update_new_designs_info($records,$design_id);
+		if(!empty($_FILES['image']['name'])){
+                $config['upload_path'] = 'uploads/designs/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = rand(999,99999).$_FILES['image']['name'];
+                
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+                
+                if($this->upload->do_upload('image')){
+                    $uploadData = $this->upload->data();
+					$image = $uploadData['file_name'];
+					$records=array(
+									"designed_by" => $designed_by,
+									"designed_image" => $image,
+									"sub_category_id" => $subcat_id,
+									"designed_color" => $color
+								  );
+                }else{
+					$records=array(
+									"designed_by" => $designed_by,
+									"sub_category_id" => $subcat_id,
+									"designed_color" => $color
+								  );
+                }
+		}else{
+			$records=array(
+							"designed_by" => $designed_by,
+									"sub_category_id" => $subcat_id,
+									"designed_color" => $color
+						  );
+		}
+		
+		$update_new_designs_info = $this->admin_edit_design_m->update_new_designs_info($records,$design_id);
 	    
 
 		if($update_new_designs_info){
@@ -93,18 +105,6 @@ class Admin_edit_design extends CI_Controller {
 		}
 		
 	}
-
-	private function set_upload_options()
-	{   
-	    //upload an image options
-	    $config = array();
-	    $config['upload_path'] = 'uploads/designs';
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-		$config['file_name'] = rand(999,99999).$_FILES['userfile']['name'];
-
-	    return $config;
-	}
-
 }
 
 /* End of file Admin_edit_design.php */
