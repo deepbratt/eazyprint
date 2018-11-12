@@ -11,6 +11,7 @@ class Admin_add_brand_m extends CI_Model {
 		return $query->result();
 		
 	}
+
 	public function ajax_fetch_subcategories($cat_id){
 		$this->db->select('*');
 		$this->db->from('sub_category');
@@ -19,6 +20,7 @@ class Admin_add_brand_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function sub_brand_insert($records)
 	{
 		$this->db->insert('brands', $records);

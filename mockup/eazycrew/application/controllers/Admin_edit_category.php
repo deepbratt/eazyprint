@@ -14,19 +14,29 @@ class Admin_edit_category extends CI_Controller {
 	{
 		$this->load->model('admin_edit_category_m');
 		$category_name = $this->input->post('category_name');
-		$category_id = $this->input->post('cat_id');
-		$records=array('category_name'=>$category_name);
-		$update_cat = $this->admin_edit_category_m->cat_update($records,$category_id);
-		if($update_cat)
+		$category_id = $this->uri->segment(3);
+
+		$check_category = $this->admin_edit_category_m->check_category($category_name,$category_id);
+		if($check_category < 1)
 		{
-			$this->session->set_flashdata("success", "You have successfully updated the category!");
+			$records=array('category_name'=>$category_name);
+			$update_cat = $this->admin_edit_category_m->cat_update($records,$category_id);
+			if($update_cat)
+			{
+				$this->session->set_flashdata("success", "You have successfully updated the category!");
+				redirect('admin_edit_category/'.$category_id);
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Something went wrong!");
+				redirect('admin_edit_category/'.$category_id);
+			}
+		}else{
+			$this->session->set_flashdata("exist", "This Category already exist!");
 			redirect('admin_edit_category/'.$category_id);
 		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
-			redirect('admin_edit_category/'.$category_id);
-		}
+
+		
 		
 	}
 

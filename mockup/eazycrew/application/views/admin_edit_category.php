@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -53,13 +52,20 @@ $this->load->view("common/sidebar");
 						  if($this->session->flashdata('success')){
 						?>
 						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-						<?php } ?>
+						<?php 
+							} 
+						   if($this->session->flashdata('exist')){
+						?>
+							<div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('exist');?></strong> </div>
+						<?php
+						  }
+						?>
 
 						<div class="row">
 							<div class="col-lg-12">
 
 
-								<form  method="post" class="card" action="<?php echo base_url('admin_edit_category');?>/edit_category">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_category/edit_category/');?><?php echo $this->uri->segment(2);?>">
 									<div class="card-header">
 										<h3 class="card-title">Edit Category</h3>
 									</div>
@@ -71,7 +77,6 @@ $this->load->view("common/sidebar");
 											</div>
 											<div class="col-md-10">
 											 <input type="text" class="form-control" placeholder="New Category Name" value="<?php echo $cat_fetch->category_name;?>" name="category_name">
-											 <input type="hidden" name="cat_id" value="<?php echo $cat_fetch->category_id;?>">
 											</div>
 										  </div>
 										</div>

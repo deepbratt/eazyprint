@@ -2,6 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_edit_sub_category extends CI_Controller {
+	
+	function __construct(){
+        parent::__construct();
+        if(!$this->session->userdata['logged_in']['user_id']){
+            redirect('admin_login');
+        }
+    }
 
 	public function index()
 	{
@@ -15,19 +22,28 @@ class Admin_edit_sub_category extends CI_Controller {
 		$this->load->model('admin_edit_sub_category_m');
 		$category_name = $this->input->post('category');
 		$sub_category_name = $this->input->post('sub_category');
-		$cat_sub_id = $this->input->post('sub_cat_id');
-		$records=array('parent_cat_id'=>$category_name,'sub_category_name'=>$sub_category_name);
-		$update_sub_cat = $this->admin_edit_sub_category_m->sub_cat_update($records,$cat_sub_id);
-		if($update_sub_cat)
+		$cat_sub_id = $this->uri->segment(3);
+
+		$check_sub_cat = $this->admin_edit_sub_category_m->check_sub_cat($cat_sub_id,$category_name,$sub_category_name);
+		if($check_sub_cat < 1)
 		{
-			$this->session->set_flashdata("success", "You have successfully updated the subcategory!");
-			redirect('admin_edit_sub_category/'.$cat_sub_id);	
-		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
+			$records=array('parent_cat_id'=>$category_name,'sub_category_name'=>$sub_category_name);
+			$update_sub_cat = $this->admin_edit_sub_category_m->sub_cat_update($records,$cat_sub_id);
+			if($update_sub_cat)
+			{
+				$this->session->set_flashdata("success", "You have successfully updated the subcategory!");
+				redirect('admin_edit_sub_category/'.$cat_sub_id);	
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Something went wrong!");
+				redirect('admin_edit_sub_category/'.$cat_sub_id);
+			}
+		}else{
+			$this->session->set_flashdata("exist", "This Sub-category Already Exist!");
 			redirect('admin_edit_sub_category/'.$cat_sub_id);
 		}
+		
 	}
 
 }

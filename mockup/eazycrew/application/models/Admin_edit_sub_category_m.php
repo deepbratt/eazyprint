@@ -11,6 +11,19 @@ class Admin_edit_sub_category_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();		
 	}
+
+	public function check_sub_cat($cat_sub_id,$category_name,$sub_category_name)
+	{
+		$this->db->select('*');
+		$this->db->from('sub_category');
+		$this->db->where('parent_cat_id', $category_name);
+		$this->db->where('sub_category_name', $sub_category_name);
+		$this->db->where('sub_category_id !=', $cat_sub_id);
+		$query = $this->db->get();
+		return $query->num_rows();
+		
+	}
+
 	public function sub_cat_edit()
 	{
 		$this->db->select('*');
@@ -19,6 +32,7 @@ class Admin_edit_sub_category_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
 	public function sub_cat_update($records,$cat_sub_id)
 	{
 		$where  = array('sub_category_id' => $cat_sub_id);
