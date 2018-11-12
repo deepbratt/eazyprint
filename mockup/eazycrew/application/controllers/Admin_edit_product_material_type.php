@@ -15,19 +15,29 @@ class Admin_edit_product_material_type extends CI_Controller {
 		$this->load->model('admin_edit_product_material_type_m');
 		$sub_category_name = $this->input->post('sub_category');
 		$product_metarial_name = $this->input->post('product_metarial');
-		$cat_sub_id = $this->input->post('sub_cat_id');
-		$records=array('product_material_type'=>$product_metarial_name,'sub_category_id'=>$sub_category_name);
-		$update_product_metarial = $this->admin_edit_product_material_type_m->product_metarial_update($records,$cat_sub_id);
-		if($update_product_metarial)
+		$cat_sub_id = $this->uri->segment(3);
+
+		$check_material = $this->admin_edit_product_material_type_m->check_material($sub_category_name,$product_metarial_name,$cat_sub_id);
+		if($check_material < 1)
 		{
-			$this->session->set_flashdata("success", "You have successfully updated the subcategory!");
-			redirect('admin_edit_product_material_type/'.$cat_sub_id);	
-		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
+			$records=array('product_material_type'=>$product_metarial_name,'sub_category_id'=>$sub_category_name);
+			$update_product_metarial = $this->admin_edit_product_material_type_m->product_metarial_update($records,$cat_sub_id);
+			if($update_product_metarial)
+			{
+				$this->session->set_flashdata("success", "You have successfully updated the subcategory!");
+				redirect('admin_edit_product_material_type/'.$cat_sub_id);	
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Something went wrong!");
+				redirect('admin_edit_product_material_type/'.$cat_sub_id);
+			}
+		}else{
+			$this->session->set_flashdata("exist", "This product material type already exist!");
 			redirect('admin_edit_product_material_type/'.$cat_sub_id);
 		}
+
+		
 	}
 
 }
