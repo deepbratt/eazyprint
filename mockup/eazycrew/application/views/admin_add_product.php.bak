@@ -504,9 +504,9 @@
 						content += '<table class="table table-striped" style="width:100%">';
 						content += '<tr><th>info</th><th>Description</th></tr>';
 						
-						
-						content += "<tr><td>" + dimensions + "</td><td>" + obj[dimensions] + "</td><tr>";
-
+						for(var key in obj){
+						  content += "<tr><td>" + key + "</td><td>" + obj[dimensions] + "</td><tr>";
+						}
 
 						content += "</table>";
 						return $('<div class="result_div"></div>').append(content);
