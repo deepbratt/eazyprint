@@ -274,18 +274,18 @@
 					  <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Product Dimention
+                            <label class="form-label">Product Dimention (mm)
                             </label>
                           </div>
 						
 						<div class="col-md-4">
-							<input type="text" class="form-control" name="dimension_start" placeholder="Product Height">
+							<input type="text" class="form-control pro_len" name="dimension_len" placeholder="Product length">
 						</div>
 						<div class="col-md-3">
-							<input type="text" class="form-control" name="dimension_end" placeholder="Product Width">
+							<input type="text" class="form-control pro_wid" name="dimension_wid" placeholder="Product Width">
 						</div>
 						<div class="col-md-3">
-							<input type="text" class="form-control" name="dimension_end" placeholder="Product Length">
+							<input type="text" class="form-control pro_height" name="dimension_height" placeholder="Product height">
 						</div>
 					
                           </div>
@@ -498,17 +498,11 @@
 
 					// argument contains the data object // *returns html content
 					return $.map(arguments, function(obj, i) {
-
-						content  = '<h3>'+ obj.DeviceName + '</h3>';
-						content += '<table class="table table-striped" style="width:100%">';
-						content += '<tr><th>info</th><th>Description</th></tr>';
-						
-						for(var key in obj){
-						  content += "<tr><td>" + key + "</td><td>" + obj[key] + "</td><tr>";
-						}
-
-						content += "</table>";
-						return $('<div class="result_div"></div>').append(content);
+						content  = obj.dimensions;
+						contarr = content.split(" ");
+						$('.pro_len').val(contarr[0]);
+						$('.pro_wid').val(contarr[2]);
+						$('.pro_height').val(contarr[4]);
 					});
 
 				}
