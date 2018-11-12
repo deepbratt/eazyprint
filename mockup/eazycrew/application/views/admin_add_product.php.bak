@@ -490,7 +490,6 @@
 
 			// set token globally
 			//$.fn.fonoApi.options.token = "xxx";
-			alert('zz');
 			$('.api').fonoApi({
 				token : "86b89476caaf66eda3f21279b7711afc",
 				device : $('.devname').val(),
@@ -505,7 +504,7 @@
 						content += '<tr><th>info</th><th>Description</th></tr>';
 						
 						for(var key in obj){
-						  content += "<tr><td>" + key + "</td><td>" + obj[dimensions] + "</td><tr>";
+						  content += "<tr><td>" + key + "</td><td>" + obj[key] + "</td><tr>";
 						}
 
 						content += "</table>";
