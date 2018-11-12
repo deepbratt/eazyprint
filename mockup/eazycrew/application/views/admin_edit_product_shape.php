@@ -52,11 +52,18 @@ $this->load->view("common/sidebar");
 						  if($this->session->flashdata('success')){
 						?>
 						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-						<?php } ?>
+						<?php
+							}
+						if($this->session->flashdata('exist')){
+						?>
+							<div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('exist');?></strong> </div>
+						<?php
+							}
+						?>
 						<div class="row">
 							<div class="col-lg-12">
 
-								<form  method="post" class="card" action="<?php echo base_url('admin_edit_product_shape');?>/edit_product_shape">
+								<form  method="post" class="card" action="<?php echo base_url('admin_edit_product_shape/edit_product_shape/');?><?php echo $this->uri->segment(2);?>">
 									<div class="card-header">
 										<h3 class="card-title">Edit Product Shape</h3>
 									</div>
@@ -97,7 +104,6 @@ $this->load->view("common/sidebar");
 										  </div>
 										</div>
 									  </div>
-									  <input type="hidden" name="sub_cat_id" value="<?php echo $product_shape_fetch->product_shape_id;?>">
 									  <div class="card-footer text-right">
 										<button type="submit" class="btn btn-primary">Submit
 										</button>
