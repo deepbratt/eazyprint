@@ -12,6 +12,18 @@ class Admin_edit_category_m extends CI_Model {
 		return $query->row();
 		
 	}
+
+	public function check_category($category_name,$category_id)
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->where('category_name', $category_name);
+		$this->db->where('category_id !=', $category_id);
+		$query = $this->db->get();
+		return $query->num_rows();
+		
+	}
+
 	public function cat_update($records,$category_id)
 	{
 		$where  = array('category_id' => $category_id);
