@@ -1,7 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_edit_product_color_m extends CI_Model {
+class Admin_add_product_m extends CI_Model {
+
+	public function get_product_category()
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->where('category_status', '1');
+		$query = $this->db->get();
+		return $query->result();		
+	}
+
+	public function get_brands($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('brands');
+		$this->db->where('sub_category', $sub_id);
+		$this->db->where('brand_status', '1');
+		$query = $this->db->get();
+		return $query->result();		
+	}
+
+	public function get_model($brand_id)
+	{
+		$this->db->select('*');
+		$this->db->from('model');
+		$this->db->where('brand_id', $brand_id);
+		$this->db->where('model_status', '1');
+		$query = $this->db->get();
+		return $query->result();		
+	}
 
 	public function fetch_product_color($product_color_id)
 	{
@@ -11,6 +40,7 @@ class Admin_edit_product_color_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();		
 	}
+
 	public function product_color_edit()
 	{
 		$this->db->select('*');

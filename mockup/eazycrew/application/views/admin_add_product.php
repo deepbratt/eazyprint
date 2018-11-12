@@ -31,13 +31,14 @@
               </h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="#">Elements
+                  <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Breadcrumbs
+                <li class="breadcrumb-item active" aria-current="page">Add Product
                 </li>
               </ol>
             </div>
+			<div class="alert alert-success result_div"></div>
             <form  method="post" >
               <div class="row">
                 <div class="col-lg-12">
@@ -54,15 +55,17 @@
 								</label>
 							  </div>
 							  <div class="col-md-10">
-								<select name="country" id="select-countries" class="form-control custom-select">
-								  <option value="" selected="">Choose Category
-								  </option>
-								  <option value="Electronics">Electronics
-								  </option>
-								  <option value="Fashion">Fashion
-								  </option>
-								  <option value="Gift Items" >Gift Items
-								  </option>
+								<select name="country" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
+									<option value="" selected="">Choose Category</option>
+								<?php
+								foreach($get_product_category as $fetch_product_category)
+								{
+								?>
+									<option value="<?php echo $fetch_product_category->category_id;?>"><?php echo $fetch_product_category->category_name;?></option>
+								<?php
+								}
+								?>
+								  
 								</select>
 							  </div>
 							</div>
@@ -74,15 +77,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <select name="country" id="select-countries" class="form-control custom-select">
-                              <option value="" selected="">Choose Subcategory
-                              </option>
-                              <option value="Phone Case">Phone Case
-                              </option>
-                              <option value="Mugs">Mugs
-                              </option>
-                              <option value="T-Shirt" >T-Shirt
-                              </option>
+                            <select name="country" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
+                              <option value="" selected="">Choose Subcategory</option>
                             </select>
                           </div>
                         </div>
@@ -94,33 +90,23 @@
                             <label class="form-label">Choose Brand
                             </label>
                           </div>
-                          <div class="col-md-10">
-                            <select class="form-control custom-select">
-                              <option value="" selected>Choose Brand
-                              </option>
-                              <option value="Nokia">Nokia
-                              </option>
-                              <option value="Samsung">Samsung
-                              </option>
+                          <div class="col-md-10"> 
+                            <select class="form-control custom-select brandz" onchange="brand_id(this.value);">
+                              <option value="" selected>Choose Brand</option>
                             </select>
                           </div>
                         </div>
                       </div>
 
-					  <div class="form-group">
+					  <div class="form-group modelz" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Choose Model Number
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <select class="form-control custom-select">
-                              <option value="" selected>Choose model
-                              </option>
-                              <option value="3110">3110
-                              </option>
-                              <option value="C6">C6
-                              </option>
+                            <select class="form-control custom-select modelzz" onchange="model_id(this.value);">
+                              <option value="" selected>Choose model</option>
                             </select>
                           </div>
                         </div>
@@ -450,7 +436,57 @@
       </i>
     </a>
     <script type="text/javascript">
-      $('#cp2').colorpicker();
+		$('#cp2').colorpicker();
+
+		function cat_id(e){
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
+			data: {'category_id': e,},
+			type: "post",
+			success: function(response){
+			  $('.sub_categoryz').html(response);
+			}
+		  });
+		}
+
+		function sub_id(sub_id){
+			if(sub_id == '9')
+			{
+				$('.modelz').show();
+			}else{
+				$('.modelz').hide();
+			}
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
+			data: {'sub_id': sub_id,},
+			type: "post",
+			success: function(response){
+			  $('.brandz').html(response);
+			}
+		  });
+		}
+
+		function brand_id(brand_id){
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
+			data: {'brand_id': brand_id,},
+			type: "post",
+			success: function(response){
+			  $('.modelzz').html(response);
+			}
+		  });
+		}
+
+		function model_id(model_id){
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model_desc',
+			data: {'model_id': model_id,},
+			type: "post",
+			success: function(response){
+			  $('.result_div').html(response);
+			}
+		  });
+		}
     </script>
     <!-- Timepicker js -->
     <script src="../js/jquery.timepicker.js">
