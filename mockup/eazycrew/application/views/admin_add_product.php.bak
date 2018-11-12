@@ -505,7 +505,7 @@
 						content += '<tr><th>info</th><th>Description</th></tr>';
 						
 						
-						content += "<tr><td>" + key + "</td><td>" + obj[dimensions] + "</td><tr>";
+						content += "<tr><td>" + dimensions + "</td><td>" + obj[dimensions] + "</td><tr>";
 
 
 						content += "</table>";
