@@ -38,8 +38,7 @@
                 </li>
               </ol>
             </div>
-			<div class="alert alert-success result_div"></div>
-			<div class="api">
+			<div class="api" style="display:none;">
 			   Api is ready to Run
 			</div>
             <form  method="post" >

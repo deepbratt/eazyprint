@@ -38,8 +38,7 @@
                 </li>
               </ol>
             </div>
-			<div class="alert alert-success result_div"></div>
-			<div class="api">
+			<div class="api" style="">
 			   Api is ready to Run
 			</div>
             <form  method="post" >
@@ -274,7 +273,7 @@
 					  <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Product Dimention
+                            <label class="form-label">Product Dimention (mm)
                             </label>
                           </div>
 						
