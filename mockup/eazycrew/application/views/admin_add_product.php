@@ -41,7 +41,7 @@
 			<div class="api" style="display:none;">
 			   Api is ready to Run
 			</div>
-            <form  method="post" >
+            <form  method="post" action="<?php echo base_url('admin_add_product/add_product');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -57,7 +57,7 @@
 								</label>
 							  </div>
 							  <div class="col-md-10">
-								<select name="country" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
+								<select name="category" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
 									<option value="" selected="">Choose Category</option>
 								<?php
 								foreach($get_product_category as $fetch_product_category)
@@ -79,7 +79,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <select name="country" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
+                            <select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
                               <option value="" selected="">Choose Subcategory</option>
                             </select>
                           </div>
@@ -93,7 +93,7 @@
                             </label>
                           </div>
                           <div class="col-md-10"> 
-                            <select class="form-control custom-select brandz" onchange="brand_id(this.value);">
+                            <select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
                               <option value="" selected>Choose Brand</option>
                             </select>
                           </div>
@@ -107,7 +107,9 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-
+							<div class="form-group">
+								<input class="devname form-control" type="text" name="model" onkeyup="callapi();"></input> 
+							</div>
                           </div>
                         </div>
                       </div>
@@ -118,12 +120,7 @@
                 </div>
               </div>
 				
-				<div class="form-group">
-					<input class="devname form-control" type="text" ></input> 
-				</div>
-				<div class="form-group">
-					<button class="form-control btn btn-primary submitzz" onclick="callapi();"type="button">Submit</button>
-				</div>
+				
 
 			  <div class="row">
                 <div class="col-lg-12">
@@ -143,7 +140,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Product Name" >
+                            <input type="text" class="form-control" name="product_name" placeholder="Product Name" >
                           </div>
                         </div>
                       </div>
@@ -154,22 +151,12 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Product Title">
+                            <input type="text" class="form-control" name="product_title" placeholder="Product Title">
                           </div>
                         </div>
                       </div>
 
-					   <div class="form-group">
-                        <div class="row">
-                          <div class="col-md-2">
-                            <label class="form-label">Product Title
-                            </label>
-                          </div>
-                          <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Product Title">
-                          </div>
-                        </div>
-                      </div>
+					   
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
@@ -197,34 +184,35 @@
                       </h3>
                     </div>
                     <div class="card-body">
-                      <div class="form-group">
+					  
+					  <div class="form-group materialz">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label class="form-label">Material Type
+                            </label>
+                          </div>
+                          <div class="col-md-10"> 
+                            <select name="brand" class="form-control custom-select materialzz">
+                              <option value="" selected>Choose Material Type</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group p_color">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Color
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <div class="row gutters-xs">
-                              <div class="col-auto">
-                                <label class="colorinput">
-                                  <input name="color" type="checkbox" value="azure" class="colorinput-input" checked="">
-                                  <span class="colorinput-color bg-azure">
-                                  </span>
-                                </label>
-                              </div>
-                              <div class="col-auto">
-                                <label class="colorinput">
-                                  <input name="color" type="checkbox" value="azure" class="colorinput-input" checked="">
-                                  <span class="colorinput-color bg-azure">
-                                  </span>
-                                </label>
-                              </div>
+                            <div class="row gutters-xs colorzz">
                             </div>
                           </div>
                         </div>
                       </div>
 
-					  <div class="form-group">
+					  <div class="form-group p_size">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Size
@@ -233,7 +221,7 @@
                           <div class="col-md-10">
 								<div class="selectgroup selectgroup-pills">
 									<label class="selectgroup-item">
-										<input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
+										<input type="checkbox" name="product_size[]" value="HTML" class="selectgroup-input" checked="">
 										<span class="selectgroup-button">HTML</span>
 									</label>
 								</div>
@@ -241,7 +229,7 @@
                         </div>
                       </div>
 
-					  <div class="form-group">
+					  <div class="form-group p_shape">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Shape
@@ -250,7 +238,7 @@
                           <div class="col-md-10">
 								<div class="selectgroup selectgroup-pills">
 									<label class="selectgroup-item">
-										<input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
+										<input type="checkbox" name="product_shape[]" value="HTML" class="selectgroup-input" checked="">
 										<span class="selectgroup-button">HTML</span>
 									</label>
 								</div>
@@ -258,14 +246,14 @@
                         </div>
                       </div>
 
-					  <div class="form-group">
+					  <div class="form-group p_weight">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Weight
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" class="form-control" placeholder="Add Product Weight">
+                            <input type="text" name="product_weight" class="form-control" placeholder="Add Product Weight">
                           </div>
                         </div>
                       </div>
@@ -298,7 +286,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" class="form-control" placeholder="Add quantity">
+                            <input type="number" name="quantity" class="form-control" placeholder="Add quantity">
                           </div>
                         </div>
                       </div>
@@ -324,7 +312,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" class="form-control" placeholder="Add Wholesale Price">
+                            <input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price">
                           </div>
                         </div>
                       </div>
@@ -336,7 +324,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" class="form-control" placeholder="Add Retail Price">
+                            <input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
                           </div>
                         </div>
                       </div>
@@ -348,7 +336,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" class="form-control" placeholder="Add Purchase Price">
+                            <input type="number" name="purchase_price" class="form-control" placeholder="Add Purchase Price">
                           </div>
                         </div>
                       </div>
@@ -376,7 +364,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Add Tags">
+                            <input type="text" name="tags" class="form-control" placeholder="Add Tags">
                           </div>
                         </div>
                       </div>
@@ -388,7 +376,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Add Meta Tags">
+                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Meta Tags">
                           </div>
                         </div>
                       </div>
@@ -400,7 +388,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" placeholder="Add Meta Keywords">
+                            <input type="text" name="meta_keyword" class="form-control" placeholder="Add Meta Keywords">
                           </div>
                         </div>
                       </div>
@@ -457,20 +445,41 @@
 		}
 
 		function sub_id(sub_id){
+			
 			if(sub_id == '9')
 			{
 				$('.modelz').show();
+				$('.p_color').hide();
+				$('.p_size').hide();
+				$('.p_shape').hide();
+				$('.p_weight').hide();
 			}else{
 				$('.modelz').hide();
 			}
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
-			data: {'sub_id': sub_id,},
-			type: "post",
-			success: function(response){
-			  $('.brandz').html(response);
-			}
-		  });
+			
+		  $.when( 
+			  $.ajax({
+				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
+				data: {'sub_id': sub_id,},
+				type: "post",
+			  }),
+
+			   $.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
+				  type: 'post',
+				  data: {'sub_id': sub_id,}
+			   }),
+
+				$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
+				  type: 'post',
+				  data: {'sub_id': sub_id,}
+			   })
+			 ).done(function( data1, data2 ,data3) {
+			    $('.brandz').html(data1);
+				$('.materialzz').html(data2);
+				$('.colorzz').html(data3);
+			});
 		}
 
 		function brand_id(brand_id){

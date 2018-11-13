@@ -22,6 +22,25 @@ class Admin_add_product_m extends CI_Model {
 		return $query->result();		
 	}
 
+	public function get_material($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_material_type');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();		
+	}
+
+	public function get_color($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_color');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+		//return $this->db->last_query();
+	}
+
 	public function get_model($brand_id)
 	{
 		$this->db->select('*');
@@ -32,14 +51,7 @@ class Admin_add_product_m extends CI_Model {
 		return $query->result();		
 	}
 
-	public function fetch_product_color($product_color_id)
-	{
-		$this->db->select('*');
-		$this->db->from('product_color');
-		$this->db->where('product_color_id', $product_color_id);
-		$query = $this->db->get();
-		return $query->row();		
-	}
+	
 
 	public function product_color_edit()
 	{
