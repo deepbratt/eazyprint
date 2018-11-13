@@ -24,7 +24,8 @@ class Admin_login extends CI_Controller {
 									'user_id' => $login_auth->crew_id,
 									'name' => $login_auth->crew_fname.' '.$login_auth->crew_lname,
 									'email'=> $login_auth->crew_email,
-									'crew_role' => $login_auth->crew_role
+									'crew_role' => $login_auth->crew_role,
+									'crew_image' => $login_auth->crew_image
 								 );
 			$this->session->set_userdata('logged_in', $session_data);
 			redirect('admin_dashboard');
