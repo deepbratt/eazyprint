@@ -38,10 +38,17 @@
                 </li>
               </ol>
             </div>
+			<?php
+			  if($this->session->flashdata('success')){
+			?>
+			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+			<?php 
+				} 
+			?>
 			<div class="api" style="display:none;">
 			   Api is ready to Run
 			</div>
-            <form  method="post" action="<?php echo base_url('admin_add_product/add_product');?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_product/add_product');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -192,7 +199,7 @@
                             </label>
                           </div>
                           <div class="col-md-10"> 
-                            <select name="brand" class="form-control custom-select materialzz">
+                            <select name="material_type" class="form-control custom-select materialzz">
                               <option value="" selected>Choose Material Type</option>
                             </select>
                           </div>
@@ -219,12 +226,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-								<div class="selectgroup selectgroup-pills">
-									<label class="selectgroup-item">
-										<input type="checkbox" name="product_size[]" value="HTML" class="selectgroup-input" checked="">
-										<span class="selectgroup-button">HTML</span>
-									</label>
-								</div>
+							<div class="selectgroup selectgroup-pills sizezz">
+							</div>
                           </div>
                         </div>
                       </div>
@@ -236,9 +239,9 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-								<div class="selectgroup selectgroup-pills">
+								<div class="selectgroup selectgroup-pills shapezz">
 									<label class="selectgroup-item">
-										<input type="checkbox" name="product_shape[]" value="HTML" class="selectgroup-input" checked="">
+										<input type="checkbox" name="product_shape" value="HTML" class="selectgroup-input" checked="">
 										<span class="selectgroup-button">HTML</span>
 									</label>
 								</div>
@@ -287,6 +290,18 @@
                           </div>
                           <div class="col-md-10">
                             <input type="number" name="quantity" class="form-control" placeholder="Add quantity">
+                          </div>
+                        </div>
+                      </div>
+
+					  <div class="form-group">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label class="form-label">Minimum Order
+                            </label>
+                          </div>
+                          <div class="col-md-10">
+                            <input type="number" name="min_order" class="form-control" placeholder="Add Minimum Order">
                           </div>
                         </div>
                       </div>
@@ -360,11 +375,11 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Tags
+                            <label class="form-label">Meta Tags
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="tags" class="form-control" placeholder="Add Tags">
+                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Tags">
                           </div>
                         </div>
                       </div>
@@ -372,11 +387,11 @@
 					  <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Meta Tags
+                            <label class="form-label">Meta Image
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Meta Tags">
+                            <input type="file" name="image" class="form-control" placeholder="Add Meta Tags">
                           </div>
                         </div>
                       </div>
@@ -453,32 +468,49 @@
 				$('.p_size').hide();
 				$('.p_shape').hide();
 				$('.p_weight').hide();
+				$('.materialz').hide();
 			}else{
 				$('.modelz').hide();
 			}
-			
-		  $.when( 
-			  $.ajax({
+			$.ajax({
 				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
 				data: {'sub_id': sub_id,},
 				type: "post",
-			  }),
-
-			   $.ajax({
+				success: function(response){
+				  $('.brandz').html(response);
+				}
+			});
+			$.ajax({
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
 				  type: 'post',
-				  data: {'sub_id': sub_id,}
-			   }),
-
-				$.ajax({
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.materialzz').html(response);
+				  }
+			});
+			$.ajax({
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
 				  type: 'post',
-				  data: {'sub_id': sub_id,}
-			   })
-			 ).done(function( data1, data2 ,data3) {
-			    $('.brandz').html(data1);
-				$('.materialzz').html(data2);
-				$('.colorzz').html(data3);
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.colorzz').html(response);
+				  }
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.sizezz').html(response);
+				  }
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.shapezz').html(response);
+				  }
 			});
 		}
 

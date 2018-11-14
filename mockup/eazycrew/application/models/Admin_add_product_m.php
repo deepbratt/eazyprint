@@ -41,6 +41,24 @@ class Admin_add_product_m extends CI_Model {
 		//return $this->db->last_query();
 	}
 
+	public function get_size($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_size');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+	}
+
+	public function get_shape($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_shapetype');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+	}
+
 	public function get_model($brand_id)
 	{
 		$this->db->select('*');
@@ -51,22 +69,28 @@ class Admin_add_product_m extends CI_Model {
 		return $query->result();		
 	}
 
-	
-
-	public function product_color_edit()
+	public function get_brand_name($brand)
 	{
 		$this->db->select('*');
-		$this->db->from('sub_category');
+		$this->db->from('brands');
+		$this->db->where('brand_id', $brand);
 		$query = $this->db->get();
-		return $query->result();
-	}
-	public function product_color_update($records,$cat_sub_id)
-	{
-		$where  = array('product_color_id' => $cat_sub_id);
-		$this->db->where($where);
-		$query = $this->db->update('product_color', $records);
-		return true;
+		return $query->row();
 	}
 
+	public function get_shape_name($product_shape)
+	{
+		$this->db->select('*');
+		$this->db->from('product_shapetype');
+		$this->db->where('product_shape_id', $product_shape);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function insert_product($records)
+	{
+		$this->db->insert('products', $records);
+		return true;
+	}
 }
 ?>

@@ -26,13 +26,13 @@ $this->load->view("common/metalinks");
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
 		<div class="page">
 			<div class="page-main">
-<?php
-$this->load->view("common/header");
-?>
+			<?php
+			$this->load->view("common/header");
+			?>
 
-<?php
-$this->load->view("common/sidebar");
-?>
+			<?php
+			$this->load->view("common/sidebar");
+			?>
 
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
@@ -114,9 +114,9 @@ $this->load->view("common/sidebar");
 						</div>
 					</div>
 					<!--footer-->
-<?php
-$this->load->view("common/footer");
-?>
+					<?php
+					$this->load->view("common/footer");
+					?>
 					<!-- End Footer-->
 				</div>
 			</div>
@@ -125,13 +125,13 @@ $this->load->view("common/footer");
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
-		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
-		<script src="<?php echo base_url();?>js/toggles.min.js"></script>
+		<script src="<?php echo base_url('js/');?>jquery.timepicker.js"></script>
+		<script src="<?php echo base_url('js/');?>toggles.min.js"></script>
 
 		<!-- Datepicker js -->
-		<script src="<?php echo base_url();?>js/spectrum.js"></script>
-		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
-		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<script src="<?php echo base_url('js/');?>spectrum.js"></script>
+		<script src="<?php echo base_url('js/');?>jquery-ui.js"></script>
+		<script src="<?php echo base_url('js/');?>jquery.maskedinput.js"></script>
 	</body>
 
 </html>
