@@ -240,10 +240,6 @@
                           </div>
                           <div class="col-md-10">
 								<div class="selectgroup selectgroup-pills shapezz">
-									<label class="selectgroup-item">
-										<input type="checkbox" name="product_shape" value="HTML" class="selectgroup-input" checked="">
-										<span class="selectgroup-button">HTML</span>
-									</label>
 								</div>
                           </div>
                         </div>
