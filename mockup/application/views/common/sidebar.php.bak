@@ -54,7 +54,7 @@
 		  </div>
 
 			<div class="card-body">
-				   <div class="form-group m-0">
+				   <div class="form-group ">
 						<div class="selectgroup selectgroup-pills">
 							<label class="selectgroup-item">
 								<input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
@@ -178,7 +178,7 @@
 				<div class="card-title" style="width:100%;"> Material Type </div>
 		    </div>
 			<div class="card-body">
-					<div class="form-group m-0">
+					<div class="form-group">
 						<div class="custom-controls-stacked">
 							<label class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked="">
