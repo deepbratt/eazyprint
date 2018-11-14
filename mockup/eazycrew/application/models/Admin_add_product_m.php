@@ -22,6 +22,43 @@ class Admin_add_product_m extends CI_Model {
 		return $query->result();		
 	}
 
+	public function get_material($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_material_type');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();		
+	}
+
+	public function get_color($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_color');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+		//return $this->db->last_query();
+	}
+
+	public function get_size($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_size');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+	}
+
+	public function get_shape($sub_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_shapetype');
+		$this->db->where('sub_category_id', $sub_id);
+		$query = $this->db->get();
+		return $query->result();	
+	}
+
 	public function get_model($brand_id)
 	{
 		$this->db->select('*');
@@ -32,29 +69,28 @@ class Admin_add_product_m extends CI_Model {
 		return $query->result();		
 	}
 
-	public function fetch_product_color($product_color_id)
+	public function get_brand_name($brand)
 	{
 		$this->db->select('*');
-		$this->db->from('product_color');
-		$this->db->where('product_color_id', $product_color_id);
+		$this->db->from('brands');
+		$this->db->where('brand_id', $brand);
 		$query = $this->db->get();
-		return $query->row();		
+		return $query->row();
 	}
 
-	public function product_color_edit()
+	public function get_shape_name($product_shape)
 	{
 		$this->db->select('*');
-		$this->db->from('sub_category');
+		$this->db->from('product_shapetype');
+		$this->db->where('product_shape_id', $product_shape);
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row();
 	}
-	public function product_color_update($records,$cat_sub_id)
+
+	public function insert_product($records)
 	{
-		$where  = array('product_color_id' => $cat_sub_id);
-		$this->db->where($where);
-		$query = $this->db->update('product_color', $records);
+		$this->db->insert('products', $records);
 		return true;
 	}
-
 }
 ?>

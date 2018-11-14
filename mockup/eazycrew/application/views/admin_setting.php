@@ -64,13 +64,33 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_setting/update_admin');?>">
+								<form  method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('admin_setting/update_admin');?>">
 									<div class="card-header">
 										<h3 class="card-title">Setting</h3>
 									</div>
 
 									<div class="card-body">
 										
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-12" align="center">
+													<?php
+													if($admin_data->crew_image == '')
+													{
+													?>
+														<img class="brround" style="height:150px;width:150px;" src="https://placeholdit.imgix.net/~text?txtsize=33&txtcolor=ffffff&txt=Upload%20Image&bg=333333&w=150&h=150" id="blah">
+													<?php
+													}else{
+													?>
+														<img class="brround" style="height:150px;width:150px;" src="uploads/crew_images/<?php echo $admin_data->crew_image;?>" id="blah">
+													<?php
+													}
+													?>
+														<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+													</div>
+												  </div>
+											</div>
+
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
@@ -151,6 +171,23 @@
 			input.attr("type", "password");
 		  }
 		});
+
+
+		$(".brround").click(function() {
+			$("input[id='my_file']").click();
+		});
+
+		function readURL(input) {
+	            if (input.files && input.files[0]) {
+	                var reader = new FileReader();
+
+	                reader.onload = function (e) {
+	                    $('#blah').attr('src', e.target.result);
+	                }
+
+	                reader.readAsDataURL(input.files[0]);
+	            }
+	        }
 		</script>
 
 		<!-- Timepicker js -->

@@ -3,7 +3,18 @@
 					<div class="app-sidebar__user">
 						<div class="dropdown">
 							<a class="nav-link p-0 leading-none d-flex" data-toggle="dropdown" href="#">
+							<?php
+							if($this->session->userdata['logged_in']['crew_image'] == '')
+							{
+							?>
 								<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('images');?>/favicon.png)"></span>
+							<?php
+							}else{
+							?>
+								<span class="avatar avatar-md brround" style="background-image: url(uploads/crew_images/<?php echo $this->session->userdata['logged_in']['crew_image'];?>)"></span>
+							<?php
+							}
+							?>
 								<span class="ml-2 "><span class="text-white app-sidebar__user-name font-weight-semibold"><?php echo $this->session->userdata['logged_in']['name'];?></span><br>
 									<i class="fas fa-user-graduate" style="padding-right:5px;"></i><span class="text-muted app-sidebar__user-name text-sm"><?php echo $this->session->userdata['logged_in']['crew_role'];?></span>
 								</span>

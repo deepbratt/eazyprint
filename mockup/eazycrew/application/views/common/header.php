@@ -18,7 +18,18 @@
 								
 								<div class="dropdown">
 									<a class="nav-link pr-0 leading-none d-flex" style="margin-top:3px !important;" data-toggle="dropdown" href="#">
+										<?php
+										if($this->session->userdata['logged_in']['crew_image'] == '')
+										{
+										?>
 										<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('images');?>/favicon.png)"></span>
+										<?php
+										}else{
+										?>
+										<span class="avatar avatar-md brround" style="background-image: url(uploads/crew_images/<?php echo $this->session->userdata['logged_in']['crew_image'];?>)"></span>
+										<?php
+										}
+										?>
 										<span class="ml-2 d-none d-lg-block">
 											<span class="text-white"><?php echo $this->session->userdata['logged_in']['name'];?></span>
 										</span>
