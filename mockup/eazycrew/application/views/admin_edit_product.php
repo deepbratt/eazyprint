@@ -42,19 +42,19 @@
 								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php 
+							} 
+						?>
 						<div class="row">
 							<div class="col-lg-12">
-								<?php
-								  if($this->session->flashdata('success')){
-								?>
-								  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-								<?php 
-									} 
-								?>
 								<div class="api" style="display:none;">
 								   Api is ready to Run
 								</div>
-								<form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_product/add_product');?>">
+								<form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_edit_product/update_product/');?><?php echo $this->uri->segment(2);?>">
 								  <div class="row">
 									<div class="col-lg-12">
 									  <div class="card">
@@ -242,6 +242,19 @@
 											  </div>
 											  <div class="col-md-10">
 												<div class="row gutters-xs colorzz">
+												<?php
+												  foreach($get_color as $fetch_color)
+												  {
+												  ?>
+													<div class="col-auto">
+													  <label class="colorinput">
+													    <input name="color" type="radio" value="<?php echo $fetch_color->product_color_code?>" class="colorinput-input" <?php echo (($fetch_color->product_color_code == $fetch_product->product_color)?'checked':'');?>>
+													    <span class="colorinput-color" style="background-color:<?php echo $fetch_color->product_color_code;?>"></span>
+													  </label>
+												    </div>
+												<?php
+												  }
+												?>
 												</div>
 											  </div>
 											</div>
@@ -255,6 +268,17 @@
 											  </div>
 											  <div class="col-md-10">
 												<div class="selectgroup selectgroup-pills sizezz">
+												<?php
+												  foreach($get_size as $fetch_size)
+												  {
+												  ?>
+													<label class="selectgroup-item">
+														<input type="radio" name="product_size" value="<?php echo $fetch_size->product_size_id;?>" class="selectgroup-input" <?php echo (($fetch_size->product_size_id == $fetch_product->product_size)?'checked':'');?>>
+														<span class="selectgroup-button"><?php echo ucfirst($fetch_size->product_size_name);?></span>
+													</label>
+												<?php
+												  }
+												?>
 												</div>
 											  </div>
 											</div>
@@ -267,8 +291,19 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-													<div class="selectgroup selectgroup-pills shapezz">
-													</div>
+												<div class="selectgroup selectgroup-pills shapezz">
+												 <?php
+												  foreach($get_shape as $fetch_shape)
+												  {
+												  ?>
+													<label class="selectgroup-item">
+													   <input type="radio" name="product_shape" value="<?php echo $fetch_shape->product_shape_id;?>" class="selectgroup-input" <?php echo (($fetch_shape->product_shape_id == $fetch_product->product_shapetype)?'checked':'');?>>
+													   <span class="selectgroup-button"><?php echo ucfirst($fetch_shape->product_shapetype_name);?></span>
+													</label>
+												<?php
+												  }
+												?>
+												</div>
 											  </div>
 											</div>
 										  </div>

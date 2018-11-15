@@ -41,6 +41,40 @@ class Admin_edit_product_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_color($sub_cat_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_color');
+		$this->db->where('sub_category_id', $sub_cat_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_size($sub_cat_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_size');
+		$this->db->where('sub_category_id', $sub_cat_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_shape($sub_cat_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_shapetype');
+		$this->db->where('sub_category_id', $sub_cat_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function update_product($records,$product_id)
+	{
+		$this->db->where("product_id", $product_id);
+		$query = $this->db->update('products', $records);
+		return true;
+	}
+
 }
 
 /* End of file Admin_edit_product_m.php */
