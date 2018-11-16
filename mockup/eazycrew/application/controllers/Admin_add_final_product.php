@@ -26,15 +26,17 @@ class Admin_add_final_product extends CI_Controller {
 		$get_design = $this->admin_add_final_product_m->get_design($product_details->product_subcategory);
 		?>
 		<?php
+		$i = 1;
 		foreach($get_design as $fetch_design){
 		?>
 		<div class="col-md-2">
-			<input type="radio" id="design_label<?php echo $fetch_design->design_id;?>" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
-			<label for="design_label<?php echo $fetch_design->design_id;?>">
+			<input type="radio" id="design_label<?php echo $i;?>" name="emotion" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
+			<label for="design_label<?php echo $i;?>">
 				<img src="<?php echo base_url('uploads/designs/');?><?php echo $fetch_design->designed_image;?>" style="margin-bottom:10px;height:100px;width:100px;" >
 			</label>
 		</div>
 		<?php
+			$i++;
 		}
 		
 	}

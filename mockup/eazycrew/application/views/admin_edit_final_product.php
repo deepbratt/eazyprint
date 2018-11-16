@@ -310,7 +310,7 @@
 							foreach($get_design as $fetch_design){
 							?>
 							<div class="col-md-2">
-								<input type="radio" id="design_label<?php echo $fetch_design->design_id;?>" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
+								<input type="radio" id="design_label<?php echo $fetch_design->design_id;?>" name="emotion" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
 								<label for="design_label<?php echo $fetch_design->design_id;?>">
 									<img src="<?php echo base_url('uploads/designs/');?><?php echo $fetch_design->designed_image;?>" style="margin-bottom:10px;height:100px;width:100px;" >
 								</label>
