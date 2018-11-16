@@ -31,6 +31,21 @@ class Admin_add_final_product_m extends CI_Model {
 		return $query->result();		
 	}
 
+	public function show_design($design_id)
+	{
+		$this->db->select('*');
+		$this->db->from('designs');
+		$this->db->where('design_id', $design_id);
+		$query = $this->db->get();
+		return $query->row();		
+	}
+
+	public function insert_product($records)
+	{
+		$this->db->insert('final_products', $records);
+		return true;
+	}
+
 }
 
 /* End of file Admin_add_final_product_m.php */

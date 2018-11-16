@@ -14,7 +14,7 @@
     <link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
     <!-- Title -->
-    <title>Eazyprint | Add Final Product
+    <title>Eazyprint | Edit Final Product
     </title>
     <?php $this->load->view('common/metalinks');?>
 	<style>
@@ -53,14 +53,14 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Final Product
+              <h4 class="page-title">Edit Final Product
               </h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Final Product
+                <li class="breadcrumb-item active" aria-current="page">Edit Final Product
                 </li>
               </ol>
             </div>
@@ -72,7 +72,7 @@
 				} 
 			?>
 			
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_final_product/add_product');?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_edit_final_product/update_product/');?><?php echo $this->uri->segment(2);?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -94,7 +94,7 @@
 								foreach($get_product as $fetch_product)
 								{
 								?>
-									<option value="<?php echo $fetch_product->product_id;?>"><?php echo $fetch_product->product_name;?></option>
+									<option value="<?php echo $fetch_product->product_id;?>" <?php echo(($fetch_product->product_id == $fetch_final_product->product_id)?'selected':'');?>><?php echo $fetch_product->product_name;?></option>
 								<?php
 								}
 								?>
@@ -110,9 +110,9 @@
                             </label>
                           </div>
                           <div class="col-md-10 design_div">
-                            <a class="btn btn-danger " href="javascript:void(0);" data-toggle="modal" data-target="#largeModal">View All Design</a>
+                            <img src="<?php echo base_url('uploads/designs/');?><?php echo $show_design->designed_image;?>" style="height:150px;" data-toggle="modal" data-target="#largeModal">
                           </div>
-						  <input type="hidden" class="design_id_val" name="p_design" value="">
+						  <input type="hidden" class="design_id_val" name="p_design" value="<?php echo $fetch_final_product->f_product_design_id;?>">
                         </div>
                       </div>
 
@@ -139,7 +139,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" name="product_name" placeholder="Product Name" >
+                            <input type="text" class="form-control" name="product_name" value="<?php echo $fetch_final_product->f_product_name;?>" placeholder="Product Name" >
                           </div>
                         </div>
                       </div>
@@ -151,8 +151,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <textarea class="form-control" name="product_desc" placeholder="Enter Product Description">
-                            </textarea>
+                            <textarea class="form-control" name="product_desc" placeholder="Enter Product Description"><?php echo $fetch_final_product->f_product_desc;?></textarea>
                           </div>
                         </div>
                       </div>
@@ -177,7 +176,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price">
+                            <input type="number" name="wholesale_price" value="<?php echo $fetch_final_product->f_product_wholesale_price;?>" class="form-control" placeholder="Add Wholesale Price">
                           </div>
                         </div>
                       </div>
@@ -189,7 +188,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
+                            <input type="number" name="retail_price" value="<?php echo $fetch_final_product->f_product_retail_price;?>" class="form-control" placeholder="Add Retail Price">
                           </div>
                         </div>
                       </div>
@@ -201,7 +200,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="number" name="quantity" class="form-control" placeholder="Add quantity">
+                            <input type="number" name="quantity" value="<?php echo $fetch_final_product->f_product_quantity;?>" class="form-control" placeholder="Add quantity">
                           </div>
                         </div>
                       </div>
@@ -228,7 +227,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Tags">
+                            <input type="text" name="meta_tags" value="<?php echo $fetch_final_product->f_meta_tags;?>" class="form-control" placeholder="Add Tags">
                           </div>
                         </div>
                       </div>
@@ -240,8 +239,20 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                           <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
-						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+                            <?php
+							  if($fetch_final_product->f_meta_image !='')
+							  {
+							  ?>
+								<img onclick="meta_image()" src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_final_product->f_meta_image;?>" style="height:150px;" id="blah">
+								<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+							  <?php
+							  }else{
+							  ?>
+								<input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+								<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+							  <?php
+							  }
+							  ?>
                           </div>
                         </div>
                       </div>
@@ -253,7 +264,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_keyword" class="form-control" placeholder="Add Meta Keywords">
+                            <input type="text" name="meta_keyword" value="<?php echo $fetch_final_product->f_meta_keyword;?>" class="form-control" placeholder="Add Meta Keywords">
                           </div>
                         </div>
                       </div>
@@ -265,8 +276,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description">
-                            </textarea>
+                            <textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"><?php echo $fetch_final_product->f_meta_desc;?></textarea>
                           </div>
                         </div>
                       </div>
@@ -296,6 +306,18 @@
 						</div>
 						<div class="modal-body pd-20">
 							<div class="row designz">
+							<?php
+							foreach($get_design as $fetch_design){
+							?>
+							<div class="col-md-2">
+								<input type="radio" id="design_label<?php echo $fetch_design->design_id;?>" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
+								<label for="design_label<?php echo $fetch_design->design_id;?>">
+									<img src="<?php echo base_url('uploads/designs/');?><?php echo $fetch_design->designed_image;?>" style="margin-bottom:10px;height:100px;width:100px;" >
+								</label>
+							</div>
+							<?php
+							}
+							?>
 							</div>
 						</div><!-- modal-body -->
 						<div class="modal-footer">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_add_final_product extends CI_Controller {
+class Admin_edit_final_product extends CI_Controller {
 	
 	function __construct(){
         parent::__construct();
@@ -12,51 +12,23 @@ class Admin_add_final_product extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model('admin_edit_final_product_m');
 		$this->load->model('admin_add_final_product_m');
+		$product_id = $this->uri->segment(2);
+		$data['fetch_final_product'] = $this->admin_edit_final_product_m->fetch_final_product($product_id);
 		$data['get_product'] = $this->admin_add_final_product_m->get_product();
-		//$data['get_design'] = $this->admin_add_final_product_m->get_design($data['get_product']->product_subcategory);
-		$this->load->view('admin_add_final_product',$data);
+		$data['show_design'] = $this->admin_add_final_product_m->show_design($data['fetch_final_product']->f_product_design_id);
+		$data['get_design'] = $this->admin_add_final_product_m->get_design($data['fetch_final_product']->f_sub_category_id);
+		$this->load->view('admin_edit_final_product',$data);
 	}
 
-	public function ajax_fetch_design()
+	public function update_product()
 	{
-		$this->load->model('admin_add_final_product_m');
-		$product_id = $this->input->post('product_id');
-		$product_details = $this->admin_add_final_product_m->product_details($product_id);
-		$get_design = $this->admin_add_final_product_m->get_design($product_details->product_subcategory);
-		?>
-		<?php
-		foreach($get_design as $fetch_design){
-		?>
-		<div class="col-md-2">
-			<input type="radio" id="design_label<?php echo $fetch_design->design_id;?>" value="<?php echo $fetch_design->design_id;?>" class="input-hidden" onclick="show_design(<?php echo $fetch_design->design_id;?>);">
-			<label for="design_label<?php echo $fetch_design->design_id;?>">
-				<img src="<?php echo base_url('uploads/designs/');?><?php echo $fetch_design->designed_image;?>" style="margin-bottom:10px;height:100px;width:100px;" >
-			</label>
-		</div>
-		<?php
-		}
-		
-	}
-
-	public function ajax_show_design()
-	{
-		$this->load->model('admin_add_final_product_m');
-		$design_id = $this->input->post('design_id');
-		$show_design = $this->admin_add_final_product_m->show_design($design_id);
-		if(sizeof($show_design) > 0)
-		{
-	?>
-		<img src="<?php echo base_url('uploads/designs/');?><?php echo $show_design->designed_image;?>" style="height:150px;" data-toggle="modal" data-target="#largeModal">
-	<?php
-		}
-	}
-
-	public function add_product()
-	{
+		$this->load->model('admin_edit_final_product_m');
 		$this->load->model('admin_add_final_product_m');
 		$this->load->model('admin_add_product_m');
-
+		
+		$final_product_id = $this->uri->segment(3);
 		//Product Details Start
 		$product_id = $this->input->post('product');
 		$product_details = $this->admin_add_final_product_m->product_details($product_id);
@@ -128,8 +100,6 @@ class Admin_add_final_product extends CI_Controller {
 									'f_product_wholesale_price' =>  $wholesale_price,
 									'f_product_retail_price' => $retail_price,
 									'f_product_quantity' => $quantity,
-									'f_product_status' => '1',
-									'f_added_date' => $date,
 									'f_updated_date' => $date,
 									'f_product_sku' => $sku,
 									'f_meta_tags' => $meta_tags,
@@ -149,8 +119,6 @@ class Admin_add_final_product extends CI_Controller {
 									'f_product_wholesale_price' =>  $wholesale_price,
 									'f_product_retail_price' => $retail_price,
 									'f_product_quantity' => $quantity,
-									'f_product_status' => '1',
-									'f_added_date' => $date,
 									'f_updated_date' => $date,
 									'f_product_sku' => $sku,
 									'f_meta_tags' => $meta_tags,
@@ -170,8 +138,6 @@ class Admin_add_final_product extends CI_Controller {
 								'f_product_wholesale_price' =>  $wholesale_price,
 								'f_product_retail_price' => $retail_price,
 								'f_product_quantity' => $quantity,
-								'f_product_status' => '1',
-								'f_added_date' => $date,
 								'f_updated_date' => $date,
 								'f_product_sku' => $sku,
 								'f_meta_tags' => $meta_tags,
@@ -179,13 +145,12 @@ class Admin_add_final_product extends CI_Controller {
 								'f_meta_desc' => $meta_desc
 							  );
 			}
-
-		$insert_product = $this->admin_add_final_product_m->insert_product($records);
-		$this->session->set_flashdata("success", "Product Added Successfully!");
-	    redirect('admin_add_final_product');
+		$update_product = $this->admin_edit_final_product_m->update_product($records,$final_product_id);
+		$this->session->set_flashdata("success", "Product Updated Successfully!");
+	    redirect('admin_edit_final_product/'.$final_product_id);
 	}
 
 }
 
-/* End of file Admin_add_final_product.php */
-/* Location: ./application/controllers/Admin_add_final_product.php */
+/* End of file Admin_edit_final_product.php */
+/* Location: ./application/controllers/Admin_edit_final_product.php */

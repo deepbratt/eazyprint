@@ -20,6 +20,7 @@
        <?php
 		$this->load->view("common/metalinks");
 		?>
+		
 	</head>
 	<body class="app sidebar-mini rtl">
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
@@ -450,8 +451,20 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<img onclick="meta_image()" src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_product->meta_img;?>" style="height:60px;width:60px;" id="blah">
+											  <?php
+											  if($fetch_product->meta_img !='')
+											  {
+											  ?>
+												<img onclick="meta_image()" src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_product->meta_img;?>" style="height:150px;" id="blah">
 												<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+											  <?php
+											  }else{
+											  ?>
+												<input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+												<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+											  <?php
+											  }
+											  ?>
 											  </div>
 											</div>
 										  </div>
@@ -607,16 +620,18 @@
 		}
 
 		function readURL(input) {
-	            if (input.files && input.files[0]) {
-	                var reader = new FileReader();
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
 
-	                reader.onload = function (e) {
-	                    $('#blah').attr('src', e.target.result);
-	                }
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+				}
 
-	                reader.readAsDataURL(input.files[0]);
-	            }
-	        }
+				reader.readAsDataURL(input.files[0]);
+				$('#blah').show();
+				$('.hide_file').hide();
+			}
+		}
 
 
 		function callapi(){
