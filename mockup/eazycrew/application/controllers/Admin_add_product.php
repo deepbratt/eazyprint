@@ -185,7 +185,13 @@ class Admin_add_product extends CI_Controller {
 			$sku_shape_val = "00";
 		}else{
 			$sku_model_val = "00";
-			$sku_shape_val = substr($get_shape_name->product_shapetype_name,0,2);
+			if($get_shape_name->product_shapetype_name == "")
+			{
+				$sku_shape_val = "00";
+			}else{
+				$sku_shape_val = substr($get_shape_name->product_shapetype_name,0,2);
+			}
+			
 		}
 		$sku = sprintf("%02d", $category).''.sprintf("%02d", $sub_category).''.strtoupper($sku_brand_val).''.strtoupper($sku_model_val).''.strtoupper($sku_shape_val);
 		//SKU CALCULATION ENDS

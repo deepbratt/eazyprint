@@ -20,6 +20,7 @@
        <?php
 		$this->load->view("common/metalinks");
 		?>
+		
 	</head>
 	<body class="app sidebar-mini rtl">
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
@@ -42,98 +43,467 @@
 								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
 							</ol>
 						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php 
+							} 
+						?>
 						<div class="row">
 							<div class="col-lg-12">
-								<form  method="post" class="card">
-									<div class="card-header">
-										<h3 class="card-title">Edit Product</h3>
-									</div>
-									<div class="card-body">
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Choose Category</label>
+								<div class="api" style="display:none;">
+								   Api is ready to Run
+								</div>
+								<form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_edit_product/update_product/');?><?php echo $this->uri->segment(2);?>">
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">Product Hierarchy
+										  </h3>
+										</div>
+										<div class=" card-body">
+											<div class="form-group">
+												<div class="row">
+												  <div class="col-md-2">
+													<label class="form-label">Choose Category
+													</label>
+												  </div>
+												  <div class="col-md-10">
+													<select name="category" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
+														<option value="" selected="">Choose Category</option>
+														<?php
+														foreach($get_product_category as $fetch_product_category)
+														{
+														?>
+															<option value="<?php echo $fetch_product_category->category_id;?>" <?php echo (($fetch_product_category->category_id == $fetch_product->product_category)?'selected':'');?>><?php echo $fetch_product_category->category_name;?></option>
+														<?php
+														}
+														?>
+													</select>
+												  </div>
+												</div>
 											</div>
-											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Category</option>
-													<option value="Electronics">Electronics</option>
-													<option value="Fashion">Fashion</option>
-													<option value="Gift Items" >Gift Items</option>
+											<div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Choose Subcategory
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
+												  <option value="" >Choose Subcategory</option>
+												  <?php
+												  foreach($get_sub_cat as $fetch_sub_cat)
+												  {
+												  ?>
+													<option value="<?php echo $fetch_sub_cat->sub_category_id;?>" <?php echo (($fetch_sub_cat->sub_category_id == $fetch_product->product_subcategory)?'selected':'');?>><?php echo $fetch_sub_cat->sub_category_name;?></option>
+												  <?php
+												  }
+												  ?>
 												</select>
+											  </div>
 											</div>
 										  </div>
-										</div>
-									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Choose Subcategory</label>
-											</div>
-											<div class="col-md-10">
-												<select name="country" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Subcategory</option>
-													<option value="Phone Case">Phone Case</option>
-													<option value="Mugs">Mugs</option>
-													<option value="T-Shirt" >T-Shirt</option>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Choose Brand
+												</label>
+											  </div>
+											  <div class="col-md-10"> 
+												<select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
+												  <option value="">Choose Brand</option>
+												  <?php
+												  foreach($get_brand as $fetch_brand)
+												  {
+												  ?>
+													<option value="<?php echo $fetch_brand->brand_id;?>" <?php echo (($fetch_brand->brand_id == $fetch_product->product_brand)?'selected':'');?>><?php echo $fetch_brand->brand_name;?></option>
+												  <?php
+												  }
+												  ?>
 												</select>
+											  </div>
 											</div>
 										  </div>
-										</div>
-									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Choose Brand</label>
-											</div>
-											<div class="col-md-10">
-											 <select class="form-control custom-select">
-												<option value="" selected>Choose Brand</option>
-												<option value="Nokia">Nokia</option>
-												<option value="Samsung">Samsung</option>
-											  </select>
+
+										  <div class="form-group modelz" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'block':'none');?>;">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Choose Model Number
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<div class="form-group">
+													<input class="devname form-control" type="text" value="<?php echo $fetch_product->product_model_no;?>" name="model" onkeyup="callapi();"></input> 
+												</div>
+											  </div>
 											</div>
 										  </div>
+
+
 										</div>
 									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Choose Model Number</label>
-											</div>
-											<div class="col-md-10">
-											 <select class="form-control custom-select">
-												<option value="" selected>Choose model</option>
-												<option value="3110">3110</option>
-												<option value="C6">C6</option>
-											  </select>
+									</div>
+								  </div>
+									
+									
+
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">Product Classification
+										  </h3>
+										</div>
+										<div class="card-body">
+								  
+								   
+							
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Name
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="text" class="form-control" value="<?php echo $fetch_product->product_name;?>" name="product_name" placeholder="Product Name" >
+											  </div>
 											</div>
 										  </div>
-										</div>
-									  </div>
-									  <div class="col-md-12">
-										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Product Quantity</label>
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Title
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="text" class="form-control" value="<?php echo $fetch_product->product_title;?>" name="product_title" placeholder="Product Title">
+											  </div>
 											</div>
-											<div class="col-md-10">
-											 <input type="number" class="form-control" placeholder="Add quantity">
+										  </div>
+
+										   
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Desc
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<textarea class="form-control" name="product_desc" placeholder="Enter Product Description"><?php echo $fetch_product->product_desc;?></textarea>
+											  </div>
 											</div>
 										  </div>
 										</div>
 									  </div>
 									</div>
-									<div class="card-footer text-right">
-										<div class="d-flex">
-											<a href="javascript:void(0)" class="btn btn-link">Cancel</a>
-											<button type="submit" class="btn btn-primary ml-auto">Submit</button>
+								  </div>
+
+
+
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">Product Specification
+										  </h3>
 										</div>
+										<div class="card-body">
+										  
+										  <div class="form-group materialz" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Material Type
+												</label>
+											  </div>
+											  <div class="col-md-10"> 
+												<select name="material_type" class="form-control custom-select materialzz">
+												  <option value="">Choose Material Type</option>
+												  <?php
+												  foreach($get_material_type as $fetch_material_type)
+												  {
+												  ?>
+													<option value="<?php echo $fetch_material_type->product_material_id;?>" <?php echo (($fetch_material_type->product_material_id == $fetch_product->product_material_type)?'selected':'');?>><?php echo $fetch_material_type->product_material_type;?></option>
+												  <?php
+												  }
+												  ?>
+												</select>
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group p_color" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Color
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<div class="row gutters-xs colorzz">
+												<?php
+												  foreach($get_color as $fetch_color)
+												  {
+												  ?>
+													<div class="col-auto">
+													  <label class="colorinput">
+													    <input name="color" type="radio" value="<?php echo $fetch_color->product_color_code?>" class="colorinput-input" <?php echo (($fetch_color->product_color_code == $fetch_product->product_color)?'checked':'');?>>
+													    <span class="colorinput-color" style="background-color:<?php echo $fetch_color->product_color_code;?>"></span>
+													  </label>
+												    </div>
+												<?php
+												  }
+												?>
+												</div>
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group p_size" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Size
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<div class="selectgroup selectgroup-pills sizezz">
+												<?php
+												  foreach($get_size as $fetch_size)
+												  {
+												  ?>
+													<label class="selectgroup-item">
+														<input type="radio" name="product_size" value="<?php echo $fetch_size->product_size_id;?>" class="selectgroup-input" <?php echo (($fetch_size->product_size_id == $fetch_product->product_size)?'checked':'');?>>
+														<span class="selectgroup-button"><?php echo ucfirst($fetch_size->product_size_name);?></span>
+													</label>
+												<?php
+												  }
+												?>
+												</div>
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group p_shape" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Shape
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<div class="selectgroup selectgroup-pills shapezz">
+												 <?php
+												  foreach($get_shape as $fetch_shape)
+												  {
+												  ?>
+													<label class="selectgroup-item">
+													   <input type="radio" name="product_shape" value="<?php echo $fetch_shape->product_shape_id;?>" class="selectgroup-input" <?php echo (($fetch_shape->product_shape_id == $fetch_product->product_shapetype)?'checked':'');?>>
+													   <span class="selectgroup-button"><?php echo ucfirst($fetch_shape->product_shapetype_name);?></span>
+													</label>
+												<?php
+												  }
+												?>
+												</div>
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group p_weight">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Weight
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="text" name="product_weight" value="<?php echo $fetch_product->product_weight;?>" class="form-control" placeholder="Add Product Weight">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Dimention (mm)
+												</label>
+											  </div>
+											
+											<div class="col-md-4">
+												<input type="text" class="form-control pro_len" value="<?php echo $fetch_product->product_dimension_length;?>" name="dimension_len" placeholder="Product length">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control pro_wid" value="<?php echo $fetch_product->product_dimension_width;?>" name="dimension_wid" placeholder="Product Width">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control pro_height" value="<?php echo $fetch_product->product_dimension_height;?>" name="dimension_height" placeholder="Product height">
+											</div>
+										
+											  </div>
+											</div>
+										 
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Quantity
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="number" name="quantity" value="<?php echo $fetch_product->product_quantity;?>" class="form-control" placeholder="Add quantity">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Minimum Order
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="number" name="min_order" value="<?php echo $fetch_product->min_order;?>" class="form-control" placeholder="Add Minimum Order">
+											  </div>
+											</div>
+										  </div>
+										</div>
+								 
+									  </div>
 									</div>
+								  </div>
+									
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">Price Specification
+										  </h3>
+										</div>
+										<div class="card-body">
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Wholesale Price
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="number" name="wholesale_price" value="<?php echo $fetch_product->product_wholesale_price;?>" class="form-control" placeholder="Add Wholesale Price">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Retail Price
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="number" name="retail_price" value="<?php echo $fetch_product->product_retail_price;?>" class="form-control" placeholder="Add Retail Price">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Purchase Price
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="number" name="purchase_price" value="<?php echo $fetch_product->product_purchase_price;?>" class="form-control" placeholder="Add Purchase Price">
+											  </div>
+											</div>
+										  </div>
+
+
+										</div>
+								   
+									  </div>
+									</div>
+								  </div>
+
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">SEO Optimization
+										  </h3>
+										</div>
+										<div class="card-body">
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Meta Tags
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="text" name="meta_tags" value="<?php echo $fetch_product->tags;?>" class="form-control" placeholder="Add Tags">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Meta Image
+												</label>
+											  </div>
+											  <div class="col-md-10">
+											  <?php
+											  if($fetch_product->meta_img !='')
+											  {
+											  ?>
+												<img onclick="meta_image()" src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_product->meta_img;?>" style="height:150px;" id="blah">
+												<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+											  <?php
+											  }else{
+											  ?>
+												<input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+												<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+											  <?php
+											  }
+											  ?>
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Meta Keywords
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="text" name="meta_keyword" value="<?php echo $fetch_product->meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
+											  </div>
+											</div>
+										  </div>
+
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Meta Description
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"><?php echo $fetch_product->meta_desc;?></textarea>
+											  </div>
+											</div>
+										  </div>
+
+
+										</div>
+										<div class="card-footer text-right">
+											<button type="submit" class="btn btn-primary">Submit
+											</button>
+											<button type="reset" class="btn btn-secondary">Cancel</button>
+										</div>
+									  </div>
+									</div>
+								  </div>
+
 								</form>
 
 
@@ -154,6 +524,7 @@
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
+		<script src="https://fonoapi.freshpixl.com/assets/js/fonoapi.jquery.min.js"></script>
 		<script src="<?php echo base_url('js/');?>jquery.timepicker.js"></script>
 		<script src="<?php echo base_url('js/');?>toggles.min.js"></script>
 
@@ -161,6 +532,132 @@
 		<script src="<?php echo base_url('js/');?>spectrum.js"></script>
 		<script src="<?php echo base_url('js/');?>jquery-ui.js"></script>
 		<script src="<?php echo base_url('js/');?>jquery.maskedinput.js"></script>
+
+
+		<script type="text/javascript">
+		$('#cp2').colorpicker();
+
+		function cat_id(e){
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
+			data: {'category_id': e,},
+			type: "post",
+			success: function(response){
+			  $('.sub_categoryz').html(response);
+			}
+		  });
+		}
+
+		function sub_id(sub_id){
+			
+			if(sub_id == '9')
+			{
+				$('.modelz').show();
+				$('.p_color').hide();
+				$('.p_size').hide();
+				$('.p_shape').hide();
+				$('.p_weight').hide();
+				$('.materialz').hide();
+			}else{
+				$('.modelz').hide();
+			}
+			$.ajax({
+				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
+				data: {'sub_id': sub_id,},
+				type: "post",
+				success: function(response){
+				  $('.brandz').html(response);
+				}
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.materialzz').html(response);
+				  }
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.colorzz').html(response);
+				  }
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.sizezz').html(response);
+				  }
+			});
+			$.ajax({
+				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
+				  type: 'post',
+				  data: {'sub_id': sub_id,},
+				  success: function(response){
+					$('.shapezz').html(response);
+				  }
+			});
+		}
+
+		function brand_id(brand_id){
+			$.ajax({
+			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
+			data: {'brand_id': brand_id,},
+			type: "post",
+			success: function(response){
+			  $('.modelzz').html(response);
+			}
+		  });
+		}
+
+
+		function meta_image(){
+			$("input[id='my_file']").click();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#blah').show();
+				$('.hide_file').hide();
+			}
+		}
+
+
+		function callapi(){
+			//alert("ok");
+			// set token globally
+			//$.fn.fonoApi.options.token = "xxx";
+			$('.api').fonoApi({
+				token : "86b89476caaf66eda3f21279b7711afc",
+				device : $('.devname').val(),
+				limit : 1,
+				template : function() {
+
+					// argument contains the data object // *returns html content
+					return $.map(arguments, function(obj, i) {
+						content  = obj.dimensions;
+						contarr = content.split(" ");
+						$('.pro_len').val(contarr[0]);
+						$('.pro_wid').val(contarr[2]);
+						$('.pro_height').val(contarr[4]);
+					});
+
+				}
+			});
+
+		}
+    </script>
 	</body>
 
 </html>

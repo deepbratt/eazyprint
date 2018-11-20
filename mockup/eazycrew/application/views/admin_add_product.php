@@ -240,10 +240,6 @@
                           </div>
                           <div class="col-md-10">
 								<div class="selectgroup selectgroup-pills shapezz">
-									<label class="selectgroup-item">
-										<input type="checkbox" name="product_shape" value="HTML" class="selectgroup-input" checked="">
-										<span class="selectgroup-button">HTML</span>
-									</label>
 								</div>
                           </div>
                         </div>
@@ -391,7 +387,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="image" class="form-control" placeholder="Add Meta Tags">
+                            <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
                           </div>
                         </div>
                       </div>
@@ -525,6 +522,23 @@
 		  });
 		}
 
+		function meta_image(){
+			$("input[id='my_file']").click();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#blah').show();
+				$('.hide_file').hide();
+			}
+		}
 
 		function callapi(){
 

@@ -42,12 +42,10 @@ class Admin_edit_design extends CI_Controller {
 	
 		foreach($fetch_color AS $get_color){
 	 ?>
-		 <div class="col-auto ">
-			<label class="colorinput mat_color">
-				<input name="color" type="checknox" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
-				<span class="colorinput-color" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
-			</label>
-		</div>
+	 	<label class="custom-container">
+			<input name="color" type="radio" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
+			<span class="checkmark" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
+		</label>
 	 <?php
 			
 		}

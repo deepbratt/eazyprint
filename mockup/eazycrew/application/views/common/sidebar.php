@@ -113,6 +113,18 @@
 							</ul>
 						</li>
 
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_final_product' || $this->uri->segment(1) == 'admin_listing_final_product' ||$this->uri->segment(1) == 'admin_edit_final_product')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_final_product' || $this->uri->segment(1) == 'admin_listing_final_product' ||$this->uri->segment(1) == 'admin_edit_final_product')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-tshirt" style="padding-right:5px;"></i><span class="side-menu__label">Final Product</span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_final_product');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_final_product')?'active_sidebar_submenu':'');?>">Add Final Product</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_final_product');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_final_product')?'active_sidebar_submenu':'');?>">View Final Product</a>
+								</li>
+							</ul>
+						</li>
+
 						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product_material_type' || $this->uri->segment(1) == 'admin_listing_product_material_type' ||$this->uri->segment(1) == 'admin_edit_product_material_type')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product_material_type' || $this->uri->segment(1) == 'admin_listing_product_material_type' ||$this->uri->segment(1) == 'admin_edit_product_material_type')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-newspaper" style="padding-right:5px;"></i><span class="side-menu__label">Product Material </span><i class="angle fas fa-angle-right"></i></a>
 							<ul class="slide-menu">

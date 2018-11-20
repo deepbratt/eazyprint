@@ -15,9 +15,38 @@
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 		<link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>css/custom_checkbox.css" rel="stylesheet">
 		<!-- Title -->
 		<title>Eazyprint | Edit Design</title>
-		
+		<style>
+			.input-hidden {
+			  position: absolute;
+			  left: -9999px;
+			}
+
+			input[type=radio]:checked + span {
+			  border: 1px solid #fff;
+			  box-shadow: 0 0 3px 3px #090;
+
+			}
+
+			/* Stuff after this is only to make things more pretty */
+			input[type=radio] + span {
+			  border: 1px dashed #444;
+			  width: 30px;
+			  height:30px;
+			  transition: 500ms all;
+			}
+
+			input[type=radio]:checked + span {
+			  transform: 
+				rotateZ(-10deg) 
+				rotateX(10deg);
+
+
+			}
+
+	</style>
 	<?php
 	$this->load->view("common/metalinks");
 	?>
@@ -108,36 +137,23 @@
 										  </div>
 										</div>
 									 
-									  <!--<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Material Color</label>
-											</div>
-											<div class="col-md-10">
-												<select name="color" class="form-control custom-select mat_color">
-													<option value="" selected="">Choose Material Color</option>
-												</select>
-											</div>
-										  </div>
-										</div>-->
-
 										<div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
 												<label class="form-label">Material Color</label>
 											  </div>
 											  <div class="col-md-10">
-												<div class="row gutters-xs mat_color">
-													<?php
-														$fetch_colors = $this->admin_edit_design_m->fetch_color($sub_cat);
+												<div class="row mat_color" style="margin-left:0px !important;">
+												<?php
+													$fetch_colors = $this->admin_edit_design_m->fetch_color($sub_cat);
 														foreach($fetch_colors AS $each_colors){
-													?>
-													<div class="col-auto ">
-														<label class="colorinput ">
-															<input name="color" type="checkbox" value="<?php echo $each_colors->product_color_code;?>" class="colorinput-input" <?php echo (($each_colors->product_color_code == $fetch_design_info->designed_color)?'checked':'');?>>
-															<span class="colorinput-color" style="background-color:<?php echo $each_colors->product_color_code;?>"></span>
+												?>
+													
+														<label class="custom-container ">
+															<input name="color" type="radio" value="<?php echo $each_colors->product_color_code;?>" class="colorinput-input" <?php echo (($each_colors->product_color_code == $fetch_design_info->designed_color)?'checked':'');?>>
+															<span class="checkmark" style="background-color:<?php echo $each_colors->product_color_code;?>"></span>
 														</label>
-													</div>
+													
 													<?php
 														}
 													?>
