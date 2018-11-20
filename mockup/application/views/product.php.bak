@@ -54,10 +54,10 @@ $this->load->view("common/header");
 								for($i = 1;$i <=21 ;$i++){
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;">
-										<img class="" alt="" src="<?php echo base_url();?>images/5bdb1089de00c_thumb900.jpg" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
+										<img class="" alt="" src="<?php echo base_url();?>images/6598a941-fc31-4291-baef-4a984763492b.jpg" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
 										<div class="card item-card">
 												<div class="cardtitle" style="text-align:center;padding-top:15px;">
-													<a href="#" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
+													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
 													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
