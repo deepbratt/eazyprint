@@ -40,12 +40,13 @@ class Admin_add_design extends CI_Controller {
 		$sub_id = $this->input->post('sub_id');
 		$fetch_color = $this->admin_add_design_m->fetch_color($sub_id);
 	?>
-		<option selected disabled>Choose Material Color</option>
 	<?php
-		
 		foreach($fetch_color AS $get_color){
 	 ?>
-		 	<option value="<?php echo $get_color->product_color_code;?>"><?php echo $get_color->product_color_name;?></option>
+		 	<label class="custom-container">
+				<input name="color" type="radio" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
+				<span class="checkmark" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
+			</label>
 	 <?php
 			
 		}
