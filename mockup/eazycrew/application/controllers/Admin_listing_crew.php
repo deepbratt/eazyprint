@@ -38,6 +38,15 @@ class Admin_listing_crew extends CI_Controller {
 <?php
 	}
 
+	public function delete_crew()
+	{
+		$this->load->model('admin_listing_crew_m');
+		$crew_id = $this->uri->segment(3);
+		$delete_query = $this->admin_listing_crew_m->delete_query($crew_id);
+		$this->session->set_flashdata("success", "You have successfully deleted this crew!");
+		redirect('admin_listing_crew');	
+	}
+
 }
 ?>
 

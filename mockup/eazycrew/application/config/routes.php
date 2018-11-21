@@ -72,3 +72,4 @@ $route['admin_listing_product_color/(:num)'] = "admin_listing_product_color";
 $route['admin_edit_product_color/(:num)'] = "admin_edit_product_color";
 $route['admin_edit_product/(:num)'] = "admin_edit_product";
 $route['admin_edit_final_product/(:num)'] = "admin_edit_final_product";
+$route['admin_listing_crew/(:num)'] = "admin_listing_crew";

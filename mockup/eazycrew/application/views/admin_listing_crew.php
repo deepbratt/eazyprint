@@ -48,6 +48,13 @@ $this->load->view("common/sidebar");
 						<div class="alert alert-success success_div" style="display:none;">
 							<strong>Status Changed!</strong>
 						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php 
+							} 
+						?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -84,7 +91,9 @@ $this->load->view("common/sidebar");
 														</label>
 													</td>
 													<td>
-														<a href="<?php echo base_url('admin_edit_crew');?>/<?php echo  $get_details->crew_id;?>" class="btn btn-primary">Edit</a>
+														<a href="<?php echo base_url('admin_edit_crew/');?><?php echo  $get_details->crew_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+
+														<a href="<?php echo base_url('admin_listing_crew/delete_crew/');?><?php echo  $get_details->crew_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php

@@ -19,6 +19,13 @@ class Admin_listing_crew_m extends CI_Model {
 		return true;
 	}
 
+	public function delete_query($crew_id)
+	{
+		$this->db->where('crew_id', $crew_id);
+		$this->db->delete('eazycrew');
+		return true;
+	}
+
 }
 
 /* End of file Admin_crew_listing_m.php */
