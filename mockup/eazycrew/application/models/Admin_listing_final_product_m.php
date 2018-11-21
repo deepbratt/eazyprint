@@ -7,7 +7,6 @@ class Admin_listing_final_product_m extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('final_products');
-		$this->db->where('f_product_status' , '1');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -34,6 +33,13 @@ class Admin_listing_final_product_m extends CI_Model {
 	{
 		$this->db->where("f_product_id", $product_id);
 		$query = $this->db->update('final_products', $delete_query);
+		return true;
+	}
+
+	public function update_product($product_id,$update_array)
+	{
+		$this->db->where('f_product_id', $product_id);
+		$this->db->update('final_products', $update_array);
 		return true;
 	}
 
