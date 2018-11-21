@@ -95,8 +95,8 @@
 												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="category" id="" class="form-control custom-select" onchange="cat_id(this.value);">
-													<option value="" selected="">Choose Category</option>
+												<select name="category" id="" class="form-control select2-show-search" onchange="cat_id(this.value);">
+													<option value="" selected="">Category</option>
 													<?php
 														foreach($fetch_all_categories As $each_cat){
 													?>
@@ -110,29 +110,31 @@
 										</div>
 									  
 									 
-										<div class="form-group sub_cat" style="display:none;">
+										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz"  onchange="get_color(this.value);">
-													<option value="" selected="">Choose Subcategory</option>
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz"  onchange="get_color(this.value);">
+													<option value="">No Results Found</option>
 												</select>
+												
 											</div>
 										  </div>
 										</div>
 
-										<div class="form-group mte_color" style="display:none;">
+										<div class="form-group" >
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Material Color</label>
 											</div>
 											
 											<div class="col-md-10">
-												<div class="row mat_color" style="margin-left:0px !important;">
-													
-												</div>
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<label id="not_found">No Results Found</label>
+												<div class="row mat_color" style="margin-left:0px !important;"></div>
 											</div>
 										  </div>
 										</div>
@@ -146,11 +148,11 @@
 												 <select name="designed_by" class="form-control custom-select">
 													<option value="" selected="">Choose Designer</option>
 													<?php
-													foreach($fetch_all_designer as $fetch_designer){
+														foreach($fetch_all_designer as $fetch_designer){
 													?>
 													<option value="<?php echo $fetch_designer->creator_id;?>"><?php echo ucfirst($fetch_designer->creator_fname);?>&nbsp;<?php echo ucfirst($fetch_designer->creator_lname);?></option>
 													<?php
-													}
+														}
 													?>
 												</select>
 												</div>
@@ -222,12 +224,18 @@
         </script>
 		<script>
 			function cat_id(e){
-			$('.sub_cat').show();
+			
 			/*ajax code start*/
     		 $.ajax({
 		        url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
 		        data: {'category_id': e,}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 		          $('.sub_categoryz').html(response);
 		        }
@@ -237,15 +245,24 @@
 
 			function get_color(sub_id)
 			{
-				$('.mte_color').show();
+				$('#not_found').show();
 				/*ajax code start*/
 				 $.ajax({
 					url: '<?php echo base_url();?>admin_add_design/ajax_fetch_color',
 					data: {'sub_id': sub_id,}, // change this to send js object
 					type: "post",
+					beforeSend: function(){
+			        	$('#AjaxLoader').show();
+			        	$('#not_found').hide();
+				    },
+				    complete: function(){
+				        $('#AjaxLoader').hide();
+				        $('#not_found').hide();
+				    },
 					success: function(response){
 						//alert(response);
-					  $('.mat_color').html(response);
+					  	$('.mat_color').html(response);
+					  	
 					}
 				  });
 				 /* ajax code ends*/
