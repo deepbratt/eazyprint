@@ -14,11 +14,7 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+		
 		<!-- Title -->
 		<title>Eazyprint | Edit Subcategory</title>
 		<style>
@@ -85,7 +81,7 @@
 											</div>
 											<div class="col-md-10">
 												
-												<select name="category" class="selectpicker" data-live-search="true">
+												<select name="category" class="form-control select2-show-search">
 													<option value="" selected="">Choose Category</option>
 											<?php
 													$get_category = $sub_cat_fetch->parent_cat_id;
