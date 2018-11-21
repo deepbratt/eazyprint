@@ -151,6 +151,7 @@ $this->load->view("common/footer");
 		        success: function(response){
 				 $('.switch_'+cat_id+'').html(response);
 				 $('.success_div').show();
+				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
 		        }
 		      });
     		 /* ajax code ends*/

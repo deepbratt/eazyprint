@@ -6,7 +6,6 @@ class Admin_listing_design_m extends CI_Model {
 	public function fetch_designs(){
 		$this->db->select('*');
 		$this->db->from('designs');
-		$this->db->where('status','1');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -25,6 +24,20 @@ class Admin_listing_design_m extends CI_Model {
 		$this->db->where('creator_id',$designed_id);
 		$query = $this->db->get();
 		return $query->row();
+	}
+
+	public function update_design($design_id,$update_array)
+	{
+		$this->db->where('design_id', $design_id);
+		$this->db->update('designs', $update_array);
+		return true;
+	}
+
+	public function delete_query($design_id)
+	{
+		$this->db->where('design_id', $design_id);
+		$this->db->delete('designs');
+		return true;
 	}
 
 }
