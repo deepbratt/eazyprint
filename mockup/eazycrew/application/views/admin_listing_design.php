@@ -46,6 +46,16 @@
 								<li class="breadcrumb-item active" aria-current="page">Design Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
+						<?php
+						  if($this->session->flashdata('success')){
+						?>
+						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+						<?php 
+							} 
+						?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
@@ -65,6 +75,8 @@
 													<th class="wd-15p">Designed By
 													</th>
 													<th class="wd-20p">Design Image
+													</th>
+													<th class="wd-20p">Design Status
 													</th>
 													<th class="wd-15p">Action
 													</th>
@@ -95,9 +107,9 @@
 													<td>
 														<div class="demo-gallery">
 															<ul id="lightgallery_<?php echo $i;?>" class="list-unstyled row">
-																<li class="col-xs-6 col-sm-4 col-md-6" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p>Material Color: </p>" >
+																<li class="col-md-12" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p>Material Color: </p>" >
 																	<a href="javascript:void(0);">
-																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">
+																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:150px;" class="img-responsive">
 																	</a>
 																</li>
 															</ul>
@@ -105,9 +117,15 @@
 
 														<!--<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px;">-->
 													</td>
+													<td class="switch_<?php echo $each_designs->design_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($each_designs->status == 1)?'checked':'');?> onchange="change_status('<?php echo $each_designs->design_id;?>','<?php echo $each_designs->status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_design/<?php echo $each_designs->design_id;?>" class="btn btn-primary">Edit</a>
-													<a href="javascript:void(0);" class="btn btn-primary">Delete</a>
+														<a href="<?php echo base_url('admin_edit_design/');?><?php echo $each_designs->design_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('admin_listing_design/delete_design/');?><?php echo  $each_designs->design_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												  <?php
@@ -145,6 +163,22 @@
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(design_id,design_status)
+			{
+				
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_listing_design/change_status',
+		        data: {'design_id': design_id,'design_status':design_status}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+				 $('.switch_'+design_id+'').html(response);
+				 $('.success_div').show();
+				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
+		        }
+		      });
+    		 /* ajax code ends*/
+			}
 		</script>
 		<!-- Gallery js -->
 		<script src="<?php echo base_url();?>js/picturefill.js"></script>
