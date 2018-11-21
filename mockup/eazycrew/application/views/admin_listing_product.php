@@ -44,12 +44,15 @@
 								<li class="breadcrumb-item active" aria-current="page">Breadcrumbs</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<?php
 						  if($this->session->flashdata('success')){
 						?>
 						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-						<?php
-							}
+						<?php 
+							} 
 						?>
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
@@ -70,7 +73,9 @@
 													<th class="wd-15p">Product</th>
 													<th class="wd-15p">Quantity</th>
 													<th class="wd-15p">Product Image</th>
-													<th class="wd-15p">Last Update</th>
+													<th class="wd-15p">Purchase Price</th>
+													<th class="wd-15p">Wholesale Price</th>
+													<th class="wd-15p">Product Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
@@ -94,14 +99,21 @@
 													if($fetch_products->product_image != "")
 													{
 													?>
-														<img src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_products->product_image;?>" style="height:60px;width:60px;">
+														<img class="img-responsive" src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_products->product_image;?>" style="height:100px;">
 													<?php
 													}
 													?>
 													</td>
-													<td><?php echo date('d/m/Y',$fetch_products->updated_date);?></td>
+													<td><?php echo $fetch_products->product_purchase_price;?></td>
+													<td><?php echo $fetch_products->product_wholesale_price;?></td>
+													<td class="switch_<?php echo $fetch_products->product_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_products->product_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_products->product_id;?>','<?php echo $fetch_products->product_status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
 													<td>
-														<a href="<?php echo base_url('admin_edit_product/');?><?php echo $fetch_products->product_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+														<a href="<?php echo base_url('admin_edit_product/');?><?php echo $fetch_products->product_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
 														<a href="<?php echo base_url('admin_listing_product/delete_product/');?><?php echo $fetch_products->product_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
@@ -140,6 +152,21 @@
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(product_id,product_status)
+			{
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_listing_product/change_status',
+		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+				 $('.switch_'+product_id+'').html(response);
+				 $('.success_div').show();
+				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
+		        }
+		      });
+    		 /* ajax code ends*/
+			}
 		</script>
 
 

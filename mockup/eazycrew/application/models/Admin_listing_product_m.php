@@ -46,6 +46,13 @@ class Admin_listing_product_m extends CI_Model {
 		return true;
 	}
 
+	public function update_product($product_id,$update_array)
+	{
+		$this->db->where('product_id', $product_id);
+		$this->db->update('products', $update_array);
+		return true;
+	}
+
 }
 
 /* End of file Admin_listing_product_m.php */
