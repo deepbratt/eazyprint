@@ -67,7 +67,7 @@ $this->load->view("common/sidebar");
 											</div>
 											<div class="col-md-10">
 												<select name="category" id="select-countries" class="form-control select2-show-search" onchange="add_brand(this.value);">
-													<option value="" selected="">Choose Category</option>
+													<option value="" selected="">Category</option>
 											<?php
 													$this->load->model('admin_edit_brand_m');
 													$edit_brand = $this->admin_edit_brand_m->brand_edit();
