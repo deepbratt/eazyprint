@@ -66,7 +66,7 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="category" id="select-countries" class="form-control custom-select" onchange="add_brand(this.value);">
+												<select name="category" id="select-countries" class="form-control select2-show-search" onchange="add_brand(this.value);">
 													<option value="" selected="">Choose Category</option>
 											<?php
 													$this->load->model('admin_edit_brand_m');
@@ -89,8 +89,8 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select id="select-countries" name="sub_category" class="form-control custom-select sub_categoryz">
-
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select id="select-countries" name="sub_category" class="form-control select2-show-search sub_categoryz">
 													<option value="<?php echo $sub_category;?>" selected=""><?php echo $get_cat_id->sub_category_name; ?></option>
 													
 												</select>
@@ -147,6 +147,12 @@ $this->load->view("common/footer");
 		        url: '<?php echo base_url();?>admin_edit_brand/ajax_fetch_sub_brand',
 		        data: {'category_id': f,}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 		          $('.sub_categoryz').html(response);
 		        }
