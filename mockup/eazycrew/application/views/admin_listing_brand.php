@@ -45,6 +45,9 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Brand Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<?php
 						  if($this->session->flashdata('failed')){
 						?>
@@ -69,9 +72,15 @@ $this->load->view("common/sidebar");
 												  <tr>
 													<th class="wd-15p">Brand Id
 													</th>
+													<th class="wd-15p">Category Name
+													</th>
 													<th class="wd-15p">Subcategory Name
 													</th>
 													<th class="wd-15p">Brand Name
+													</th>
+													<th class="wd-15p">Brand Code
+													</th>
+													<th class="wd-15p">Status
 													</th>
 													<th class="wd-15p">Action
 													</th>
@@ -89,17 +98,32 @@ $this->load->view("common/sidebar");
 													<td>
 													<?php 
 														$sub_category = $fetch_brand->sub_category;
-														$this->load->model('admin_listing_brand_m');
-														$get_sub_name = $this->admin_listing_brand_m->fetch_category_name($sub_category);
-														echo $get_sub_name->sub_category_name; 
-														
+														$get_sub_name = $this->admin_listing_brand_m->fetch_subcategory_name($sub_category);
+
+														$get_cat_name = $this->admin_listing_brand_m->fetch_category_name($get_sub_name->parent_cat_id);
+														echo ucfirst($get_cat_name->category_name);
+													?>
+													</td>
+													<td>
+													<?php 
+														echo ucfirst($get_sub_name->sub_category_name);
 													?>
 													</td>
 													<td><?php echo $fetch_brand->brand_name;?>
 													</td>
+													<td><?php echo $fetch_brand->brand_code;?>
+													</td>
+													<td class="switch_<?php echo $fetch_brand->brand_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_brand->brand_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_brand->brand_id;?>','<?php echo $fetch_brand->brand_status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
 													<td>
-													<a href="<?php echo base_url();?>admin_edit_brand/<?php echo $fetch_brand->brand_id;?>" class="btn btn-primary">Edit</a>
-													<a href="<?php echo base_url('admin_listing_brand');?>/dlt_brand/<?php echo $fetch_brand->brand_id;?>" class="btn btn-primary">Delete</a>
+														<a href="<?php echo base_url('admin_edit_brand/');?><?php echo $fetch_brand->brand_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+
+														<a href="<?php echo base_url('admin_listing_brand/dlt_brand/');?><?php echo $fetch_brand->brand_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+
 													</td>
 												  </tr>
 												 <?php $i++; } ?>
@@ -134,6 +158,21 @@ $this->load->view("common/footer");
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(brand_id,brand_status)
+			{
+				
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_listing_brand/change_status',
+		        data: {'brand_id': brand_id,'brand_status':brand_status}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+				 $('.switch_'+brand_id+'').html(response);
+				 $('.success_div').show();
+		        }
+		      });
+    		 /* ajax code ends*/
+			}
 		</script>
 
 

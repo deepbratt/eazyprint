@@ -69,7 +69,7 @@
 													<th class="wd-15p">Brand</th>
 													<th class="wd-15p">Product</th>
 													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Meta Image</th>
+													<th class="wd-15p">Product Image</th>
 													<th class="wd-15p">Last Update</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
@@ -91,10 +91,10 @@
 													<td><?php echo $fetch_products->product_quantity;?></td>
 													<td>
 													<?php
-													if($fetch_products->meta_img != "")
+													if($fetch_products->product_image != "")
 													{
 													?>
-														<img src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_products->meta_img;?>" style="height:60px;width:60px;">
+														<img src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_products->product_image;?>" style="height:60px;width:60px;">
 													<?php
 													}
 													?>

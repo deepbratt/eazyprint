@@ -197,6 +197,24 @@ class Admin_add_product extends CI_Controller {
 		//SKU CALCULATION ENDS
 		$date = time();
 
+		if(!empty($_FILES['p_image']['name'])){
+			$config['upload_path'] = 'uploads/product_images/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
+			
+			$this->load->library('upload',$config);
+			$this->upload->initialize($config);
+
+			if($this->upload->do_upload('p_image')){
+				$uploadData = $this->upload->data();
+				$product_image = $uploadData['file_name'];
+			}else{
+				$product_image = "";
+			}
+		}else{
+			$product_image = "";
+		}
+
 		if(!empty($_FILES['image']['name'])){
                 $config['upload_path'] = 'uploads/meta_images/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -217,6 +235,7 @@ class Admin_add_product extends CI_Controller {
 									'product_title' => $product_title,
 									'product_desc' => $product_desc,
 									'product_sku' =>  $sku,
+									'product_image' => $product_image,
 									'product_wholesale_price' => $wholesale_price,
 									'product_retail_price' => $retail_price,
 									'product_purchase_price' => $purchase_price,
@@ -248,7 +267,8 @@ class Admin_add_product extends CI_Controller {
 									'product_name' => $product_name,
 									'product_title' => $product_title,
 									'product_desc' => $product_desc,
-									'product_sku' =>  '',
+									'product_sku' =>  $sku,
+									'product_image' => $product_image,
 									'product_wholesale_price' => $wholesale_price,
 									'product_retail_price' => $retail_price,
 									'product_purchase_price' => $purchase_price,
@@ -263,7 +283,7 @@ class Admin_add_product extends CI_Controller {
 									'product_dimension_height' => $dimension_height,
 									'product_status' => '1',
 									'added_date' => $date,
-									'updated_date' => '',
+									'updated_date' => $date,
 									'tags' => $meta_tags,
 									'meta_keywords' => $meta_keyword,
 									'meta_desc' => $meta_desc
@@ -278,7 +298,8 @@ class Admin_add_product extends CI_Controller {
 								'product_name' => $product_name,
 								'product_title' => $product_title,
 								'product_desc' => $product_desc,
-								'product_sku' =>  '',
+								'product_sku' =>  $sku,
+								'product_image' => $product_image,
 								'product_wholesale_price' => $wholesale_price,
 								'product_retail_price' => $retail_price,
 								'product_purchase_price' => $purchase_price,
@@ -293,7 +314,7 @@ class Admin_add_product extends CI_Controller {
 								'product_dimension_height' => $dimension_height,
 								'product_status' => '1',
 								'added_date' => $date,
-								'updated_date' => '',
+								'updated_date' => $date,
 								'tags' => $meta_tags,
 								'meta_keywords' => $meta_keyword,
 								'meta_desc' => $meta_desc
