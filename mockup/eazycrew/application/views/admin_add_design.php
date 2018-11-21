@@ -43,6 +43,13 @@
 				rotateZ(-10deg) 
 				rotateX(10deg);
 			}
+			.file_upload_icon{
+				background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+				border-radius:50% !important;
+				height:53.1px;
+				width:53.1px;
+				margin-top:-85px;
+			}
 
 	</style>
 	<?php
@@ -166,8 +173,9 @@
 													<label class="form-label">Image</label>
 												</div>
 												<div class="col-md-10">
-													<input type="file" name="userfile" id="my_file"  class="form-control hide_file" placeholder="Add Meta Image" onchange="readURL(this);">
-													<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+													<span onclick="meta_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i></span>
+													<input type="file" name="userfile" id="my_file" style="display: none;" onchange="readURL(this);" />
+													<img style="height:150px;" id="blah" onclick="meta_image()" class="img-responsive">
 												</div>
 											  </div>
 										</div>
@@ -219,6 +227,7 @@
 				reader.readAsDataURL(input.files[0]);
 				$('#blah').show();
 				$('.hide_file').hide();
+				$('#hide_span').hide();
 			}
 		}
         </script>
