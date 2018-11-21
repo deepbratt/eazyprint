@@ -212,7 +212,7 @@
 												 		<?php
 												 			}else{
 												 		?>
-												 			<span onclick="meta_image()" id="hide_spanz" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i></span>
+												 			<span onclick="meta_image()" id="hide_spanz" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
 												 		<?php
 												 			}
 												 		?>
