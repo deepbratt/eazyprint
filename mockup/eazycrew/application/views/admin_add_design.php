@@ -174,7 +174,7 @@
 												</div>
 												<div class="col-md-10">
 													<span onclick="meta_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i></span>
-													<input type="file" name="userfile" id="my_file" style="display: none;" onchange="readURL(this);" />
+													<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
 													<img style="height:150px;" id="blah" onclick="meta_image()" class="img-responsive">
 												</div>
 											  </div>
