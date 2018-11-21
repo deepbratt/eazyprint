@@ -6,12 +6,20 @@ class Admin_listing_brand_m extends CI_Model {
 	public function fetch_brand(){
 		$this->db->select('*');
 		$this->db->from('brands');
-		$this->db->where('brand_status','1');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	public function fetch_category_name($sub_category)
+	public function fetch_category_name($category)
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->where('category_id',$category);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function fetch_subcategory_name($sub_category)
 	{
 		$this->db->select('*');
 		$this->db->from('sub_category');
@@ -24,6 +32,13 @@ class Admin_listing_brand_m extends CI_Model {
 	{
 		$this->db->where('brand_id', $brand_id);
 		$this->db->delete('brands');
+		return true;
+	}
+
+	public function update_brand($brand_id,$update_array)
+	{
+		$this->db->where('brand_id', $brand_id);
+		$this->db->update('brands', $update_array);
 		return true;
 	}
 	

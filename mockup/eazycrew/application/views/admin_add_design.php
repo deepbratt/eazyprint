@@ -14,7 +14,7 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
-		<link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet">
+		<!-- <link href="<?php echo base_url();?>css/imageuploadify.min.css" rel="stylesheet"> -->
 		<link href="<?php echo base_url();?>css/custom_checkbox.css" rel="stylesheet">
 		<!-- Title -->
 		<title>Eazyprint | Add Design</title>
@@ -72,7 +72,7 @@
 						</div>
 						<div class="row">
 						<div class="col-md-12">
-								<form  method="post" class="card" action="<?php echo base_url('admin_add_design/add_design');?>" enctype="multipart/form-data">
+								<form  method="post" enctype="multipart/form-data" class="card" action="<?php echo base_url('admin_add_design/add_design');?>" >
 									<div class="card-header">
 										<h3 class="card-title">Add Design</h3>
 									</div>
@@ -110,7 +110,7 @@
 										</div>
 									  
 									 
-										<div class="form-group">
+										<div class="form-group sub_cat" style="display:none;">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Subcategory</label>
@@ -123,7 +123,7 @@
 										  </div>
 										</div>
 
-										<div class="form-group">
+										<div class="form-group mte_color" style="display:none;">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Material Color</label>
@@ -131,9 +131,7 @@
 											
 											<div class="col-md-10">
 												<div class="row mat_color" style="margin-left:0px !important;">
-													<select name="color" class="form-control custom-select ">
-														<option value="" selected="">Choose Material Color</option>
-													</select>
+													
 												</div>
 											</div>
 										  </div>
@@ -166,7 +164,8 @@
 													<label class="form-label">Image</label>
 												</div>
 												<div class="col-md-10">
-												 <input type="file" class="form-control" name="userfile[]" accept="image/*" multiple="multiple"/>
+													<input type="file" name="userfile" id="my_file"  class="form-control hide_file" placeholder="Add Meta Image" onchange="readURL(this);">
+													<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 												</div>
 											  </div>
 										</div>
@@ -174,8 +173,7 @@
 									  
 									</div>
 									<div class="card-footer text-right">
-										<button type="submit" class="btn btn-primary">Submit
-										</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
 										<button type="reset" class="btn btn-secondary">Cancel</button>
 									</div>
 								</form>
@@ -193,6 +191,7 @@
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
+		</body>
 		<!-- Timepicker js -->
 		<script src="<?php echo base_url();?>js/jquery.timepicker.js"></script>
 		<script src="<?php echo base_url();?>js/toggles.min.js"></script>
@@ -201,14 +200,29 @@
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
-		<script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script>
+		<!-- <script type="text/javascript" src="<?php echo base_url();?>js/imageuploadify.min.js"></script> -->
 		<script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="file"]').imageuploadify();
-            })
+           function meta_image(){
+			$("input[id='my_file']").click();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#blah').show();
+				$('.hide_file').hide();
+			}
+		}
         </script>
 		<script>
 			function cat_id(e){
+			$('.sub_cat').show();
 			/*ajax code start*/
     		 $.ajax({
 		        url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
@@ -223,6 +237,7 @@
 
 			function get_color(sub_id)
 			{
+				$('.mte_color').show();
 				/*ajax code start*/
 				 $.ajax({
 					url: '<?php echo base_url();?>admin_add_design/ajax_fetch_color',
@@ -235,8 +250,9 @@
 				  });
 				 /* ajax code ends*/
 			}
+
 		</script>
-	</body>
+	
 
 </html>
 

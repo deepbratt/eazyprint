@@ -202,6 +202,31 @@
 									</div>
 								  </div>
 
+								  <div class="row">
+									<div class="col-lg-12">
+									  <div class="card">
+										<div class="card-header">
+										  <h3 class="card-title">Product Image
+										  </h3>
+										</div>
+										<div class="card-body">
+										  <div class="form-group">
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Upload Image
+												</label>
+											  </div>
+											  <div class="col-md-10">
+												<input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+											   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+											  </div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+
 
 
 								  <div class="row">

@@ -16,6 +16,7 @@
     <!-- Title -->
     <title>Eazyprint | Add Product
     </title>
+	
     <?php $this->load->view('common/metalinks');?>
   </head>
   <body class="app sidebar-mini rtl">
@@ -79,7 +80,7 @@
 							  </div>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group sub_cat" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Choose Subcategory
@@ -93,7 +94,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group brand_div" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Choose Brand
@@ -182,6 +183,32 @@
               </div>
 
 
+			  <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Product Image
+                      </h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label class="form-label">Upload Image
+                            </label>
+                          </div>
+                          <div class="col-md-10">
+                            <input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+						   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
 
               <div class="row">
                 <div class="col-lg-12">
@@ -192,7 +219,7 @@
                     </div>
                     <div class="card-body">
 					  
-					  <div class="form-group materialz">
+					  <div class="form-group materialz" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Material Type
@@ -206,7 +233,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group p_color">
+                      <div class="form-group p_color" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Color
@@ -219,7 +246,7 @@
                         </div>
                       </div>
 
-					  <div class="form-group p_size">
+					  <div class="form-group p_size" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Size
@@ -232,7 +259,7 @@
                         </div>
                       </div>
 
-					  <div class="form-group p_shape">
+					  <div class="form-group p_shape" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Shape
@@ -387,7 +414,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+                            <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Image" onchange="readURL(this);">
 						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
                           </div>
                         </div>
@@ -442,10 +469,17 @@
       <i class="fas fa-angle-up">
       </i>
     </a>
+	</body>
+	
     <script type="text/javascript">
 		$('#cp2').colorpicker();
 
+		
+
 		function cat_id(e){
+			$('.sub_cat').show();
+			
+
 			$.ajax({
 			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
 			data: {'category_id': e,},
@@ -457,7 +491,8 @@
 		}
 
 		function sub_id(sub_id){
-			
+			$('.brand_div').show();
+
 			if(sub_id == '9')
 			{
 				$('.modelz').show();
@@ -467,6 +502,10 @@
 				$('.p_weight').hide();
 				$('.materialz').hide();
 			}else{
+				$('.materialz').show();
+				$('.p_color').show();
+				$('.p_size').show();
+				$('.p_shape').show();
 				$('.modelz').hide();
 			}
 			$.ajax({
@@ -540,6 +579,24 @@
 			}
 		}
 
+		function product_image(){
+			$("input[id='p_image']").click();
+		}
+
+		function show_image(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#p_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#p_blah').show();
+				$('.hide_p_file').hide();
+			}
+		}
+
 		function callapi(){
 
 			// set token globally
@@ -577,5 +634,5 @@
     </script>
     <script src="../js/jquery.maskedinput.js">
     </script>
-  </body>
+  
 </html>
