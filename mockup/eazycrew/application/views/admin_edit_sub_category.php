@@ -14,25 +14,33 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
 		<!-- Title -->
 		<title>Eazyprint | Edit Subcategory</title>
-
-<?php
-$this->load->view("common/metalinks");
-?>
+		<style>
+			.bootstrap-select{
+				width:100% !important;
+			}
+		</style>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
 	</head>
 	<body class="app sidebar-mini rtl">
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
 		<div class="page">
 			<div class="page-main">
-<?php
-$this->load->view("common/header");
-?>
+			<?php
+			$this->load->view("common/header");
+			?>
 
-<?php
-$this->load->view("common/sidebar");
-?>
+			<?php
+			$this->load->view("common/sidebar");
+			?>
 
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
@@ -76,7 +84,8 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Choose Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="category" id="select-countries" class="form-control custom-select">
+												
+												<select name="category" class="selectpicker" data-live-search="true">
 													<option value="" selected="">Choose Category</option>
 											<?php
 													$get_category = $sub_cat_fetch->parent_cat_id;
@@ -132,6 +141,11 @@ $this->load->view("common/footer");
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<script>
+			$(function() {
+			  $('.selectpicker').selectpicker();
+			});
+		</script>
 	</body>
 
 </html>

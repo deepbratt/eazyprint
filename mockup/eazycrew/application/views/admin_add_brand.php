@@ -14,25 +14,25 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
-
+		
 		<!-- Title -->
 		<title>Eazyprint | Add Brand</title>
 
-<?php
-$this->load->view("common/metalinks");
-?>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
 	</head>
 	<body class="app sidebar-mini rtl">
 		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
 		<div class="page">
 			<div class="page-main">
-<?php
-$this->load->view("common/header");
-?>
+				<?php
+				$this->load->view("common/header");
+				?>
 
-<?php
-$this->load->view("common/sidebar");
-?>
+				<?php
+				$this->load->view("common/sidebar");
+				?>
 
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
@@ -66,8 +66,7 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="cat_name" id="select-countries" class="form-control custom-select" onchange="add_sub(this.value);">
-													<option value="" selected="">Choose Category</option>
+												<select name="cat_name" id="select-countries" class="form-control select2-show-search"  data-placeholder="Choose Category" onchange="add_sub(this.value);">
 											<?php
 												$this->load->model('admin_add_brand_m');
 												$get_category = $this->admin_add_brand_m->fetch_category();
@@ -87,8 +86,8 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz">
-													<option value="" selected="">Choose Subcategory</option>
+												<button type="button" id="AjaxLoader" class="btn btn-info btn-loading btn-block">Loading...</button>
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz"  data-placeholder="Choose Subcategory">
 												</select>
 											</div>
 										  </div>
@@ -136,8 +135,10 @@ $this->load->view("common/footer");
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
-			<script>
+		
+			<script> 
 			function add_sub(e){
+				$('#AjaxLoader').show();
 			/*ajax code start*/
     		 $.ajax({
 		        url: '<?php echo base_url();?>admin_add_brand/ajax_fetch_sub_category',
@@ -158,6 +159,9 @@ $this->load->view("common/footer");
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<!-- Inline js -->
+
+
 	</body>
 
 </html>

@@ -172,6 +172,22 @@
 								</li>
 							</ul>
 						</li>
+
+						<li class="sidebar_header">
+                            <h5 class="sidebar_header_uppercase">Order</h5>
+                        </li>
+						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_order' || $this->uri->segment(1) == 'admin_listing_order' ||$this->uri->segment(1) == 'admin_edit_order')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_order' || $this->uri->segment(1) == 'admin_listing_order' ||$this->uri->segment(1) == 'admin_edit_order')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Order</span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_order');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_order')?'active_sidebar_submenu':'');?>">Add Order</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_order');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_order')?'active_sidebar_submenu':'');?>">View Orders</a>
+								</li>
+							</ul>
+						</li>
+
 						<li class="sidebar_header">
                             <h5 class="sidebar_header_uppercase">Personal</h5>
                         </li>

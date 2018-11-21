@@ -9,7 +9,8 @@
 <link href="<?php echo base_url();?>css/plugin.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/addSlider.css" rel="stylesheet" />
-
+<!-- select2 Plugin -->
+<link href="<?php echo base_url();?>css/select2.min.css" rel="stylesheet" />
 <!-- DO NOT DELETE THIS -->
 <style>
 .active_sidebar_submenu{

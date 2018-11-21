@@ -20,11 +20,13 @@ class Admin_add_brand extends CI_Controller {
 		$this->load->model('admin_add_brand_m');
 		$cat_id = $this->input->post('category_id');
 		$ajax_fetch_all_subcategories = $this->admin_add_brand_m->ajax_fetch_subcategories($cat_id);
-		foreach($ajax_fetch_all_subcategories AS $each_subcategory)
-		{
-		?>			
-		<option value="<?php echo $each_subcategory->sub_category_id;?>"><?php echo $each_subcategory->sub_category_name;?></option>
-		<?php } 
+	?>
+			<option value="" selected="">Choose Subcategory</option>
+	<?php
+		foreach($ajax_fetch_all_subcategories AS $each_subcategory){
+	?>			
+			<option value="<?php echo $each_subcategory->sub_category_id;?>"><?php echo $each_subcategory->sub_category_name;?></option>
+	<?php } 
 	}
 	public function brand_add()
 	{

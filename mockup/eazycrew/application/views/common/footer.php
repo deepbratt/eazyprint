@@ -34,3 +34,6 @@
 		<script src="<?php echo base_url();?>js/Chart.bundle.js"></script>
 		<script src="<?php echo base_url();?>js/WidgetChart.js"></script>
 		<script src="<?php echo base_url();?>js/custom.js"></script>
+		<script src="<?php echo base_url();?>js/select2.js"></script>
+		<!--Select2 js -->
+		<script src="<?php echo base_url();?>js/select2.full.min.js"></script>
