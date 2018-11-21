@@ -86,8 +86,8 @@
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<button type="button" id="AjaxLoader" class="btn btn-info btn-loading btn-block">Loading...</button>
-												<select name="sub_category" class="form-control select2-show-search sub_categoryz"  data-placeholder="Choose Subcategory">
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz"  data-placeholder="Subcategory">
 												</select>
 											</div>
 										  </div>
@@ -138,15 +138,22 @@ $this->load->view("common/footer");
 		
 			<script> 
 			function add_sub(e){
-				$('#AjaxLoader').show();
+				
 			/*ajax code start*/
     		 $.ajax({
 		        url: '<?php echo base_url();?>admin_add_brand/ajax_fetch_sub_category',
 		        data: {'category_id': e,}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 		          $('.sub_categoryz').html(response);
 		        }
+
 		      });
     		 /* ajax code ends*/
     	}
