@@ -45,6 +45,9 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Subcategory Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<?php
 						  if($this->session->flashdata('failed')){
 						?>
@@ -73,6 +76,8 @@ $this->load->view("common/sidebar");
 													</th>
 													<th class="wd-15p">Subcategory Name
 													</th>
+													<th class="wd-15p">Subcategory Status
+													</th>
 													<th class="wd-15p">Action
 													</th>
 												  </tr>
@@ -96,9 +101,16 @@ $this->load->view("common/sidebar");
 													</td>
 													<td><?php echo $sub_cat_fetch->sub_category_name;?>
 													</td>
+													<td class="switch_<?php echo $sub_cat_fetch->sub_category_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($sub_cat_fetch->sub_category_status == 1)?'checked':'');?> onchange="change_status('<?php echo $sub_cat_fetch->sub_category_id;?>','<?php echo $sub_cat_fetch->sub_category_status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
 													<td>
-													<a href="<?php echo base_url('admin_edit_sub_category');?>/<?php echo $sub_cat_fetch->sub_category_id;?>" class="btn btn-primary">Edit</a>
-													<a href="<?php echo base_url('admin_listing_sub_category');?>/dlt_sub_category/<?php echo $sub_cat_fetch->sub_category_id;?>" class="btn btn-primary">Delete</a>
+														<a href="<?php echo base_url('admin_edit_sub_category/');?><?php echo $sub_cat_fetch->sub_category_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+
+														<a href="<?php echo base_url('admin_listing_sub_category/dlt_sub_category/');?><?php echo $sub_cat_fetch->sub_category_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php $i++; } ?>
@@ -133,6 +145,21 @@ $this->load->view("common/footer");
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(sub_cat_id,sub_cat_status)
+			{
+				
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_listing_sub_category/change_status',
+		        data: {'sub_cat_id': sub_cat_id,'sub_cat_status':sub_cat_status}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+				 $('.switch_'+sub_cat_id+'').html(response);
+				 $('.success_div').show();
+		        }
+		      });
+    		 /* ajax code ends*/
+			}
 		</script>
 
 
