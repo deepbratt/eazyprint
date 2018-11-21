@@ -123,7 +123,6 @@ $this->load->view("common/sidebar");
 														<a href="<?php echo base_url('admin_edit_brand/');?><?php echo $fetch_brand->brand_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
 
 														<a href="<?php echo base_url('admin_listing_brand/dlt_brand/');?><?php echo $fetch_brand->brand_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
-
 													</td>
 												  </tr>
 												 <?php $i++; } ?>

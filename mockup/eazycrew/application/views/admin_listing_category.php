@@ -45,6 +45,9 @@ $this->load->view("common/sidebar");
 								<li class="breadcrumb-item active" aria-current="page">Category Listing</li>
 							</ol>
 						</div>
+						<div class="alert alert-success success_div" style="display:none;">
+							<strong>Status Changed!</strong>
+						</div>
 						<?php
 						  if($this->session->flashdata('failed')){
 						?>
@@ -71,6 +74,8 @@ $this->load->view("common/sidebar");
 													</th>
 													<th class="wd-15p">Category Name
 													</th>
+													<th class="wd-15p">Category Status
+													</th>
 													<th class="wd-15p">Action
 													</th>
 												  </tr>
@@ -88,9 +93,16 @@ $this->load->view("common/sidebar");
 													</td>
 													<td><?php echo $cat_fetch->category_name;?>
 													</td>
+													<td class="switch_<?php echo $cat_fetch->category_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($cat_fetch->category_status == 1)?'checked':'');?> onchange="change_status('<?php echo $cat_fetch->category_id;?>','<?php echo $cat_fetch->category_status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
 													<td>
-													<a href="<?php echo base_url('admin_edit_category');?>/<?php echo $cat_fetch->category_id;?>" class="btn btn-primary">Edit</a>
-													<a href="<?php echo base_url('admin_listing_category');?>/dlt_category/<?php echo $cat_fetch->category_id;?>" class="btn btn-primary">Delete</a>
+														<a href="<?php echo base_url('admin_edit_category/');?><?php echo $cat_fetch->category_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+
+														<a href="<?php echo base_url('admin_listing_category/dlt_category/');?><?php echo $cat_fetch->category_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php
@@ -128,6 +140,21 @@ $this->load->view("common/footer");
 			$(function(e) {
 				$('#example').DataTable();
 			} );
+
+			function change_status(cat_id,cat_status)
+			{
+				
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_listing_category/change_status',
+		        data: {'cat_id': cat_id,'cat_status':cat_status}, // change this to send js object
+		        type: "post",
+		        success: function(response){
+				 $('.switch_'+cat_id+'').html(response);
+				 $('.success_div').show();
+		        }
+		      });
+    		 /* ajax code ends*/
+			}
 		</script>
 
 
