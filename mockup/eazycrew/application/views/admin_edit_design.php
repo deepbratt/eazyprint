@@ -42,8 +42,13 @@
 			  transform: 
 				rotateZ(-10deg) 
 				rotateX(10deg);
-
-
+			}
+			.file_upload_icon{
+				background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+				border-radius:50% !important;
+				height:53.1px;
+				width:53.1px;
+				margin-top:-85px;
 			}
 
 	</style>
@@ -191,11 +196,18 @@
 												</div>
 
 												<div class="col-md-10">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="image" accept="image/*" multiple="multiple" onchange="readURL(this);">
-														<label class="custom-file-label">Choose file</label>
-													</div>
-												 	<img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" style="height:120px;padding-top:15px;" id="blah">
+														<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+														<?php
+															if($fetch_design_info->designed_image != ''){
+														?>
+												 			<img src="<?php echo base_url();?>uploads/designs/<?php echo $fetch_design_info->designed_image;?>" onclick="meta_image()" style="height:120px;padding-top:15px;" id="blah">
+												 		<?php
+												 			}else{
+												 		?>
+												 			<span onclick="meta_image()" id="hide_spanz" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i></span>
+												 		<?php
+												 			}
+												 		?>
 												</div>
 											  </div>
 										</div>
@@ -236,15 +248,23 @@
             })
         </script>-->
         <script type="text/javascript">
+	        function meta_image(){
+				$("input[id='my_file']").click();
+			}
+	        
 	        function readURL(input) {
 	            if (input.files && input.files[0]) {
 	                var reader = new FileReader();
 
 	                reader.onload = function (e) {
 	                    $('#blah').attr('src', e.target.result);
+	                    $('#hide_spanz').hide();
 	                }
 
 	                reader.readAsDataURL(input.files[0]);
+	                $('#blah').show();
+					$('.hide_file').hide();
+					$('#hide_spanz').show();
 	            }
 	        }
 	    </script>

@@ -65,33 +65,44 @@ class Admin_add_design extends CI_Controller {
 		$designed_by = $this->input->post('designed_by');
 		$date = time();
 
-		$this->load->library('upload');
-	    $dataInfo = array();
-	    $files = $_FILES;
-	    $cpt = count($_FILES['userfile']['name']);
-	    for($i=0; $i<$cpt; $i++){           
-	        
-	        $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-	        $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-	        $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-	        $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-	        $_FILES['userfile']['size']= $files['userfile']['size'][$i];    
-
-	        $this->upload->initialize($this->set_upload_options());
-	        $this->upload->do_upload();
-	        $dataInfo[] = $this->upload->data();
-	    }
-		for($i=0; $i<$cpt; $i++){
-			$records = array(
-				'designed_by' => $designed_by,
-				'designed_image' => $dataInfo[$i]['file_name'],
-				'sub_category_id' => $subcat_id,
-				'designed_color' => $color,
-				'designed_date' => $date,
-				'status' => '1'
-			);
-			$insert_new_designs = $this->admin_add_design_m->insert_new_designs_info($records);	
-		}
+		if(!empty($_FILES['image']['name'])){
+                $config['upload_path'] = 'uploads/designs/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = rand(999,99999).$_FILES['image']['name'];
+                
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+                
+                if($this->upload->do_upload('image')){
+                    $uploadData = $this->upload->data();
+					$image = $uploadData['file_name'];		
+					$records = array(
+						'designed_by' => $designed_by,
+						'designed_image' => $image,
+						'sub_category_id' => $subcat_id,
+						'designed_color' => $color,
+						'designed_date' => $date,
+						'status' => '1'
+					);
+				}else{
+					$records = array(
+						'designed_by' => $designed_by,
+						'sub_category_id' => $subcat_id,
+						'designed_color' => $color,
+						'designed_date' => $date,
+						'status' => '1'
+					);
+				}
+			}else{
+				$records = array(
+						'designed_by' => $designed_by,
+						'sub_category_id' => $subcat_id,
+						'designed_color' => $color,
+						'designed_date' => $date,
+						'status' => '1'
+					);
+			}
+		$insert_new_designs = $this->admin_add_design_m->insert_new_designs_info($records);			
 
 		if($insert_new_designs){
 			$this->session->set_flashdata("admin_add_design_success", "The new design has been added successfully...!");
