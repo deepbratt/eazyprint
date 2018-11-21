@@ -107,7 +107,7 @@
 													$get_cat = $this->admin_edit_design_m->get_cat($sub_cat);
 													$cat_id = $get_cat->category_id;
 												?>
-												<select name="category" id="" class="form-control custom-select" onchange="cat_id(this.value);">
+												<select name="category" id="" class="form-control select2-show-search" onchange="cat_id(this.value);">
 													<option value="" selected="">Choose Category</option>
 													<?php
 														foreach($fetch_all_categories As $each_cat){
@@ -128,12 +128,19 @@
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" class="form-control custom-select sub_categoryz" onchange="get_color(this.value);">
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz" onchange="get_color(this.value);">
 													<?php
 														$get_resul_sub = $this->admin_edit_design_m->ajax_fetch_subcategories($cat_id);
+														if($get_resul_sub == ''){
 														foreach($get_resul_sub AS $each_subcat){
 													?>
-													<option value="<?php echo $each_subcat->sub_category_id;?>" <?php echo (($each_subcat->sub_category_id == $fetch_design_info->sub_category_id)?'selected':'')?>><?php echo $each_subcat->sub_category_name;?></option>
+														<option value="<?php echo $each_subcat->sub_category_id;?>" <?php echo (($each_subcat->sub_category_id == $fetch_design_info->sub_category_id)?'selected':'')?>><?php echo $each_subcat->sub_category_name;?></option>
+													<?php
+														}
+													}else{
+													?>
+														<option value="">No Results Found</option>
 													<?php
 														}
 													?>
@@ -148,20 +155,21 @@
 												<label class="form-label">Material Color</label>
 											  </div>
 											  <div class="col-md-10">
-												<div class="row mat_color" style="margin-left:0px !important;">
-												<?php
+											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<div class="row mat_color" id="material_colorzz" style="margin-left:0px !important;">
+													<?php
 													$fetch_colors = $this->admin_edit_design_m->fetch_color($sub_cat);
 														foreach($fetch_colors AS $each_colors){
-												?>
 													
-														<label class="custom-container ">
-															<input name="color" type="radio" value="<?php echo $each_colors->product_color_code;?>" class="colorinput-input" <?php echo (($each_colors->product_color_code == $fetch_design_info->designed_color)?'checked':'');?>>
-															<span class="checkmark" style="background-color:<?php echo $each_colors->product_color_code;?>"></span>
-														</label>
-													
-													<?php
-														}
 													?>
+													<label class="custom-container">
+														<input name="color" type="radio" value="<?php echo $each_colors->product_color_code;?>" class="colorinput-input" <?php echo (($each_colors->product_color_code == $fetch_design_info->designed_color)?'checked':'');?>>
+														<span class="checkmark" style="background-color:<?php echo $each_colors->product_color_code;?>"></span>
+													</label>
+												
+												<?php
+													}
+												?>
 												</div>
 											  </div>
 											</div>
@@ -258,7 +266,6 @@
 
 	                reader.onload = function (e) {
 	                    $('#blah').attr('src', e.target.result);
-	                    $('#hide_spanz').hide();
 	                }
 
 	                reader.readAsDataURL(input.files[0]);
@@ -275,6 +282,12 @@
 		        url: '<?php echo base_url();?>admin_edit_design/ajax_fetch_sub_category',
 		        data: {'category_id': e,}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 		          $('.sub_categoryz').html(response);
 		        }
@@ -289,6 +302,16 @@
 					url: '<?php echo base_url();?>admin_edit_design/ajax_fetch_color',
 					data: {'sub_id': sub_id,}, // change this to send js object
 					type: "post",
+					beforeSend: function(){
+			        	$('#AjaxLoader2').show();
+			        	$('#not_found').hide();
+			        	$('#material_colorzz').hide();
+				    },
+				    complete: function(){
+				        $('#AjaxLoader2').hide();
+				        $('#not_found').show();
+				        $('#material_colorzz').show();
+				    },
 					success: function(response){
 						//alert(response);
 					  $('.mat_color').html(response);

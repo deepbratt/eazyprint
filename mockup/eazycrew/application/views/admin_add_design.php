@@ -139,7 +139,7 @@
 											</div>
 											
 											<div class="col-md-10">
-												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<label id="not_found">No Results Found</label>
 												<div class="row mat_color" style="margin-left:0px !important;"></div>
 											</div>
@@ -261,11 +261,11 @@
 					data: {'sub_id': sub_id,}, // change this to send js object
 					type: "post",
 					beforeSend: function(){
-			        	$('#AjaxLoader').show();
+			        	$('#AjaxLoader2').show();
 			        	$('#not_found').hide();
 				    },
 				    complete: function(){
-				        $('#AjaxLoader').hide();
+				        $('#AjaxLoader2').hide();
 				        $('#not_found').hide();
 				    },
 					success: function(response){

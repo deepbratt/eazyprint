@@ -25,7 +25,7 @@ class Admin_edit_design extends CI_Controller {
 		$cat_id = $this->input->post('category_id');
 		$ajax_fetch_all_subcategories = $this->admin_edit_design_m->ajax_fetch_subcategories($cat_id);
 	?>
-		<option selected disabled>Choose Subcategory</option>
+		<option selected disabled>Subcategory</option>
 	<?php
 		foreach($ajax_fetch_all_subcategories AS $each_subcategory){
 	 ?>
@@ -39,15 +39,19 @@ class Admin_edit_design extends CI_Controller {
 		$this->load->model('admin_edit_design_m');
 		$sub_id = $this->input->post('sub_id');
 		$fetch_color = $this->admin_edit_design_m->fetch_color($sub_id);
-	
-		foreach($fetch_color AS $get_color){
-	 ?>
-	 	<label class="custom-container">
-			<input name="color" type="radio" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
-			<span class="checkmark" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
-		</label>
-	 <?php
-			
+		$count_fetch_color = sizeof($fetch_color);
+		if($count_fetch_color > 0){
+			foreach($fetch_color AS $get_color){
+		 ?>
+		 	<label class="custom-container">
+				<input name="color" type="radio" value="<?php echo $get_color->product_color_code;?>" class="colorinput-input" >
+				<span class="checkmark" style="background-color:<?php echo $get_color->product_color_code;?>"></span>
+			</label>
+		 <?php
+				
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
