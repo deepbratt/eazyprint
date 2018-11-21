@@ -14,8 +14,8 @@ class Admin_add_final_product extends CI_Controller {
 	{
 		$this->load->model('admin_add_final_product_m');
 		$this->load->model('admin_add_product_m');
-
 		$data['get_product'] = $this->admin_add_final_product_m->get_product();
+		
 		$data['get_product_category'] = $this->admin_add_product_m->get_product_category();
 		//$data['get_design'] = $this->admin_add_final_product_m->get_design($data['get_product']->product_subcategory);
 		$this->load->view('admin_add_final_product',$data);

@@ -131,6 +131,20 @@
                         </div>
                       </div>
 
+					  <div class="form-group modelz" style="display:none;">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label class="form-label">Choose Model Number
+                            </label>
+                          </div>
+                          <div class="col-md-10">
+							<div class="form-group">
+								<input class="devname form-control" type="text" name="model" onkeyup="callapi();"></input> 
+							</div>
+                          </div>
+                        </div>
+                      </div>
+
 
                     </div>
                   </div>
