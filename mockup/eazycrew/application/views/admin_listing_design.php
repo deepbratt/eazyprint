@@ -17,7 +17,29 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Listing Design</title>
-
+		<style>
+			b{
+				color:black;
+				font-weight:1000;
+				font-size:20px;
+				font-family:arial;
+			}
+			th{
+				color:black;
+				font-weight:bold !important;
+				font-size:20px;
+				font-family:arial;
+				background:#ECEEF9;
+			}
+			.card-body{
+				zoom: 65%;
+			}
+			td{
+				color:black;
+				font-family:arial;
+				font-size:18px;
+			}
+		</style>
 		<?php
 		$this->load->view("common/metalinks");
 		?>
@@ -49,6 +71,7 @@
 						<div class="alert alert-success success_div" style="display:none;">
 							<strong>Status Changed!</strong>
 						</div>
+						<div id="AjaxLoader" class="alert success_div" style="display:none;"><strong style="margin-left:-24px;"><img src="<?php echo base_url();?>images/ajax-loader2.gif" style="padding:5px;">Please Wait...</strong></div>
 						<?php
 						  if($this->session->flashdata('success')){
 						?>
@@ -59,10 +82,7 @@
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
-									<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
-									<div class="card-header">
-										<div class="card-title">Listing Design</div>
-									</div>
+									
 									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -171,9 +191,18 @@
 		        url: '<?php echo base_url();?>admin_listing_design/change_status',
 		        data: {'design_id': design_id,'design_status':design_status}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+		        	$('.success_div').hide();
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			    	$('.success_div').show();
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 				 $('.switch_'+design_id+'').html(response);
 				 $('.success_div').show();
+				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
 		        }
 		      });
