@@ -18,27 +18,27 @@
 		<!-- Title -->
 		<title>Eazyprint | Listing Product Metarial Type</title>
 		<style>
-		b{
-			color:black;
-			font-weight:1000;
-			font-size:20px;
-			font-family:arial;
-		}
-		th{
-			color:black;
-			font-weight:bold !important;
-			font-size:20px;
-			font-family:arial;
-			background:#ECEEF9;
-		}
-		.card-body{
-			zoom: 65%;
-		}
-		td{
-			color:black;
-			font-family:arial;
-			font-size:18px;
-		}
+			b{
+				color:black;
+				font-weight:1000;
+				font-size:20px;
+				font-family:arial;
+			}
+			th{
+				color:black;
+				font-weight:bold !important;
+				font-size:20px;
+				font-family:arial;
+				background:#ECEEF9;
+			}
+			.card-body{
+				zoom: 65%;
+			}
+			td{
+				color:black;
+				font-family:arial;
+				font-size:18px;
+			}
 		</style>
 
 <?php
