@@ -594,22 +594,6 @@
 			});
 		}
 
-		function brand_id(brand_id){
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
-			data: {'brand_id': brand_id,},
-			type: "post",
-			beforeSend: function(){
-				$('#AjaxLoader_3').show();
-			},
-			complete: function(){
-				$('#AjaxLoader_3').hide();
-			},
-			success: function(response){
-			  $('.modelzz').html(response);
-			}
-		  });
-		}
 
 		function meta_image(){
 			$("input[id='my_file']").click();

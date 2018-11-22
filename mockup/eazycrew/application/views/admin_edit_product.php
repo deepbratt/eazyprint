@@ -104,6 +104,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
+											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_1" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
 												  <option value="" >Choose Subcategory</option>
 												  <?php
@@ -126,6 +127,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10"> 
+											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
 												  <option value="">Choose Brand</option>
 												  <?php
@@ -294,8 +296,8 @@
 											  <div class="col-md-10">
 												<div class="row gutters-xs colorzz">
 												<?php
-												  foreach($get_color as $fetch_color)
-												  {
+												  if(sizeof($get_color) > 0){
+												  foreach($get_color as $fetch_color){
 												  ?>
 													<div class="col-auto">
 													  <label class="colorinput">
@@ -304,7 +306,10 @@
 													  </label>
 												    </div>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -320,15 +325,18 @@
 											  <div class="col-md-10">
 												<div class="selectgroup selectgroup-pills sizezz">
 												<?php
-												  foreach($get_size as $fetch_size)
-												  {
+												  if(sizeof($get_size) > 0){
+												  foreach($get_size as $fetch_size){
 												  ?>
 													<label class="selectgroup-item">
 														<input type="radio" name="product_size" value="<?php echo $fetch_size->product_size_id;?>" class="selectgroup-input" <?php echo (($fetch_size->product_size_id == $fetch_product->product_size)?'checked':'');?>>
 														<span class="selectgroup-button"><?php echo ucfirst($fetch_size->product_size_name);?></span>
 													</label>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -344,15 +352,18 @@
 											  <div class="col-md-10">
 												<div class="selectgroup selectgroup-pills shapezz">
 												 <?php
-												  foreach($get_shape as $fetch_shape)
-												  {
+												  if(sizeof($get_shape) > 0){
+												  foreach($get_shape as $fetch_shape){
 												  ?>
 													<label class="selectgroup-item">
 													   <input type="radio" name="product_shape" value="<?php echo $fetch_shape->product_shape_id;?>" class="selectgroup-input" <?php echo (($fetch_shape->product_shape_id == $fetch_product->product_shapetype)?'checked':'');?>>
 													   <span class="selectgroup-button"><?php echo ucfirst($fetch_shape->product_shapetype_name);?></span>
 													</label>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -593,6 +604,12 @@
 			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
 			data: {'category_id': e,},
 			type: "post",
+			beforeSend: function(){
+				$('#AjaxLoader_1').show();
+			},
+			complete: function(){
+				$('#AjaxLoader_1').hide();
+			},
 			success: function(response){
 			  $('.sub_categoryz').html(response);
 			}
@@ -604,11 +621,6 @@
 			if(sub_id == '9')
 			{
 				$('.modelz').show();
-				$('.p_color').hide();
-				$('.p_size').hide();
-				$('.p_shape').hide();
-				$('.p_weight').hide();
-				$('.materialz').hide();
 			}else{
 				$('.modelz').hide();
 			}
@@ -616,6 +628,12 @@
 				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
 				data: {'sub_id': sub_id,},
 				type: "post",
+				beforeSend: function(){
+				$('#AjaxLoader_2').show();
+				},
+				complete: function(){
+					$('#AjaxLoader_2').hide();
+				},
 				success: function(response){
 				  $('.brandz').html(response);
 				}
@@ -624,6 +642,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+				$('#AjaxLoader_2').show();
+				},
+				complete: function(){
+					$('#AjaxLoader_2').hide();
+				},
 				  success: function(response){
 					$('.materialzz').html(response);
 				  }
@@ -632,6 +656,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+					beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.colorzz').html(response);
 				  }
@@ -640,6 +670,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+			      beforeSend: function(){
+				    $('#AjaxLoader_2').show();
+				  },
+				  complete: function(){
+					$('#AjaxLoader_2').hide();
+				  },
 				  success: function(response){
 					$('.sizezz').html(response);
 				  }
@@ -648,23 +684,17 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  eforeSend: function(){
+				    $('#AjaxLoader_2').show();
+				  },
+				  complete: function(){
+					$('#AjaxLoader_2').hide();
+				  },
 				  success: function(response){
 					$('.shapezz').html(response);
 				  }
 			});
 		}
-
-		function brand_id(brand_id){
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
-			data: {'brand_id': brand_id,},
-			type: "post",
-			success: function(response){
-			  $('.modelzz').html(response);
-			}
-		  });
-		}
-
 
 		function meta_image(){
 			$("input[id='my_file']").click();
