@@ -36,16 +36,23 @@ class Admin_edit_brand extends CI_Controller {
 		$brand_name = $this->input->post('brand_name');
 		$brand_code = $this->input->post('brand_code');
 		$brand_id = $this->input->post('brand_id');
-		$records=array('brand_name'=>$brand_name,'brand_code'=>$brand_code,'sub_category'=>$sub_category_name);
-		$update_brand = $this->admin_edit_brand_m->brand_update($records,$brand_id);
-		if($update_brand)
-		{
-			$this->session->set_flashdata("success", "You have successfully updated the brand!");
-			redirect('admin_edit_brand/'.$brand_id);	
-		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
+
+		$check_brand_name = $this->admin_edit_brand_m->check_brands($brand_name,$brand_code);
+		if($check_brand_name < 1){
+			$records=array('brand_name'=>$brand_name,'brand_code'=>$brand_code,'sub_category'=>$sub_category_name);
+			$update_brand = $this->admin_edit_brand_m->brand_update($records,$brand_id);
+			if($update_brand)
+			{
+				$this->session->set_flashdata("success", "You have successfully updated the brand!");
+				redirect('admin_edit_brand/'.$brand_id);	
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Something went wrong!");
+				redirect('admin_edit_brand/'.$brand_id);
+			}
+		}else{
+			$this->session->set_flashdata("exist", "This Brand already exist!");
 			redirect('admin_edit_brand/'.$brand_id);
 		}
 	}

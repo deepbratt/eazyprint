@@ -114,17 +114,6 @@ class Admin_add_design extends CI_Controller {
 		
 	}
 
-	private function set_upload_options()
-	{   
-	    //upload an image options
-	    $config = array();
-	    $config['upload_path'] = 'uploads/designs';
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-		$config['file_name'] = rand(999,99999).$_FILES['userfile']['name'];
-
-	    return $config;
-	}
-
 }
 
 /* End of file Admin_add_design.php */

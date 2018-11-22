@@ -36,17 +36,24 @@ class Admin_add_brand extends CI_Controller {
 		$brand_name = $this->input->post('brand_name');
 		$brand_code = $this->input->post('brand_code');
 		$brand_status = "1";
-		$records=array('brand_name'=>$brand_name,'brand_code'=>$brand_code,'sub_category'=>$sub_cat_id,'brand_status'=>$brand_status);
-		$insert_brand = $this->admin_add_brand_m->sub_brand_insert($records);
-		if($insert_brand)
-		{
-			$this->session->set_flashdata("success", "You have successfully insert the brand!");
+		$check_brand_name = $this->admin_add_brand_m->check_brands($brand_name,$brand_code);
+		if($check_brand_name < 1){
+			$records=array('brand_name'=>$brand_name,'brand_code'=>$brand_code,'sub_category'=>$sub_cat_id,'brand_status'=>$brand_status);		
+		
+			$insert_brand = $this->admin_add_brand_m->sub_brand_insert($records);
+			if($insert_brand)
+			{
+				$this->session->set_flashdata("success", "You have successfully insert the brand!");
+				redirect('admin_add_brand');
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Something went wrong!");
+				redirect('admin_add_brand');	
+			}
+		}else{
+			$this->session->set_flashdata("exist", "This Brand already exist!");
 			redirect('admin_add_brand');
-		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
-			redirect('admin_add_brand');	
 		}
 	}
 }
