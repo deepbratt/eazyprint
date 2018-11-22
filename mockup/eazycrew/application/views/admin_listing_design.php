@@ -129,7 +129,7 @@
 															<ul id="lightgallery_<?php echo $i;?>" class="list-unstyled row">
 																<li class="col-md-12" data-responsive="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" data-sub-html="<h4>Designed By: <?php echo $fetch_name->creator_fname.' '.$fetch_name->creator_lname;?></h4><p>Material Color: </p>" >
 																	<a href="javascript:void(0);">
-																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:50px !important;" class="img-responsive">
+																		<img src="<?php echo base_url();?>/uploads/designs/<?php echo $each_designs->designed_image;?>" style="height:70px !important;width:90px !important;" class="img-responsive">
 																	</a>
 																</li>
 															</ul>
