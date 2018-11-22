@@ -179,7 +179,7 @@ $this->load->view("common/footer");
 			
 			/*ajax code start*/
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
+		        url: '<?php echo base_url();?>admin_add_product_material_type/ajax_fetch_sub_category',
 		        data: {'category_id': e,}, // change this to send js object
 		        type: "post",
 		        beforeSend: function(){
