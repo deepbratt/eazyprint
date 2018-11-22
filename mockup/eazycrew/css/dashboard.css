@@ -15303,19 +15303,18 @@ Dimmer
 	box-sizing: border-box;
 	display: block;
 	position: absolute;
-	width: 51px;
-	height: 51px;
-	/* margin: 6px; */
-	border: 2px solid #009fdc;
+	width: 80px;
+	height: 80px;
+	padding:10px;
 	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	border-color: #009fdc  transparent transparent transparent;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: auto;
-	box-shadow: 0px 5px 0 0px rgba(222, 222, 248,0.5), 0 5px 25px 0 rgba(222, 222, 248,0.9);
-	border-radius: 50%;
+	border-radius: 50% !important;
+	background:#fff;
+	border:1px solid #CCC;
 }
 .lds-ring div:nth-child(1) {
 	animation-delay: -0.45s;
