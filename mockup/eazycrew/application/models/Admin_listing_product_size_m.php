@@ -11,14 +11,7 @@ class Admin_listing_product_size_m extends CI_Model {
 		return $query->result();
 		
 	}
-	public function cat_name($cat_sub_id)
-	{
-		$this->db->select('*');
-		$this->db->from('sub_category');
-		$this->db->where('sub_category_id', $cat_sub_id);
-		$query = $this->db->get();
-		return $query->row();
-	}
+	
 	public function product_size_dlt($product_size_id)
 	{
 		$this->db->where('product_size_id', $product_size_id);
