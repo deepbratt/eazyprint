@@ -19,9 +19,9 @@ class Admin_add_product_shape extends CI_Controller {
 	}
 
 	public function ajax_fetch_sub_category(){
-		$this->load->model('admin_add_design_m');
+		$this->load->model('admin_add_product_shape_m');
 		$cat_id = $this->input->post('category_id');
-		$ajax_fetch_all_subcategories = $this->admin_add_design_m->ajax_fetch_subcategories($cat_id);
+		$ajax_fetch_all_subcategories = $this->admin_add_product_shape_m->ajax_fetch_subcategories($cat_id);
 	?>
 		<option selected disabled>Subcategory</option>
 	<?php
