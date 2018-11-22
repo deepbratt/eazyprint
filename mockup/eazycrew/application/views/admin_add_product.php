@@ -16,7 +16,19 @@
     <!-- Title -->
     <title>Eazyprint | Add Product
     </title>
-	
+	<link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
+	<style>
+	.label{
+		margin-bottom: 0px !important;
+	}
+	.file_upload_icon{
+		background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+		border-radius:50% !important;
+		height:53.1px;
+		width:53.1px;
+		margin-top:-15px;
+	}
+	</style>
     <?php $this->load->view('common/metalinks');?>
   </head>
   <body class="app sidebar-mini rtl">
@@ -198,7 +210,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+						  	<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+                            <input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);">
 						   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
                           </div>
                         </div>
@@ -398,11 +411,11 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Meta Tags
+                            <label class="form-label">Tags
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Tags">
+                            <input type="text" name="meta_tags" data-role="tagsinput" class="form-control" placeholder="Add Tags">
                           </div>
                         </div>
                       </div>
@@ -414,7 +427,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Image" onchange="readURL(this);">
+						  	<span onclick="meta_image()" id="hide_span_2" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+                            <input type="file" name="image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
 						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
                           </div>
                         </div>
@@ -427,7 +441,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_keyword" class="form-control" placeholder="Add Meta Keywords">
+                            <input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
                           </div>
                         </div>
                       </div>
@@ -470,7 +484,7 @@
       </i>
     </a>
 	</body>
-	
+	<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
     <script type="text/javascript">
 		$('#cp2').colorpicker();
 
@@ -575,7 +589,7 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#blah').show();
-				$('.hide_file').hide();
+				$('#hide_span_2').hide();
 			}
 		}
 
@@ -593,7 +607,7 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#p_blah').show();
-				$('.hide_p_file').hide();
+				$('#hide_span').hide();
 			}
 		}
 
