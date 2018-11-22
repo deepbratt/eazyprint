@@ -67,6 +67,27 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Add Product Metarial Type</h3>
 									</div>
 									<div class="card-body">
+
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Category</label>
+											</div>
+											<div class="col-md-10">
+												<select name="sub_cat" id="select-countries" class="form-control custom-select">
+													<option value="" selected="">Choose Category</option>
+											<?php
+												
+												foreach($get_product_material_type AS $product_material_type_get)
+												{
+											?>
+													<option value="<?php echo $product_material_type_get->sub_category_id;?>" ><?php echo $product_material_type_get->sub_category_name;?></option>
+											<?php } ?>
+												</select>
+											</div>
+										  </div>
+										</div>
+
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
