@@ -17,7 +17,40 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Add Product Metarial Type</title>
+		<style>
+			.input-hidden {
+			  position: absolute;
+			  left: -9999px;
+			}
 
+			input[type=radio]:checked + span {
+			  border: 1px solid #fff;
+			  box-shadow: 0 0 3px 3px #090;
+
+			}
+
+			/* Stuff after this is only to make things more pretty */
+			input[type=radio] + span {
+			  border: 1px dashed #444;
+			  width: 30px;
+			  height:30px;
+			  transition: 500ms all;
+			}
+
+			input[type=radio]:checked + span {
+			  transform: 
+				rotateZ(-10deg) 
+				rotateX(10deg);
+			}
+			.file_upload_icon{
+				background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+				border-radius:50% !important;
+				height:53.1px;
+				width:53.1px;
+				margin-top:-85px;
+			}
+
+	</style>
 <?php
 $this->load->view("common/metalinks");
 ?>
@@ -74,15 +107,15 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Category</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_cat" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Category</option>
-											<?php
-												
-												foreach($get_product_material_type AS $product_material_type_get)
-												{
-											?>
-													<option value="<?php echo $product_material_type_get->sub_category_id;?>" ><?php echo $product_material_type_get->sub_category_name;?></option>
-											<?php } ?>
+												<select name="category" id="" class="form-control select2-show-search" onchange="cat_id(this.value);">
+													<option value="" selected="">Category</option>
+													<?php
+														foreach($fetch_categories As $each_cat){
+													?>
+													<option value="<?php echo $each_cat->category_id;?>"><?php echo ucfirst($each_cat->category_name);?></option>
+													<?php
+														}
+													?>
 												</select>
 											</div>
 										  </div>
@@ -94,16 +127,9 @@ $this->load->view("common/sidebar");
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_cat" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Subcategory</option>
-											<?php
-												$this->load->model('admin_add_product_material_type_m');
-												$get_product_material_type = $this->admin_add_product_material_type_m->fetch_product_material_type();
-												foreach($get_product_material_type AS $product_material_type_get)
-												{
-											?>
-													<option value="<?php echo $product_material_type_get->sub_category_id;?>" ><?php echo $product_material_type_get->sub_category_name;?></option>
-											<?php } ?>
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz">
+													<option value="">No Results Found</option>
 												</select>
 											</div>
 										  </div>
@@ -148,6 +174,27 @@ $this->load->view("common/footer");
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<script>
+			function cat_id(e){
+			
+			/*ajax code start*/
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
+		        data: {'category_id': e,}, // change this to send js object
+		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
+		        success: function(response){
+		          $('.sub_categoryz').html(response);
+		        }
+		      });
+    		 /* ajax code ends*/
+    		}
+		</script>
 	</body>
 
 </html>

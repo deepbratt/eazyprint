@@ -67,28 +67,47 @@ $this->load->view("common/sidebar");
 									<div class="card-header">
 										<h3 class="card-title">Edit Product Metarial Type</h3>
 									</div>
-									<?php
-										$sub_cat_id = $product_material_type_fetch->sub_category_id;
-									?>
+									
 									<div class="card-body">
+
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Category</label>
+											</div>
+											<div class="col-md-10">
+												<?php
+													$this->load->model('admin_edit_product_material_type_m');
+													$sub_category = $product_material_type_fetch->sub_category_id;
+													$get_cat_id = $this->admin_edit_product_material_type_m->get_each_subcat($sub_category);
+													$get_category = $get_cat_id->parent_cat_id;
+												?>
+												<select name="category" id="" class="form-control select2-show-search" onchange="cat_id(this.value);">
+													<option value="" selected="">Choose Category</option>
+													<?php
+														foreach($fetch_all_categories As $each_cat){
+													?>
+													<option value="<?php echo $each_cat->category_id;?>"<?php echo (($each_cat->category_id == $get_category)?'selected':'')?>><?php echo ucfirst($each_cat->category_name);?></option>
+													<?php
+														}
+													?>
+												</select>
+											</div>
+										  </div>
+										</div>
+
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Subcategory</label>
 											</div>
 											<div class="col-md-10">
-												<select name="sub_category" id="select-countries" class="form-control custom-select">
-													<option value="" selected="">Choose Subcategory</option>
-											<?php
-												$this->load->model('admin_edit_product_material_type_m');
-												$edit_product_material_type = $this->admin_edit_product_material_type_m->product_material_type_edit();
-												foreach($edit_product_material_type AS $product_material_type_edt)
-												{
-
-											?>
-													<option value="<?php echo $product_material_type_edt->sub_category_id;?>" <?php echo (($product_material_type_edt->sub_category_id == $sub_cat_id)?'selected':'')?> ><?php echo $product_material_type_edt->sub_category_name;?></option>
-											<?php } ?>
-											    </select>
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												
+												<select id="select-countries" name="sub_category" class="form-control select2-show-search sub_categoryz">
+													<option value="<?php echo $sub_category;?>" selected=""><?php echo $get_cat_id->sub_category_name; ?></option>
+													
+												</select>
 											</div>
 										  </div>
 										</div>
@@ -133,6 +152,27 @@ $this->load->view("common/footer");
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<script>
+			function cat_id(e){
+			
+			/*ajax code start*/
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_edit_product_material_type/ajax_fetch_sub_category',
+		        data: {'category_id': e,}, // change this to send js object
+		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
+		        success: function(response){
+		          $('.sub_categoryz').html(response);
+		        }
+		      });
+    		 /* ajax code ends*/
+    		}
+		</script>
 	</body>
 
 </html>

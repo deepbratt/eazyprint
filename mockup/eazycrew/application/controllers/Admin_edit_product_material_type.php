@@ -7,9 +7,28 @@ class Admin_edit_product_material_type extends CI_Controller {
 	{
 		$this->load->model('admin_edit_product_material_type_m');
 		$product_material_type_id = $this->uri->segment(2);
+		$data['fetch_all_categories'] = $this->admin_edit_product_material_type_m->fetch_categories();
+		$data['fetch_subcategories'] = $this->admin_edit_product_material_type_m->fetch_all_subcategories();
 		$data['product_material_type_fetch'] = $this->admin_edit_product_material_type_m->fetch_product_material_type($product_material_type_id);
 		$this->load->view('admin_edit_product_material_type',$data);
 	}
+
+	public function ajax_fetch_sub_category(){
+		$this->load->model('admin_add_design_m');
+		$cat_id = $this->input->post('category_id');
+		$ajax_fetch_all_subcategories = $this->admin_add_design_m->ajax_fetch_subcategories($cat_id);
+	?>
+		<option selected disabled>Subcategory</option>
+	<?php
+		
+		foreach($ajax_fetch_all_subcategories AS $each_subcategory){
+	 ?>
+		 	<option value="<?php echo $each_subcategory->sub_category_id;?>"><?php echo $each_subcategory->sub_category_name;?></option>
+	 <?php
+			
+		}
+	}
+	
 	public function edit_product_material_type()
 	{
 		$this->load->model('admin_edit_product_material_type_m');
