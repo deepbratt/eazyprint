@@ -256,6 +256,7 @@
                           </div>
                           <div class="col-md-10">
                             <div class="row gutters-xs colorzz">
+							No Results Found
                             </div>
                           </div>
                         </div>
@@ -269,6 +270,7 @@
                           </div>
                           <div class="col-md-10">
 							<div class="selectgroup selectgroup-pills sizezz">
+							No Results Found
 							</div>
                           </div>
                         </div>
@@ -281,8 +283,9 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-								<div class="selectgroup selectgroup-pills shapezz">
-								</div>
+							<div class="selectgroup selectgroup-pills shapezz">
+							No Results Found
+							</div>
                           </div>
                         </div>
                       </div>

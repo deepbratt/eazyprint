@@ -31,7 +31,7 @@
 				background:#ECEEF9;
 			}
 			.card-body{
-				zoom: 65%;
+				zoom: 64%;
 			}
 			td{
 				color:black;
