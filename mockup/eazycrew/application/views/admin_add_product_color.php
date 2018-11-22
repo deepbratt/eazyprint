@@ -60,23 +60,37 @@ $this->load->view("common/sidebar");
 										<h3 class="card-title">Add Product Color</h3>
 									</div>
 									<div class="card-body">
+										
+										<div class="form-group">
+										 <div class="row">
+											<div class="col-md-2">
+												<label class="form-label">Category</label>
+											</div>
+											<div class="col-md-10">
+												<select name="category" id="" class="form-control select2-show-search" onchange="cat_id(this.value);">
+													<option value="" selected="">Category</option>
+													<?php
+														foreach($fetch_categories As $each_cat){
+													?>
+													<option value="<?php echo $each_cat->category_id;?>"><?php echo ucfirst($each_cat->category_name);?></option>
+													<?php
+														}
+													?>
+												</select>
+											</div>
+										  </div>
+										</div>
+
 										<div class="form-group">
 										 <div class="row">
 											<div class="col-md-2">
 												<label class="form-label">Subcategory</label>
 											</div>
-										
 											<div class="col-md-10">
-											<select name="sub_cat" id="select-countries" class="form-control custom-select">
-											<option value="" selected="">Choose Subcategory</option>
-											<?php
-												foreach($get_product_color AS $product_color_get){
-											?>
-												<option value="<?php echo $product_color_get->sub_category_id;?>"><?php echo $product_color_get->sub_category_name;?></option>
-											<?php 
-												} 
-											?>
-											</select>
+												<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+												<select name="sub_category" class="form-control select2-show-search sub_categoryz">
+													<option value="">No Results Found</option>
+												</select>
 											</div>
 										  </div>
 										</div>
@@ -157,6 +171,27 @@ $this->load->view("common/footer");
 		<script src="<?php echo base_url();?>js/spectrum.js"></script>
 		<script src="<?php echo base_url();?>js/jquery-ui.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
+		<script>
+			function cat_id(e){
+			
+			/*ajax code start*/
+    		 $.ajax({
+		        url: '<?php echo base_url();?>admin_add_product_color/ajax_fetch_sub_category',
+		        data: {'category_id': e,}, // change this to send js object
+		        type: "post",
+		        beforeSend: function(){
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			        $('#AjaxLoader').hide();
+			    },
+		        success: function(response){
+		          $('.sub_categoryz').html(response);
+		        }
+		      });
+    		 /* ajax code ends*/
+    		}
+		</script>
 	</body>
 
 </html>
