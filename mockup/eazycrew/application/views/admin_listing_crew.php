@@ -17,10 +17,32 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Crew Listing</title>
-
-<?php
-$this->load->view("common/metalinks");
-?>
+		<style>
+			b{
+				color:black;
+				font-weight:1000;
+				font-size:20px;
+				font-family:arial;
+			}
+			th{
+				color:black;
+				font-weight:bold !important;
+				font-size:20px;
+				font-family:arial;
+				background:#ECEEF9;
+			}
+			.card-body{
+				zoom: 65%;
+			}
+			td{
+				color:black;
+				font-family:arial;
+				font-size:18px;
+			}
+		</style>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
 		<!-- Data table css -->
 		<link href="<?php echo base_url('css');?>/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
@@ -28,13 +50,13 @@ $this->load->view("common/metalinks");
 	<body class="app sidebar-mini rtl">
 		<div class="page">
 			<div class="page-main">
-<?php
-$this->load->view("common/header");
-?>
+			<?php
+			$this->load->view("common/header");
+			?>
 
-<?php
-$this->load->view("common/sidebar");
-?>
+			<?php
+			$this->load->view("common/sidebar");
+			?>
 
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
