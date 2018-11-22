@@ -70,6 +70,7 @@
 						<div class="alert alert-success success_div" style="display:none;">
 							<strong>Status Changed!</strong>
 						</div>
+						<div id="AjaxLoader" class="alert success_div" style="display:none;"><strong style="margin-left:-24px;"><img src="<?php echo base_url();?>images/ajax-loader2.gif" style="padding:5px;">Please Wait...</strong></div>
 						<?php
 						  if($this->session->flashdata('success')){
 						?>
@@ -182,9 +183,18 @@
 		        url: '<?php echo base_url();?>admin_listing_final_product/change_status',
 		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+		        	$('.success_div').hide();
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			    	$('.success_div').show();
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 				 $('.switch_'+product_id+'').html(response);
 				 $('.success_div').show();
+				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
 		        }
 		      });
