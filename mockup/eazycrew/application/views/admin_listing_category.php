@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -91,11 +90,11 @@ $this->load->view("common/sidebar");
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Category Id
+													<th class="wd-15p">Sl&nbsp;No
 													</th>
-													<th class="wd-15p">Category Name
+													<th class="wd-15p">Category&nbsp;Name
 													</th>
-													<th class="wd-15p">Category Status
+													<th class="wd-15p">Category&nbsp;Status
 													</th>
 													<th class="wd-15p">Action
 													</th>
@@ -108,7 +107,6 @@ $this->load->view("common/sidebar");
 												foreach($category_fetch AS $cat_fetch)
 												{
 											?>
-
 												  <tr>
 													<td><?php echo $i;?>
 													</td>

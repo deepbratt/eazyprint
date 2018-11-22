@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -59,19 +58,22 @@ $this->load->view("common/sidebar");
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Creator Name</th>
-													<th class="wd-15p">Creator Email</th>
-													<th class="wd-15p">Creator Phone</th>
-													<th class="wd-20p">Creator Joining Date</th>
-													<th class="wd-20p">Creator Status</th>
+													<th class="wd-15p">Sl&nbsp;No</th>
+													<th class="wd-15p">Name</th>
+													<th class="wd-15p">Email</th>
+													<th class="wd-15p">Phone</th>
+													<th class="wd-20p">Joining Date</th>
+													<th class="wd-20p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
 												<?php
+												$i = 1;
 												foreach($fetch_creator as $get_details){
 												?>
 												  <tr>
+												  	<td><?php echo $i;?></td>
 													<td><?php echo $get_details->creator_fname;?>&nbsp<?php echo $get_details->creator_lname;?></td>
 													<td><?php echo $get_details->creator_email;?></td>
 													<td><?php echo $get_details->creator_phone;?></td>
@@ -87,6 +89,7 @@ $this->load->view("common/sidebar");
 													</td>
 												  </tr>
 												<?php
+													$i++;
 												}
 												?>
 												</tbody>

@@ -86,16 +86,16 @@
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Sl No</th>
-													<th class="wd-15p">Category</th>
-													<th class="wd-15p">Sub-Category</th>
+													<th class="wd-15p">Sl&nbsp;No</th>
+													<th class="wd-15p">Category&nbsp;Name</th>
+													<th class="wd-15p">Subcategory&nbsp;Name</th>
 													<th class="wd-15p">Brand</th>
 													<th class="wd-15p">Product</th>
 													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Product Image</th>
-													<th class="wd-15p">Purchase Price</th>
-													<th class="wd-15p">Wholesale Price</th>
-													<th class="wd-15p">Product Status</th>
+													<th class="wd-15p">Product&nbsp;Image</th>
+													<th class="wd-15p">Purchase&nbsp;Price</th>
+													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>

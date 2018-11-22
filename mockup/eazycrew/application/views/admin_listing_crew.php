@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -86,19 +85,22 @@
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Crew Name</th>
-													<th class="wd-15p">Crew Email</th>
-													<th class="wd-20p">Crew Role</th>
-													<th class="wd-20p">Crew Joining Date</th>
-													<th class="wd-20p">Crew Status</th>
+													<th class="wd-15p">Sl&nbsp;No</th>
+													<th class="wd-15p">Name</th>
+													<th class="wd-15p">Email</th>
+													<th class="wd-20p">Role</th>
+													<th class="wd-20p">Joining Date</th>
+													<th class="wd-20p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
 												<?php
+												$i = 1;
 												foreach($fetch_crew as $get_details){
 												?>
 												  <tr>
+												  <td><?php echo $i;?></td>
 													<td><?php echo $get_details->crew_fname;?>&nbsp<?php echo $get_details->crew_lname;?></td>
 													<td><?php echo $get_details->crew_email;?></td>
 													<td><?php echo $get_details->crew_role;?></td>
@@ -116,6 +118,7 @@
 													</td>
 												  </tr>
 												<?php
+												  $i++;
 												}
 												?>
 												</tbody>

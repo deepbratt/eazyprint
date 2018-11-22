@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -90,15 +89,15 @@ $this->load->view("common/sidebar");
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Brand Id
+													<th class="wd-15p">Sl&nbsp;No
 													</th>
-													<th class="wd-15p">Category Name
+													<th class="wd-15p">Category&nbsp;Name
 													</th>
-													<th class="wd-15p">Subcategory Name
+													<th class="wd-15p">Subcategory&nbsp;Name
 													</th>
-													<th class="wd-15p">Brand Name
+													<th class="wd-15p">Brand&nbsp;Name
 													</th>
-													<th class="wd-15p">Brand Code
+													<th class="wd-15p">Brand&nbsp;Code
 													</th>
 													<th class="wd-15p">Status
 													</th>
