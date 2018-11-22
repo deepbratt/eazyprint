@@ -22,13 +22,18 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$sub_id = $this->input->post('sub_id');
 		$get_brands = $this->admin_add_product_m->get_brands($sub_id);
+		if(sizeof($get_brands) > 0)
+		{
 	?>
-		<option value="" selected>Choose Brand</option>
+		<option value="" selected>Brand</option>
     <?php
 		foreach($get_brands as $fetch_brands){
 	?>
 		<option value="<?php echo $fetch_brands->brand_id;?>"><?php echo $fetch_brands->brand_name;?></option>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -37,6 +42,8 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$sub_id = $this->input->post('sub_id');
 		$get_material = $this->admin_add_product_m->get_material($sub_id);
+		if(sizeof($get_material) > 0)
+		{
 	?>
 		<option value="" selected>Choose Material Type</option>
     <?php
@@ -44,6 +51,9 @@ class Admin_add_product extends CI_Controller {
 	?>
 		<option value="<?php echo $fetch_material->product_material_id;?>"><?php echo $fetch_material->product_material_type;?></option>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -52,6 +62,8 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$sub_id = $this->input->post('sub_id');
 		$get_color = $this->admin_add_product_m->get_color($sub_id);
+		if(sizeof($get_color) > 0)
+		{
 		foreach($get_color as $fetch_color){
 	?>
 		  <div class="col-auto">
@@ -62,6 +74,9 @@ class Admin_add_product extends CI_Controller {
 			</label>
 		  </div>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -70,6 +85,8 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$sub_id = $this->input->post('sub_id');
 		$get_size = $this->admin_add_product_m->get_size($sub_id);
+		if(sizeof($get_size) > 0)
+		{
 		foreach($get_size as $fetch_size){
 	?>
 		  <label class="selectgroup-item">
@@ -77,6 +94,9 @@ class Admin_add_product extends CI_Controller {
 			<span class="selectgroup-button"><?php echo ucfirst($fetch_size->product_size_name);?></span>
 		  </label>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -85,6 +105,8 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$sub_id = $this->input->post('sub_id');
 		$get_shape = $this->admin_add_product_m->get_shape($sub_id);
+		if(sizeof($get_shape) > 0)
+		{
 		foreach($get_shape as $fetch_shape){
 	?>
 		  <label class="selectgroup-item">
@@ -92,6 +114,9 @@ class Admin_add_product extends CI_Controller {
 			<span class="selectgroup-button"><?php echo ucfirst($fetch_shape->product_shapetype_name);?></span>
 		  </label>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -101,13 +126,17 @@ class Admin_add_product extends CI_Controller {
 		$this->load->model('admin_add_product_m');
 		$brand_id = $this->input->post('brand_id');
 		$get_model = $this->admin_add_product_m->get_model($brand_id);
+		if(sizeof($get_model) > 0){
 	?>
-		<option value="" selected>Choose Model</option>
+		<option value="" selected>Model</option>
     <?php
 		foreach($get_model as $fetch_model){
 	?>
 		<option value="<?php echo $fetch_model->model_name;?>"><?php echo $fetch_model->model_name;?></option>
 	<?php
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
