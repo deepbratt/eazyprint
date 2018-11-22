@@ -1,0 +1,22 @@
+Secure SSL/TLS Settings
+(Recommended)
+Username: sales@eazyprint.in
+Password: Use the email account’s password.
+Incoming Server: sg3plvcpnl93072.prod.sin3.secureserver.net
+IMAP Port: 993
+POP3 Port: 995
+Outgoing Server: sg3plvcpnl93072.prod.sin3.secureserver.net
+SMTP Port: 465
+Authentication is required for IMAP, POP3, and SMTP.
+ 
+
+Non-SSL Settings
+(NOT Recommended)
+Username: sales@eazyprint.in
+Password: Use the email account’s password.
+Incoming Server: mail.eazyprint.in
+IMAP Port: 143
+POP3 Port: 110
+Outgoing Server: mail.eazyprint.in
+SMTP Port: 25
+Authentication is required for IMAP, POP3, and SMTP.
