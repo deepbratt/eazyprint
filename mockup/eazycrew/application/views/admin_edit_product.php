@@ -16,7 +16,19 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Edit Product</title>
-
+		<link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
+		<style>
+		.label{
+			margin-bottom: 0px !important;
+		}
+		.file_upload_icon{
+			background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+			border-radius:50% !important;
+			height:53.1px;
+			width:53.1px;
+			margin-top:-15px;
+		}
+		</style>
        <?php
 		$this->load->view("common/metalinks");
 		?>
@@ -217,8 +229,21 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+											  <?php
+											  if($fetch_product->product_image !='')
+											  {
+											  ?>
+												<img onclick="meta_image()" src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_product->product_image;?>" style="height:150px;" id="blah">
+												<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+											  <?php
+											  }else{
+											  ?>
+											  	<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+												<input type="file" name="p_image" id="p_image"  style="display:none;" class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
 											   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+											   <?php
+											  }
+											   ?>
 											  </div>
 											</div>
 										  </div>
@@ -464,7 +489,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="text" name="meta_tags" value="<?php echo $fetch_product->tags;?>" class="form-control" placeholder="Add Tags">
+												<input type="text" name="meta_tags" data-role="tagsinput" value="<?php echo $fetch_product->tags;?>" class="form-control" placeholder="Add Tags">
 											  </div>
 											</div>
 										  </div>
@@ -485,7 +510,8 @@
 											  <?php
 											  }else{
 											  ?>
-												<input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+												<span onclick="meta_image()" id="hide_span_2" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+												<input type="file" name="image" id="my_file"  style="display:none;" class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
 												<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 											  <?php
 											  }
@@ -501,7 +527,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="text" name="meta_keyword" value="<?php echo $fetch_product->meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
+												<input type="text" name="meta_keyword" data-role="tagsinput" value="<?php echo $fetch_product->meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
 											  </div>
 											</div>
 										  </div>
@@ -545,7 +571,7 @@
 				</div>
 			</div>
 		</div>
-
+		<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
@@ -654,7 +680,25 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#blah').show();
-				$('.hide_file').hide();
+				$('#hide_span_2').hide();
+			}
+		}
+
+		function product_image(){
+			$("input[id='p_image']").click();
+		}
+
+		function show_image(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#p_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#p_blah').show();
+				$('#hide_span').hide();
 			}
 		}
 
