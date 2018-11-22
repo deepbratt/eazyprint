@@ -48,6 +48,7 @@ $this->load->view("common/sidebar");
 						<div class="alert alert-success success_div" style="display:none;">
 							<strong>Status Changed!</strong>
 						</div>
+						<div id="AjaxLoader" class="alert success_div" style="display:none;"><strong style="margin-left:-24px;"><img src="<?php echo base_url();?>images/ajax-loader2.gif" style="padding:5px;">Please Wait...</strong></div>
 						<?php
 						  if($this->session->flashdata('success')){
 						?>
@@ -58,11 +59,7 @@ $this->load->view("common/sidebar");
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Listing Crew</div>
-									</div>
 									<div class="card-body">
-										
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
@@ -138,9 +135,18 @@ $this->load->view("common/footer");
 		        url: '<?php echo base_url();?>admin_listing_crew/change_status',
 		        data: {'crew_id': crew_id,'crew_status':crew_status}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+		        	$('.success_div').hide();
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			    	$('.success_div').show();
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 				 $('.switch_'+crew_id+'').html(response);
 				 $('.success_div').show();
+				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
 		        }
 		      });
