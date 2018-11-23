@@ -3618,8 +3618,23 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 .status .panel-body{	
 }
-.ren-navbar{
-	position:relative;
+.fixed-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
+    margin: 0 auto;
+	z-index:0;
+}
+.ren-navbar.fixed-header.visible-title{
+	top:0;
+}
+.ren-navbar {
+	background: #ffffff; 
+	box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
+}
+.ren-navbar .container {
+	position: relative;
 }
 .app-header .dropdown-menu-right:before {
     content:"";

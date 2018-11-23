@@ -60,7 +60,7 @@
 				</header>
 				
 				<!-- Horizantal menu-->
-				<div class="ren-navbar" id="headerMenuCollapse">
+				<div class="ren-navbar fixed-header" id="headerMenuCollapse">
 					<div class="container">
 						<div class="row">
 							<a class="nav-link" href="#" style="text-align:center">
