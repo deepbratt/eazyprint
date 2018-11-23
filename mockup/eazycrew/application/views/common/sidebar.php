@@ -24,7 +24,11 @@
 					</div> -->
 					
 					<ul class="side-menu">
-
+					<!-- Dashboard STARTS -->
+						<li class="slide">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_dashboard')?'active':'');?>" href="<?php echo base_url('admin_dashboard');?>"><i class="far fa-address-card" style="padding-right:5px;"></i><span class="side-menu__label">Dashboard</span></a>
+						</li>
+					<!-- Dashboard Ends -->
 					<!-- PRODUCT CLASSIFICATION STARTS -->
 						<li class="sidebar_header">
                             <h5 class="sidebar_header_uppercase">Product Classification</h5>
@@ -119,6 +123,23 @@
 						</li>
 						<!-- Product Hierarchy Ends -->
 
+						<!-- Product Design Starts -->
+						<li class="sidebar_header">
+                            <h5 class="sidebar_header_uppercase">Product Design</h5>
+                        </li>
+                        <li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'is-expanded':'');?>">
+							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'active':'');?>" data-toggle="slide" href="#"><i class="far fa-object-ungroup" style="padding-right:5px;"></i><span class="side-menu__label">Design</span><i class="angle fas fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li>
+									<a href="<?php echo base_url('admin_add_design');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_design')?'active_sidebar_submenu':'');?>">Add Design</a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('admin_listing_design');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'active_sidebar_submenu':'');?>">View Design</a>
+								</li>
+							</ul>
+						</li>
+						<!-- Product Design Ends -->
+						
 						<!-- Product Information Starts-->
 						<li class="sidebar_header">
                             <h5 class="sidebar_header_uppercase">Product Information</h5>
@@ -148,22 +169,7 @@
 						</li>
 						<!-- Product Information Ends -->
 
-						<!-- Product Design Starts -->
-						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Product Design</h5>
-                        </li>
-                        <li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'is-expanded':'');?>">
-							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'active':'');?>" data-toggle="slide" href="#"><i class="far fa-object-ungroup" style="padding-right:5px;"></i><span class="side-menu__label">Design</span><i class="angle fas fa-angle-right"></i></a>
-							<ul class="slide-menu">
-								<li>
-									<a href="<?php echo base_url('admin_add_design');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_design')?'active_sidebar_submenu':'');?>">Add Design</a>
-								</li>
-								<li>
-									<a href="<?php echo base_url('admin_listing_design');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'active_sidebar_submenu':'');?>">View Design</a>
-								</li>
-							</ul>
-						</li>
-						<!-- Product Design Ends -->
+						
 
 						<!-- Orders Starts -->
 						<li class="sidebar_header">
@@ -244,10 +250,6 @@
 							}
 						?>
 						<!-- Crew Member Ends -->
-						<!-- Dashboard STARTS -->
-						<li class="slide">
-							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_dashboard')?'active':'');?>" href="<?php echo base_url('admin_dashboard');?>"><i class="far fa-address-card" style="padding-right:5px;"></i><span class="side-menu__label">Dashboard</span></a>
-						</li>
-						<!-- Dashboard Ends -->
+						
 					</ul>
 				</aside>
