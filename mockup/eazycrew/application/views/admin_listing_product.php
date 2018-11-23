@@ -119,7 +119,7 @@
 													if($fetch_products->product_image != "")
 													{
 													?>
-														<img class="img-responsive" src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_products->product_image;?>" style="height:100px;">
+														<img class="img-responsive" src="<?php echo base_url('uploads/raw_product_images/');?><?php echo $fetch_products->product_image;?>" style="height:100px;">
 													<?php
 													}
 													?>

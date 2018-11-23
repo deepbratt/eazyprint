@@ -56,8 +56,13 @@
 			?>
 			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
 			<?php 
-				} 
-			?>
+        }
+        if($this->session->flashdata('exist')){
+      ?>
+        <div class="alert alert-danger"> <strong>Product already exist! You can still update the product from <a href="<?php echo base_url('admin_edit_product/');?><?php echo $this->session->flashdata('exist');?>" >here</a>.</strong> </div>
+      <?php
+        }
+      ?>
 			<div class="api" style="display:none;">
 			   Api is ready to Run
 			</div>
@@ -73,12 +78,12 @@
 						<div class="form-group">
 							<div class="row">
 							  <div class="col-md-2">
-								<label class="form-label">Choose Category
+								<label class="form-label">Category
 								</label>
 							  </div>
 							  <div class="col-md-10">
 								<select name="category" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
-									<option value="" selected="">Choose Category</option>
+									<option value="" selected="">Category</option>
 								<?php
 								foreach($get_product_category as $fetch_product_category)
 								{
@@ -95,7 +100,7 @@
 						<div class="form-group sub_cat">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Choose Subcategory
+                            <label class="form-label">Subcategory
                             </label>
                           </div>
                           <div class="col-md-10">
@@ -110,14 +115,15 @@
                       <div class="form-group brand_div">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Choose Brand
+                            <label class="form-label">Brand
                             </label>
                           </div>
                           <div class="col-md-10"> 
 						  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-                            <select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
+                            <select name="brand" class="form-control custom-select brandz" onchange="brandz_id(this.value);">
                               <option value="" selected>Brand</option>
                             </select>
+                            <input type="hidden" class="brandz_name" value="">
                           </div>
                         </div>
                       </div>
@@ -125,12 +131,13 @@
 					  <div class="form-group modelz" style="display:none;">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Choose Model Number
+                            <label class="form-label">Model Number
                             </label>
                           </div>
                           <div class="col-md-10">
 							<div class="form-group">
-								<input class="devname form-control" type="text" name="model" onkeyup="callapi();"></input> 
+                <img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+								<input class="devname form-control" type="text" name="model" onkeyup="callapi();" onmousemove="callapi();" onmousewheel="callapi();">
 							</div>
                           </div>
                         </div>
@@ -186,8 +193,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <textarea class="form-control" name="product_desc" placeholder="Enter Product Description">
-                            </textarea>
+                            <textarea class="form-control" name="product_desc" placeholder="Enter Product Description"></textarea>
                           </div>
                         </div>
                       </div>
@@ -234,7 +240,7 @@
                     </div>
                     <div class="card-body">
 					  
-					  <div class="form-group materialz" style="display:none;">
+					           <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Material Type
@@ -255,7 +261,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <div class="row gutters-xs colorzz">
+                            <div class="selectgroup selectgroup-pills colorzz">
 							No Results Found
                             </div>
                           </div>
@@ -305,7 +311,7 @@
 					  <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Product Dimention (mm)
+                            <label class="form-label">Product Dimension (mm)
                             </label>
                           </div>
 						
@@ -631,13 +637,33 @@
 			}
 		}
 
-		function callapi(){
+    function brandz_id(e){
+      $.ajax({
+      url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand_name',
+      data: {'brand_id': e,},
+      type: "post",
+      beforeSend: function(){
+      $('#AjaxLoader_3').show();
+      },
+      complete: function(){
+        $('#AjaxLoader_3').hide();
+      },
+      success: function(response){
+        $('.brandz_name').val(response);
+      }
+      }); 
+    }
 
+		function callapi(){
+      var brand_name = $('.brandz_name').val();
+      var model_number = $('.devname').val();
+      var model_name = brand_name+""+model_number;
+      
 			// set token globally
 			//$.fn.fonoApi.options.token = "xxx";
 			$('.api').fonoApi({
 				token : "86b89476caaf66eda3f21279b7711afc",
-				device : $('.devname').val(),
+				device : model_name,
 				limit : 1,
 				template : function() {
 

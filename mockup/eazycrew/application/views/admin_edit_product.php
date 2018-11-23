@@ -60,8 +60,13 @@
 						?>
 						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
 						<?php 
-							} 
-						?>
+					        }
+					        if($this->session->flashdata('exist')){
+					      ?>
+					        <div class="alert alert-danger"> <strong>Product already exist! You can still update the product from <a href="<?php echo base_url('admin_edit_product/');?><?php echo $this->session->flashdata('exist');?>" >here</a>.</strong> </div>
+					      <?php
+					        }
+					      ?>
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="api" style="display:none;">
@@ -79,12 +84,12 @@
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
-													<label class="form-label">Choose Category
+													<label class="form-label">Category
 													</label>
 												  </div>
 												  <div class="col-md-10">
 													<select name="category" id="select-countries" class="form-control custom-select" onchange="cat_id(this.value);">
-														<option value="" selected="">Choose Category</option>
+														<option value="" selected="">Category</option>
 														<?php
 														foreach($get_product_category as $fetch_product_category)
 														{
@@ -100,13 +105,13 @@
 											<div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Choose Subcategory
+												<label class="form-label">Subcategory
 												</label>
 											  </div>
 											  <div class="col-md-10">
 											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_1" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
-												  <option value="" >Choose Subcategory</option>
+												  <option value="" >Subcategory</option>
 												  <?php
 												  foreach($get_sub_cat as $fetch_sub_cat)
 												  {
@@ -123,13 +128,13 @@
 										  <div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Choose Brand
+												<label class="form-label">Brand
 												</label>
 											  </div>
 											  <div class="col-md-10"> 
 											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
-												  <option value="">Choose Brand</option>
+												  <option value="">Brand</option>
 												  <?php
 												  foreach($get_brand as $fetch_brand)
 												  {
@@ -139,6 +144,7 @@
 												  }
 												  ?>
 												</select>
+												<input type="hidden" class="brandz_name" value="">
 											  </div>
 											</div>
 										  </div>
@@ -146,12 +152,12 @@
 										  <div class="form-group modelz" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'block':'none');?>;">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Choose Model Number
+												<label class="form-label">Model Number
 												</label>
 											  </div>
 											  <div class="col-md-10">
 												<div class="form-group">
-													<input class="devname form-control" type="text" value="<?php echo $fetch_product->product_model_no;?>" name="model" onkeyup="callapi();"></input> 
+													<input class="devname form-control" type="text" value="<?php echo $fetch_product->product_model_no;?>" name="model" onkeyup="callapi();" onmousemove="callapi();" onmousewheel="callapi();">
 												</div>
 											  </div>
 											</div>
@@ -235,7 +241,7 @@
 											  if($fetch_product->product_image !='')
 											  {
 											  ?>
-												<img onclick="meta_image()" src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_product->product_image;?>" style="height:150px;" id="blah">
+												<img onclick="meta_image()" src="<?php echo base_url('uploads/raw_product_images/');?><?php echo $fetch_product->product_image;?>" style="height:150px;" id="blah">
 												<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
 											  <?php
 											  }else{
@@ -265,7 +271,7 @@
 										</div>
 										<div class="card-body">
 										  
-										  <div class="form-group materialz" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+										  <div class="form-group materialz">
 											<div class="row">
 											  <div class="col-md-2">
 												<label class="form-label">Material Type
@@ -273,28 +279,32 @@
 											  </div>
 											  <div class="col-md-10"> 
 												<select name="material_type" class="form-control custom-select materialzz">
-												  <option value="">Choose Material Type</option>
 												  <?php
-												  foreach($get_material_type as $fetch_material_type)
-												  {
+													  if(sizeof($get_material_type) > 0){
+													  foreach($get_material_type as $fetch_material_type){
 												  ?>
 													<option value="<?php echo $fetch_material_type->product_material_id;?>" <?php echo (($fetch_material_type->product_material_id == $fetch_product->product_material_type)?'selected':'');?>><?php echo $fetch_material_type->product_material_type;?></option>
 												  <?php
-												  }
+													  }
+													}else{
+												  ?>
+												  	<option value="" disabled="" selected="">No Results Found</option>
+												  <?php
+													}
 												  ?>
 												</select>
 											  </div>
 											</div>
 										  </div>
 
-										  <div class="form-group p_color" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+										  <div class="form-group p_color">
 											<div class="row">
 											  <div class="col-md-2">
 												<label class="form-label">Product Color
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<div class="row gutters-xs colorzz">
+												<div class="selectgroup selectgroup-pills colorzz">
 												<?php
 												  if(sizeof($get_color) > 0){
 												  foreach($get_color as $fetch_color){
@@ -316,7 +326,7 @@
 											</div>
 										  </div>
 
-										  <div class="form-group p_size" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+										  <div class="form-group p_size">
 											<div class="row">
 											  <div class="col-md-2">
 												<label class="form-label">Product Size
@@ -343,7 +353,7 @@
 											</div>
 										  </div>
 
-										  <div class="form-group p_shape" style="display:<?php echo(($fetch_sub_cat->sub_category_id == '9')?'none':'block');?>;">
+										  <div class="form-group p_shape">
 											<div class="row">
 											  <div class="col-md-2">
 												<label class="form-label">Product Shape
@@ -385,7 +395,7 @@
 										  <div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Product Dimention (mm)
+												<label class="form-label">Product Dimension (mm)
 												</label>
 											  </div>
 											
@@ -565,12 +575,7 @@
 									  </div>
 									</div>
 								  </div>
-
 								</form>
-
-
-
-
 							</div>
 						</div>
 					</div>
@@ -732,14 +737,33 @@
 			}
 		}
 
+		function brandz_id(e){
+	      $.ajax({
+	      url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand_name',
+	      data: {'brand_id': e,},
+	      type: "post",
+	      beforeSend: function(){
+	      $('#AjaxLoader_3').show();
+	      },
+	      complete: function(){
+	        $('#AjaxLoader_3').hide();
+	      },
+	      success: function(response){
+	        $('.brandz_name').val(response);
+	      }
+	      }); 
+	    }
 
 		function callapi(){
+			var brand_name = $('.brandz_name').val();
+		    var model_number = $('.devname').val();
+		    var model_name = brand_name+""+model_number;
 			//alert("ok");
 			// set token globally
 			//$.fn.fonoApi.options.token = "xxx";
 			$('.api').fonoApi({
 				token : "86b89476caaf66eda3f21279b7711afc",
-				device : $('.devname').val(),
+				device : model_name,
 				limit : 1,
 				template : function() {
 

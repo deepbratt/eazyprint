@@ -58,33 +58,23 @@ class Admin_add_product_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();	
 	}
-
-	public function get_model($brand_id)
-	{
+	
+	public function check_products($sku){
 		$this->db->select('*');
-		$this->db->from('model');
-		$this->db->where('brand_id', $brand_id);
-		$this->db->where('model_status', '1');
+		$this->db->from('products');
+		$this->db->where('product_sku',$sku);
 		$query = $this->db->get();
-		return $query->result();		
+		return $query->row();
 	}
 
-	public function get_brand_name($brand)
+	public function get_brands_details($brand_id)
 	{
 		$this->db->select('*');
 		$this->db->from('brands');
-		$this->db->where('brand_id', $brand);
+		$this->db->where('brand_id', $brand_id);
+		$this->db->where('brand_status', '1');
 		$query = $this->db->get();
-		return $query->row();
-	}
-
-	public function get_shape_name($product_shape)
-	{
-		$this->db->select('*');
-		$this->db->from('product_shapetype');
-		$this->db->where('product_shape_id', $product_shape);
-		$query = $this->db->get();
-		return $query->row();
+		return $query->row();		
 	}
 
 	public function insert_product($records)

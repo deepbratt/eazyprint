@@ -68,6 +68,25 @@ class Admin_edit_product_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_brands_details($brand_id)
+	{
+		$this->db->select('*');
+		$this->db->from('brands');
+		$this->db->where('brand_id', $brand_id);
+		$this->db->where('brand_status', '1');
+		$query = $this->db->get();
+		return $query->row();		
+	}
+
+	public function check_sku($sku,$product_id){
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->where('product_sku',$sku);
+		$this->db->where('product_id !=',$product_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function update_product($records,$product_id)
 	{
 		$this->db->where("product_id", $product_id);

@@ -37,6 +37,14 @@ class Admin_add_product extends CI_Controller {
 		}
 	}
 
+	public function ajax_fetch_brand_name()
+	{
+		$this->load->model('admin_add_product_m');
+		$brands_id = $this->input->post('brand_id');
+		$fetch_brand_name = $this->admin_add_product_m->get_brands_details($brands_id);
+		echo $fetch_brand_name->brand_name;
+	}
+
 	public function ajax_fetch_material_type()
 	{
 		$this->load->model('admin_add_product_m');
@@ -53,7 +61,9 @@ class Admin_add_product extends CI_Controller {
 	<?php
 			}
 		}else{
-			echo "No Results Found";
+	?>
+			<option value="">No Results Found</option>
+	<?php
 		}
 	}
 
@@ -68,7 +78,7 @@ class Admin_add_product extends CI_Controller {
 	?>
 		  <div class="col-auto">
 			<label class="colorinput">
-			  <input name="color" type="radio" value="<?php echo $fetch_color->product_color_code?>" class="colorinput-input" >
+			  <input name="color" type="radio" value="<?php echo $fetch_color->product_color_id?>" class="colorinput-input" >
 			  <span class="colorinput-color" style="background-color:<?php echo $fetch_color->product_color_code;?>">
 			  </span>
 			</label>
@@ -119,27 +129,7 @@ class Admin_add_product extends CI_Controller {
 			echo "No Results Found";
 		}
 	}
-
-
-	public function ajax_fetch_model()
-	{
-		$this->load->model('admin_add_product_m');
-		$brand_id = $this->input->post('brand_id');
-		$get_model = $this->admin_add_product_m->get_model($brand_id);
-		if(sizeof($get_model) > 0){
-	?>
-		<option value="" selected>Model</option>
-    <?php
-		foreach($get_model as $fetch_model){
-	?>
-		<option value="<?php echo $fetch_model->model_name;?>"><?php echo $fetch_model->model_name;?></option>
-	<?php
-			}
-		}else{
-			echo "No Results Found";
-		}
-	}
-
+	
 	public function add_product()
 	{
 		$this->load->model('admin_add_product_m');
@@ -164,6 +154,13 @@ class Admin_add_product extends CI_Controller {
 
 		//Product Specification Starts
 		$material_type = $this->input->post('material_type');
+		if($this->input->post('material_type') != '')
+		{
+			$material_type = $this->input->post('material_type');
+		}else{
+			$material_type = "";
+		}
+
 		if($this->input->post('color') != '')
 		{
 			$color = $this->input->post('color');
@@ -205,29 +202,28 @@ class Admin_add_product extends CI_Controller {
 		//SEO Optimization Ends
 
 		//SKU CALCULATION STARTS
-		$get_brand_name = $this->admin_add_product_m->get_brand_name($brand);
-		$sku_brand_val = substr($get_brand_name->brand_code,0,2);
-		$get_shape_name = $this->admin_add_product_m->get_shape_name($product_shape);
-		if($sub_category == '9')
+		$brand_id = $this->input->post('brand');
+		$fetch_brand_info = $this->admin_add_product_m->get_brands_details($brand_id);
+		$model_name = $fetch_brand_info->brand_name.''.$model;
+		$trim_model_name = str_replace(' ', '', $model_name);
+		$product_color = $this->input->post('color');
+
+		if($product_shape != '')
 		{
-			$sku_model_val = substr($model,0,2);
-			$sku_shape_val = "00";
+			$sku_product_shape_val = $product_shape;
 		}else{
-			$sku_model_val = "00";
-			if($get_shape_name->product_shapetype_name == "")
-			{
-				$sku_shape_val = "00";
-			}else{
-				$sku_shape_val = substr($get_shape_name->product_shapetype_name,0,2);
-			}
-			
+			$sku_product_shape_val = "00";
 		}
-		$sku = sprintf("%02d", $category).''.sprintf("%02d", $sub_category).''.strtoupper($sku_brand_val).''.strtoupper($sku_model_val).''.strtoupper($sku_shape_val);
+		
+		$sku = sprintf("%02d", $category).''.sprintf("%02d", $sub_category).''.sprintf("%02d", $brand).''.strtoupper($trim_model_name).''.sprintf("%02d", $sku_product_shape_val).''.sprintf("%02d", $product_color);
+		
+		$check_sku_availability = $this->admin_add_product_m->check_products($sku);
+		$product_sku_id = $check_sku_availability->product_id;
 		//SKU CALCULATION ENDS
 		$date = time();
 
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/';
+			$config['upload_path'] = 'uploads/raw_product_images/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			
@@ -244,17 +240,82 @@ class Admin_add_product extends CI_Controller {
 			$product_image = "";
 		}
 
-		if(!empty($_FILES['image']['name'])){
-                $config['upload_path'] = 'uploads/meta_images/';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                $config['file_name'] = rand(999,99999).$_FILES['image']['name'];
-                
-                $this->load->library('upload',$config);
-                $this->upload->initialize($config);
-                
-                if($this->upload->do_upload('image')){
-                    $uploadData = $this->upload->data();
-					$image = $uploadData['file_name'];
+		if(sizeof($check_sku_availability) < 1){
+			if(!empty($_FILES['image']['name'])){
+	                $config['upload_path'] = 'uploads/meta_images/';
+	                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+	                $config['file_name'] = rand(999,99999).$_FILES['image']['name'];
+	                
+	                $this->load->library('upload',$config);
+	                $this->upload->initialize($config);
+	                
+	                if($this->upload->do_upload('image')){
+	                    $uploadData = $this->upload->data();
+						$image = $uploadData['file_name'];
+						$records=array(
+										'product_category' => $category,
+										'product_subcategory' => $sub_category,
+										'product_brand' => $brand,
+										'product_model_no' => $model,
+										'product_name' => $product_name,
+										'product_title' => $product_title,
+										'product_desc' => $product_desc,
+										'product_sku' =>  $sku,
+										'product_image' => $product_image,
+										'product_wholesale_price' => $wholesale_price,
+										'product_retail_price' => $retail_price,
+										'product_purchase_price' => $purchase_price,
+										'product_material_type' => $material_type,
+										'product_color' => $color,
+										'product_size' => $product_size,
+										'product_shapetype' => $product_shape,
+										'product_quantity' => $quantity,
+										'min_order' => $min_order,
+										'product_dimension_length' => $dimension_len,
+										'product_dimension_width' => $dimension_wid,
+										'product_dimension_height' => $dimension_height,
+										'product_weight' => $product_weight,
+										'product_supplier_id' => '1',
+										'product_status' => '1',
+										'added_date' => $date,
+										'updated_date' => $date,
+										'tags' => $meta_tags,
+										'meta_img' => $image,
+										'meta_keywords' => $meta_keyword,
+										'meta_desc' => $meta_desc
+									  );
+	                }else{
+						$records=array(
+										'product_category' => $category,
+										'product_subcategory' => $sub_category,
+										'product_brand' => $brand,
+										'product_model_no' => $model,
+										'product_name' => $product_name,
+										'product_title' => $product_title,
+										'product_desc' => $product_desc,
+										'product_sku' =>  $sku,
+										'product_image' => $product_image,
+										'product_wholesale_price' => $wholesale_price,
+										'product_retail_price' => $retail_price,
+										'product_purchase_price' => $purchase_price,
+										'product_material_type' => $material_type,
+										'product_color' => $color,
+										'product_size' => $product_size,
+										'product_shapetype' => $product_shape,
+										'product_quantity' => $quantity,
+										'min_order' => $min_order,
+										'product_dimension_length' => $dimension_len,
+										'product_dimension_width' => $dimension_wid,
+										'product_dimension_height' => $dimension_height,
+										'product_status' => '1',
+										'added_date' => $date,
+										'updated_date' => $date,
+										'tags' => $meta_tags,
+										'meta_keywords' => $meta_keyword,
+										'meta_desc' => $meta_desc
+									  );
+	                }
+				}else{
 					$records=array(
 									'product_category' => $category,
 									'product_subcategory' => $sub_category,
@@ -277,39 +338,6 @@ class Admin_add_product extends CI_Controller {
 									'product_dimension_length' => $dimension_len,
 									'product_dimension_width' => $dimension_wid,
 									'product_dimension_height' => $dimension_height,
-									'product_weight' => $product_weight,
-									'product_supplier_id' => '1',
-									'product_status' => '1',
-									'added_date' => $date,
-									'updated_date' => $date,
-									'tags' => $meta_tags,
-									'meta_img' => $image,
-									'meta_keywords' => $meta_keyword,
-									'meta_desc' => $meta_desc
-								  );
-                }else{
-					$records=array(
-									'product_category' => $category,
-									'product_subcategory' => $sub_category,
-									'product_brand' => $brand,
-									'product_model_no' => $model,
-									'product_name' => $product_name,
-									'product_title' => $product_title,
-									'product_desc' => $product_desc,
-									'product_sku' =>  $sku,
-									'product_image' => $product_image,
-									'product_wholesale_price' => $wholesale_price,
-									'product_retail_price' => $retail_price,
-									'product_purchase_price' => $purchase_price,
-									'product_material_type' => $material_type,
-									'product_color' => $color,
-									'product_size' => $product_size,
-									'product_shapetype' => $product_shape,
-									'product_quantity' => $quantity,
-									'min_order' => $min_order,
-									'product_dimension_length' => $dimension_len,
-									'product_dimension_width' => $dimension_wid,
-									'product_dimension_height' => $dimension_height,
 									'product_status' => '1',
 									'added_date' => $date,
 									'updated_date' => $date,
@@ -317,45 +345,15 @@ class Admin_add_product extends CI_Controller {
 									'meta_keywords' => $meta_keyword,
 									'meta_desc' => $meta_desc
 								  );
-                }
+					}
+						$insert_product = $this->admin_add_product_m->insert_product($records);
+						$this->session->set_flashdata("success", "Product Added Successfully!");
+					    redirect('admin_add_product');
 			}else{
-				$records=array(
-								'product_category' => $category,
-								'product_subcategory' => $sub_category,
-								'product_brand' => $brand,
-								'product_model_no' => $model,
-								'product_name' => $product_name,
-								'product_title' => $product_title,
-								'product_desc' => $product_desc,
-								'product_sku' =>  $sku,
-								'product_image' => $product_image,
-								'product_wholesale_price' => $wholesale_price,
-								'product_retail_price' => $retail_price,
-								'product_purchase_price' => $purchase_price,
-								'product_material_type' => $material_type,
-								'product_color' => $color,
-								'product_size' => $product_size,
-								'product_shapetype' => $product_shape,
-								'product_quantity' => $quantity,
-								'min_order' => $min_order,
-								'product_dimension_length' => $dimension_len,
-								'product_dimension_width' => $dimension_wid,
-								'product_dimension_height' => $dimension_height,
-								'product_status' => '1',
-								'added_date' => $date,
-								'updated_date' => $date,
-								'tags' => $meta_tags,
-								'meta_keywords' => $meta_keyword,
-								'meta_desc' => $meta_desc
-							  );
+				$this->session->set_flashdata("exist", $product_sku_id);
+				redirect('admin_add_product');
 			}
-
-		$insert_product = $this->admin_add_product_m->insert_product($records);
-		$this->session->set_flashdata("success", "Product Added Successfully!");
-	    redirect('admin_add_product');
 	}
-
-
 }
 
 /* End of file Home.php */
