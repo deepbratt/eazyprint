@@ -31,7 +31,7 @@
 					<!-- Dashboard Ends -->
 					<!-- PRODUCT CLASSIFICATION STARTS -->
 						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Product Classification</h5>
+                            <h5 class="sidebar_header_uppercase">Item Classification</h5>
                         </li>
 						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_category' || $this->uri->segment(1) == 'admin_listing_category' ||$this->uri->segment(1) == 'admin_edit_category')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_category' || $this->uri->segment(1) == 'admin_listing_category' ||$this->uri->segment(1) == 'admin_edit_category')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-newspaper" style="padding-right:5px;"></i><span class="side-menu__label">Category</span><i class="angle fas fa-angle-right"></i></a>
@@ -72,7 +72,7 @@
 
 						<!-- Product Hierarchy Starts -->
 						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Product Hierarchy</h5>
+                            <h5 class="sidebar_header_uppercase">Item Hierarchy</h5>
                         </li>
 						<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product_material_type' || $this->uri->segment(1) == 'admin_listing_product_material_type' ||$this->uri->segment(1) == 'admin_edit_product_material_type')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product_material_type' || $this->uri->segment(1) == 'admin_listing_product_material_type' ||$this->uri->segment(1) == 'admin_edit_product_material_type')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-newspaper" style="padding-right:5px;"></i><span class="side-menu__label">Product Material </span><i class="angle fas fa-angle-right"></i></a>
@@ -125,7 +125,7 @@
 
 						<!-- Product Design Starts -->
 						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Product Design</h5>
+                            <h5 class="sidebar_header_uppercase">Item Design</h5>
                         </li>
                         <li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_design' || $this->uri->segment(1) == 'admin_listing_design' ||$this->uri->segment(1) == 'admin_edit_design')?'active':'');?>" data-toggle="slide" href="#"><i class="far fa-object-ungroup" style="padding-right:5px;"></i><span class="side-menu__label">Design</span><i class="angle fas fa-angle-right"></i></a>
@@ -142,7 +142,7 @@
 						
 						<!-- Product Information Starts-->
 						<li class="sidebar_header">
-                            <h5 class="sidebar_header_uppercase">Product Information</h5>
+                            <h5 class="sidebar_header_uppercase">Item Information</h5>
                         </li>
                         <li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'is-expanded':'');?>">
 							<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-tshirt" style="padding-right:5px;"></i><span class="side-menu__label">Raw Material</span><i class="angle fas fa-angle-right"></i></a>
