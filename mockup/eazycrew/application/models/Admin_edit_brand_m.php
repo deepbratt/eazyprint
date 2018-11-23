@@ -2,7 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_edit_brand_m extends CI_Model {
-
+	
+	public function check_brands($brand_name,$brand_code)
+	{
+		$this->db->select('*');
+		$this->db->from('brands');
+		$this->db->where('brand_name', $brand_name);
+		$this->db->where('brand_code', $brand_code);
+		$query = $this->db->get();
+		return $query->num_rows();		
+	}
 	public function brand_details($brand_id)
 	{
 		$this->db->select('*');

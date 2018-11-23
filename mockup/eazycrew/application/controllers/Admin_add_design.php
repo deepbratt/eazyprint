@@ -23,6 +23,8 @@ class Admin_add_design extends CI_Controller {
 		$this->load->model('admin_add_design_m');
 		$cat_id = $this->input->post('category_id');
 		$ajax_fetch_all_subcategories = $this->admin_add_design_m->ajax_fetch_subcategories($cat_id);
+		if(sizeof($ajax_fetch_all_subcategories) > 0)
+		{
 	?>
 		<option selected disabled>Subcategory</option>
 	<?php
@@ -32,6 +34,9 @@ class Admin_add_design extends CI_Controller {
 		 	<option value="<?php echo $each_subcategory->sub_category_id;?>"><?php echo $each_subcategory->sub_category_name;?></option>
 	 <?php
 			
+			}
+		}else{
+			echo "No Results Found";
 		}
 	}
 
@@ -112,17 +117,6 @@ class Admin_add_design extends CI_Controller {
 			redirect('admin_add_design');
 		}
 		
-	}
-
-	private function set_upload_options()
-	{   
-	    //upload an image options
-	    $config = array();
-	    $config['upload_path'] = 'uploads/designs';
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-		$config['file_name'] = rand(999,99999).$_FILES['userfile']['name'];
-
-	    return $config;
 	}
 
 }

@@ -23,9 +23,6 @@
 		?>
 	</head>
 	<body class="app sidebar-mini rtl">
-		<!--<div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>-->
-		<div class="page">
-			<div class="page-main">
 				<?php
 				$this->load->view("common/header");
 				?>
@@ -52,7 +49,14 @@
 						  if($this->session->flashdata('success')){
 						?>
 						  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-						<?php } ?>
+						<?php 
+							}
+						  if($this->session->flashdata('exist')){
+						?>
+							<div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('exist');?></strong> </div>
+						<?php
+							}
+						?>
 						<div class="row">
 							<div class="col-md-12">
 								<form  method="post" class="card" action="<?php echo base_url('admin_add_brand');?>/brand_add">

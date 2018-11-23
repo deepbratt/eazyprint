@@ -16,7 +16,19 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Edit Product</title>
-
+		<link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
+		<style>
+		.label{
+			margin-bottom: 0px !important;
+		}
+		.file_upload_icon{
+			background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+			border-radius:50% !important;
+			height:53.1px;
+			width:53.1px;
+			margin-top:-15px;
+		}
+		</style>
        <?php
 		$this->load->view("common/metalinks");
 		?>
@@ -92,6 +104,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
+											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_1" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
 												  <option value="" >Choose Subcategory</option>
 												  <?php
@@ -114,6 +127,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10"> 
+											  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 												<select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
 												  <option value="">Choose Brand</option>
 												  <?php
@@ -217,8 +231,21 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+											  <?php
+											  if($fetch_product->product_image !='')
+											  {
+											  ?>
+												<img onclick="meta_image()" src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_product->product_image;?>" style="height:150px;" id="blah">
+												<input type="file" name="image" id="my_file" style="display: none;" onchange="readURL(this);" />
+											  <?php
+											  }else{
+											  ?>
+											  	<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+												<input type="file" name="p_image" id="p_image"  style="display:none;" class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
 											   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+											   <?php
+											  }
+											   ?>
 											  </div>
 											</div>
 										  </div>
@@ -269,8 +296,8 @@
 											  <div class="col-md-10">
 												<div class="row gutters-xs colorzz">
 												<?php
-												  foreach($get_color as $fetch_color)
-												  {
+												  if(sizeof($get_color) > 0){
+												  foreach($get_color as $fetch_color){
 												  ?>
 													<div class="col-auto">
 													  <label class="colorinput">
@@ -279,7 +306,10 @@
 													  </label>
 												    </div>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -295,15 +325,18 @@
 											  <div class="col-md-10">
 												<div class="selectgroup selectgroup-pills sizezz">
 												<?php
-												  foreach($get_size as $fetch_size)
-												  {
+												  if(sizeof($get_size) > 0){
+												  foreach($get_size as $fetch_size){
 												  ?>
 													<label class="selectgroup-item">
 														<input type="radio" name="product_size" value="<?php echo $fetch_size->product_size_id;?>" class="selectgroup-input" <?php echo (($fetch_size->product_size_id == $fetch_product->product_size)?'checked':'');?>>
 														<span class="selectgroup-button"><?php echo ucfirst($fetch_size->product_size_name);?></span>
 													</label>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -319,15 +352,18 @@
 											  <div class="col-md-10">
 												<div class="selectgroup selectgroup-pills shapezz">
 												 <?php
-												  foreach($get_shape as $fetch_shape)
-												  {
+												  if(sizeof($get_shape) > 0){
+												  foreach($get_shape as $fetch_shape){
 												  ?>
 													<label class="selectgroup-item">
 													   <input type="radio" name="product_shape" value="<?php echo $fetch_shape->product_shape_id;?>" class="selectgroup-input" <?php echo (($fetch_shape->product_shape_id == $fetch_product->product_shapetype)?'checked':'');?>>
 													   <span class="selectgroup-button"><?php echo ucfirst($fetch_shape->product_shapetype_name);?></span>
 													</label>
 												<?php
-												  }
+													}
+												}else{
+													echo "No Results Found";
+												}
 												?>
 												</div>
 											  </div>
@@ -464,7 +500,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="text" name="meta_tags" value="<?php echo $fetch_product->tags;?>" class="form-control" placeholder="Add Tags">
+												<input type="text" name="meta_tags" data-role="tagsinput" value="<?php echo $fetch_product->tags;?>" class="form-control" placeholder="Add Tags">
 											  </div>
 											</div>
 										  </div>
@@ -485,7 +521,8 @@
 											  <?php
 											  }else{
 											  ?>
-												<input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
+												<span onclick="meta_image()" id="hide_span_2" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+												<input type="file" name="image" id="my_file"  style="display:none;" class="form-control hide_file" placeholder="Add Meta Tags" onchange="readURL(this);">
 												<img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 											  <?php
 											  }
@@ -501,7 +538,7 @@
 												</label>
 											  </div>
 											  <div class="col-md-10">
-												<input type="text" name="meta_keyword" value="<?php echo $fetch_product->meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
+												<input type="text" name="meta_keyword" data-role="tagsinput" value="<?php echo $fetch_product->meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
 											  </div>
 											</div>
 										  </div>
@@ -545,7 +582,7 @@
 				</div>
 			</div>
 		</div>
-
+		<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Timepicker js -->
@@ -567,6 +604,12 @@
 			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
 			data: {'category_id': e,},
 			type: "post",
+			beforeSend: function(){
+				$('#AjaxLoader_1').show();
+			},
+			complete: function(){
+				$('#AjaxLoader_1').hide();
+			},
 			success: function(response){
 			  $('.sub_categoryz').html(response);
 			}
@@ -578,11 +621,6 @@
 			if(sub_id == '9')
 			{
 				$('.modelz').show();
-				$('.p_color').hide();
-				$('.p_size').hide();
-				$('.p_shape').hide();
-				$('.p_weight').hide();
-				$('.materialz').hide();
 			}else{
 				$('.modelz').hide();
 			}
@@ -590,6 +628,12 @@
 				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
 				data: {'sub_id': sub_id,},
 				type: "post",
+				beforeSend: function(){
+				$('#AjaxLoader_2').show();
+				},
+				complete: function(){
+					$('#AjaxLoader_2').hide();
+				},
 				success: function(response){
 				  $('.brandz').html(response);
 				}
@@ -598,6 +642,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+				$('#AjaxLoader_2').show();
+				},
+				complete: function(){
+					$('#AjaxLoader_2').hide();
+				},
 				  success: function(response){
 					$('.materialzz').html(response);
 				  }
@@ -606,6 +656,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+					beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.colorzz').html(response);
 				  }
@@ -614,6 +670,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+			      beforeSend: function(){
+				    $('#AjaxLoader_2').show();
+				  },
+				  complete: function(){
+					$('#AjaxLoader_2').hide();
+				  },
 				  success: function(response){
 					$('.sizezz').html(response);
 				  }
@@ -622,23 +684,17 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  eforeSend: function(){
+				    $('#AjaxLoader_2').show();
+				  },
+				  complete: function(){
+					$('#AjaxLoader_2').hide();
+				  },
 				  success: function(response){
 					$('.shapezz').html(response);
 				  }
 			});
 		}
-
-		function brand_id(brand_id){
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
-			data: {'brand_id': brand_id,},
-			type: "post",
-			success: function(response){
-			  $('.modelzz').html(response);
-			}
-		  });
-		}
-
 
 		function meta_image(){
 			$("input[id='my_file']").click();
@@ -654,7 +710,25 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#blah').show();
-				$('.hide_file').hide();
+				$('#hide_span_2').hide();
+			}
+		}
+
+		function product_image(){
+			$("input[id='p_image']").click();
+		}
+
+		function show_image(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#p_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#p_blah').show();
+				$('#hide_span').hide();
 			}
 		}
 

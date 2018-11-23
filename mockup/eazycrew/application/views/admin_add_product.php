@@ -16,7 +16,19 @@
     <!-- Title -->
     <title>Eazyprint | Add Product
     </title>
-	
+	<link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
+	<style>
+	.label{
+		margin-bottom: 0px !important;
+	}
+	.file_upload_icon{
+		background:linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+		border-radius:50% !important;
+		height:53.1px;
+		width:53.1px;
+		margin-top:-15px;
+	}
+	</style>
     <?php $this->load->view('common/metalinks');?>
   </head>
   <body class="app sidebar-mini rtl">
@@ -80,29 +92,31 @@
 							  </div>
 							</div>
 						</div>
-						<div class="form-group sub_cat" style="display:none;">
+						<div class="form-group sub_cat">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Choose Subcategory
                             </label>
                           </div>
                           <div class="col-md-10">
+						  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_1" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
                             <select name="sub_category" id="select-countries" class="form-control custom-select sub_categoryz" onchange="sub_id(this.value);">
-                              <option value="" selected="">Choose Subcategory</option>
+                              <option value="" selected="">Subcategory</option>
                             </select>
                           </div>
                         </div>
                       </div>
 
-                      <div class="form-group brand_div" style="display:none;">
+                      <div class="form-group brand_div">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Choose Brand
                             </label>
                           </div>
                           <div class="col-md-10"> 
+						  	<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_2" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
                             <select name="brand" class="form-control custom-select brandz" onchange="brand_id(this.value);">
-                              <option value="" selected>Choose Brand</option>
+                              <option value="" selected>Brand</option>
                             </select>
                           </div>
                         </div>
@@ -198,7 +212,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" placeholder="Add Product Image" onchange="show_image(this);">
+						  	<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+                            <input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);">
 						   <img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
                           </div>
                         </div>
@@ -233,7 +248,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group p_color" style="display:none;">
+                      <div class="form-group p_color">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Color
@@ -241,12 +256,13 @@
                           </div>
                           <div class="col-md-10">
                             <div class="row gutters-xs colorzz">
+							No Results Found
                             </div>
                           </div>
                         </div>
                       </div>
 
-					  <div class="form-group p_size" style="display:none;">
+					  <div class="form-group p_size">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Size
@@ -254,20 +270,22 @@
                           </div>
                           <div class="col-md-10">
 							<div class="selectgroup selectgroup-pills sizezz">
+							No Results Found
 							</div>
                           </div>
                         </div>
                       </div>
 
-					  <div class="form-group p_shape" style="display:none;">
+					  <div class="form-group p_shape">
                         <div class="row">
                           <div class="col-md-2">
                             <label class="form-label">Product Shape
                             </label>
                           </div>
                           <div class="col-md-10">
-								<div class="selectgroup selectgroup-pills shapezz">
-								</div>
+							<div class="selectgroup selectgroup-pills shapezz">
+							No Results Found
+							</div>
                           </div>
                         </div>
                       </div>
@@ -398,11 +416,11 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-2">
-                            <label class="form-label">Meta Tags
+                            <label class="form-label">Tags
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_tags" class="form-control" placeholder="Add Tags">
+                            <input type="text" name="meta_tags" data-role="tagsinput" class="form-control" placeholder="Add Tags">
                           </div>
                         </div>
                       </div>
@@ -414,7 +432,8 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="file" name="image" id="my_file"  class="form-control hide_file" placeholder="Add Meta Image" onchange="readURL(this);">
+						  	<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+                            <input type="file" name="image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
 						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
                           </div>
                         </div>
@@ -427,7 +446,7 @@
                             </label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" name="meta_keyword" class="form-control" placeholder="Add Meta Keywords">
+                            <input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
                           </div>
                         </div>
                       </div>
@@ -470,20 +489,23 @@
       </i>
     </a>
 	</body>
-	
+	<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
     <script type="text/javascript">
 		$('#cp2').colorpicker();
 
 		
 
 		function cat_id(e){
-			$('.sub_cat').show();
-			
-
 			$.ajax({
 			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
 			data: {'category_id': e,},
 			type: "post",
+			beforeSend: function(){
+				$('#AjaxLoader_1').show();
+			},
+			complete: function(){
+				$('#AjaxLoader_1').hide();
+			},
 			success: function(response){
 			  $('.sub_categoryz').html(response);
 			}
@@ -496,22 +518,20 @@
 			if(sub_id == '9')
 			{
 				$('.modelz').show();
-				$('.p_color').hide();
-				$('.p_size').hide();
-				$('.p_shape').hide();
-				$('.p_weight').hide();
-				$('.materialz').hide();
+				
 			}else{
-				$('.materialz').show();
-				$('.p_color').show();
-				$('.p_size').show();
-				$('.p_shape').show();
 				$('.modelz').hide();
 			}
 			$.ajax({
 				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
 				data: {'sub_id': sub_id,},
 				type: "post",
+				beforeSend: function(){
+				$('#AjaxLoader_2').show();
+				},
+				complete: function(){
+					$('#AjaxLoader_2').hide();
+				},
 				success: function(response){
 				  $('.brandz').html(response);
 				}
@@ -520,6 +540,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.materialzz').html(response);
 				  }
@@ -528,6 +554,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.colorzz').html(response);
 				  }
@@ -536,6 +568,12 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.sizezz').html(response);
 				  }
@@ -544,22 +582,18 @@
 				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
 				  type: 'post',
 				  data: {'sub_id': sub_id,},
+				  beforeSend: function(){
+					$('#AjaxLoader_2').show();
+					},
+					complete: function(){
+						$('#AjaxLoader_2').hide();
+					},
 				  success: function(response){
 					$('.shapezz').html(response);
 				  }
 			});
 		}
 
-		function brand_id(brand_id){
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_product/ajax_fetch_model',
-			data: {'brand_id': brand_id,},
-			type: "post",
-			success: function(response){
-			  $('.modelzz').html(response);
-			}
-		  });
-		}
 
 		function meta_image(){
 			$("input[id='my_file']").click();
@@ -575,7 +609,7 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#blah').show();
-				$('.hide_file').hide();
+				$('#hide_span_2').hide();
 			}
 		}
 
@@ -593,7 +627,7 @@
 
 				reader.readAsDataURL(input.files[0]);
 				$('#p_blah').show();
-				$('.hide_p_file').hide();
+				$('#hide_span').hide();
 			}
 		}
 

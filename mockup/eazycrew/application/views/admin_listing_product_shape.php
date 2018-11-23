@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -17,6 +16,30 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Listing Product Shape</title>
+
+		<style>
+		b{
+			color:black;
+			font-weight:1000;
+			font-size:20px;
+			font-family:arial;
+		}
+		th{
+			color:black;
+			font-weight:bold !important;
+			font-size:20px;
+			font-family:arial;
+			background:#ECEEF9;
+		}
+		.card-body{
+			zoom: 65%;
+		}
+		td{
+			color:black;
+			font-family:arial;
+			font-size:18px;
+		}
+		</style>
 
 <?php
 $this->load->view("common/metalinks");
@@ -58,20 +81,18 @@ $this->load->view("common/sidebar");
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
-									<div class="card-status bg-yellow br-tr-3 br-tl-3"></div>
-									<div class="card-header">
-										<div class="card-title">Listing Product Shape</div>
-									</div>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Product Shape Id
+													<th class="wd-15p">Sl&nbsp;No
 													</th>
-													<th class="wd-15p">Subcategory Name
+													<th class="wd-15p">Category&nbsp;Name
 													</th>
-													<th class="wd-20p">Product Shape
+													<th class="wd-15p">Subcategory&nbsp;Name
+													</th>
+													<th class="wd-20p">Product&nbsp;Shape
 													</th>
 													<th class="wd-15p">Action
 													</th>
@@ -88,17 +109,25 @@ $this->load->view("common/sidebar");
 													</td>
 													<td>
 													<?php 
-														$cat_sub_id = $fetch_product_shape->sub_category_id;
-														$this->load->model('admin_listing_product_shape_m');
-														$sub_category = $this->admin_listing_product_shape_m->cat_name($cat_sub_id);
+														$sub_id = $fetch_product_shape->sub_category_id;
+														$ci = &get_instance();
+														$ci->load->model('admin_listing_product_material_type_m');
+														$sub_category = $ci->admin_listing_product_material_type_m->sub_category($sub_id);
+														$get_cat = $ci->admin_listing_product_material_type_m->get_cat($sub_category->parent_cat_id);
+														echo $get_cat->category_name;
+													?>
+													</td>
+													<td>
+													<?php 
 														echo $sub_category->sub_category_name;
 													?>
 													</td>
 													<td><?php echo $fetch_product_shape->product_shapetype_name;?>
 													</td>
 													<td>
-													<a href="<?php echo base_url('admin_edit_product_shape');?>/<?php echo $fetch_product_shape->product_shape_id;?>" class="btn btn-primary">Edit</a>
-													<a href="<?php echo base_url('admin_listing_product_shape');?>/dlt_product_shape/<?php echo $fetch_product_shape->product_shape_id;?>" class="btn btn-primary">Delete</a>
+														<a href="<?php echo base_url('admin_edit_product_shape/');?><?php echo $fetch_product_shape->product_shape_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
+
+														<a href="<?php echo base_url('admin_listing_product_shape/dlt_product_shape/');?><?php echo $fetch_product_shape->product_shape_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php $i++; } ?>

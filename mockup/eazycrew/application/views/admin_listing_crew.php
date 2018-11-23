@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -17,10 +16,32 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Crew Listing</title>
-
-<?php
-$this->load->view("common/metalinks");
-?>
+		<style>
+			b{
+				color:black;
+				font-weight:1000;
+				font-size:20px;
+				font-family:arial;
+			}
+			th{
+				color:black;
+				font-weight:bold !important;
+				font-size:20px;
+				font-family:arial;
+				background:#ECEEF9;
+			}
+			.card-body{
+				zoom: 65%;
+			}
+			td{
+				color:black;
+				font-family:arial;
+				font-size:18px;
+			}
+		</style>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
 		<!-- Data table css -->
 		<link href="<?php echo base_url('css');?>/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
@@ -28,13 +49,13 @@ $this->load->view("common/metalinks");
 	<body class="app sidebar-mini rtl">
 		<div class="page">
 			<div class="page-main">
-<?php
-$this->load->view("common/header");
-?>
+			<?php
+			$this->load->view("common/header");
+			?>
 
-<?php
-$this->load->view("common/sidebar");
-?>
+			<?php
+			$this->load->view("common/sidebar");
+			?>
 
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
@@ -48,6 +69,7 @@ $this->load->view("common/sidebar");
 						<div class="alert alert-success success_div" style="display:none;">
 							<strong>Status Changed!</strong>
 						</div>
+						<div id="AjaxLoader" class="alert success_div" style="display:none;"><strong style="margin-left:-24px;"><img src="<?php echo base_url();?>images/ajax-loader2.gif" style="padding:5px;">Please Wait...</strong></div>
 						<?php
 						  if($this->session->flashdata('success')){
 						?>
@@ -58,28 +80,27 @@ $this->load->view("common/sidebar");
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Listing Crew</div>
-									</div>
 									<div class="card-body">
-										
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Crew Name</th>
-													<th class="wd-15p">Crew Email</th>
-													<th class="wd-20p">Crew Role</th>
-													<th class="wd-20p">Crew Joining Date</th>
-													<th class="wd-20p">Crew Status</th>
+													<th class="wd-15p">Sl&nbsp;No</th>
+													<th class="wd-15p">Name</th>
+													<th class="wd-15p">Email</th>
+													<th class="wd-20p">Role</th>
+													<th class="wd-20p">Joining Date</th>
+													<th class="wd-20p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
 												<?php
+												$i = 1;
 												foreach($fetch_crew as $get_details){
 												?>
 												  <tr>
+												  <td><?php echo $i;?></td>
 													<td><?php echo $get_details->crew_fname;?>&nbsp<?php echo $get_details->crew_lname;?></td>
 													<td><?php echo $get_details->crew_email;?></td>
 													<td><?php echo $get_details->crew_role;?></td>
@@ -97,6 +118,7 @@ $this->load->view("common/sidebar");
 													</td>
 												  </tr>
 												<?php
+												  $i++;
 												}
 												?>
 												</tbody>
@@ -138,9 +160,18 @@ $this->load->view("common/footer");
 		        url: '<?php echo base_url();?>admin_listing_crew/change_status',
 		        data: {'crew_id': crew_id,'crew_status':crew_status}, // change this to send js object
 		        type: "post",
+		        beforeSend: function(){
+		        	$('.success_div').hide();
+			        $('#AjaxLoader').show();
+			    },
+			    complete: function(){
+			    	$('.success_div').show();
+			        $('#AjaxLoader').hide();
+			    },
 		        success: function(response){
 				 $('.switch_'+crew_id+'').html(response);
 				 $('.success_div').show();
+				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
 		        }
 		      });

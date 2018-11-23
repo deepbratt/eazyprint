@@ -13,9 +13,28 @@ class Admin_add_product_color extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('admin_add_product_color_m');
+		$data['fetch_categories'] = $this->admin_add_product_color_m->fetch_categories();
+		$data['fetch_subcategories'] = $this->admin_add_product_color_m->fetch_all_subcategories();
 		$data['get_product_color'] = $this->admin_add_product_color_m->fetch_product_color();	
 		$this->load->view('admin_add_product_color',$data);
 	}
+
+	public function ajax_fetch_sub_category(){
+		$this->load->model('admin_add_product_color_m');
+		$cat_id = $this->input->post('category_id');
+		$ajax_fetch_all_subcategories = $this->admin_add_product_color_m->ajax_fetch_subcategories($cat_id);
+	?>
+		<option selected disabled>Subcategory</option>
+	<?php
+		
+		foreach($ajax_fetch_all_subcategories AS $each_subcategory){
+	 ?>
+		 	<option value="<?php echo $each_subcategory->sub_category_id;?>"><?php echo $each_subcategory->sub_category_name;?></option>
+	 <?php
+			
+		}
+	}
+	
 	public function add_product_color()
 	{
 		$this->load->model('admin_add_product_color_m');
