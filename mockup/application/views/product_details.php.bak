@@ -133,8 +133,8 @@ $this->load->view("common/header");
 											<li><span class="fas fa-check text-success"></span> Use mild detergent</li>
 											<li><span class="fas fa-check text-success"></span> Dry in shade</li>
 											<li><span class="fas fa-ban text-warning"></span> Do not iron directly or scrub on print</li>
-											<li><span class="fas fa-ban text-warning"></span> Do not bleach</li>
-											<li><span class="fas fa-ban text-warning"></span> Do not tumble dry</li>
+											<li><span class="fas fa-ban text-success"></span> Do not bleach</li>
+											<li><span class="fas fa-ban text-success"></span> Do not tumble dry</li>
 										</ul>
 									  </p>
 									</div>

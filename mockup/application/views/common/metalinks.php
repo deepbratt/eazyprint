@@ -9,3 +9,8 @@
 <link href="<?php echo base_url();?>css/plugin.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/addSlider.css" rel="stylesheet" />
+<style>
+	body{
+		background:#fff !important;
+	}
+</style>

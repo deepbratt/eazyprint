@@ -1,9 +1,9 @@
 <!--footer-->
 				<p style="border-top:1px solid #CCC:">&nbsp;</p>
-				<footer class="footer">
+				<footer class="footer" style="background:#eceef9;border-top:1px solid #c3c5d4 !important;">
 			
 					
-					<div class="container">
+					<div class="container" >
 					    <!-- footer top -->
 						<div class="container">
 						  <div class="row" style="margin-bottom:20px;">
