@@ -253,7 +253,7 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						
-						<div class="row">
+						<!--<div class="row">
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
 									<a href="#" class="bg-dark">
@@ -286,7 +286,7 @@ $this->load->view("common/header");
 									</a>
 								</div>
 							</div>
-						</div>
+						</div>-->
 					</div>
 					<p>&nbsp;</p>
 					
@@ -298,9 +298,8 @@ $this->load->view("common/header");
 					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
 					<p style="text-align:center;margin-top:20px;"><a href="#" class="btn btn-primary">Shop Now</a></p>
 					<p>&nbsp;</p>
-					
-					
 				</div>
+
 				<div class="container">
 					<div class="row" >
 						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:left;">
@@ -321,63 +320,89 @@ $this->load->view("common/header");
 						</div>
 					</div>
 				</div>
+
 				<div class="container" style="padding-top:5px;">
 					<div class="row">
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/collaborations-desktop-1541395800.jpg" style="width:99%;height:99%;">
+						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:left;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/3banner_565x.jpg" style="width:99%;height:99%;">
 						</div>
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
+						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:right;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/4banner_565x.jpg" style="width:99%;height:99%;">
+						</div>
+					</div>
+				</div>
+
+				<div class="container" style="padding-top:5px;">
+					<div class="row">
+						<div class="col-lg-8" style="padding:0px;margin:0px;text-align:left;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/6banner_758x.jpg" style="width:99%;height:99%;">
+						</div>
+						<div class="col-lg-4" style="padding:0px;margin:0px;text-align:right;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/5banner_573x.jpg" style="width:99%;height:99%;">
+						</div>
+					</div>
+				</div>
+
+				<div class="container" style="padding-top:5px;">
+					<div class="row">
+						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:left;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/mug-004.jpg" style="width:99%;height:99%;">
+						</div>
+						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:right;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
+				
 				<div class="container">
-					<div class="side-app">
-						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:26px;"> Sweet Surprises </h1>
-						<p>&nbsp;</p>
-					</div>
+					<p>&nbsp;</p>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Innovation </h1>
+					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
+					<p>&nbsp;</p>
 				</div>
-				<div class="container" style="padding-top:40px;">
+
+				<div class="container">
 					<div class="row">
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/Bewakoof-Delights-desktop-1541396155.jpg" >
+
+						<div class="col-md-12 col-xl-4" style="margin:0px;padding:0px;">
+						  <div class="card">
+							<div class="card-header bg-gradient-teal br-tr-3 br-tl-3">
+							  <h3 class="card-title text-white">Pricing
+							  </h3>
+							</div>
+							<div class="card-body">
+							 We cut out the middleman to make everyday fashion affordable.
+							</div>
+						  </div>
 						</div>
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/delights-desktop-1541396088.jpg" >
+
+						<div class="col-md-12 col-xl-4">
+						  <div class="card">
+							<div class="card-header bg-gradient-danger br-tr-3 br-tl-3">
+							  <h3 class="card-title text-white">Quality
+							  </h3>
+							</div>
+							<div class="card-body">
+							  We manufacture owr own products to ensure you get the best.
+							</div>
+						  </div>
+						</div>
+
+						<div class="col-md-12 col-xl-4" style="margin:0px;padding:0px;">
+						  <div class="card">
+							<div class="card-header bg-gradient-indigo br-tr-3 br-tl-3">
+							  <h3 class="card-title text-white">Design
+							  </h3>
+							</div>
+							<div class="card-body">
+							  We craete designs that are an extension of you
+							</div>
+						  </div>
 						</div>
 					</div>
-					<p>&nbsp;</p>
 				</div>
-				<div class="container">
-					<div class="side-app">
-						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:26px;">Innovation in</h1>
-						<p>&nbsp;</p>
-						<div class="row">
-							<div class="col-md-4 col-sm-12 col-xs-12">       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Pricing</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We cut out the middleman to make everyday fashion affordable</h1>     
-							</div>
 
-							<div class="col-md-4 col-sm-12 col-xs-12">
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Quality</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We manufacture owr own products to ensure you get the best</h1>    
-							</div>
-
-							<div class="col-md-4 col-sm-12 col-xs-12">
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Design</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We craete designs that are an extension of you</h1>
-							</div>
-						</div>
-					</div>
-
-					<p>&nbsp;</p>
-				</div>
-				<div class="container" style="padding-top:3px;">
+				<!--<div class="container" style="padding-top:3px;">
 					<div class="row">
 						<div class="col-lg-4">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/half-sleeve-desktop-1542879653.jpg" >
@@ -390,7 +415,7 @@ $this->load->view("common/header");
 						</div>
 					</div>
 					<p>&nbsp;</p>
-				</div>
+				</div>-->
 
 				<div class="container" style="padding-top:3px;">
 					<div class="row">
