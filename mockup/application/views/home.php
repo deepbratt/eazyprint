@@ -361,47 +361,6 @@ $this->load->view("common/header");
 					<p>&nbsp;</p>
 				</div>
 
-				<div class="container">
-					<div class="row">
-
-						<div class="col-md-12 col-xl-4" style="margin:0px;padding:0px;">
-						  <div class="card">
-							<div class="card-header bg-gradient-teal br-tr-3 br-tl-3">
-							  <h3 class="card-title text-white">Pricing
-							  </h3>
-							</div>
-							<div class="card-body">
-							 We cut out the middleman to make everyday fashion affordable.
-							</div>
-						  </div>
-						</div>
-
-						<div class="col-md-12 col-xl-4">
-						  <div class="card">
-							<div class="card-header bg-gradient-danger br-tr-3 br-tl-3">
-							  <h3 class="card-title text-white">Quality
-							  </h3>
-							</div>
-							<div class="card-body">
-							  We manufacture our own products to ensure you get the best.
-							</div>
-						  </div>
-						</div>
-
-						<div class="col-md-12 col-xl-4" style="margin:0px;padding:0px;">
-						  <div class="card">
-							<div class="card-header bg-gradient-indigo br-tr-3 br-tl-3">
-							  <h3 class="card-title text-white">Design
-							  </h3>
-							</div>
-							<div class="card-body">
-							  We craete designs that are an extension of you
-							</div>
-						  </div>
-						</div>
-					</div>
-				</div>
-
 				<!--<div class="container" style="padding-top:3px;">
 					<div class="row">
 						<div class="col-lg-4">
@@ -419,43 +378,30 @@ $this->load->view("common/header");
 
 				<div class="container" style="padding-top:3px;">
 					<div class="row">
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="mini-stat clearfix bg-facebook rounded">
-									<span class="mini-stat-icon"><i class="fab fa-facebook fg-facebook"></i></span>
-									<div class="mini-stat-info">
-										<span>5,762</span>
-										Facebook Like
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="mini-stat clearfix bg-twitter rounded">
-									<span class="mini-stat-icon"><i class="fab fa-twitter fg-twitter"></i></span>
-									<div class="mini-stat-info">
-										<span>7,153</span>
-										Twitter Followers
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-6 col-xs-12">
-								<div class="mini-stat clearfix bg-googleplus rounded">
-									<span class="mini-stat-icon"><i class="fab fa-google-plus fg-googleplus"></i></span>
-									<div class="mini-stat-info">
-										<span>793</span>
-										Google+ Posts
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<div class="mini-stat clearfix bg-bitbucket rounded">
-									<span class="mini-stat-icon"><i class="fab fa-bitbucket fg-bitbucket"></i></span>
-									<div class="mini-stat-info">
-										<span>8,932</span>
-										Repository
-									</div>
+						<div class="col-md-4 col-sm-12">
+							<div class="card text-white bg-danger">
+								<div class="card-body">
+									<p class="card-text" style="font-size:30px;"><i class="fas fa-truck" style="font-size:50px;"></i> &nbsp; FREE Delivery</p>
 								</div>
 							</div>
 						</div>
+						
+						<div class="col-md-4 col-sm-12">
+							<div class="card text-white bg-danger">
+								<div class="card-body">
+									<p class="card-text"style="font-size:30px;"><i class="fas fa-rupee-sign" style="font-size:50px;"></i> &nbsp;Cash On Delivery</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-12">
+							<div class="card text-white bg-danger">
+								<div class="card-body">
+									<p class="card-text"style="font-size:30px;"><i class="fas fa-undo" style="font-size:50px;"></i> &nbsp;Easy returns</p>
+								</div>
+							</div>
+						</div>
+					</div>
 					<p>&nbsp;</p>
 				</div>
 
