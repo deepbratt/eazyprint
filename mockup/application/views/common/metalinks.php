@@ -13,4 +13,14 @@
 	body{
 		background:#fff !important;
 	}
+	.sticky {
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  z-index:9999;
+	}
+
+	.sticky + .container {
+	  padding-top: 102px;
+	}
 </style>
