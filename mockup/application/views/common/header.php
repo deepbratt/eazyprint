@@ -62,8 +62,8 @@
 								<ul class="nav pull-left">
 									
 									<li class="nav-item with-sub mega-dropdown">
-									  <a class="nav-link" href="#">
-										<span> SHOP </span>
+									  <a class="nav-link" href="#" style="font-family:samarkan1;">
+										<span> CLOTHING & FASHION </span>
 									  </a>
 									  <div class="sub-item">
 										<div class="row">
@@ -131,7 +131,7 @@
 									</li>
 
 									<li class="nav-item with-sub">
-										<a class="nav-link" href="#"><span> DEALER OUTLETS</span></a>
+										<a class="nav-link" href="#"><span> GIFT ITEMS</span></a>
 										<div class="sub-item">
 											<ul>
 												<li>
@@ -148,7 +148,7 @@
 									</li>
 
 									<li class="nav-item with-sub">
-										<a class="nav-link" href="#"><span>CREATORS</span></a>
+										<a class="nav-link" href="#"><span>HOME DECORATION</span></a>
 										<div class="sub-item">
 											<ul>
 												<li>
@@ -171,6 +171,37 @@
 									<li class="nav-item">
 										<a class="nav-link" href="#"><span> BULK ORDERS </span></a>
 									</li>
+								</ul>
+								<ul class="nav pull-right">
+									<a class="nav-link" href="#">
+										<span class="ml-2 d-none d-lg-block">
+											<span class="text-dark"> <b> LOGIN </b> </span>
+										</span>
+									</a>
+
+
+									<a class="nav-link" href="#">
+										<span class="ml-2 d-none d-lg-block">
+											<span class="text-dark"> <b> SIGNUP </b> </span>
+										</span>
+									</a>
+									
+										<a class="nav-link" data-toggle="dropdown" href="#">
+											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
+											<span class="ml-2 d-none d-lg-block">
+												<span class="text-dark"> <b>Sindy S.</b></span>
+											</span>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
+											<a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
+											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+										</div>
+									
 								</ul>
 								
 								

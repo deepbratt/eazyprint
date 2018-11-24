@@ -10,6 +10,14 @@
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" />
 <link href="<?php echo base_url();?>css/addSlider.css" rel="stylesheet" />
 <style>
+	@font-face {
+		font-family: samarkan1;
+		src: url(<?php echo base_url('fonts/');?>SAMARN__.TTF);
+	}
+	@font-face {
+		font-family: samarkan2;
+		src: url(<?php echo base_url('fonts/');?>SAMARO__.TTF);
+	}
 	body{
 		background:#fff !important;
 	}
