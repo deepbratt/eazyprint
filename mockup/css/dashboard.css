@@ -3619,7 +3619,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .status .panel-body{	
 }
 .fixed-header {
-    position: fixed;
     left: 0;
     right: 0;
     box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
@@ -3648,22 +3647,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     border-color: transparent transparent #fff transparent;
     z-index:9999;
 }
-.app
-.ren-navbar:after,.sidebar-mini .app-header.header:after {
-	content: '';	
-	position: absolute;
-	height: 3px;
-	border-top: 0;
-	background: #c49cde;
-	border-radius: 5px;
-	z-index: 1;
-	width: 100%;
-	bottom: 0;
-	background-image: -webkit-linear-gradient(left, #c49cde, #c49cde 12.5%, #2dce89 12.5%, #2dce89 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -moz-linear-gradient(left, #c49cde, ##c49cde 12.5%, #2dce89 12.5%, #2dce89 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: -o-linear-gradient(left, #c49cde, ##c49cde 12.5%, #2dce89 12.5%, #2dce89 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-	background-image: linear-gradient(to right, #c49cde, #c49cde 12.5%, #2dce89 12.5%, #2dce89 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-}
+
 .nav-item .sub-item:before {
 	content: '';	
 	position: absolute;
@@ -11111,7 +11095,7 @@ a.text-light:hover, a.text-light:focus {
 	color: #dae0e5 !important;
 }
 .text-dark {
-	color: #4d6a98 !important;
+	color: #848484 !important;
 }
 a.text-dark:hover, a.text-dark:focus {
 	color: #1d2124 !important;
