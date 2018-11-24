@@ -18,8 +18,6 @@
 		color: #fff !important;
 }
 .sidebar_header{
-	font-size:14px;
-	font-weight:300;
 	color:#ffffff;
 	padding:15px;
 }
@@ -27,6 +25,24 @@
 	padding:0px;
 	margin:0px;
 	text-transform:uppercase;
+	color:#fff;
+	font-size:15px;
+	font-weight:500;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  position: relative;
+}
+.header-active:after {
+  content: "\2212";
+}
+
+.sidebar_header a:hover{
+	 color:#ffffff;
 }
 </style>
 <!-- DO NOT DELETE THIS -->
