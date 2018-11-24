@@ -357,7 +357,7 @@ $this->load->view("common/header");
 				<div class="container">
 					<p>&nbsp;</p>
 					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Innovation </h1>
-					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
+					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
 					<p>&nbsp;</p>
 				</div>
 
@@ -383,7 +383,7 @@ $this->load->view("common/header");
 							  </h3>
 							</div>
 							<div class="card-body">
-							  We manufacture owr own products to ensure you get the best.
+							  We manufacture our own products to ensure you get the best.
 							</div>
 						  </div>
 						</div>

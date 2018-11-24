@@ -357,7 +357,7 @@ $this->load->view("common/header");
 				<div class="container">
 					<p>&nbsp;</p>
 					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Innovation </h1>
-					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
+					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
 					<p>&nbsp;</p>
 				</div>
 
@@ -402,34 +402,6 @@ $this->load->view("common/header");
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="side-app">
-						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:26px;">Innovation in</h1>
-						<p>&nbsp;</p>
-						<div class="row">
-							<div class="col-md-4 col-sm-12 col-xs-12">       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Pricing</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We cut out the middleman to make everyday fashion affordable</h1>     
-							</div>
-
-							<div class="col-md-4 col-sm-12 col-xs-12">
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Quality</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We manufacture owr own products to ensure you get the best</h1>    
-							</div>
-
-							<div class="col-md-4 col-sm-12 col-xs-12">
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:22px !important;">Design</h1>
-								<br>       
-								<h1 class="page-title" style="color:black;text-align:center;font-weight:500;font-size:18px;">We craete designs that are an extension of you</h1>
-							</div>
-						</div>
-					</div>
-
-					<p>&nbsp;</p>
-				</div>
 				<!--<div class="container" style="padding-top:3px;">
 					<div class="row">
 						<div class="col-lg-4">
