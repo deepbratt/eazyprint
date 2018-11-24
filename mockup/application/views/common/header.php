@@ -54,16 +54,15 @@
 				<div id="myHeader">
 					<div class="ren-navbar fixed-header" id="headerMenuCollapse">
 						<div class="container">
-							<div class="row">
+							<div class="row" style="height: 50px;">
 								<a class="nav-link header-brand" href="<?php echo base_url();?>home.php">
-									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:50px;">
+									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;">
 								</a>
 							
 								<ul class="nav pull-left">
 									
 									<li class="nav-item with-sub mega-dropdown">
 									  <a class="nav-link" href="#">
-										<i class="fas fa-pen-square"></i>
 										<span> SHOP </span>
 									  </a>
 									  <div class="sub-item">
@@ -132,7 +131,7 @@
 									</li>
 
 									<li class="nav-item with-sub">
-										<a class="nav-link" href="#"><i class="fas fa-store"></i> <span> DEALER OUTLETS</span></a>
+										<a class="nav-link" href="#"><span> DEALER OUTLETS</span></a>
 										<div class="sub-item">
 											<ul>
 												<li>
@@ -149,7 +148,7 @@
 									</li>
 
 									<li class="nav-item with-sub">
-										<a class="nav-link" href="#"><i class="fa fa-paint-brush"></i> <span>CREATORS</span></a>
+										<a class="nav-link" href="#"><span>CREATORS</span></a>
 										<div class="sub-item">
 											<ul>
 												<li>
@@ -166,11 +165,11 @@
 									</li>
 
 									<li class="nav-item">
-										<a class="nav-link" href="#"><i class="fa fa-hand-peace"></i> <span> OFFERS </span></a>
+										<a class="nav-link" href="#"><span> OFFERS </span></a>
 									</li>
 
 									<li class="nav-item">
-										<a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i> <span> BULK ORDERS </span></a>
+										<a class="nav-link" href="#"><span> BULK ORDERS </span></a>
 									</li>
 								</ul>
 								
