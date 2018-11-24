@@ -298,31 +298,31 @@ $this->load->view("common/header");
 					</div>
 				</div>
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-6">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg" >
+					<div class="row" >
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
+							<a href="#"><img class="img-responsive " src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg"></a>
 						</div>
-						<div class="col-lg-6">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" >
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
+							<img class="img-responsive " src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" >
 						</div>
 					</div>
 				</div>
-				<div class="container" style="padding-top:3px;">
+				<div class="container" style="padding-top:40px;">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/colour-of-months-desktop-box-1542286229.jpg" >
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/lucky-sizes-570-715-desktop-box-1542349453.jpg" >
 						</div>
 					</div>
 				</div>
-				<div class="container" style="padding-top:3px;">
+				<div class="container" style="padding-top:40px;">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/collaborations-desktop-1541395800.jpg" >
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" >
 						</div>
 					</div>
@@ -334,12 +334,12 @@ $this->load->view("common/header");
 						<p>&nbsp;</p>
 					</div>
 				</div>
-				<div class="container" style="padding-top:3px;">
+				<div class="container" style="padding-top:40px;">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/Bewakoof-Delights-desktop-1541396155.jpg" >
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-6" style="padding:0px;text-align:center;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/delights-desktop-1541396088.jpg" >
 						</div>
 					</div>
@@ -370,7 +370,8 @@ $this->load->view("common/header");
 							</div>
 						</div>
 					</div>
-				</div>
+		   </div>
+		   <p>&nbsp;</p>
 <?php
 $this->load->view("common/footer");
 ?>
