@@ -293,37 +293,41 @@ $this->load->view("common/header");
 				</div>
 
 				<div class="container">
-					<div class="side-app">
-						<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/under-slider-desktop-clearance-zone-1542024792.jpg" >
-					</div>
+					<p>&nbsp;</p>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Clearance Zone </h1>
+					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
+					<p style="text-align:center;margin-top:20px;"><a href="#" class="btn btn-primary">Shop Now</a></p>
+					<p>&nbsp;</p>
+					
+					
 				</div>
 				<div class="container">
 					<div class="row" >
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<a href="#"><img class="img-responsive " src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg"></a>
+						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:left;">
+							<a href="#"><img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg" style="width:99%;height:99%;"></a>
 						</div>
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive " src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" >
-						</div>
-					</div>
-				</div>
-				<div class="container" style="padding-top:40px;">
-					<div class="row">
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/colour-of-months-desktop-box-1542286229.jpg" >
-						</div>
-						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/lucky-sizes-570-715-desktop-box-1542349453.jpg" >
+						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:right;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
-				<div class="container" style="padding-top:40px;">
+				<div class="container" style="padding-top:5px;">
+					<div class="row">
+						<div class="col-lg-4" style="padding:0px;margin:0px;text-align:left;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/46479680_2217977711820999_4911953203634896896_n.jpg" style="width:99%;height:99%;">
+						</div>
+						<div class="col-lg-8" style="padding:0px;margin:0px;text-align:right;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/promo-5_765x.jpg" style="width:99%;height:99%;">
+						</div>
+					</div>
+				</div>
+				<div class="container" style="padding-top:5px;">
 					<div class="row">
 						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/collaborations-desktop-1541395800.jpg" >
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/collaborations-desktop-1541395800.jpg" style="width:99%;height:99%;">
 						</div>
 						<div class="col-lg-6" style="padding:0px;text-align:center;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" >
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
