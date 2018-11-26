@@ -85,7 +85,7 @@ $this->load->view("common/header");
 
 										<div class="card-body cardbody">
 											<div class="cardtitle">
-												<a class="card-title">Moto G5 Plus backcover</a>
+												<a class="card-title" style="font-size:20px;">Moto G5 Plus backcover</a>
 											</div>
 											<div class="cardprice pt-5">
 												<h1 class="type--strikethrough"><i class="fas fa-rupee-sign"></i> 449</h1>
@@ -366,7 +366,7 @@ $this->load->view("common/header");
 						               <div class="panel panel-default">
 						                  <div class="panel-thumbnail">
 						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
+						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/homebanner/promo-5_765x.jpg" alt="slide 1" data-holder-rendered="true" style="height:360px;border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
 
 						                      <div class="card item-card">
 												<div class="cardtitle" style="text-align:center;padding-top:15px;">
@@ -400,7 +400,7 @@ $this->load->view("common/header");
 						               <div class="panel panel-default">
 						                  <div class="panel-thumbnail">
 						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
+						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:360px;">
 
 						                      <div class="card item-card">
 												<div class="cardtitle" style="text-align:center;padding-top:15px;">
