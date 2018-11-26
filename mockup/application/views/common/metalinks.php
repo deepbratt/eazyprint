@@ -183,7 +183,7 @@
 		}
 
 		.accordion_panel {
-		    padding: 0 18px;
+		    border: 1px solid #ccc;
 		    background-color: white;
 		    max-height: 0;
 		    overflow: hidden;

@@ -29,6 +29,9 @@
 			.card-body+.card-body, .product-gallery{
 				border:none !important;
 			}
+			.table-vcenter td, .table-vcenter th{
+				border:none !important;
+			}
 		</style>
 
 <?php
@@ -252,102 +255,99 @@ $this->load->view("common/header");
 							<div class="col-md-12">
 								<button class="accordion accordion_active">Product Description</button>
 								<div class="accordion_panel" style="max-height:300px;">
-								  <span class="p-5">
+								  <div style="padding:15px;" >
 								  	<h5>Moto G5 Plus backcover</h5>
 								  	<p>This Back Cover Is A Soft Silicon Case.It Is Transparent In Colour. Light Weight And Ultrathin Thickness And Is Easy To Apply.</p>
-								  </span>
+								  </div>
 								</div>
 
 								<button class="accordion">Product Details</button>
 								<div class="accordion_panel">
 									<div class="row">
-										<div class="col-md-6" style="padding:4px;">
-										  <div class="card">
-											<div class="card-header">
-												<h3 class="card-title">Technical Details</h3>
+										<div class="col-md-6">
+											<div class="p-2">
+												<h3>Technical Details</h3>
 											</div>
 											<div class="table-responsive" style="height:460px;">
 												<table class="table card-table table-vcenter text-nowrap">
 													<tbody>
 														<tr>
-															<td>Brand</td>
+															<td><strong>Brand</strong></td>
 															<td>LOFAD CASE</td>
 														</tr>
 														<tr>
-															<td>Model</td>
+															<td><strong>Model</strong></td>
 															<td>MOTOROLA MOTO G5S PLUS</td>
 														</tr>
 														<tr>
-															<td>Item Weight</td>
+															<td><strong>Item Weight</strong></td>
 															<td>90.7 g</td>
 														</tr>
 														<tr>
-															<td>Package Dimensions</td>
+															<td><strong>Package Dimensions</strong></td>
 															<td>18.5 x 10.8 x 1.6 cm</td>
 														</tr>
 														<tr>
-															<td>Item model number</td>
+															<td><strong>Item model number</strong></td>
 															<td>MOTOROLA MOTO G5S PLUS</td>
 														</tr>
 														<tr>
-															<td>Compatible Devices</td>
+															<td><strong>Compatible Devices</strong></td>
 															<td>MOTOROLA MOTO G5S PLUS</td>
 														</tr>
 														<tr>
-															<td>Number Of Items</td>
+															<td><strong>Number Of Items</strong></td>
 															<td>1</td>
 														</tr>
 														<tr>
-															<td>Material</td>
+															<td><strong>Material</strong></td>
 															<td>Silicone</td>
 														</tr>
 														<tr>
-															<td>Device Type</td>
+															<td><strong>Device Type</strong></td>
 															<td>Back Cover</td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
 											<!-- table-responsive -->
-										</div>
 									</div>
-									<div class="col-md-6" style="padding:4px;">
-										  <div class="card">
-											<div class="card-header">
-												<h3 class="card-title">Additional Information</h3>
+									<div class="col-md-6">
+											<div class="p-2">
+												<h3>Additional Information</h3>
 											</div>
 											<div class="table-responsive" style="height:260px;">
 												<table class="table card-table table-vcenter text-nowrap">
 													<tbody>
 														<tr>
-															<td>EZIN</td>
+															<td><strong>EZIN</strong></td>
 															<td>B0751JLVM7</td>
 														</tr>
 														<tr>
-															<td>Customer Reviews</td>
+															<td><strong>Customer Reviews</strong></td>
 															<td>5.0</td>
 														</tr>
 														<tr>
-															<td>Best Sellers Rank</td>
+															<td><strong>Best Sellers Rank</strong></td>
 															<td>#9,823 in Electronics (See top 100)<br>#1883 in Electronics > Accessories ><br> Mobile Accessories > Cases & Covers<br>#5535 in Electronics > Mobiles & Tablets</td>
 														</tr>
 														<tr>
-															<td>Date First Available</td>
+															<td><strong>Date First Available</strong></td>
 															<td>22 August 2017</td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
 											<!-- table-responsive -->
-											<div class="card card-body">
+											<div class="p-2" style="margin-left:15px;">
 												<h4>Warranty & Support</h4>
 												<span>Warranty Details: no warranty</span>
 											</div>
-											<div class="card card-body">
+											<div class="p-2" style="margin-left:15px;">
 												<h4>Feedback</h4>
 												<span>Would you like to tell us about a lower price?</span>
 											</div>
-										</div>
+										
 									</div>
 								  </div>
 								</div>
@@ -366,7 +366,29 @@ $this->load->view("common/header");
 						               <div class="panel panel-default">
 						                  <div class="panel-thumbnail">
 						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" style="height:300px;">
+						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
+
+						                      <div class="card item-card">
+												<div class="cardtitle" style="text-align:center;padding-top:15px;">
+													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
+												</div>
+												<p style="font-family:arial;text-align:center;"> 
+													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
+													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;">&#8377; 499 /- </span> 
+												</p>
+											
+												<div class="border-top text-center" style="padding:7px;">
+													<div>
+														<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
+															<i class="fas fa-heart"></i>
+														</a>
+														<a href="#" class="btn btn-success btn-xs tip" title="Buy">
+															<i class="fas fa-shopping-cart"></i>
+														</a>
+													</div>
+												</div>
+											  </div>
+
 						                    </a>
 						                  </div>
 						                </div>
@@ -378,7 +400,29 @@ $this->load->view("common/header");
 						               <div class="panel panel-default">
 						                  <div class="panel-thumbnail">
 						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" style="height:300px;">
+						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
+
+						                      <div class="card item-card">
+												<div class="cardtitle" style="text-align:center;padding-top:15px;">
+													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
+												</div>
+												<p style="font-family:arial;text-align:center;"> 
+													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
+													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;">&#8377; 499 /- </span> 
+												</p>
+											
+												<div class="border-top text-center" style="padding:7px;">
+													<div>
+														<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
+															<i class="fas fa-heart"></i>
+														</a>
+														<a href="#" class="btn btn-success btn-xs tip" title="Buy">
+															<i class="fas fa-shopping-cart"></i>
+														</a>
+													</div>
+												</div>
+											  </div>
+
 						                    </a>
 						                  </div>
 						                </div>
