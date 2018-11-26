@@ -84,11 +84,13 @@ $this->load->view("common/header");
 									<div class="col-md-12">
 
 										<div class="card-body cardbody">
-											<div class="cardtitle">
-												<a class="card-title" style="font-size:20px;">Moto G5 Plus backcover</a>
-											</div>
+												<h1>Moto G5 Plus backcover</h1>
 											<div class="cardprice pt-5">
-												<h1 class="type--strikethrough"><i class="fas fa-rupee-sign"></i> 449</h1>
+												<h1><i class="fas fa-rupee-sign"></i> 449</h1>
+													<div style="font-size:16px;font-weight:bold;">
+														<span style="color:red;text-decoration:line-through;"><i class="fas fa-rupee-sign"></i> 999</span>
+														 <span style="color:green">50% OFF</span>
+													</div>
 												<span class="text-muted">Inclusive of all taxes</span>
 											</div>
 											<div class="cardprice pt-5" style="font-size:12px;">
