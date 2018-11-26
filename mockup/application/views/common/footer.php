@@ -180,7 +180,7 @@
 		<script src="<?php echo base_url();?>js/c3-chart.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.mask.min.js"></script>
         <script src="<?php echo base_url();?>js/circle-progress.min.js"></script>
-        <script src="<?php echo base_url();?>js/particles.js"></script>
+       	<script src="<?php echo base_url();?>js/particles.js"></script>
         <script src="<?php echo base_url();?>js/particlesapp_default.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.vmap.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.vmap.min.js"></script>
@@ -211,3 +211,85 @@
 			  }
 			}
 		</script>
+		<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
+		<script>
+			// select all thumbnails
+			const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
+			// select featured
+			const galleryFeatured = document.querySelector(".product-gallery-featured img");
+
+			// loop all items
+			galleryThumbnail.forEach((item) => {
+			  item.addEventListener("mouseover", function () {
+			    let image = item.children[0].src;
+			    galleryFeatured.src = image;
+			  });
+			});
+
+			// show popover
+			$(".main-questions").popover('show');
+		</script>
+
+		<script>
+			$('#carouselExample').on('slide.bs.carousel', function (e) {
+
+			  
+			    var $e = $(e.relatedTarget);
+			    var idx = $e.index();
+			    var itemsPerSlide = 4;
+			    var totalItems = $('.carousel-item').length;
+			    
+			    if (idx >= totalItems-(itemsPerSlide-1)) {
+			        var it = itemsPerSlide - (totalItems - idx);
+			        for (var i=0; i<it; i++) {
+			            // append slides to end
+			            if (e.direction=="left") {
+			                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+			            }
+			            else {
+			                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+			            }
+			        }
+			    }
+			});
+
+
+			  $('#carouselExample').carousel({ 
+			                interval: 2000
+			        });
+
+
+			  $(document).ready(function() {
+			/* show lightbox when clicking a thumbnail */
+			    $('a.thumb').click(function(event){
+			      event.preventDefault();
+			      var content = $('.modal-body');
+			      content.empty();
+			        var title = $(this).attr("title");
+			        $('.modal-title').html(title);        
+			        content.html($(this).html());
+			        $(".modal-profile").modal({show:true});
+			    });
+
+			  });
+		</script>
+		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->
+
+		<!-- ACCORDIONS STARTS -->
+			<script>
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				for (i = 0; i < acc.length; i++) {
+				  acc[i].addEventListener("click", function() {
+				    this.classList.toggle("accordion_active");
+				    var panel = this.nextElementSibling;
+				    if (panel.style.maxHeight){
+				      panel.style.maxHeight = null;
+				    } else {
+				      panel.style.maxHeight = panel.scrollHeight + "px";
+				    } 
+				  });
+				}
+			</script>
+		<!-- Accordions Ends -->
