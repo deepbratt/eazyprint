@@ -167,17 +167,15 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/bewkoof/womens-topwear-banner-6-desktop-1542197802.jpg" alt="First slide" class="img-responsive">
-								<div class="container">
+								<img class="first-slide" src="<?php echo base_url();?>images/homebanner/slidetwo.png" alt="First slide" class="img-responsive">
+								<!--<div class="container">
 								  <div class="carousel-caption text-left">
-									<!--<h1>Example headline.</h1>
-									<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-									<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>-->
+									<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
 								  </div>
-								</div>
+								</div>-->
 							  </div>
 							  <div class="carousel-item">
-								<img class="second-slide" src="<?php echo base_url();?>images/bewkoof/shirt-men-bestsellers-desktop-1542100908.jpg" alt="Second slide" class="img-responsive" >
+								<img class="second-slide" src="<?php echo base_url();?>images/homebanner/slide_mobilecover.png" alt="Second slide" class="img-responsive" >
 								<div class="container">
 								  <div class="carousel-caption">
 									<!--<h1>Another example headline.</h1>
@@ -187,7 +185,7 @@ $this->load->view("common/header");
 								</div>
 							  </div>
 							  <div class="carousel-item">
-								<img class="third-slide" src="<?php echo base_url();?>images/bewkoof/to-travel-is-to-live-design-of-the-day-banner-desktop-1542976089.jpg" alt="Third slide" class="img-responsive" >
+								<img class="third-slide" src="<?php echo base_url();?>images/homebanner/tshirt_slide.png" alt="Third slide" class="img-responsive" >
 								<div class="container">
 								  <div class="carousel-caption">
 									<!--<h1>Another example headline.</h1>
@@ -214,7 +212,8 @@ $this->load->view("common/header");
 				<div class="container">
 					<div class="side-app">
 						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:26px;"> Wide Range of Categories </h1>
+						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Wide Range of Categories </h1>
+						<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;font-size:25px;">Follow the trend or be followed #eazyprint. </h4>
 						<p>&nbsp;</p>
 
 						<div class="row">
@@ -294,8 +293,8 @@ $this->load->view("common/header");
 
 				<div class="container">
 					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Clearance Zone </h1>
-					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Starting at &#8377; 299! Till stock last, Hurry!</h4>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Clearance Zone </h1>
+					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;font-size:25px;">Starting at &#8377; 199! Till stock last, Hurry!</h4>
 					<p style="text-align:center;margin-top:20px;"><a href="#" class="btn btn-primary">Shop Now</a></p>
 					<p>&nbsp;</p>
 				</div>
@@ -356,7 +355,7 @@ $this->load->view("common/header");
 				
 				<div class="container">
 					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:55px;"> Innovation </h1>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Innovation </h1>
 					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
 					<p>&nbsp;</p>
 				</div>
