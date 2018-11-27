@@ -18,247 +18,353 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Checkout</title>
-<?php
-$this->load->view("common/metalinks");
-?>
-		<link href="<?php echo base_url();?>css/timeline.min.css" rel="stylesheet" />
+		<style>
+			body{
+				color:black !important;
+			}
+			/* ACCORDIONS STARTS*/
+				button.accordion {
+				  background-color: #fff;
+				  cursor: pointer;
+				  padding: 10px;
+				  width: 100%;
+				  border: none;
+				  text-align: left;
+				  outline: none;
+				  font-size: 18px;
+				  transition: 0.4s;
+				  border-bottom: 1px solid #ccc;
+				}
+
+				button.accordion.active, button.accordion:hover {
+				  color: #ffffff;
+				  background-color: #7490BD;
+				}
+
+				button.accordion:before {
+				  content: '\02795';
+				  font-size: 9px;
+				  float: left;
+				  margin-left: 0px;
+				  margin-right: 10px;
+				  margin-top: 7px;
+				}
+
+				button.accordion.active:before {
+				  content: "\2796";
+				}
+
+				div.accordion_panel {
+				  background-color: white;
+				  max-height: 0;
+				  padding-left: 15px;
+				  overflow: hidden;
+				  padding-top: 0px;
+				  box-shadow: 0 6px 14px 0 rgba(0,0,0,.08);
+				  transition: 0.6s ease-in-out;
+				  opacity: 0;
+				  margin-bottom: 8px;
+				}
+
+				.accordion_panel-icon {
+				  margin-right: 10px;
+				}
+
+				.accordion_panel h5 {
+				  font-size: 15px;
+				  line-height: 23px;
+				  margin-top: 5px;
+				  margin-bottom: 0px;
+				  display: inline-block;
+				  color: #2d2d2d
+				}
+
+				.accordion_panel p {
+				  font-size: 15px;
+				  line-height: 23px;
+				  padding: 15px 30px 20px 0;
+				  color: #2d2d2d
+				}
+
+				div.accordion_panel.show {
+				  opacity: 1;
+				  max-height: 800px;
+				}
+			/* ACCORDIONS ENDS*/
+			.table-vcenter td, .table-vcenter th{
+				vertical-align: top !important;
+				border-top:none !important;
+			}
+		</style>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
 	</head>
 	<body class="app">
 
-<?php
-$this->load->view("common/header");
-?>
+				<?php
+				$this->load->view("common/header");
+				?>
 				<div class="container">
 					<div class="side-app">
 						<p>&nbsp;</p>
-						<div class="row" style="padding:0px;margin:0px;">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="card">
-								<div class="card-status bg-success br-tr-3 br-tl-3"></div>
-								<div class="card-body">
-									<h1 class="text-center">Checkout</h1>
-								</div>
-							</div>
-						</div>
+						<div class="row" style="padding:15px;margin:0px;">
+						
 							<div class="col-md-7 col-sm-12 col-xs-12">
-								<div class="card">
-									<div class="card-status bg-orange br-tr-3 br-tl-3"></div>
-									<div class="card-body">
-										<h3>Billing Address</h3>
-										<div class="row">
-											<div class="col-md-5">
-												<div class="form-group">
-													<label class="form-label">Company</label>
-													<input type="text" class="form-control"  placeholder="Company" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-3">
-												<div class="form-group">
-													<label class="form-label">Username</label>
-													<input type="text" class="form-control" placeholder="Username" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Email address</label>
-													<input type="email" class="form-control" placeholder="Email">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">First Name</label>
-													<input type="text" class="form-control" placeholder="Company">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control" placeholder="Last Name">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Address</label>
-													<input type="text" class="form-control" placeholder="Home Address" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">City</label>
-													<input type="text" class="form-control" placeholder="City" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-3">
-												<div class="form-group">
-													<label class="form-label">Postal Code</label>
-													<input type="number" class="form-control" placeholder="ZIP Code">
-												</div>
-											</div>
-											<div class="col-md-5">
-												<div class="form-group">
-													<label class="form-label">Country</label>
-													<select class="form-control custom-select">
-														<option value="0">--Select--</option>
-														<option value="1">Germany</option>
-														<option value="2">Canada</option>
-														<option value="3">Usa</option>
-														<option value="4">Aus</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
+								<!--LOGIN STARTS-->
+								<button class="accordion active">LOGIN</button>
+								<div class="accordion_panel show">
+								  	<div class="row p-2">
+								  		<div class="col-md-6">
+								  			<div class="form-group">
+								  				<h5>Name:</h5>
+								  				<span style="margin-left:5px;">Debashis Nath</span>
+								  			</div>
+								  			<div class="form-group">
+								  				<h5>Phone:</h5>
+								  				<span style="margin-left:5px;">7074459217</span>
+								  			</div>
+								  			<div class="form-group">
+								  				<a href="javascript:void(0);">Logout & Signin into another account</a>
+								  			</div>
+								  			<div class="form-group">
+								  				<a href="#" class="btn btn-azure btn-lg">Continue Checkout</a>
+								  			</div>
+								  		</div>
+
+								  		<div class="col-md-6">
+								  			<div class="form-group">
+								  				<span class="text-muted">Advantages of our secure login</span>
+								  			</div>
+								  			<div class="form-group">
+								  				<i class="fas fa-truck-moving"></i>
+								  				<span style="margin-left:5px;">Easily Track Orders, Hassle free Returns</span>
+								  			</div>
+								  			<div class="form-group">
+								  				<i class="fas fa-bell"></i>
+								  				<span style="margin-left:5px;">Get Relevant Alerts</span>
+								  			</div>
+								  			<div class="form-group">
+								  				<i class="fas fa-star"></i>
+								  				<span style="margin-left:5px;">Wishlist, Reviews, Ratings and more.</span>
+								  			</div>
+								  		</div>
+								  		<div class="col-md-12">
+								  			<span>Please note that upon clicking "Logout" you will lose all items in cart and will be redirected to Eazyprint home page.</span>
+								  		</div>
+								  	</div>								  
 								</div>
-								<div class="card">
-									<div class="card-body">
-									<div class="checkbox">
-									  <label><input type="checkbox"> Same as above address</label>
-									</div>
-								</div>
-								</div>
-								<div class="card">
-									<div class="card-status bg-orange br-tr-3 br-tl-3"></div>
-									<div class="card-body">
-										<h3>Shipping Address</h3>
-										<div class="row">
-											<div class="col-md-5">
-												<div class="form-group">
-													<label class="form-label">Company</label>
-													<input type="text" class="form-control"  placeholder="Company" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-3">
-												<div class="form-group">
-													<label class="form-label">Username</label>
-													<input type="text" class="form-control" placeholder="Username" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">Email address</label>
-													<input type="email" class="form-control" placeholder="Email">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">First Name</label>
-													<input type="text" class="form-control" placeholder="Company">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control" placeholder="Last Name">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Address</label>
-													<input type="text" class="form-control" placeholder="Home Address" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-4">
-												<div class="form-group">
-													<label class="form-label">City</label>
-													<input type="text" class="form-control" placeholder="City" >
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-3">
-												<div class="form-group">
-													<label class="form-label">Postal Code</label>
-													<input type="number" class="form-control" placeholder="ZIP Code">
-												</div>
-											</div>
-											<div class="col-md-5">
-												<div class="form-group">
-													<label class="form-label">Country</label>
-													<select class="form-control custom-select">
-														<option value="0">--Select--</option>
-														<option value="1">Germany</option>
-														<option value="2">Canada</option>
-														<option value="3">Usa</option>
-														<option value="4">Aus</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5 col-sm-12 col-xs-12">
-								<div class="card store">
-									<div class="card-status bg-success"></div>
-									<div class="table-responsive">
-										<div class="card">
-									<div class="card-header">
-										<strong class="card-title">Order Preview</strong>
-									</div>
-									<div class="card-body">
-									  <!-- Credit Card -->
-									  <div id="pay-invoice">
-										  <div class="card-title">
-											 <tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td class="text-left">Product Name</td>
-											</tr>
+								<!-- LOGIN ENDS -->
+								<!-- DELIVERY ADDRESS STARTS-->
+								<button class="accordion">DELIVERY ADDRESS</button>
+								<div class="accordion_panel">
+									<div class="row">
+										<div class="col-md-11 p-3">
+										  <div class="custom-controls-stacked">
+											<label class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+												<span class="custom-control-label"><strong>Debashis Nath</strong></span>
+												<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>
+												<span class="custom-control-label"><strong>7074459217</strong></span>
+											</label>
 										  </div>
-										  <hr>
-										  <form action="" method="post" novalidate="novalidate">
-											  <div class="form-group text-center">
-												  <ul class="list-inline">
-													  <li class="list-inline-item"><i class="text-muted fab fa-cc-visa fa-2x"></i></li>
-													  <li class="list-inline-item"><i class="fab fa-cc-mastercard fa-2x"></i></li>
-													  <li class="list-inline-item"><i class="fab fa-cc-amex fa-2x"></i></li>
-													  <li class="list-inline-item"><i class="fab fa-cc-discover fa-2x"></i></li>
-												  </ul>
-											  </div>
-											  <div class="form-group">
-												  <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-												  <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
-											  </div>
-											  <div class="form-group has-success">
-												  <label for="cc-name" class="control-label mb-1">Name on card</label>
-												  <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-												  <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
-											  </div>
-											  <div class="form-group">
-												  <label for="cc-number" class="control-label mb-1">Card number</label>
-												  <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
-												  <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-											  </div>
-											  <div class="row">
-												  <div class="col-6">
-													  <div class="form-group">
-														  <label for="cc-exp" class="control-label mb-1">Expiration</label>
-														  <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY" autocomplete="cc-exp">
-														  <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-													  </div>
-												  </div>
-												  <div class="col-6">
-													  <label for="x_card_code" class="control-label mb-1">Security code</label>
-													  <div class="input-group">
-														  <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
-														  
-															<span class="col-auto align-self-center ">
-																<span class="form-help bg-primary text-white" data-toggle="popover" data-placement="top" data-content="<span>The 3 digit code on back of the card..</span>">?</span>
-															</span>
-													  </div>
-												  </div>
-											  </div>
-											  <div>
-												  <button id="payment-button" type="submit" class="btn btn-lg btn-primary btn-block">
-													  <i class="fa fa-lock fa-lg"></i>&nbsp;
-													  <span id="payment-button-amount">Pay $100.00</span>
-													  <span id="payment-button-sending" style="display:none;">Sending…</span>
-												  </button>
-											  </div>
-										  </form>
+										  <div class="form-group">
+										  	<p>15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
+										  </div>
+										</div>
+										<div class="col-md-1 p-3">
+											<div class="form-group">
+												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;">EDIT</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-11 p-3">
+										  <div class="custom-controls-stacked">
+											<label class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+												<span class="custom-control-label"><strong>Shuvradeb Mondal</strong></span>
+												<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>
+												<span class="custom-control-label"><strong>9230841054</strong></span>
+											</label>
+										  </div>
+										  <div class="form-group">
+										  	<p>15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
+										  </div>
+										</div>
+										<div class="col-md-1 p-3">
+											<div class="form-group">
+												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;">EDIT</a>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 p-3">
+											<a href="javascript:voide(0);" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
+										</div>
+									</div>
+								</div>
+								<!-- DELIVERY ADDRESS ENDS-->
+								<!-- ORDER SUMMARY STARTS-->
+								<button class="accordion">ORDER SUMMARY</button>
+								<div class="accordion_panel" >
+								  <div class="row p-3">
+								  	<div class="col-md-2">
+								  		<div class="form-group">
+								  			<img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="product_image" style="height:130px;">
+								  		</div>
+								  		<input type="number" class="form-control" name="quantity" value="1">
+								  	</div>
+								  	<div class="col-md-7">
+								  		<div class="form-group">
+								  			<h3>Moto G5 Plus backcover</h3>
+								  		</div>
+								  		<div class="form-group">
+								  			<span>Size: L</span>
+								  		</div>
+								  		<div class="form-group">
+								  			<span>Seller: Eazyprint</span>
+								  		</div>
+								  		<div class="form-group">
+								  			<span style="font-size:15px;font-weight:bold;"><i class="fas fa-rupee-sign"></i>499</span>
+								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
+								  		</div>
+								  	</div>
+								  	<div class="col-md-3">
+								  		<div class="form-group">
+								  			<span>Delivery in 2Days, Thur | Free</span>
+								  		</div>
+								  	</div>
+								  </div>
+								  <div class="row p-3">
+								  	<div class="col-md-9">
+								  		<div class="form-group">
+								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);">debashisnath1992@gmail.com</a></p>
+								  		</div>
+								  	</div>
+								  	<div class="col-md-3 text-right">
+								  		<div class="form-group">
+								  			<button class="btn btn-orange btn-lg">Continue</button>
+								  		</div>
+								  	</div>
+								  </div>
+								</div>
+								<!-- ORDER SUMMARY ENDS-->
+								<!-- PAYMENT OPTION STARTS -->
+								<button class="accordion ">PAYMENT OPTION</button>
+								<div class="accordion_panel ">
+
+								  <div class="row">
+									<div class="col-md-11 p-3">
+									  <div class="custom-controls-stacked">
+										<label class="custom-control custom-radio">
+											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+											<span class="custom-control-label"><strong>Axis Bank Debit Card</strong></span>
+											<span class="custom-control-label" style="float:right;font-weight:bold;">20xx xxxx xxxx xx87</span>
+										</label>
+									  </div>
+								  	  <div class="row">
+									  		<div class="col-md-3">
+									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
+									  		</div>
+									  		<div class="col-md-3">
+									  			<button class="btn btn-orange btn-lg">Continue</button>
+									  		</div>
+									  </div>	
+									  <div class="form-group p-3">
+									  		<span style="color:green;"><i class="fas fa-rupee-sign"></i>50 instant discount applicable.</span>
 									  </div>
 									</div>
-								</div> 
+								  </div>
+
+								   <div class="row">
+									<div class="col-md-11 p-3">
+									  <div class="custom-controls-stacked">
+										<label class="custom-control custom-radio">
+											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+											<strong class="custom-control-label">Credit / Debit/ ATM Card</strong>
+										</label>
+									  </div>
+									  <div class="row p-3">
+									  		<div class="col-md-12">
+									  			<input type="text" class="form-control" value="" name="card_number" placeholder="CARD NUMBER">
+									  		</div>
+									  </div>	
+								  	  <div class="row p-3">
+								  	  		<div class="col-md-3">
+									  			<input type="text" class="form-control" value="" name="cvv" placeholder="Expiry Date" style="width:120px;">
+									  		</div>
+									  		<div class="col-md-3">
+									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
+									  		</div>
+									  		<div class="col-md-3">
+									  			<button class="btn btn-orange btn-lg">Continue</button>
+									  		</div>
+									  </div>
 									</div>
+								  </div>
+
+								   <div class="row p-3">
+								   	<div class="col-md-12">
+									  <div class="custom-controls-stacked">
+										<label class="custom-control custom-radio">
+											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+											<span class="custom-control-label"><strong>Cash on Delivery</strong></span>
+										</label>
+									  </div>
+									</div>
+									
+							  		<div class="col-md-6">
+							  			<span>CAPTCHA</span>
+							  		</div>
+							  		<div class="col-md-6">
+							  			<input type="text" class="form-control" value="" name="cvv" placeholder="Enter the characters">
+							  		</div>
+							  	</div>
+								  
+
+								</div>
+								<!-- PAYMENT OPTION ENDS -->
+							</div>
+						<!-- RIGHT SIDE PRODUCT DETAILS STARTS-->
+							<div class="col-md-5 col-sm-12 col-xs-12">
+								<div class="card">
+									<div class="card-header">
+										<strong class="card-title">Price Details</strong>
+									</div>
+									<div class="card-body">
+									  	<div class="table-responsive">
+											<table class="table card-table table-vcenter text-nowrap">
+												 <tr>
+													<td><img src="<?php echo base_url();?>images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:100px;"></td>
+													<td>
+														Moto G5 Plus backcover <br>
+														<span>Size: L</span><br>
+														<span>Seller: Eazyprint</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Price(1 Item)</td>
+													<td style="float:right;"><i class="fas fa-rupee-sign"></i> 449</td>
+												</tr>
+												<tr>
+													<td>Delivery Charges</td>
+													<td style="float:right;color:green;">FREE</td>
+												</tr>
+												<tr>
+													<td>Amount Payable</td>
+													<td style="float:right;"><i class="fas fa-rupee-sign"></i> 499</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div> 
+								<div class="form-group">
+									<h5><i class="fas fa-shield-alt"></i> Safe and Secure Payments. Easy Returns. 100% Authentic products.</h5>
 								</div>
 							</div>
+							<!-- RIGHT SIDE PRODUCT DETAILS ENDS-->
 						</div>
 					</div>
 				</div>
@@ -267,14 +373,24 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
-				<script src="<?php echo base_url();?>js/timeline.min.js"></script>
+				
+				<!-- ACCORDIONS STARTS -->
 				<script>
-					timeline(document.querySelectorAll('.timeline'), {
-						forceVerticalMode: 700,
-						mode: 'vertical',
-						verticalStartPosition: 'left',
-						visibleItems: 4
-					});
+					var acc = document.getElementsByClassName("accordion");
+					var i;
+
+					function click_action(){
+					  $('.accordion').removeClass('active');
+					  $('.accordion_panel').removeClass('show');
+
+					  this.classList.toggle("active");
+					  this.nextElementSibling.classList.toggle("show");
+					}
+
+					for (i = 0; i < acc.length; i++) {
+					  acc[i].onclick = click_action;
+					}
 				</script>
+			<!-- Accordions Ends -->
 	</body>
 </html>
