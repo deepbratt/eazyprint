@@ -153,41 +153,71 @@
 		#profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 	/* IMAGE SLIDER FOR PRODUCT DETAILS PAGE*/
 	/* ACCORDIONS STARTS*/
-		.accordion {
-		    background-color: #eee;
-		    color: #444;
-		    cursor: pointer;
-		    padding: 18px;
-		    width: 100%;
-		    border: none;
-		    text-align: left;
-		    outline: none;
-		    font-size: 15px;
-		    transition: 0.4s;
+		button.accordion {
+		  background-color: #fff;
+		  cursor: pointer;
+		  padding: 0px 0 8px 0;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 18px;
+		  transition: 0.4s;
+		  border-bottom: 1px solid #ccc;
 		}
 
-		.accordion_active, .accordion_active:hover {
-		    background-color: #ccc;
+		button.accordion.active, button.accordion:hover {
+		  color: #f06100
 		}
 
-		.accordion:after {
-		    content: '\002B';
-		    color: #777;
-		    font-weight: bold;
-		    float: right;
-		    margin-left: 5px;
+		button.accordion:before {
+		  content: '\02795';
+		  font-size: 9px;
+		  float: left;
+		  margin-left: 0px;
+		  margin-right: 10px;
+		  margin-top: 7px;
 		}
 
-		.accordion_active:after {
-		    content: "\2212";
+		button.accordion.active:before {
+		  content: "\2796";
 		}
 
-		.accordion_panel {
-		    border: 1px solid #ccc;
-		    background-color: white;
-		    max-height: 0;
-		    overflow: hidden;
-		    transition: max-height 0.2s ease-out;
+		div.accordion_panel {
+		  background-color: white;
+		  max-height: 0;
+		  padding-left: 15px;
+		  overflow: hidden;
+		  padding-top: 0px;
+		  border-bottom: 4px solid #ccc;
+		  transition: 0.6s ease-in-out;
+		  opacity: 0;
+		  margin-bottom: 8px;
+		}
+
+		.accordion_panel-icon {
+		  margin-right: 10px;
+		}
+
+		.accordion_panel h5 {
+		  font-size: 15px;
+		  line-height: 23px;
+		  margin-top: 5px;
+		  margin-bottom: 0px;
+		  display: inline-block;
+		  color: #2d2d2d
+		}
+
+		.accordion_panel p {
+		  font-size: 15px;
+		  line-height: 23px;
+		  padding: 15px 30px 20px 0;
+		  color: #2d2d2d
+		}
+
+		div.accordion_panel.show {
+		  opacity: 1;
+		  max-height: 500px;
 		}
 	/* ACCORDIONS ENDS*/
 		</style>
@@ -413,8 +443,8 @@ $this->load->view("common/header");
 						<h1>&nbsp;</h1>
 						<div class="row" style="color:black;">
 							<div class="col-md-12">
-								<button class="accordion accordion_active">Product Description</button>
-								<div class="accordion_panel" style="max-height:300px;">
+								<button class="accordion">Product Description</button>
+								<div class="accordion_panel">
 								  <div style="padding:15px;" >
 								  	<h5>Moto G5 Plus backcover</h5>
 								  	<p>This Back Cover Is A Soft Silicon Case.It Is Transparent In Colour. Light Weight And Ultrathin Thickness And Is Easy To Apply.</p>
@@ -612,6 +642,86 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
+	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
+		<script>
+			// select all thumbnails
+			const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
+			// select featured
+			const galleryFeatured = document.querySelector(".product-gallery-featured img");
 
+			// loop all items
+			galleryThumbnail.forEach((item) => {
+			  item.addEventListener("mouseover", function () {
+			    let image = item.children[0].src;
+			    galleryFeatured.src = image;
+			  });
+			});
+
+			// show popover
+			$(".main-questions").popover('show');
+		</script>
+
+		<script>
+			$('#carouselExample').on('slide.bs.carousel', function (e) {
+
+			  
+			    var $e = $(e.relatedTarget);
+			    var idx = $e.index();
+			    var itemsPerSlide = 4;
+			    var totalItems = $('.carousel-item').length;
+			    
+			    if (idx >= totalItems-(itemsPerSlide-1)) {
+			        var it = itemsPerSlide - (totalItems - idx);
+			        for (var i=0; i<it; i++) {
+			            // append slides to end
+			            if (e.direction=="left") {
+			                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+			            }
+			            else {
+			                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+			            }
+			        }
+			    }
+			});
+
+
+			  $('#carouselExample').carousel({ 
+			                interval: 2000
+			        });
+
+
+			  $(document).ready(function() {
+			/* show lightbox when clicking a thumbnail */
+			    $('a.thumb').click(function(event){
+			      event.preventDefault();
+			      var content = $('.modal-body');
+			      content.empty();
+			        var title = $(this).attr("title");
+			        $('.modal-title').html(title);        
+			        content.html($(this).html());
+			        $(".modal-profile").modal({show:true});
+			    });
+
+			  });
+		</script>
+		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->
+		<!-- ACCORDIONS STARTS -->
+			<script>
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				function click_action(){
+				  $('.accordion').removeClass('active');
+				  $('.accordion_panel').removeClass('show');
+
+				  this.classList.toggle("active");
+				  this.nextElementSibling.classList.toggle("show");
+				}
+
+				for (i = 0; i < acc.length; i++) {
+				  acc[i].onclick = click_action;
+				}
+			</script>
+		<!-- Accordions Ends -->
 	</body>
 </html>
