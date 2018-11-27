@@ -28,12 +28,11 @@
 				  cursor: pointer;
 				  padding: 10px;
 				  width: 100%;
-				  border: none;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
-				  border-bottom: 1px solid #ccc;
+				  border: 1px solid #ccc;
 				}
 
 				button.accordion.active, button.accordion:hover {
@@ -60,7 +59,7 @@
 				  padding-left: 15px;
 				  overflow: hidden;
 				  padding-top: 0px;
-				  box-shadow: 0 6px 14px 0 rgba(0,0,0,.08);
+				  box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
 				  transition: 0.6s ease-in-out;
 				  opacity: 0;
 				  margin-bottom: 8px;
@@ -89,11 +88,18 @@
 				div.accordion_panel.show {
 				  opacity: 1;
 				  max-height: 800px;
+				  padding:23px;
 				}
 			/* ACCORDIONS ENDS*/
 			.table-vcenter td, .table-vcenter th{
 				vertical-align: top !important;
-				border-top:none !important;
+				border-top:none !important; 
+			}
+			.custom-control-label:before{
+				border:2px solid #7490bd !important;
+			}
+			.fa, .fas{
+				font-size:20px !important;
 			}
 		</style>
 		<?php
@@ -108,12 +114,12 @@
 				<div class="container">
 					<div class="side-app">
 						<p>&nbsp;</p>
-						<div class="row" style="padding:15px;margin:0px;">
+						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<button class="accordion active">LOGIN</button>
-								<div class="accordion_panel show">
+								<button class="accordion ">LOGIN</button>
+								<div class="accordion_panel ">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
 								  			<div class="form-group">
@@ -133,20 +139,18 @@
 								  		</div>
 
 								  		<div class="col-md-6">
-								  			<div class="form-group">
-								  				<span class="text-muted">Advantages of our secure login</span>
-								  			</div>
+								  			<h5 style="padding-bottom:10px;">Advantages of our secure login</h5>
 								  			<div class="form-group">
 								  				<i class="fas fa-truck-moving"></i>
-								  				<span style="margin-left:5px;">Easily Track Orders, Hassle free Returns</span>
+								  				<span style="margin-left:5px;font-size: 13px;">Easily Track Orders, Hassle free Returns</span>
 								  			</div>
 								  			<div class="form-group">
 								  				<i class="fas fa-bell"></i>
-								  				<span style="margin-left:5px;">Get Relevant Alerts</span>
+								  				<span style="margin-left:12px;font-size: 13px;">Get Relevant Alerts</span>
 								  			</div>
 								  			<div class="form-group">
 								  				<i class="fas fa-star"></i>
-								  				<span style="margin-left:5px;">Wishlist, Reviews, Ratings and more.</span>
+								  				<span style="margin-left:8px;font-size: 13px;">Wishlist, Reviews, Ratings and more.</span>
 								  			</div>
 								  		</div>
 								  		<div class="col-md-12">
@@ -156,8 +160,8 @@
 								</div>
 								<!-- LOGIN ENDS -->
 								<!-- DELIVERY ADDRESS STARTS-->
-								<button class="accordion">DELIVERY ADDRESS</button>
-								<div class="accordion_panel">
+								<button class="accordion active">DELIVERY ADDRESS</button>
+								<div class="accordion_panel show">
 									<div class="row">
 										<div class="col-md-11 p-3">
 										  <div class="custom-controls-stacked">
@@ -168,16 +172,44 @@
 												<span class="custom-control-label"><strong>7074459217</strong></span>
 											</label>
 										  </div>
-										  <div class="form-group">
-										  	<p>15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
+										  <div class="form-group address_hide">
+										  	<p class="ml-5">15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
 										  </div>
 										</div>
 										<div class="col-md-1 p-3">
 											<div class="form-group">
-												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;">EDIT</a>
+												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;" id="show">EDIT</a>
 											</div>
 										</div>
 									</div>
+
+									<!-- EDIT ADDRESS -->
+									<div class="row address_edit">
+										<div class="col-md-6 ">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Name">
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Pincode">
+											</div>
+										</div>
+										<div class="col-md-6 ">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Mobile Number">
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Locality">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<textarea class="form-control" placeholder="Address"></textarea>
+										</div>
+										<div class="col-md-12" style="margin-top:10px;">
+											<button class="btn btn-success">Submit</button>
+											<button id="hide" class="btn btn-secondary">Cancel</button>
+										</div>
+									</div>
+								<!-- EDIT ADDRESS -->
 
 									<div class="row">
 										<div class="col-md-11 p-3">
@@ -190,7 +222,7 @@
 											</label>
 										  </div>
 										  <div class="form-group">
-										  	<p>15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
+										  	<p class="ml-5">15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
 										  </div>
 										</div>
 										<div class="col-md-1 p-3">
@@ -201,13 +233,13 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12 p-3">
-											<a href="javascript:voide(0);" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
+											<a href="javascript:voide(0);" id="show" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
 										</div>
 									</div>
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								<!-- ORDER SUMMARY STARTS-->
-								<button class="accordion">ORDER SUMMARY</button>
+								<button class="accordion ">ORDER SUMMARY</button>
 								<div class="accordion_panel" >
 								  <div class="row p-3">
 								  	<div class="col-md-2">
@@ -227,13 +259,13 @@
 								  			<span>Seller: Eazyprint</span>
 								  		</div>
 								  		<div class="form-group">
-								  			<span style="font-size:15px;font-weight:bold;"><i class="fas fa-rupee-sign"></i>499</span>
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i>499</span>
 								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
 								  		</div>
 								  	</div>
 								  	<div class="col-md-3">
 								  		<div class="form-group">
-								  			<span>Delivery in 2Days, Thur | Free</span>
+								  			<span>Delivery in 2Days, Thursday | Free</span>
 								  		</div>
 								  	</div>
 								  </div>
@@ -265,14 +297,14 @@
 										</label>
 									  </div>
 								  	  <div class="row">
-									  		<div class="col-md-3">
+									  		<div class="col-md-3 ml-5">
 									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
 									  		</div>
 									  		<div class="col-md-3">
 									  			<button class="btn btn-orange btn-lg">Continue</button>
 									  		</div>
 									  </div>	
-									  <div class="form-group p-3">
+									  <div class="form-group p-4 ml-2">
 									  		<span style="color:green;"><i class="fas fa-rupee-sign"></i>50 instant discount applicable.</span>
 									  </div>
 									</div>
@@ -286,12 +318,12 @@
 											<strong class="custom-control-label">Credit / Debit/ ATM Card</strong>
 										</label>
 									  </div>
-									  <div class="row p-3">
+									  <div class="row ml-3">
 									  		<div class="col-md-12">
 									  			<input type="text" class="form-control" value="" name="card_number" placeholder="CARD NUMBER">
 									  		</div>
 									  </div>	
-								  	  <div class="row p-3">
+								  	  <div class="row  p-5">
 								  	  		<div class="col-md-3">
 									  			<input type="text" class="form-control" value="" name="cvv" placeholder="Expiry Date" style="width:120px;">
 									  		</div>
@@ -305,7 +337,7 @@
 									</div>
 								  </div>
 
-								   <div class="row p-3">
+								   <div class="row">
 								   	<div class="col-md-12">
 									  <div class="custom-controls-stacked">
 										<label class="custom-control custom-radio">
@@ -314,13 +346,6 @@
 										</label>
 									  </div>
 									</div>
-									
-							  		<div class="col-md-6">
-							  			<span>CAPTCHA</span>
-							  		</div>
-							  		<div class="col-md-6">
-							  			<input type="text" class="form-control" value="" name="cvv" placeholder="Enter the characters">
-							  		</div>
 							  	</div>
 								  
 
@@ -330,42 +355,44 @@
 						<!-- RIGHT SIDE PRODUCT DETAILS STARTS-->
 							<div class="col-md-5 col-sm-12 col-xs-12">
 								<div class="card">
-									<div class="card-header">
+									<div class="card-header" style="background-color:#f5f5f5">
 										<strong class="card-title">Price Details</strong>
 									</div>
-									<div class="card-body">
+									<div class="card-body" style="padding:4px !important;">
 									  	<div class="table-responsive">
 											<table class="table card-table table-vcenter text-nowrap">
-												 <tr>
-													<td><img src="<?php echo base_url();?>images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:100px;"></td>
-													<td>
-														Moto G5 Plus backcover <br>
-														<span>Size: L</span><br>
-														<span>Seller: Eazyprint</span>
-													</td>
-												</tr>
 												<tr>
 													<td>Price(1 Item)</td>
-													<td style="float:right;"><i class="fas fa-rupee-sign"></i> 449</td>
+													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 449</td>
+												</tr>
+												<tr>
+													<td>Apply Coupon</td>
+													<td style="float:right;"><input type="text" placeholder="coupon" class="form-control" style="width:150px;"></td>
 												</tr>
 												<tr>
 													<td>Delivery Charges</td>
-													<td style="float:right;color:green;">FREE</td>
+													<td style="float:right;color:green;font-size:21px;;">FREE</td>
 												</tr>
 												<tr>
 													<td>Amount Payable</td>
-													<td style="float:right;"><i class="fas fa-rupee-sign"></i> 499</td>
+													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 499</td>
 												</tr>
 											</table>
 										</div>
 									</div>
 								</div> 
-								<div class="form-group">
-									<h5><i class="fas fa-shield-alt"></i> Safe and Secure Payments. Easy Returns. 100% Authentic products.</h5>
+								<div class="row" style="color:#878787;">
+									<div class="col-md-2">
+										<img src="<?php echo base_url();?>images/shield_a7ea6b.png" style="height:45px;"> 
+									</div>
+									<div class="col-md-10" style="margin-left:-21px;font-weight:500;">
+										Safe and Secure Payments. Easy Returns. 100% Authentic products.
+									</div>
 								</div>
 							</div>
 							<!-- RIGHT SIDE PRODUCT DETAILS ENDS-->
 						</div>
+						<!-- P TAG MARTE HOBE-->
 					</div>
 				</div>
 				
@@ -392,5 +419,17 @@ $this->load->view("common/footer");
 					}
 				</script>
 			<!-- Accordions Ends -->
+				<script>
+				$(document).ready(function(){
+				    $("#hide").click(function(){
+				        $(".address_edit").hide();
+				        $(".address_hide").show();
+				    });
+				    $("#show").click(function(){
+				        $(".address_edit").show();
+				        $(".address_hide").hide();
+				    });
+				});
+				</script>
 	</body>
 </html>
