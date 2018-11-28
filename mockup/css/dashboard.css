@@ -11092,7 +11092,7 @@ a.text-light:hover, a.text-light:focus {
 	color: #dae0e5 !important;
 }
 .text-dark {
-	color: #848484 !important;
+	color: black !important;
 }
 a.text-dark:hover, a.text-dark:focus {
 	color: #1d2124 !important;
@@ -12748,7 +12748,7 @@ a.icon {
 .ren-navbar .sub-item {
 	background-color: #fff;
 	position: absolute;
-	top: 50px;
+	top: 75px;
 	left: 0;
 	border-top: 0;
 	padding: 10px 0;
