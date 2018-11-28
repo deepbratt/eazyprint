@@ -67,7 +67,7 @@
 											<span class="text-dark">T-SHIRT</span>
 										</span>
 									  </a>
-									  <div class="sub-item">
+									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										<div class="row">
 											<div class="col-md-3">
 												<a class="nav-link" href="#">
@@ -103,7 +103,7 @@
 												<span class="text-dark">COFFEE MUGS</span>
 											</span>
 										</a>
-										<div class="sub-item">
+										<div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										  <div class="row">
 											<div class="col-md-3">
 												<a class="nav-link" href="#">
@@ -139,7 +139,7 @@
 												<span class="text-dark">MOBILE CASES</span>
 											</span>
 										</a>
-										<div class="sub-item">
+										<div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										  <div class="row">
 											<div class="col-md-3">
 												<a class="nav-link" href="#">
