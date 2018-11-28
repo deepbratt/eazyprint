@@ -254,15 +254,16 @@ $this->load->view("common/header");
 									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/homebanner/promo-5_765x.jpg" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/army_green.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/black.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/mustard_yellow.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/ocean_blue.png" alt="" style="height:96px;"></li>
+											<li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/white.png" alt="" style="height:96px;"></li>
 						                  </ol>
 						                </div>
 						                <div class="product-gallery-featured">
-						                  <img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt=""  style="height:100%;width:100%;">
+						                  <img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt=""  style="height:100%;width:100%;">
 						                </div>
 						             </div>
 					            </div>
