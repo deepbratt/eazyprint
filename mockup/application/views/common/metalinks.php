@@ -31,6 +31,14 @@
 	.sticky + .container {
 	  padding-top: 102px;
 	}
-
+	
+@media only screen and (min-width: 992px) {
+  .big_head {
+    display: none !important;
+  }
+  .mobile_menu{
+    display: block !important;
+  }
+}
 	
 	</style>

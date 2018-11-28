@@ -2,7 +2,7 @@
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
-					<header class="app-header header shadow-none fixed-header relative" style="background:#f3f4f8;border-bottom:1px solid #d5def0;">
+					<header class="app-header header shadow-none fixed-header relative big_head" style="background:#f3f4f8;border-bottom:1px solid #d5def0;display:none;">
 						<div class="container">
 						
 						<!-- Navbar Right Menu-->
@@ -52,7 +52,7 @@
 				
 				<!-- Horizantal menu-->
 				<div id="myHeader">
-					<div class="ren-navbar fixed-header" id="headerMenuCollapse">
+					<div class="ren-navbar fixed-header" id="headerMenuCollapse" style="display:none;">
 						<div class="container">
 							<div class="row" style="height: 75px;margin-top: -3px;">
 								<a class="nav-link header-brand" href="<?php echo base_url('home');?>">
@@ -219,5 +219,31 @@
 							</div>
 						</div>
 					</div>
+
+
+					<!-- Mobile Menu Starts -->
+
+					<div class="ren-navbar fixed-header mobile_menu" id="headerMenuCollapse">
+						<div class="container">
+							<div class="row" style="height: 75px;margin-top: -3px;">
+								<div class="col-md-10">
+									<a  href="<?php echo base_url('home');?>" style="padding-left:54%;">
+										<img src="<?php echo base_url();?>images/logo_header.png" style="height:40px;margin-top:18px;">
+									</a>
+								</div>
+								<div class="col-md-2">
+									<a href="<?php echo base_url('home');?>" style="float: right;">
+										<i class="fas fa-align-justify" style="margin-top:33.5px;color:black;"></i>
+									</a>
+								</div>
+								
+								
+								
+							</div>
+						</div>
+					</div>
+					<!-- Mobile Menu Ends -->
+
+
 				</div>
 				<!-- Horizantal menu-->
