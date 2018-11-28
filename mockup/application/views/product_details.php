@@ -275,7 +275,7 @@ $this->load->view("common/header");
 									<div class="col-md-12">
 
 										<div class="card-body cardbody" style="border-bottom:1px dotted #000;">
-												<h1>Moto G5 Plus backcover</h1>
+												<h1 style="font-size:45px;font-family:samarkan1;">Dont worry be happy</h1>
 											
 												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 349 /-</h1>
 													<div style="font-size:16px;font-weight:bold;">
