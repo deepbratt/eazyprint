@@ -174,7 +174,7 @@ $this->load->view("common/header");
 								  </div>
 								</div>-->
 							  </div>
-							  <div class="carousel-item" style="display:none;">
+							  <div class="carousel-item">
 								<img class="second-slide" src="<?php echo base_url();?>images/homebanner/slide_mobilecover.png" alt="Second slide" class="img-responsive" >
 								<div class="container">
 								  <div class="carousel-caption">
@@ -184,7 +184,7 @@ $this->load->view("common/header");
 								  </div>
 								</div>
 							  </div>
-							  <div class="carousel-item" style="display:none;">
+							  <div class="carousel-item">
 								<img class="third-slide" src="<?php echo base_url();?>images/homebanner/tshirt_slide.png" alt="Third slide" class="img-responsive" >
 								<div class="container">
 								  <div class="carousel-caption">
