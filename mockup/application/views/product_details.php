@@ -249,49 +249,42 @@ $this->load->view("common/header");
 							</div>
 						
 						<div class="row">
-							
 							<div class="col-md-7">
 								<div class="product-info">
-									 <div class="product-gallery">
+									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="http://localhost/pbeazyprint/mockup/images/homebanner/promo-5_765x.jpg" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/army_green.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/black.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/mustard_yellow.png" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/ocean_blue.png" alt="" style="height:96px;"></li>
+											<li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/white.png" alt="" style="height:96px;"></li>
 						                  </ol>
 						                </div>
-						                <div class="product-gallery-featured" style="padding-left:">
-						                  <img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt=""  style="height:700px;">
+						                <div class="product-gallery-featured">
+						                  <img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt=""  style="height:100%;width:100%;">
 						                </div>
 						             </div>
 					            </div>
 							</div>
 
-							<div class="col-md-5">
+							<div class="col-md-5" style="border:1px dotted #000;margin-top:15px;">
 							<!----STARTS-->
 								<div class="row">
 									<div class="col-md-12">
-
-										<div class="card-body cardbody" style="border-bottom:1px dotted #000;">
-												<h1 style="font-size:45px;font-family:samarkan1;">Dont worry be happy</h1>
-											
+										<div class="card-body cardbody" >
+												<h1 style="font-size:30px;font-family:samarkan1;">Dont worry be happy</h1>
 												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 349 /-</h1>
-													<div style="font-size:16px;font-weight:bold;">
-														<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
-														<span style="color:green;font-weight:normal">50% OFF</span>
-													</div>
-												<span class="text-muted">Inclusive of all taxes</span>
-											
-											<!--<div class="cardprice pt-5" style="font-size:12px;">
-												<span><i class="fas fa-rupee-sign" style="border-radius:20%;background-color:#eaeaea;padding:10px;"></i> Use Eazyprint coins on this product</span><br>
-												<span class="pl-6"><a href="javascript:void(0);" target="_blank">Know More</a></span>
-											</div>-->
+												<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
+													<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
+													<span style="color:green;font-weight:normal">40% OFF</span>
+												</div>
+												<span>Inclusive of all taxes</span>
 										</div>
 										<!-- SELECT COLOR STARTS -->
-										<div class="card-body">
-											<div class="form-group m-0">
+										<div class="card-body cardbody" style="margin-top:-25px;">
+											<div class="form-group m-0" style="border-bottom:1px dotted #000;border-top:1px dotted #000;padding-top:15px;padding-bottom:15px;">
 												<label class="form-label">Select Color</label>
 												<div class="row gutters-xs">
 													<div class="col-auto">
@@ -302,13 +295,13 @@ $this->load->view("common/header");
 													</div>
 													<div class="col-auto">
 														<label class="colorinput">
-															<input name="color" type="checkbox" value="indigo" class="colorinput-input">
+															<input name="color" type="checkbox" value="white" class="colorinput-input">
 															<span class="colorinput-color bg-indigo"></span>
 														</label>
 													</div>
 													<div class="col-auto">
 														<label class="colorinput">
-															<input name="color" type="checkbox" value="purple" class="colorinput-input">
+															<input name="color" type="checkbox" value="black" class="colorinput-input">
 															<span class="colorinput-color bg-purple"></span>
 														</label>
 													</div>
@@ -359,18 +352,16 @@ $this->load->view("common/header");
 										</div>
 										<!-- SELECT COLOR ENDS -->
 										<!-- SELECT SIZE STARTS -->
-										<div class="card-body">
-											<div class="form-group ">
+										<div class="card-body" style="margin-top:-40px;">
+											<div class="form-group" style="border-bottom:1px dotted #000;padding-bottom:20px;">
 													<div class="row p-2">
 														<div class="col-md-3 pull-left">
-															<label class="form-label">Select Size</label>
-														</div>
-														<div class="col-md-3 text-center" style="border:1px solid red;padding:1px;color:red;font-weight:bold;">
-															<label class="form-label">Almost Gone</label>
+															<label class="form-label" style="text-align:left;margin-left:-8px;">Select Size</label>
 														</div>
 														<div class="col-md-3"></div>
+														<div class="col-md-3"></div>
 														<div class="col-md-3 pull-right">
-															<a href="JavaScript:void(0);" class="form-label">Size Guide</a>
+															<a href="JavaScript:void(0);" class="form-label" style="text-align:right;">Size Guide</a>
 														</div>
 													</div>
 													
@@ -439,7 +430,7 @@ $this->load->view("common/header");
 						<h1>&nbsp;</h1>
 						<div class="row" style="color:black;">
 							
-							<div class="col-md-12">
+							<div class="col-md-12" style="margin:0px;padding:0px;">
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
 								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
 								  <div style="padding:15px;" >
@@ -550,47 +541,15 @@ $this->load->view("common/header");
 
 
 						<!-- MORE PRODUCT SLIDER STARTS-->
-						<div class="row">
-						  <div class="col-md-12">
+						<div class="row" >
+						  <div class="col-md-12" style="margin:0px;padding:0px;">
 						  		<!-- LINK: https://bootsnipp.com/snippets/X2ym0-->
-						      <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+						      <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000" style="margin:0px;padding:0px;">
 						        <div class="carousel-inner row w-100 mx-auto" role="listbox">
-
-						        	<div class="carousel-item col-md-3 active">
-						               <div class="panel panel-default">
-						                  <div class="panel-thumbnail">
-						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/homebanner/promo-5_765x.jpg" alt="slide 1" data-holder-rendered="true" style="height:360px;border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;">
-
-						                      <div class="card item-card">
-												<div class="cardtitle" style="text-align:center;padding-top:15px;">
-													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
-												</div>
-												<p style="font-family:arial;text-align:center;"> 
-													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
-													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;">&#8377; 499 /- </span> 
-												</p>
-											
-												<div class="border-top text-center" style="padding:7px;">
-													<div>
-														<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
-															<i class="fas fa-heart"></i>
-														</a>
-														<a href="#" class="btn btn-success btn-xs tip" title="Buy">
-															<i class="fas fa-shopping-cart"></i>
-														</a>
-													</div>
-												</div>
-											  </div>
-
-						                    </a>
-						                  </div>
-						                </div>
-						            </div>
 						        	<?php
 						        		for($i=0;$i<5;$i++){
 						        	?>
-						            <div class="carousel-item col-md-3 ">
+						            <div class="carousel-item col-md-3 <?php echo(($i==0)?'active':'');?>"  >
 						               <div class="panel panel-default">
 						                  <div class="panel-thumbnail">
 						                    <a href="#" title="image 1" class="thumb">
