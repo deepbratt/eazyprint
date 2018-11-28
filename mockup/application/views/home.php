@@ -353,56 +353,7 @@ $this->load->view("common/header");
 					</div>
 				</div>
 				
-				<div class="container">
-					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Innovation </h1>
-					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
-					<p>&nbsp;</p>
-				</div>
-
-				<!--<div class="container" style="padding-top:3px;">
-					<div class="row">
-						<div class="col-lg-4">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/half-sleeve-desktop-1542879653.jpg" >
-						</div>
-						<div class="col-lg-4">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/boyfriend-tshrt-desktop-1542879664.jpg" >
-						</div>
-						<div class="col-lg-4">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/full-sleeve-desktop-1542197374.jpg" >
-						</div>
-					</div>
-					<p>&nbsp;</p>
-				</div>-->
-
-				<div class="container" style="padding-top:3px;">
-					<div class="row">
-						<div class="col-md-4 col-sm-12">
-							<div class="card text-white bg-danger">
-								<div class="card-body">
-									<p class="card-text" style="font-size:30px;"><i class="fas fa-truck" style="font-size:50px;"></i> &nbsp; FREE Delivery</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-12">
-							<div class="card text-white bg-danger">
-								<div class="card-body">
-									<p class="card-text"style="font-size:30px;"><i class="fas fa-rupee-sign" style="font-size:50px;"></i> &nbsp;Cash On Delivery</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4 col-sm-12">
-							<div class="card text-white bg-danger">
-								<div class="card-body">
-									<p class="card-text"style="font-size:30px;"><i class="fas fa-undo" style="font-size:50px;"></i> &nbsp;Easy returns</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<p>&nbsp;</p>
-				</div>
+				
 
 <?php
 $this->load->view("common/footer");

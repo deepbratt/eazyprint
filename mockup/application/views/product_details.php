@@ -235,7 +235,7 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 
-				<div class="container">
+				<div class="container" style="margin-top:40px;">
 					<div class="side-app">
 						<div class="col-md-12">
 							<div class="page-header">
@@ -284,10 +284,10 @@ $this->load->view("common/header");
 													</div>
 												<span class="text-muted">Inclusive of all taxes</span>
 											</div>
-											<div class="cardprice pt-5" style="font-size:12px;">
+											<!--<div class="cardprice pt-5" style="font-size:12px;">
 												<span><i class="fas fa-rupee-sign" style="border-radius:20%;background-color:#eaeaea;padding:10px;"></i> Use Eazyprint coins on this product</span><br>
 												<span class="pl-6"><a href="javascript:void(0);" target="_blank">Know More</a></span>
-											</div>
+											</div>-->
 										</div>
 										<!-- SELECT COLOR STARTS -->
 										<div class="card-body">
@@ -445,17 +445,18 @@ $this->load->view("common/header");
 						</div>
 						<h1>&nbsp;</h1>
 						<div class="row" style="color:black;">
+							
 							<div class="col-md-12">
-								<button class="accordion">Product Description</button>
-								<div class="accordion_panel">
+								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
+								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
 								  <div style="padding:15px;" >
 								  	<h5>Moto G5 Plus backcover</h5>
 								  	<p>This Back Cover Is A Soft Silicon Case.It Is Transparent In Colour. Light Weight And Ultrathin Thickness And Is Easy To Apply.</p>
 								  </div>
 								</div>
 
-								<button class="accordion">Product Details</button>
-								<div class="accordion_panel">
+								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Details</button>
+								<div class="accordion_panel" style="border:1px dotted black;margin-top:5px;">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="p-2">
@@ -548,6 +549,13 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
+
+
+						<p>&nbsp;</p>
+						<h1 class="page-title" style="color:black;text-align:left;font-size:45px;font-family:samarkan1;"> Similar Products </h1>
+						<p>&nbsp;</p>
+
+
 						<!-- MORE PRODUCT SLIDER STARTS-->
 						<div class="row">
 						  <div class="col-md-12">

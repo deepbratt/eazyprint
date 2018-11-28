@@ -33,7 +33,7 @@
 			<div class="col-md-4 col-sm-12">
 				<div class="card text-white bg-danger">
 					<div class="card-body">
-						<p class="card-text"style="font-size:30px;color:#fff;"><i class="fas fa-rupee-sign" style="font-size:50px;color:#fff;"></i> &nbsp;Cash On Delivery</p>
+						<p class="card-text"style="font-size:30px;color:#fff;"><i class="fas fa-rupee-sign" style="font-size:50px;"></i> &nbsp;Cash On Delivery</p>
 					</div>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 			<div class="col-md-4 col-sm-12">
 				<div class="card text-white bg-danger">
 					<div class="card-body">
-						<p class="card-text"style="font-size:30px;color:#fff;"><i class="fas fa-undo" style="font-size:50px;color:#fff;"></i> &nbsp;Easy returns</p>
+						<p class="card-text"style="font-size:30px;"><i class="fas fa-undo" style="font-size:50px;"></i> &nbsp;Easy returns</p>
 					</div>
 				</div>
 			</div>
