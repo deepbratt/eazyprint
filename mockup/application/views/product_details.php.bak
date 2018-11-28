@@ -235,7 +235,7 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 
-				<div class="container" style="margin-top:30px;">
+				<div class="container" style="margin-top:40px;">
 					<div class="side-app">
 						<div class="col-md-12">
 							<div class="page-header">
@@ -276,14 +276,14 @@ $this->load->view("common/header");
 
 										<div class="card-body cardbody">
 												<h1>Moto G5 Plus backcover</h1>
-											<div class="cardprice pt-5">
-												<h1><i class="fas fa-rupee-sign"></i> 449</h1>
+											
+												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 349 /-</h1>
 													<div style="font-size:16px;font-weight:bold;">
-														<span style="color:red;text-decoration:line-through;"><i class="fas fa-rupee-sign"></i> 999</span>
-														 <span style="color:green">50% OFF</span>
+														<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
+														<span style="color:green;font-weight:normal">50% OFF</span>
 													</div>
 												<span class="text-muted">Inclusive of all taxes</span>
-											</div>
+											
 											<!--<div class="cardprice pt-5" style="font-size:12px;">
 												<span><i class="fas fa-rupee-sign" style="border-radius:20%;background-color:#eaeaea;padding:10px;"></i> Use Eazyprint coins on this product</span><br>
 												<span class="pl-6"><a href="javascript:void(0);" target="_blank">Know More</a></span>
@@ -375,30 +375,23 @@ $this->load->view("common/header");
 													</div>
 													
 													<div class="selectgroup selectgroup-pills">
-														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
-															<span class="selectgroup-button">S</span>
+														<label class="selectgroup-item" >
+															<input type="radio" name="value" value="HTML" class="selectgroup-input" checked="" >
+															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">S</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="CSS" class="selectgroup-input">
-															<span class="selectgroup-button">M</span>
+															<input type="radio" name="value" value="CSS" class="selectgroup-input">
+															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">M</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="PHP" class="selectgroup-input">
-															<span class="selectgroup-button">L</span>
+															<input type="radio" name="value" value="PHP" class="selectgroup-input">
+															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">L</span>
 														</label>
 														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
-															<span class="selectgroup-button">XL</span>
+															<input type="radio" name="value" value="JavaScript" class="selectgroup-input">
+															<span class="selectgroup-button" style="border:1px solid #000;color:#000;text-decoration: line-through;">XL</span>
 														</label>
-														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="Angular" class="selectgroup-input" disabled>
-															<span class="selectgroup-button text-muted" style="text-decoration: line-through;">2XL</span>
-														</label>
-														<label class="selectgroup-item">
-															<input type="checkbox" name="value" value="Java" class="selectgroup-input" disabled>
-															<span class="selectgroup-button text-muted" style="text-decoration: line-through;">3XL</span>
-														</label>
+
 													</div>
 												</div>
 										</div>
