@@ -156,7 +156,7 @@
 		button.accordion {
 		  background-color: #fff;
 		  cursor: pointer;
-		  padding: 0px 0 8px 0;
+		  padding: 10px;
 		  width: 100%;
 		  border: none;
 		  text-align: left;
@@ -167,7 +167,7 @@
 		}
 
 		button.accordion.active, button.accordion:hover {
-		  color: #f06100
+		  color: #7490BD;
 		}
 
 		button.accordion:before {
@@ -220,6 +220,9 @@
 		  max-height: 500px;
 		}
 	/* ACCORDIONS ENDS*/
+		.button:focus{
+			outline:0px !important;
+		}
 		</style>
 
 <?php
@@ -237,13 +240,13 @@ $this->load->view("common/header");
 						<div class="col-md-12">
 							<div class="page-header">
 
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item" aria-current="page">Clothing & fashion</li>
-								<li class="breadcrumb-item" aria-current="page">Tshirts</li>
-								<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>
-							</ol>
-						</div>
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<li class="breadcrumb-item" aria-current="page">Clothing & fashion</li>
+									<li class="breadcrumb-item" aria-current="page">Tshirts</li>
+									<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>
+								</ol>
+							</div>
 						
 						<div class="row">
 							
