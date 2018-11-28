@@ -113,12 +113,22 @@
 				?>
 				<div class="container">
 					<div class="side-app">
+						<div class="col-md-12">
+							<div class="page-header">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<li class="breadcrumb-item" aria-current="page">Clothing & fashion</li>
+									<li class="breadcrumb-item" aria-current="page">Tshirts</li>
+									<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>
+									<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+								</ol>
+							</div>
 						<p>&nbsp;</p>
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<button class="accordion ">LOGIN</button>
+								<button class="accordion " >LOGIN</button>
 								<div class="accordion_panel ">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
@@ -184,7 +194,7 @@
 									</div>
 
 									<!-- EDIT ADDRESS -->
-									<div class="row address_edit">
+									<div class="row address_edit" style="display:none;">
 										<div class="col-md-6 ">
 											<div class="form-group">
 												<input type="text" class="form-control" placeholder="Name">
@@ -211,31 +221,39 @@
 									</div>
 								<!-- EDIT ADDRESS -->
 
-									<div class="row">
-										<div class="col-md-11 p-3">
-										  <div class="custom-controls-stacked">
-											<label class="custom-control custom-radio">
-												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-												<span class="custom-control-label"><strong>Shuvradeb Mondal</strong></span>
-												<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>
-												<span class="custom-control-label"><strong>9230841054</strong></span>
-											</label>
-										  </div>
-										  <div class="form-group">
-										  	<p class="ml-5">15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
-										  </div>
-										</div>
-										<div class="col-md-1 p-3">
-											<div class="form-group">
-												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;">EDIT</a>
-											</div>
-										</div>
-									</div>
+									
 									<div class="row">
 										<div class="col-md-12 p-3">
-											<a href="javascript:voide(0);" id="show" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
+											<a href="javascript:voide(0);" id="add_address_show" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
 										</div>
 									</div>
+									<!-- ADD NEW ADDRESS STARTS-->
+									<div class="row address_add" style="display:none;">
+										<div class="col-md-6 ">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Name">
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Pincode">
+											</div>
+										</div>
+										<div class="col-md-6 ">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Mobile Number">
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Locality">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<textarea class="form-control" placeholder="Address"></textarea>
+										</div>
+										<div class="col-md-12" style="margin-top:10px;">
+											<button class="btn btn-success">Submit</button>
+											<button id="add_address_hide" class="btn btn-secondary">Cancel</button>
+										</div>
+									</div>
+								<!-- ADD NEW ADDRESS ENDS-->
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								<!-- ORDER SUMMARY STARTS-->
@@ -395,7 +413,7 @@
 						<!-- P TAG MARTE HOBE-->
 					</div>
 				</div>
-				
+			</div>
 
 <?php
 $this->load->view("common/footer");
@@ -428,6 +446,14 @@ $this->load->view("common/footer");
 				    $("#show").click(function(){
 				        $(".address_edit").show();
 				        $(".address_hide").hide();
+				    });
+				    $("#add_address_hide").click(function(){
+				        $(".address_add").hide();
+				        $(".add_address_hide").show();
+				    });
+				    $("#add_address_show").click(function(){
+				        $(".address_add").show();
+				        $(".add_address_hide").hide();
 				    });
 				});
 				</script>
