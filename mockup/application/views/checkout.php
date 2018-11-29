@@ -15,7 +15,7 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/png"/>
 		<link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>images/favicon.png" />
-
+		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | Checkout</title>
 		<style>
@@ -418,7 +418,6 @@
 <?php
 $this->load->view("common/footer");
 ?>
-				
 				<!-- ACCORDIONS STARTS -->
 				<script>
 					var acc = document.getElementsByClassName("accordion");
