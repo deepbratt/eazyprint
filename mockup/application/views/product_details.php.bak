@@ -605,6 +605,7 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
+<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
 		<script>
 			// select all thumbnails

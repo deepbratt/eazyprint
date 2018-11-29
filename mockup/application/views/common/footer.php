@@ -218,7 +218,7 @@
 		<a href="#top" id="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
 		<!-- Dashboard Core -->
 
-		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
+		<!--<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>-->
 		<script src="<?php echo base_url();?>js/bootstrap.bundle.min.js"></script>
 		<script src="<?php echo base_url();?>js/jquery.sparkline.min.js"></script>
 		<script src="<?php echo base_url();?>js/selectize.min.js"></script>
