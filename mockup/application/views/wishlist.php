@@ -14,7 +14,7 @@
 		<meta name="MobileOptimized" content="320">
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
-
+		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | Wishlist</title>
 <?php
@@ -169,6 +169,5 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
-<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	</body>
 </html>
