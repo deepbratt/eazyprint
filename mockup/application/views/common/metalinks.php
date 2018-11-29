@@ -37,8 +37,19 @@
     display: none !important;
   }
   .mobile_menu{
+    display: none !important;
+  }
+  
+}
+
+@media only screen and (max-width: 992px) {
+  .big_head {
+    display: none !important;
+  }
+  .mobile_menu{
     display: block !important;
   }
+  
 }
 	
 	</style>

@@ -2,7 +2,7 @@
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
-					<header class="app-header header shadow-none fixed-header relative big_head" style="background:#f3f4f8;border-bottom:1px solid #d5def0;display:none;">
+					<header class="app-header header shadow-none fixed-header relative big_head" style="background:#f3f4f8;border-bottom:1px solid #d5def0;">
 						<div class="container">
 						
 						<!-- Navbar Right Menu-->
@@ -52,7 +52,7 @@
 				
 				<!-- Horizantal menu-->
 				<div id="myHeader">
-					<div class="ren-navbar fixed-header" id="headerMenuCollapse" style="display:none;">
+					<div class="ren-navbar fixed-header" id="headerMenuCollapse" >
 						<div class="container">
 							<div class="row" style="height: 75px;margin-top: -3px;">
 								<a class="nav-link header-brand" href="<?php echo base_url('home');?>">
@@ -232,8 +232,8 @@
 									</a>
 								</div>
 								<div class="col-md-2">
-									<a href="<?php echo base_url('home');?>" style="float: right;">
-										<i class="fas fa-align-justify" style="margin-top:33.5px;color:black;"></i>
+									<a href="javascript:void(0);" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse" style="margin-top:12px;">
+										<span class="header-toggler-icon" style="color:#000;"></span>
 									</a>
 								</div>
 								
