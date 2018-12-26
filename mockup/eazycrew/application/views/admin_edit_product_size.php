@@ -169,8 +169,8 @@ $this->load->view("common/sidebar");
 											  </div>
 											  <div class="col-md-1">
 													<select name="dimension" class="form-control select2-show-search">
-														<option value="mm">mm</option>
-														<option value="cm">cm</option>
+														<option value="mm" <?php echo (($product_size_fetch->dimension_unit == 'mm')?'selected':'')?>>mm</option>
+														<option value="cm" <?php echo (($product_size_fetch->dimension_unit == 'cm')?'selected':'')?>>cm</option>
 													</select>
 											  </div>
 											</div>
