@@ -153,15 +153,22 @@ $this->load->view("common/sidebar");
 									  
 									  
 										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Product Dimension</label>
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Dimension (mm)
+												</label>
+											  </div>
+											  <div class="col-md-4">
+													<input type="text" class="form-control pro_len" name="dimension_len" placeholder="Product length" value="<?php echo $product_size_fetch->product_length;?>">
+											  </div>
+											  <div class="col-md-3">
+													<input type="text" class="form-control pro_wid" name="dimension_wid" placeholder="Product Width" value="<?php echo $product_size_fetch->product_width;?>">
+											  </div>
+											  <div class="col-md-3">
+													<input type="text" class="form-control pro_height" name="dimension_height" placeholder="Product height" value="<?php echo $product_size_fetch->product_height;?>">
+											  </div>
 											</div>
-											<div class="col-md-10">
-											 <input type="text" class="form-control" placeholder="New Product Dimension" name="product_dimension" value="<?php echo $product_size_fetch->dimension;?>">
-											</div>
-										  </div>
-										</div>
+									  </div>
 									  </div>
 									<input type="hidden" name="sub_cat_id" value="<?php echo $product_size_fetch->product_size_id;?>">
 									<div class="card-footer text-right">

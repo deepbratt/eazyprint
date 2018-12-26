@@ -41,9 +41,11 @@ class Admin_edit_product_size extends CI_Controller {
 		$this->load->model('admin_edit_product_size_m');
 		$sub_category_name = $this->input->post('sub_category');
 		$product_size_name = $this->input->post('product_size');
-		$product_dimension_name = $this->input->post('product_dimension');
+		$dimension_len = $this->input->post('dimension_len');
+		$dimension_wid = $this->input->post('dimension_wid');
+		$dimension_height = $this->input->post('dimension_height');
 		$cat_sub_id = $this->input->post('sub_cat_id');
-		$records=array('product_size_name'=>$product_size_name,'dimension'=>$product_dimension_name,'sub_category_id'=>$sub_category_name);
+		$records=array('product_size_name'=>$product_size_name,'product_length'=>$dimension_len,'product_width'=>$dimension_wid,'product_height'=>$dimension_height,'sub_category_id'=>$sub_category_name);
 		$update_product_size = $this->admin_edit_product_size_m->product_size_update($records,$cat_sub_id);
 		if($update_product_size)
 		{

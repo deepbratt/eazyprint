@@ -136,15 +136,21 @@ $this->load->view("common/sidebar");
 										  </div>
 										</div>
 										<div class="form-group">
-										 <div class="row">
-											<div class="col-md-2">
-												<label class="form-label">Product Dimension</label>
+											<div class="row">
+											  <div class="col-md-2">
+												<label class="form-label">Product Dimension (mm)
+												</label>
+											  </div>
+											  <div class="col-md-4">
+													<input type="text" class="form-control pro_len" name="dimension_len" placeholder="Product length">
+											  </div>
+											  <div class="col-md-3">
+													<input type="text" class="form-control pro_wid" name="dimension_wid" placeholder="Product Width">
+											  </div>
+											  <div class="col-md-3">
+													<input type="text" class="form-control pro_height" name="dimension_height" placeholder="Product height">
+											  </div>
 											</div>
-											<div class="col-md-10">
-											 <input type="text" class="form-control" name="dimension" placeholder="Product Dimension">
-											</div>
-										  </div>
-										</div>
 									  </div>
 									<div class="card-footer text-right">
 										<button type="submit" class="btn btn-primary">Submit

@@ -32,9 +32,11 @@ class Admin_add_product_size extends CI_Controller {
 		$this->load->model('admin_add_product_size_m');
 		$sub_cat_name = $this->input->post('sub_cat');
 		$product_size_name = $this->input->post('product_size');
-		$dimension_name = $this->input->post('dimension');
+		$dimension_len = $this->input->post('dimension_len');
+		$dimension_wid = $this->input->post('dimension_wid');
+		$dimension_height = $this->input->post('dimension_height');
 		$sub_cat_id = "1";
-		$records=array('product_size_name'=>$product_size_name,'dimension'=>$dimension_name,'sub_category_id'=>$sub_cat_name);
+		$records=array('product_size_name'=>$product_size_name,'product_length'=>$dimension_len,'product_width'=>$dimension_wid,'product_height'=>$dimension_height,'sub_category_id'=>$sub_cat_name);
 		$insert_product_size = $this->admin_add_product_size_m->product_size_insert($records);
 		if($insert_product_size)
 		{
