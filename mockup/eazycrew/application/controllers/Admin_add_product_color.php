@@ -38,7 +38,9 @@ class Admin_add_product_color extends CI_Controller {
 	public function add_product_color()
 	{
 		$this->load->model('admin_add_product_color_m');
-		$sub_cat_id = $this->input->post('sub_cat');
+		$sub_cat_id = $this->input->post('sub_category');
+		echo $sub_cat_id;
+		exit;
 		$product_color_name = $this->input->post('product_color');
 		$color_code_name = $this->input->post("color_code");
 
