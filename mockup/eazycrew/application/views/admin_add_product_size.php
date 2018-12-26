@@ -138,10 +138,10 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Product Dimension (mm)
+												<label class="form-label">Product Dimension
 												</label>
 											  </div>
-											  <div class="col-md-4">
+											  <div class="col-md-3">
 													<input type="text" class="form-control pro_len" name="dimension_len" placeholder="Product length">
 											  </div>
 											  <div class="col-md-3">
@@ -149,6 +149,12 @@ $this->load->view("common/sidebar");
 											  </div>
 											  <div class="col-md-3">
 													<input type="text" class="form-control pro_height" name="dimension_height" placeholder="Product height">
+											  </div>
+											  <div class="col-md-1">
+													<select name="dimension" class="form-control select2-show-search">
+														<option value="mm">mm</option>
+														<option value="cm">cm</option>
+													</select>
 											  </div>
 											</div>
 									  </div>
