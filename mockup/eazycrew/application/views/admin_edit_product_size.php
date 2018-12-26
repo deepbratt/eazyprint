@@ -155,7 +155,7 @@ $this->load->view("common/sidebar");
 										<div class="form-group">
 											<div class="row">
 											  <div class="col-md-2">
-												<label class="form-label">Product Dimension (mm)
+												<label class="form-label">Product Dimension
 												</label>
 											  </div>
 											  <div class="col-md-3">
