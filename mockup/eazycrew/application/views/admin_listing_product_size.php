@@ -130,21 +130,21 @@ $this->load->view("common/sidebar");
 														<?php
 															if($fetch_product_size->product_length != ''){
 														?>
-															Length: <?php echo $fetch_product_size->product_length;?><br>
+															Length: <?php echo $fetch_product_size->product_length;?>&nbsp;<?php echo $fetch_product_size->dimension_unit;?><br>
 														<?php
 															}	
 														?>
 														<?php
 															if($fetch_product_size->product_width != ''){
 														?>
-															Width: <?php echo $fetch_product_size->product_width;?><br>
+															Width: <?php echo $fetch_product_size->product_width;?>&nbsp;<?php echo $fetch_product_size->dimension_unit;?><br>
 														<?php
 															}	
 														?>
 														<?php
 															if($fetch_product_size->product_height != ''){
 														?>
-															Height: <?php echo $fetch_product_size->product_height;?>
+															Height: <?php echo $fetch_product_size->product_height;?>&nbsp;<?php echo $fetch_product_size->dimension_unit;?>
 														<?php
 															}	
 														?>
