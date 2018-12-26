@@ -126,9 +126,30 @@ $this->load->view("common/sidebar");
 													</td>
 													<td><?php echo $fetch_product_size->product_size_name;?>
 													</td>
-													<td>Length: <?php echo $fetch_product_size->product_length;?><br>
-														Width: <?php echo $fetch_product_size->product_width;?><br>
-														Height: <?php echo $fetch_product_size->product_height;?>
+													<td>
+														<?php
+															if($fetch_product_size->product_length != ''){
+														?>
+															Length: <?php echo $fetch_product_size->product_length;?> mm<br>
+														<?php
+															}	
+														?>
+														<?php
+															if($fetch_product_size->product_width != ''){
+														?>
+															Width: <?php echo $fetch_product_size->product_width;?> mm<br>
+														<?php
+															}	
+														?>
+														<?php
+															if($fetch_product_size->product_height != ''){
+														?>
+															Height: <?php echo $fetch_product_size->product_height;?> mm
+														<?php
+															}	
+														?>
+														
+														
 													</td>
 													<td>
 														<a href="<?php echo base_url('admin_edit_product_size/');?><?php echo $fetch_product_size->product_size_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>&nbsp;&nbsp;
