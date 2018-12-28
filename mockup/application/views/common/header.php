@@ -1,4 +1,4 @@
- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div>
+ <!-- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> -->
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
@@ -60,114 +60,58 @@
 								</a>
 							
 								<div class="nav">
-									
+									<?php
+									$ci =&get_instance();
+									$ci->load->model('home_m');
+									$get_cat = $ci->home_m->get_cat();
+									foreach($get_cat as $fetch_cat){
+									?>
 									<li class="nav-item with-sub  mega-dropdown">
 									  <a class="nav-link" href="javascript:void(0);">
 										<span class="d-none d-lg-block">
-											<span class="text-dark">T-SHIRT</span>
+											<span class="text-dark"><?php echo strtoupper($fetch_cat->category_name);?></span>
 										</span>
 									  </a>
 									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										<div class="row">
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/delights-desktop-1541396088.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">For Women</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">For Men</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Trending</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Best Deals</span>
-											</div>
+											<?php
+											$get_sub = $ci->home_m->get_sub($fetch_cat->category_id);
+											foreach($get_sub as $fetch_sub){
+												if($fetch_cat->category_id == '3'){
+												?>
+												<div class="col-md-2" style="text-align:left;">
+													<span style="color:#009fdc;"><?php echo strtoupper($fetch_sub->sub_category_name);?></span>
+													<ul style="padding-top:10px;">
+													<?php
+													$get_product = $ci->home_m->get_product($fetch_sub->sub_category_id);
+													foreach($get_product as $fetch_product){
+													?>
+														<li class="text-dark"><?php echo ucfirst($fetch_product->product_name);?></li>
+													<?php
+													}
+													?>
+													</ul>
+												</div>
+												<?php
+												}else{
+												?>
+												<div class="col-md-3">
+													<a class="nav-link" href="#">
+														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+													</a>
+													<span class="text-dark"><?php echo strtoupper($fetch_sub->sub_category_name);?></span>
+												</div>
+												<?php
+												}
+											}
+											?>
 										 </div>
 									   </div>
 									</li>
-
-									<li class="nav-item with-sub mega-dropdown">
-										<a class="nav-link" href="javascript:void(0);">
-											<span class="d-none d-lg-block">
-												<span class="text-dark">COFFEE MUGS</span>
-											</span>
-										</a>
-										<div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
-										  <div class="row">
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/delights-desktop-1541396088.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Valentine Mugs</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Birtday Mugs</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Motivational</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Best Deals</span>
-											</div>
-										 </div>
-									   </div>
-									</li>
-
-									<li class="nav-item with-sub mega-dropdown">
-										<a class="nav-link" href="javascript:void(0);">
-											<span class="d-none d-lg-block">
-												<span class="text-dark">MOBILE CASES</span>
-											</span>
-										</a>
-										<div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
-										  <div class="row">
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Iphone</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Nokia</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Samsung</span>
-											</div>
-											<div class="col-md-3">
-												<a class="nav-link" href="#">
-													<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
-												</a>
-												<span class="text-dark">Others</span>
-											</div>
-										 </div>
-									   </div>
-									</li>
+									<?php
+									}
+									?>
+									
 
 									<li class="nav-item">
 										<a class="nav-link" href="javascript:void(0);">
@@ -184,21 +128,24 @@
 											</span>
 										</a>
 									</li>
-								</div>
-								<div class="nav" style="padding-left:150px;">
-									<a class="nav-link" href="javascript:void(0);">
-										<span class="d-none d-lg-block">
-											<span class="text-dark">LOGIN</span>
-										</span>
-									</a>
 
+									<li class="nav-item">
+										<a class="nav-link" href="javascript:void(0);">
+											<span class="d-none d-lg-block">
+												<span class="text-dark">LOGIN</span>
+											</span>
+										</a>
+									</li>
 
-									<a class="nav-link" href="javascript:void(0);">
-										<span class="d-none d-lg-block">
-											<span class="text-dark">SIGNUP</span>
-										</span>
-									</a>
-									
+									<li class="nav-item">
+										<a class="nav-link" href="javascript:void(0);">
+											<span class="d-none d-lg-block">
+												<span class="text-dark">SIGNUP</span>
+											</span>
+										</a>
+									</li>
+
+									<li class="nav-item">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
 										</a>
@@ -211,10 +158,8 @@
 											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
 											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
 										</div>
-									
+									</li>
 								</div>
-								
-								
 
 							</div>
 						</div>
