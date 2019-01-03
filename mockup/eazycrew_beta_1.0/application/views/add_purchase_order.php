@@ -58,7 +58,7 @@
 									<div class="card-body">
 										<div class="row ">
 											<div class="col-lg-6 ">
-												<p class="h3">Client Inc</p>
+												<p class="h3">Eazyprint</p>
 												<address>
 													Street Address<br>
 													State, City<br>
@@ -78,8 +78,8 @@
 										</div>
 
 										<div class=" text-dark">
-											<p class="mb-1 mt-5"><span class="font-weight-semibold">Invoice Date :</span> 12rd July 2018</p>
-											<p><span class="font-weight-semibold">Due Date :</span> 15th July 2019</p>
+											<p class="mb-1 mt-5"><span class="font-weight-semibold">Invoice Date :</span> <?php echo date('d M, Y',time());?></p>
+											<p><span class="font-weight-semibold">Due Date :</span> <?php echo date('d M, Y',time());?></p>
 										</div>
 										<div class="table-responsive push">
 											<table class="table table-bordered table-hover">
