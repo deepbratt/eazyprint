@@ -104,35 +104,25 @@
 								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Transaction</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
-										<a href="#" class="slide-item">Add Transaction</a>
+										<a href="#" class="slide-item">Transaction History</a>
 									</li>
 									<li>
-										<a href="#" class="slide-item">View Transaction</a>
+										<a href="#" class="slide-item">Balance Sheet</a>
 									</li>
 								</ul>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Credit</span><i class="angle fas fa-angle-right"></i></a>
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label">Status</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
-										<a href="#" class="slide-item">Add Credit</a>
+										<a href="#" class="slide-item">Credit Amount</a>
 									</li>
 									<li>
-										<a href="#" class="slide-item">View Credit</a>
+										<a href="#" class="slide-item">Debit Amount</a>
 									</li>
 								</ul>
 							</li>
-							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Debit</span><i class="angle fas fa-angle-right"></i></a>
-								<ul class="slide-menu">
-									<li>
-										<a href="#" class="slide-item">Add Debit</a>
-									</li>
-									<li>
-										<a href="#" class="slide-item">View Debit</a>
-									</li>
-								</ul>
-							</li>
+						
 						</div>
 						<!-- Orders Ends -->
 
