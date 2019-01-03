@@ -69,6 +69,37 @@
                         </li>
 						<div id="orderz" class="collapse">
 
+							
+							<li class="slide">
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label">Orders Status</span><i class="angle fas fa-angle-right"></i></a>
+								<ul class="slide-menu">
+									<li>
+										<a href="#" class="slide-item">Pending Orders</a>
+									</li>
+									<li>
+										<a href="#" class="slide-item">Processing Orders</a>
+									</li>
+									<li>
+										<a href="#" class="slide-item">Out For Delivery</a>
+									</li>
+									<li>
+										<a href="#" class="slide-item">Completed Orders</a>
+									</li>
+								</ul>
+							</li>
+							<li class="slide">
+								<a class="side-menu__item"  href="add_orders.php"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label">Add Orders</span></a>
+							
+							</li>
+						</div>
+						<!-- Orders Ends -->
+
+						<!-- Orders Starts -->
+						<li class="sidebar_header">
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible" data-target="#transaction">Transaction</a>
+                        </li>
+						<div id="transaction" class="collapse">
+
 							<li class="slide">
 								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> Transaction</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
