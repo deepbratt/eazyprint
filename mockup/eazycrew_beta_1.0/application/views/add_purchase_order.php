@@ -90,6 +90,7 @@
 													<th class="text-right" style="width: 1%">Unit</th>
 													<th class="text-right" style="width: 1%">Amount</th>
 												</tr>
+
 												<tr>
 													<td class="text-center">1</td>
 													<td>
@@ -100,26 +101,7 @@
 													<td class="text-right">$1,800.00</td>
 													<td class="text-right">$1,800.00</td>
 												</tr>
-												<tr>
-													<td class="text-center">2</td>
-													<td>
-														<p class="font-w600 mb-1">Online Store Design &amp; Development</p>
-														<div class="text-muted">Design/Development for all popular modern browsers</div>
-													</td>
-													<td class="text-center">1</td>
-													<td class="text-right">$20,000.00</td>
-													<td class="text-right">$20,000.00</td>
-												</tr>
-												<tr>
-													<td class="text-center">3</td>
-													<td>
-														<p class="font-w600 mb-1">App Design</p>
-														<div class="text-muted">Promotional mobile application</div>
-													</td>
-													<td class="text-center">1</td>
-													<td class="text-right">$3,200.00</td>
-													<td class="text-right">$3,200.00</td>
-												</tr>
+												
 												<tr>
 													<td colspan="4" class="font-w600 text-right">Subtotal</td>
 													<td class="text-right">$25,000.00</td>
