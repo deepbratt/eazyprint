@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Invoice</title>
+		<title>Eazyprint | Add Purchase Order</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Invoice</h4>
+							<h4 class="page-title">Purchase Order</h4>
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Invoice</li>
+								<li class="breadcrumb-item"><a href="<?php echo base_url('admin_dashboard');?>">Eazycrew</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Add Purchase Order</li>
 							</ol>
 						</div>
 						<?php
