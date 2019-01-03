@@ -33,7 +33,7 @@
 										<?php
 										}else{
 										?>
-										<span class="avatar avatar-md brround" style="background-image: url(uploads/crew_images/<?php echo $this->session->userdata['logged_in']['crew_image'];?>)"></span>
+										<span class="avatar avatar-md brround" style="background-image: url(<?php echo base_url('uploads/crew_images/');?><?php echo $this->session->userdata['logged_in']['crew_image'];?>)"></span>
 										<?php
 										}
 										?>
