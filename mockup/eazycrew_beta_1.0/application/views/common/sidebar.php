@@ -32,23 +32,48 @@
 					
 						<!-- Product Information Starts-->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_raw_material' || $this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'header-active':'');?>" data-target="#information">Product</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product' || $this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' ||$this->uri->segment(1) == 'admin_edit_tshirt' || $this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' ||$this->uri->segment(1) == 'admin_edit_mug')?'header-active':'');?>" data-target="#information">Product</a>
                         </li>
-						<div id="information" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_raw_material' || $this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'show':'');?>">
-							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_raw_material' || $this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material')?'is-expanded':'');?>">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_raw_material' || $this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-tshirt" style="padding-right:5px;"></i><span class="side-menu__label">Raw Material</span><i class="angle fas fa-angle-right"></i></a>
+						<div id="information" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_raw_material' || $this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product' || $this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' ||$this->uri->segment(1) == 'admin_edit_tshirt' || $this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' ||$this->uri->segment(1) == 'admin_edit_mug')?'show':'');?>">
+
+							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case')?'is-expanded':'');?>">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-mobile-alt" style="padding-right:5px;"></i><span class="side-menu__label">Mobile Cases</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
-										<a href="<?php echo base_url('admin_add_raw_material');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_raw_material')?'active_sidebar_submenu':'');?>">Add Raw Material</a>
+										<a href="<?php echo base_url('admin_add_mobile_case');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case')?'active_sidebar_submenu':'');?>">Add Mobile Cases</a>
 									</li>
 									<li>
-										<a href="<?php echo base_url('admin_listing_raw_material');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_raw_material' ||$this->uri->segment(1) == 'admin_edit_raw_material')?'active_sidebar_submenu':'');?>">View Raw Material</a>
+										<a href="<?php echo base_url('admin_listing_mobile_case');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case')?'active_sidebar_submenu':'');?>">View Mobile Cases</a>
+									</li>
+								</ul>
+							</li>
+
+							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' ||$this->uri->segment(1) == 'admin_edit_tshirt')?'is-expanded':'');?>">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' ||$this->uri->segment(1) == 'admin_edit_tshirt')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-tshirt" style="padding-right:5px;"></i><span class="side-menu__label">T-Shirt</span><i class="angle fas fa-angle-right"></i></a>
+								<ul class="slide-menu">
+									<li>
+										<a href="<?php echo base_url('admin_add_tshirt');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_tshirt')?'active_sidebar_submenu':'');?>">Add T-Shirt</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('admin_listing_tshirt');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_tshirt' ||$this->uri->segment(1) == 'admin_edit_tshirt')?'active_sidebar_submenu':'');?>">View T-Shirt</a>
+									</li>
+								</ul>
+							</li>
+
+							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' ||$this->uri->segment(1) == 'admin_edit_mug')?'is-expanded':'');?>">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' ||$this->uri->segment(1) == 'admin_edit_mug')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-coffee" style="padding-right:5px;"></i><span class="side-menu__label">Coffee Mug</span><i class="angle fas fa-angle-right"></i></a>
+								<ul class="slide-menu">
+									<li>
+										<a href="<?php echo base_url('admin_add_mug');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_mug')?'active_sidebar_submenu':'');?>">Add Coffee Mug</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('admin_listing_mug');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_mug' ||$this->uri->segment(1) == 'admin_edit_mug')?'active_sidebar_submenu':'');?>">View Coffee Mug</a>
 									</li>
 								</ul>
 							</li>
 
 							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'is-expanded':'');?>">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-palette" style="padding-right:5px;"></i><span class="side-menu__label">Product</span><i class="angle fas fa-angle-right"></i></a>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'active':'');?>" data-toggle="slide" href="#"><i class="fab fa-product-hunt" style="padding-right:5px;"></i><span class="side-menu__label">Product</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
 										<a href="<?php echo base_url('admin_add_product');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_product')?'active_sidebar_submenu':'');?>">Add Product</a>
