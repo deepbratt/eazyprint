@@ -74,7 +74,7 @@
 								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label">Orders Status</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
-										<a href="#" class="slide-item">Pending Orders</a>
+										<a href="<?php echo base_url('pending_orders');?>" class="slide-item">Pending Orders</a>
 									</li>
 									<li>
 										<a href="#" class="slide-item">Processing Orders</a>
