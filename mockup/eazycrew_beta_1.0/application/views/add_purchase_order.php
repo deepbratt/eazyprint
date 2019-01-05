@@ -148,7 +148,7 @@
 										</div>
 
 										<div class="table-responsive push" id="create_invoice">
-											<table class="table table-bordered table-hover" id="bill">
+											<table class="table table-bordered table-hover">
 												<tr class=" ">
 													<th class="text-center " style="width: 1%;"></th>
 													<th class="text-center " style="width: 50%">Product</th>
@@ -220,7 +220,7 @@
 													<td class="text-right">18%</td>
 													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
 
-													<td class="text-center"><a href="javascript:void(0);" onclick="addRow($('.bill'));"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
+													<td class="text-center"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
 												</tr>
 
 												<tr>
@@ -314,11 +314,6 @@
 					var Total = quant * amount;
 					$('#total_amount span').html(Total);
 				}
-			}
-
-			function addRow(tableid){
-		  	  var clonedRow = $("#" + tableid + " tr:last").clone(); //this will grab the lasttable row.
-			  $("#" + tableid + " tr:last").append(clonedRow); //add the row back to the table
 			}
 		</script>
 
