@@ -40,7 +40,7 @@
 								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-mobile-alt" style="padding-right:5px;"></i><span class="side-menu__label">Mobile Cases</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
 									<li>
-										<a href="<?php echo base_url('admin_add_mobile_case');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case')?'active_sidebar_submenu':'');?>"><i class="fas fa-mobile-alt" style="padding-right:5px;color:white;"></i>Add Mobile Cases</a>
+										<a href="<?php echo base_url('admin_add_mobile_case');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case')?'active_sidebar_submenu':'');?>">Add Mobile Cases</a>
 									</li>
 									<li>
 										<a href="<?php echo base_url('admin_listing_mobile_case');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case')?'active_sidebar_submenu':'');?>">View Mobile Cases</a>

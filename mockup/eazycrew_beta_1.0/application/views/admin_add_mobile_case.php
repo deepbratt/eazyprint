@@ -16,6 +16,10 @@
     <!-- Title -->
     <title>Eazyprint | Add Mobile Case</title>
 	  <link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
+	<!-- Quantity Plugin -->
+	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
+	<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
+	<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 	<style>
 	.card-body{
 		padding: 0.5rem 1.5rem !important;
@@ -65,7 +69,7 @@
             <?php
               }
             ?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_product/add_product');?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_mobile_case/add_mobile_case');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -77,7 +81,7 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" placeholder="Type a category">
+									<input type="text" class="form-control" name="category" value="Mobile Case" readonly>
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -202,6 +206,29 @@
 									 </select>
 								</div>
 							</div>
+
+	                         <div class="col-md-12 pro_colorzz">
+	                         	<div class="row">
+		                          <div class="col-md-6">
+		                          	<div class="form-group">
+			                           <label class="form-label">Product Color</label>
+			                           <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value="">
+			                          </div>
+		                          </div>
+		                          <div class="col-md-2" style="margin-top:1.5rem;">
+		                          	<div class="form-group">
+		                           		<input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value="">
+		                           	</div>
+		                          </div>
+		                          <div class="col-md-4"  style="margin-top:1.5rem;">
+		                          	<div class="form-group">
+		                            	<a href="javascript:void(0);" onclick="add_another();" class="btn btn-primary">Add More</a>
+		                            </div>
+		                          </div>
+		                        </div>
+	                        </div>
+	                      
+
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Quantity</label>
@@ -252,7 +279,7 @@
 						  </div>
 						  <div class="col-md-10">
 							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-							<input type="file" name="image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
+							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
 						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 						  </div>
 						</div>
@@ -498,8 +525,8 @@
     function add_another(){
       
       var max_fields      = 5; 
-      var wrapper         = $(".main_div");
-      var htmlcontent = '<div class="row atrri_add_cont" style="margin-bottom:10px;"><div class="col-md-2"><label class="form-label">&nbsp;</label></div><div class="col-md-4"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div><div class="col-md-2"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div><div class="row" style=""><div class="col-md-3"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div>';
+      var wrapper         = $(".pro_colorzz");
+      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
       
       var x = 1;
 

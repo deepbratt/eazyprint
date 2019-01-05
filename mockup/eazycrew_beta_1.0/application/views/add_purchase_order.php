@@ -166,46 +166,37 @@
 														<div class="col-md-4">
 															<input type="text" list="category_list" class="form-control" name="category" onchange="categoriezz(this.value)" style="width:100%;"  placeholder="Category">
 															<datalist id="category_list">
-																<option value="Mobile Cases">
-																<option value="Mugs">
-																<option value="T-shirts">
-																<!--<?php
+																<?php
 																	foreach($fetch_raw_details AS $each_raw_material){
 																?>
-																<option value="<?php echo $each_raw_material->raw_category?>">
+																<option value="<?php echo $each_raw_material->raw_category;?>">
 																<?php
 																	}
-																?>-->
+																?>
 															</datalist>
 														</div>
 														<div class="col-md-4">
 															<input type="text" list="brand_list" class="form-control" name="brand" style="width:100%;" placeholder="Brand">
 															<datalist id="brand_list">
-																<option value="Nokia">
-																<option value="Samsung">
-																<option value="Iphone">
-																<!--<?php
+																<?php
 																	foreach($fetch_raw_details AS $each_raw_material){
 																?>
-																<option value="<?php echo $each_raw_material->raw_category?>">
+																<option value="<?php echo $each_raw_material->raw_brand;?>">
 																<?php
 																	}
-																?>-->
+																?>
 															</datalist>
 														</div>
 														<div class="col-md-4">
 															<input type="text" list="raw_pro_name" class="form-control" name="raw_product_name" style="width:100%;" placeholder="Raw Product Name">
 															<datalist id="raw_pro_name">
-																<option value="Nokia">
-																<option value="Samsung">
-																<option value="Iphone">
-																<!--<?php
+																<?php
 																	foreach($fetch_raw_details AS $each_raw_material){
 																?>
-																<option value="<?php echo $each_raw_material->raw_category?>">
+																<option value="<?php echo $each_raw_material->raw_name;?>">
 																<?php
 																	}
-																?>-->
+																?>
 															</datalist>
 														</div>
 													</div>
