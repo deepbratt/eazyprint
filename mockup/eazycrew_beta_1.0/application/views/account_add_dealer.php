@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | GST Information</title>
+		<title>Eazyprint | Add Dealer</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">GST Information</h4>
+							<h4 class="page-title">Add Dealer</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">GST Information</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Dealer</li>
 							</ol>
 						</div>
 						<?php
@@ -57,7 +57,7 @@
 								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Profile</h3>
+										<h3 class="card-title">Add Dealer</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
@@ -180,7 +180,7 @@
 	<script>
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_gst_info/ajax_state_name',
+				url: '<?php echo base_url();?>account_add_dealer/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){
