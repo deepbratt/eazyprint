@@ -25,6 +25,9 @@
 			.top-title{
 				margin-top:12px;
 			}
+			.table td{
+				vertical-align: middle !important;
+			}
 		</style>
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -105,7 +108,6 @@
 														<h5>Purchase Date</h5>
 													</div>
 													<div class="col-md-8">
-														
 														<div class="wd-200 mg-b-30">
 															<div class="input-group">
 																<div class="input-group-prepend">
@@ -115,8 +117,6 @@
 																</div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text" value="<?php echo date('m/d/Y',time())?>">
 															</div>
 														</div>
-
-
 													</div>
 												</div>
 												<div class="row p-2">
@@ -151,56 +151,27 @@
 											<table class="table table-bordered table-hover">
 												<tr class=" ">
 													<th class="text-center " style="width: 1%;"></th>
-													<th class="text-center " style="width: 50%">Product</th>
+													<th class="text-center " style="width: 20%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
-													<th class="text-right" style="width: 1%">Amount</th>
-													<th class="text-right" style="width: 1%">Tax</th>
-													<th class="text-right" style="width: 1%">Total&nbsp;Amount</th>
-													<th class="text-right" style="width: 1%"></th>
+													<th class="text-center" style="width: 1%">Amount</th>
+													<th class="text-center" style="width: 20%">Tax</th>
+													<th class="text-center" style="width: 1%">Total&nbsp;Amount</th>
+													<th class="text-center" style="width: 1%"></th>
 												</tr>
-												
+												<tr>
+													<td colspan="4"></td>
+													<td>
+														<th>CGST</th>
+														<th>CGST</th>
+													</td>
+													<td colspan="2"></td>
+												</tr>
 												<tr>
 													<td class="text-center">1</td>
 													<td>
-													<div class="row">
-														<div class="col-md-4">
-															<input type="text" list="category_list" class="form-control" name="category" onchange="categoriezz(this.value)" style="width:100%;"  placeholder="Category">
-															<datalist id="category_list">
-																<?php
-																	foreach($fetch_raw_details AS $each_raw_material){
-																?>
-																<option value="<?php echo $each_raw_material->raw_category;?>">
-																<?php
-																	}
-																?>
-															</datalist>
-														</div>
-														<div class="col-md-4">
-															<input type="text" list="brand_list" class="form-control" name="brand" style="width:100%;" placeholder="Brand">
-															<datalist id="brand_list">
-																<?php
-																	foreach($fetch_raw_details AS $each_raw_material){
-																?>
-																<option value="<?php echo $each_raw_material->raw_brand;?>">
-																<?php
-																	}
-																?>
-															</datalist>
-														</div>
-														<div class="col-md-4">
-															<input type="text" list="raw_pro_name" class="form-control" name="raw_product_name" style="width:100%;" placeholder="Raw Product Name">
-															<datalist id="raw_pro_name">
-																<?php
-																	foreach($fetch_raw_details AS $each_raw_material){
-																?>
-																<option value="<?php echo $each_raw_material->raw_name;?>">
-																<?php
-																	}
-																?>
-															</datalist>
-														</div>
-													</div>
-													
+														<select class="form-control select2-show-search" name="product_name">
+															<option value="" selected="" disabled="">Choose Product</option>
+														</select>
 													</td>
 													<td class="text-center">
 														<div class="quantity buttons_added">
