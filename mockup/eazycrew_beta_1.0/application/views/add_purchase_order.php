@@ -149,28 +149,37 @@
 
 										<div class="table-responsive push" id="create_invoice">
 											<table class="table table-bordered table-hover">
+											
 												<tr class=" ">
 													<th class="text-center " style="width: 1%;"></th>
 													<th class="text-center " style="width: 20%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
 													<th class="text-center" style="width: 1%">Amount</th>
-													<th class="text-center" style="width: 20%">Tax</th>
+													<th class="text-center" style="width: 20%" colspan="3">Tax</th>
 													<th class="text-center" style="width: 1%">Total&nbsp;Amount</th>
 													<th class="text-center" style="width: 1%"></th>
 												</tr>
+											
 												<tr>
-													<td colspan="4"></td>
-													<td>
-														<th>CGST</th>
-														<th>CGST</th>
-													</td>
-													<td colspan="2"></td>
+													<th colspan="4"></th>
+													<th class="text-center">CGST</th>
+													<th class="text-center">SGST</th>
+													<th class="text-center">IGST</th>
+													<th></th>
+													<th>Add&nbsp;More</th>
 												</tr>
-												<tr>
+												<tr id="main_tr">
 													<td class="text-center">1</td>
 													<td>
 														<select class="form-control select2-show-search" name="product_name">
 															<option value="" selected="" disabled="">Choose Product</option>
+															<?php
+																foreach($fetch_raw_details AS $each_raw_materials){
+															?>
+																<option value="<?php echo $each_raw_materials->raw_id;?>"><?php echo $each_raw_materials->raw_name;?></option>
+															<?php
+																}
+															?>
 														</select>
 													</td>
 													<td class="text-center">
@@ -179,31 +188,63 @@
 														</div>
 													</td>
 													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz">1</span></td>
-													<td class="text-right">18%</td>
+													<td class="text-center">18%</td>
+													<td class="text-center">18%</td>
+													<td class="text-center">18%</td>
 													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
 
-													<td class="text-center"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
+													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
 												</tr>
+												
+												<tr id="demo_tr" style="display:none;">
+													<td class="text-center">1</td>
+													<td>
+														<select class="form-control select2-show-search" name="product_name">
+															<option value="" selected="" disabled="">Choose Product</option>
+															<?php
+																foreach($fetch_raw_details AS $each_raw_materials){
+															?>
+																<option value="<?php echo $each_raw_materials->raw_id;?>"><?php echo $each_raw_materials->raw_name;?></option>
+															<?php
+																}
+															?>
+														</select>
+													</td>
+													<td class="text-center">
+														<div class="quantity buttons_added">
+															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value)"><input type="button" value="+" class="plus">
+														</div>
+													</td>
+													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz">1</span></td>
+													<td class="text-center">18%</td>
+													<td class="text-center">18%</td>
+													<td class="text-center">18%</td>
+													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
+
+													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
+												</tr>
+												
 
 												<tr>
-													<td colspan="5" class="font-w600 text-right">Subtotal</td>
+													<td colspan="7" class="font-w600 text-right">Subtotal</td>
 													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
 												</tr>
 												<tr>
-													<td colspan="5" class="font-w600 text-right">Tax Rate</td>
+													<td colspan="7" class="font-w600 text-right">Tax Rate</td>
 													<td class="card-title text-right">18%</td>
 												</tr>
 												<tr>
-													<td colspan="5" class="font-weight-bold text-uppercase text-right">Total Due</td>
+													<td colspan="7" class="font-weight-bold text-uppercase text-right">Total Due</td>
 													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
 												</tr>
 												<tr>
-													<td colspan="6" class="text-right">
+													<td colspan="8" class="text-right">
 														<button type="reset" class="btn btn-secondary">Cancel</button>
 														<button type="submit" class="btn btn-success">Submit</button>
 														<p class="text-muted text-center">Thank you very much for doing business with us. We look forward to working with you again!</p>
 													</td>
 												</tr>
+											
 											</table>
 											
 										</div>
@@ -269,6 +310,7 @@
 			}
 
 			function quantity_amtzz(quantity){
+				
 				if(quantity != ''){
 					var quant = quantity;
 					$('.quantzz').html(quant);
@@ -276,6 +318,12 @@
 					var Total = quant * amount;
 					$('#total_amount span').html(Total);
 				}
+			}
+
+			function repeat_tr() {
+				
+				  $('#main_tr').after("<tr>"+$('#demo_tr').html()+"</tr>");
+				
 			}
 		</script>
 
