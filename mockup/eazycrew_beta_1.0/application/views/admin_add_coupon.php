@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Add Coupon/Discount</title>
+		<title>Eazyprint | Add Coupon</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Coupon/Discount</h4>
+							<h4 class="page-title">Add Coupon</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Coupon/Discount</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Coupon</li>
 							</ol>
 						</div>
 						<?php
@@ -57,22 +57,17 @@
 								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Coupon/Discount Information</h3>
+										<h3 class="card-title">Coupon Information</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
-													<label class="form-label">Category</label>
-													<select class="form-control" name="category">
-														<option selected disabled>Choose Category</option>
-														<option value="mobile_case">Mobile Case</option>
-														<option value="t_shirt">T-Shirt</option>
-														<option value="coffee_mug">Coffee Mug</option>
-													</select>
+													<label class="form-label">Coupon Name</label>
+													<input type="text" class="form-control" name="coupon_name" placeholder="Enter Coupon Name">
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
 													<label class="form-label">Coupon Type</label>
 													<select class="form-control" name="type">
@@ -82,15 +77,7 @@
 													</select>
 												</div>
 											</div>
-									  	</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label">Coupon Name</label>
-													<input type="text" class="form-control" name="coupon_name" placeholder="Enter Coupon Name">
-												</div>
-											</div>
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="form-group">
 													<label class="form-label">Coupon Amount</label>
 													<input type="number" class="form-control" name="amount" placeholder="Enter Coupon Amount">

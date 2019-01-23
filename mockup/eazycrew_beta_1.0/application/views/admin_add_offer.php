@@ -61,13 +61,18 @@
 									</div>
 									<div class="card-body">
 										<div class="row">
-											<div class="col-md-4">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label class="form-label">Offer Name</label>
-													<input type="text" class="form-control" name="offer_name" placeholder="Enter Offer Name">
+													<label class="form-label">Category</label>
+													<select class="form-control" name="category">
+														<option selected disabled>Choose Category</option>
+														<option value="mobile_case">Mobile Case</option>
+														<option value="t_shirt">T-Shirt</option>
+														<option value="coffee_mug">Coffee Mug</option>
+													</select>
 												</div>
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Offer Type</label>
 													<select class="form-control" name="type">
@@ -77,9 +82,17 @@
 													</select>
 												</div>
 											</div>
-											<div class="col-md-4">
+									  	</div>
+										<div class="row">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label class="form-label">Coupon Amount</label>
+													<label class="form-label">Offer Name</label>
+													<input type="text" class="form-control" name="offer_name" placeholder="Enter Coupon Name">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="form-label">Offer Amount</label>
 													<input type="number" class="form-control" name="amount" placeholder="Enter Coupon Amount">
 												</div>
 											</div>

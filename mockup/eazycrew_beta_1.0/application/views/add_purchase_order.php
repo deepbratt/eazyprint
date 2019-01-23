@@ -193,13 +193,13 @@
 													<td class="text-center">18%</td>
 													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
 
-													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
+													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr('<?php echo json_encode($fetch_raw_details);?>');"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
 												</tr>
 												
 												<tr id="demo_tr" style="display:none;">
 													<td class="text-center">1</td>
 													<td>
-														<select class="form-control select2-show-search" name="product_name">
+														<select class="form-control select2-show-search yo_tr" name="product_name">
 															<option value="" selected="" disabled="">Choose Product</option>
 															<?php
 																foreach($fetch_raw_details AS $each_raw_materials){
@@ -221,7 +221,7 @@
 													<td class="text-center">18%</td>
 													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
 
-													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-plus-circle" style="font-size:20px;color:red;"></i></a></td>
+													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-minus-circle" style="font-size:20px;color:red;"></i></a></td>
 												</tr>
 												
 
@@ -320,10 +320,9 @@
 				}
 			}
 
-			function repeat_tr() {
+			function repeat_tr(e) {
 				
-				  $('#main_tr').after("<tr>"+$('#demo_tr').html()+"</tr>");
-				
+				 alert(e);
 			}
 		</script>
 
