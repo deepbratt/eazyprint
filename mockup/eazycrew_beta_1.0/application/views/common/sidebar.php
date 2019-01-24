@@ -157,18 +157,35 @@
                         </li>
 						<div id="dealers" class="collapse">
 							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> View Orders</span></a>
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-receipt" style="padding-right:5px;"></i><span class="side-menu__label"> Sale Invoice</span></a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> View Commission</span></a>
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-clipboard-list" style="padding-right:5px;"></i><span class="side-menu__label"> Purchase Invoice</span></a>
+							</li>
+							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'is-expanded':'');?>">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-cogs" style="padding-right:5px;"></i><span class="side-menu__label"> Settings</span><i class="angle fas fa-angle-right"></i></a>
+								<ul class="slide-menu">
+									<li>
+										<a href="<?php echo base_url('dealer_setting');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_setting')?'active_sidebar_submenu':'');?>">Personal Details</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('dealer_change_password');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_change_password' ||$this->uri->segment(1) == 'admin_edit_crew')?'active_sidebar_submenu':'');?>">Change Password</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('dealer_gst_info');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_gst_info' ||$this->uri->segment(1) == 'admin_edit_crew')?'active_sidebar_submenu':'');?>">GST Information</a>
+									</li>
+								</ul>
+							</li>
+							<li class="slide">
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-calendar-check" style="padding-right:5px;"></i><span class="side-menu__label"> Report</span></a>
 							</li>
 						</div>
 						<!-- Dealers Ends -->
 						<!-- Deals STARTS -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'header-active':'');?>" data-target="#personalz">Deal</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'header-active':'');?>" data-target="#dealz">Deal</a>
                         </li>
-						<div id="personalz" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
+						<div id="dealz" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
 							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon')?'is-expanded':'');?>">
 								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-cut" style="padding-right:5px;"></i><span class="side-menu__label"> Coupon/Discount</span><i class="angle fas fa-angle-right"></i></a>
 								<ul class="slide-menu">
@@ -193,7 +210,7 @@
 								</ul>
 							</li>
 						</div>
-						<!-- Deals STARTS -->
+						<!-- Deals ENDS -->
 						<!-- PERSONAL STARTS -->
 						<li class="sidebar_header">
                            <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'header-active':'');?>" data-target="#personalz">Personal</a>

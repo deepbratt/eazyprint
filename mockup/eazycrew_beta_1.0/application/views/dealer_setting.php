@@ -134,12 +134,12 @@
 														<input type="text" class="form-control" name="product_title" placeholder="Email">
 													</div>
 												</div>
-												<!-- <div class="col-md-12">
+												<div class="col-md-12">
 													<div class="form-group">
-														<label class="form-label">Product Desc</label>
-														<textarea class="form-control" name="product_desc" placeholder="Enter Product Description"></textarea>
+														<label class="form-label">Full Address</label>
+														<textarea class="form-control" name="product_desc" placeholder="Full Address"></textarea>
 													</div>
-												</div> -->
+												</div> 
 											</div>
 									  </div>
 									  <div class="card-footer text-right">
