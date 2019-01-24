@@ -2,12 +2,12 @@
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->	
-					<header class="app-header header shadow-none fixed-header relative big_head" style="background:#f3f4f8;border-bottom:1px solid #d5def0;">
+					<header class="app-header header shadow-none fixed-header relative" style="background:#f3f4f8;border-bottom:1px solid #d5def0;">
 						<div class="container">
 						
 						<!-- Navbar Right Menu-->
 						<div class="container-fluid">
-							<div class="d-flex" style="height: 17px;">
+							<div class="d-flex" style="height: 25px;">
 								<div class="d-flex order-lg-3 mr-auto">
 									<a class="nav-link d-flex" href="javascript:void(0);">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
@@ -207,14 +207,6 @@
 									<li class="nav-item">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
-												<span class="text-dark">OFFERS</span>
-											</span>
-										</a>
-									</li>
-
-									<li class="nav-item">
-										<a class="nav-link" href="javascript:void(0);">
-											<span class="d-none d-lg-block">
 												<span class="text-dark">BULK ORDERS</span>
 											</span>
 										</a>
@@ -223,12 +215,20 @@
 									<li class="nav-item">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
+												<span class="text-dark">MERCHANDISE</span>
+											</span>
+										</a>
+									</li>
+
+									<li class="nav-item" style="float:right;">
+										<a class="nav-link" href="javascript:void(0);">
+											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
 											</span>
 										</a>
 									</li>
 
-									<li class="nav-item">
+									<li class="nav-item right">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">SIGNUP</span>
@@ -236,7 +236,7 @@
 										</a>
 									</li>
 
-									<li class="nav-item">
+									<!--<li class="nav-item">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
 										</a>
@@ -249,7 +249,7 @@
 											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
 											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
 										</div>
-									</li>
+									</li>-->
 								</div>
 
 							</div>
