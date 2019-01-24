@@ -25,7 +25,7 @@
 		</style>
 
 		<!-- Title -->
-		<title>Eazyprint | Setting</title>
+		<title>Eazyprint | Change Password</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -40,7 +40,7 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Setting</h4>
+							<h4 class="page-title">Change Password</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Setting</li>

@@ -25,7 +25,7 @@
 		</style>
 
 		<!-- Title -->
-		<title>Eazyprint | Setting</title>
+		<title>Eazyprint | Personal Information</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -40,10 +40,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Setting</h4>
+							<h4 class="page-title">Personal Details</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Setting</li>
+								<li class="breadcrumb-item active" aria-current="page">Personal Details</li>
 							</ol>
 						</div>
 						<?php
@@ -66,7 +66,7 @@
 							<div class="col-md-12">
 								<form  method="post" class="card" enctype="multipart/form-data">
 									<div class="card-header">
-										<h3 class="card-title">Setting</h3>
+										<h3 class="card-title">Personal information</h3>
 									</div>
 
 									<div class="card-body">
