@@ -162,6 +162,20 @@
 							<li class="slide">
 								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-user-tie" style="padding-right:5px;"></i><span class="side-menu__label"> View Commission</span></a>
 							</li>
+							<li class="slide <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'is-expanded':'');?>">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'active':'');?>" data-toggle="slide" href="#"><i class="fas fa-cog" style="padding-right:5px;"></i><span class="side-menu__label"> Settings</span><i class="angle fas fa-angle-right"></i></a>
+								<ul class="slide-menu">
+									<li>
+										<a href="<?php echo base_url('dealer_setting');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_setting')?'active_sidebar_submenu':'');?>">Personal Details</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('dealer_change_password');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_change_password' ||$this->uri->segment(1) == 'admin_edit_crew')?'active_sidebar_submenu':'');?>">Change Password</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('dealer_gst_info');?>" class="slide-item <?php echo(($this->uri->segment(1) == 'dealer_gst_info' ||$this->uri->segment(1) == 'admin_edit_crew')?'active_sidebar_submenu':'');?>">GST Information</a>
+									</li>
+								</ul>
+							</li>
 						</div>
 						<!-- Dealers Ends -->
 						<!-- Deals STARTS -->
