@@ -14,7 +14,7 @@
     <link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
     <!-- Title -->
-    <title>Eazyprint | Add Mobile Case</title>
+    <title>Eazyprint | Add T-Shirt</title>
 	  <link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
 	<!-- Quantity Plugin -->
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
@@ -46,14 +46,14 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Mobile Case
+              <h4 class="page-title">Add T-Shirt
               </h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Mobile Case
+                <li class="breadcrumb-item active" aria-current="page">Add T-Shirt
                 </li>
               </ol>
             </div>
@@ -78,22 +78,16 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="Mobile Case" readonly>
+									<input type="text" class="form-control" name="category" value="T-Shirt" readonly>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Brand</label>
 									<input type="text" class="form-control" name="brand" placeholder="Type a brand">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Model Number</label>
-									<input type="text" class="form-control" name="model" placeholder="Type a model number">
 								</div>
 							</div>
 						</div>
@@ -150,6 +144,20 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Material Type</label>
+									<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
+							  </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Product Size</label>
+									<input type="text" class="form-control" name="product_size" placeholder="New Product Size">
+								</div>
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Product length</label>
@@ -179,8 +187,8 @@
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label class="form-label">Material Type</label>
-									<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
+									<label class="form-label">Product Shape</label>
+									<input type="text" class="form-control" name="product_shape" placeholder="Product Shape">
 								</div>
 							</div>
 							<div class="col-md-4">

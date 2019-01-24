@@ -14,7 +14,7 @@
     <link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
     <!-- Title -->
-    <title>Eazyprint | Add Mobile Case</title>
+    <title>Eazyprint | Add Product</title>
 	  <link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
 	<!-- Quantity Plugin -->
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
@@ -46,14 +46,14 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Mobile Case
+              <h4 class="page-title">Add Product
               </h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Mobile Case
+                <li class="breadcrumb-item active" aria-current="page">Add Product
                 </li>
               </ol>
             </div>
@@ -78,22 +78,19 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="Mobile Case" readonly>
+									<input type="text" class="form-control" name="category" value="T-Shirt" readonly>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Brand</label>
-									<input type="text" class="form-control" name="brand" placeholder="Type a brand">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Model Number</label>
-									<input type="text" class="form-control" name="model" placeholder="Type a model number">
+									<label class="form-label">Product</label>
+									<select class="form-control" name="raw">
+										<option vlaue="" selected disabled>Choose Product</option>
+										<option value="%">Round Neck T-Shirt(180 GSM)</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -146,118 +143,20 @@
 				</div>
 				<div class="card">
 					<div class="card-header">
-						<h3 class="card-title">Product Specification</h3>
-					</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-3">
-								<div class="form-group">
-									<label class="form-label">Product length</label>
-									<input type="text" class="form-control" name="dimension_len" placeholder="Product length">
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="form-group">
-									<label class="form-label">Product Width</label>
-									<input type="text" class="form-control" name="dimension_wid" placeholder="Product Width">
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="form-group">
-									<label class="form-label">Product Height</label>
-									<input type="text" class="form-control" name="dimension_height" placeholder="Product height">
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="form-group">
-									<label class="form-label">Dimension Unit</label>
-									<select name="product_dimension" class="form-control select2-show-search">
-										<option value="mm">mm</option>
-										<option value="cm">cm</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Material Type</label>
-									<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Product Weight</label>
-									<input type="text" name="product_weight" class="form-control" placeholder="Add Product Weight">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Weighing Unit</label>
-									<select name="product_weight_dimension" class="form-control select2-show-search">
-										<option value="kg">kg</option>
-										<option value="gm">gm</option>
-									 </select>
-								</div>
-							</div>
-
-	                         <div class="col-md-12 pro_colorzz">
-	                         	<div class="row">
-		                          <div class="col-md-6">
-		                          	<div class="form-group">
-			                           <label class="form-label">Product Color</label>
-			                           <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value="">
-			                          </div>
-		                          </div>
-		                          <div class="col-md-2" style="margin-top:1.5rem;">
-		                          	<div class="form-group">
-		                           		<input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value="">
-		                           	</div>
-		                          </div>
-		                          <div class="col-md-4"  style="margin-top:1.5rem;">
-		                          	<div class="form-group">
-		                            	<a href="javascript:void(0);" onclick="add_another();" class="btn btn-primary">Add More</a>
-		                            </div>
-		                          </div>
-		                        </div>
-	                        </div>
-	                      
-
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">Product Quantity</label>
-									<input type="number" name="quantity" class="form-control" placeholder="Add quantity">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">Minimum Order</label>
-									<input type="number" name="min_order" class="form-control" placeholder="Add Minimum Order">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header">
 						<h3 class="card-title">Price Specification</h3>
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Wholesale Price</label>
 									<input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price">
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Retail Price</label>
 									<input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label class="form-label">Purchase Price</label>
-									<input type="number" name="purchase_price" class="form-control" placeholder="Add Purchase Price">
 								</div>
 							</div>
 						</div>
@@ -296,27 +195,6 @@
 								<div class="form-group">
 									<label class="form-label">Meta Description</label>
 									<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"></textarea>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header"  style="border-top: 1px solid #e7effc;">
-						<h3 class="card-title">GST Information</h3>
-					</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">HS Code</label>
-									<input type="text" name="hs_code" class="form-control" placeholder="Add HS Code">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">GST Rate(%)</label>
-									<input type="text" name="gst_rate" class="form-control" placeholder="Add GST Rate">
 								</div>
 							</div>
 						</div>
