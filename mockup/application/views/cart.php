@@ -25,6 +25,9 @@ $this->load->view("common/metalinks");
 <?php
 $this->load->view("common/header");
 ?>
+		<div>
+			<img src="<?php echo base_url();?>images/cart_banner1.png">
+		</div>
 		<div class="container">
 					<div class="side-app">
 						<p>&nbsp;</p>

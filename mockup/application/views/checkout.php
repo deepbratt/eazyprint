@@ -111,6 +111,9 @@
 				<?php
 				$this->load->view("common/header");
 				?>
+				<div>
+					<img src="<?php echo base_url();?>images/checkout_banner.png">
+				</div>
 				<div class="container">
 					<div class="side-app">
 						<div class="col-md-12">

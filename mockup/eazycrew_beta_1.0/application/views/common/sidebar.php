@@ -94,9 +94,13 @@
 								</a>
 							</li>
 							<li class="slide">
+
+								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-clipboard-list" style="padding-right:5px;"></i><span class="side-menu__label"> Report</span></a>
+
 								<a class="side-menu__item"  href="#">
 									<span class="side-menu__label">Transaction History</span>
 								</a>
+
 							</li>
 						</div>
 						<!-- Transactions Ends -->

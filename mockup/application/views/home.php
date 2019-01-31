@@ -302,25 +302,26 @@ $this->load->view("common/header");
 				<div class="container">
 					<div class="row" >
 						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:left;">
-							<a href="#"><img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-women-desktop-1542197289.jpg" style="width:99%;height:99%;"></a>
+							<a href="#"><img class="img-responsive img_op" src="<?php echo base_url();?>images/men.png" style="width:99%;height:99%;"></a>
 						</div>
 						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/newbies-men-desktop-1542286203.jpg" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/wooman.png" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
+				
 				<div class="container" style="padding-top:5px;">
 					<div class="row">
 						<div class="col-lg-4" style="padding:0px;margin:0px;text-align:left;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/46479680_2217977711820999_4911953203634896896_n.jpg" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/Mugs.png" style="width:99%;height:99%;">
 						</div>
 						<div class="col-lg-8" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/promo-5_765x.jpg" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/phone.png" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
 
-				<div class="container" style="padding-top:5px;">
+				<!-- <div class="container" style="padding-top:5px;">
 					<div class="row">
 						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:left;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/3banner_565x.jpg" style="width:99%;height:99%;">
@@ -329,20 +330,11 @@ $this->load->view("common/header");
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/4banner_565x.jpg" style="width:99%;height:99%;">
 						</div>
 					</div>
-				</div>
+				</div> -->
 
-				<div class="container" style="padding-top:5px;">
-					<div class="row">
-						<div class="col-lg-8" style="padding:0px;margin:0px;text-align:left;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/6banner_758x.jpg" style="width:99%;height:99%;">
-						</div>
-						<div class="col-lg-4" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/5banner_573x.jpg" style="width:99%;height:99%;">
-						</div>
-					</div>
-				</div>
+				
 
-				<div class="container" style="padding-top:5px;">
+				<!-- <div class="container" style="padding-top:5px;">
 					<div class="row">
 						<div class="col-lg-6" style="padding:0px;text-align:center;text-align:left;">
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/mug-004.jpg" style="width:99%;height:99%;">
@@ -351,7 +343,7 @@ $this->load->view("common/header");
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="width:99%;height:99%;">
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				
 
