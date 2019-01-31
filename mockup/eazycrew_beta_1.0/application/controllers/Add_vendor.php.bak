@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing_dealers extends CI_Controller {
+class Add_vendor extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('contacts/listing_dealer');
+		$this->load->view('contacts/listing_vendors');
 	}
 
 }

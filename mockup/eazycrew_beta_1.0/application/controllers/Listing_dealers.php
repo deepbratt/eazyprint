@@ -5,7 +5,7 @@ class Listing_dealers extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('contacts/listing_dealer');
+		$this->load->view('contacts/listing_dealers');
 	}
 
 }
