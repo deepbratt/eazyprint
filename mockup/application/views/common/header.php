@@ -176,7 +176,7 @@
 												
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_phones.png" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_phones3.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Trendy MOBILE BACKCOVER</span>
 												</div>
