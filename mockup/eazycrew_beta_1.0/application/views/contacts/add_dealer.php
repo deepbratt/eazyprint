@@ -125,6 +125,11 @@
 									</div>
 									<div class="card-body">
 										<div class="form-group">
+											<label class="form-label">Legal Name</label>
+											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your Legal Name">
+										</div>
+
+										<div class="form-group">
 											<label class="form-label">GSTIN Number</label>
 											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your GSTIN Number">
 										</div>

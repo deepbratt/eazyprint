@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Add Dealer</title>
+		<title>Eazyprint | Add Customer</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Dealer</h4>
+							<h4 class="page-title">Add Customer &nbsp;&nbsp;<a href="<?php echo base_url("account_listing_customer");?>" class="btn btn-primary">View All</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Dealer</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Customer</li>
 							</ol>
 						</div>
 						<?php
@@ -57,7 +57,7 @@
 								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Add Dealer</h3>
+										<h3 class="card-title">Add Customer</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
@@ -100,7 +100,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">State</label>
-													<select class="form-control" name="state" onchange="state_name(this.value);">
+													<select class="form-control" name="state" onchange="state_name(this.value);"  data-dropup-auto="false">
 														<option vlaue="" selected disabled>Choose State</option>
 														<?php
 															foreach($fetch_city_state AS $each_state){
@@ -139,17 +139,6 @@
 										</div>
 									</div>
 								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3 class="card-title">GST Information</h3>
-									</div>
-									<div class="card-body">
-										<div class="form-group">
-											<label class="form-label">GST Number</label>
-											<input type="text" class="form-control" name="gst_number" placeholder="Enter GST Number">
-										</div>
-									</div>
-								</div>
 								  <div class="card-footer text-center">
 									<button type="submit" class="btn btn-primary">Submit
 									</button>
@@ -178,9 +167,12 @@
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
 	</body>
 	<script>
+		$('.selectpicker').selectpicker({
+		    dropupAuto: false
+		});
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_add_dealer/ajax_state_name',
+				url: '<?php echo base_url();?>account_add_customer/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){

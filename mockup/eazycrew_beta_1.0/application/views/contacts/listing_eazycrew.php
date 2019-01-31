@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | Listing T-Shirt</title>
+		<title>Eazyprint | Listing Customer</title>
 		<style>
 			b{
 				color:black;
@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing T-Shirt</h4>
+							<h4 class="page-title">View Customer &nbsp;&nbsp;<a href="<?php echo base_url("account_add_customer");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Listing T-Shirt</li>
+								<li class="breadcrumb-item active" aria-current="page">View Customer</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
@@ -87,38 +87,43 @@
 												<thead>
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
-													<th class="wd-15p">Category&nbsp;Name</th>
-													<th class="wd-15p">Brand</th>
-													<th class="wd-15p">Product</th>
-													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Product&nbsp;Image</th>
-													<th class="wd-15p">Purchase&nbsp;Price</th>
-													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Name</th>
+													<th class="wd-15p">Email</th>
+													<th class="wd-15p">Phone</th>
+													<th class="wd-15p">Address</th>
+													<th class="wd-15p">Date</th>
+													
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
+												<?php
+												$i = 1;
+												foreach($fetch_customer_info as $fetch_cust){
+												?>
 												  <tr>
-												    <td>1</td>
-													<td>T-Shirt</td>
-													<td>Puma</td>
-													<td>Panda T-shirt</td>
-													<td>55</td>
-													<td></td>
-													<td>120</td>
-													<td>150</td>
-													<td class="switch">
+												    <td><?php echo $i;?></td>
+													<td><?php echo ucfirst($fetch_cust->customer_fname);?>&nbsp;<?php echo ucfirst($fetch_cust->customer_lname);?></td>
+													<td><?php echo ucfirst($fetch_cust->customer_email);?></td>
+													<td><?php echo ucfirst($fetch_cust->customer_phone);?></td>
+													<td><?php echo $fetch_cust->customer_addr;?></td>
+													<td><?php echo date('d/m/Y',$fetch_cust->customer_date);?></td>
+													<td class="switch_<?php echo $fetch_cust->customer_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" onchange="change_status('')">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_cust->customer_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_cust->customer_id;?>','<?php echo $fetch_cust->customer_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="#"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="#"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('account_edit_customer/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('account_listing_customer/delete_product/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
+												<?php
+												$i++;
+												}
+												?>
 												</tbody>
 											  </table>
 										</div>
@@ -151,11 +156,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(product_id,product_status)
+			function change_status(customer_id,customer_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_listing_mobile_case/change_status',
-		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
+		        url: '<?php echo base_url();?>account_listing_customer/change_status',
+		        data: {'customer_id': customer_id,'customer_status':customer_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -166,7 +171,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+product_id+'').html(response);
+				 $('.switch_'+customer_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

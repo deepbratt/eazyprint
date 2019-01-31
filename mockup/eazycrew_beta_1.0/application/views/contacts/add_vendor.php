@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Add Customer</title>
+		<title>Eazyprint | Dealer's GST Information</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,34 +30,18 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Customer</h4>
+							<h4 class="page-title">GST Information</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Add Customer</li>
+								<li class="breadcrumb-item active" aria-current="page">GST Information</li>
 							</ol>
 						</div>
-						<?php
-						  if($this->session->flashdata('success')){
-						?>
-							<div class="alert alert-success">
-								<strong><?php echo $this->session->flashdata('success');?></strong>
-							</div>
-						<?php
-						}
-						if($this->session->flashdata('failed')){
-						?>
-							<div class="alert alert-danger">
-								<strong><?php echo $this->session->flashdata('failed');?></strong>
-							</div>
-						<?php
-						}
-						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
+								<form  method="post" action="#">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Add Customer</h3>
+										<h3 class="card-title">Profile</h3>
 									</div>
 									<div class="card-body">
 										<div class="row">
@@ -100,15 +84,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">State</label>
-													<select class="form-control" name="state" onchange="state_name(this.value);"  data-dropup-auto="false">
+													<select class="form-control" name="state" onchange="state_name(this.value);">
 														<option vlaue="" selected disabled>Choose State</option>
-														<?php
-															foreach($fetch_city_state AS $each_state){
-														?>
-															<option value="<?php echo $each_state->city_state;?>"><?php echo $each_state->city_state;?></option>
-														<?php
-															}
-														?>
+															<option >West Bengal</option>
+															<option >Delhi</option>
+															<option >Mumbai</option>
+															<option >Bangalore</option>
+															<option >Hariyana</option>
 													</select>
 												</div>
 											</div>
@@ -118,13 +100,11 @@
 													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
-														<?php
-															foreach($fetch_city_state AS $each_city){
-														?>
-															<option value="<?php echo $each_city->city_name;?>"><?php echo $each_city->city_name;?></option>
-														<?php
-															}
-														?>
+															<option>Kolkata</option>
+															<option>Midnapur</option>
+															<option>Siliguri</option>
+															<option>Medinipur</option>
+															<option>Asansol</option>
 													</select>
 												</div>
 											</div>
@@ -136,6 +116,22 @@
 													<input type="number" class="form-control" name="pincode" placeholder="Enter Pincode">
 												</div>
 											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">GST Information</h3>
+									</div>
+									<div class="card-body">
+										<div class="form-group">
+											<label class="form-label">Legal Name</label>
+											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your Legal Name">
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">GSTIN Number</label>
+											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your GSTIN Number">
 										</div>
 									</div>
 								</div>
@@ -167,12 +163,9 @@
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
 	</body>
 	<script>
-		$('.selectpicker').selectpicker({
-		    dropupAuto: false
-		});
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_add_customer/ajax_state_name',
+				url: '<?php echo base_url();?>account_gst_info/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){

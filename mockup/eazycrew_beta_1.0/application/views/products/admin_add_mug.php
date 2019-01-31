@@ -46,8 +46,7 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Coffee Mug
-              </h4>
+              <h4 class="page-title">Add Mugs &nbsp;&nbsp; <a href="<?php echo base_url("admin_listing_mug");?>" class="btn btn-primary"> View Mugs </a></h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
