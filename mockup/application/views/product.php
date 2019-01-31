@@ -26,7 +26,7 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 		<div>
-			<img src="<?php echo base_url();?>images/product_banner2.png">
+			<img src="<?php echo base_url();?>images/product_banner3.png">
 		</div>
 		<div class="page">
 			<div class="page-main">				
