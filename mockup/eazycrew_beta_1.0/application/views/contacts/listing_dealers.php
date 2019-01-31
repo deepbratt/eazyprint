@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | Listing Mobile Case</title>
+		<title>Eazyprint | Listing Customer</title>
 		<style>
 			b{
 				color:black;
@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing Mobile Case</h4>
+							<h4 class="page-title">View Customer &nbsp;&nbsp;<a href="<?php echo base_url("account_add_customer");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Listing Mobile Case</li>
+								<li class="breadcrumb-item active" aria-current="page">View Customer</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
@@ -87,13 +87,12 @@
 												<thead>
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
-													<th class="wd-15p">Category&nbsp;Name</th>
-													<th class="wd-15p">Brand</th>
-													<th class="wd-15p">Product</th>
-													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Product&nbsp;Image</th>
-													<th class="wd-15p">Purchase&nbsp;Price</th>
-													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Name</th>
+													<th class="wd-15p">Email</th>
+													<th class="wd-15p">Phone</th>
+													<th class="wd-15p">Address</th>
+													<th class="wd-15p">Date</th>
+													
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
@@ -101,35 +100,24 @@
 												<tbody>
 												<?php
 												$i = 1;
-												foreach($fetch_raw_materials as $fetch_products){
+												foreach($fetch_customer_info as $fetch_cust){
 												?>
 												  <tr>
 												    <td><?php echo $i;?></td>
-													<td><?php echo ucfirst($fetch_products->raw_category);?></td>
-													<td><?php echo ucfirst($fetch_products->raw_brand);?></td>
-													<td><?php echo ucfirst($fetch_products->raw_name);?></td>
-													<td><?php echo $fetch_products->raw_quantity;?></td>
-													<td>
-													<?php
-													if($fetch_products->raw_image != "")
-													{
-													?>
-														<img class="img-responsive" src="<?php echo base_url('uploads/product_images/mobile_cases/');?><?php echo $fetch_products->raw_image;?>" style="height:100px;">
-													<?php
-													}
-													?>
-													</td>
-													<td><?php echo $fetch_products->raw_purchase_price;?></td>
-													<td><?php echo $fetch_products->raw_wholesale_price;?></td>
-													<td class="switch_<?php echo $fetch_products->raw_id;?>">
+													<td><?php echo ucfirst($fetch_cust->customer_fname);?>&nbsp;<?php echo ucfirst($fetch_cust->customer_lname);?></td>
+													<td><?php echo ucfirst($fetch_cust->customer_email);?></td>
+													<td><?php echo ucfirst($fetch_cust->customer_phone);?></td>
+													<td><?php echo $fetch_cust->customer_addr;?></td>
+													<td><?php echo date('d/m/Y',$fetch_cust->customer_date);?></td>
+													<td class="switch_<?php echo $fetch_cust->customer_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_products->raw_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_products->raw_id;?>','<?php echo $fetch_products->raw_status;?>');">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_cust->customer_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_cust->customer_id;?>','<?php echo $fetch_cust->customer_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="<?php echo base_url('admin_edit_product/');?><?php echo $fetch_products->raw_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="<?php echo base_url('admin_listing_product/delete_product/');?><?php echo $fetch_products->raw_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('account_edit_customer/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('account_listing_customer/delete_product/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php
@@ -168,11 +156,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(product_id,product_status)
+			function change_status(customer_id,customer_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_listing_mobile_case/change_status',
-		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
+		        url: '<?php echo base_url();?>account_listing_customer/change_status',
+		        data: {'customer_id': customer_id,'customer_status':customer_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -183,7 +171,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+product_id+'').html(response);
+				 $('.switch_'+customer_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

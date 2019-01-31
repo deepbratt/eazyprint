@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing Customer</h4>
+							<h4 class="page-title">View Customer &nbsp;&nbsp;<a href="<?php echo base_url("account_add_customer");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Listing Customer</li>
+								<li class="breadcrumb-item active" aria-current="page">View Customer</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
