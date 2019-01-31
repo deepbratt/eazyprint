@@ -25,10 +25,16 @@ $this->load->view("common/metalinks");
 <?php
 $this->load->view("common/header");
 ?>
+		<div>
+			<img src="<?php echo base_url();?>images/product_banner2.png">
+		</div>
 		<div class="page">
 			<div class="page-main">				
 				<div class="container">
 					<div class="side-app">
+						
+						
+						
 						<div class="page-header">
 							<h4 class="page-title">Shop</h4>
 							<ol class="breadcrumb">

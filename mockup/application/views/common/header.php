@@ -85,21 +85,21 @@
 												
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_muug.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Mugs</span>
 												</div>
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_dual_tone_mug.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Dual Tone Mugs</span>
 												</div>
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_heart_shape_mug.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Heart Shaped Mugs</span>
 												</div>
@@ -132,21 +132,21 @@
 												
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/Wink-face-comic-fun-graphic-printed-half-sleeve-t-shirt-for-men_800x.jpg" style="height:200px;">
 													</a>
 													<span class="text-dark">Trendy Tshirts</span>
 												</div>
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/61faFY0xivL._UX569_.jpg" style="height:200px;">
 													</a>
 													<span class="text-dark">Merchandised Tshirts</span>
 												</div>
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_event.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Event Tshirts</span>
 												</div>
@@ -167,37 +167,31 @@
 												<div class="col-md-2" style="text-align:left;">
 													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
 													<ul style="padding-top:10px;">
-													
 														<li class="text-dark">Printed Tshirts</li>
 														<li class="text-dark">Corporate Tshirts</li>
 														<li class="text-dark">Couple Tshirts</li>
 														<li class="text-dark">Family Tshirts</li>
-
-													
 													</ul>
 												</div>
 												
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_phones.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Trendy MOBILE BACKCOVER</span>
 												</div>
-
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_phones1.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Merchandised MOBILE BACKCOVER</span>
 												</div>
-
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/bewkoof/mobile-covers-desktop-box-1542286246.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_phones2.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Event MOBILE BACKCOVER</span>
 												</div>
-												
 										 </div>
 									   </div>
 									</li>

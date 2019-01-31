@@ -305,27 +305,18 @@ $this->load->view("common/header");
 							<a href="#"><img class="img-responsive img_op" src="<?php echo base_url();?>images/men.png" style="width:99%;height:99%;"></a>
 						</div>
 						<div class="col-lg-6" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/women.png" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/wooman.png" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
-				<div class="container" style="padding-top:5px;">
-					<div class="row">
-						<div class="col-lg-12" style="padding:0px;margin:0px;text-align:left;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/tshirts.png" style="width:100%;height:99%;">
-						</div>
-						<!-- <div class="col-lg-4" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/homebanner/5banner_573x.jpg" style="width:99%;height:99%;">
-						</div> -->
-					</div>
-				</div>
+				
 				<div class="container" style="padding-top:5px;">
 					<div class="row">
 						<div class="col-lg-4" style="padding:0px;margin:0px;text-align:left;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/04__coffee-mug-mockup-free.jpg" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/Mugs.png" style="width:99%;height:99%;">
 						</div>
 						<div class="col-lg-8" style="padding:0px;margin:0px;text-align:right;">
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/case.png" style="width:99%;height:99%;">
+							<img class="img-responsive img_op" src="<?php echo base_url();?>images/phone.png" style="width:99%;height:99%;">
 						</div>
 					</div>
 				</div>
