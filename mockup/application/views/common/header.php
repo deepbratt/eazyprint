@@ -92,18 +92,18 @@
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
+														<img  src="<?php echo base_url();?>images/blank_coffee_mugs1.png" style="height:200px;">
+													</a>
+													<span class="text-dark">Heart Shaped Mugs</span>
+												</div>
+
+												<div class="col-md-3">
+													<a class="nav-link" href="#">
 														<img  src="<?php echo base_url();?>images/blank_dual_tone_mug.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Dual Tone Mugs</span>
 												</div>
 
-												<div class="col-md-3">
-													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_heart_shape_mug.png" style="height:200px;">
-													</a>
-													<span class="text-dark">Heart Shaped Mugs</span>
-												</div>
-												
 										 </div>
 									   </div>
 									</li>
@@ -139,16 +139,16 @@
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/61faFY0xivL._UX569_.jpg" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/blank_tshirt1.png" style="height:200px;">
 													</a>
-													<span class="text-dark">Merchandised Tshirts</span>
+													<span class="text-dark">Polo Tshirts</span>
 												</div>
 
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_event.png" style="height:200px;">
+														<img  src="<?php echo base_url();?>images/61faFY0xivL._UX569_.jpg" style="height:200px;">
 													</a>
-													<span class="text-dark">Event Tshirts</span>
+													<span class="text-dark">Merchandised Tshirts</span>
 												</div>
 												
 										 </div>
@@ -182,15 +182,15 @@
 												</div>
 												<div class="col-md-3">
 													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_phones1.png" style="height:200px;">
-													</a>
-													<span class="text-dark">Merchandised MOBILE BACKCOVER</span>
-												</div>
-												<div class="col-md-3">
-													<a class="nav-link" href="#">
 														<img  src="<?php echo base_url();?>images/blank_phones2.png" style="height:200px;">
 													</a>
 													<span class="text-dark">Event MOBILE BACKCOVER</span>
+												</div>
+												<div class="col-md-3">
+													<a class="nav-link" href="#">
+														<img  src="<?php echo base_url();?>images/blank_phones1.png" style="height:200px;">
+													</a>
+													<span class="text-dark">Merchandised MOBILE BACKCOVER</span>
 												</div>
 										 </div>
 									   </div>
@@ -214,7 +214,7 @@
 										</a>
 									</li>
 
-									<li class="nav-item" style="float:right;">
+									<li class="nav-item" style="margin-left:162px;">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
