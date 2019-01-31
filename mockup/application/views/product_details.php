@@ -235,6 +235,9 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 
+				<div>
+					<img src="<?php echo base_url();?>images/blank_case.png">
+				</div>
 				<div class="container" style="margin-top:40px;">
 					<div class="side-app">
 						<div class="col-md-12">
