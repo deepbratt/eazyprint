@@ -70,10 +70,10 @@
                         </li>
 						<div id="orderz" class="collapse <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('pending_orders');?>"><span class="side-menu__label">Pending Orders</span></a>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'pending_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('pending_orders');?>">Pending Orders</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('processing_orders');?>"><span class="side-menu__label">Processing Orders</span></a>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'processing_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('processing_orders');?>">Processing Orders</a>
 							</li>
 						</div>
 						<!-- Orders Ends -->
@@ -84,23 +84,20 @@
                         </li>
 						<div id="transaction" class="collapse <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('add_sale_order');?>">
-									<span class="side-menu__label">Sale Invoice</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_sale_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_sale_order');?>">
+									Sale Invoice
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('add_purchase_order');?>">
-									<span class="side-menu__label">Purchase Invoice</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_purchase_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_purchase_order');?>">Purchase Invoice
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('add_report');?>">
-									<span class="side-menu__label">Report</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_report')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_report');?>">Report
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('transaction_history');?>">
-									<span class="side-menu__label">Transaction History</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'transaction_history')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('transaction_history');?>">Transaction History
 								</a>
 							</li>
 						</div>
@@ -112,13 +109,11 @@
                         </li>
 						<div id="dealz" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('admin_listing_coupon');?>">
-									<span class="side-menu__label">Discount Coupons</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_listing_coupon')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('admin_listing_coupon');?>">Discount Coupons
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('admin_listing_offer');?>">
-									<span class="side-menu__label">Promotional Offers</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_listing_offer')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('admin_listing_offer');?>">Promotional Offers
 								</a>
 							</li>
 						</div>
@@ -126,22 +121,19 @@
 
 						<!-- Settings STARTS -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'header-active':'');?>" data-target="#settingzz">Settings</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_setting' || $this->uri->segment(1) == 'dealer_change_password')?'header-active':'');?>" data-target="#settingzz">Settings</a>
                         </li>
-						<div id="settingzz" class="collapse <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_setting' || $this->uri->segment(1) == 'dealer_change_password' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
+						<div id="settingzz" class="collapse <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_setting' || $this->uri->segment(1) == 'dealer_change_password')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('account_gst_info');?>">
-									<span class="side-menu__label">GST Settings</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'account_gst_info')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('account_gst_info');?>">GST Settings
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('admin_setting');?>">
-									<span class="side-menu__label">Company Info</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_setting')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('admin_setting');?>">Company Info
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('dealer_change_password');?>">
-									<span class="side-menu__label">Change Password</span>
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'dealer_change_password')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('dealer_change_password');?>">Change Password
 								</a>
 							</li>
 						</div>
