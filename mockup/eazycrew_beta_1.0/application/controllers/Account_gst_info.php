@@ -14,7 +14,7 @@ class Account_gst_info extends CI_Controller {
 	{
 		$this->load->model('account_gst_info_m');
 		$data['fetch_city_state'] = $this->account_gst_info_m->fetch_state_city();
-		$this->load->view('account_gst_info',$data);
+		$this->load->view('profile/account_gst_info',$data);
 	}
 
 	public function ajax_state_name(){

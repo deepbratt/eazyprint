@@ -12,7 +12,7 @@ class Admin_add_mobile_case extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_add_mobile_case');
+		$this->load->view('products/admin_add_mobile_case');
 	}
 
 	public function add_mobile_case(){
@@ -270,7 +270,7 @@ class Admin_add_mobile_case extends CI_Controller {
 
 		$insert_product = $this->admin_add_mobile_case_m->insert_product($records);
 		$this->session->set_flashdata("success", "Product Added Successfully!");
-		redirect('admin_add_mobile_case');
+		redirect('products/admin_add_mobile_case');
 	}
 
 }

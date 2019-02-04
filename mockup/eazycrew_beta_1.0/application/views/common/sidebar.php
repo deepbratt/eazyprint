@@ -30,19 +30,19 @@
 
 						<!-- Raw material Information Starts-->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' || $this->uri->segment(1) == 'admin_edit_product' || $this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' || $this->uri->segment(1) == 'admin_edit_tshirt' || $this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' || $this->uri->segment(1) == 'admin_edit_mug')?'header-active':'');?>" data-target="#rawmaterials">Raw Materials</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug')?'header-active':'');?>" data-target="#rawmaterials">Raw Materials</a>
                         </li>
-						<div id="rawmaterials" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_mobile_case' || $this->uri->segment(1) == 'admin_listing_mobile_case' ||$this->uri->segment(1) == 'admin_edit_mobile_case' || $this->uri->segment(1) == 'admin_add_product' || $this->uri->segment(1) == 'admin_listing_product' || $this->uri->segment(1) == 'admin_edit_product' || $this->uri->segment(1) == 'admin_add_tshirt' || $this->uri->segment(1) == 'admin_listing_tshirt' || $this->uri->segment(1) == 'admin_edit_tshirt' || $this->uri->segment(1) == 'admin_add_mug' || $this->uri->segment(1) == 'admin_listing_mug' || $this->uri->segment(1) == 'admin_edit_mug')?'show':'');?>">
+						<div id="rawmaterials" class="collapse <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('admin_listing_tshirt');?>"><span class="side-menu__label"> T-Shirt </span></a>
+								<a class="side-menu__item" href="<?php echo base_url('listing_tshirt');?>"><span class="side-menu__label"> T-Shirt </span></a>
 							</li>
 
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('admin_listing_mobile_case');?>"><span class="side-menu__label"> Mobile Cases </span></a>
+								<a class="side-menu__item" href="<?php echo base_url('listing_mobile_case');?>"><span class="side-menu__label"> Mobile Cases </span></a>
 							</li>
 
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('admin_listing_mug');?>"><span class="side-menu__label"> Coffee Mugs </span></a>
+								<a class="side-menu__item" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Coffee Mugs </span></a>
 							</li>
 						</div>
 						<!-- Raw material Information Ends -->
@@ -50,15 +50,15 @@
 
 						<!-- product starts -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible" data-target="#products">Products</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_product' || $this->uri->segment(1) == 'listing_product')?'header-active':'');?>" data-target="#products">Products</a>
                         </li>
 						
-						<div id="products" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'show':'');?>">
+						<div id="products" class="collapse <?php echo(($this->uri->segment(1) == 'add_product' || $this->uri->segment(1) == 'listing_product')?'show':'');?>">
 								<li class="slide">
-									<a href="<?php echo base_url('admin_add_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_add_product')?'active_sidebar_submenu':'');?>">Add Product</a>
+									<a href="<?php echo base_url('add_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_product')?'active_sidebar_submenu':'');?>">Add Product</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('admin_listing_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_listing_product' ||$this->uri->segment(1) == 'admin_edit_product')?'active_sidebar_submenu':'');?>">View Products</a>
+									<a href="<?php echo base_url('listing_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'listing_product')?'active_sidebar_submenu':'');?>">View Products</a>
 								</li>
 						</div>
 						<!-- product ends -->
@@ -66,41 +66,42 @@
 
 						<!-- Orders Starts -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible" data-target="#orderz">Orders</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'header-active':'');?>" data-target="#orderz">Orders</a>
                         </li>
-						<div id="orderz" class="collapse">
+						<div id="orderz" class="collapse <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('pending_orders');?>"><span class="side-menu__label">View Orders</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('pending_orders');?>"><span class="side-menu__label">Pending Orders</span></a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="#"><span class="side-menu__label">Add Orders</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('processing_orders');?>"><span class="side-menu__label">Processing Orders</span></a>
 							</li>
 						</div>
 						<!-- Orders Ends -->
 
 						<!-- Transactions Starts -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible" data-target="#transaction">Transactions</a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'header-active':'');?>" data-target="#transaction">Transactions</a>
                         </li>
-						<div id="transaction" class="collapse">
+						<div id="transaction" class="collapse <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item"  href="<?php echo base_url('pending_orders');?>">
-									<span class="side-menu__label">Sell Invoice</span>
+								<a class="side-menu__item"  href="<?php echo base_url('add_sale_order');?>">
+									<span class="side-menu__label">Sale Invoice</span>
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item"  href="#">
+								<a class="side-menu__item"  href="<?php echo base_url('add_purchase_order');?>">
 									<span class="side-menu__label">Purchase Invoice</span>
 								</a>
 							</li>
 							<li class="slide">
-
-								<a class="side-menu__item" data-toggle="slide" href="#"><i class="fas fa-clipboard-list" style="padding-right:5px;"></i><span class="side-menu__label"> Report</span></a>
-
-								<a class="side-menu__item"  href="#">
+								<a class="side-menu__item"  href="<?php echo base_url('add_report');?>">
+									<span class="side-menu__label">Report</span>
+								</a>
+							</li>
+							<li class="slide">
+								<a class="side-menu__item"  href="<?php echo base_url('transaction_history');?>">
 									<span class="side-menu__label">Transaction History</span>
 								</a>
-
 							</li>
 						</div>
 						<!-- Transactions Ends -->
@@ -111,30 +112,40 @@
                         </li>
 						<div id="dealz" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="<?php echo base_url('admin_listing_coupon');?>"><span class="side-menu__label"> Discount Coupons</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('admin_listing_coupon');?>">
+									<span class="side-menu__label">Discount Coupons</span>
+								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" data-toggle="slide" href="<?php echo base_url('admin_listing_offer');?>"><span class="side-menu__label"> Promotional Offers</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('admin_listing_offer');?>">
+									<span class="side-menu__label">Promotional Offers</span>
+								</a>
 							</li>
 						</div>
 						<!-- Deals ENDS -->
 
 						<!-- Settings STARTS -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'header-active':'');?>" data-target="#settings"> Settings </a>
+                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'header-active':'');?>" data-target="#settingzz">Settings</a>
                         </li>
-						<div id="settings" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_crew' || $this->uri->segment(1) == 'admin_listing_crew' ||$this->uri->segment(1) == 'admin_edit_crew')?'show':'');?>">
+						<div id="settingzz" class="collapse <?php echo(($this->uri->segment(1) == 'account_gst_info' || $this->uri->segment(1) == 'admin_setting' || $this->uri->segment(1) == 'dealer_change_password' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
 							<li class="slide">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'dealer_gst_info')?'active':'');?>" href="<?php echo base_url('dealer_gst_info');?>"><span class="side-menu__label">GST Settings</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('account_gst_info');?>">
+									<span class="side-menu__label">GST Settings</span>
+								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_setting')?'active':'');?>" href="<?php echo base_url('admin_setting');?>"><span class="side-menu__label">Company Info</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('admin_setting');?>">
+									<span class="side-menu__label">Company Info</span>
+								</a>
 							</li>
-
 							<li class="slide">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_setting')?'active':'');?>" href="<?php echo base_url('dealer_setting');?>"><span class="side-menu__label">Profile</span></a>
+								<a class="side-menu__item"  href="<?php echo base_url('dealer_change_password');?>">
+									<span class="side-menu__label">Change Password</span>
+								</a>
 							</li>
 						</div>
-						<!-- Settings STARTS -->
+						<!-- Settings ENDS -->
+
 					</ul>
 				</aside>

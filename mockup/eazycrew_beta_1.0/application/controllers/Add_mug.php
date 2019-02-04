@@ -5,7 +5,7 @@ class Admin_add_mug extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_add_mug');
+		$this->load->view('products/admin_add_mug');
 	}
 
 }

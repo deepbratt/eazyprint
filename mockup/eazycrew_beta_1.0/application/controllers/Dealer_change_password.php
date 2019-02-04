@@ -11,7 +11,7 @@ class Dealer_change_password extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('dealer_change_password');
+		$this->load->view('profile/dealer_change_password');
 	}
 
 }

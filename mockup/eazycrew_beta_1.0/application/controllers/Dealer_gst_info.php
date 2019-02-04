@@ -11,7 +11,7 @@ class Dealer_gst_info extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('dealer_gst_info');
+		$this->load->view('profile/dealer_gst_info');
 	}
 
 }

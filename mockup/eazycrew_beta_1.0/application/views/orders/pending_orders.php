@@ -103,7 +103,6 @@
 												<tbody>
 												<?php
 													$count_pending_order = count($get_pending_orders);
-													if()
 												?>
 												  <tr>
 												    <td></td>

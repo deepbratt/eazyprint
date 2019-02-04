@@ -5,7 +5,7 @@ class Admin_listing_coupon extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_listing_coupon');
+		$this->load->view('offers/admin_listing_coupon');
 	}
 
 }

@@ -12,7 +12,7 @@ class Dealer_setting extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('dealer_setting');
+		$this->load->view('profile/dealer_setting');
 	}
 
 

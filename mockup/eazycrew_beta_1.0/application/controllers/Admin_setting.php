@@ -15,7 +15,7 @@ class Admin_setting extends CI_Controller {
 		$this->load->model('admin_setting_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['admin_data'] = $this->admin_setting_m->fetch_data($user_id);
-		$this->load->view('admin_setting',$data);
+		$this->load->view('profile/admin_setting',$data);
 	}
 
 	public function update_admin()
@@ -67,10 +67,10 @@ class Admin_setting extends CI_Controller {
 			}
 			$update_admin = $this->admin_setting_m->update_admin($user_id,$records);
 			$this->session->set_flashdata("success", "Profile Updated Successfully!");
-	        redirect('admin_setting');
+	        redirect('profile/admin_setting');
 		}else{
 			$this->session->set_flashdata("failed", "This Email Already Exist!");
-	        redirect('admin_setting');
+	        redirect('profile/admin_setting');
 		}
 	}
 

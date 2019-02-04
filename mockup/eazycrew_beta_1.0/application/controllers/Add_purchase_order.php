@@ -18,7 +18,7 @@ class Add_purchase_order extends CI_Controller {
 		$data['fetch_supplier_info'] = $this->purchase_order_m->supplier_info();
 		$data['fetch_raw_details'] = $this->purchase_order_m->raw_details();
 		$data['fetch_cities'] = $this->purchase_order_m->fetch_cities();
-		$this->load->view('add_purchase_order',$data);
+		$this->load->view('transasctions/add_purchase_order',$data);
 	}
 
 	public function ajax_supplier_addr(){

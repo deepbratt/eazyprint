@@ -5,7 +5,7 @@ class Admin_add_tshirt extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_add_tshirt');
+		$this->load->view('products/admin_add_tshirt');
 	}
 
 }

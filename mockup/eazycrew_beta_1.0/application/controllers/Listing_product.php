@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_listing_product extends CI_Controller {
+class Listing_product extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_listing_product');
+		$this->load->view('products/Listing_product');
 	}
 
 }

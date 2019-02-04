@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Invoice extends CI_Controller {
+class Processing_orders extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -12,10 +12,9 @@ class Invoice extends CI_Controller {
     
 	public function index()
 	{
-		$this->load->view('orders/invoice');
+		$this->load->view('orders/processing_orders');
 	}
-
 }
 
-/* End of file Invoice.php */
-/* Location: ./application/controllers/Invoice.php */
+/* End of file Admin_login.php */
+/* Location: ./application/controllers/Admin_login.php */

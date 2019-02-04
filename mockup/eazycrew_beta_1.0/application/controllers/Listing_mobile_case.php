@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_listing_mobile_case extends CI_Controller {
+class Listing_mobile_case extends CI_Controller {
 
 	public function index()
 	{
 		$this->load->model('admin_add_mobile_case_m');
 		$data['fetch_raw_materials'] = $this->admin_add_mobile_case_m->fetch_product_details();
-		$this->load->view('admin_listing_mobile_case',$data);
+		$this->load->view('products/listing_mobile_case',$data);
 	}
 
 	public function delete_product()
@@ -17,7 +17,7 @@ class Admin_listing_mobile_case extends CI_Controller {
 		$delete_query = array('raw_status' => '0');
 		$delete_product = $this->admin_add_mobile_case_m->delete_product($delete_query,$product_id);
 		$this->session->set_flashdata("success", "Product Deleted!");
-		redirect('admin_listing_mobile_case');
+		redirect('products/listing_mobile_case');
 	}
 
 		public function change_status()
