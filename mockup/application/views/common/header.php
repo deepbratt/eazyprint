@@ -214,7 +214,7 @@
 										</a>
 									</li>
 
-									<li class="nav-item" style="margin-left:162px;">
+									<li class="nav-item" style="margin-left:160px;">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
