@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | Dealer's GST Information</title>
+		<title>Eazyprint | Add Vendor</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">GST Information</h4>
+							<h4 class="page-title">Add Vendor</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">GST Information</li>
+								<li class="breadcrumb-item active" aria-current="page">Add Vendor</li>
 							</ol>
 						</div>
 						<div class="row">

@@ -30,7 +30,7 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Add Customer &nbsp;&nbsp;<a href="<?php echo base_url("account_listing_customer");?>" class="btn btn-primary">View All</a></h4>
+							<h4 class="page-title">Add Customer &nbsp;&nbsp;<a href="<?php echo base_url("listing_customers");?>" class="btn btn-primary">View All</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Add Customer</li>
@@ -54,7 +54,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
+								<form  method="post" action="<?php echo base_url('');?>">
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Add Customer</h3>

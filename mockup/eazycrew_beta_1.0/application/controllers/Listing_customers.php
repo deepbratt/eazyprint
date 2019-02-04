@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Account_listing_customer extends CI_Controller {
+class Listing_customers extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -14,7 +14,7 @@ class Account_listing_customer extends CI_Controller {
 	{
 		$this->load->model('account_listing_customer_m');
 		$data['fetch_customer_info'] = $this->account_listing_customer_m->fetch_customer();
-		$this->load->view('account_listing_customer',$data);
+		$this->load->view('contacts/listing_customers',$data);
 	}
 
 
@@ -28,7 +28,7 @@ class Account_listing_customer extends CI_Controller {
 		redirect('admin_listing_mobile_case');
 	}
 
-		public function change_status()
+	public function change_status()
 	{
 		$this->load->model('account_listing_customer_m');
 		$customer_id = $this->input->post('customer_id');
