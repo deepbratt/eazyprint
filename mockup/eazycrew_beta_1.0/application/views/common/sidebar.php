@@ -17,13 +17,13 @@
 								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_dealer' || $this->uri->segment(1) == 'edit_dealer' || $this->uri->segment(1) == 'listing_dealers')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_dealers');?>"><span class="side-menu__label"> Dealers </span></a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('listing_vendors');?>"><span class="side-menu__label"> Vendors </span></a>
+								<a class="side-menu__item  <?php echo(($this->uri->segment(1) == 'add_vendor' || $this->uri->segment(1) == 'edit_vendor' || $this->uri->segment(1) == 'listing_vendors')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_vendors');?>"><span class="side-menu__label"> Vendors </span></a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('listing_customers');?>"><span class="side-menu__label"> Customers </span></a>
+								<a class="side-menu__item  <?php echo(($this->uri->segment(1) == 'add_customer' || $this->uri->segment(1) == 'edit_customer' || $this->uri->segment(1) == 'listing_customers')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_customers');?>"><span class="side-menu__label"> Customers </span></a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item" href="<?php echo base_url('listing_eazycrew');?>"><span class="side-menu__label"> Eazycrew </span></a>
+								<a class="side-menu__item  <?php echo(($this->uri->segment(1) == 'add_eazycrew' || $this->uri->segment(1) == 'edit_eazycrew' || $this->uri->segment(1) == 'listing_eazycrew')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_eazycrew');?>"><span class="side-menu__label"> Eazycrew </span></a>
 							</li>
 						</div>
 						<!-- Contacts ENDS -->
