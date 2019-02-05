@@ -52,8 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'admin_login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['admin_edit_category/(:num)'] = "admin_edit_category";
-$route['admin_listing_category/(:num)'] = "admin_listing_category";
+$route['listing_dealers/(:num)'] = "listing_dealers";
+$route['edit_dealer/(:num)'] = "edit_dealer";
+/* $route['admin_listing_category/(:num)'] = "admin_listing_category";
 $route['admin_edit_crew/(:num)'] = "admin_edit_crew";
 $route['admin_listing_brand/(:num)'] = "admin_listing_brand";
 $route['admin_edit_brand/(:num)'] = "admin_edit_brand";
@@ -73,5 +74,4 @@ $route['admin_edit_product_color/(:num)'] = "admin_edit_product_color";
 $route['admin_edit_product/(:num)'] = "admin_edit_product";
 $route['admin_edit_final_product/(:num)'] = "admin_edit_final_product";
 $route['admin_listing_crew/(:num)'] = "admin_listing_crew";
-
-$route['admin_listing_mobile_case/(:num)'] = "admin_listing_mobile_case";
+$route['admin_listing_mobile_case/(:num)'] = "admin_listing_mobile_case"; */

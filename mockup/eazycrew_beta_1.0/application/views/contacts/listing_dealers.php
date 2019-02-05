@@ -97,18 +97,32 @@
 												  </tr>
 												</thead>
 												<tbody>
-												
+												<?php
+													$i = 1;
+													foreach($fetch_dealers_data AS $each_dealers_data){
+												?>
 												  <tr>
-												    <td class="wd-15p">Sl&nbsp;No</td>
-													<td class="wd-15p">Name</td>
-													<td class="wd-15p">Email</td>
-													<td class="wd-15p">Phone</td>
-													<td class="wd-15p">Address</td>
-													<td class="wd-15p">Date</td>
-													<td class="wd-15p">Status</td>
-													<td class="wd-15p">Action</td>
+												    <td class="wd-15p"><?php echo $i;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->dealers_fname;?>&nbsp;<?php echo $each_dealers_data->dealers_lname;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->dealers_email;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->dealers_phone;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->dealers_addr;?><br><?php echo $each_dealers_data->dealers_city;?>&nbsp;<?php echo $each_dealers_data->dealers_state;?><br>PIN:<?php echo $each_dealers_data->dealers_pincode;?></td>
+													<td class="wd-15p"><?php echo date('d/m/Y',$each_dealers_data->dealers_date);?></td>
+													<td class="switch_<?php echo $each_dealers_data->dealers_id;?>">
+														<label class="custom-switch">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($each_dealers_data->dealers_status == 1)?'checked':'');?> onchange="change_status('<?php echo $each_dealers_data->dealers_id;?>','<?php echo $each_dealers_data->dealers_status;?>');">
+															<span class="custom-switch-indicator"></span>
+														</label>
+													</td>
+													<td>
+														<a href="<?php echo base_url('edit_dealer/');?><?php echo $each_dealers_data->dealers_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_dealers/delete_dealer/');?><?php echo $each_dealers_data->dealers_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+													</td>
 												  </tr>
-												
+												<?php
+													$i++;
+													}
+												?>
 												</tbody>
 											  </table>
 										</div>
@@ -141,11 +155,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(customer_id,customer_status)
+			function change_status(dealer_id,dealer_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>account_listing_customer/change_status',
-		        data: {'customer_id': customer_id,'customer_status':customer_status}, // change this to send js object
+		        url: '<?php echo base_url();?>listing_dealers/change_status',
+		        data: {'dealer_id': dealer_id,'dealer_status':dealer_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -156,7 +170,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+customer_id+'').html(response);
+				 $('.switch_'+dealer_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

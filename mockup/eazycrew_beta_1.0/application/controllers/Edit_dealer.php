@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Add_dealer extends CI_Controller {
+class Edit_dealer extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -12,15 +12,17 @@ class Add_dealer extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('add_dealer_m');
-		$data['fetch_city_state'] = $this->add_dealer_m->fetch_state_city();
-		$this->load->view('contacts/add_dealer',$data);
+		$this->load->model('edit_dealer_m');
+		$dealer_id = $this->uri->segment(2);
+		$data['fetch_city_state'] = $this->edit_dealer_m->fetch_state_city();
+		$data['fetch_dealer_data'] = $this->edit_dealer_m->fetch_dealer_info($dealer_id);
+		$this->load->view('contacts/edit_dealer',$data);
 	}
 
 	public function ajax_state_name(){
-		$this->load->model('add_dealer_m');
+		$this->load->model('edit_dealer_m');
 		$state_name = $this->input->post('state');
-		$fetch_cities = $this->add_dealer_m->all_cities($state_name);
+		$fetch_cities = $this->edit_dealer_m->all_cities($state_name);
 	?>
 		<option vlaue="" selected disabled>Choose City</option>
 	<?php
@@ -32,8 +34,10 @@ class Add_dealer extends CI_Controller {
 
 	}
 
-	public function add_new_dealer(){
-		$this->load->model('add_dealer_m');
+	public function update_dealer(){
+		$this->load->model('edit_dealer_m');
+		$dealer_id = $this->uri->segment(3);
+		
 		$fname = $this->input->post('f_name');
 		$lname = $this->input->post('l_name');
 		$email = $this->input->post('email');
@@ -47,7 +51,7 @@ class Add_dealer extends CI_Controller {
 		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
 
-		$check_email = $this->add_dealer_m->check_dealer_data($email);
+		$check_email = $this->edit_dealer_m->check_dealer_data($email,$dealer_id);
 		if($check_email < 1){
 			$dealer_info = array(
 				'dealers_fname'=> $fname,
@@ -67,19 +71,19 @@ class Add_dealer extends CI_Controller {
 				'dealers_date'=> $date
 			);
 
-			$insert_new_dealer = $this->add_dealer_m->insert_dealer($dealer_info);
-			if($insert_new_dealer){
-				$this->session->set_flashdata("success", "Dealer Added Successfully!");
+			$update_dealer = $this->edit_dealer_m->update_dealer($dealer_info,$dealer_id);
+			if($update_dealer){
+				$this->session->set_flashdata("success", "Dealer Updated Successfully!");
 			}else{
 				$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
 			}
 		}else{
 			$this->session->set_flashdata("exist", "Dealer Already Exist...");
 		}
-		redirect('add_dealer');
+		redirect('edit_dealer/'.$dealer_id.'');
 	}
 
 }
 
-/* End of file Admin_add_mug.php */
-/* Location: ./application/controllers/Admin_add_mug.php */
+/* End of file Edit_dealers.php */
+/* Location: ./application/controllers/Edit_dealers.php */
