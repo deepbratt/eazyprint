@@ -163,7 +163,7 @@
 
 										<div class="form-group">
 											<label class="form-label">Trade License Number</label>
-											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your GSTIN Number" value="<?php echo $fetch_dealer_data->dealers_tradelicense_number;?>">
+											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your Trade License Number" value="<?php echo $fetch_dealer_data->dealers_tradelicense_number;?>">
 										</div>
 									</div>
 								</div>

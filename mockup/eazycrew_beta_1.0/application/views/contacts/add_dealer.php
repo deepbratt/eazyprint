@@ -163,7 +163,7 @@
 
 										<div class="form-group">
 											<label class="form-label">Trade License Number</label>
-											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your GSTIN Number">
+											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your Trade License Number">
 										</div>
 									</div>
 								</div>

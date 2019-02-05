@@ -38,7 +38,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="#">
+								<form  method="post" action="<?php echo base_url('add_vendor/add_new_vendor');?>">
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Profile</h3>
@@ -165,7 +165,7 @@
 	<script>
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_gst_info/ajax_state_name',
+				url: '<?php echo base_url();?>add_vendor/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){
