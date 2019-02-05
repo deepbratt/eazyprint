@@ -103,20 +103,20 @@
 												?>
 												  <tr>
 												    <td class="wd-15p"><?php echo $i;?></td>
-													<td class="wd-15p"><?php echo $each_dealers_data->dealers_fname;?>&nbsp;<?php echo $each_dealers_data->dealers_lname;?></td>
-													<td class="wd-15p"><?php echo $each_dealers_data->dealers_email;?></td>
-													<td class="wd-15p"><?php echo $each_dealers_data->dealers_phone;?></td>
-													<td class="wd-15p"><?php echo $each_dealers_data->dealers_addr;?><br><?php echo $each_dealers_data->dealers_city;?>&nbsp;<?php echo $each_dealers_data->dealers_state;?><br>PIN:<?php echo $each_dealers_data->dealers_pincode;?></td>
-													<td class="wd-15p"><?php echo date('d/m/Y',$each_dealers_data->dealers_date);?></td>
-													<td class="switch_<?php echo $each_dealers_data->dealers_id;?>">
+													<td class="wd-15p"><?php echo $each_dealers_data->user_fname;?>&nbsp;<?php echo $each_dealers_data->user_lname;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_email;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_phone;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_address;?><br><?php echo $each_dealers_data->user_city;?>&nbsp;<?php echo $each_dealers_data->user_state;?><br>PIN:<?php echo $each_dealers_data->user_pincode;?></td>
+													<td class="wd-15p"><?php echo date('d/m/Y',$each_dealers_data->user_date);?></td>
+													<td class="switch_<?php echo $each_dealers_data->user_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($each_dealers_data->dealers_status == 1)?'checked':'');?> onchange="change_status('<?php echo $each_dealers_data->dealers_id;?>','<?php echo $each_dealers_data->dealers_status;?>');">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($each_dealers_data->user_status == 1)?'checked':'');?> onchange="change_status('<?php echo $each_dealers_data->user_id;?>','<?php echo $each_dealers_data->user_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="<?php echo base_url('edit_dealer/');?><?php echo $each_dealers_data->dealers_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="<?php echo base_url('listing_dealers/delete_dealer/');?><?php echo $each_dealers_data->dealers_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('edit_dealer/');?><?php echo $each_dealers_data->user_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_dealers/delete_dealer/');?><?php echo $each_dealers_data->user_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php

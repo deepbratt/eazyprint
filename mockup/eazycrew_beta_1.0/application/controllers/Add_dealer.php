@@ -50,21 +50,22 @@ class Add_dealer extends CI_Controller {
 		$check_email = $this->add_dealer_m->check_dealer_data($email);
 		if($check_email < 1){
 			$dealer_info = array(
-				'dealers_fname'=> $fname,
-				'dealers_lname' => $lname,
-				'dealers_email'=> $email,
-				'dealers_phone' => $mobile,
-				'dealers_addr'=> $address,
-				'dealers_pincode' => $pincode,
-				'dealers_state'=> $state,
-				'dealers_city' => $city,
-				'dealers_store_name'=> $legal_name,
-				'dealers_tradelicense_number' => $trade_license_number,
-				'dealers_gst_number'=> $gst_number,
-				'dealers_email_status' => '0',
-				'dealers_phone_status'=> '0',
-				'dealers_status' => '1',
-				'dealers_date'=> $date
+				'user_type' => 'dealer',
+				'user_fname'=> $fname,
+				'user_lname' => $lname,
+				'user_email'=> $email,
+				'user_phone' => $mobile,
+				'user_address'=> $address,
+				'user_pincode' => $pincode,
+				'user_state'=> $state,
+				'user_city' => $city,
+				'user_store_name'=> $legal_name,
+				'user_tradelicense_number' => $trade_license_number,
+				'user_gst_number'=> $gst_number,
+				'user_email_status' => '0',
+				'user_phone_status'=> '0',
+				'user_status' => '1',
+				'user_date'=> $date
 			);
 
 			$insert_new_dealer = $this->add_dealer_m->insert_dealer($dealer_info);

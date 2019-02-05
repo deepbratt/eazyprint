@@ -21,9 +21,9 @@ class Edit_dealer_m extends CI_Model {
 
 	public function check_dealer_data($email,$dealer_id){
 		$this->db->select('*');
-		$this->db->from('dealers');
-		$this->db->where('dealers_email',$email);
-		$this->db->where('dealers_id !=',$dealer_id);
+		$this->db->from('user');
+		$this->db->where('user_email',$email);
+		$this->db->where('user_id !=',$dealer_id);
 		$query = $this->db->get();
 		return $query->num_rows();
 		//return $this->db->last_query();
@@ -31,15 +31,15 @@ class Edit_dealer_m extends CI_Model {
 
 	public function fetch_dealer_info($dealer_id){
 		$this->db->select('*');
-		$this->db->from('dealers');
-		$this->db->where('dealers_id',$dealer_id);
+		$this->db->from('user');
+		$this->db->where('user_id',$dealer_id);
 		$query = $this->db->get();
 		return $query->row();
 	}
 
 	public function update_dealer($dealer_info,$dealer_id){
-		$this->db->where("dealers_id", $dealer_id);
-		$query = $this->db->update('dealers', $dealer_info);
+		$this->db->where("user_id", $dealer_id);
+		$query = $this->db->update('user', $dealer_info);
 		return true;
 	}
 

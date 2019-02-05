@@ -36,7 +36,7 @@ class Listing_dealers extends CI_Controller {
 		}else if($dealer_status == 0){
 			$changed_status = "1";
 		}
-		$update_array = array('dealers_status' => $changed_status);
+		$update_array = array('user_status' => $changed_status);
 		$update_dealer = $this->listing_dealers_m->update_status($dealer_id,$update_array);
 ?>
 		<label class="custom-switch">

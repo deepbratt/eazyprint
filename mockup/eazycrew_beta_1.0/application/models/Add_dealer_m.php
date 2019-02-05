@@ -21,15 +21,16 @@ class Add_dealer_m extends CI_Model {
 
 	public function check_dealer_data($email){
 		$this->db->select('*');
-		$this->db->from('dealers');
-		$this->db->where('dealers_email',$email);
+		$this->db->from('user');
+		$this->db->where('user_email',$email);
+		$this->db->where('user_type','dealer');
 		$query = $this->db->get();
 		return $query->num_rows();
 		//return $this->db->last_query();
 	}
 	public function insert_dealer($dealer_info)
 	{
-		$this->db->insert('dealers', $dealer_info);
+		$this->db->insert('user', $dealer_info);
 		return true;
 	}
 

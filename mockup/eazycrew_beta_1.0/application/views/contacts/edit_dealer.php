@@ -71,13 +71,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">First Name</label>
-													<input type="text" class="form-control" name="f_name" placeholder="Enter First Name" value="<?php echo $fetch_dealer_data->dealers_fname;?>">
+													<input type="text" class="form-control" name="f_name" placeholder="Enter First Name" value="<?php echo $fetch_dealer_data->user_fname;?>">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control" name="l_name" placeholder="Enter last Name" value="<?php echo $fetch_dealer_data->dealers_lname;?>">
+													<input type="text" class="form-control" name="l_name" placeholder="Enter last Name" value="<?php echo $fetch_dealer_data->user_lname;?>">
 												</div>
 											</div>
 										</div>
@@ -85,13 +85,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Email</label>
-													<input type="email" class="form-control" name="email" placeholder="Enter Email" value="<?php echo $fetch_dealer_data->dealers_email?>">
+													<input type="email" class="form-control" name="email" placeholder="Enter Email" value="<?php echo $fetch_dealer_data->user_email?>">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Mobile</label>
-													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" value="<?php echo $fetch_dealer_data->dealers_phone;?>">
+													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" value="<?php echo $fetch_dealer_data->user_phone;?>">
 												</div>
 											</div>
 										</div>
@@ -99,7 +99,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Address</label>
-													<textarea class="form-control" name="address" placeholder="Enter Address Here"><?php echo $fetch_dealer_data->dealers_addr;?></textarea>
+													<textarea class="form-control" name="address" placeholder="Enter Address Here"><?php echo $fetch_dealer_data->user_address;?></textarea>
 												</div>
 											</div>
 										</div>
@@ -112,7 +112,7 @@
 														<?php
 															foreach($fetch_city_state AS $each_state){
 														?>
-															<option value="<?php echo $each_state->city_state;?>" <?php echo (($fetch_dealer_data->dealers_state == $each_state->city_state)?'selected':'')?>><?php echo $each_state->city_state;?></option>
+															<option value="<?php echo $each_state->city_state;?>" <?php echo (($fetch_dealer_data->user_state == $each_state->city_state)?'selected':'')?>><?php echo $each_state->city_state;?></option>
 														<?php
 															}
 														?>
@@ -128,7 +128,7 @@
 														<?php
 															foreach($fetch_city_state AS $each_city){
 														?>
-															<option value="<?php echo $each_city->city_name;?>" <?php echo (($fetch_dealer_data->dealers_city == $each_city->city_name)?'selected':'')?>><?php echo $each_city->city_name;?></option>
+															<option value="<?php echo $each_city->city_name;?>" <?php echo (($fetch_dealer_data->user_city == $each_city->city_name)?'selected':'')?>><?php echo $each_city->city_name;?></option>
 														<?php
 															}
 														?>
@@ -140,7 +140,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Pincode</label>
-													<input type="number" class="form-control" name="pincode" placeholder="Enter Pincode" value="<?php echo $fetch_dealer_data->dealers_pincode;?>">
+													<input type="number" class="form-control" name="pincode" placeholder="Enter Pincode" value="<?php echo $fetch_dealer_data->user_pincode;?>">
 												</div>
 											</div>
 										</div>
@@ -153,17 +153,17 @@
 									<div class="card-body">
 										<div class="form-group">
 											<label class="form-label">Legal Name</label>
-											<input type="text" class="form-control" name="legal_name" placeholder="Enter Your Legal Name" value="<?php echo $fetch_dealer_data->dealers_store_name;?>">
+											<input type="text" class="form-control" name="legal_name" placeholder="Enter Your Legal Name" value="<?php echo $fetch_dealer_data->user_store_name;?>">
 										</div>
 
 										<div class="form-group">
 											<label class="form-label">GSTIN Number</label>
-											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your GSTIN Number" value="<?php echo $fetch_dealer_data->dealers_gst_number;?>">
+											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your GSTIN Number" value="<?php echo $fetch_dealer_data->user_gst_number;?>">
 										</div>
 
 										<div class="form-group">
 											<label class="form-label">Trade License Number</label>
-											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your Trade License Number" value="<?php echo $fetch_dealer_data->dealers_tradelicense_number;?>">
+											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your Trade License Number" value="<?php echo $fetch_dealer_data->user_tradelicense_number;?>">
 										</div>
 									</div>
 								</div>

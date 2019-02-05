@@ -84,13 +84,15 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">State</label>
-													<select class="form-control" name="state" onchange="state_name(this.value);">
+													<select class="form-control" name="state" onchange="state_name(this.value);"  data-dropup-auto="false">
 														<option vlaue="" selected disabled>Choose State</option>
-															<option >West Bengal</option>
-															<option >Delhi</option>
-															<option >Mumbai</option>
-															<option >Bangalore</option>
-															<option >Hariyana</option>
+														<?php
+															foreach($fetch_city_state AS $each_state){
+														?>
+															<option value="<?php echo $each_state->city_state;?>"><?php echo $each_state->city_state;?></option>
+														<?php
+															}
+														?>
 													</select>
 												</div>
 											</div>
@@ -100,11 +102,13 @@
 													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
-															<option>Kolkata</option>
-															<option>Midnapur</option>
-															<option>Siliguri</option>
-															<option>Medinipur</option>
-															<option>Asansol</option>
+														<?php
+															foreach($fetch_city_state AS $each_city){
+														?>
+															<option value="<?php echo $each_city->city_name;?>"><?php echo $each_city->city_name;?></option>
+														<?php
+															}
+														?>
 													</select>
 												</div>
 											</div>
@@ -132,6 +136,11 @@
 										<div class="form-group">
 											<label class="form-label">GSTIN Number</label>
 											<input type="text" class="form-control" name="gst_number" placeholder="Enter Your GSTIN Number">
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">Trade License Number</label>
+											<input type="text" class="form-control" name="trade_license_number" placeholder="Enter Your Trade License Number">
 										</div>
 									</div>
 								</div>
