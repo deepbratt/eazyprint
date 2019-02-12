@@ -92,7 +92,6 @@
 													<th class="wd-15p">Phone</th>
 													<th class="wd-15p">Address</th>
 													<th class="wd-15p">Date</th>
-													
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
@@ -100,24 +99,24 @@
 												<tbody>
 												<?php
 												$i = 1;
-												foreach($fetch_customer_info as $fetch_cust){
+												foreach($fetch_customer_info as $each_dealers_data){
 												?>
 												  <tr>
-												    <td><?php echo $i;?></td>
-													<td><?php echo ucfirst($fetch_cust->customer_fname);?>&nbsp;<?php echo ucfirst($fetch_cust->customer_lname);?></td>
-													<td><?php echo ucfirst($fetch_cust->customer_email);?></td>
-													<td><?php echo ucfirst($fetch_cust->customer_phone);?></td>
-													<td><?php echo $fetch_cust->customer_addr;?></td>
-													<td><?php echo date('d/m/Y',$fetch_cust->customer_date);?></td>
-													<td class="switch_<?php echo $fetch_cust->customer_id;?>">
+												    <td class="wd-15p"><?php echo $i;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_fname;?>&nbsp;<?php echo $each_dealers_data->user_lname;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_email;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_phone;?></td>
+													<td class="wd-15p"><?php echo $each_dealers_data->user_address;?><br><?php echo $each_dealers_data->user_city;?>&nbsp;<?php echo $each_dealers_data->user_state;?><br>PIN:<?php echo $each_dealers_data->user_pincode;?></td>
+													<td class="wd-15p"><?php echo date('d/m/Y',$each_dealers_data->user_date);?></td>
+													<td class="switch_<?php echo $each_dealers_data->user_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($fetch_cust->customer_status == 1)?'checked':'');?> onchange="change_status('<?php echo $fetch_cust->customer_id;?>','<?php echo $fetch_cust->customer_status;?>');">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($each_dealers_data->user_status == 1)?'checked':'');?> onchange="change_status('<?php echo $each_dealers_data->user_id;?>','<?php echo $each_dealers_data->user_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="<?php echo base_url('account_edit_customer/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="<?php echo base_url('account_listing_customer/delete_product/');?><?php echo $fetch_cust->customer_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('edit_customers/');?><?php echo $each_dealers_data->user_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_customers/delete_customer/');?><?php echo $each_dealers_data->user_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php
@@ -159,7 +158,7 @@
 			function change_status(customer_id,customer_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>account_listing_customer/change_status',
+		        url: '<?php echo base_url();?>listing_customers/change_status',
 		        data: {'customer_id': customer_id,'customer_status':customer_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){

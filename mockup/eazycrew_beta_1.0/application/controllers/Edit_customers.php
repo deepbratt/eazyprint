@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Add_customer extends CI_Controller {
+class Edit_customers extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -13,9 +13,10 @@ class Add_customer extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('contacts_m');
-		$user_type = 'customer';
-		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city($user_type);
-		$this->load->view('contacts/add_customer',$data);
+		$dealer_id = $this->uri->segment(2);
+		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city();
+		$data['fetch_dealer_data'] = $this->contacts_m->fetch_contacts_info($dealer_id);
+		$this->load->view('contacts/edit_customers',$data);
 	}
 
 	public function ajax_state_name(){
@@ -33,8 +34,10 @@ class Add_customer extends CI_Controller {
 
 	}
 
-	public function add_new_customer(){
+	public function update_customer(){
 		$this->load->model('contacts_m');
+		$dealer_id = $this->uri->segment(3);
+		
 		$fname = $this->input->post('f_name');
 		$lname = $this->input->post('l_name');
 		$email = $this->input->post('email');
@@ -43,16 +46,12 @@ class Add_customer extends CI_Controller {
 		$state = $this->input->post('state');
 		$city = $this->input->post('city');
 		$pincode = $this->input->post('pincode');
-		$legal_name = $this->input->post('legal_name');
-		$gst_number = $this->input->post('gst_number');
-		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
-		$user_type = 'customer';
 
-		$check_email = $this->contacts_m->check_contacts_data_email($email,$user_type);
+		$check_email = $this->contacts_m->check_contacts_data($email,$dealer_id);
 		if($check_email < 1){
 			$dealer_info = array(
-				'user_type' => $user_type,
+				'user_type' => 'customer',
 				'user_fname'=> $fname,
 				'user_lname' => $lname,
 				'user_email'=> $email,
@@ -67,19 +66,19 @@ class Add_customer extends CI_Controller {
 				'user_date'=> $date
 			);
 
-			$insert_new_dealer = $this->contacts_m->insert_contacts($dealer_info);
-			if($insert_new_dealer){
-				$this->session->set_flashdata("success", "Customer Added Successfully!");
+			$update_dealer = $this->contacts_m->update_contacts($dealer_info,$dealer_id);
+			if($update_dealer){
+				$this->session->set_flashdata("success", "Customer Updated Successfully!");
 			}else{
 				$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
 			}
 		}else{
 			$this->session->set_flashdata("exist", "Customer Already Exist...");
 		}
-		redirect('add_customer');
+		redirect('edit_customers/'.$dealer_id.'');
 	}
 
 }
 
-/* End of file Account_add_customer.php */
-/* Location: ./application/controllers/Account_add_customer.php */
+/* End of file Edit_customers.php */
+/* Location: ./application/controllers/Edit_customers.php */

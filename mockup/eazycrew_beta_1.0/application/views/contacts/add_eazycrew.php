@@ -54,7 +54,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="<?php echo base_url('admin_add_crew/add_crew');?>">
+								<form  method="post" action="<?php echo base_url('add_eazycrew/add_new_crew');?>">
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Add Customer</h3>
@@ -140,13 +140,12 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Role</label>
-													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-													<select class="form-control city_state" name="city">
+													<select class="form-control" name="crew_role">
 														<option vlaue="" selected disabled>Choose Role</option>
-														<option value=""> Admin </option>
-														<option value=""> Accounts </option>
-														<option value=""> Operations </option>
-														<option value=""> Marketing </option>
+														<option value="admin"> Admin </option>
+														<option value="accounts"> Accounts </option>
+														<option value="operations"> Operations </option>
+														<option value="marketing"> Marketing </option>
 													</select>
 												</div>
 											</div>
@@ -189,7 +188,7 @@
 		});
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_add_customer/ajax_state_name',
+				url: '<?php echo base_url();?>add_eazycrew/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){

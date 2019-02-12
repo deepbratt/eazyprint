@@ -54,7 +54,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="<?php echo base_url('');?>">
+								<form  method="post" action="<?php echo base_url('add_customer/add_new_customer');?>">
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Add Customer</h3>

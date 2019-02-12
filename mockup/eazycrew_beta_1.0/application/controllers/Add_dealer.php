@@ -12,15 +12,15 @@ class Add_dealer extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('add_dealer_m');
-		$data['fetch_city_state'] = $this->add_dealer_m->fetch_state_city();
+		$this->load->model('contacts_m');
+		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city();
 		$this->load->view('contacts/add_dealer',$data);
 	}
 
 	public function ajax_state_name(){
-		$this->load->model('add_dealer_m');
+		$this->load->model('contacts_m');
 		$state_name = $this->input->post('state');
-		$fetch_cities = $this->add_dealer_m->all_cities($state_name);
+		$fetch_cities = $this->contacts_m->all_cities($state_name);
 	?>
 		<option vlaue="" selected disabled>Choose City</option>
 	<?php
@@ -33,7 +33,7 @@ class Add_dealer extends CI_Controller {
 	}
 
 	public function add_new_dealer(){
-		$this->load->model('add_dealer_m');
+		$this->load->model('contacts_m');
 		$fname = $this->input->post('f_name');
 		$lname = $this->input->post('l_name');
 		$email = $this->input->post('email');
@@ -46,8 +46,9 @@ class Add_dealer extends CI_Controller {
 		$gst_number = $this->input->post('gst_number');
 		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
+		$user_type = 'dealer';
 
-		$check_email = $this->add_dealer_m->check_dealer_data($email);
+		$check_email = $this->contacts_m->check_contacts_data_email($email,$user_type);
 		if($check_email < 1){
 			$dealer_info = array(
 				'user_type' => 'dealer',
@@ -68,7 +69,7 @@ class Add_dealer extends CI_Controller {
 				'user_date'=> $date
 			);
 
-			$insert_new_dealer = $this->add_dealer_m->insert_dealer($dealer_info);
+			$insert_new_dealer = $this->contacts_m->insert_contacts($dealer_info);
 			if($insert_new_dealer){
 				$this->session->set_flashdata("success", "Dealer Added Successfully!");
 			}else{

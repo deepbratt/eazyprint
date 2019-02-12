@@ -13,15 +13,15 @@ class Add_vendor extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('add_vendor_m');
-		$data['fetch_city_state'] = $this->add_vendor_m->fetch_state_city();
-		$this->load->view('contacts/add_vendor');
+		$this->load->model('contacts_m');
+		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city();
+		$this->load->view('contacts/add_vendor',$data);
 	}
 
 	public function ajax_state_name(){
-		$this->load->model('add_vendor_m');
+		$this->load->model('contacts_m');
 		$state_name = $this->input->post('state');
-		$fetch_cities = $this->add_vendor_m->all_cities($state_name);
+		$fetch_cities = $this->contacts_m->all_cities($state_name);
 	?>
 		<option vlaue="" selected disabled>Choose City</option>
 	<?php
@@ -34,7 +34,7 @@ class Add_vendor extends CI_Controller {
 	}
 
 	public function add_new_vendor(){
-		$this->load->model('add_vendor_m');
+		$this->load->model('contacts_m');
 		$fname = $this->input->post('f_name');
 		$lname = $this->input->post('l_name');
 		$email = $this->input->post('email');
@@ -47,37 +47,39 @@ class Add_vendor extends CI_Controller {
 		$gst_number = $this->input->post('gst_number');
 		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
+		$user_type = 'vendor';
 
-		$check_email = $this->add_vendor_m->check_dealer_data($email);
+		$check_email = $this->contacts_m->check_contacts_data_email($email,$user_type);
 		if($check_email < 1){
 			$vendor_info = array(
-				'dealers_fname'=> $fname,
-				'dealers_lname' => $lname,
-				'dealers_email'=> $email,
-				'dealers_phone' => $mobile,
-				'dealers_addr'=> $address,
-				'dealers_pincode' => $pincode,
-				'dealers_state'=> $state,
-				'dealers_city' => $city,
-				'dealers_store_name'=> $legal_name,
-				'dealers_tradelicense_number' => $trade_license_number,
-				'dealers_gst_number'=> $gst_number,
-				'dealers_email_status' => '0',
-				'dealers_phone_status'=> '0',
-				'dealers_status' => '1',
-				'dealers_date'=> $date
+				'user_type' => $user_type,
+				'user_fname'=> $fname,
+				'user_lname' => $lname,
+				'user_email'=> $email,
+				'user_phone' => $mobile,
+				'user_address'=> $address,
+				'user_pincode' => $pincode,
+				'user_state'=> $state,
+				'user_city' => $city,
+				'user_store_name'=> $legal_name,
+				'user_tradelicense_number' => $trade_license_number,
+				'user_gst_number'=> $gst_number,
+				'user_email_status' => '0',
+				'user_phone_status'=> '0',
+				'user_status' => '1',
+				'user_date'=> $date
 			);
 
-			$insert_new_dealer = $this->add_vendor_m->insert_dealer($dealer_info);
-			if($insert_new_dealer){
-				$this->session->set_flashdata("success", "Dealer Added Successfully!");
+			$insert_new_vendor = $this->contacts_m->insert_contacts($vendor_info);
+			if($insert_new_vendor){
+				$this->session->set_flashdata("success", "Vendor Added Successfully!");
 			}else{
 				$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
 			}
 		}else{
-			$this->session->set_flashdata("exist", "Dealer Already Exist...");
+			$this->session->set_flashdata("exist", "Vendor Already Exist...");
 		}
-		redirect('add_dealer');
+		redirect('add_vendor');
 	}
 
 }

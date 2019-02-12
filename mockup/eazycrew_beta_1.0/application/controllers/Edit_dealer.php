@@ -12,17 +12,17 @@ class Edit_dealer extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('edit_dealer_m');
+		$this->load->model('contacts_m');
 		$dealer_id = $this->uri->segment(2);
-		$data['fetch_city_state'] = $this->edit_dealer_m->fetch_state_city();
-		$data['fetch_dealer_data'] = $this->edit_dealer_m->fetch_dealer_info($dealer_id);
+		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city();
+		$data['fetch_dealer_data'] = $this->contacts_m->fetch_contacts_info($dealer_id);
 		$this->load->view('contacts/edit_dealer',$data);
 	}
 
 	public function ajax_state_name(){
-		$this->load->model('edit_dealer_m');
+		$this->load->model('contacts_m');
 		$state_name = $this->input->post('state');
-		$fetch_cities = $this->edit_dealer_m->all_cities($state_name);
+		$fetch_cities = $this->contacts_m->all_cities($state_name);
 	?>
 		<option vlaue="" selected disabled>Choose City</option>
 	<?php
@@ -35,7 +35,7 @@ class Edit_dealer extends CI_Controller {
 	}
 
 	public function update_dealer(){
-		$this->load->model('edit_dealer_m');
+		$this->load->model('contacts_m');
 		$dealer_id = $this->uri->segment(3);
 		
 		$fname = $this->input->post('f_name');
@@ -51,7 +51,7 @@ class Edit_dealer extends CI_Controller {
 		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
 
-		$check_email = $this->edit_dealer_m->check_dealer_data($email,$dealer_id);
+		$check_email = $this->contacts_m->check_contacts_data($email,$dealer_id);
 		if($check_email < 1){
 			$dealer_info = array(
 				'user_type' => 'dealer',
@@ -72,7 +72,7 @@ class Edit_dealer extends CI_Controller {
 				'user_date'=> $date
 			);
 
-			$update_dealer = $this->edit_dealer_m->update_dealer($dealer_info,$dealer_id);
+			$update_dealer = $this->contacts_m->update_contacts($dealer_info,$dealer_id);
 			if($update_dealer){
 				$this->session->set_flashdata("success", "Dealer Updated Successfully!");
 			}else{
