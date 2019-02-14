@@ -55,7 +55,19 @@
                 <li class="breadcrumb-item active" aria-current="page">Edit T-Shirt </li>
               </ol>
             </div>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_tshirt/add_pro_tshirt');?>">
+			<?php
+			  if($this->session->flashdata('failed')){
+			?>
+			  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+			<?php
+			  }
+			  if($this->session->flashdata('success')){
+			?>
+			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+			<?php
+				}
+			?>
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_tshirt/update_pro_tshirt/');?><?php echo $this->uri->segment(2);?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -117,9 +129,24 @@
 								</label>
 							  </div>
 							  <div class="col-md-10">
-								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-								<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" value="<?php echo $fetch_tshirt->raw_image;?>">
+							  	<?php
+								if($fetch_tshirt->raw_image == ''){
+								?>
+								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+									<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+									<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+								</span>
+								<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" >
 								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+								<?php
+								}else{
+								?>
+									<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" value="">
+									<img src="<?php echo base_url('uploads/product_images/t_shirt/');?><?php echo $fetch_tshirt->raw_image;?>" onclick="product_image()" style="height:150px;" id="p_blah">
+								<?php
+								}
+								?>
+								
 							  </div>
 						</div>
 					</div>
@@ -278,9 +305,23 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" value="<?php echo $fetch_tshirt->raw_meta_img;?>" placeholder="Add Meta Image" onchange="readURL(this);">
-						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+						  <?php
+						  if($fetch_tshirt->raw_meta_img == ''){
+						  ?>
+							<span onclick="meta_img()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
+								<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+								<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+							</span>
+							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
+						    <img src="" onclick="meta_img()" style="height:150px;display:none;" id="blah">
+						  <?php
+						  }else{
+						  ?>
+							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
+						    <img src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_tshirt->raw_meta_img;?>" onclick="meta_img()" style="height:150px;" id="blah">
+						  <?php
+						  }
+						  ?>
 						  </div>
 						</div>
 						<div class="row">
@@ -462,7 +503,7 @@
 		}
 
 
-		function meta_image(){
+		function meta_img(){
 			$("input[id='my_file']").click();
 		}
 
