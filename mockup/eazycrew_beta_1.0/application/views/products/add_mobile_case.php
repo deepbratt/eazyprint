@@ -88,6 +88,12 @@
 									<input type="text" class="form-control" name="brand" placeholder="Type a brand">
 								</div>
 							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="form-label">Model No</label>
+									<input type="text" class="form-control" name="p_model" placeholder="Type a Model No">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

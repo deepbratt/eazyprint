@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | Listing Mugs</title>
+		<title>Eazyprint | Listing Mug</title>
 		<style>
 			b{
 				color:black;
@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">View Mugs &nbsp;&nbsp; <a href="<?php echo base_url("admin_add_mug");?>" class="btn btn-primary">Add New</a></h4>
+							<h4 class="page-title">View Mug &nbsp;&nbsp; <a href="<?php echo base_url("add_mug");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">View Mugs</li>
+								<li class="breadcrumb-item active" aria-current="page">Listing Mug</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
@@ -87,38 +87,50 @@
 												<thead>
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
-													<th class="wd-15p">Category&nbsp;Name</th>
-													<th class="wd-15p">Brand</th>
-													<th class="wd-15p">Product</th>
-													<th class="wd-15p">Quantity</th>
+													<th class="wd-15p">Product&nbsp;Name</th>
 													<th class="wd-15p">Product&nbsp;Image</th>
-													<th class="wd-15p">Purchase&nbsp;Price</th>
-													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Product Shape</th>
+													<th class="wd-15p">Product Weight</th>
+													<th class="wd-15p">Product Color</th>
+													<th class="wd-15p">Product Quantity</th>
+													<th class="wd-15p">GST Rate(%)</th>
+													<th class="wd-15p">Added Date</th>
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
+
+												<?php
+													$i = 1;											
+													foreach($fetch_mug as $mug_fetch){
+												?>
 												  <tr>
-												    <td>1</td>
-													<td>T-Shirt</td>
-													<td>Puma</td>
-													<td>Panda T-shirt</td>
-													<td>55</td>
-													<td></td>
-													<td>120</td>
-													<td>150</td>
-													<td class="switch">
+												    <td><?php echo $i; ?></td>
+													<td><?php echo $mug_fetch->raw_name;?></td>
+													<td><img src="<?php echo base_url('uploads/product_images/mug/');?><?php echo $mug_fetch->raw_image;?>" height="100"></td>
+													<td><?php echo $mug_fetch->raw_shapetype;?></td>
+													<td><?php echo $mug_fetch->raw_weight;?>&nbsp;<?php echo $mug_fetch->raw_weight_unit;?></td>
+													<td><?php echo $mug_fetch->raw_color;?></td>
+													<td><?php echo $mug_fetch->raw_quantity;?></td>
+													<td><?php echo $mug_fetch->raw_gst_rate;?></td>
+													<td><?php echo date('d/m/Y',$mug_fetch->raw_added_date);?></td>
+													<td class="switch_<?php echo $mug_fetch->raw_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" onchange="change_status('')">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($mug_fetch->raw_status == 1)?'checked':'');?> onchange="change_status('<?php echo $mug_fetch->raw_id;?>','<?php echo $mug_fetch->raw_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="#"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="#"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('edit_mug/');?><?php echo $mug_fetch->raw_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_mug/delete_mug/');?><?php echo $mug_fetch->raw_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
+												  <?php 
+													$i++;
+													} 
+												  ?>
+
 												</tbody>
 											  </table>
 										</div>
@@ -151,11 +163,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(product_id,product_status)
+			function change_status(raw_id,raw_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_listing_mobile_case/change_status',
-		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
+		        url: '<?php echo base_url();?>listing_tshirt/change_status',
+		        data: {'raw_id': raw_id,'raw_status':raw_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -166,7 +178,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+product_id+'').html(response);
+				 $('.switch_'+raw_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

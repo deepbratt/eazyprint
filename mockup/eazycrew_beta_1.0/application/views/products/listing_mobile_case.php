@@ -88,7 +88,7 @@
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
 													<th class="wd-15p">Brand</th>
-													<th class="wd-15p">Product&nbsp;Name</th>
+													<th class="wd-15p">Model No.</th>
 													<th class="wd-15p">Product&nbsp;Image</th>
 													<th class="wd-15p">Product Height</th>
 													<th class="wd-15p">Product Weight</th>
@@ -109,7 +109,7 @@
 												  <tr>
 												    <td><?php echo $i; ?></td>
 													<td><?php echo $mobile_fetch->raw_brand;?></td>
-													<td><?php echo $mobile_fetch->raw_name;?></td>
+													<td><?php echo $mobile_fetch->raw_model_no;?></td>
 													<td><img src="<?php echo base_url('uploads/product_images/mobile_case/');?><?php echo $mobile_fetch->raw_image;?>" height="100"></td>
 													<td><?php echo $mobile_fetch->raw_dimension_height;?></td>
 													<td><?php echo $mobile_fetch->raw_weight;?>&nbsp;<?php echo $mobile_fetch->raw_weight_unit;?></td>
