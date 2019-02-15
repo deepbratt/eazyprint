@@ -1,28 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class add_mobile_case extends CI_Controller {
+class Edit_mobile_case extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('login');
-        }else{
-			$user_id = $this->session->userdata['logged_in']['user_id'];
-		}
-		
+            redirect('admin_login');
+        }
     }
 
 	public function index()
 	{
-		$this->load->view('products/add_mobile_case');
+		$this->load->model('edit_mobile_case_m');
+		$raw_id = $this->uri->segment(2);
+		$data['fetch_mobile'] = $this->edit_mobile_case_m->fetch_pro_mobile($raw_id);
+		$this->load->view('products/edit_mobile_case',$data);
 	}
 
-	public function add_mobile()
-		{ 
-		$this->load->model('add_mobile_case_m');
+	public function update_mobile_case()
+	{
+		$this->load->model('edit_mobile_case_m');
+		$raw_id = $this->uri->segment(3);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		
+
 		$category = $this->input->post('category');
 		$brand = $this->input->post('brand');
 		$product_name = $this->input->post('product_name');
@@ -51,9 +52,10 @@ class add_mobile_case extends CI_Controller {
 		$meta_desc = $this->input->post('meta_desc');
 		$hsn_code = $this->input->post('hsn_code');
 		$gst_rate = $this->input->post('gst_rate');
-		$ad_date = time();
+		$update_date = time();
 		$raw_status = '1';
 
+		$get_prev = $this->edit_mobile_case_m->fetch_pro_mobile($raw_id);
 		if(!empty($_FILES['p_image']['name'])){
 			$config['upload_path'] = 'uploads/product_images/mobile_case/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -65,13 +67,11 @@ class add_mobile_case extends CI_Controller {
 			if($this->upload->do_upload('p_image')){
 				$uploadData = $this->upload->data();
 				$product_image = $uploadData['file_name'];
-				
-			}else{
-				$product_image = "";
 			}
+		}else{
+			$product_image = $get_prev->raw_image;
 		}
 		
-
 		if(!empty($_FILES['meta_image']['name'])){
 			$config['upload_path'] = 'uploads/meta_images/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -83,30 +83,45 @@ class add_mobile_case extends CI_Controller {
 			if($this->upload->do_upload('meta_image')){
 				$uploadData = $this->upload->data();
 				$meta_image = $uploadData['file_name'];
-				
-			}else{
-				$meta_image = "";
 			}
+		}else{
+			$meta_image = $get_prev->raw_meta_img;
 		}
 
+		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_brand'=>$brand,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_dimension_length'=>$dimension_len,'raw_dimension_height'=>$dimension_height,'raw_dimension_width'=>$dimension_width,'raw_dimension_unit'=>$product_dimension_unit,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_updated_date'=>$update_date);
 
-			$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_brand'=>$brand,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_dimension_length'=>$dimension_len,'raw_dimension_height'=>$dimension_height,'raw_dimension_width'=>$dimension_width,'raw_dimension_unit'=>$product_dimension_unit,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_added_date'=>$ad_date);
+		if($product_image != $get_prev->raw_image)
+		{
+			$image_status = '1';
+			$pre_img = $get_prev->raw_image;
+		}else{
+			$image_status = '';
+			$pre_img = '';
+		}
 
-			$update_mobile = $this->add_mobile_case_m->update_pro_mobile($records);
+		if($meta_image != $get_prev->raw_meta_img)
+		{
+			$meta_status = '1';
+			$pre_meta = $get_prev->raw_meta_img;
+		}else{
+			$meta_status = '';
+			$pre_meta = '';
+		}
 
-			if($update_mobile)
-			{
-				$this->session->set_flashdata("success", "Product Updated Successfully!");
-			}
-			else
-			{
-				$this->session->set_flashdata("failed", "Product Updated Successfully!");
-			}
-			redirect('add_mobile_case');
+		$update_mobile = $this->edit_mobile_case_m->update_mobile($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
+
+		if($update_mobile)
+		{
+			$this->session->set_flashdata("success", "Mobile Case Updated Successfully!");
+		}
+		else
+		{
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
+		}
+		redirect('edit_mobile_case/'.$raw_id);
 	}
-
 
 }
 
-/* End of file Admin_add_raw_material.php */
-/* Location: ./application/controllers/Admin_add_raw_material.php */
+/* End of file Edit_dealers.php */
+/* Location: ./application/controllers/Edit_dealers.php */

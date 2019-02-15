@@ -52,7 +52,7 @@ class Edit_tshirt extends CI_Controller {
 		$meta_desc = $this->input->post('meta_desc');
 		$hsn_code = $this->input->post('hsn_code');
 		$gst_rate = $this->input->post('gst_rate');
-		$ad_date = time();
+		$update_date = time();
 		$raw_status = '1';
 
 		$get_prev = $this->edit_tshirt_m->fetch_pro_tshirt($raw_id);
@@ -88,7 +88,7 @@ class Edit_tshirt extends CI_Controller {
 			$meta_image = $get_prev->raw_meta_img;
 		}
 
-		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_brand'=>$brand,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_size'=>$product_size,'raw_dimension_length'=>$dimension_len,'raw_dimension_unit'=>$product_dimension_unit,'raw_shapetype'=>$product_shape,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_added_date'=>$ad_date);
+		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_brand'=>$brand,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_size'=>$product_size,'raw_dimension_length'=>$dimension_len,'raw_dimension_unit'=>$product_dimension_unit,'raw_shapetype'=>$product_shape,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_updated_date'=>$update_date);
 
 		if($product_image != $get_prev->raw_image)
 		{
@@ -107,10 +107,7 @@ class Edit_tshirt extends CI_Controller {
 			$meta_status = '';
 			$pre_meta = '';
 		}
-		/*echo $pre_img;
-		echo "<br/>";
-		echo $pre_meta;
-		exit;*/
+
 		$update_tshirt = $this->edit_tshirt_m->update_tshirt($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
 
 		if($update_tshirt)
@@ -121,7 +118,7 @@ class Edit_tshirt extends CI_Controller {
 		{
 			$this->session->set_flashdata("failed", "Something Went Wrong!");
 		}
-		redirect('edit_tshirt/'.$user_id);
+		redirect('edit_tshirt/'.$raw_id);
 	}
 
 }

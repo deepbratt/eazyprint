@@ -110,7 +110,7 @@
 												    <td><?php echo $i; ?></td>
 													<td><?php echo $tshirt_fetch->raw_brand;?></td>
 													<td><?php echo $tshirt_fetch->raw_name;?></td>
-													<td><?php echo $tshirt_fetch->raw_image;?></td>
+													<td><img src="<?php echo base_url('uploads/product_images/t_shirt/');?><?php echo $tshirt_fetch->raw_image;?>" height="100"></td>
 													<td><?php echo $tshirt_fetch->raw_shapetype;?></td>
 													<td><?php echo $tshirt_fetch->raw_weight;?>&nbsp;<?php echo $tshirt_fetch->raw_weight_unit;?></td>
 													<td><?php echo $tshirt_fetch->raw_color;?></td>
