@@ -33,7 +33,7 @@ function vpb_image_preview(vpb_selector_)
 			   {
 				   $('#vpb-display-preview').append(
 				   '<div class="col-md-3"><div id="selector_'+vpb_o_+'" ><img class="vpb_image_style" style="height:200px;max-width:none;" class="img-thumbnail" src="' + e.target.result + '" \
-				   title="'+ escape(file.name) +'" /><a style="cursor:pointer;padding-top:5px;" title="Click here to remove '+ escape(file.name) +'" \
+				   title="'+ escape(file.name) +'" /><br/><a style="cursor:pointer;padding-top:5px;" title="Click here to remove '+ escape(file.name) +'" \
 				   onclick="vpb_remove_selected(\''+vpb_o_+'\',\''+file.name+'\')">Remove</a></div></div>');
 			   }
 			   reader.readAsDataURL(file);
