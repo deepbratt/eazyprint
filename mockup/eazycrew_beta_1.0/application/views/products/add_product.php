@@ -57,19 +57,19 @@
                 </li>
               </ol>
             </div>
-      			<?php
-      			  if($this->session->flashdata('success')){
-      			?>
-      			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-      			<?php 
-              }
-              if($this->session->flashdata('exist')){
-            ?>
-              <div class="alert alert-danger"> <strong>Product already exist! You can still update the product from <a href="<?php echo base_url('admin_edit_product/');?><?php echo $this->session->flashdata('exist');?>" >here</a>.</strong> </div>
-            <?php
-              }
-            ?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('admin_add_mobile_case/add_mobile_case');?>">
+			<?php
+			  if($this->session->flashdata('failed')){
+			?>
+			  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+			<?php
+			  }
+			  if($this->session->flashdata('success')){
+			?>
+			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+			<?php
+				}
+			?>
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_product/add_pro');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -81,15 +81,30 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="T-Shirt" readonly>
+									<select class="form-control" name="category">
+										<option value="" selected disabled>Choose Category</option>
+										<?php
+											foreach($get_all_category As $all_category){
+										?>
+										<option value="<?php echo $all_category->raw_category;?>"><?php echo $all_category->raw_category;?></option>
+										<?php 
+											}
+										?>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Product</label>
-									<select class="form-control" name="raw">
-										<option vlaue="" selected disabled>Choose Product</option>
-										<option value="%">Round Neck T-Shirt(180 GSM)</option>
+									<label class="form-label">Raw Metarial</label>
+									<select class="form-control" name="raw_name">
+										<option vlaue="" selected disabled>Choose Metarial</option>
+										<?php
+											foreach($get_all_category As $all_category){
+										?>
+										<option value="<?php echo $all_category->raw_id;?>"><?php echo $all_category->raw_material_type;?></option>
+										<?php 
+											}
+										?>
 									</select>
 								</div>
 							</div>
@@ -123,7 +138,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card add_more">
 					<div class="card-header">
 						<h3 class="card-title">Product Image</h3>
 					</div>
@@ -133,10 +148,15 @@
 								<label class="form-label">Upload Image
 								</label>
 							  </div>
-							  <div class="col-md-10">
+							  <div class="col-md-6">
 								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-								<input type="file" name="p_image" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);">
+								<input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);">
 								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+							  </div>
+							  <div class="col-md-4">
+								<div class="form-group">
+									<a href="javascript:void(0);" onclick="add_another();" class="btn btn-primary">Add More</a>
+								</div>
 							  </div>
 						</div>
 					</div>
@@ -157,6 +177,18 @@
 								<div class="form-group">
 									<label class="form-label">Retail Price</label>
 									<input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Product Designed By</label>
+									<input type="text" name="designed_by" class="form-control" placeholder="Product Designed By">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Product SKU</label>
+									<input type="text" name="p_sku" class="form-control" placeholder="Add Product SKU">
 								</div>
 							</div>
 						</div>
@@ -201,7 +233,7 @@
 					</div>
 				</div>
 				<div class="card-footer text-center">
-					<button type="submit" class="btn btn-primary">Submit
+					<button type="submit" name="submit" class="btn btn-primary">Submit
 					</button>
 					<button type="reset" class="btn btn-secondary">Cancel</button>
 				</div>
@@ -419,8 +451,8 @@
     function add_another(){
       
       var max_fields      = 5; 
-      var wrapper         = $(".pro_colorzz");
-      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
+      var wrapper         = $(".add_more");
+      var htmlcontent = '<div class=" atrri_add_cont"><div class="col-md-6"><span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span><input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);"><img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah"></div></div>';
       
       var x = 1;
 
