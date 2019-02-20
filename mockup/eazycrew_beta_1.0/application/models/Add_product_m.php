@@ -20,6 +20,6 @@ class Add_product_m extends CI_Model {
 	public function update_pro_img($record)
 	{
 		$this->db->insert('product_image',$record);
-		return $result;
+		return $record;
 	}
 }
