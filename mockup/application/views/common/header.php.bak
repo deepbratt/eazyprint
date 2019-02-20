@@ -67,7 +67,7 @@
 								<div class="nav">
 									
 									<li class="nav-item with-sub  mega-dropdown">
-									  <a class="nav-link" href="javascript:void(0);">
+									  <a class="nav-link" href="<?php echo base_url('product');?>">
 										<span class="d-none d-lg-block">
 											<span class="text-dark"> MUGS </span>
 										</span>

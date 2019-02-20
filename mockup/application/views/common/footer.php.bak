@@ -7,7 +7,35 @@
 			<p style="text-align:center;"><img src="<?php echo base_url();?>images/Selling-Scrap-Online.png" style="text-align:center;"></p>
 		</div>
 	</div>-->
-	
+	<p style="border-top:3px dotted #CCC;"></p>
+
+	<div class="container">
+		<p>&nbsp;</p>
+		<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Innovation </h1>
+		<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
+		<p>&nbsp;</p>
+	</div>
+
+	<div class="container" style="padding-top:3px;margin-top:40px;">
+		<div class="row">
+			<div class="col-lg-4" style="text-align:center;">
+				<h4>Cash On Delivery</h4>
+				<img class="img-responsive img_op" src="<?php echo base_url();?>images/cod_d.png" style="text-align:center;height:150px;padding:20px;">
+				<p style="margin-top:10px;color:#000;">Doorstep delivery anywhere in india.</p>
+			</div>
+			<div class="col-lg-4" style="text-align:center;">
+				<h4>Refer and Earn</h4>
+				<img class="img-responsive img_op" src="<?php echo base_url();?>images/Refer-and-Earn.png" style="text-align:center;height:150px;padding:20px;">
+				<p style="margin-top:10px;color:#000;">Exciting offers on referals.</p>
+			</div>
+			<div class="col-lg-4" style="text-align:center;">
+				<h4>Easy Returns</h4>
+				<img class="img-responsive img_op" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
+				<p style="margin-top:10px;color:#000;">No question asked returns.</p>
+			</div>
+		</div>
+		<p>&nbsp;</p>
+	</div>
 	
 	<div class="container-fluid" style="background:#ffe4ca;margin-bottom:-50px;">
 		<div class="container" >
