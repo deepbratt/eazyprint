@@ -1,10 +1,4 @@
-		<div id="global-loader" >
-			<div class="showbox">
-				<div class="lds-ring">
-					<div><img src='<?php echo base_url();?>images/favicon.png'></div>
-				</div>
-			</div>
-		</div>
+		
 		<div class="page">
 			<div class="page-main">
 				<!-- Navbar-->

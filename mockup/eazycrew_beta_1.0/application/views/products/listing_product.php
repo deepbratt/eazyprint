@@ -60,7 +60,7 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Listing Product</h4>
+							<h4 class="page-title">View Product &nbsp;&nbsp; <a href="<?php echo base_url("add_product");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Listing Product</li>
@@ -87,38 +87,50 @@
 												<thead>
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
-													<th class="wd-15p">Category&nbsp;Name</th>
-													<th class="wd-15p">Brand</th>
-													<th class="wd-15p">Product</th>
-													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Product&nbsp;Image</th>
-													<th class="wd-15p">Retail&nbsp;Price</th>
-													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Category</th>
+													<th class="wd-15p">Meta Image</th>
+													<th class="wd-15p">Product&nbsp;Name</th>
+													<th class="wd-15p">Product&nbsp;Title</th>
+													<th class="wd-15p">Product&nbsp;Description</th>
+													<th class="wd-15p">Designed By</th>
+													<th class="wd-15p">Product&nbsp;SKU</th>
+													<th class="wd-15p">Added Date</th>
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
+
+												<?php
+													$i = 1;											
+													foreach($fetch_product as $product_fetch){
+												?>
 												  <tr>
-												    <td>1</td>
-													<td>T-Shirt</td>
-													<td>Puma</td>
-													<td>Panda T-shirt</td>
-													<td>55</td>
-													<td></td>
-													<td>150</td>
-													<td>120</td>
-													<td class="switch">
+												    <td><?php echo $i; ?></td>
+													<td><?php echo $product_fetch->product_category_id;?></td>
+													<td><img src="<?php echo base_url('uploads/meta_images/');?><?php echo $product_fetch->product_meta_image;?>" height="100"></td>
+													<td><?php echo $product_fetch->product_name;?></td>
+													<td><?php echo $product_fetch->product_title;?></td>
+													<td><?php echo $product_fetch->product_desc;?></td>
+													<td><?php echo $product_fetch->product_designed_by;?></td>
+													<td><?php echo $product_fetch->product_sku;?></td>
+													<td><?php echo date('d/m/Y',$product_fetch->product_added_date);?></td>
+													<td class="switch_<?php echo $product_fetch->product_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" onchange="change_status('')">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($product_fetch->product_status == 1)?'checked':'');?> onchange="change_status('<?php echo $product_fetch->product_id;?>','<?php echo $product_fetch->product_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="#"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="#"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('edit_product/');?><?php echo $product_fetch->product_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_product/delete_product/');?><?php echo $product_fetch->product_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
+												  <?php 
+													$i++;
+													} 
+												  ?>
+
 												</tbody>
 											  </table>
 										</div>
@@ -151,11 +163,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(product_id,product_status)
+			function change_status(raw_id,raw_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>admin_listing_mobile_case/change_status',
-		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
+		        url: '<?php echo base_url();?>listing_tshirt/change_status',
+		        data: {'raw_id': raw_id,'raw_status':raw_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -166,7 +178,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+product_id+'').html(response);
+				 $('.switch_'+raw_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');
