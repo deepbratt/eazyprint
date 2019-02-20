@@ -20,6 +20,7 @@
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 	<script src="<?php echo base_url();?>js/quantity_style.js"></script>
+	<script src="<?php echo base_url();?>js/vasplus_uploader.js"></script>
 	<style>
 	.card-body{
 		padding: 0.5rem 1.5rem !important;
@@ -138,22 +139,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="card add_more">
+				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title">Product Image</h3>
 					</div>
 					<div class="card-body">
 						<div class="row" style="margin-top:15px;">
-							<div class="col-md-2">
-								<label class="form-label">Upload Image
-								</label>
-							  </div>
-							  <div class="col-md-6">
+							<div class="col-md-3">
+								<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
+							</div>
+							<div class="col-md-6">
 								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-								<input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple">
-								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+								<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
 							  </div>
+
 						</div>
+						<div class="row" id="vpb-display-preview"></div>
 					</div>
 				</div>
 				<div class="card">
@@ -381,12 +382,13 @@
 				$('#hide_span_2').hide();
 			}
 		}
-
+	/* MULTIPLE PRODUCT IMAGE STARTS */
 		function product_image(){
-			$("input[id='p_image']").click();
+			$("input[id='vpb-data-file']").click();
 		}
-
-		function show_image(input) {
+		
+		/*function show_image(input) {
+			
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 
@@ -398,7 +400,11 @@
 				$('#p_blah').show();
 				$('#hide_span').hide();
 			}
-		}
+		}*/
+
+
+	/* MULTIPLE PRODUCT IMAGE ENDS */
+		
 
     function brandz_id(e){
       $.ajax({
