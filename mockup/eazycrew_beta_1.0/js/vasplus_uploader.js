@@ -49,5 +49,4 @@ function vpb_remove_selected(id,name)
 {
 	$('#v-add-'+id).remove();
 	$('#selector_'+id).fadeOut();
-	$( "#vpb-display-preview" ).sortable();
 }
