@@ -150,13 +150,8 @@
 							  </div>
 							  <div class="col-md-6">
 								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-								<input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);">
+								<input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple">
 								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
-							  </div>
-							  <div class="col-md-4">
-								<div class="form-group">
-									<a href="javascript:void(0);" onclick="add_another();" class="btn btn-primary">Add More</a>
-								</div>
 							  </div>
 						</div>
 					</div>
