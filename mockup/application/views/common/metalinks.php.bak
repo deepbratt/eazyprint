@@ -12,11 +12,11 @@
 <style>
 	@font-face {
 		font-family: samarkan1;
-		src: url(<?php echo base_url('fonts/');?>SAMARN__.TTF);
+		src: url(<?php echo base_url('fonts/');?>Myriad Pro Bold SemiExtended.ttf);
 	}
 	@font-face {
 		font-family: samarkan2;
-		src: url(<?php echo base_url('fonts/');?>SAMARO__.TTF);
+		src: url(<?php echo base_url('fonts/');?>MyriadPro-BlackSemiCn.otf);
 	}
 	body{
 		background:#fff !important;
@@ -54,5 +54,5 @@
 </style>
 <link rel="icon" href="<?php echo base_url();?>images/fav.png" type="image/png"/>
 <link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>images/fav.png" />
-<link rel="favicon" type="image/png" href="<?php echo base_url();?>images/favicon.png" />
-<link rel="shortcut" type="image/png" href="<?php echo base_url();?>images/favicon.png" />
+<link rel="favicon" type="image/png" href="<?php echo base_url();?>images/fav.png" />
+<link rel="shortcut" type="image/png" href="<?php echo base_url();?>images/fav.png" />

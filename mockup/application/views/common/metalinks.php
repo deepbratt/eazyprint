@@ -12,11 +12,11 @@
 <style>
 	@font-face {
 		font-family: samarkan1;
-		src: url(<?php echo base_url('fonts/');?>SAMARN__.TTF);
+		src: url("<?php echo base_url('fonts/');?>Myriad Pro Bold SemiExtended.ttf");
 	}
 	@font-face {
 		font-family: samarkan2;
-		src: url(<?php echo base_url('fonts/');?>SAMARO__.TTF);
+		src: url("<?php echo base_url('fonts/');?>MyriadPro-BlackSemiCn.otf");
 	}
 	body{
 		background:#fff !important;
