@@ -161,7 +161,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/homebanner/slidetwo.png" alt="First slide" class="img-responsive">
+								<img class="first-slide" src="<?php echo base_url();?>images/product_banner1.png" alt="First slide" class="img-responsive">
 								<!--<div class="container">
 								  <div class="carousel-caption text-left">
 									<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
@@ -247,10 +247,10 @@ $this->load->view("common/header");
 						<div class="row">
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="#" class="bg-dark">
+									<a href="<?php echo base_url('product');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/roomtiles_thumb2.png" >
 									</a>
-									<a href="#">
+									<a href="<?php echo base_url('product');?>">
 										<h3 class="product_ttl"> Floor Tiles & Frames </h3>
 									</a>
 								</div>
@@ -258,10 +258,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="#" class="bg-dark">
+									<a href="<?php echo base_url('product');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_thmb.png" >
 									</a>
-									<a href="#">
+									<a href="<?php echo base_url('product');?>">
 										<h3 class="product_ttl"> Dinner Plates </h3>
 									</a>
 								</div>
@@ -269,10 +269,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="#" class="bg-dark">
+									<a href="<?php echo base_url('product');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/cussions_cases_thumb.png" >
 									</a>
-									<a href="#">
+									<a href="<?php echo base_url('product');?>">
 										<h3 class="product_ttl"> Pillows & Cusions </h3>
 									</a>
 								</div>
@@ -357,7 +357,7 @@ $this->load->view("common/header");
 
 				<div class="container">
 					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Innovation </h1>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Why Eazyprint? </h1>
 					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
 					<p>&nbsp;</p>
 				</div>
@@ -379,6 +379,35 @@ $this->load->view("common/header");
 							<img class="img-responsive img_op" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
 							<p style="margin-top:10px;color:#000;">No question asked returns.</p>
 						</div>
+					</div>
+					<p>&nbsp;</p>
+				</div>
+				
+				<p style="border-top:3px dotted #CCC;"></p>
+
+				<div class="container" style="padding-top:3px;margin-top:40px;">
+					<div class="row">
+						<div class="col-lg-6" style="text-align:center;">
+
+							<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:35px;font-family:samarkan1;margin-top:50px;"> Track your Delivery </h1>
+							<p style="margin-top:10px;color:#000;font-size:25px;">Track Where is your delivery reached.</p>
+							
+							<form name="delivery" method="POST" action="">
+							<p style="text-align:center;">
+								<div class="form-group" style="text-align:center;">
+									<input type="email" class="form-control" placeholder="Enter your ORDER ID" style="text-align:center;width:50%;margin-left:150px;">
+								</div>
+							</p>
+							<p>
+								<button class="btn btn-lg btn-success" type="submit" style="font-size:15px;"> Track </button>
+							</p>
+							</form>
+						</div>
+
+						<div class="col-lg-6" style="text-align:center;">
+							<img class="img-responsive" src="<?php echo base_url();?>images/delivery_nn.png" style="text-align:center;">
+						</div>
+						
 					</div>
 					<p>&nbsp;</p>
 				</div>

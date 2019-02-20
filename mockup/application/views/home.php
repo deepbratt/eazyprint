@@ -161,7 +161,7 @@ $this->load->view("common/header");
 							</ol>
 							<div class="carousel-inner">
 							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/homebanner/slidetwo.png" alt="First slide" class="img-responsive">
+								<img class="first-slide" src="<?php echo base_url();?>images/product_banner1.png" alt="First slide" class="img-responsive">
 								<!--<div class="container">
 								  <div class="carousel-caption text-left">
 									<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
@@ -357,7 +357,7 @@ $this->load->view("common/header");
 
 				<div class="container">
 					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Innovation </h1>
+					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Why Eazyprint? </h1>
 					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
 					<p>&nbsp;</p>
 				</div>
@@ -366,19 +366,48 @@ $this->load->view("common/header");
 					<div class="row">
 						<div class="col-lg-4" style="text-align:center;">
 							<h4>Cash On Delivery</h4>
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/cod_d.png" style="text-align:center;height:150px;padding:20px;">
+							<img class="img-responsive" src="<?php echo base_url();?>images/cod_d.png" style="text-align:center;height:150px;padding:20px;">
 							<p style="margin-top:10px;color:#000;">Doorstep delivery anywhere in india.</p>
 						</div>
 						<div class="col-lg-4" style="text-align:center;">
 							<h4>Refer and Earn</h4>
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/Refer-and-Earn.png" style="text-align:center;height:150px;padding:20px;">
+							<img class="img-responsive" src="<?php echo base_url();?>images/Refer-and-Earn.png" style="text-align:center;height:150px;padding:20px;">
 							<p style="margin-top:10px;color:#000;">Exciting offers on referals.</p>
 						</div>
 						<div class="col-lg-4" style="text-align:center;">
 							<h4>Easy Returns</h4>
-							<img class="img-responsive img_op" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
+							<img class="img-responsive" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
 							<p style="margin-top:10px;color:#000;">No question asked returns.</p>
 						</div>
+					</div>
+					<p>&nbsp;</p>
+				</div>
+				
+				<p style="border-top:3px dotted #CCC;"></p>
+
+				<div class="container" style="padding-top:3px;margin-top:40px;">
+					<div class="row">
+						<div class="col-lg-6" style="text-align:center;">
+
+							<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:35px;font-family:samarkan1;margin-top:50px;"> Track your Delivery </h1>
+							<p style="margin-top:10px;color:#000;font-size:25px;">Track Where is your delivery reached.</p>
+							
+							<form name="delivery" method="POST" action="">
+							<p style="text-align:center;">
+								<div class="form-group" style="text-align:center;">
+									<input type="email" class="form-control" placeholder="Enter your ORDER ID" style="text-align:center;width:50%;margin-left:150px;">
+								</div>
+							</p>
+							<p>
+								<button class="btn btn-lg btn-success" type="submit" style="font-size:15px;"> Track </button>
+							</p>
+							</form>
+						</div>
+
+						<div class="col-lg-6" style="text-align:center;">
+							<img class="img-responsive" src="<?php echo base_url();?>images/delivery_nn.png" style="text-align:center;">
+						</div>
+						
 					</div>
 					<p>&nbsp;</p>
 				</div>
