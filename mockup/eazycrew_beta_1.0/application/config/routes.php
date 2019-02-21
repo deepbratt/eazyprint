@@ -59,3 +59,4 @@ $route['edit_eazycrew/(:num)'] = "edit_eazycrew";
 $route['edit_tshirt/(:num)'] = "edit_tshirt";
 $route['edit_mobile_case/(:num)'] = "edit_mobile_case";
 $route['edit_mug/(:num)'] = "edit_mug";
+$route['edit_product/(:num)'] = "edit_product";

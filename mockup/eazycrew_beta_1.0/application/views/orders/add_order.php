@@ -14,13 +14,12 @@
     <link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
     <!-- Title -->
-    <title>Eazyprint | Add Product</title>
+    <title>Eazyprint | Create Order</title>
 	  <link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
 	<!-- Quantity Plugin -->
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 	<script src="<?php echo base_url();?>js/quantity_style.js"></script>
-	<script src="<?php echo base_url();?>js/vasplus_uploader.js"></script>
 	<style>
 	.card-body{
 		padding: 0.5rem 1.5rem !important;
@@ -47,30 +46,16 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Product
-              </h4>
+              <h4 class="page-title">Create Order &nbsp;&nbsp;<!-- <a href="<?php echo base_url("listing_tshirt");?>" class="btn btn-primary">View All</a> --></h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Product
-                </li>
+                <li class="breadcrumb-item active" aria-current="page">Create Order</li>
               </ol>
             </div>
-			<?php
-			  if($this->session->flashdata('failed')){
-			?>
-			  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
-			<?php
-			  }
-			  if($this->session->flashdata('success')){
-			?>
-			  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-			<?php
-				}
-			?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_product/add_pro');?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -82,31 +67,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<select class="form-control" name="category">
-										<option value="" selected disabled>Choose Category</option>
-										<?php
-											foreach($get_all_category As $all_category){
-										?>
-										<option value="<?php echo $all_category->raw_category;?>"><?php echo $all_category->raw_category;?></option>
-										<?php 
-											}
-										?>
-									</select>
+									<input type="text" class="form-control" name="category" value="T-Shirt" readonly>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Raw Metarial</label>
-									<select class="form-control" name="raw_name">
-										<option vlaue="" selected disabled>Choose Metarial</option>
-										<?php
-											foreach($get_all_category As $all_category){
-										?>
-										<option value="<?php echo $all_category->raw_id;?>"><?php echo $all_category->raw_material_type;?></option>
-										<?php 
-											}
-										?>
-									</select>
+									<label class="form-label">Brand</label>
+									<input type="text" class="form-control" name="brand" placeholder="Type a brand">
 								</div>
 							</div>
 						</div>
@@ -141,20 +108,73 @@
 				</div>
 				<div class="card">
 					<div class="card-header">
-						<h3 class="card-title">Product Image</h3>
+						<h3 class="card-title">Product Specification</h3>
 					</div>
 					<div class="card-body">
-						<div class="row" style="margin-top:15px;">
-							<div class="col-md-3">
-								<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Material Type</label>
+									<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
+							  </div>
 							</div>
 							<div class="col-md-6">
-								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-								<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
-							  </div>
-
+								<div class="form-group">
+									<label class="form-label">Product Size</label>
+									<input type="text" class="form-control" name="product_size" placeholder="New Product Size">
+								</div>
+							</div>
 						</div>
-						<div class="row" id="vpb-display-preview"></div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product length</label>
+									<input type="text" class="form-control" name="dimension_len" placeholder="Product length">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Dimension Unit</label>
+									<select name="product_dimension_unit" class="form-control select2-show-search">
+										<option value="mm">mm</option>
+										<option value="cm">cm</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="form-label">Product Shape</label>
+									<input type="text" class="form-control" name="product_shape" placeholder="Product Shape">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="form-label">Product Weight</label>
+									<input type="text" name="product_weight" class="form-control" placeholder="Add Product Weight">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="form-label">Weighing Unit</label>
+									<select name="product_weight_unit" class="form-control select2-show-search">
+										<option value="kg">kg</option>
+										<option value="gm">gm</option>
+									 </select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Product Quantity</label>
+									<input type="number" name="product_quantity" class="form-control" placeholder="Add quantity">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Minimum Order</label>
+									<input type="number" name="min_order" class="form-control" placeholder="Add Minimum Order">
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="card">
@@ -163,66 +183,22 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Wholesale Price</label>
 									<input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price">
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Retail Price</label>
 									<input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group">
-									<label class="form-label">Product Designed By</label>
-									<input type="text" name="designed_by" class="form-control" placeholder="Product Designed By">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">Product SKU</label>
-									<input type="text" name="p_sku" class="form-control" placeholder="Add Product SKU">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-header"  style="border-top: 1px solid #e7effc;">
-						<h3 class="card-title">SEO Optimization</h3>
-					</div>
-					<div class="card-body">
-						<div class="row" style="margin-top:15px;">
-						  <div class="col-md-2">
-							<label class="form-label">Meta Image
-							</label>
-						  </div>
-						  <div class="col-md-10">
-							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
-						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
-						  </div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">Tags</label>
-									<input type="text" name="meta_tags" data-role="tagsinput" class="form-control" placeholder="Add Tags">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="form-label">Meta Keywords</label>
-									<input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<label class="form-label">Meta Description</label>
-									<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"></textarea>
+									<label class="form-label">Purchase Price</label>
+									<input type="number" name="purchase_price" class="form-control" placeholder="Add Purchase Price">
 								</div>
 							</div>
 						</div>
@@ -236,9 +212,8 @@
 				
 			</div>
 		  </div>
-
-
 		</form>
+
 	  </div>
           <!--footer-->
           <?php $this->load->view('common/footer');?>
@@ -382,13 +357,12 @@
 				$('#hide_span_2').hide();
 			}
 		}
-	/* MULTIPLE PRODUCT IMAGE STARTS */
+
 		function product_image(){
-			$("input[id='vpb-data-file']").click();
+			$("input[id='p_image']").click();
 		}
-		
-		/*function show_image(input) {
-			
+
+		function show_image(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 
@@ -400,11 +374,7 @@
 				$('#p_blah').show();
 				$('#hide_span').hide();
 			}
-		}*/
-
-
-	/* MULTIPLE PRODUCT IMAGE ENDS */
-		
+		}
 
     function brandz_id(e){
       $.ajax({
@@ -452,8 +422,8 @@
     function add_another(){
       
       var max_fields      = 5; 
-      var wrapper         = $(".add_more");
-      var htmlcontent = '<div class=" atrri_add_cont"><div class="col-md-6"><span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span><input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);"><img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah"></div></div>';
+      var wrapper         = $(".pro_colorzz");
+      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
       
       var x = 1;
 

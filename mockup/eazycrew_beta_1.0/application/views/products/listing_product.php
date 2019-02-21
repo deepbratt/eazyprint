@@ -88,13 +88,13 @@
 												  <tr>
 													<th class="wd-15p">Sl&nbsp;No</th>
 													<th class="wd-15p">Category</th>
-													<th class="wd-15p">Meta Image</th>
+													<th class="wd-15p">Product&nbsp;Image</th>
 													<th class="wd-15p">Product&nbsp;Name</th>
 													<th class="wd-15p">Product&nbsp;Title</th>
 													<th class="wd-15p">Product&nbsp;Description</th>
-													<th class="wd-15p">Designed By</th>
+													<th class="wd-15p">Designed&nbsp;By</th>
 													<th class="wd-15p">Product&nbsp;SKU</th>
-													<th class="wd-15p">Added Date</th>
+													<th class="wd-15p">Added&nbsp;Date</th>
 													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
@@ -108,7 +108,14 @@
 												  <tr>
 												    <td><?php echo $i; ?></td>
 													<td><?php echo $product_fetch->product_category_id;?></td>
-													<td><img src="<?php echo base_url('uploads/meta_images/');?><?php echo $product_fetch->product_meta_image;?>" height="100"></td>
+													<?php
+														$this->load->model('listing_product_m');
+														$pro_id = $product_fetch->product_id;
+														$get_images = $this->listing_product_m->get_images($pro_id);
+													?>
+													<td>
+													<img src="<?php echo base_url('uploads/product_images/');?><?php echo $get_images->product_image_path;?>" height="100">
+													</td>
 													<td><?php echo $product_fetch->product_name;?></td>
 													<td><?php echo $product_fetch->product_title;?></td>
 													<td><?php echo $product_fetch->product_desc;?></td>
@@ -163,11 +170,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(raw_id,raw_status)
+			function change_status(product_id,product_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>listing_tshirt/change_status',
-		        data: {'raw_id': raw_id,'raw_status':raw_status}, // change this to send js object
+		        url: '<?php echo base_url();?>listing_product/change_status',
+		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -178,7 +185,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+raw_id+'').html(response);
+				 $('.switch_'+product_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

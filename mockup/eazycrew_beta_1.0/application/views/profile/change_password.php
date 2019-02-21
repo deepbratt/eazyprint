@@ -54,33 +54,32 @@
 							</div>
 						<?php
 						}
-						if($this->session->flashdata('failed')){
+						if($this->session->flashdata('pass_error')){
 						?>
 							<div class="alert alert-danger">
-								<strong><?php echo $this->session->flashdata('failed');?></strong>
+								<strong><?php echo $this->session->flashdata('pass_error');?></strong>
 							</div>
 						<?php
 						}
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" enctype="multipart/form-data">
+								<form  method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('change_password/set_password');?>">
 									<div class="card-header">
 										<h3 class="card-title">Change Password</h3>
 									</div>
-
 									<div class="card-body">
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="form-label">New Password</label>
-														<input type="text" class="form-control" name="product_name" placeholder="New Password">
+														<input type="password" class="form-control" name="new_pass" placeholder="New Password">
 												  </div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="form-label">Re-enter Password</label>
-														<input type="text" class="form-control" name="product_title" placeholder="Repeat Password">
+														<input type="password" class="form-control" name="re_new_pass" placeholder="Repeat Password">
 													</div>
 												</div>
 											</div>
