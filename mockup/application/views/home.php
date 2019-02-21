@@ -9,12 +9,15 @@
 		<meta name="theme-color" content="#1643a3">
 		
 		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
+
+		<script src="<?php echo base_url();?>js/typed.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | Home</title>
 		<?php
 			$this->load->view("common/metalinks");
 		?>
 		<link href="<?php echo base_url();?>css/timeline.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url();?>js/demo.css" rel="stylesheet" />
 		<style>
 			h2{
 			  text-align:center;
@@ -145,6 +148,21 @@
 			.product_ttl{
 				padding:10px;margin-top:-60px;background:url(images/item_name.png);z-index:2;position:absolute;width:100%;
 			}
+
+			/* video starts */
+			#myVideo {
+			  right: 0;
+			  bottom: 0;
+			  min-width: 100%; 
+			  min-height: 100%;
+			}
+			.overlay{
+				background:#000;
+				height:100%;
+				width:100%;
+				position:absolute;
+			}
+			/* video ends */
 		</style>
 	</head>
 	<body class="app">
@@ -153,58 +171,35 @@
 $this->load->view("common/header");
 ?>
 
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-							<ol class="carousel-indicators">
-							  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							  <li data-target="#myCarousel" data-slide-to="1"></li>
-							  <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
-							</ol>
-							<div class="carousel-inner">
-							  <div class="carousel-item active">
-								<img class="first-slide" src="<?php echo base_url();?>images/product_banner1.png" alt="First slide" class="img-responsive">
-								<!--<div class="container">
-								  <div class="carousel-caption text-left">
-									<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-								  </div>
-								</div>-->
-							  </div>
-							  <div class="carousel-item">
-								<img class="second-slide" src="<?php echo base_url();?>images/homebanner/slide_mobilecover.png" alt="Second slide" class="img-responsive" >
-								<div class="container">
-								  <div class="carousel-caption">
-									<!--<h1>Another example headline.</h1>
-									<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-									<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
-								  </div>
-								</div>
-							  </div>
-							  <!--<div class="carousel-item">
-								<img class="third-slide" src="<?php echo base_url();?>images/homebanner/tshirt_slide.png" alt="Third slide" class="img-responsive" >
-								<div class="container">
-								  <div class="carousel-caption">
-									
-								  </div>
-								</div>
-							  </div>-->
 
+				<div class="carousel-inner">
+				  <div class="carousel-item active" style="max-height:600px;">
+					<video autoplay muted loop id="myVideo">
+						<source src="<?php echo base_url();?>images/zzeazy.mp4" type="video/mp4">
+					</video>
 
+					<div class="container" >
+					  <div class="carousel-caption text-left">
+						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:50px;font-family:samarkan1;color:#fff;line-height:60px;text-shadow: 3px 3px 6px #000000;"> CUSTOMISED <b style="color:yellow;">PRINTING</b> MARKETPLACE</h1>
+						  <div class="type-wrap" style="text-align:center;margin-top:10px;">
+							<span style="text-align:center;color:#000;font-family:Arial;margin-top:20px;font-size:30px;color:#fff;text-shadow: 3px 3px 8px #000000;" id="typed3"> </span>
+						  </div>
 
-							</div>
-							<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-							  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							  <span class="sr-only">Previous</span>
-							</a>
-							<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-							  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-							  <span class="sr-only">Next</span>
-							</a>
+						<h1 style="text-align:center;margin-top:50px;"><button class="btn btn-lg btn-danger"> Explore products </button></h1>
+						
+					  </div>
 					</div>
 
+					
+				  </div>
+				</div>
+
+				
 
 				<div class="container">
 					<div class="side-app">
 						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Wide Range of Categories </h1>
+						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:40px;font-family:samarkan1;"> Wide Range of Categories </h1>
 						<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;font-size:25px;">Follow the trend or be followed #eazyprint. </h4>
 						<p>&nbsp;</p>
 
@@ -284,16 +279,16 @@ $this->load->view("common/header");
 				</div>
 				
 				 
-				 <div class="container-fluid" style="border-top:3px dotted #CCC;">
+				 <div class="container-fluid" style="border-top:3px dotted #CCC;background:#fdf2e1;">
 					<div class="container">
 						<p>&nbsp;</p>
-						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> We're Marketplace For Customised Printing Products</h1>
+						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:40px;font-family:samarkan1;"> We're Marketplace For Customised Printing Products</h1>
 						<h4 style="text-align:center;color:#000;font-family:Arial;margin-top:20px;font-size:20px;">Offer personalized products, commissions, branded reseller shops with centralized admin</h4>
 						<p>&nbsp;</p>
 					</div>
 
 					<div class="container" style="text-align:center;padding-bottom:30px;">
-						<p style="text-align:center;"><img src="<?php echo base_url();?>images/dark_how.png" style="text-align:center;height:450px;"></p>
+						<p style="text-align:center;"><img src="<?php echo base_url();?>images/final_desc" style="text-align:center;height:450px;"></p>
 					</div>
 				</div>
 
@@ -353,65 +348,66 @@ $this->load->view("common/header");
 					</div>
 				</div> -->
 				
-				<p style="border-top:3px dotted #CCC;"></p>
 
-				<div class="container">
-					<p>&nbsp;</p>
-					<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:45px;font-family:samarkan1;"> Why Eazyprint? </h1>
-					<h4 style="text-align:center;color:#000;font-family:Arial;font-weight:bold;margin-top:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
-					<p>&nbsp;</p>
-				</div>
 
-				<div class="container" style="padding-top:3px;margin-top:40px;">
-					<div class="row">
-						<div class="col-lg-4" style="text-align:center;">
-							<h4>Cash On Delivery</h4>
-							<img class="img-responsive" src="<?php echo base_url();?>images/cod_d.png" style="text-align:center;height:150px;padding:20px;">
-							<p style="margin-top:10px;color:#000;">Doorstep delivery anywhere in india.</p>
-						</div>
-						<div class="col-lg-4" style="text-align:center;">
-							<h4>Refer and Earn</h4>
-							<img class="img-responsive" src="<?php echo base_url();?>images/Refer-and-Earn.png" style="text-align:center;height:150px;padding:20px;">
-							<p style="margin-top:10px;color:#000;">Exciting offers on referals.</p>
-						</div>
-						<div class="col-lg-4" style="text-align:center;">
-							<h4>Easy Returns</h4>
-							<img class="img-responsive" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
-							<p style="margin-top:10px;color:#000;">No question asked returns.</p>
-						</div>
+				<div class="container-fluid" style="border-top:3px dotted #CCC;">
+					<div class="container">
+						<p>&nbsp;</p>
+						<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:40px;font-family:samarkan1;"> Why Eazyprint? </h1>
+						<h4 style="text-align:center;color:#000;font-family:Arial;margin-top:20px;font-size:20px;">Hum online pe bhi aur apke pass wale retail store pe bhi.</h4>
+						<p>&nbsp;</p>
 					</div>
-					<p>&nbsp;</p>
+
+					<div class="container" style="padding-top:3px;margin-top:40px;">
+						<div class="row">
+							<div class="col-lg-4" style="text-align:center;">
+								<h4>Cash On Delivery</h4>
+								<img class="img-responsive" src="<?php echo base_url();?>images/cod_d.png" style="text-align:center;height:150px;padding:20px;">
+								<p style="margin-top:10px;color:#000;">Doorstep delivery anywhere in india.</p>
+							</div>
+							<div class="col-lg-4" style="text-align:center;">
+								<h4>Refer and Earn</h4>
+								<img class="img-responsive" src="<?php echo base_url();?>images/Refer-and-Earn.png" style="text-align:center;height:150px;padding:20px;">
+								<p style="margin-top:10px;color:#000;">Exciting offers on referals.</p>
+							</div>
+							<div class="col-lg-4" style="text-align:center;">
+								<h4>Easy Returns</h4>
+								<img class="img-responsive" src="<?php echo base_url();?>images/what-do-we-buy.png" style="text-align:center;height:150px;padding:20px;">
+								<p style="margin-top:10px;color:#000;">No question asked returns.</p>
+							</div>
+						</div>
+						<p>&nbsp;</p>
+					</div>
 				</div>
 				
-				<p style="border-top:3px dotted #CCC;"></p>
+				<div class="container-fluid" style="border-top:3px dotted #CCC;background:#f0faff;margin-bottom:-20px;">
+					<div class="container" style="padding-top:3px;margin-top:40px;">
+						<div class="row">
+							<div class="col-lg-6" style="text-align:center;">
 
-				<div class="container" style="padding-top:3px;margin-top:40px;">
-					<div class="row">
-						<div class="col-lg-6" style="text-align:center;">
+								<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:35px;font-family:samarkan1;margin-top:50px;"> Track your Delivery </h1>
+								<p style="margin-top:10px;color:#000;font-size:25px;">Track Where is your delivery reached.</p>
+								
+								<form name="delivery" method="POST" action="">
+								<p style="text-align:center;">
+									<div class="form-group" style="text-align:center;">
+										<input type="email" class="form-control" placeholder="Enter your ORDER ID" style="text-align:center;width:50%;margin-left:150px;">
+									</div>
+								</p>
+								<p>
+									<button class="btn btn-lg btn-success" type="submit" style="font-size:15px;"> Track </button>
+								</p>
+								</form>
+							</div>
 
-							<h1 class="page-title" style="color:black;text-align:center;font-weight:bold;font-size:35px;font-family:samarkan1;margin-top:50px;"> Track your Delivery </h1>
-							<p style="margin-top:10px;color:#000;font-size:25px;">Track Where is your delivery reached.</p>
+							<div class="col-lg-6" style="text-align:center;">
+								<img class="img-responsive" src="<?php echo base_url();?>images/del_road.png" style="text-align:center;">
+							</div>
 							
-							<form name="delivery" method="POST" action="">
-							<p style="text-align:center;">
-								<div class="form-group" style="text-align:center;">
-									<input type="email" class="form-control" placeholder="Enter your ORDER ID" style="text-align:center;width:50%;margin-left:150px;">
-								</div>
-							</p>
-							<p>
-								<button class="btn btn-lg btn-success" type="submit" style="font-size:15px;"> Track </button>
-							</p>
-							</form>
 						</div>
-
-						<div class="col-lg-6" style="text-align:center;">
-							<img class="img-responsive" src="<?php echo base_url();?>images/delivery_nn.png" style="text-align:center;">
-						</div>
-						
+						<p>&nbsp;</p>
 					</div>
-					<p>&nbsp;</p>
 				</div>
-
 				<?php
 					$this->load->view("common/footer");
 				?>
@@ -447,6 +443,14 @@ $this->load->view("common/header");
 								}
 							}]
 						});
+
+						  var typed3 = new Typed('#typed3', {
+							strings: [ 'PERSONALISED PRODUCTS' , 'CUSTOMISED MERCHANDISED SOLUTION' , 'SPECIAL PRICING FOR STARTUPS' , 'CUSTOMISED GIFT ITEMS'],
+							typeSpeed: 30,
+							backSpeed: 10,
+							smartBackspace: true, // this is a default
+							loop: true
+						  });
 					});
 				</script>
 	</body>
