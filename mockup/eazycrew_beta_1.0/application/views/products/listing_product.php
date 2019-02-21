@@ -170,11 +170,11 @@
 				$('#example').DataTable();
 			} );
 
-			function change_status(raw_id,raw_status)
+			function change_status(product_id,product_status)
 			{
     		 $.ajax({
-		        url: '<?php echo base_url();?>listing_tshirt/change_status',
-		        data: {'raw_id': raw_id,'raw_status':raw_status}, // change this to send js object
+		        url: '<?php echo base_url();?>listing_product/change_status',
+		        data: {'product_id': product_id,'product_status':product_status}, // change this to send js object
 		        type: "post",
 		         beforeSend: function(){
 		        	$('.success_div').hide();
@@ -185,7 +185,7 @@
 			        $('#AjaxLoader').hide();
 			    },
 		        success: function(response){
-				 $('.switch_'+raw_id+'').html(response);
+				 $('.switch_'+product_id+'').html(response);
 				 $('.success_div').show();
 				 $('#AjaxLoader').hide();
 				 $('html, body').animate({scrollTop:$('.page-header').position().top}, 'slow');

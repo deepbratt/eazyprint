@@ -70,6 +70,9 @@
                         </li>
 						<div id="orderz" class="collapse <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'show':'');?>">
 							<li class="slide">
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_order');?>">Add Orders</a>
+							</li>
+							<li class="slide">
 								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'pending_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('pending_orders');?>">Pending Orders</a>
 							</li>
 							<li class="slide">
@@ -133,7 +136,7 @@
 								</a>
 							</li>
 							<li class="slide">
-								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'dealer_change_password')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('dealer_change_password');?>">Change Password
+								<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'change_password')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('change_password');?>">Change Password
 								</a>
 							</li>
 						</div>
