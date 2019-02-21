@@ -24,4 +24,13 @@ class Listing_product_m extends CI_Model {
 		$this->db->update('products', $update_array);
 		return true;
 	}
+
+	public function get_images($pro_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_image');
+		$this->db->where('product_id',$pro_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
