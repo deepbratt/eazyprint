@@ -50,17 +50,8 @@
 
 						<!-- product starts -->
 						<li class="sidebar_header">
-                           <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_product' || $this->uri->segment(1) == 'listing_product')?'header-active':'');?>" data-target="#products">Products</a>
-                        </li>
-						
-						<div id="products" class="collapse <?php echo(($this->uri->segment(1) == 'add_product' || $this->uri->segment(1) == 'listing_product')?'show':'');?>">
-								<li class="slide">
-									<a href="<?php echo base_url('add_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_product')?'active_sidebar_submenu':'');?>">Add Product</a>
-								</li>
-								<li>
-									<a href="<?php echo base_url('listing_product');?>" class="side-menu__item <?php echo(($this->uri->segment(1) == 'listing_product')?'active_sidebar_submenu':'');?>">View Products</a>
-								</li>
-						</div>
+							<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'listing_product')?'active':'');?>" href="<?php echo base_url('listing_product');?>">Products</a>
+						</li>
 						<!-- product ends -->
 						
 

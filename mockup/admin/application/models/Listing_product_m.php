@@ -33,4 +33,13 @@ class Listing_product_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	public function get_name($pro_cat_id)
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->where('cat_id', $pro_cat_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
