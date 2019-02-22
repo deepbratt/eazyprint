@@ -173,7 +173,7 @@ $this->load->view("common/header");
 
 
 				<div class="carousel-inner">
-				  <div class="carousel-item active" style="max-height:620px;">
+				  <div class="carousel-item active" style="max-height:600px;">
 					<video autoplay muted loop id="myVideo">
 						<source src="<?php echo base_url();?>images/zzeazy.mp4" type="video/mp4">
 					</video>
@@ -185,7 +185,7 @@ $this->load->view("common/header");
 							<span style="text-align:center;color:#000;font-family:Arial;margin-top:20px;font-size:30px;color:#fff;text-shadow: 3px 3px 8px #000000;" id="typed3"> </span>
 						  </div>
 
-						<h1 style="text-align:center;margin-top:50px;"><button class="btn btn-lg btn-danger"> Explore products </button></h1>
+						<h1 style="text-align:center;margin-top:50px;"><button class="btn btn-lg btn-danger" onclick="window.location.href=''"> Explore products </button></h1>
 						
 					  </div>
 					</div>
