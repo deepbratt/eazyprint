@@ -69,14 +69,14 @@ $this->load->view("common/header");
 									}
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;">
-										<a href="<?php echo base_url("product_details");?>"><img class="" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $get_product->product_image_path;?>" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;"></a>
+										<a href="<?php echo base_url("product_details");?>"><img class="" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $get_product->product_image_path;?>" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:300px;"></a>
 										<div class="card item-card">
 												<div class="cardtitle" style="text-align:center;padding-top:15px;">
 													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;"><?php echo $get_product->product_name;?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
-													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
-													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;">&#8377; <?php echo $get_product->product_retail_price;?> /- </span> 
+													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
+													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;"> <i class="fas fa-rupee-sign"></i> <?php echo $get_product->product_retail_price;?> /- </span> 
 												</p>
 											
 												<div class="border-top text-center" style="padding:7px;">
