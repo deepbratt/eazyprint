@@ -61,11 +61,11 @@ $this->load->view("common/header");
 								foreach($products As $key=>$get_product){
 									$category = $get_product->category_name;
 									if($category = "tshirts"){
-										$img_path = "admin/uploads/product_images/t_shirt/";
+										$img_path = "admin/uploads/product_images/";
 									}else if($category = "mugs"){
-										$img_path = "admin/uploads/product_images/mug/";
+										$img_path = "admin/uploads/product_images/";
 									}else if($category = "mobile_covers"){
-										$img_path = "admin/uploads/product_images/mobile_case/";
+										$img_path = "admin/uploads/product_images/";
 									}
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;">
