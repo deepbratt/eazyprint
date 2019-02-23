@@ -24,7 +24,8 @@ class Edit_mug extends CI_Controller {
 		$raw_id = $this->uri->segment(3);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 
-		$category = $this->input->post('category');
+		//$category = $this->input->post('category');
+		$category = '2';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');

@@ -8,7 +8,7 @@ class Listing_tshirt_m extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('raw_materials');
 		$this->db->where('raw_added_by', $user_id);
-		$this->db->where('raw_category','T-Shirt');
+		$this->db->where('raw_category','1');
 		$query = $this->db->get();
 		return $query->result();
 	}

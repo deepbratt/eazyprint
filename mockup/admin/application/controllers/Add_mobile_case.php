@@ -23,7 +23,8 @@ class add_mobile_case extends CI_Controller {
 		$this->load->model('add_mobile_case_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		
-		$category = $this->input->post('category');
+		//$category = $this->input->post('category');
+		$category = '3';
 		$brand = $this->input->post('brand');
 		$p_model = $this->input->post('p_model');
 		$product_name = $this->input->post('product_name');

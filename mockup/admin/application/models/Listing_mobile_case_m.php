@@ -8,7 +8,7 @@ class Listing_mobile_case_m extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('raw_materials');
 		$this->db->where('raw_added_by', $user_id);
-		$this->db->where('raw_category','Mobile Case');
+		$this->db->where('raw_category','3');
 		$query = $this->db->get();
 		return $query->result();
 	}
