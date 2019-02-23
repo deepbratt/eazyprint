@@ -51,6 +51,11 @@ class Edit_product_m extends CI_Model {
 		$this->db->insert('product_image',$record);
 		return $record;
 	}
+
+	public function delete_image($product_image_id){
+		$query = $this->db->query("delete from product_image where product_image_id='".$product_image_id."'");
+		return true;
+	}
 }
 
 /* End of file Edit_dealer_m.php */

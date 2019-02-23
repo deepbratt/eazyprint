@@ -147,19 +147,22 @@
 								<?php
 									}else{
 								?>
-									<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
-										<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-										<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-									</span>
+									
 									<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
 									<div class="row" id="vpb-display-preview"></div>
+									<div class="row">
 									<?php
 										foreach($fetch_image AS $each_image){
 									?>
+									<div class="col-md-2 text-center" style="padding:10px;">
 										<img src="<?php echo base_url('uploads/product_images/');?><?php echo $each_image->product_image_path;?>" onclick="product_image()" style="height:150px;" id="p_blah">
+										<a href="<?php echo base_url('edit_product/delete_product_image');?>/<?php echo $this->uri->segment(2);?>/<?php echo $each_image->product_image_id;?>" style="margin-top:3px;" class="btn btn-small btn-danger">Remove</a>
+									</div>
+									
 									<?php
 										}
 									?>
+									</div>
 								<?php
 								}
 								?>

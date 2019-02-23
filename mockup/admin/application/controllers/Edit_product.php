@@ -105,6 +105,22 @@ class Edit_product extends CI_Controller {
 		redirect('edit_product/'.$product_id);
 	}
 
+	public function delete_product_image(){
+
+		$this->load->model('edit_product_m');
+		$product_id = $this->uri->segment(3);
+		$product_image_id = $this->uri->segment(4);
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$delete_pro_image = $this->edit_product_m->delete_image($product_image_id);
+		
+		if($delete_pro_image){
+			$this->session->set_flashdata("success", "Product Image Deleted Successfully!");	
+		}else{
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
+		}
+		redirect('edit_product/'.$product_id);
+	}
+
 }
 
 /* End of file Edit_dealers.php */
