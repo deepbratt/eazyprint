@@ -52,9 +52,20 @@ class Edit_product_m extends CI_Model {
 		return $record;
 	}
 
-	public function delete_image($product_image_id){
+	public function delete_image($product_image_id,$fetch_product_name){
+
+		unlink("uploads/product_images/".$fetch_product_name);
 		$query = $this->db->query("delete from product_image where product_image_id='".$product_image_id."'");
 		return true;
+	}
+
+	public function fetch_pro_img_info($product_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_image');
+		$this->db->where('product_image_id',$product_id);
+		$query = $this->db->get();
+		return $query->row();
 	}
 }
 

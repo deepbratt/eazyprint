@@ -111,7 +111,11 @@ class Edit_product extends CI_Controller {
 		$product_id = $this->uri->segment(3);
 		$product_image_id = $this->uri->segment(4);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$delete_pro_image = $this->edit_product_m->delete_image($product_image_id);
+
+		$fetch_product = $this->edit_product_m->fetch_pro_img_info($product_image_id);
+		$fetch_product_name = $fetch_product->product_image_path;
+		
+		$delete_pro_image = $this->edit_product_m->delete_image($product_image_id,$fetch_product_name);
 		
 		if($delete_pro_image){
 			$this->session->set_flashdata("success", "Product Image Deleted Successfully!");	
