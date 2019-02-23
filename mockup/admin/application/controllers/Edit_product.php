@@ -44,6 +44,8 @@ class Edit_product extends CI_Controller {
 		$update_date = time();
 		$product_status = '1';
 		
+		$fetch_product = $this->edit_product_m->fetch_pro($product_id);
+	
 		if(!empty($_FILES['meta_image']['name'])){
 			$config['upload_path'] = 'uploads/meta_images/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -56,6 +58,8 @@ class Edit_product extends CI_Controller {
 				$uploadData = $this->upload->data();
 				$meta_image = $uploadData['file_name'];
 			}
+		}else{
+			$meta_image = $fetch_product->product_meta_image;
 		}
 
 		$records = array('product_name'=>$product_name,'product_title'=>$product_title,'product_desc'=>$product_desc,'product_designed_by'=>$designed_by,'product_wholesale_price'=>$wholesale_price,'product_retail_price'=>$retail_price,'	product_status'=>$product_status,'product_updated_date'=>$update_date,'product_meta_tags'=>$implode_meta_tags,'product_meta_keyword'=>$implode_meta_keywords,'product_meta_desc'=>$meta_desc,'product_meta_image'=>$meta_image);
@@ -69,7 +73,7 @@ class Edit_product extends CI_Controller {
 				$image = array();
 				$filesCount = count($_FILES['p_image']['name']);
 				
-				for($i = 1; $i < $filesCount; $i++){
+				for($i = 0; $i < $filesCount; $i++){
 					$_FILES['userFile']['name'] = $_FILES['p_image']['name'][$i];
 					$_FILES['userFile']['type'] = $_FILES['p_image']['type'][$i];
 					$_FILES['userFile']['tmp_name'] = $_FILES['p_image']['tmp_name'][$i];
@@ -92,7 +96,6 @@ class Edit_product extends CI_Controller {
 					$record = array('product_id'=>$update_product,'product_image_path'=>$product_image[$i]['file_name']);
 					$update_image = $this->edit_product_m->update_pro_img($record);
 				}
-				
 			}
 
 				$this->session->set_flashdata("success", "Product Updated Successfully!");
