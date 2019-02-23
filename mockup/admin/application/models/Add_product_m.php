@@ -6,6 +6,14 @@ class Add_product_m extends CI_Model {
 	public function get_category()
 	{
 		$this->db->select('*');
+		$this->db->from('category');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_raw_materials()
+	{
+		$this->db->select('*');
 		$this->db->from('raw_materials');
 		$query = $this->db->get();
 		return $query->result();

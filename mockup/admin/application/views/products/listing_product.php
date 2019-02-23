@@ -112,7 +112,7 @@
 														$pro_cat_id = $product_fetch->product_category_id;
 														$get_cat_name = $this->listing_product_m->get_name($pro_cat_id);
 													?>
-													<td><?php echo $get_cat_name->category_name;?></td>
+													<td><?php echo ucfirst($get_cat_name->category_name);?></td>
 													<?php
 														$this->load->model('listing_product_m');
 														$pro_id = $product_fetch->product_id;

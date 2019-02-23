@@ -12,12 +12,13 @@ class Edit_product_m extends CI_Model {
 		return $query->row();
 	}
 
-	public function get_category_all()
+	public function get_category_all($cat_id)
 	{
 		$this->db->select('*');
-		$this->db->from('raw_materials');
+		$this->db->from('category');
+		$this->db->where('cat_id',$cat_id);
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row();
 	}
 
 	public function fetch_pro_img($product_id)
@@ -26,7 +27,7 @@ class Edit_product_m extends CI_Model {
 		$this->db->from('product_image');
 		$this->db->where('product_id',$product_id);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	public function fetch_raw($raw_id)
@@ -42,7 +43,13 @@ class Edit_product_m extends CI_Model {
 	{
 		$this->db->where('product_id', $product_id);
 		$this->db->update('products', $records);
-		return true;
+		return $product_id;
+	}
+
+	public function update_pro_img($record)
+	{
+		$this->db->insert('product_image',$record);
+		return $record;
 	}
 }
 

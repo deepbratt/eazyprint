@@ -20,6 +20,7 @@
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 	<script src="<?php echo base_url();?>js/quantity_style.js"></script>
+	<script src="<?php echo base_url();?>js/vasplus_uploader.js"></script>
 	<style>
 	.card-body{
 		padding: 0.5rem 1.5rem !important;
@@ -79,7 +80,12 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="<?php echo $fetch_product->product_category_id;?>" readonly>
+									<?php
+										$this->load->model('edit_product_m');
+										$cat_id = $fetch_product->product_category_id;
+										$fetch_cat_name = $this->edit_product_m->get_category_all($cat_id);
+									?>
+									<input type="text" class="form-control" name="category" value="<?php echo ucfirst($fetch_cat_name->category_name);?>" readonly>
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -130,19 +136,30 @@
 							  </div>
 							  <div class="col-md-10">
 							  	<?php
-								if($fetch_image->product_image_path == ''){
+								if(empty($fetch_image)){
 								?>
 								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
 									<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
 									<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
 								</span>
-								<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" >
-								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
+								<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
+									<div class="row" id="vpb-display-preview"></div>
 								<?php
-								}else{
+									}else{
 								?>
-									<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" value="">
-									<img src="<?php echo base_url('uploads/product_images/');?><?php echo $fetch_image->product_image_path;?>" onclick="product_image()" style="height:150px;" id="p_blah">
+									<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+										<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+										<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+									</span>
+									<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
+									<div class="row" id="vpb-display-preview"></div>
+									<?php
+										foreach($fetch_image AS $each_image){
+									?>
+										<img src="<?php echo base_url('uploads/product_images/');?><?php echo $each_image->product_image_path;?>" onclick="product_image()" style="height:150px;" id="p_blah">
+									<?php
+										}
+									?>
 								<?php
 								}
 								?>
@@ -389,11 +406,13 @@
 			}
 		}
 
+		/* MULTIPLE PRODUCT IMAGE STARTS */
 		function product_image(){
-			$("input[id='p_image']").click();
+			$("input[id='vpb-data-file']").click();
 		}
-
-		function show_image(input) {
+		
+		/*function show_image(input) {
+			
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 
@@ -405,7 +424,10 @@
 				$('#p_blah').show();
 				$('#hide_span').hide();
 			}
-		}
+		}*/
+
+
+	/* MULTIPLE PRODUCT IMAGE ENDS */
 
     function brandz_id(e){
       $.ajax({

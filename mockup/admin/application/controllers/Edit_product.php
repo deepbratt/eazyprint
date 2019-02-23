@@ -43,20 +43,6 @@ class Edit_product extends CI_Controller {
 		$meta_desc = $this->input->post('meta_desc');
 		$update_date = time();
 		$product_status = '1';
-
-		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/';
-			$config['allowed_types'] = 'jpg|jpeg|png|gif';
-			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
-			
-			$this->load->library('upload',$config);
-			$this->upload->initialize($config);
-			
-			if($this->upload->do_upload('p_image')){
-				$uploadData = $this->upload->data();
-				$product_image = $uploadData['file_name'];
-			}
-		}
 		
 		if(!empty($_FILES['meta_image']['name'])){
 			$config['upload_path'] = 'uploads/meta_images/';
@@ -76,12 +62,41 @@ class Edit_product extends CI_Controller {
 
 		$update_product = $this->edit_product_m->update_product($product_id,$records);
 
-		if($update_product)
-		{
-			$this->session->set_flashdata("success", "Product Updated Successfully!");
-		}
-		else
-		{
+		if($update_product != ''){
+			 	
+			 	if(!empty($_FILES['p_image']['name'])){
+				$this->load->library('upload');
+				$image = array();
+				$filesCount = count($_FILES['p_image']['name']);
+				
+				for($i = 1; $i < $filesCount; $i++){
+					$_FILES['userFile']['name'] = $_FILES['p_image']['name'][$i];
+					$_FILES['userFile']['type'] = $_FILES['p_image']['type'][$i];
+					$_FILES['userFile']['tmp_name'] = $_FILES['p_image']['tmp_name'][$i];
+					$_FILES['userFile']['error'] = $_FILES['p_image']['error'][$i];
+					$_FILES['userFile']['size'] = $_FILES['p_image']['size'][$i];
+
+					$config['upload_path'] = 'uploads/product_images/';
+					$config['allowed_types'] = 'jpg|jpeg|png|gif';
+					$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'][$i];
+					
+					$this->load->library('upload',$config);
+					$this->upload->initialize($config);
+					
+					if($this->upload->do_upload('userFile')){
+						$fileData = $this->upload->data();
+						$product_image[$i]['file_name'] = $fileData['file_name'];
+						$product_image[$i]['created'] = date("Y-m-d H:i:s");
+						$product_image[$i]['modified'] = date("Y-m-d H:i:s");
+					}
+					$record = array('product_id'=>$update_product,'product_image_path'=>$product_image[$i]['file_name']);
+					$update_image = $this->edit_product_m->update_pro_img($record);
+				}
+				
+			}
+
+				$this->session->set_flashdata("success", "Product Updated Successfully!");
+		}else{
 			$this->session->set_flashdata("failed", "Something Went Wrong!");
 		}
 		redirect('edit_product/'.$product_id);
