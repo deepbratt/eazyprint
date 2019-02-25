@@ -79,7 +79,21 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="<?php echo $fetch_mug->raw_category;?>" readonly>
+									<?php
+										if($fetch_mug->raw_category == '1'){
+									?>
+										<input type="text" class="form-control" name="category" value="T-Shirt" readonly>
+									<?php
+										}else if($fetch_mug->raw_category == '2'){	
+									?>
+										<input type="text" class="form-control" name="category" value="Mug" readonly>
+									<?php
+										}else if($fetch_mug->raw_category == '3'){	
+									?>
+										<input type="text" class="form-control" name="category" value="Mobile Case" readonly>
+									<?php
+										}	
+									?>
 								</div>
 							</div>
 						</div>
