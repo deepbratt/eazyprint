@@ -12,8 +12,20 @@ class Listing_tshirt_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function delete_tshirt($raw_id)
+
+	public function fetch_mat_info($raw_id)
 	{
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_id', $raw_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function delete_tshirt($raw_id,$raw_image_name,$raw_meta_image_name)
+	{
+		unlink("uploads/product_images/t_shirt/".$raw_image_name);
+		unlink("uploads/meta_images/".$raw_meta_image_name);
 		$query = $this->db->query("delete from raw_materials where raw_id='".$raw_id."'");
 		return true;
 	}

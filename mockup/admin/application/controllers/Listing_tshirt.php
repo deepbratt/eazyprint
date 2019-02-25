@@ -25,7 +25,9 @@ class Listing_tshirt extends CI_Controller {
 	{
 		$raw_id = $this->uri->segment(3);
 		$this->load->model('listing_tshirt_m');
-		$delete_tshirt = $this->listing_tshirt_m->delete_tshirt($raw_id);
+		$fetch_material_info = $this->listing_tshirt_m->fetch_mat_info($raw_id);
+
+		$delete_tshirt = $this->listing_tshirt_m->delete_tshirt($raw_id,$fetch_material_info->raw_image,$fetch_material_info->raw_meta_img);
 		if($delete_tshirt){
 			$this->session->set_flashdata("success", "Success , Your have successfully deleted this T-shirt!");
 			redirect('listing_tshirt');
