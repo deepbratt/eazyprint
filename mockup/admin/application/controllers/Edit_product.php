@@ -118,7 +118,7 @@ class Edit_product extends CI_Controller {
 		$delete_pro_image = $this->edit_product_m->delete_image($product_image_id,$fetch_product_name);
 		
 		if($delete_pro_image){
-			$this->session->set_flashdata("success", "Product Image Deleted Successfully!");	
+			$this->session->set_flashdata("success", "Product Deleted Successfully!");	
 		}else{
 			$this->session->set_flashdata("failed", "Something Went Wrong!");
 		}
