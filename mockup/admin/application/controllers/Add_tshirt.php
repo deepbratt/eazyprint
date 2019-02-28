@@ -23,7 +23,8 @@ class Add_tshirt extends CI_Controller {
 		$this->load->model('add_tshirt_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		
-		$category = $this->input->post('category');
+		//$category = $this->input->post('category');
+		$category = '1';
 		$brand = $this->input->post('brand');
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');

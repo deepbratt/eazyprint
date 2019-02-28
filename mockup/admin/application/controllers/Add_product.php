@@ -17,6 +17,7 @@ class Add_product extends CI_Controller {
 	{
 		$this->load->model('add_product_m');
 		$data['get_all_category'] = $this->add_product_m->get_category();
+		$data['get_all_raw_materials'] = $this->add_product_m->get_raw_materials();
 		$this->load->view('products/add_product',$data);
 	}
 

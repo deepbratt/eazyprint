@@ -47,8 +47,7 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Add Product
-              </h4>
+			  <h4 class="page-title">Add Product &nbsp;&nbsp; <a href="<?php echo base_url("listing_product");?>" class="btn btn-primary">View List</a></h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
@@ -87,7 +86,7 @@
 										<?php
 											foreach($get_all_category As $all_category){
 										?>
-										<option value="<?php echo $all_category->raw_category;?>"><?php echo $all_category->raw_category;?></option>
+										<option value="<?php echo $all_category->cat_id;?>"><?php echo ucfirst($all_category->category_name);?></option>
 										<?php 
 											}
 										?>
@@ -100,7 +99,7 @@
 									<select class="form-control" name="raw_name">
 										<option vlaue="" selected disabled>Choose Metarial</option>
 										<?php
-											foreach($get_all_category As $all_category){
+											foreach($get_all_raw_materials As $all_category){
 										?>
 										<option value="<?php echo $all_category->raw_id;?>"><?php echo $all_category->raw_material_type;?></option>
 										<?php 
@@ -449,22 +448,7 @@
 			});
 
 		}
-    function add_another(){
-      
-      var max_fields      = 5; 
-      var wrapper         = $(".add_more");
-      var htmlcontent = '<div class=" atrri_add_cont"><div class="col-md-6"><span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span><input type="file" name="p_image[]" id="p_image"  class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);"><img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah"></div></div>';
-      
-      var x = 1;
 
-            if(x < max_fields){ 
-              x++; 
-              $(wrapper).append(htmlcontent); 
-            }
-      $("body").on("click",".remove",function(){ 
-        $(this).parents(".atrri_add_cont").remove();
-      });
-    }
   </script>
 		<!---Tabs JS-->
 		

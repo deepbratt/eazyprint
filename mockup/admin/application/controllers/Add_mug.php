@@ -23,7 +23,8 @@ class Add_mug extends CI_Controller {
 		$this->load->model('add_mug_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		
-		$category = $this->input->post('category');
+		//$category = $this->input->post('category');
+		$category = '2';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');
