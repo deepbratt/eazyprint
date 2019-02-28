@@ -169,7 +169,7 @@
 									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										<div class="row">
 
-												<div class="col-md-2" style="text-align:left;">
+												<div class="col-md-3" style="text-align:left;">
 													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
 													<ul style="padding-top:10px;">
 														<li class="text-dark">Printed Tshirts</li>
@@ -179,23 +179,32 @@
 													</ul>
 												</div>
 												
-												<div class="col-md-3">
-													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_phones3.png" style="height:200px;">
-													</a>
-													<span class="text-dark">Trendy MOBILE BACKCOVER</span>
+												<div class="col-md-3" style="text-align:left;">
+													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
+													<ul style="padding-top:10px;">
+														<li class="text-dark">Printed Tshirts</li>
+														<li class="text-dark">Corporate Tshirts</li>
+														<li class="text-dark">Couple Tshirts</li>
+														<li class="text-dark">Family Tshirts</li>
+													</ul>
 												</div>
-												<div class="col-md-3">
-													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_phones2.png" style="height:200px;">
-													</a>
-													<span class="text-dark">Event MOBILE BACKCOVER</span>
+												<div class="col-md-3" style="text-align:left;">
+													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
+													<ul style="padding-top:10px;">
+														<li class="text-dark">Printed Tshirts</li>
+														<li class="text-dark">Corporate Tshirts</li>
+														<li class="text-dark">Couple Tshirts</li>
+														<li class="text-dark">Family Tshirts</li>
+													</ul>
 												</div>
-												<div class="col-md-3">
-													<a class="nav-link" href="#">
-														<img  src="<?php echo base_url();?>images/blank_phones1.png" style="height:200px;">
-													</a>
-													<span class="text-dark">Merchandised MOBILE BACKCOVER</span>
+												<div class="col-md-3" style="text-align:left;">
+													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
+													<ul style="padding-top:10px;">
+														<li class="text-dark">Printed Tshirts</li>
+														<li class="text-dark">Corporate Tshirts</li>
+														<li class="text-dark">Couple Tshirts</li>
+														<li class="text-dark">Family Tshirts</li>
+													</ul>
 												</div>
 										 </div>
 									   </div>
