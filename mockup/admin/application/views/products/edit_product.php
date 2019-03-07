@@ -47,13 +47,14 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Edit Product &nbsp;&nbsp;<a href="<?php echo base_url("listing_product");?>" class="btn btn-primary">View All</a></h4>
+			  <h4 class="page-title">Edit Product &nbsp;&nbsp; <a href="<?php echo base_url("listing_product");?>" class="btn btn-primary">View List</a></h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Product </li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Product
+                </li>
               </ol>
             </div>
 			<?php
@@ -68,9 +69,10 @@
 			<?php
 				}
 			?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_product/update_product/');?><?php echo $this->uri->segment(2);?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_product/add_pro');?>">
               <div class="row">
                 <div class="col-lg-12">
+
                   <div class="card">
 					<div class="card-header">
 						<h3 class="card-title">Product Classification</h3>
@@ -79,24 +81,59 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Category</label>
-									<?php
-										$this->load->model('edit_product_m');
-										$cat_id = $fetch_product->product_category_id;
-										$fetch_cat_name = $this->edit_product_m->get_category_all($cat_id);
-									?>
-									<input type="text" class="form-control" name="category" value="<?php echo ucfirst($fetch_cat_name->category_name);?>" readonly>
+									<label class="form-label">Choose Category</label>
+									<select class="form-control" name="category" onchange="fetch_cat_id(this.value);">
+										<option value="" selected disabled>Category</option>
+										<?php
+											foreach($get_all_category As $all_category){
+										?>
+											<option value="<?php echo $all_category->cat_id;?>"><?php echo ucfirst($all_category->category_name);?></option>
+										<?php 
+											}
+										?>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Raw Material</label>
-									<input type="text" class="form-control" name="brand" value="<?php echo $fetch_raw->raw_material_type;?>" readonly>
+									<label class="form-label">Choose Brand</label>
+									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+									<select class="form-control brandz_name" name="raw_name" onchange="fetch_brand_data(this.value);">
+										<option vlaue="" selected disabled>Brand</option>
+									</select>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div id="AjaxLoader_4" style="text-align:center;z-index: 2;display:none;">
+					<h4>Please Wait...</h4>
+				</div>
+
+				<div class="card" style="display:none" id="show_raw_material">
+					<div class="card-header">
+						<h3 class="card-title">Raw Material</h3>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="form-label">Choose Raw Metarial</label>
+									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_5" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+									<select class="form-control raw_data_info" name="raw_name" onchange="fetch_raw_mat_data(this.value);">
+										<option vlaue="" selected disabled>Raw Material</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="AjaxLoader_6" style="text-align:center;z-index: 2;display:none;">
+					<h4>Please Wait...</h4>
+				</div>
+
+			 	<div id="show_all_info">
 				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title">Product Information</h3>
@@ -106,67 +143,63 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Name</label>
-									<input type="text" class="form-control" name="product_name" value="<?php echo $fetch_product->product_name;?>" placeholder="Product Name">
+									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" readonly>
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Title</label>
-									<input type="text" class="form-control" name="product_title" value="<?php echo $fetch_product->product_title;?>" placeholder="Product Title">
+									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" readonly>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label class="form-label">Product Description</label>
-									<textarea class="form-control" name="product_desc" placeholder="Enter Product Description"><?php echo $fetch_product->product_desc;?></textarea>
+									<label class="form-label">Product Desc</label>
+									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" readonly></textarea>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<h3 class="card-title">Product Image</h3>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Product Image</h3>
+							</div>
+							<div class="card-body">
+								<div class="row" style="margin-top:15px;">
+									<div class="col-md-3">
+										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
+									</div>
+									<div class="col-md-6">
+										<span onclick="product_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
+									  </div>
+
+								</div>
+								<div class="row" id="vpb-display-preview"></div>
+							</div>
+						</div>
 					</div>
-					<div class="card-body">
-						<div class="row" style="margin-top:15px;">
-							<div class="col-md-2">
-								<label class="form-label">Upload Image
-								</label>
-							  </div>
-							  <div class="col-md-10">
-							  	<?php
-								if(empty($fetch_image)){
-								?>
-								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
-									<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-									<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-								</span>
-								<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
-									<div class="row" id="vpb-display-preview"></div>
-								<?php
-									}else{
-								?>
-									
-									<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
-									<div class="row" id="vpb-display-preview"></div>
-									<div class="row">
-									<?php
-										foreach($fetch_image AS $each_image){
-									?>
-									<div class="col-md-2 text-center" style="padding:10px;">
-										<img src="<?php echo base_url('uploads/product_images/');?><?php echo $each_image->product_image_path;?>" onclick="product_image()" style="height:150px;" id="p_blah">
-										<a href="<?php echo base_url('edit_product/delete_product_image');?>/<?php echo $this->uri->segment(2);?>/<?php echo $each_image->product_image_id;?>" style="margin-top:3px;" class="btn btn-small btn-danger">Remove</a>
+					<div class="col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Design Image</h3>
+							</div>
+							<div class="card-body">
+								<div class="row" style="margin-top:15px;">
+									<div class="col-md-3">
+										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
 									</div>
-									
-									<?php
-										}
-									?>
-									</div>
-								<?php
-								}
-								?>
-							  </div>
+									<div class="col-md-6">
+										<span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input type="file" style="display:none;" name="design_image[]" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)" multiple="multiple" />
+									  </div>
+
+								</div>
+								<div class="row" id="vpb-design-display-preview"></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -178,26 +211,27 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Wholesale Price</label>
-									<input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price" value="<?php echo $fetch_product->product_wholesale_price;?>">
+									<label class="form-label">Wholesale Price(in INR)</label>
+									<input type="number" name="wholesale_price" id="product_wholesale" class="form-control" placeholder="Add Wholesale Price">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Retail Price</label>
-									<input type="number" name="retail_price" class="form-control" value="<?php echo $fetch_product->product_retail_price;?>" placeholder="Add Retail Price">
+									<label class="form-label">Retail Price(in INR)</label>
+									<input type="number" name="retail_price" id="product_retail" class="form-control" placeholder="Add Retail Price">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Designed By</label>
-									<input type="text" name="designed_by" class="form-control" value="<?php echo $fetch_product->product_designed_by;?>" placeholder="Product Designed By">
+									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_7" style="float:left;margin-top:11px;margin-left:9px;position: absolute;z-index: 2;display: none;">
+									<input type="text" name="designed_by" id="product_designed" class="form-control" placeholder="Designed By" readonly>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product SKU</label>
-									<input type="text" name="p_sku" class="form-control" value="<?php echo $fetch_product->product_sku;?>" placeholder="Add Product SKU">
+									<input type="text" name="p_sku" id="product_sku" class="form-control" placeholder="Add Product SKU" readonly>
 								</div>
 							</div>
 						</div>
@@ -214,42 +248,28 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-						  <?php
-						  if($fetch_product->product_meta_image == ''){
-						  ?>
-							<span onclick="meta_img()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
-								<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-								<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-							</span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
-						    <img src="" onclick="meta_img()" style="height:150px;display:none;" id="blah">
-						  <?php
-						  }else{
-						  ?>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
-						    <img src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_product->product_meta_image;?>" onclick="meta_img()" style="height:150px;" id="blah">
-						  <?php
-						  }
-						  ?>
+							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
+						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 						  </div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Tags</label>
-									<input type="text" name="meta_tags[]" data-role="tagsinput" value="<?php echo $fetch_product->product_meta_tags;?>" class="form-control" placeholder="Add Tags">
+									<input type="text" name="meta_tags" data-role="tagsinput" class="form-control " placeholder="Add Tags">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Meta Keywords</label>
-									<input type="text" name="meta_keyword[]" data-role="tagsinput" value="<?php echo $fetch_product->product_meta_keyword;?>" class="form-control" placeholder="Add Meta Keywords">
+									<input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Meta Description</label>
-									<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"><?php echo $fetch_product->product_meta_desc;?></textarea>
+									<textarea class="form-control" name="meta_desc" id="product_meta_description" placeholder="Enter Meta Description"></textarea>
 								</div>
 							</div>
 						</div>
@@ -260,11 +280,12 @@
 					</button>
 					<button type="reset" class="btn btn-secondary">Cancel</button>
 				</div>
-				
+			  </div>
 			</div>
 		  </div>
-		</form>
 
+
+		</form>
 	  </div>
           <!--footer-->
           <?php $this->load->view('common/footer');?>
@@ -280,118 +301,101 @@
 	</body>
 	<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
     <script type="text/javascript">
-		$('#cp2').colorpicker();
-
 		
-
-		function cat_id(e){
-      if(e == '3')
-      {
-        $('.modelz').show();
-        $('.brand_div').hide();
-        $('.pro_sizez').hide();
-        $('.pro_dimensionz').show();
-        $('.p_shape').hide();
-        
-      }else{
-        $('.modelz').hide();
-        $('.brand_div').show();
-        $('.pro_sizez').show();
-        $('.pro_dimensionz').hide();
-        $('.p_shape').show();
-      }
-			$.ajax({
-			url: '<?php echo base_url();?>admin_add_design/ajax_fetch_sub_category',
-			data: {'category_id': e,},
-			type: "post",
-			beforeSend: function(){
-				$('#AjaxLoader_1').show();
-			},
-			complete: function(){
-				$('#AjaxLoader_1').hide();
-			},
-			success: function(response){
-			  $('.sub_categoryz').html(response);
-			}
-		  });
+	/* FETCH CATEGORY DATA STARTS */
+		function fetch_cat_id(e){
+		  $.ajax({
+		  url: '<?php echo base_url();?>add_product/ajax_fetch_brand_data',
+		  data: {'cat_id': e,},
+		  type: "post",
+		  beforeSend: function(){
+		  $('#AjaxLoader_3').show();
+		  },
+		  complete: function(){
+			$('#AjaxLoader_3').hide();
+		  },
+		  success: function(response){
+			$('.brandz_name').html(response);
+			//alert(response);
+		  }
+		  }); 
 		}
-    
-		function sub_id(sub_id){
-			
-			$.ajax({
-				url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand',
-				data: {'sub_id': sub_id,},
-				type: "post",
-				beforeSend: function(){
-				$('#AjaxLoader_2').show();
-				},
-				complete: function(){
-					$('#AjaxLoader_2').hide();
-				},
-				success: function(response){
-				  $('.brandz').html(response);
-				}
-			});
-			$.ajax({
-				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_material_type',
-				  type: 'post',
-				  data: {'sub_id': sub_id,},
-				  beforeSend: function(){
-					$('#AjaxLoader_2').show();
-					},
-					complete: function(){
-						$('#AjaxLoader_2').hide();
-					},
-				  success: function(response){
-					$('.materialzz').html(response);
-				  }
-			});
-			$.ajax({
-				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_color',
-				  type: 'post',
-				  data: {'sub_id': sub_id,},
-				  beforeSend: function(){
-					$('#AjaxLoader_2').show();
-					},
-					complete: function(){
-						$('#AjaxLoader_2').hide();
-					},
-				  success: function(response){
-					$('.colorzz').html(response);
-				  }
-			});
-			$.ajax({
-				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_size',
-				  type: 'post',
-				  data: {'sub_id': sub_id,},
-				  beforeSend: function(){
-					$('#AjaxLoader_2').show();
-					},
-					complete: function(){
-						$('#AjaxLoader_2').hide();
-					},
-				  success: function(response){
-					$('.sizezz').html(response);
-				  }
-			});
-			$.ajax({
-				  url: '<?php echo base_url();?>admin_add_product/ajax_fetch_shape',
-				  type: 'post',
-				  data: {'sub_id': sub_id,},
-				  beforeSend: function(){
-					$('#AjaxLoader_2').show();
-					},
-					complete: function(){
-						$('#AjaxLoader_2').hide();
-					},
-				  success: function(response){
-					$('.shapezz').html(response);
-				  }
-			});
+	/* FETCH CATEGORY DATA ENDS */
+	/* FETCH BRAND DATA STARTS */
+		function fetch_brand_data(e){
+		  $.ajax({
+		  url: '<?php echo base_url();?>add_product/ajax_fetch_raw_data',
+		  data: {'brand_id': e,},
+		  type: "post",
+		  beforeSend: function(){
+		  $('#AjaxLoader_4').show();
+		  $('#AjaxLoader_5').show();
+		  $('#show_raw_material').hide();
+		  $('#show_all_info').hide();
+		  },
+		  complete: function(){
+		  	$('#AjaxLoader_4').hide();
+			$('#AjaxLoader_5').hide();
+			$('#show_raw_material').show();
+		  },
+		  success: function(response){
+			$('.raw_data_info').html(response);
+			//alert(response);
+		  }
+		  }); 
 		}
+	/* FETCH BRAND DATA ENDS */
+	/* FETCH RAW MATERIAL DATA STARTS */
+		function fetch_raw_mat_data(e){
+		  $.ajax({
+		  url: '<?php echo base_url();?>add_product/fetch_raw_material_data',
+		  data: {'raw_id': e,},
+		  type: "post",
+		  dataType: 'json',
+		  beforeSend: function(){ 
+		  $('#AjaxLoader_6').show();
+		  $('#show_all_info').hide();
+		  },
+		  complete: function(){
+		  	$('#AjaxLoader_6').hide();
+		  	$('#show_all_info').show();
+		  },
+		  success: function(response){
+			//$('.raw_data_info').html(response);
+			//var result = $.parseJSON(response);
+			$('#product_name').val(response.raw_name);
+			$('#product_title').val(response.raw_title);
+			$('#product_desc').val(response.raw_desc);
+			$('#product_wholesale').val(response.raw_wholesale_price);
+			$('#product_retail').val(response.raw_retail_price);
+			//$('#product_designed').val(response.raw_added_by);
+			$('#product_sku').val(response.raw_sku);
+			$("input[name=meta_tags]").tagsinput('add', response.raw_tags);
+			$("input[name=meta_keyword]").tagsinput('add', response.raw_meta_keywords);
+			$('#product_meta_description').val(response.raw_meta_desc);
 
-
-		function meta_img(){
+			var designed_by = response.raw_added_by;
+			 $.ajax({
+			  url: '<?php echo base_url();?>add_product/ajax_fetch_designed_id',
+			  data: {'design_id': designed_by},
+			  type: "post",
+			  beforeSend: function(){ 
+			  $('#AjaxLoader_7').show();
+			  },
+			  complete: function(){
+			  	$('#AjaxLoader_7').hide();
+			  },
+			  success: function(response){
+				$('#product_designed').val(response);
+				//alert(response);
+			  }
+			  }); 
+		  	}
+		  }); 
+		}
+	/* FETCH RAW MATERIAL DATA ENDS */
+	
+		function meta_image(){
 			$("input[id='my_file']").click();
 		}
 
@@ -408,89 +412,16 @@
 				$('#hide_span_2').hide();
 			}
 		}
-
-		/* MULTIPLE PRODUCT IMAGE STARTS */
+	/* MULTIPLE PRODUCT IMAGE STARTS */
 		function product_image(){
 			$("input[id='vpb-data-file']").click();
+
+		}
+		function design_image(){
+			$("input[id='vpb-data-file-design']").click();
 		}
 		
-		/*function show_image(input) {
-			
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
 
-				reader.onload = function (e) {
-					$('#p_blah').attr('src', e.target.result);
-				}
-
-				reader.readAsDataURL(input.files[0]);
-				$('#p_blah').show();
-				$('#hide_span').hide();
-			}
-		}*/
-
-
-	/* MULTIPLE PRODUCT IMAGE ENDS */
-
-    function brandz_id(e){
-      $.ajax({
-      url: '<?php echo base_url();?>admin_add_product/ajax_fetch_brand_name',
-      data: {'brand_id': e,},
-      type: "post",
-      beforeSend: function(){
-      $('#AjaxLoader_3').show();
-      },
-      complete: function(){
-        $('#AjaxLoader_3').hide();
-      },
-      success: function(response){
-        $('.brandz_name').val(response);
-      }
-      }); 
-    }
-
-		function callapi(){
-      var brand_name = $('.brandz_name').val();
-      var model_number = $('.devname').val();
-      var model_name = brand_name+""+model_number;
-      
-			// set token globally
-			//$.fn.fonoApi.options.token = "xxx";
-			$('.api').fonoApi({
-				token : "86b89476caaf66eda3f21279b7711afc",
-				device : model_name,
-				limit : 1,
-				template : function() {
-
-					// argument contains the data object // *returns html content
-					return $.map(arguments, function(obj, i) {
-						content  = obj.dimensions;
-						contarr = content.split(" ");
-						$('.pro_len').val(contarr[0]);
-						$('.pro_wid').val(contarr[2]);
-						$('.pro_height').val(contarr[4]);
-					});
-
-				}
-			});
-
-		}
-    function add_another(){
-      
-      var max_fields      = 5; 
-      var wrapper         = $(".pro_colorzz");
-      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
-      
-      var x = 1;
-
-            if(x < max_fields){ 
-              x++; 
-              $(wrapper).append(htmlcontent); 
-            }
-      $("body").on("click",".remove",function(){ 
-        $(this).parents(".atrri_add_cont").remove();
-      });
-    }
   </script>
 		<!---Tabs JS-->
 		

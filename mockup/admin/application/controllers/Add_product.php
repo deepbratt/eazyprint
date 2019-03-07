@@ -17,9 +17,64 @@ class Add_product extends CI_Controller {
 	{
 		$this->load->model('add_product_m');
 		$data['get_all_category'] = $this->add_product_m->get_category();
-		$data['get_all_raw_materials'] = $this->add_product_m->get_raw_materials();
+		//$data['get_all_raw_materials'] = $this->add_product_m->get_raw_materials();
 		$this->load->view('products/add_product',$data);
+
 	}
+	
+	/* BRAND DETAILS FETCH STARTS*/
+		public function ajax_fetch_brand_data(){
+			$this->load->model('add_product_m');
+			$cat_id = $this->input->post('cat_id');
+			$fetch_brand_data = $this->add_product_m->get_brand_data($cat_id);
+			?>
+				<option value="" selected disabled>Brand</option>
+			<?php
+				foreach($fetch_brand_data AS $each_fetch_brand){
+			?>
+				<option value="<?php echo $each_fetch_brand->raw_brand;?>"><?php echo $each_fetch_brand->raw_brand;?></option>
+			<?php
+				}
+		}
+	/* BRAND DETAILS FETCH ENDS*/
+
+	/* All RAW MATERIALS FETCH STARTS*/
+		public function ajax_fetch_raw_data(){
+			$this->load->model('add_product_m');
+			$brand_name = $this->input->post('brand_id');
+			$fetch_raw_data = $this->add_product_m->get_raw_options($brand_name);
+			?>
+				<option value="" selected disabled>Raw Material</option>
+			<?php
+				foreach($fetch_raw_data AS $each_fetch_raw){
+			?>
+				<option value="<?php echo $each_fetch_raw->raw_id;?>"><?php echo $each_fetch_raw->raw_title;?></option>
+			<?php
+				}
+		}
+	/* All RAW MATERIALS FETCH ENDS*/
+
+	/* RAW MATERIALS DETAILS FETCH STARTS*/
+		public function fetch_raw_material_data(){
+			$this->load->model('add_product_m');
+			$raw_id = $this->input->post('raw_id');
+			$fetch_raw_data = $this->add_product_m->get_raw_materials($raw_id);
+			echo json_encode($fetch_raw_data);
+			
+		}
+	/* RAW MATERIALS DETAILS FETCH ENDS*/
+
+	/* Designed By DETAILS FETCH STARTS*/
+		public function ajax_fetch_designed_id(){
+			$this->load->model('add_product_m');
+			$design_id = $this->input->post('design_id');
+			$fetch_raw_data_designed_data = $this->add_product_m->get_raw_materials_design_by($design_id);
+			echo $fetch_raw_data_designed_data->crew_fname;
+			echo " ";
+			echo $fetch_raw_data_designed_data->crew_lname;
+			
+		}
+	/* Designed By DETAILS FETCH ENDS*/
 
 	public function add_pro(){ 
 
@@ -42,6 +97,40 @@ class Add_product extends CI_Controller {
 		$meta_desc = $this->input->post('meta_desc');
 		$ad_date = time();
 		$product_status = '1';
+
+		if(!empty($_FILES['design_image']['name'])){
+
+			$this->load->library('upload');
+			$image = array();
+			$filesCount = count($_FILES['design_image']['name']);
+
+			for($i = 1; $i < $filesCount; $i++){
+				$_FILES['userFile']['name'] = $_FILES['design_image']['name'][$i];
+				$_FILES['userFile']['type'] = $_FILES['design_image']['type'][$i];
+				$_FILES['userFile']['tmp_name'] = $_FILES['design_image']['tmp_name'][$i];
+				$_FILES['userFile']['error'] = $_FILES['design_image']['error'][$i];
+				$_FILES['userFile']['size'] = $_FILES['design_image']['size'][$i];
+
+				$config['upload_path'] = 'uploads/design_images/';
+				$config['allowed_types'] = 'jpg|jpeg|png|gif';
+				$config['file_name'] = rand(999,99999).$_FILES['design_image']['name'][$i];
+				
+				$this->load->library('upload',$config);
+				$this->upload->initialize($config);
+				
+				if($this->upload->do_upload('userFile')){
+					$fileData = $this->upload->data();
+					$design_imagezz[$i]['file_name'] = $fileData['file_name'];
+					$design_imagezz[$i]['created'] = date("Y-m-d H:i:s");
+					$design_imagezz[$i]['modified'] = date("Y-m-d H:i:s");
+				}
+				echo $design_imagezz[$i]['file_name'];
+				echo ",";
+				echo "<br>";
+			}
+		}
+		
+		exit;
 
 		if(!empty($_FILES['meta_image']['name'])){
 			$this->load->library('upload');
@@ -105,6 +194,8 @@ class Add_product extends CI_Controller {
 				redirect('add_product');
 		
 	}
+
+	
 
 }
 
