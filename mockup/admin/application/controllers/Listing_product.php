@@ -16,8 +16,7 @@ class Listing_product extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('listing_product_m');
-		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$data['fetch_product'] = $this->listing_product_m->fetch_pro($user_id);
+		$data['fetch_product'] = $this->listing_product_m->fetch_pro();
 		$this->load->view('products/listing_product',$data);
 	}
 
