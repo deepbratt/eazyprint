@@ -16,8 +16,9 @@ class Purchase_order_m extends CI_Model {
 	public function supplier_info(){
 
 		$this->db->select('*');
-		$this->db->from('supplier');
-		$this->db->where('supplier_status','1');
+		$this->db->from('user');
+		$this->db->where('user_status','1');
+		$this->db->where('user_type','vendor');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -25,19 +26,18 @@ class Purchase_order_m extends CI_Model {
 	public function supplier_addr($supplier_id){
 
 		$this->db->select('*');
-		$this->db->from('supplier');
-		$this->db->where('supplier_id',$supplier_id);
-		$this->db->where('supplier_status','1');
+		$this->db->from('user');
+		$this->db->where('user_id',$supplier_id);
+		$this->db->where('user_status','1');
 		$query = $this->db->get();
 		return $query->row();
 	}
 
-	public function raw_details(){
+	public function fetch_products(){
 
 		$this->db->select('*');
-		$this->db->from('raw_materials');
-		$this->db->where('raw_status','1');
-		$this->db->group_by('raw_category');
+		$this->db->from('products');
+		$this->db->where('product_status','1');
 		$query = $this->db->get();
 		return $query->result();
 	}

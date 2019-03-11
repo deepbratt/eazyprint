@@ -16,7 +16,7 @@ class Add_purchase_order extends CI_Controller {
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_admin_info'] = $this->purchase_order_m->admin_info($user_id);
 		$data['fetch_supplier_info'] = $this->purchase_order_m->supplier_info();
-		$data['fetch_raw_details'] = $this->purchase_order_m->raw_details();
+		$data['fetch_products'] = $this->purchase_order_m->fetch_products();
 		$data['fetch_cities'] = $this->purchase_order_m->fetch_cities();
 		$this->load->view('transasctions/add_purchase_order',$data);
 	}
@@ -28,12 +28,12 @@ class Add_purchase_order extends CI_Controller {
 	?>
 		<h5 style="text-decoration: underline;text-transform: uppercase;">Supplier Details :</h5>
 		<address>
-			<span class="font-weight-semibold"><?php echo $fetch_supplier_addr->supplier_fname;?>&nbsp;<?php echo $fetch_supplier_addr->supplier_lname;?></span><br>
-			<?php echo $fetch_supplier_addr->supplier_addr;?><br>
-			<?php echo $fetch_supplier_addr->supplier_city;?>, <?php echo $fetch_supplier_addr->supplier_state;?><br>
-			<b>Postal Code:</b> <?php echo $fetch_supplier_addr->supplier_pincode;?><br>
-			<b>Email:</b> <?php echo $fetch_supplier_addr->supplier_email;?><br>
-			<b>Phone: </b><?php echo $fetch_supplier_addr->supplier_phone;?>
+			<span class="font-weight-semibold"><?php echo $fetch_supplier_addr->user_fname;?>&nbsp;<?php echo $fetch_supplier_addr->user_lname;?></span><br>
+			<?php echo $fetch_supplier_addr->user_address;?><br>
+			<?php echo $fetch_supplier_addr->user_city;?>, <?php echo $fetch_supplier_addr->user_state;?><br>
+			<b>Postal Code:</b> <?php echo $fetch_supplier_addr->user_pincode;?><br>
+			<b>Email:</b> <?php echo $fetch_supplier_addr->user_email;?><br>
+			<b>Phone: </b><?php echo $fetch_supplier_addr->user_phone;?>
 		</address>
 	<?php
 	}
@@ -46,7 +46,7 @@ class Add_purchase_order extends CI_Controller {
 
 		foreach($fetch_cities AS $each_fetch_cities){
 		?>
-	      	<option value="<?php echo $each_fetch_cities->city_state;?>"<?php echo (($fetch_supplier_addr->supplier_state == $each_fetch_cities->city_state)?'selected':'');?>><?php echo $each_fetch_cities->city_state;?></option>
+	      	<option value="<?php echo $each_fetch_cities->city_state;?>"<?php echo (($fetch_supplier_addr->user_state == $each_fetch_cities->city_state)?'selected':'');?>><?php echo $each_fetch_cities->city_state;?></option>
       	<?php
       		}
 	}
