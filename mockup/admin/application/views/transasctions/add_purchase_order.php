@@ -83,7 +83,7 @@
 														<h5>Supplier Name</h5>
 													</div>
 													<div class="col-md-8">
-														<select name="sub_category" class="form-control select2-show-search" onchange="supplier_id(this.value);" style="border:none !important;">
+														<select name="supplier_id" class="form-control select2-show-search" onchange="supplierzz_id(this.value);" style="border:none !important;">
 														 	<option value="" selected="" disabled="">Choose Supplier</option>
 														  <?php
 														  	foreach($fetch_supplier_info AS $each_supplier_data){
@@ -124,8 +124,8 @@
 														<h5>Place of Supply</h5>
 													</div>
 													<div class="col-md-8">
-														<select name="sub_category" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value);">
-														 	<option value="" disabled="">Choose State</option>
+														<select name="place_of_supply" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value)">
+														 	<option value="" disabled selected>Choose State</option>
 														 	<?php
 															  	foreach($fetch_cities AS $each_fetch_cities){
 															?>
@@ -142,6 +142,9 @@
 													<div class="col-md-4"></div>
 													<div class="col-md-8">
 							                             <div class="supp_addr" style="margin-top:60px;"></div>
+							                             <select class="form-control suppl_state" onchange="get_state(this.value);">
+							                             	<option value="" selected disabled>Choose Supplier State</option>
+							                             </select>
 													</div>
 												</div> 	
 											</div>
@@ -149,9 +152,7 @@
 
 										<div class="table-responsive push" id="create_invoice">
 											<table class="table table-bordered table-hover">
-											
 												<tr>
-													
 													<th class="text-center " style="width: 20%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
 													<th class="text-center" style="width: 1%">Amount</th>
@@ -245,7 +246,9 @@
 		<script src="<?php echo base_url('js');?>/spectrum.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery-ui.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
-		
+		<script>
+		 $( ".fc-datepicker" ).datepicker({ minDate: 0});
+		</script>
 		<script>
 		  $(document).ready(function() {
 			  var max_fields      = 30; //maximum input boxes allowed
@@ -270,35 +273,44 @@
 				});
 				$('select').select2();
 			  });
-			 
-			   function remove_rowzz(e){
-					$(e).parents("tr").remove();
-				}	
+
 			});
+
+		    function remove_rowzz(e){
+				$(e).parents("tr").remove();
+			}	
 		</script>
 		<script>
-			function supplier_id(e){
+			function supplierzz_id(e){
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_supplier_addr',
 				data: {'supp_id': e,},
 				type: "post",
-				success: function(response){
-				  $('.supp_addr').html(response);
-				}
-			  });
+					success: function(response){
+					  $('.supp_addr').html(response);
+					}
+			  	});
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_place_of_supply',
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
 				  $('.placeofsupply').html(response);
+				  $('.suppl_state').html(response);
 				  $('#create_invoice').show();
 				  //alert(response);
 				}
 			  });
+
+
 			}
 
+
 			function get_state(state){
+				var place_of_supplyzz = state;
+				var supplier_state_addr = $('.suppl_state').find(":selected").val();
+				alert(supplier_state_addr);
+				exit;
 				if(state != ''){
 					$('#create_invoice').show();
 				}
