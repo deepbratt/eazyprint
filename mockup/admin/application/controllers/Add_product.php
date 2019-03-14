@@ -124,13 +124,12 @@ class Add_product extends CI_Controller {
 					$design_imagezz[$i]['created'] = date("Y-m-d H:i:s");
 					$design_imagezz[$i]['modified'] = date("Y-m-d H:i:s");
 				}
-				echo $design_imagezz[$i]['file_name'];
-				echo ",";
-				echo "<br>";
+				//echo $design_imagezz[$i]['file_name'];
+				//echo ",";
+				//echo "<br>";
 			}
 		}
 		
-		exit;
 
 		if(!empty($_FILES['meta_image']['name'])){
 			$this->load->library('upload');

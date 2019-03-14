@@ -7,16 +7,22 @@
         </div>
         <div class="card-body">
           <div class="form-group">
-            <select name="beast" id="select-beast" class="form-control custom-select">
+            <select name="sidebar_category" id="select-beast" class="form-control custom-select ez_category">
               <option selected disabled> Category </option>
-              <option value="1"> Phone </option>
-              <option value="2"> T-shirt </option>
-              <option value="3"> Mug </option>
-              <option value="4"> Tiles </option>
+              <?php
+              	$ci =&get_instance();
+				$ci->load->model('product_m');
+				$fetch_product_data = $ci->product_m->get_all_categories();
+              	foreach($fetch_product_data AS $each_cat_data){
+              ?>
+              <option value="<?php echo $each_cat_data->cat_id;?>"> <?php echo ucfirst($each_cat_data->category_name);?> </option>
+              <?php
+              	}
+              ?>
             </select>
           </div>
 
-		  <div class="form-group">
+		  <!--<div class="form-group">
             <select name="beast" id="select-beast" class="form-control custom-select">
               <option selected disabled> Sub-Category </option>
               <option value="1"> Phone </option>
@@ -24,26 +30,37 @@
               <option value="3"> Mug </option>
               <option value="4"> Tiles </option>
             </select>
-          </div>
+          </div>-->
           <div class="form-group">
-            <select name="beast" id="select-beast" class="form-control custom-select">
-              <option selected> Brand </option>
-              <option value="1"> Apple </option>
-              <option value="2"> Nokia </option>
-              <option value="3"> Samsung </option>
-              <option value="4"> Vivo </option>
-              <option value="5"> Oppo </option>
+            <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_brand">
+              <option selected disabled value=""> Brand </option>
+              <?php
+              	$ci =&get_instance();
+				$ci->load->model('product_m');
+				$category_id = '';
+				$fetch_brand_data = $ci->product_m->fetch_brandzz($category_id);
+              	foreach($fetch_brand_data AS $each_brand_data){
+              ?>
+              <option value="<?php echo $each_brand_data->raw_brand;?>"> <?php echo $each_brand_data->raw_brand;?> </option>
+              <?php
+              	}
+              ?>
             </select>
           </div>
           <div class="form-group">
-            <select name="beast" id="select-beast1" class="form-control custom-select">
-              <option value="0"> Model </option>
-              <option value="1"> Iphone 4 </option>
-              <option value="2"> Iphone 5 </option>
-              <option value="3"> Iphone 5s </option>
-              <option value="4"> Iphone 6 </option>
-              <option value="5"> Iphone 6s </option>
-              <option value="6"> Iphone 7 </option>
+            <select name="beast" id="select-beast1" class="form-control custom-select ez_model">
+              <option selected disabled value=""> Model </option>
+             <?php
+              	$ci =&get_instance();
+				$ci->load->model('product_m');
+				$brand_name = '';
+				$fetch_model_data = $ci->product_m->fetch_modelzz($brand_name);
+              	foreach($fetch_model_data AS $each_model_data){
+              ?>
+              <option value="<?php echo $each_model_data->raw_name;?>"> <?php echo $each_model_data->raw_name;?> </option>
+              <?php
+              	}
+              ?>
             </select>
           </div>
 
@@ -57,19 +74,19 @@
 				   <div class="form-group m-0">
 						<div class="selectgroup selectgroup-pills">
 							<label class="selectgroup-item">
-								<input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
+								<input type="checkbox" name="size" value="S" class="selectgroup-input" checked="">
 								<span class="selectgroup-button">S</span>
 							</label>
 							<label class="selectgroup-item">
-								<input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+								<input type="checkbox" name="size" value="M" class="selectgroup-input">
 								<span class="selectgroup-button">M</span>
 							</label>
 							<label class="selectgroup-item">
-								<input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+								<input type="checkbox" name="size" value="L" class="selectgroup-input">
 								<span class="selectgroup-button">L</span>
 							</label>
 							<label class="selectgroup-item">
-								<input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+								<input type="checkbox" name="size" value="XL" class="selectgroup-input">
 								<span class="selectgroup-button">XL</span>
 							</label>
 						</div>
@@ -205,3 +222,29 @@
     </div>
   </div>
 </div>
+<script>
+	$(".ez_category").on('change', function() {
+	    var cat_id = $(this).children("option:selected").val();
+	    $.ajax({
+		url: '<?php echo base_url();?>product/ajax_sidebar_filter',
+		data: {'cat_id': cat_id,},
+		type: "post",
+			success: function(response){
+			  //$('.ez_brand').html(response);
+			  //alert(response);
+			}
+	  	});
+	  });
+	$(".ez_brand").on('change', function() {
+	    var brand_name = $(this).children("option:selected").val();
+	    $.ajax({
+		url: '<?php echo base_url();?>product/ajax_sidebar_filter',
+		data: {'brand_name': brand_name,},
+		type: "post",
+			success: function(response){
+			  //$('.ez_model').html(response);
+			  //alert(response);
+			}
+	  	});
+	  });
+</script>

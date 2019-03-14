@@ -17,14 +17,14 @@
 		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | Product</title>
-<?php
-$this->load->view("common/metalinks");
-?>
-	</head>
-	<body class="app">
-<?php
-$this->load->view("common/header");
-?>
+		<?php
+		$this->load->view("common/metalinks");
+		?>
+			</head>
+			<body class="app">
+		<?php
+		$this->load->view("common/header");
+		?>
 		<div>
 			<img src="<?php echo base_url();?>images/product_banner4.png">
 		</div>
@@ -68,10 +68,15 @@ $this->load->view("common/header");
 										$img_path = "admin/uploads/product_images/";
 									}
 								?>
-									<div class="col-lg-4" style="border-radius:5px !important;">
-										<a href="<?php echo base_url("product_details");?>"><img class="" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $get_product->product_image_path;?>" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:300px;"></a>
-										<div class="card item-card">
-												<div class="cardtitle" style="text-align:center;padding-top:15px;">
+									<div class="col-lg-4" style="border-radius:5px !important;text-align:center;">
+										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:300px;">
+											<a href="<?php echo base_url("product_details");?>">
+												<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $get_product->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+											</a>
+											<div class="clearfix"></div>
+										</div>
+										<div class="card item-card" style="margin-top:-22px;">
+												<div class="cardtitle" style="text-align:center;">
 													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;"><?php echo $get_product->product_name;?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
