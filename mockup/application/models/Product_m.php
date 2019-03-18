@@ -43,15 +43,31 @@ class product_m extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('products');
-		$this->db->join('product_image', 'product_image.product_id = products.product_id');
-		$this->db->join('category', 'category.cat_id = products.product_category_id');
+		//$this->db->join('product_image', 'product_image.product_id = products.product_id');
+		//$this->db->join('category', 'category.cat_id = products.product_category_id');
 		//$this->db->where('orders.orders_id',$order_id);
 		//$this->db->order_by('category_name');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
+	public function fetch_pro_image($pro_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product_image');
+		$this->db->where('product_id',$pro_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 
+	public function fetch_name_category($category)
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->where('cat_id',$category);
+		$query = $this->db->get();
+		return $query->row();
+	}
 
 	public function update_supplier_service($more_service_data)
 	{

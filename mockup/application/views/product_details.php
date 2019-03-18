@@ -226,6 +226,10 @@
 		.cartstop{
 			clear: both;
 		}
+		.selectgroup-input:checked+.wishlist{
+			color: #fff !important;
+			background: #fd0303 !important;
+		}
 		</style>
 
 <?php
@@ -247,7 +251,7 @@ $this->load->view("common/header");
 							<div class="page-header">
 
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
 										$this->load->model('product_details_m');
@@ -274,7 +278,7 @@ $this->load->view("common/header");
 						                   <?php
 						                   		foreach($fetch_prod_image_data AS $each_pro_data_images){
 						                   ?>
-						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:70px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:96px;"></li>
 						                   <?php
 						                   		}
 						                   ?>
@@ -307,81 +311,45 @@ $this->load->view("common/header");
 												</div>
 												<span>Inclusive of all taxes</span>
 										</div>
+									<form method="POST" action="<?php echo base_url('checkout/');?><?php echo $this->uri->segment(2);?>">
 										<!-- SELECT COLOR STARTS -->
+										<?php
+											if($fetch_raw_data->raw_color_code != ''){
+										?>
 										<div class="card-body cardbody" style="margin-top:-25px;">
-											<div class="form-group m-0" style="border-bottom:1px dotted #000;border-top:1px dotted #000;padding-top:15px;padding-bottom:15px;">
+											<div class="form-group m-0" style="padding-top:15px;padding-bottom:15px;">
 												<label class="form-label">Select Color</label>
 												<div class="row gutters-xs">
+													<?php
+														$color_code = explode(',',$fetch_raw_data->raw_color_code);
+														$color_name = explode(',',$fetch_raw_data->raw_color);
+														foreach($color_code AS $key=>$each_color_code){
+													?>
 													<div class="col-auto">
 														<label class="colorinput">
-															<input name="color" type="checkbox" value="azure" class="colorinput-input" checked="">
-															<span class="colorinput-color bg-azure"></span>
+															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
+															<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
 														</label>
 													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="white" class="colorinput-input">
-															<span class="colorinput-color bg-indigo"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="black" class="colorinput-input">
-															<span class="colorinput-color bg-purple"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="pink" class="colorinput-input">
-															<span class="colorinput-color bg-pink"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="red" class="colorinput-input">
-															<span class="colorinput-color bg-red"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="orange" class="colorinput-input">
-															<span class="colorinput-color bg-orange"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="yellow" class="colorinput-input">
-															<span class="colorinput-color bg-yellow"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="lime" class="colorinput-input">
-															<span class="colorinput-color bg-lime"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="green" class="colorinput-input">
-															<span class="colorinput-color bg-green"></span>
-														</label>
-													</div>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="checkbox" value="teal" class="colorinput-input">
-															<span class="colorinput-color bg-teal"></span>
-														</label>
-													</div>
+													<?php
+														}
+													?>
 												</div>
 											</div>
 										</div>
+										<?php
+											}
+										?>
 										<!-- SELECT COLOR ENDS -->
 										<!-- SELECT SIZE STARTS -->
+										<?php
+											if($fetch_raw_data->raw_size != ''){
+										?>
 										<div class="card-body" style="margin-top:-40px;">
 											<div class="form-group" style="border-bottom:1px dotted #000;padding-bottom:20px;">
 													<div class="row p-2">
 														<div class="col-md-3 pull-left">
-															<label class="form-label" style="text-align:left;margin-left:-8px;">Select Size</label>
+														  <label class="form-label" style="text-align:left;margin-left:-8px;">Select Size</label>
 														</div>
 														<div class="col-md-3"></div>
 														<div class="col-md-3"></div>
@@ -391,26 +359,28 @@ $this->load->view("common/header");
 													</div>
 													
 													<div class="selectgroup selectgroup-pills">
+														<?php
+															$explode_size = explode(',',$fetch_raw_data->raw_size);
+															foreach($explode_size AS $each_raw_size){
+														?>
 														<label class="selectgroup-item" >
-															<input type="radio" name="value" value="HTML" class="selectgroup-input" checked="" >
-															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">S</span>
+															<input type="radio" name="size" value="<?php echo $each_raw_size;?>" class="selectgroup-input">
+															<span class="selectgroup-button" style="border:1px solid #000;color:#000;"><?php echo $each_raw_size;?></span>
 														</label>
-														<label class="selectgroup-item">
-															<input type="radio" name="value" value="CSS" class="selectgroup-input">
-															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">M</span>
-														</label>
-														<label class="selectgroup-item">
-															<input type="radio" name="value" value="PHP" class="selectgroup-input">
-															<span class="selectgroup-button" style="border:1px solid #000;color:#000;">L</span>
-														</label>
-														<label class="selectgroup-item">
+														
+														<?php
+															}
+														?>
+														<!--<label class="selectgroup-item">
 															<input type="radio" name="value" value="JavaScript" class="selectgroup-input">
 															<span class="selectgroup-button" style="border:1px solid #000;color:#000;text-decoration: line-through;">XL</span>
-														</label>
-
+														</label>-->
 													</div>
 												</div>
 										</div>
+										<?php
+											}
+										?>
 										<!-- SELECT SIZE ENDS -->
 										<!-- CART STARTS -->
 										<div class="card-body">
@@ -418,15 +388,16 @@ $this->load->view("common/header");
 												<div class="col-md-2">
 													<label class="selectgroup-item">
 														<input type="checkbox" name="value" value="Like" class="selectgroup-input">
-														<span class="selectgroup-button" style="color:#ccc"><i class="far fa-heart" style="font-size:35px;"></i></span>
+														<span class="selectgroup-button wishlist" style="color:#8e8e8e"><i class="far fa-heart" style="font-size:35px;"></i></span>
 													</label>
 												</div>
 												<div class="col-md-10">
-													<button type="button" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
+													<button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
 												</div>
 
 											</div>
 										</div>
+									</form>
 										<!-- CART ENDS -->
 										<!-- COD Starts-->
 										<div class="card-body">
@@ -639,7 +610,14 @@ $this->load->view("common/header");
 					                    	<img class="img-responsive" alt="" src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_similar_prod->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:250px;">
 					                    	 <div class="card item-card" style="margin-top:-22px;">
 												<div class="cardtitle" style="text-align:center;">
-													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;"><?php echo $each_similar_prod->product_name;?></a>
+													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;">
+														<?php
+															$pro_name = $each_similar_prod->product_name;
+															$substr_pro_name = substr($pro_name,0,20);
+															echo $substr_pro_name;
+															echo "...";
+														?>											
+														</a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
 													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 

@@ -59,19 +59,24 @@
 								<?php
 								
 								foreach($products As $key=>$get_product){
-									$category = $get_product->category_name;
+									$category_id = $get_product->product_category_id;
+									$category = $this->product_m->fetch_name_category($category_id);
 									if($category = "tshirts"){
 										$img_path = "admin/uploads/product_images/";
 									}else if($category = "mugs"){
 										$img_path = "admin/uploads/product_images/";
-									}else if($category = "mobile_covers"){
+									}else if($category = "mobile covers"){
 										$img_path = "admin/uploads/product_images/";
 									}
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;text-align:center;">
 										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:300px;">
 											<a href="<?php echo base_url("product_details");?>">
-												<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $get_product->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												<?php
+													$product_id = $get_product->product_id;
+													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
+												?>
+												<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
 											</a>
 											<div class="clearfix"></div>
 										</div>

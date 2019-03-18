@@ -41,6 +41,7 @@ class Product_details_m extends CI_Model {
 		$this->db->from('products');
 		$this->db->join('product_image','products.product_id = product_image.product_id');
 		$this->db->where('products.product_category_id',$pro_cat_id);
+		$this->db->group_by('product_image.product_id');
 		$query = $this->db->get();
 		return $query->result();
 	}

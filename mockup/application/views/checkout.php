@@ -16,6 +16,8 @@
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/png"/>
 		<link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>images/favicon.png" />
 		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
+		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
+		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | Checkout</title>
 		<style>
@@ -120,10 +122,19 @@
 							<div class="page-header">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">Clothing & fashion</li>
-									<li class="breadcrumb-item" aria-current="page">Tshirts</li>
-									<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>
-									<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">
+									<?php
+										$this->load->model('checkout_m');
+										$cat_id = $fetch_prod_data->product_category_id;
+										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
+										echo ucfirst($fetch_cat_name->category_name);
+									?>
+									</li>
+									<li class="breadcrumb-item" aria-current="page">
+									<?php
+										echo ucfirst($fetch_prod_data->product_name);
+									?>
+									</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -135,7 +146,20 @@
 								<div class="accordion_panel ">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
-								  			<div class="form-group">
+									  		<form method="POST" action="<?php echo base_url('checkout/login');?>">
+								  				<div class="form-group">
+									  				<h5>Name:</h5>
+									  				<input type="email" value="" name="email" class="form-control">
+									  			</div>
+									  			<div class="form-group">
+									  				<h5>Password:</h5>
+									  				<input type="password" value="" name="password" class="form-control">
+									  			</div>
+									  			<div class="form-group">
+									  				<button type="submit" class="btn btn-primary">LOGIN</button>
+									  			</div>
+									  		</form>
+								  			<!--<div class="form-group">
 								  				<h5>Name:</h5>
 								  				<span style="margin-left:5px;">Debashis Nath</span>
 								  			</div>
@@ -146,9 +170,10 @@
 								  			<div class="form-group">
 								  				<a href="javascript:void(0);">Logout & Signin into another account</a>
 								  			</div>
+								  		
 								  			<div class="form-group">
 								  				<a href="#" class="btn btn-azure btn-lg">Continue Checkout</a>
-								  			</div>
+								  			</div>-->
 								  		</div>
 
 								  		<div class="col-md-6">
@@ -263,24 +288,32 @@
 								<button class="accordion ">ORDER SUMMARY</button>
 								<div class="accordion_panel" >
 								  <div class="row p-3">
-								  	<div class="col-md-2">
+								  	<div class="col-md-3">
 								  		<div class="form-group">
-								  			<img src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="product_image" style="height:130px;">
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" style="height:130px;">
 								  		</div>
-								  		<input type="number" class="form-control" name="quantity" value="1">
+								  		<div class="quantity buttons_added">
+											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+										</div>
 								  	</div>
-								  	<div class="col-md-7">
+								  	<div class="col-md-6">
 								  		<div class="form-group">
-								  			<h3>Moto G5 Plus backcover</h3>
+								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
 								  		</div>
+								  		<?php
+								  			if($size != ''){
+								  		?>
 								  		<div class="form-group">
-								  			<span>Size: L</span>
+								  			<span>Size: <?php echo $size;?></span>
 								  		</div>
+								  		<?php
+								  			}
+								  		?>
 								  		<div class="form-group">
 								  			<span>Seller: Eazyprint</span>
 								  		</div>
 								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i>499</span>
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></span>
 								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
 								  		</div>
 								  	</div>
@@ -384,7 +417,7 @@
 											<table class="table card-table table-vcenter text-nowrap">
 												<tr>
 													<td>Price(1 Item)</td>
-													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 449</td>
+													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
 												</tr>
 												<tr>
 													<td>Apply Coupon</td>
@@ -396,7 +429,7 @@
 												</tr>
 												<tr>
 													<td>Amount Payable</td>
-													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 499</td>
+													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
 												</tr>
 											</table>
 										</div>
