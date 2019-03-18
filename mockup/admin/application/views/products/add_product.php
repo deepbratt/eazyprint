@@ -113,7 +113,7 @@
 					<h4>Please Wait...</h4>
 				</div>
 
-				<div class="card" style="display:none" id="show_raw_material">
+				<div class="card"  id="show_raw_material">
 					<div class="card-header">
 						<h3 class="card-title">Raw Material</h3>
 					</div>
@@ -191,15 +191,21 @@
 								<h3 class="card-title">Design Image</h3>
 							</div>
 							<div class="card-body">
-								<!--<div class="row" style="margin-top:15px;">
+								<div class="row" style="margin-top:15px;">
 									<div class="col-md-3">
-										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
+										<label class="form-label">Upload Design Image<br><span style="font-size:12px;"></span></label>
 									</div>
 									<div class="col-md-6">
-										<span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="design_image[]" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)" multiple="multiple" />
-									  </div>
-								</div>-->
+										<!-- <span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input type="file" style="display:none;" name="design_image" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)"  /> -->
+										<span onclick="designed_image()" id="hide_span_3" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
+											<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+											<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+										</span>
+										<input type="file" name="designed" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
+										<img src="" onclick="designed_image()" style="height:150px;display:none;" id="designed_blah">
+									</div>
+								</div>
 								
 							</div>
 						</div>
@@ -414,6 +420,26 @@
 				$('#hide_span_2').hide();
 			}
 		}
+	//designed image starts
+	function designed_image(){
+			$("input[id='designed_file']").click();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#designed_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#designed_blah').show();
+				$('#hide_span_3').hide();
+			}
+		}
+	//designed image ends
+
 	/* MULTIPLE PRODUCT IMAGE STARTS */
 		function product_image(){
 			$("input[id='vpb-data-file']").click();
