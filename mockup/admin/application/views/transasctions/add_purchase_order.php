@@ -83,12 +83,12 @@
 														<h5>Supplier Name</h5>
 													</div>
 													<div class="col-md-8">
-														<select name="sub_category" class="form-control select2-show-search" onchange="supplier_id(this.value);" style="border:none !important;">
+														<select name="supplier_id" class="form-control select2-show-search" onchange="supplierzz_id(this.value);" style="border:none !important;">
 														 	<option value="" selected="" disabled="">Choose Supplier</option>
 														  <?php
 														  	foreach($fetch_supplier_info AS $each_supplier_data){
 														  ?>
-							                              	<option value="<?php echo $each_supplier_data->supplier_id;?>"><?php echo $each_supplier_data->supplier_enterprise_name;?></option>
+							                              	<option value="<?php echo $each_supplier_data->user_id;?>"><?php echo $each_supplier_data->user_store_name;?></option>
 							                              	<?php
 							                              		}
 							                              	?>
@@ -124,12 +124,12 @@
 														<h5>Place of Supply</h5>
 													</div>
 													<div class="col-md-8">
-														<select name="sub_category" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value);">
-														 	<option value="" disabled="">Choose State</option>
+														<select name="place_of_supply" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value)">
+														 	<option value="" disabled selected>Choose State</option>
 														 	<?php
 															  	foreach($fetch_cities AS $each_fetch_cities){
 															?>
-								                              	<option value="<?php echo $each_supplier_data->supplier_id;?>"><?php echo $each_fetch_cities->city_state;?></option>
+								                              	<option value="<?php echo $each_fetch_cities->city_state;?>"><?php echo $each_fetch_cities->city_state;?></option>
 							                              	<?php
 							                              		}
 							                              	?>
@@ -142,6 +142,9 @@
 													<div class="col-md-4"></div>
 													<div class="col-md-8">
 							                             <div class="supp_addr" style="margin-top:60px;"></div>
+							                             <select class="form-control suppl_state" onchange="get_state(this.value);">
+							                             	<option value="" selected disabled>Choose Supplier State</option>
+							                             </select>
 													</div>
 												</div> 	
 											</div>
@@ -149,9 +152,7 @@
 
 										<div class="table-responsive push" id="create_invoice">
 											<table class="table table-bordered table-hover">
-											
-												<tr class=" ">
-													<th class="text-center " style="width: 1%;"></th>
+												<tr>
 													<th class="text-center " style="width: 20%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
 													<th class="text-center" style="width: 1%">Amount</th>
@@ -159,24 +160,23 @@
 													<th class="text-center" style="width: 1%">Total&nbsp;Amount</th>
 													<th class="text-center" style="width: 1%"></th>
 												</tr>
-											
 												<tr>
-													<th colspan="4"></th>
+													<th colspan="3"></th>
 													<th class="text-center">CGST</th>
 													<th class="text-center">SGST</th>
 													<th class="text-center">IGST</th>
 													<th></th>
 													<th>Add&nbsp;More</th>
 												</tr>
-												<tr id="main_tr">
-													<td class="text-center">1</td>
+											
+												<tr class="clone_row">
 													<td>
 														<select class="form-control select2-show-search" name="product_name">
 															<option value="" selected="" disabled="">Choose Product</option>
 															<?php
-																foreach($fetch_raw_details AS $each_raw_materials){
+																foreach($fetch_products AS $each_product){
 															?>
-																<option value="<?php echo $each_raw_materials->raw_id;?>"><?php echo $each_raw_materials->raw_name;?></option>
+																<option value="<?php echo $each_product->product_id;?>"><?php echo $each_product->product_title;?></option>
 															<?php
 																}
 															?>
@@ -184,50 +184,20 @@
 													</td>
 													<td class="text-center">
 														<div class="quantity buttons_added">
-															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value)"><input type="button" value="+" class="plus">
+															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
 														</div>
 													</td>
-													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz">1</span></td>
+													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz_1">1</span></td>
 													<td class="text-center">18%</td>
 													<td class="text-center">18%</td>
 													<td class="text-center">18%</td>
-													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
+													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
 
-													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr('<?php echo json_encode($fetch_raw_details);?>');"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
+													<td class="text-center add_more" style="border:none;"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
 												</tr>
-												
-												<tr id="demo_tr" style="display:none;">
-													<td class="text-center">1</td>
-													<td>
-														<select class="form-control select2-show-search yo_tr" name="product_name">
-															<option value="" selected="" disabled="">Choose Product</option>
-															<?php
-																foreach($fetch_raw_details AS $each_raw_materials){
-															?>
-																<option value="<?php echo $each_raw_materials->raw_id;?>"><?php echo $each_raw_materials->raw_name;?></option>
-															<?php
-																}
-															?>
-														</select>
-													</td>
-													<td class="text-center">
-														<div class="quantity buttons_added">
-															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value)"><input type="button" value="+" class="plus">
-														</div>
-													</td>
-													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz">1</span></td>
-													<td class="text-center">18%</td>
-													<td class="text-center">18%</td>
-													<td class="text-center">18%</td>
-													<td class="text-right" id="total_amount"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
-
-													<td class="text-center" style="border:none;"><a href="javascript:void(0);"  onclick="repeat_tr();"><i class="fas fa-minus-circle" style="font-size:20px;color:red;"></i></a></td>
-												</tr>
-												
-
 												<tr>
 													<td colspan="7" class="font-w600 text-right">Subtotal</td>
-													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
+													<td class="card-title text-right total-combat" id="subtotal_amountzz"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
 												</tr>
 												<tr>
 													<td colspan="7" class="font-w600 text-right">Tax Rate</td>
@@ -276,30 +246,71 @@
 		<script src="<?php echo base_url('js');?>/spectrum.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery-ui.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
-
 		<script>
-			function supplier_id(e){
+		 $( ".fc-datepicker" ).datepicker({ minDate: 0});
+		</script>
+		<script>
+		  $(document).ready(function() {
+			  var max_fields      = 30; //maximum input boxes allowed
+			  var wrapper         = $(".clone_row"); //Fields wrapper
+			  var add_button      = $(".add_more"); //Add button ID
+			  
+			  var fetch_products = <?php echo json_encode($fetch_products);?>;
+			  /*var get_categories = <?php echo json_encode($get_categories)?>;*/
+
+			  var x = 1; //initlal text box count
+			  $(add_button).click(function(e){ //on add input button click
+					
+				e.preventDefault();
+				if(x < max_fields){ //max input box allowed
+				  x++; //text box increment
+				  var htmlz = "<td><select class='form-control select2-show-search pro_data' name='product_name'><option value='' selected='' disabled=''>Choose Product</option></select></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span>1800</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center'>18%</td><td class='text-center'>18%</td><td class='text-center'>18%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title'>1800</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
+				}
+				$(".clone_row").after("<tr>"+htmlz+"</tr>");
+				$.each(fetch_products, function () {
+					var optionHTML = '<option value="'+this.product_id+'">'+this.product_title+'</option>';
+					$(".pro_data").append(optionHTML);
+				});
+				$('select').select2();
+			  });
+
+			});
+
+		    function remove_rowzz(e){
+				$(e).parents("tr").remove();
+			}	
+		</script>
+		<script>
+			function supplierzz_id(e){
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_supplier_addr',
 				data: {'supp_id': e,},
 				type: "post",
-				success: function(response){
-				  $('.supp_addr').html(response);
-				}
-			  });
+					success: function(response){
+					  $('.supp_addr').html(response);
+					}
+			  	});
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_place_of_supply',
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
 				  $('.placeofsupply').html(response);
+				  $('.suppl_state').html(response);
 				  $('#create_invoice').show();
 				  //alert(response);
 				}
 			  });
+
+
 			}
 
+
 			function get_state(state){
+				var place_of_supplyzz = state;
+				var supplier_state_addr = $('.suppl_state').find(":selected").val();
+				alert(supplier_state_addr);
+				exit;
 				if(state != ''){
 					$('#create_invoice').show();
 				}
@@ -308,23 +319,32 @@
 			function categoriezz(category_name){
 				//alert(category_name);
 			}
-
-			function quantity_amtzz(quantity){
-				
+			
+			function quantity_amtzz(quantity,idzz){
+				var subTotal = 0;
+				var quant = 0;
 				if(quantity != ''){
 					var quant = quantity;
-					$('.quantzz').html(quant);
+					$('.quantzz_'+idzz+'').html(quant);
 					var amount = $('#amountzz span').html();
 					var Total = quant * amount;
-					$('#total_amount span').html(Total);
+					$('#total_amount_'+idzz+' span').html(Total);
+					
+					var sum = 0;
+						 $(this).find('.combat').each(function () {
+							 alert('YES');
+							 exit;
+							 var combat = $(this).text();
+							 if (!isNaN(combat) && combat.length !== 0) {
+								 sum += parseFloat(combat);
+							 }
+						 });
+					$(this).find('.total-combat span').html(sum);
 				}
 			}
-
-			function repeat_tr(e) {
-				
-				 alert(e);
-			}
 		</script>
+		
+		
 
 	</body>
 

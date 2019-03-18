@@ -17,7 +17,7 @@
 		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 
 		<!-- Title -->
-		<title>Eazyprint | Product Details</title>
+		<title>Eazyprint | <?php echo ucfirst($fetch_prod_data->product_title); ?></title>
 		<style>
 			.card-body{
 				color:black !important;
@@ -219,9 +219,12 @@
 		  opacity: 1;
 		  max-height: 500px;
 		}
-	/* ACCORDIONS ENDS*/
+		/* ACCORDIONS ENDS*/
 		.button:focus{
 			outline:0px !important;
+		}
+		.cartstop{
+			clear: both;
 		}
 		</style>
 
@@ -245,28 +248,40 @@ $this->load->view("common/header");
 
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">Clothing & fashion</li>
-									<li class="breadcrumb-item" aria-current="page">Tshirts</li>
-									<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>
+									<li class="breadcrumb-item" aria-current="page">
+									<?php
+										$this->load->model('product_details_m');
+										$cat_id = $fetch_prod_data->product_category_id;
+										$fetch_cat_name = $this->product_details_m->cat_data($cat_id);
+										echo ucfirst($fetch_cat_name->category_name);
+									?>
+									</li>
+									<li class="breadcrumb-item" aria-current="page">
+									<?php
+										echo ucfirst($fetch_prod_data->product_name);
+									?>
+									</li>
+									<!--<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>-->
 								</ol>
 							</div>
 						
 						<div class="row">
 							<div class="col-md-7">
-								<div class="product-info">
+								<div class="product-info carttoscroll">
 									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
-						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/army_green.png" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/black.png" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/mustard_yellow.png" alt="" style="height:96px;"></li>
-						                    <li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/ocean_blue.png" alt="" style="height:96px;"></li>
-											<li style="height:96px;"><img src="<?php echo base_url();?>images/tshirt_color/white.png" alt="" style="height:96px;"></li>
+						                   <?php
+						                   		foreach($fetch_prod_image_data AS $each_pro_data_images){
+						                   ?>
+						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:70px;"></li>
+						                   <?php
+						                   		}
+						                   ?>
 						                  </ol>
 						                </div>
 						                <div class="product-gallery-featured">
-						                  <img src="<?php echo base_url();?>images/tshirt_color/bold_red.png" alt=""  style="height:100%;width:100%;">
+						                  <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" alt=""  style="height:500px;">
 						                </div>
 						             </div>
 					            </div>
@@ -277,8 +292,15 @@ $this->load->view("common/header");
 								<div class="row">
 									<div class="col-md-12">
 										<div class="card-body cardbody" >
-												<h1 style="font-size:30px;font-family:samarkan1;">Dont worry be happy</h1>
-												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 349 /-</h1>
+												<h1 style="font-size:30px;font-family:samarkan1;">
+													<?php
+														echo ucfirst($fetch_prod_data->product_title);
+													?>
+												</h1>
+												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
+													<?php
+														echo ucfirst($fetch_prod_data->product_retail_price);
+													?> /-</h1>
 												<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
 													<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
 													<span style="color:green;font-weight:normal">40% OFF</span>
@@ -431,19 +453,27 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
-						<div class="row" style="color:black;">
+						<div class="row cartstop" style="color:black;">
 							
 							<div class="col-md-12" style="margin:0px;padding:0px;">
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
 								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
 								  <div style="padding:15px;" >
-								  	<h5>Moto G5 Plus backcover</h5>
-								  	<p>This Back Cover Is A Soft Silicon Case.It Is Transparent In Colour. Light Weight And Ultrathin Thickness And Is Easy To Apply.</p>
+								  	<h5>
+								  		<?php
+											echo ucfirst($fetch_prod_data->product_title);
+										?>
+								  	</h5>
+								  	<p>
+								  		<?php
+											echo ucfirst($fetch_prod_data->product_desc);
+										?>
+								  	</p>
 								  </div>
 								</div>
 
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Details</button>
-								<div class="accordion_panel" style="border:1px dotted black;margin-top:5px;">
+								<div class="accordion_panel " style="border:1px dotted black;margin-top:5px;">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="p-2">
@@ -454,40 +484,78 @@ $this->load->view("common/header");
 													<tbody>
 														<tr>
 															<td><strong>Brand</strong></td>
-															<td>LOFAD CASE</td>
+															<td><?php 
+																if($fetch_raw_data->raw_brand != ''){
+																	echo $fetch_raw_data->raw_brand;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
 														<tr>
 															<td><strong>Model</strong></td>
-															<td>MOTOROLA MOTO G5S PLUS</td>
+															<td><?php 
+																if($fetch_raw_data->raw_model_no != ''){
+																	echo $fetch_raw_data->raw_model_no;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
 														<tr>
 															<td><strong>Item Weight</strong></td>
-															<td>90.7 g</td>
+															<td><?php 
+																if($fetch_raw_data->raw_weight != ''){
+																	echo $fetch_raw_data->raw_weight;
+																	echo " ";
+																	echo $fetch_raw_data->raw_weight_unit;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
 														<tr>
-															<td><strong>Package Dimensions</strong></td>
-															<td>18.5 x 10.8 x 1.6 cm</td>
-														</tr>
-														<tr>
-															<td><strong>Item model number</strong></td>
-															<td>MOTOROLA MOTO G5S PLUS</td>
-														</tr>
+													<td><strong>Package Dimensions</strong></td>
+													<td><?php 
+														if($fetch_raw_data->raw_dimension_length != '' && $fetch_raw_data->raw_dimension_width != '' && $fetch_raw_data->raw_dimension_height != ''){
+															echo $fetch_raw_data->raw_dimension_length;
+															echo " x ";
+															echo $fetch_raw_data->raw_dimension_width;
+															echo " x ";
+															echo $fetch_raw_data->raw_dimension_height;
+															echo " ";
+															echo $fetch_raw_data->raw_dimension_unit;
+														}else{
+															echo "N/A";
+														}
+													?></td>
+													</tr>
+														
 														<tr>
 															<td><strong>Compatible Devices</strong></td>
-															<td>MOTOROLA MOTO G5S PLUS</td>
+															<td><?php 
+																if($fetch_raw_data->raw_name != ''){
+																	echo $fetch_raw_data->raw_name;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
 														<tr>
-															<td><strong>Number Of Items</strong></td>
+															<td><strong>Number of Items</strong></td>
 															<td>1</td>
 														</tr>
 														<tr>
 															<td><strong>Material</strong></td>
-															<td>Silicone</td>
+															<td><?php 
+																if($fetch_raw_data->raw_material_type != ''){
+																	echo $fetch_raw_data->raw_material_type;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
-														<tr>
-															<td><strong>Device Type</strong></td>
-															<td>Back Cover</td>
-														</tr>
+														
 													</tbody>
 												</table>
 											</div>
@@ -502,7 +570,13 @@ $this->load->view("common/header");
 													<tbody>
 														<tr>
 															<td><strong>EZIN</strong></td>
-															<td>B0751JLVM7</td>
+															<td><?php 
+																if($fetch_prod_data->product_sku != ''){
+																	echo $fetch_prod_data->product_sku;
+																}else{
+																	echo "N/A";
+																}
+															?></td>
 														</tr>
 														<tr>
 															<td><strong>Customer Reviews</strong></td>
@@ -512,10 +586,16 @@ $this->load->view("common/header");
 															<td><strong>Best Sellers Rank</strong></td>
 															<td>#9,823 in Electronics (See top 100)<br>#1883 in Electronics > Accessories ><br> Mobile Accessories > Cases & Covers<br>#5535 in Electronics > Mobiles & Tablets</td>
 														</tr>
-														<tr>
-															<td><strong>Date First Available</strong></td>
-															<td>22 August 2017</td>
-														</tr>
+													<tr>
+														<td><strong>Date First Available</strong></td>
+														<td><?php 
+															if($fetch_prod_data->product_added_date != ''){
+																echo date('d F Y',$fetch_prod_data->product_added_date);
+															}else{
+																echo "N/A";
+															}
+														?></td>
+													</tr>
 													</tbody>
 												</table>
 											</div>
@@ -544,29 +624,27 @@ $this->load->view("common/header");
 
 
 						<!-- MORE PRODUCT SLIDER STARTS-->
-						<div class="row" >
-						  <div class="col-md-12" style="margin:0px;padding:0px;">
+						<div class="row" style="margin-bottom:50px;">
+						  <div class="col-md-12">
 						  		<!-- LINK: https://bootsnipp.com/snippets/X2ym0-->
-						      <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000" style="margin:0px;padding:0px;">
+						      <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
 						        <div class="carousel-inner row w-100 mx-auto" role="listbox">
 						        	<?php
-						        		for($i=0;$i<5;$i++){
+						        		foreach($fetch_similar_pro_data AS $key=>$each_similar_prod){
 						        	?>
-						            <div class="carousel-item col-md-3 <?php echo(($i==0)?'active':'');?>"  >
+						            <div class="carousel-item col-md-3 <?php echo(($key==0)?'active':'');?>"  >
 						               <div class="panel panel-default">
-						                  <div class="panel-thumbnail">
-						                    <a href="#" title="image 1" class="thumb">
-						                      <img class="img-fluid mx-auto d-block" src="http://localhost/pbeazyprint/mockup/images/6598a941-fc31-4291-baef-4a984763492b.jpg" alt="slide 1" data-holder-rendered="true" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:360px;">
-
-						                      <div class="card item-card">
-												<div class="cardtitle" style="text-align:center;padding-top:15px;">
-													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;">Moto G5 Plus backcover</a>
+						                  <div class="panel-thumbnail" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:333px;width:100%;">
+						                    <a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>">
+					                    	<img class="img-responsive" alt="" src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_similar_prod->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:250px;">
+					                    	 <div class="card item-card" style="margin-top:-22px;">
+												<div class="cardtitle" style="text-align:center;">
+													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;"><?php echo $each_similar_prod->product_name;?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
-													<span style="color:red;font-size:18px;" > &#8377; <strike>999</strike> </span> 
-													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;">&#8377; 499 /- </span> 
+													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
+													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;"> <i class="fas fa-rupee-sign"></i> <?php echo $each_similar_prod->product_retail_price;?> /- </span> 
 												</p>
-											
 												<div class="border-top text-center" style="padding:7px;">
 													<div>
 														<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
@@ -577,10 +655,10 @@ $this->load->view("common/header");
 														</a>
 													</div>
 												</div>
-											  </div>
-
+											</div>
 						                    </a>
 						                  </div>
+						                  
 						                </div>
 						            </div>
 						            
@@ -597,8 +675,8 @@ $this->load->view("common/header");
 						            <span class="sr-only">Next</span>
 						        </a>
 						    </div>
-
-						    </div>
+						   </div>
+						    
 						</div>
 						<!-- MORE PRODUCT SLIDER ENDS-->
 					</div>
@@ -652,8 +730,8 @@ $this->load->view("common/footer");
 
 
 			  $('#carouselExample').carousel({ 
-			                interval: 2000
-			        });
+			      interval: 2000
+			  });
 
 
 			  $(document).ready(function() {
@@ -667,7 +745,23 @@ $this->load->view("common/footer");
 			        content.html($(this).html());
 			        $(".modal-profile").modal({show:true});
 			    });
+			    /* Image Scroll */
+			    $(window).scroll(function () { 
+				 if($(window).scrollTop() > 670) {
+					$('.carttoscroll').css('position','fixed');
+					$('.carttoscroll').css('top','48px'); 
+					$('.carttoscroll').css('width','50%'); 
+				 }
 
+				 else if ($(window).scrollTop() <= 600) {
+					$('.carttoscroll').css('position','');
+					$('.carttoscroll').css('top','');
+					$('.carttoscroll').css('width','100%'); 
+				 }  
+					if ($('.carttoscroll').offset().top + $(".carttoscroll").height() > $(".cartstop").offset().top) {
+						$('.carttoscroll').css('top',-($(".carttoscroll").offset().top + $(".carttoscroll").height() - $(".cartstop").offset().top));
+					}
+				});
 			  });
 		</script>
 		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->

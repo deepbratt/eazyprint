@@ -3,11 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Listing_product_m extends CI_Model {
 
-	public function fetch_pro($user_id)
+	public function fetch_pro()
 	{
 		$this->db->select('*');
 		$this->db->from('products');
-		$this->db->where('user_id', $user_id);
 		$query = $this->db->get();
 		return $query->result();
 	}

@@ -3,6 +3,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class product_m extends CI_Model {
 	
+	/* FOR SIDEBAR STARTS */
+	public function get_all_categories()
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function fetch_brandzz($category_id)
+	{
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
+		if($category_id != ''){
+			$this->db->where('products.product_category_id',$category_id);
+		}
+		$this->db->group_by('products.raw_id');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function fetch_modelzz($brand_name)
+	{
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
+		if($brand_name != ''){
+			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		$this->db->group_by('products.raw_id');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	/* FOR SIDEBAR ENDS */
+
 	public function get_all_products()
 	{
 		$this->db->select('*');
@@ -14,6 +50,8 @@ class product_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+
 
 	public function update_supplier_service($more_service_data)
 	{
