@@ -82,7 +82,7 @@
 										</div>
 										<div class="card item-card" style="margin-top:-22px;">
 												<div class="cardtitle" style="text-align:center;background:#fafafa;">
-													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;color:#424242;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
+													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;color:#000;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;background:#fafafa;"> 
 													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
