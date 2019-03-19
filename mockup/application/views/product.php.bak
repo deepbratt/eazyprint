@@ -106,7 +106,7 @@
 								</div>
 
 
-								<div class="pagination-wrapper center">
+								<div class="pagination-wrapper center" style="border:1px solid red;">
 									<nav aria-label="Page navigation">
 										<?php if (isset($links)) { ?>
 													<?php echo $links ?>
