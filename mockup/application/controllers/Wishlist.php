@@ -5,7 +5,7 @@ class Wishlist extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('wishlist');
+		$this->load->view('customer/wishlist');
 	}
 
 }

@@ -15521,6 +15521,7 @@ textarea[cols] {
 .mediafont {
 	font-size: 16px;
 	font-weight: 400;
+	margin:6px;
 }
 
 /*-----43. Icon input-----*/
