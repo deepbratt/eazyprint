@@ -28,6 +28,7 @@
 		}
 		.sidebar_active .text-dark{
 			color:#fff !important;
+			margin-top:8px !important;
 		}
 		</style>
 
@@ -46,46 +47,30 @@
 						<div class="card store">
 									<div class="table-responsive">
 										<table class="table card-table table-vcenter">
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
+											<thead>
+												<td>Product</td>
 												<td>Name</td>
 												<td>Order No.</td>
 												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
+												<td>Price</td>
+												<td>Action</td>
+											</thead>
+											<tbody>
+											<?php 
+												for($i=1;$i<5;$i++){
+											?>
 											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
+												<td><img src="<?php echo base_url();?>images/blank_phones1.png" alt="" class="h-8"></td>
+												<td>Nokia 6.1 Plus</td>
+												<td>51245789</td>
+												<td>EZ1234IN</td>
+												<td><strong><i class="fas fa-rupee-sign"></i> 200</strong></td>
+												<td class="text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
 											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
+											<?php
+												}	
+											?>
+											</tbody>
 										</table>
 									</div>
 								</div>

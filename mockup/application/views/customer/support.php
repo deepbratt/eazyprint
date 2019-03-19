@@ -28,6 +28,7 @@
 		}
 		.sidebar_active .text-dark{
 			color:#fff !important;
+			margin-top:8px !important;
 		}
 		</style>
 
