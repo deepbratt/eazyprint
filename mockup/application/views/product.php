@@ -57,8 +57,7 @@
 								</div>-->
 								<div class="row">
 								<?php
-								
-								foreach($products As $key=>$get_product){
+								foreach($products As $get_product){
 									$category_id = $get_product->product_category_id;
 									$category = $this->product_m->fetch_name_category($category_id);
 									if($category = "tshirts"){
@@ -80,11 +79,11 @@
 											</a>
 											<div class="clearfix"></div>
 										</div>
-										<div class="card item-card" style="margin-top:-22px;">
-												<div class="cardtitle" style="text-align:center;background:#fafafa;">
+										<div class="card item-card" style="margin-top:-22px;background:#fafafa;">
+												<div class="cardtitle" style="text-align:center;">
 													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;color:#424242;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
 												</div>
-												<p style="font-family:arial;text-align:center;background:#fafafa;"> 
+												<p style="font-family:arial;text-align:center;"> 
 													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
 													<span style="color:#000;font-weight:bold;font-size:18px;padding-left:10px;"> <i class="fas fa-rupee-sign"></i> <?php echo $get_product->product_retail_price;?> /- </span> 
 												</p>
@@ -109,8 +108,12 @@
 
 								<div class="pagination-wrapper center">
 									<nav aria-label="Page navigation">
+										<?php if (isset($links)) { ?>
+													<?php echo $links ?>
+												<?php } ?>
 										<ul class="pagination mg-b-0">
-											<li class="page-item active">
+											 
+											<!--<li class="page-item active">
 												<a class="page-link" href="#">1</a>
 											</li>
 											<li class="page-item">
@@ -127,7 +130,7 @@
 											</li>
 											<li class="page-item">
 												<a aria-label="Next" class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
-											</li>
+											</li>-->
 										</ul>
 									</nav>
 								</div>
