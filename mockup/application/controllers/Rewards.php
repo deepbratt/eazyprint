@@ -5,7 +5,7 @@ class Rewards extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('rewards');
+		$this->load->view('customer/reward_giftcard');
 	}
 
 }
