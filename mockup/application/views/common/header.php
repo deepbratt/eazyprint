@@ -243,7 +243,7 @@
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'cart')?'header_active':'');?>" href="<?php echo base_url('cart');?>"><i class="fas fa-cart-plus"></i> Cart</a>
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'rewards')?'header_active':'');?>" href="<?php echo base_url('rewards');?>"><i class="fas fa-briefcase"></i> Reward</a>
-											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'support')?'header_active':'');?>" href="<?php echo base_url('support');?>"><i class="fas fa-phone"></i> Support</a>
+											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'support')?'header_active':'');?>" href="<?php echo base_url('support');?>"><i class="fas fa-phone"></i> Support</a>-->
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'account')?'header_active':'');?>" href="<?php echo base_url('account');?>"><i class="fas fa-user"></i> Account</a>
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
 										</div>

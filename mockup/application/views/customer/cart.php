@@ -47,51 +47,29 @@
 						<div class="card store">
 									<div class="table-responsive">
 										<table class="table card-table table-vcenter">
+											<thead>
+												<td>Product</td>
+												<td>Name</td>
+												<td>Quantity</td>
+												<td>Price</td>
+												<td colspan="2" style="text-align:center;">Action</td>
+											</thead>
+											<tbody>
+											<?php
+												for($i=1;$i<5;$i++){
+											?>
 											<tr>
 												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Size</td>
-												<td>Quantity</td>
-												<td><strong>INR Price</strong></td>
+												<td>Apple Iphone 6</td>
+												<td>1</td>
+												<td><strong><i class="fas fa-rupee-sign"></i> 250</strong></td>
 												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
 												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
 											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Size</td>
-												<td>Quantity</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Size</td>
-												<td>Quantity</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Size</td>
-												<td>Quantity</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Size</td>
-												<td>Quantity</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
-											</tr>
+											<?php
+												}	
+											?>
+											</tbody>
 										</table>
 									</div>
 								</div>
