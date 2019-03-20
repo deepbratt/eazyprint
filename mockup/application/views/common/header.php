@@ -217,8 +217,10 @@
 									</li>
 									
 									
-
-									<!--<li class="nav-item" style="margin-left:430px;">
+									<?php
+										if(!isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] == ""){
+									?>
+									<li class="nav-item" style="margin-left:430px;">
 										<a class="nav-link" href="javascript:void(0);">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
@@ -232,11 +234,27 @@
 												<span class="text-dark">SIGNUP</span>
 											</span>
 										</a>
-									</li>-->
-
+									</li>
+									<?php
+										}else{
+										$user_id = $this->session->userdata['logged_in']['user_id'];
+										$ci =&get_instance();
+										$ci->load->model('login_m');
+										$get_profile_details = $ci->login_m->get_profile_details($user_id);
+									?>
 									<li class="nav-item right" style="margin-left:500px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
-											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
+										<?php
+											if($get_profile_details->user_profile_image != ""){
+										?>
+											<span class="avatar avatar-md brround" style="background-image: url('uploads/user_profile_image/<?php echo $get_profile_details->user_profile_image;?>')"></span>
+										<?php
+											}else{
+										?>
+											<i class="fas fa-user" style="font-size:33px;"></i>
+										<?php
+											}
+										?>
 										</a>
 										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'orders')?'header_active':'');?>" href="<?php echo base_url('orders');?>"><i class="fas fa-box"></i> Orders</a>
@@ -248,6 +266,9 @@
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
 										</div>
 									</li>
+									<?php
+										}
+									?>
 								</div>
 
 							</div>

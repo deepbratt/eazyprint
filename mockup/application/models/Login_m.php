@@ -23,6 +23,15 @@ class Login_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function get_profile_details($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
 
 /* End of file Login_m.php */

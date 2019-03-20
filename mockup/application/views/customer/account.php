@@ -100,7 +100,7 @@ $this->load->view("common/header");
                                      <?php
                                          if($fetch_account_details->user_profile_image == ''){
                                      ?>
-                                      <span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+                                      <span onclick="profile_imagezz()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
                                         <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
                                         <strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
                                       </span>
