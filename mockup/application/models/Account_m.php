@@ -28,6 +28,12 @@ class Account_m extends CI_Model {
 		$query = $this->db->update('user', $account_info);
 		return true;
 	}
+
+	public function update_address_info($account_info,$user_id){
+		$this->db->where("user_id", $user_id);
+		$query = $this->db->update('user', $account_info);
+		return true;
+	}
 }
 
 /* End of file Account_m.php */

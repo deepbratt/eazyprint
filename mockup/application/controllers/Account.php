@@ -3,17 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends CI_Controller {
 
+	function __construct(){
+        parent::__construct();
+        if(!$this->session->userdata['logged_in']['user_id']){
+            redirect('login');
+        }
+    }
+
 	public function index()
 	{
 		$this->load->model('account_m');
-		$user_id = '7';
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_account_details'] = $this->account_m->fetch_cust_info($user_id);
 		$this->load->view('customer/account',$data);
 	}
 
 	public function update_account_info(){
 		$this->load->model('account_m');
-		$user_id = '7';
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$fetch_user_data = $this->account_m->fetch_cust_info($user_id);
 		$fname = $this->input->post('fname');
 		$lname = $this->input->post('lname');
@@ -70,7 +77,7 @@ class Account extends CI_Controller {
 
 	public function update_address(){
 		$this->load->model('account_m');
-		$user_id = '7';
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$address = $this->input->post('address');
 		$city = $this->input->post('city');
 		$state = $this->input->post('state');
@@ -83,7 +90,7 @@ class Account extends CI_Controller {
 			'user_pincode' => $pincode
 		);
 
-		$update_address_info = $this->account_m->update_profile_info($cust_address_info,$user_id);
+		$update_address_info = $this->account_m->update_address_info($cust_address_info,$user_id);
 		if($update_address_info){
 			$this->session->set_flashdata("success", "Address Updated Successfully!");
 		}else{

@@ -97,7 +97,6 @@ $this->load->view("common/header");
                                <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="form-label">Profile Image</label>
-                                   
                                      <?php
                                          if($fetch_account_details->user_profile_image == ''){
                                      ?>
@@ -115,8 +114,6 @@ $this->load->view("common/header");
                                       <?php
                                       }
                                       ?>
-
-
                                 </div>
                               </div>
                             <div class="col-md-8">
