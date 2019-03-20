@@ -40,7 +40,7 @@
     <script src="<?php echo base_url();?>js/VFState.js" type="text/javascript">
     </script>
     <!-- Title -->
-    <title>Eazyprint | Product
+    <title>Eazyprint | Login
     </title>
     <?php
 $this->load->view("common/metalinks");
@@ -267,7 +267,7 @@ $this->load->view("common/header");
                               <span id="j_id0:j_id30:j_id31:frmGST:errGSTn">
                               </span>
                               <div class="col-md-12 col-sm-12" style="text-align:right;">
-                                <a href="/ForgotPassword">
+                                <a href="javascript:void(0);">
                                   <u>Reset Password
                                   </u>
                                 </a>
@@ -288,10 +288,10 @@ $this->load->view("common/header");
                           </div>
                           <div class="col-md-12 col-sm-12">
                             <div class="professional-service">Forgot password? 
-                              <a href="" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
+                              <a href="javascript:void(0);" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
                               </a>
                               <br> Don't Have a account? 
-                              <a href="<?php echo base_url('register');?>" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
+                              <a href="<?php echo base_url('signup');?>" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
                               </a> 
                             </div>
                           </div> 

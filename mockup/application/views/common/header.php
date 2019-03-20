@@ -218,10 +218,10 @@
 									
 									
 									<?php
-										if(!isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] == ""){
+										if(empty($this->session->userdata['logged_in']['user_id'])){
 									?>
 									<li class="nav-item" style="margin-left:430px;">
-										<a class="nav-link" href="javascript:void(0);">
+										<a class="nav-link" href="<?php echo base_url('login');?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
 											</span>
@@ -229,7 +229,7 @@
 									</li>
 
 									<li class="nav-item right">
-										<a class="nav-link" href="javascript:void(0);">
+										<a class="nav-link" href="<?php echo base_url('signup');?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">SIGNUP</span>
 											</span>
