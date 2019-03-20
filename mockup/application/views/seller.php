@@ -317,10 +317,10 @@ input.error-input {
    
   <div class="bx-wrapper BN1">
       <div class="bx-viewport"> 
-          <div class="bx-wrapper" style="max-width: 1360px;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;"><ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);"><li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/01.jpg" style="visibility: visible;"></li>
-            <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/01.jpg" style="visibility: visible;"></li>
-            <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false"><img src="<?php echo base_url();?>images/seller_images/01.jpg" style="visibility: visible;"></li>
-          <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/01.jpg" style="visibility: visible;"></li></ul></div>
+          <div class="bx-wrapper" style="max-width: 1360px;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;"><ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);"><li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/seller_banner.png" style="visibility: visible;"></li>
+            <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/seller_banner.png" style="visibility: visible;"></li>
+            <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false"><img src="<?php echo base_url();?>images/seller_images/seller_banner.png" style="visibility: visible;"></li>
+          <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true"><img src="<?php echo base_url();?>images/seller_images/seller_banner.png" style="visibility: visible;"></li></ul></div>
 		  w</div>
       </div>
   </div> 
