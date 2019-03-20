@@ -269,7 +269,7 @@ $this->load->view("common/header");
                             <div class="group">
                               <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="New Password" tabindex="10" autocomplete="password" name="reg_new_pass" required="required">
 
-                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Confirm Password" tabindex="10" autocomplete="password" name="reg_confirm_pass" required="required">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Confirm Password" tabindex="10" autocomplete="password" name="reg_confirm_pass" required="required" style="margin-top:3px;">
                               <span class="bar"></span>
                             </div>
                             <span class="error-gst hidden errorGst" id="gst-error">

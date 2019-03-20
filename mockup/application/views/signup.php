@@ -269,11 +269,11 @@ $this->load->view("common/header");
                             <div class="group">
                               <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="First Name" tabindex="10" autocomplete="new-fname" name="reg_fname" required="required">
 
-                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Last Name" tabindex="10" autocomplete="new-lname" name="reg_lname" required="required">
+                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Last Name" tabindex="10" autocomplete="new-lname" name="reg_lname" required="required" style="margin-top:3px;">
 
-                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Phone Number" tabindex="10" autocomplete="new-phone" name="reg_phone" required="required">
+                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Phone Number" tabindex="10" autocomplete="new-phone" name="reg_phone" required="required" style="margin-top:3px;">
 
-                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="reg_email" required="required">
+                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="reg_email" required="required" style="margin-top:3px;">
                               <span class="bar"></span>
                             </div>
                             <span class="error-gst hidden errorGst" id="gst-error">
