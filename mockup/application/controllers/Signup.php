@@ -34,7 +34,7 @@ class Signup extends CI_Controller {
 
 			$insert_new_user = $this->signup_m->register_new_user($user_detailszz);
 			if($insert_new_user){
-				redirect('verify_email');
+				redirect('verify_email/'.$insert_new_user);
 			}else{
 				redirect('signup');
 			}
