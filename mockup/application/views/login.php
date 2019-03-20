@@ -258,8 +258,8 @@ $this->load->view("common/header");
                         <div class="row">
                           <div class="col-md-12 col-sm-12 gst-label divMargin" id="divGSTN">
                             <div class="group">
-                              <input type="email" class="form-control landing_input_text upper-case sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="username" required="required">
-                              <input type="password" class="form-control landing_input_text upper-case sd-input error-input" placeholder="Password" tabindex="10" autocomplete="new-password" name="password" required="required" style="margin-top:3px;">
+                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="username" required="required">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Password" tabindex="10" autocomplete="new-password" name="password" required="required" style="margin-top:3px;">
                               <span class="bar">
                               </span>
                             </div>
