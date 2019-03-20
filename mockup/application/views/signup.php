@@ -300,10 +300,7 @@ $this->load->view("common/header");
                             </div>
                           </div>
                           <div class="col-md-12 col-sm-12">
-                            <div class="professional-service">Forgot password? 
-                              <a href="" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
-                              </a>
-                              <br> Have an account? 
+                            <div class="professional-service">Have an account? 
                               <a href="<?php echo base_url('login');?>" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here
                               </a> 
                             </div>
