@@ -249,31 +249,27 @@ $this->load->view("common/header");
               <div id="snapdeal-register-component">
                 <div class="formDivOuter formPadding gst-form">
                   <div class="col-md-12 col-sm-12">
-                    <h2 class="register-now-label"> Register
+                    <h2 class="register-now-label"> Enter Password
                     </h2>
                   </div>
                   <form id="" name="login" method="post" action="<?php echo base_url("signup/newRegister")?>" class="form frmGST" enctype="application/x-www-form-urlencoded">
                     <div class="form-group">
                       <div class="col-md-12 show-hd actv" id="fr-new-user">
                       	<?php
-	    					if($this->session->flashdata('exist')){
-	    				?>
-	    					<div class="alert alert-warning">
-	    						<strong><?php echo $this->session->flashdata('exist');?></strong>
-	    					</div>
-	    				<?php
-	    					}
-	    				?>
+          	    					if($this->session->flashdata('exist')){
+          	    				?>
+          	    					<div class="alert alert-warning">
+          	    						<strong><?php echo $this->session->flashdata('exist');?></strong>
+          	    					</div>
+          	    				<?php
+          	    					}
+          	    				?>
                         <div class="row">
                           <div class="col-md-12 col-sm-12 gst-label divMargin" id="divGSTN">
                             <div class="group">
-                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="First Name" tabindex="10" autocomplete="new-fname" name="reg_fname" required="required">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="New Password" tabindex="10" autocomplete="password" name="reg_new_pass" required="required">
 
-                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Last Name" tabindex="10" autocomplete="new-lname" name="reg_lname" required="required" style="margin-top:3px;">
-
-                              <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Phone Number" tabindex="10" autocomplete="new-phone" name="reg_phone" required="required" style="margin-top:3px;">
-
-                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="reg_email" required="required" style="margin-top:3px;">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Confirm Password" tabindex="10" autocomplete="password" name="reg_confirm_pass" required="required" style="margin-top:3px;">
                               <span class="bar"></span>
                             </div>
                             <span class="error-gst hidden errorGst" id="gst-error">
@@ -281,8 +277,7 @@ $this->load->view("common/header");
                               </span>
                               <div class="col-md-12 col-sm-12" style="text-align:right;">
                                 <a href="/ForgotPassword">
-                                  <u>Reset Password
-                                  </u>
+                                  <u>Reset Password</u>
                                 </a>
                               </div>
                             </span>
@@ -296,7 +291,7 @@ $this->load->view("common/header");
                               <span class="loader_icon" id="join_now_loader_gst" style="top: 14px; z-index: 2; display: none;"> 
                                 <img class="loader_img" src="/resource/1416511410000/loadingImageSmall">
                               </span>
-                              <input class="sf-button-primary" id="" name="login" value="Register Now" tabindex="11" type="submit">
+                              <input class="sf-button-primary" id="" name="login" value="Submit" tabindex="11" type="submit">
                             </div>
                           </div>
                           <div class="col-md-12 col-sm-12">
