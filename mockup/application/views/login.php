@@ -270,7 +270,7 @@ input.error-input {
        <div class="col-md-12 col-sm-12">
            <h2 class="register-now-label"> LOGIN </h2>
        </div>
-	<form id="" name="j_id0:j_id30:j_id31:frmGST" method="post" action="" class="form frmGST" enctype="application/x-www-form-urlencoded">
+	<form id="" name="login" method="post" action="<?php echo base_url("login/authenticate")?>" class="form frmGST" enctype="application/x-www-form-urlencoded">
 
             <div class="form-group">
                 <div class="col-md-12 show-hd actv" id="fr-new-user">
@@ -307,8 +307,7 @@ input.error-input {
                         <div class="col-md-12 col-sm-12">
                             <div class="professional-service">Forgot password? <a href="" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here</a><br> Don't Have a account? <a href="<?php echo base_url('register');?>" target="_blank" style="color:#3333cc;text-decoration:underline;">Click Here</a> </div>
                         </div> 
-                        <div class="">
-                        </div>
+
                     </div>
                 </div>
             </div><div id="j_id0:j_id30:j_id31:frmGST:j_id134"></div>
@@ -328,7 +327,7 @@ input.error-input {
             <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true"><img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;"></li>
             <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false"><img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;"></li>
           <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true"><img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;"></li></ul></div>
-		  w</div>
+		  </div>
       </div>
   </div> 
   <div class="BN2 hidden">

@@ -30,16 +30,16 @@
 											<span class="text-dark"> <b> Partner Stores </b> </span>
 										</span>
 									</a>
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									<!--<a class="nav-link d-flex" href="javascript:void(0);">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Affiliate </b> </span>
 										</span>
-									</a>
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									</a>-->
+									<!--<a class="nav-link d-flex" href="javascript:void(0);">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Dropshipping </b> </span>
 										</span>
-									</a>
+									</a>-->
 								</div>
 								<div class="d-flex order-lg-3 ml-auto">
 									<a class="nav-link d-flex" href="javascript:void(0);">

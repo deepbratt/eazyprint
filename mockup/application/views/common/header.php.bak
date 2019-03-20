@@ -1,3 +1,9 @@
+ <style>
+ .header_active{
+	background:#009fdc !important;
+	color:#fff;
+ }
+ </style>
  <!-- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> -->
 		<div class="page">
 			<div class="page-main">
@@ -228,18 +234,18 @@
 										</a>
 									</li>-->
 
-									<li class="nav-item">
+									<li class="nav-item right" style="margin-left:500px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
 										</a>
 										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
-											<a class="dropdown-item" href="javascript:void(0);"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
-											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'orders')?'header_active':'');?>" href="<?php echo base_url('orders');?>"><i class="fas fa-box"></i> Orders</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'cart')?'header_active':'');?>" href="<?php echo base_url('cart');?>"><i class="fas fa-cart-plus"></i> Cart</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'rewards')?'header_active':'');?>" href="<?php echo base_url('rewards');?>"><i class="fas fa-briefcase"></i> Reward</a>
+											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'support')?'header_active':'');?>" href="<?php echo base_url('support');?>"><i class="fas fa-phone"></i> Support</a>-->
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'account')?'header_active':'');?>" href="<?php echo base_url('account');?>"><i class="fas fa-user"></i> Account</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
 										</div>
 									</li>
 								</div>
