@@ -2,7 +2,7 @@
 	<div class="card p-5 ">
 		<div class="media-list">
 			<!-- orders -->
-			<div class="media mt-1 pb-2 <?php echo(($this->uri->segment(1) == 'orders')?'sidebar_active':'');?>">
+			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'orders')?'sidebar_active':'');?>">
 				<div class="mediaicon">
 					<i class="fas fa-box"></i>
 				</div>
@@ -12,7 +12,7 @@
 			</div>
 			<!-- orders -->
 			<!-- wishlist -->
-			<div class="media mt-1 pb-2 <?php echo(($this->uri->segment(1) == 'wishlist')?'sidebar_active':'');?>">
+			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'wishlist')?'sidebar_active':'');?>">
 				<div class="mediaicon">
 					<i class="fas fa-heart"></i>
 				</div>
@@ -22,7 +22,7 @@
 			</div>
 			<!-- wishlist -->
 			<!-- cart -->
-			<div class="media mt-1 pb-2 <?php echo(($this->uri->segment(1) == 'cart')?'sidebar_active':'');?>">
+			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'cart')?'sidebar_active':'');?>">
 				<div class="mediaicon">
 					<i class="fas fa-cart-plus" aria-hidden="true"></i>
 				</div>
@@ -32,7 +32,7 @@
 			</div>
 			<!-- cart -->
 			<!-- rewards -->
-			<div class="media mt-1 pb-2 <?php echo(($this->uri->segment(1) == 'rewards')?'sidebar_active':'');?>">
+			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'rewards')?'sidebar_active':'');?>">
 				<div class="mediaicon">
 					<i class="fas fa-briefcase"></i>
 				</div>
@@ -52,7 +52,7 @@
 			</div>-->
 			<!-- support -->
 			<!-- account -->
-			<div class="media mt-1 pb-2 <?php echo(($this->uri->segment(1) == 'account')?'sidebar_active':'');?>">
+			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'account')?'sidebar_active':'');?>">
 				<div class="mediaicon">
 					<i class="fas fa-user" aria-hidden="true"></i>
 				</div>

@@ -16,6 +16,8 @@ class Signup extends CI_Controller {
 		$phone = $this->input->post('reg_phone');
 		$email = $this->input->post('reg_email');
 		$date = time();
+		$rand_code = rand();
+
 		$check_email_row = $this->signup_m->check_email_row($email);
 		
 		if(sizeof($check_email_row) < 1){
@@ -29,12 +31,13 @@ class Signup extends CI_Controller {
 				'user_status' => '0',
 				'user_email_status' => '0',
 				'user_phone_status' => '0',
-				'user_date' => $date
+				'user_date' => $date,
+				'email_verify_code' => $rand_code
 			);
 
 			$insert_new_user = $this->signup_m->register_new_user($user_detailszz);
 			if($insert_new_user){
-				redirect('verify_email/'.$insert_new_user);
+				redirect('verify_email/'.$rand_code);
 			}else{
 				redirect('signup');
 			}
