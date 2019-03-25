@@ -267,9 +267,9 @@ $this->load->view("common/header");
                         <div class="row">
                           <div class="col-md-12 col-sm-12 gst-label divMargin" id="divGSTN">
                             <div class="group">
-                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="New Password" tabindex="10" autocomplete="password" name="reg_new_pass" required="required">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="New Password" tabindex="10" autocomplete="password" name="reg_new_pass" id="reg_new_pass" required="required">
 
-                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Confirm Password" tabindex="10" autocomplete="password" name="reg_confirm_pass" required="required" style="margin-top:3px;">
+                              <input type="password" class="form-control landing_input_text sd-input error-input" placeholder="Confirm Password" tabindex="10" autocomplete="password" name="reg_confirm_pass" id="reg_confirm_pass" required="required" style="margin-top:3px;">
                               <span class="bar"></span>
                             </div>
                             <span class="error-gst hidden errorGst" id="gst-error">
@@ -377,5 +377,13 @@ $this->load->view("common/header");
     <?php
 $this->load->view("common/footer");
 ?>
+<script>
+  $('#reg_new_pass, #reg_confirm_pass').on('keyup', function () {
+    if ($('#reg_new_pass').val() == $('#reg_confirm_pass').val()) {
+      $('.bar').html('Password Matched').css('color', 'green');
+    } else 
+      $('.bar').html('Enter Confirm Password Same as Password').css('color', 'red');
+  });
+</script>
   </body>
 </html>

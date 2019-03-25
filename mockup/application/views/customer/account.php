@@ -214,8 +214,7 @@ $this->load->view("common/header");
                       <div class="card">
                         <div class="card-body">
                           <form  method="post" method="POST" action="<?php echo base_url('account/update_password');?>">
-                            <div class="mt-4">
-                              <div class="card-title">Forgot password</div>
+                            
                               <p class="text-muted">Enter your email address and your password will be reset and emailed to you.
                               </p>
                               <div class="form-group">
@@ -225,7 +224,7 @@ $this->load->view("common/header");
                                 <button type="submit" class="btn btn-primary btn-block">Send me new password
                                 </button>
                               </div>
-                            </div>
+                            
                           </form>
                           <div class="text-center text-muted mt-3 ">
                             Forget it, 

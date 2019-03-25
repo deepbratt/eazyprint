@@ -75,14 +75,15 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'pbclickrstop.cvvq4j5rt662.us-east-2.rds.amazonaws.com:3306',
+	'hostname' => 'pbclickrstop.cvvq4j5rt662.us-east-2.rds.amazonaws.com',
 	'username' => 'clickrstop',
 	'password' => 'Samadder5#',
 	'database' => 'test',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	//'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'development'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
