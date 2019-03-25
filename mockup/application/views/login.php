@@ -255,6 +255,15 @@ $this->load->view("common/header");
                   <form id="" name="login" method="post" action="<?php echo base_url("login/authenticate")?>" class="form frmGST" enctype="application/x-www-form-urlencoded">
                     <div class="form-group">
                       <div class="col-md-12 show-hd actv" id="fr-new-user">
+                        <?php
+                          if($this->session->flashdata('failed')){
+                        ?>
+                          <div class="alert alert-danger">
+                            <strong><?php echo $this->session->flashdata('failed');?></strong>
+                          </div>
+                        <?php
+                          }
+                        ?>
                         <div class="row">
                           <div class="col-md-12 col-sm-12 gst-label divMargin" id="divGSTN">
                             <div class="group">

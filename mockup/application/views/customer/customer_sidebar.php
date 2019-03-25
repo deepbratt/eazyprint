@@ -7,7 +7,7 @@
 					<i class="fas fa-box"></i>
 				</div>
 				<div class="media-body ml-5 mt-1">
-					<a href="<?php echo base_url('orders');?>"><h6 class="mediafont text-dark">Order's</h6></a>
+					<a href="<?php echo base_url('orders');?>"><h6 class="mediafont text-dark">Orders</h6></a>
 				</div>
 			</div>
 			<!-- orders -->
