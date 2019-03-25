@@ -375,15 +375,15 @@ $this->load->view("common/header");
       </div>
     </div>
     <?php
-$this->load->view("common/footer");
-?>
-<script>
-  $('#reg_new_pass, #reg_confirm_pass').on('keyup', function () {
-    if ($('#reg_new_pass').val() == $('#reg_confirm_pass').val()) {
-      $('.bar').html('Password Matched').css('color', 'green');
-    } else 
-      $('.bar').html('Enter Confirm Password Same as Password').css('color', 'red');
-  });
-</script>
+      $this->load->view("common/footer");
+    ?>
+    <script>
+      $('#reg_new_pass, #reg_confirm_pass').on('keyup', function () {
+        if ($('#reg_new_pass').val() == $('#reg_confirm_pass').val()) {
+          $('.bar').html('Password Matched').css('color', 'green');
+        } else 
+          $('.bar').html('Enter Confirm Password Same as Password').css('color', 'red');
+      });
+    </script>
   </body>
 </html>
