@@ -10,7 +10,8 @@ class Verify_email extends CI_Controller {
 
 	public function reg_authenticate(){
 		$this->load->model('verify_email_m');
-		$new_reg_id = $this->uri->segment(3);
+		$rand_code = $this->uri->segment(3);
+		$new_reg_id = $this->uri->segment(4);
 		$new_pass = $this->input->post('reg_new_pass');
 		$confirm_pass = $this->input->post('reg_confirm_pass');
 		$date = time();
@@ -22,9 +23,9 @@ class Verify_email extends CI_Controller {
 			'user_phone_status' => '0',
 			'user_date' => $date
 		);
-		$update_user_data = $this->verify_email_m->update_password($update_data,$new_reg_id);
+		$update_user_data = $this->verify_email_m->update_password($update_data,$rand_code,$new_reg_id);
 		if($update_user_data){
-			$fetch_user_data = $this->verify_email_m->user_information($new_reg_id);
+			$fetch_user_data = $this->verify_email_m->user_information($rand_code,$new_reg_id);
 			$session_data = array();
 			foreach($fetch_user_data as $row)
 			{
@@ -38,6 +39,7 @@ class Verify_email extends CI_Controller {
 			}
 			
 			$this->session->set_userdata('logged_in',$session_data);
+			
 			if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "dealer"){
 				redirect('account');
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "vendor"){

@@ -100,6 +100,24 @@ class Account extends CI_Controller {
 		redirect('account');
 	}
 
+	public function update_password(){
+		$this->load->model('account_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$email = $this->input->post('email');
+		/* SEND EMAIL FOR VERIFICATION */
+		/*if($fetch_user_data->user_email != $email){
+			$check_duplicate_email = $this->account_m->check_email_row($email,$user_id);
+			if(sizeof($check_duplicate_email) < 1){
+				 EMAIL TO BE VERIFIED AND UPDATED
+				 redirect('verify_email');
+			}else{
+				$this->session->set_flashdata("exist", "Email Already Exist...");
+				redirect('account');
+			}
+		}*/
+
+	}
+
 }
 
 /* End of file Home.php */

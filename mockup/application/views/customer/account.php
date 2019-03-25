@@ -213,13 +213,13 @@ $this->load->view("common/header");
                     <div class="tab-pane  " id="password">
                       <div class="card">
                         <div class="card-body">
-                          <form  method="post">
+                          <form  method="post" method="POST" action="<?php echo base_url('account/update_password');?>">
                             <div class="mt-4">
                               <div class="card-title">Forgot password</div>
                               <p class="text-muted">Enter your email address and your password will be reset and emailed to you.
                               </p>
                               <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email_id" value="<?php echo $fetch_account_details->user_email;?>">
                               </div>
                               <div class="form-footer">
                                 <button type="submit" class="btn btn-primary btn-block">Send me new password

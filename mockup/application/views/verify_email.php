@@ -252,7 +252,7 @@ $this->load->view("common/header");
                     <h2 class="register-now-label"> Enter Password
                     </h2>
                   </div>
-                  <form id="" name="login" method="post" action="<?php echo base_url("verify_email/reg_authenticate/")?><?php echo $this->uri->segment(2);?>" class="form frmGST" enctype="application/x-www-form-urlencoded">
+                  <form id="" name="login" method="post" action="<?php echo base_url("verify_email/reg_authenticate/")?><?php echo $this->uri->segment(2);?>/<?php echo $this->uri->segment(3);?>" class="form frmGST" enctype="application/x-www-form-urlencoded">
                     <div class="form-group">
                       <div class="col-md-12 show-hd actv" id="fr-new-user">
                       	<?php
