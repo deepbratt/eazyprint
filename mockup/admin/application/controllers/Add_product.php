@@ -80,7 +80,9 @@ class Add_product extends CI_Controller {
 
 		$this->load->model('add_product_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-
+		/*$p_image = count($_FILES['p_image']['name']);
+		print_r($p_image);
+		exit;*/
 		$category = $this->input->post('category');
 		$raw_name = $this->input->post('raw_name');
 		$product_name = $this->input->post('product_name');
