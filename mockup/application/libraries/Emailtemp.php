@@ -142,7 +142,7 @@ $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http
                
               <tr>
                 <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
-					<multiline>You have successfully signed up as dealers in eazyPrint.</multiline>
+					<multiline>You have successfully signed up as dealer in eazyPrint.</multiline>
 				</td>
               </tr>
 			  <tr>
