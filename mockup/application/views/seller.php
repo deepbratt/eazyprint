@@ -246,9 +246,33 @@ $this->load->view("common/header");
                   text-align: left;
                 }
               </style>
+
               <div id="snapdeal-register-component">
                 <div class="formDivOuter formPadding gst-form">
-                  <div class="col-md-12 col-sm-12">
+					<?php
+					  if($this->session->flashdata('error_it')){
+					?>
+						<div class="alert alert-danger" style="margin-bottom:10px;">
+							<strong><?php echo $this->session->flashdata('error_it');?></strong>
+						</div>
+					<?php
+					}if($this->session->flashdata('duplicate')){
+					?>
+						<div class="alert alert-danger" style="margin-bottom:10px;">
+							<strong><?php echo $this->session->flashdata('duplicate');?></strong>
+						</div>
+					<?php
+					}
+					if($this->session->flashdata('logged_in'))
+					{
+					?>
+						<div class="alert alert-success" style="margin-bottom:10px;">
+							<strong><?php echo $this->session->flashdata('logged_in');?></strong>
+						</div>
+					<?php
+					}
+					?>
+				   <div class="col-md-12 col-sm-12">
                     <h2 class="register-now-label">WANT TO BUY FROM EAZYPRINT? 
                     </h2>
                     <h5 class="register-now-label gst-label">Order your products in less than 10 minutes! 
