@@ -64,7 +64,7 @@ class Product_details extends CI_Controller {
 			);
 			$insert_cart = $this->product_details_m->save_cart($save_cart);
 			if($insert_cart){
-				echo $data = '<div class="alert alert-info" ><strong>Success:</strong> your product added to cart.</div>';
+				echo $data = '<div class="alert alert-info" ><strong>Success:</strong> your product added to cart. <a href="<?php echo base_url("checkout");?>" class="btn btn-xs btn-info float-right">checkout</a></div>';
 			}else{
 				echo $data = '<div class="alert alert-info" ><strong>Error:</strong> something went wrong!. Please try again later</div>';
 			}

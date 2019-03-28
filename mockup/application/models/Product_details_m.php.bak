@@ -57,7 +57,7 @@ class Product_details_m extends CI_Model {
 
 	public function save_cart($cart_details){
 		$this->db->insert('cart_selection', $cart_details);
-		return true;
+		return $this->db->last_insert_id();
 	}
 
 }

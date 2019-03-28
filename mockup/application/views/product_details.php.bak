@@ -323,7 +323,7 @@ $this->load->view("common/header");
 									<form method="POST" action="<?php echo base_url('Product_details/add_to_cart');?>">
 										<!-- SELECT COLOR STARTS -->
 										<?php
-											if($fetch_raw_data->raw_color_code != ''){
+											if(isset($fetch_raw_data->raw_color_code) && $fetch_raw_data->raw_color_code != ""){
 										?>
 										<div class="card-body cardbody" style="margin-top:-25px;">
 											<div class="form-group m-0" style="padding-top:15px;padding-bottom:15px;">
@@ -352,7 +352,8 @@ $this->load->view("common/header");
 										<!-- SELECT COLOR ENDS -->
 										<!-- SELECT SIZE STARTS -->
 										<?php
-											if($fetch_raw_data->raw_size != ''){
+											echo $fetch_raw_data->raw_id;
+											if(isset($fetch_raw_data->raw_size) && $fetch_raw_data->raw_size != ""){
 										?>
 										<div class="card-body" style="margin-top:-40px;">
 											<div class="form-group" style="border-bottom:1px dotted #000;padding-bottom:20px;">
