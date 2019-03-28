@@ -51,6 +51,13 @@ class Add_purchase_order extends CI_Controller {
       		}
 	}
 
+	public function ajax_fetch_prod_details(){
+		$this->load->model('purchase_order_m');
+		$product_id = $this->input->post('product_id');
+		$fetch_prod_data = $this->purchase_order_m->fetch_products_from_id($product_id);
+		echo json_encode($fetch_prod_data);
+	}
+
 }
 
 /* End of file Add_purchase_order.php */

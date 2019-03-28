@@ -142,9 +142,11 @@
 													<div class="col-md-4"></div>
 													<div class="col-md-8">
 							                             <div class="supp_addr" style="margin-top:60px;"></div>
-							                             <select class="form-control suppl_state" onchange="get_state(this.value);">
-							                             	<option value="" selected disabled>Choose Supplier State</option>
-							                             </select>
+														 <div id="hide_state">
+															 <select class="form-control suppl_state">
+																<option value="" selected disabled>Choose Supplier State</option>
+															 </select>
+														 </div>
 													</div>
 												</div> 	
 											</div>
@@ -156,14 +158,20 @@
 													<th class="text-center " style="width: 20%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
 													<th class="text-center" style="width: 1%">Amount</th>
-													<th class="text-center" style="width: 20%" colspan="3">Tax</th>
+													<th class="text-center state_same" style="width: 20%" colspan="2">Tax</th>
+													<th class="text-center state_not_same" style="width: 20%">Tax</th>
 													<th class="text-center" style="width: 1%">Total&nbsp;Amount</th>
 													<th class="text-center" style="width: 1%"></th>
 												</tr>
-												<tr>
+												<tr class="state_same">
 													<th colspan="3"></th>
 													<th class="text-center">CGST</th>
 													<th class="text-center">SGST</th>
+													<th></th>
+													<th>Add&nbsp;More</th>
+												</tr>
+												<tr class="state_not_same">
+													<th colspan="3"></th>
 													<th class="text-center">IGST</th>
 													<th></th>
 													<th>Add&nbsp;More</th>
@@ -171,12 +179,12 @@
 											
 												<tr class="clone_row">
 													<td>
-														<select class="form-control select2-show-search" name="product_name">
+														<select class="form-control select2-show-search" name="product_name" onchange="prod_datazz(this.value,'1')">
 															<option value="" selected="" disabled="">Choose Product</option>
 															<?php
 																foreach($fetch_products AS $each_product){
 															?>
-																<option value="<?php echo $each_product->product_id;?>"><?php echo $each_product->product_title;?></option>
+																<option value="<?php echo $each_product->product_id;?>"><?php echo ucfirst($each_product->product_title);?></option>
 															<?php
 																}
 															?>
@@ -187,28 +195,47 @@
 															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
 														</div>
 													</td>
-													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span>1800</span>x<span class="quantzz_1">1</span></td>
-													<td class="text-center">18%</td>
-													<td class="text-center">18%</td>
-													<td class="text-center">18%</td>
-													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title">1800</span></td>
+													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class=" pro_price_1">0</span>x<span class="quantzz_1">1</span></td>
+													<td class="text-center state_same gst_rate_1" id="cgst_rate">0%</td>
+													<td class="text-center state_same gst_rate_1" id="sgst_rate">0%</td>
+													<td class="text-center state_not_same gst_rate_1" id="igst_rate">0%</td>
+													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title">0</span></td>
 
 													<td class="text-center add_more" style="border:none;"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
 												</tr>
-												<tr>
-													<td colspan="7" class="font-w600 text-right">Subtotal</td>
-													<td class="card-title text-right total-combat" id="subtotal_amountzz"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
+												<tr class="state_same">
+													<td colspan="6" class="font-w600 text-right">Subtotal</td>
+													<td class="card-title text-right total-combat" id="subtotal_amountzz"><i class="fas fa-rupee-sign"><span class="card-title">0</span></i></td>
 												</tr>
-												<tr>
-													<td colspan="7" class="font-w600 text-right">Tax Rate</td>
-													<td class="card-title text-right">18%</td>
+												<tr class="state_not_same">
+													<td colspan="5" class="font-w600 text-right">Subtotal</td>
+													<td class="card-title text-right total-combat" id="subtotal_amountzz"><i class="fas fa-rupee-sign"><span class="card-title">0</span></i></td>
 												</tr>
-												<tr>
-													<td colspan="7" class="font-weight-bold text-uppercase text-right">Total Due</td>
-													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"></i>  <span class="card-title">1800</span></td>
+												<tr class="state_same">
+													<td colspan="6" class="font-w600 text-right">Tax Rate</td>
+													<td class="card-title text-right">0%</td>
 												</tr>
-												<tr>
-													<td colspan="8" class="text-right">
+												<tr class="state_not_same">
+													<td colspan="5" class="font-w600 text-right">Tax Rate</td>
+													<td class="card-title text-right">0%</td>
+												</tr>
+												<tr class="state_same">
+													<td colspan="6" class="font-weight-bold text-uppercase text-right">Total Due</td>
+													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"><span class="card-title">0</span></i></td>
+												</tr>
+												<tr class="state_not_same">
+													<td colspan="5" class="font-weight-bold text-uppercase text-right">Total Due</td>
+													<td class="card-title text-right" id="total_amount"><i class="fas fa-rupee-sign"><span class="card-title">0</span></i></td>
+												</tr>
+												<tr class="state_same">
+													<td colspan="7" class="text-right">
+														<button type="reset" class="btn btn-secondary">Cancel</button>
+														<button type="submit" class="btn btn-success">Submit</button>
+														<p class="text-muted text-center">Thank you very much for doing business with us. We look forward to working with you again!</p>
+													</td>
+												</tr>
+												<tr class="state_not_same">
+													<td colspan="7" class="text-right">
 														<button type="reset" class="btn btn-secondary">Cancel</button>
 														<button type="submit" class="btn btn-success">Submit</button>
 														<p class="text-muted text-center">Thank you very much for doing business with us. We look forward to working with you again!</p>
@@ -251,6 +278,12 @@
 		</script>
 		<script>
 		  $(document).ready(function() {
+				$('.state_same').show();
+				$('.state_not_same').hide();
+				$('.placeofsupply').hide();
+				$('#hide_state').hide();
+				$('#create_invoice').hide();
+
 			  var max_fields      = 30; //maximum input boxes allowed
 			  var wrapper         = $(".clone_row"); //Fields wrapper
 			  var add_button      = $(".add_more"); //Add button ID
@@ -264,7 +297,7 @@
 				e.preventDefault();
 				if(x < max_fields){ //max input box allowed
 				  x++; //text box increment
-				  var htmlz = "<td><select class='form-control select2-show-search pro_data' name='product_name'><option value='' selected='' disabled=''>Choose Product</option></select></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span>1800</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center'>18%</td><td class='text-center'>18%</td><td class='text-center'>18%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title'>1800</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
+				  var htmlz = "<td><select class='form-control select2-show-search pro_data' name='product_name' onchange='prod_datazz(this.value,"+x+");'><option value='' selected='' disabled=''>Choose Product</option></select></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span class='pro_price_"+x+"'>0</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center state_same gst_rate_"+x+"'>0%</td><td class='text-center state_same gst_rate_"+x+"'>0%</td><td class='text-center state_not_same gst_rate_"+x+"'>0%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title'>0</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
 				}
 				$(".clone_row").after("<tr>"+htmlz+"</tr>");
 				$.each(fetch_products, function () {
@@ -272,13 +305,17 @@
 					$(".pro_data").append(optionHTML);
 				});
 				$('select').select2();
+				$('.state_same').show();
+				$('.state_not_same').hide();
 			  });
 
 			});
 
 		    function remove_rowzz(e){
 				$(e).parents("tr").remove();
-			}	
+			}
+
+			
 		</script>
 		<script>
 			function supplierzz_id(e){
@@ -301,36 +338,48 @@
 				  //alert(response);
 				}
 			  });
-
-
 			}
-
 
 			function get_state(state){
-				var place_of_supplyzz = state;
-				var supplier_state_addr = $('.suppl_state').find(":selected").val();
-				alert(supplier_state_addr);
-				exit;
-				if(state != ''){
-					$('#create_invoice').show();
+				var placeofsupply = state;
+				var fetch_supply_state = $('.suppl_state').val();
+				if(placeofsupply == fetch_supply_state){
+					$('.state_same').show();
+					$('.state_not_same').hide();
+				}else{
+					$('.state_not_same').show();
+					$('.state_same').hide();
 				}
 			}
-
-			function categoriezz(category_name){
-				//alert(category_name);
-			}
 			
+			function prod_datazz(prod_id,idzzz){
+				//alert(idzzz);
+				$.ajax({
+				url: '<?php echo base_url();?>add_purchase_order/ajax_fetch_prod_details',
+				data: {'product_id': prod_id,},
+				type: "post",
+				dataType: 'json',
+					success: function(response){
+						$('.pro_price_'+idzzz+'').html(response.product_retail_price);
+						$('.gst_rate_'+idzzz+'').html(response.raw_gst_rate);					
+					}
+			  	});
+			}
+
 			function quantity_amtzz(quantity,idzz){
 				var subTotal = 0;
 				var quant = 0;
 				if(quantity != ''){
 					var quant = quantity;
 					$('.quantzz_'+idzz+'').html(quant);
-					var amount = $('#amountzz span').html();
-					var Total = quant * amount;
+					var amount = $('.pro_price_'+idzz+' span').val();
+					var gst_rate = $('.gst_rate_'+idzz+'').val();
+					var tax_amount = parseFloat(amount*(gst_rate/100));
+					
+					var Total = parseFloat(quant*tax_amount);
 					$('#total_amount_'+idzz+' span').html(Total);
 					
-					var sum = 0;
+					/*var sum = 0;
 						 $(this).find('.combat').each(function () {
 							 alert('YES');
 							 exit;
@@ -339,9 +388,10 @@
 								 sum += parseFloat(combat);
 							 }
 						 });
-					$(this).find('.total-combat span').html(sum);
+					$(this).find('.total-combat span').html(sum);*/
 				}
 			}
+
 		</script>
 		
 		

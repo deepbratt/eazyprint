@@ -174,18 +174,27 @@
 									  </a>
 									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										<div class="row">
-
+											<?php
+												$ci =&get_instance();
+												$ci->load->model('home_m');
+												$get_mobile_casezz = $ci->home_m->fetch_mobile_case();
+												foreach($get_mobile_casezz AS $each_mob_case){
+											?>
 												<div class="col-md-3" style="text-align:left;">
-													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
+													<span style="color:#009fdc;"> <?php echo $each_mob_case->raw_brand;?> </span>
 													<ul style="padding-top:10px;">
-														<li class="text-dark">Printed Tshirts</li>
-														<li class="text-dark">Corporate Tshirts</li>
-														<li class="text-dark">Couple Tshirts</li>
-														<li class="text-dark">Family Tshirts</li>
+														<?php
+															$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
+															foreach($fetch_each_case AS $each_casezz){
+														?>
+														<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
+														<?php
+															}	
+														?>
 													</ul>
 												</div>
 												
-												<div class="col-md-3" style="text-align:left;">
+												<!--<div class="col-md-3" style="text-align:left;">
 													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
 													<ul style="padding-top:10px;">
 														<li class="text-dark">Printed Tshirts</li>
@@ -211,7 +220,10 @@
 														<li class="text-dark">Couple Tshirts</li>
 														<li class="text-dark">Family Tshirts</li>
 													</ul>
-												</div>
+												</div>-->
+												<?php
+													}	
+												?>
 										 </div>
 									   </div>
 									</li>
