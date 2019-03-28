@@ -12,13 +12,13 @@ class Edit_product_m extends CI_Model {
 		return $query->row();
 	}
 
-	public function get_category_all($cat_id)
+	public function get_brand()
 	{
 		$this->db->select('*');
-		$this->db->from('category');
-		$this->db->where('cat_id',$cat_id);
+		$this->db->from('raw_materials');
+		$this->db->group_by('raw_brand');
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	public function fetch_pro_img($product_id)

@@ -84,6 +84,7 @@ class Add_product extends CI_Controller {
 		print_r($p_image);
 		exit;*/
 		$category = $this->input->post('category');
+		$raw_brand = $this->input->post('raw_brand');
 		$raw_name = $this->input->post('raw_name');
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
@@ -151,7 +152,7 @@ class Add_product extends CI_Controller {
 			}
 		}
 
-		$records = array('product_meta_image'=>$meta_image,'raw_id'=>$raw_name,'user_id'=>$user_id,'product_category_id'=>$category,'product_name'=>$product_name,'product_title'=>$product_title,'product_desc'=>$product_desc,'product_designed_by'=>$designed_by,'	product_wholesale_price'=>$wholesale_price,'product_retail_price'=>$retail_price,'product_sku'=>$p_sku,'product_meta_tags'=>$meta_tags,'product_meta_keyword'=>$meta_keyword,'product_meta_desc'=>$meta_desc,'product_added_date'=>$ad_date,'product_status'=>$product_status);
+		$records = array('product_meta_image'=>$meta_image,'raw_id'=>$raw_name,'raw_brand'=>$raw_brand,'user_id'=>$user_id,'product_category_id'=>$category,'product_name'=>$product_name,'product_title'=>$product_title,'product_desc'=>$product_desc,'product_designed_by'=>$designed_by,'	product_wholesale_price'=>$wholesale_price,'product_retail_price'=>$retail_price,'product_sku'=>$p_sku,'product_meta_tags'=>$meta_tags,'product_meta_keyword'=>$meta_keyword,'product_meta_desc'=>$meta_desc,'product_added_date'=>$ad_date,'product_status'=>$product_status);
 
 			$update_product = $this->add_product_m->update_pro($records);
 

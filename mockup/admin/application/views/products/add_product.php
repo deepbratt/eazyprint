@@ -126,7 +126,7 @@
 								<div class="form-group">
 									<label class="form-label">Choose Brand</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-									<select class="form-control brandz_name" name="raw_name" onchange="fetch_brand_data(this.value);">
+									<select class="form-control brandz_name" name="raw_brand" onchange="fetch_brand_data(this.value);">
 										<option vlaue="" selected disabled>Brand</option>
 									</select>
 								</div>
