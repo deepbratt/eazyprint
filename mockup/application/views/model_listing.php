@@ -152,7 +152,7 @@ $this->load->view("common/header");
 									  		$fetch_models = $this->model_listing_m->fetch_models($each_brand->raw_brand);
 									  		foreach($fetch_models AS $each_models){
 									  	?>
-									  		<a href="javascript:void(0);" style="color:#009fdc;"><i class="fas fa-arrow-right"></i> <?php echo $each_models->raw_name;?></a><br>
+									  		<a href="<?php echo base_url('customize_mobile_case/');?><?php echo $each_models->raw_id;?>" style="color:#009fdc;"><i class="fas fa-arrow-right"></i> <?php echo $each_models->raw_name;?></a><br>
 									  	<?php
 									  		}
 									  	?>
