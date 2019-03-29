@@ -15,7 +15,8 @@
 		<link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/png"/>
 		<link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>images/favicon.png" />
 		<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
-
+		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
+		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
 		<title>Eazyprint | <?php echo ucfirst($fetch_prod_data->product_title); ?></title>
 		<style>
@@ -230,6 +231,12 @@
 			color: #fff !important;
 			background: #fd0303 !important;
 		}
+		.alert-info{
+			/*display:none;*/
+		}
+		.loader{
+			display:none;
+		}
 		</style>
 
 <?php
@@ -242,15 +249,14 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 
-				<div>
-					<img src="<?php echo base_url();?>images/blank_case.png">
+				<div style="background:#f5365c;height:80px;">
+					<!--<img src="<?php echo base_url();?>images/blank_case.png">-->
 				</div>
 				<div class="container" style="margin-top:40px;">
-					<div class="side-app">
+					<div class="side-app" style="">
 						<div class="col-md-12">
-							<div class="page-header">
-
-								<ol class="breadcrumb">
+							<div class="page-header" style="margin-top:-100px;">
+								<ol class="breadcrumb" style="background:#fff;">
 									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
@@ -296,6 +302,8 @@ $this->load->view("common/header");
 								<div class="row">
 									<div class="col-md-12">
 										<div class="card-body cardbody" >
+												<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
+												<div class="msg"></div>
 												<h1 style="font-size:30px;font-family:samarkan1;">
 													<?php
 														echo ucfirst($fetch_prod_data->product_title);
@@ -311,7 +319,8 @@ $this->load->view("common/header");
 												</div>
 												<span>Inclusive of all taxes</span>
 										</div>
-									<form method="POST" action="<?php echo base_url('checkout/');?><?php echo $this->uri->segment(2);?>">
+										 <?php $this->uri->segment(2);?>
+									<form method="POST" action="<?php echo base_url('Product_details/add_to_cart');?>">
 										<!-- SELECT COLOR STARTS -->
 										<?php
 											if($fetch_raw_data->raw_color_code != ''){
@@ -385,16 +394,21 @@ $this->load->view("common/header");
 										<!-- CART STARTS -->
 										<div class="card-body">
 											<div class="row">
-												<div class="col-md-2">
-													<label class="selectgroup-item">
-														<input type="checkbox" name="value" value="Like" class="selectgroup-input">
-														<span class="selectgroup-button wishlist" style="color:#8e8e8e"><i class="far fa-heart" style="font-size:35px;"></i></span>
-													</label>
-												</div>
-												<div class="col-md-10">
-													<button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
+												<div class="col-md-3">
+		
+													<div class="quantity buttons_added">
+														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+													</div>
 												</div>
 
+												<input type="hidden" name="p_id" value="<?php echo $fetch_prod_data->product_id;?>">
+												<input type="hidden" name="price" value="<?php echo $fetch_prod_data->product_retail_price;?>">
+												<input type="hidden" name="design_image" value="<?php echo $fetch_prod_data->product_design_id;?>">
+												<input type="hidden" name="product_type" value="readymade">
+												<div class="col-md-9">
+													<button type="button" class="btn btn-info btn-block" style="font-size:20px;" onclick="add_to_cart()">Add To Bag</button>
+												</div>
+						
 											</div>
 										</div>
 									</form>
@@ -664,6 +678,42 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
+	<!-- cart ajax starts -->
+	<script type="text/javascript">
+
+// Ajax post
+
+	function add_to_cart(){
+		$(".loader").show();
+		var price = $("input[name=price]").val();
+		var size = $("input[name=size]").val();
+		if(size == null){var yosize = 0;}else{var yosize = $("input[name=size]").val();}
+
+		var color = $("input[name=color]").val();
+		if(color == null){var yocolor = 0;}else{var yocolor = $("input[name=color]").val();}
+
+		var product_id = $("input[name=p_id]").val();
+		var design_image = $("input[name=design_image]").val();
+		var product_type = $("input[name=product_type]").val();
+		var qty = $("input[name=quantity]").val();
+
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url('product_details/add_to_cart'); ?>",
+			dataType: 'text',
+			data: {price: price, size: yosize,color: color,p_id: product_id,design_image: design_image,product_type: product_type,quantity:qty},
+			success: function(res) {
+				if (res)
+				{
+					$(".loader").hide();
+					$(".msg").html(res);
+				}
+			}
+		});
+	}
+
+	</script>
+	<!-- cart ajax ends -->
 	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
 		<script>
 			// select all thumbnails

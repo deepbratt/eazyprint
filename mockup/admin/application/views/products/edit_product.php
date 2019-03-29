@@ -20,7 +20,8 @@
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
 	<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 	<script src="<?php echo base_url();?>js/quantity_style.js"></script>
-	<script src="<?php echo base_url();?>js/vasplus_uploader.js"></script>
+	<script src="<?php echo base_url();?>js/multiupload.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 	<style>
 	.card-body{
 		padding: 0.5rem 1.5rem !important;
@@ -35,6 +36,33 @@
 		width:53.1px;
 		margin-top:-15px;
 	}
+	/* NEW INSERTED */
+	input[type="file"] {
+  display: block;
+}
+.imageThumb {
+  max-height: 100px;
+  border: 2px solid #009fdc;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #FF0000;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px;
+  margin-top: 5px;
+}
+
+	
 	</style>
     <?php $this->load->view('common/metalinks');?>
   </head>
@@ -81,13 +109,12 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label class="form-label">Choose Category</label>
+									<label class="form-label">Choose Category </label>
 									<select class="form-control" name="category" onchange="fetch_cat_id(this.value);">
-										<option value="" selected disabled>Category</option>
 										<?php
 											foreach($get_all_category As $all_category){
 										?>
-											<option value="<?php echo $all_category->cat_id;?>"><?php echo ucfirst($all_category->category_name);?></option>
+											<option value="<?php echo $all_category->cat_id;?>" <?php echo(($fetch_product->product_category_id == $all_category->cat_id)?'selected':'');?>><?php echo ucfirst($all_category->category_name);?></option>
 										<?php 
 											}
 										?>
@@ -99,7 +126,13 @@
 									<label class="form-label">Choose Brand</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 									<select class="form-control brandz_name" name="raw_name" onchange="fetch_brand_data(this.value);">
-										<option vlaue="" selected disabled>Brand</option>
+										<?php
+											foreach($get_all_brand As $all_brand){
+										?>
+											<option value="<?php echo $all_brand->raw_brand;?>" <?php echo(($fetch_product->raw_id == $all_brand->raw_id)?'selected':'');?>><?php echo ucfirst($all_brand->raw_brand);?></option>
+										<?php 
+											}
+										?>
 									</select>
 								</div>
 							</div>
@@ -110,7 +143,7 @@
 					<h4>Please Wait...</h4>
 				</div>
 
-				<div class="card" style="display:none" id="show_raw_material">
+				<div class="card"  id="show_raw_material">
 					<div class="card-header">
 						<h3 class="card-title">Raw Material</h3>
 					</div>
@@ -133,7 +166,7 @@
 					<h4>Please Wait...</h4>
 				</div>
 
-			 	<div id="show_all_info">
+			 	<div id="show_all_info" >
 				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title">Product Information</h3>
@@ -143,19 +176,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Name</label>
-									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" readonly>
+									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" >
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Title</label>
-									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" readonly>
+									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" >
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Product Desc</label>
-									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" readonly></textarea>
+									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" ></textarea>
 								</div>
 							</div>
 						</div>
@@ -168,13 +201,13 @@
 								<h3 class="card-title">Product Image</h3>
 							</div>
 							<div class="card-body">
-								<div class="row" style="margin-top:15px;">
+								<div class="row" id="ml_image" style="margin-top:15px;">
 									<div class="col-md-3">
 										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
 									</div>
 									<div class="col-md-6">
-										<span onclick="product_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
+										<span onclick="product_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon" style="margin-top:6px;"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input style="display:none;" type="file" name="p_image[]" id="vpb-data-file" multiple />
 									  </div>
 
 								</div>
@@ -190,15 +223,20 @@
 							<div class="card-body">
 								<div class="row" style="margin-top:15px;">
 									<div class="col-md-3">
-										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
+										<label class="form-label">Upload Design Image<br><span style="font-size:12px;"></span></label>
 									</div>
 									<div class="col-md-6">
-										<span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="design_image[]" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)" multiple="multiple" />
-									  </div>
-
+										<!-- <span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input type="file" style="display:none;" name="design_image" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)"  /> -->
+										<span onclick="designed_image()" id="hide_span_3" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
+											<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+											<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+										</span>
+										<input type="file" name="designed" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
+										<img src="" onclick="designed_image()" style="height:150px;display:none;" id="designed_blah">
+									</div>
 								</div>
-								<div class="row" id="vpb-design-display-preview"></div>
+								
 							</div>
 						</div>
 					</div>
@@ -248,9 +286,9 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
-						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+							<span onclick="m_image()" id="hide_span_m" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+							<input type="file" name="meta_image" id="m_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL_m(this);">
+						   <img src="" onclick="m_image()" style="height:150px;display:none;" id="m_blah">
 						  </div>
 						</div>
 						<div class="row">
@@ -412,6 +450,48 @@
 				$('#hide_span_2').hide();
 			}
 		}
+	//meta image starts
+	function m_image(){
+		$("input[id='m_file']").click();
+	}
+
+	function readURL_m(input) {
+		
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			
+			reader.onload = function (e) {
+				$('#m_blah').attr('src', e.target.result);
+				
+			}
+
+			reader.readAsDataURL(input.files[0]);
+			$('#m_blah').show();
+			$('#hide_span_m').hide();
+		}
+	}
+	//meta image ends
+
+	//designed image starts
+	function designed_image(){
+			$("input[id='designed_file']").click();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#designed_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#designed_blah').show();
+				$('#hide_span_3').hide();
+			}
+		}
+	//designed image ends
+
 	/* MULTIPLE PRODUCT IMAGE STARTS */
 		function product_image(){
 			$("input[id='vpb-data-file']").click();
@@ -420,9 +500,85 @@
 		function design_image(){
 			$("input[id='vpb-data-file-design']").click();
 		}
+		/*function show_image(input) {
+			
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#p_blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#p_blah').show();
+				$('#hide_span').hide();
+			}
+		}*/
+	/* MULTIPLE PRODUCT IMAGE ENDS */
 		
+		/*function callapi(){
+		  var brand_name = $('.brandz_name').val();
+		  var model_number = $('.devname').val();
+		  var model_name = brand_name+""+model_number;
+		  
+			// set token globally
+			//$.fn.fonoApi.options.token = "xxx";
+			$('.api').fonoApi({
+				token : "86b89476caaf66eda3f21279b7711afc",
+				device : model_name,
+				limit : 1,
+				template : function() {
+					// argument contains the data object // *returns html content
+					return $.map(arguments, function(obj, i) {
+						content  = obj.dimensions;
+						contarr = content.split(" ");
+						$('.pro_len').val(contarr[0]);
+						$('.pro_wid').val(contarr[2]);
+						$('.pro_height').val(contarr[4]);
+					});
+				}
+			});
+		}*/
 
   </script>
 		<!---Tabs JS-->
+
+  <script>
+  $(document).ready(function() {
+	  if (window.File && window.FileList && window.FileReader) {
+		$("#vpb-data-file").on("change", function(e) {
+		  var files = e.target.files,
+			filesLength = files.length;
+		  for (var i = 0; i < filesLength; i++) {
+			var f = files[i]
+			var fileReader = new FileReader();
+			fileReader.onload = (function(e) {
+			  var file = e.target;
+			  $("<span class=\"pip\">" +
+				"<img class=\"imageThumb\" height=\"100\" width=\"100\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+				"<br/>" +
+				"</span>").insertAfter("#ml_image");
+				/*$(this).parent(".pip").remove();
+			    $(".remove").click(function(){
+				$(this).parent(".pip").remove();
+				alert(file);
+			    });*/
+			  
+			  // Old code here
+			  /*$("<img></img>", {
+				class: "imageThumb",
+				src: e.target.result,
+				title: file.name + " | Click to remove"
+			  }).insertAfter("#files").click(function(){$(this).remove();});*/
+			  
+			});
+			fileReader.readAsDataURL(f);
+		  }
+		});
+	  } else {
+		alert("Your browser doesn't support to File API")
+	  }
+	});
+  </script>
 		
 </html>

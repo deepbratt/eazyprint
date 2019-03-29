@@ -46,6 +46,20 @@ class Product_details_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function check_cart($user_id,$product_id){
+		$this->db->select('*');
+		$this->db->from('cart_selection');
+		$this->db->where('user_id',$user_id);
+		$this->db->where('product_id',$product_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function save_cart($cart_details){
+		$this->db->insert('cart_selection', $cart_details);
+		return true;
+	}
+
 }
 
 /* End of file Product_details_m.php */
