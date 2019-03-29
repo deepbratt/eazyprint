@@ -167,12 +167,12 @@
 									</li>
 
 									<li class="nav-item with-sub  mega-dropdown">
-									  <a class="nav-link" href="javascript:void(0);">
+									  <a class="nav-link" href="<?php echo base_url("products");?>">
 										<span class="d-none d-lg-block">
 											<span class="text-dark"> MOBILE BACKCOVER </span>
 										</span>
 									  </a>
-									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC; height:400px;overflow:auto">
+									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										
 											<?php
 												$ci =&get_instance();
@@ -180,9 +180,9 @@
 												$get_mobile_casezz = $ci->home_m->fetch_mobile_case();
 												foreach($get_mobile_casezz AS $each_mob_case){
 											?>
-												<div class="col-md-3" style="text-align:left;margin-top:5px;">
+												<div class="col-md-3" style="text-align:left;margin-top:5px;float:left;">
 													<span style="color:#009fdc;"> <?php echo $each_mob_case->raw_brand;?> </span>
-													<ul style="padding-top:10px;">
+													<!--<ul style="padding-top:10px;">
 														<?php
 															$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
 															foreach($fetch_each_case AS $each_casezz){
@@ -191,7 +191,7 @@
 														<?php
 															}	
 														?>
-													</ul>
+													</ul>-->
 												</div>
 												<?php
 													}	
