@@ -152,7 +152,7 @@ $this->load->view("common/header");
 									  		$fetch_models = $this->model_listing_m->fetch_models($each_brand->raw_brand);
 									  		foreach($fetch_models AS $each_models){
 									  	?>
-									  		<a href="javascript:void(0);" style="color:#009fdc;"><i class="far fa-hand-pointer"> <?php echo $each_models->raw_name;?></i></a><br>
+									  		<a href="javascript:void(0);" style="color:#009fdc;"><i class="fas fa-arrow-right"></i> <?php echo $each_models->raw_name;?></a><br>
 									  	<?php
 									  		}
 									  	?>
