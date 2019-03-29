@@ -173,7 +173,7 @@
 										</span>
 									  </a>
 									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC; height:400px;overflow:auto">
-										<div class="row">
+										
 											<?php
 												$ci =&get_instance();
 												$ci->load->model('home_m');
@@ -196,7 +196,7 @@
 												<?php
 													}	
 												?>
-										 </div>
+										
 									   </div>
 									</li>
 									
