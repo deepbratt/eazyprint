@@ -41,7 +41,7 @@ class Verify_email extends CI_Controller {
 			$this->session->set_userdata('logged_in',$session_data);
 			
 			if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "dealer"){
-				redirect('account');
+				redirect('admin/admin_dashboard');
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "vendor"){
 				redirect('account');
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "customer"){
