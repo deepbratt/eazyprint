@@ -248,16 +248,16 @@
 										</a>
 									</li>
 									<?php
-										}else{
-										$user_id = $this->session->userdata['logged_in']['user_id'];
-										$ci =&get_instance();
-										$ci->load->model('login_m');
-										$get_profile_details = $ci->login_m->get_profile_details($user_id);
+										}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == 'customer'){
+											$user_id = $this->session->userdata['logged_in']['user_id'];
+											$ci =&get_instance();
+											$ci->load->model('login_m');
+											$get_profile_details = $ci->login_m->get_profile_details($user_id);
 									?>
 									<li class="nav-item right" style="margin-left:500px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 										<?php
-											if($get_profile_details->user_profile_image != ""){
+											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
 										?>
 											<span class="avatar avatar-md brround" style="background-image: url('uploads/user_profile_image/<?php echo $get_profile_details->user_profile_image;?>')"></span>
 										<?php
@@ -278,6 +278,15 @@
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
 										</div>
 									</li>
+									
+									<?php
+										}else{
+									?>
+										<li class="nav-item right" style="margin-left:500px;">
+											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
+												<i class="fas fa-user" style="font-size:33px;"></i>
+											</a>
+										</li>
 									<?php
 										}
 									?>
