@@ -3,6 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+	  
+		// load Pagination library
+		$this->load->library('pagination');
+		 
+		// load URL helper
+		$this->load->helper('url');
+	}
+
 	public function index()
 	{
 		$this->load->model('product_m');
@@ -13,6 +24,52 @@ class Product extends CI_Controller {
             $brand_name = $this->session->userdata['product_sidebar']['brand_name'];
         }
 		
+		/* pagination */
+		// init params
+        $data = array();
+        $limit_per_page = 6;
+        $start_index = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $total_records = $this->product_m->get_total();
+ 
+        if ($total_records > 0) 
+        {
+            // get current page records
+            $data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index);
+             
+            $config['base_url'] = base_url() . 'product';
+            $config['total_rows'] = $total_records;
+            $config['per_page'] = $limit_per_page;
+            $config["uri_segment"] = 3;
+            $config['use_page_numbers'] = TRUE;
+			$config['full_tag_open'] = '<ul class="pagination mg-b-0">'; 
+			$config['full_tag_close'] = '</ul>';
+			$config['first_tag_open'] = "<li class='page-item'>";
+			$config['first_tag_close'] = "</li>";
+			$config['prev_tag_open'] = "<li class='page-item'>";
+			$config['prev_tag_close'] = "</li>";
+			$config['next_tag_open'] = "<li class='page-item'>";
+			$config['next_tag_close'] = "</li>";
+			$config['last_tag_open'] = "<li
+			class='page-item'>";
+			$config['last_tag_close'] = "</li>";
+			$config['cur_tag_open'] = "<li class='page-item active'><a class='page-link active' href=''>"; 
+			$config['cur_tag_close'] = "</a></li>";
+			$config['num_tag_open'] = "<li class='page-item'>";
+			$config['num_tag_close'] = "</li>"; 
+			$config['attributes'] =
+			array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+             
+            // build paging links
+			
+
+            $data["links"] = $this->pagination->create_links();
+        }
+         
+
+		/* pagination ends */
+
 		$this->load->view('product',$data);
 	}
 

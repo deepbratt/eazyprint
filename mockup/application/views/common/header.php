@@ -1,3 +1,9 @@
+ <style>
+ .header_active{
+	background:#009fdc !important;
+	color:#fff;
+ }
+ </style>
  <!-- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> -->
 		<div class="page">
 			<div class="page-main">
@@ -24,16 +30,16 @@
 											<span class="text-dark"> <b> Partner Stores </b> </span>
 										</span>
 									</a>
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									<!--<a class="nav-link d-flex" href="javascript:void(0);">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Affiliate </b> </span>
 										</span>
-									</a>
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									</a>-->
+									<!--<a class="nav-link d-flex" href="javascript:void(0);">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Dropshipping </b> </span>
 										</span>
-									</a>
+									</a>-->
 								</div>
 								<div class="d-flex order-lg-3 ml-auto">
 									<a class="nav-link d-flex" href="javascript:void(0);">
@@ -168,18 +174,27 @@
 									  </a>
 									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
 										<div class="row">
-
+											<?php
+												$ci =&get_instance();
+												$ci->load->model('home_m');
+												$get_mobile_casezz = $ci->home_m->fetch_mobile_case();
+												foreach($get_mobile_casezz AS $each_mob_case){
+											?>
 												<div class="col-md-3" style="text-align:left;">
-													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
+													<span style="color:#009fdc;"> <?php echo $each_mob_case->raw_brand;?> </span>
 													<ul style="padding-top:10px;">
-														<li class="text-dark">Printed Tshirts</li>
-														<li class="text-dark">Corporate Tshirts</li>
-														<li class="text-dark">Couple Tshirts</li>
-														<li class="text-dark">Family Tshirts</li>
+														<?php
+															$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
+															foreach($fetch_each_case AS $each_casezz){
+														?>
+														<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
+														<?php
+															}	
+														?>
 													</ul>
 												</div>
 												
-												<div class="col-md-3" style="text-align:left;">
+												<!--<div class="col-md-3" style="text-align:left;">
 													<span style="color:#009fdc;"> MOBILE BACKCOVER </span>
 													<ul style="padding-top:10px;">
 														<li class="text-dark">Printed Tshirts</li>
@@ -205,15 +220,20 @@
 														<li class="text-dark">Couple Tshirts</li>
 														<li class="text-dark">Family Tshirts</li>
 													</ul>
-												</div>
+												</div>-->
+												<?php
+													}	
+												?>
 										 </div>
 									   </div>
 									</li>
 									
 									
-
+									<?php
+										if(empty($this->session->userdata['logged_in']['user_id'])){
+									?>
 									<li class="nav-item" style="margin-left:430px;">
-										<a class="nav-link" href="javascript:void(0);">
+										<a class="nav-link" href="<?php echo base_url('login');?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">LOGIN</span>
 											</span>
@@ -221,27 +241,58 @@
 									</li>
 
 									<li class="nav-item right">
-										<a class="nav-link" href="javascript:void(0);">
+										<a class="nav-link" href="<?php echo base_url('signup');?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark">SIGNUP</span>
 											</span>
 										</a>
 									</li>
-
-									<!--<li class="nav-item">
+									<?php
+										}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == 'customer'){
+											$user_id = $this->session->userdata['logged_in']['user_id'];
+											$ci =&get_instance();
+											$ci->load->model('login_m');
+											$get_profile_details = $ci->login_m->get_profile_details($user_id);
+									?>
+									<li class="nav-item right" style="margin-left:500px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
-											<span class="avatar avatar-md brround" style="background-image: url(images/25.jpg)"></span>
+										<?php
+											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
+										?>
+											<span class="avatar avatar-md brround" style="background-image: url('uploads/user_profile_image/<?php echo $get_profile_details->user_profile_image;?>')"></span>
+										<?php
+											}else{
+										?>
+											<i class="fas fa-user" style="font-size:33px;"></i>
+										<?php
+											}
+										?>
 										</a>
 										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-account-outline"></i> Profile</a>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-settings"></i> Settings</a>
-											<a class="dropdown-item" href="javascript:void(0);"><span class="float-right"><span class="badge badge-primary">6</span></span> <i class="dropdown-icon mdi mdi-message-outline"></i> Inbox</a>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-comment-check-outline"></i> Message</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="javascript:void(0);"><i class="dropdown-icon mdi mdi-compass-outline"></i> Need help?</a>
-											<a class="dropdown-item" href="login.html"><i class="dropdown-icon mdi mdi-logout-variant"></i> Sign out</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'orders')?'header_active':'');?>" href="<?php echo base_url('orders');?>"><i class="fas fa-box"></i> Orders</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'cart')?'header_active':'');?>" href="<?php echo base_url('cart');?>"><i class="fas fa-cart-plus"></i> Cart</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'rewards')?'header_active':'');?>" href="<?php echo base_url('rewards');?>"><i class="fas fa-briefcase"></i> Reward</a>
+											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'support')?'header_active':'');?>" href="<?php echo base_url('support');?>"><i class="fas fa-phone"></i> Support</a>-->
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'account')?'header_active':'');?>" href="<?php echo base_url('account');?>"><i class="fas fa-user"></i> Account</a>
+											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
 										</div>
-									</li>-->
+									</li>
+									
+									<?php
+										}else{
+									?>
+										<li class="nav-item right" style="margin-left:500px;">
+											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
+												<i class="fas fa-user" style="font-size:33px;"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
+												<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+											</div>
+										</li>
+									<?php
+										}
+									?>
 								</div>
 
 							</div>

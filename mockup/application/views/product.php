@@ -25,24 +25,25 @@
 		<?php
 		$this->load->view("common/header");
 		?>
-		<div>
-			<img src="<?php echo base_url();?>images/product_banner4.png">
-		</div>
+		
+		<!--<div style="background:#f5365c;height:80px;">
+			<img src="<?php echo base_url();?>images/blank_case.png">
+		</div>-->
+
 		<div class="page">
 			<div class="page-main">				
 				<div class="container">
 					<div class="side-app">
-						
-						
-						
-						<div class="page-header">
+
+						<!--<div class="page-header">
 							<h4 class="page-title">Shop</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazyprint</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Shop</li>
 							</ol>
-						</div>
-						<div class="row row-cards">
+						</div>-->
+
+						<div class="row row-cards" style="margin-top:50px;">
 						<?php
 							$this->load->view("common/sidebar");
 						?>
@@ -57,8 +58,7 @@
 								</div>-->
 								<div class="row">
 								<?php
-								
-								foreach($products As $key=>$get_product){
+								foreach($products As $get_product){
 									$category_id = $get_product->product_category_id;
 									$category = $this->product_m->fetch_name_category($category_id);
 									if($category = "tshirts"){
@@ -70,8 +70,8 @@
 									}
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;text-align:center;">
-										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:300px;">
-											<a href="<?php echo base_url("product_details");?>">
+										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px 1px 0px 1px solid #CCC !important;height:300px;">
+											<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>">
 												<?php
 													$product_id = $get_product->product_id;
 													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
@@ -80,9 +80,9 @@
 											</a>
 											<div class="clearfix"></div>
 										</div>
-										<div class="card item-card" style="margin-top:-22px;">
+										<div class="card item-card" style="margin-top:-22px;background:#fafafa;">
 												<div class="cardtitle" style="text-align:center;">
-													<a href="<?php echo base_url("product_details");?>" style="text-align:center;font-size:16px;"><?php echo $get_product->product_name;?></a>
+													<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>" style="text-align:center;font-size:16px;color:#424242;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
 													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
@@ -109,8 +109,12 @@
 
 								<div class="pagination-wrapper center">
 									<nav aria-label="Page navigation">
+										<?php if (isset($links)) { ?>
+													<?php echo $links ?>
+												<?php } ?>
 										<ul class="pagination mg-b-0">
-											<li class="page-item active">
+											 
+											<!--<li class="page-item active">
 												<a class="page-link" href="#">1</a>
 											</li>
 											<li class="page-item">
@@ -127,7 +131,7 @@
 											</li>
 											<li class="page-item">
 												<a aria-label="Next" class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
-											</li>
+											</li>-->
 										</ul>
 									</nav>
 								</div>

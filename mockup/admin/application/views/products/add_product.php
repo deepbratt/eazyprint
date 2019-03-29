@@ -37,6 +37,31 @@
 		margin-top:-15px;
 	}
 	/* NEW INSERTED */
+	input[type="file"] {
+  display: block;
+}
+.imageThumb {
+  max-height: 100px;
+  border: 2px solid #009fdc;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #FF0000;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px;
+  margin-top: 5px;
+}
+
 	
 	</style>
     <?php $this->load->view('common/metalinks');?>
@@ -101,7 +126,7 @@
 								<div class="form-group">
 									<label class="form-label">Choose Brand</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-									<select class="form-control brandz_name" name="raw_name" onchange="fetch_brand_data(this.value);">
+									<select class="form-control brandz_name" name="raw_brand" onchange="fetch_brand_data(this.value);">
 										<option vlaue="" selected disabled>Brand</option>
 									</select>
 								</div>
@@ -146,19 +171,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Name</label>
-									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" readonly>
+									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" >
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Title</label>
-									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" readonly>
+									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" >
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Product Desc</label>
-									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" readonly></textarea>
+									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" ></textarea>
 								</div>
 							</div>
 						</div>
@@ -171,13 +196,13 @@
 								<h3 class="card-title">Product Image</h3>
 							</div>
 							<div class="card-body">
-								<div class="row" style="margin-top:15px;">
+								<div class="row" id="ml_image" style="margin-top:15px;">
 									<div class="col-md-3">
 										<label class="form-label">Upload Image<br><span style="font-size:12px;">(For multiple images press ctrl.)</span></label>
 									</div>
 									<div class="col-md-6">
-										<span onclick="product_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="p_image[]" id="vpb-data-file" onchange="vpb_image_preview(this)" multiple="multiple" />
+										<span onclick="product_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon" style="margin-top:6px;"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+										<input style="display:none;" type="file" name="p_image[]" id="vpb-data-file" multiple />
 									  </div>
 
 								</div>
@@ -256,9 +281,9 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
-						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
+							<span onclick="m_image()" id="hide_span_m" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+							<input type="file" name="meta_image" id="m_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL_m(this);">
+						   <img src="" onclick="m_image()" style="height:150px;display:none;" id="m_blah">
 						  </div>
 						</div>
 						<div class="row">
@@ -420,6 +445,28 @@
 				$('#hide_span_2').hide();
 			}
 		}
+	//meta image starts
+	function m_image(){
+		$("input[id='m_file']").click();
+	}
+
+	function readURL_m(input) {
+		
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			
+			reader.onload = function (e) {
+				$('#m_blah').attr('src', e.target.result);
+				
+			}
+
+			reader.readAsDataURL(input.files[0]);
+			$('#m_blah').show();
+			$('#hide_span_m').hide();
+		}
+	}
+	//meta image ends
+
 	//designed image starts
 	function designed_image(){
 			$("input[id='designed_file']").click();
@@ -490,5 +537,43 @@
 
   </script>
 		<!---Tabs JS-->
+
+  <script>
+  $(document).ready(function() {
+	  if (window.File && window.FileList && window.FileReader) {
+		$("#vpb-data-file").on("change", function(e) {
+		  var files = e.target.files,
+			filesLength = files.length;
+		  for (var i = 0; i < filesLength; i++) {
+			var f = files[i]
+			var fileReader = new FileReader();
+			fileReader.onload = (function(e) {
+			  var file = e.target;
+			  $("<span class=\"pip\">" +
+				"<img class=\"imageThumb\" height=\"100\" width=\"100\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+				"<br/>" +
+				"</span>").insertAfter("#ml_image");
+				/*$(this).parent(".pip").remove();
+			    $(".remove").click(function(){
+				$(this).parent(".pip").remove();
+				alert(file);
+			    });*/
+			  
+			  // Old code here
+			  /*$("<img></img>", {
+				class: "imageThumb",
+				src: e.target.result,
+				title: file.name + " | Click to remove"
+			  }).insertAfter("#files").click(function(){$(this).remove();});*/
+			  
+			});
+			fileReader.readAsDataURL(f);
+		  }
+		});
+	  } else {
+		alert("Your browser doesn't support to File API")
+	  }
+	});
+  </script>
 		
 </html>

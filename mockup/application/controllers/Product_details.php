@@ -7,6 +7,7 @@ class Product_details extends CI_Controller {
 	{
 		$this->load->model('product_details_m');
 		$prod_id = $this->uri->segment(2);
+		
 		//$prod_id = '35';
 		$data['fetch_prod_data'] = $this->product_details_m->prod_info($prod_id);
 		$data['fetch_prod_image_data'] = $this->product_details_m->prod_image_info($prod_id);
@@ -24,7 +25,54 @@ class Product_details extends CI_Controller {
 		$pro_cat_id = $data['fetch_prod_data']->product_category_id;
 		$data['fetch_similar_pro_data'] = $this->product_details_m->fetch_similar_products($pro_cat_id);
 		/* FOR PRODUCT DETAILS ENDS*/
+		
+		
 		$this->load->view('product_details',$data);
+	}
+
+	public function add_to_cart(){
+		$this->load->library('user_agent');
+		$this->load->model('product_details_m');
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != null){
+			$user_id = $this->session->userdata['logged_in']['user_id'];
+        }else{
+			$user_id = $this->input->ip_address();
+		}
+		$price = $this->input->post('price');
+		$size = (($this->input->post('size') != NULL)?$this->input->post('size'):' ');
+		$color = (($this->input->post('color') != NULL)?$this->input->post('color'):' ');
+		$product_id = $this->input->post('p_id');
+		$design_image = $this->input->post('design_image');
+		$product_type = $this->input->post('product_type');
+		$qty = $this->input->post('quantity');
+		$datetime = time();
+		
+		$check_cart_of_user = $this->product_details_m->check_cart($user_id,$product_id);
+
+		if(count($check_cart_of_user) < 1){
+			$save_cart = array(
+				'cart_id' => Null,
+				'user_id' => $user_id,
+				'price' => $price,
+				'size' => $size,
+				'color' => $color,
+				'product_id' => $product_id,
+				'design_image' => $design_image,
+				'cart_date' => $datetime,
+				'product_type' => $product_type,
+				'qty' => $qty
+			);
+			$insert_cart = $this->product_details_m->save_cart($save_cart);
+			if($insert_cart){
+				echo $data = '<div class="alert alert-info" ><strong>Success:</strong> your product added to cart.</div>';
+			}else{
+				echo $data = '<div class="alert alert-info" ><strong>Error:</strong> something went wrong!. Please try again later</div>';
+			}
+		}else{
+			echo $data = '<div class="alert alert-info" ><strong>Error:</strong> something went wrong!. Please try again later</div>';
+		}
+
+		return $data;
 	}
 
 }

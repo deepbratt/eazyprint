@@ -17,6 +17,7 @@ class Edit_product extends CI_Controller {
 		$product_id = $this->uri->segment(2);
 		$data['fetch_product'] = $this->edit_product_m->fetch_pro($product_id);
 		$data['get_all_category'] = $this->add_product_m->get_category();
+		$data['get_all_brand'] = $this->edit_product_m->get_brand();
 		$raw_id = $data['fetch_product']->raw_id;
 		$data['fetch_raw'] = $this->edit_product_m->fetch_raw($raw_id);
 		$data['fetch_image'] = $this->edit_product_m->fetch_pro_img($product_id);

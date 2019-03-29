@@ -12,11 +12,11 @@
 <style>
 	@font-face {
 		font-family: samarkan1;
-		src: url(<?php echo base_url('fonts/');?>Myriad Pro Bold SemiExtended.ttf);
+		src: url("<?php echo base_url('fonts/');?>Myriad Pro Bold SemiExtended.ttf");
 	}
 	@font-face {
 		font-family: samarkan2;
-		src: url(<?php echo base_url('fonts/');?>MyriadPro-BlackSemiCn.otf);
+		src: url("<?php echo base_url('fonts/');?>MyriadPro-BlackSemiCn.otf");
 	}
 	body{
 		background:#fff !important;
@@ -30,6 +30,14 @@
 
 	.sticky + .container {
 	  padding-top: 102px;
+	}
+
+	.card-header {
+		background: #f5365c;
+	}
+
+	.card-title{
+		color:#fff;
 	}
 	
 @media only screen and (min-width: 992px) {

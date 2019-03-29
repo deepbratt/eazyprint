@@ -31,6 +31,15 @@
 	.sticky + .container {
 	  padding-top: 102px;
 	}
+
+	.card-header {
+		background: #f5365c;
+	}
+
+	.card-title{
+		color:#fff;
+		font-weight:bold;
+	}
 	
 @media only screen and (min-width: 992px) {
   .big_head {

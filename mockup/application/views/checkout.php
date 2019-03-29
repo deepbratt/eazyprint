@@ -341,7 +341,7 @@
 								<button class="accordion ">PAYMENT OPTION</button>
 								<div class="accordion_panel ">
 
-								  <div class="row">
+								  <!--<div class="row">
 									<div class="col-md-11 p-3">
 									  <div class="custom-controls-stacked">
 										<label class="custom-control custom-radio">
@@ -389,8 +389,16 @@
 									  		</div>
 									  </div>
 									</div>
-								  </div>
+								  </div>-->
+								   
+								   <div class="row">
+										<iframe src="https://www.instamojo.com/@asimsagir/7b1edb2e88fd4f51b5ffc9aec0f93614/?embed=form" width="600" height="600" border="0"></iframe>
 
+										<iframe src="https://api.juspay.in/merchant/pay/ord_e294a26e66ad4336a992ceab81ad704c?mobile=true"
+width="630" height="400"
+style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;">
+</iframe>
+								   </div>
 								   <div class="row">
 								   	<div class="col-md-12">
 									  <div class="custom-controls-stacked">
