@@ -167,7 +167,7 @@
 									</li>
 
 									<li class="nav-item with-sub  mega-dropdown">
-									  <a class="nav-link" href="<?php echo base_url("products");?>">
+									  <a class="nav-link" href="<?php echo base_url("product");?>">
 										<span class="d-none d-lg-block">
 											<span class="text-dark"> MOBILE BACKCOVER </span>
 										</span>
