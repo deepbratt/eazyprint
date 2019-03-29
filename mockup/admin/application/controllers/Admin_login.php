@@ -15,6 +15,7 @@ class Admin_login extends CI_Controller {
 		$password = $this->input->post('password');
 
 		$login_auth = $this->admin_login_m->login_auth($email,$password);
+		
 		if(count($login_auth) < 1)
 		{
 			$this->session->set_flashdata("failed", "You have entered wrong login details!");
@@ -24,9 +25,10 @@ class Admin_login extends CI_Controller {
 									'user_id' => $login_auth->crew_id,
 									'name' => $login_auth->crew_fname.' '.$login_auth->crew_lname,
 									'email'=> $login_auth->crew_email,
-									'crew_role' => $login_auth->crew_role,
+									'user_type' => $login_auth->crew_role,
 									'crew_image' => $login_auth->crew_image
 								 );
+			
 			$this->session->set_userdata('logged_in', $session_data);
 			redirect('admin_dashboard');
 		}

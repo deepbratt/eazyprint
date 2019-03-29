@@ -14,7 +14,31 @@ class Admin_setting extends CI_Controller {
 	{
 		$this->load->model('admin_setting_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$data['admin_data'] = $this->admin_setting_m->fetch_data($user_id);
+		$user_type = $this->session->userdata['logged_in']['user_type'];
+		if($user_type == 'dealer')
+		{
+			$dealer_details = $this->admin_setting_m->fetch_dealer($user_id);
+			//print_r($dealer_details);
+			$data['f_name'] = $dealer_details->user_fname;	
+			$data['l_name'] = $dealer_details->user_lname;
+			$data['email'] = $dealer_details->user_email;
+			$data['product_category'] = $dealer_details->category_want_to_sell;
+			$data['profile_image'] = $dealer_details->user_profile_image;
+		
+	
+		}
+		else
+		{
+			$crew_details = $this->admin_setting_m->fetch_crew($user_id);
+	
+			$data['f_name'] = $crew_details->crew_fname;
+			$data['l_name'] = $crew_details->crew_lname;
+			$data['email'] = $crew_details->crew_email;
+			$data['profile_image'] = $crew_details->crew_image;
+		
+		}
+	
+	
 		$this->load->view('profile/admin_setting',$data);
 	}
 
@@ -25,12 +49,8 @@ class Admin_setting extends CI_Controller {
 		$f_name = $this->input->post('f_name');
 		$l_name = $this->input->post('l_name');
 		$email = $this->input->post('email');
-		$password = $this->input->post('password');
-
-		$check_existing = $this->admin_setting_m->check_existing($user_id,$email);
-		if(sizeof($check_existing) < 1)
-		{
-			
+		$product_category_wnt_sell = implode("," ,$this->input->post('category'));
+		
 			if(!empty($_FILES['image']['name'])){
                 $config['upload_path'] = 'uploads/crew_images/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -42,36 +62,86 @@ class Admin_setting extends CI_Controller {
                 if($this->upload->do_upload('image')){
                     $uploadData = $this->upload->data();
 					$image = $uploadData['file_name'];
-					$records=array(
-									"crew_fname" => $f_name,
-									"crew_lname" => $l_name,
-									"crew_email" => $email,
-									"crew_pass" => $password,
-									"crew_image" => $image
-								  );
+					if($this->session->userdata['logged_in']['user_type'] == 'dealer')
+					{
+						$records=array(
+										"user_fname" => $f_name,
+										"user_lname" => $l_name,
+										"user_email" => $email,
+										"category_want_to_sell" => $product_category_wnt_sell,
+										"user_profile_image" => $image
+									  );
+					}
+					else
+					{
+							$records=array(
+										"crew_fname" => $f_name,
+										"crew_lname" => $l_name,
+										"crew_email" => $email,
+										"crew_image" => $image
+									  );
+
+					}
+
+				
                 }else{
+					if($this->session->userdata['logged_in']['user_type'] == 'dealer')
+					{
+
 					$records=array(
-									"crew_fname" => $f_name,
-									"crew_lname" => $l_name,
-									"crew_email" => $email,
-									"crew_pass" => $password
+									"user_fname" => $f_name,
+									"user_lname" => $l_name,
+									"user_email" => $email,
+									"category_want_to_sell" => $product_category_wnt_sell
 								  );
-                }
+					}
+					else
+					{
+						$records=array(
+										"crew_fname" => $f_name,
+										"crew_lname" => $l_name,
+										"crew_email" => $email
+										
+									  );
+
+					}
+					
+                
+			}
 			}else{
-				$records=array(
+				if($this->session->userdata['logged_in']['user_type'] == 'dealer')
+					{
+						$records=array(
+								"user_fname" => $f_name,
+								"user_lname" => $l_name,
+								"user_email" => $email,
+								"category_want_to_sell" => $product_category_wnt_sell
+							  );
+					}
+				else
+					{
+					$records=array(
 								"crew_fname" => $f_name,
 								"crew_lname" => $l_name,
-								"crew_email" => $email,
-								"crew_pass" => $password
+								"crew_email" => $email
+								
 							  );
+
+					}
+			
 			}
-			$update_admin = $this->admin_setting_m->update_admin($user_id,$records);
+			if($this->session->userdata['logged_in']['user_type'] == 'dealer')
+			{
+				$update_admin = $this->admin_setting_m->update_dealer($user_id,$records);
+			}
+			else
+			{
+				$update_admin = $this->admin_setting_m->update_admin_it($user_id,$records);
+			}
+			
 			$this->session->set_flashdata("success", "Profile Updated Successfully!");
-	        redirect('profile/admin_setting');
-		}else{
-			$this->session->set_flashdata("failed", "This Email Already Exist!");
-	        redirect('profile/admin_setting');
-		}
+	        redirect('admin_setting');
+		
 	}
 
 }

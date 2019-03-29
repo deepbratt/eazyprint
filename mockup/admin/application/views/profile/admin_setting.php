@@ -75,14 +75,14 @@
 												<div class="row">
 													<div class="col-md-12" align="center">
 													<?php
-													if($admin_data->crew_image == '')
+													if($profile_image == '')
 													{
 													?>
 														<img class="brround" style="height:150px;width:150px;" src="https://placeholdit.imgix.net/~text?txtsize=33&txtcolor=ffffff&txt=Upload%20Image&bg=333333&w=150&h=150" id="blah">
 													<?php
 													}else{
 													?>
-														<img class="brround" style="height:150px;width:150px;" src="uploads/crew_images/<?php echo $admin_data->crew_image;?>" id="blah">
+														<img class="brround" style="height:150px;width:150px;" src="uploads/crew_images/<?php echo $profile_image;?>" id="blah">
 													<?php
 													}
 													?>
@@ -97,7 +97,7 @@
 													<label class="form-label">First Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" value="<?php echo $admin_data->crew_fname;?>" name="f_name" placeholder="Enter First Name">
+													<input type="text" class="form-control" value="<?php echo $f_name;?>" name="f_name" placeholder="Enter First Name">
 												  </div>
 												</div>
 											</div>
@@ -108,7 +108,7 @@
 													<label class="form-label">Last Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" value="<?php echo $admin_data->crew_lname;?>" name="l_name" placeholder="Enter last Name">
+													<input type="text" class="form-control" value="<?php echo $l_name;?>" name="l_name" placeholder="Enter last Name">
 												  </div>
 												</div>
 											</div>
@@ -119,23 +119,41 @@
 													<label class="form-label">Email</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="email" class="form-control" value="<?php echo $admin_data->crew_email;?>" name="email" placeholder="Enter Email">
+													<input type="email" class="form-control" value="<?php echo $email;?>" name="email" placeholder="Enter Email">
 												  </div>
 												</div>
 											</div>
-
+											<?php
+												if($this->session->userdata['logged_in']['user_type'] == 'dealer')
+												{
+											?>
 											<div class="form-group">
 												<div class="row">
 												  <div class="col-md-2">
-													<label class="form-label">Password</label>
+													<label class="form-label">Choose Category Want To Sell</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="password" id="password-field" class="form-control" value="<?php echo $admin_data->crew_pass;?>" name="password" placeholder="Enter Email">
-													<span toggle="#password-field" class="fe fe-eye field-icon toggle-password"></span>
+												  <?php
+														$get_cate = explode(",",$product_category);
+												  		$this->load->model('admin_setting_m');
+														$get_category = $this->admin_setting_m->get_category();
+														//print_r($get_category);
+														foreach($get_category As $key)
+														{
+
+												  ?>
+													 <label class="checkbox-inline">
+													  <input type="checkbox" value="<?php echo $key->category_name;?>" name="category[]" <?php echo (in_array($key->category_name,$get_cate)?'checked':'')?>>&nbsp;&nbsp;<span style="color:black;"><?php echo ucfirst($key->category_name);?></span>
+													</label>&nbsp;&nbsp;
+												<?php
+														}
+												?>
 												  </div>
 												</div>
-											</div>
-										
+											</div> 
+										<?php
+											}
+										?>
 									  </div>
 									  <div class="card-footer text-right">
 										<button type="submit" class="btn btn-primary">Submit
