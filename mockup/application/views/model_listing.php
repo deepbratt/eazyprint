@@ -35,20 +35,23 @@
 		}
 
 		button.accordion.active, button.accordion:hover {
-		  color: #7490BD;
+		  color: #ffffff;
+		  background-color: #f5365c !important;
 		}
-
+		
 		button.accordion:before {
 		  content: '\02795';
 		  font-size: 9px;
+		  color:#ffffff !important;
 		  float: left;
 		  margin-left: 0px;
 		  margin-right: 10px;
-		  margin-top: 7px;
+		  margin-top: 12px;
 		}
 
 		button.accordion.active:before {
 		  content: "\2796";
+		  color:#ffffff !important;
 		}
 
 		div.accordion_panel {
@@ -85,7 +88,8 @@
 
 		div.accordion_panel.show {
 		  opacity: 1;
-		  max-height: 500px;
+		  overflow:auto !important;
+		  max-height:200px !important;
 		}
 		/* ACCORDIONS ENDS*/
 		.button:focus{
@@ -141,14 +145,14 @@ $this->load->view("common/header");
 									foreach($fetch_brand_name As $each_brand){
 								?>
 								<div class="col-md-3">
-									<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;text-transform:uppercase;"><?php echo $each_brand->raw_brand;?></button>
+									<button class="accordion <?php echo (($raw_id == $each_brand->raw_id)?'active':'')?>" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#ffe4ca;text-transform:uppercase;"><?php echo $each_brand->raw_brand;?></button>
 									<div class="accordion_panel <?php echo (($raw_id == $each_brand->raw_id)?'show':'')?>" style="border:1px dotted black;margin-top:5px;">
 									  <div style="margin:15px;">
 									  	<?php
 									  		$fetch_models = $this->model_listing_m->fetch_models($each_brand->raw_brand);
 									  		foreach($fetch_models AS $each_models){
 									  	?>
-									  		<a href="javascript:void(0);" style="color:#009fdc;"><?php echo $each_models->raw_name;?></a><br>
+									  		<a href="javascript:void(0);" style="color:#009fdc;"><i class="far fa-hand-pointer"> <?php echo $each_models->raw_name;?></i></a><br>
 									  	<?php
 									  		}
 									  	?>
