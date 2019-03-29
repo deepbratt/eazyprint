@@ -286,6 +286,9 @@
 											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 												<i class="fas fa-user" style="font-size:33px;"></i>
 											</a>
+											<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
+												<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'signout')?'header_active':'');?>" href="<?php echo base_url('signout');?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+											</div>
 										</li>
 									<?php
 										}
