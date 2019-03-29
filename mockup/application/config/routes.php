@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['verify_email/(:num)/(:num)'] = "verify_email";
+$route['model_listing/(:num)'] = "model_listing";
 $route['product/(:num)'] = "product";
 $route['product/paging/(:num)'] = "product";
 $route['product_details/(:num)'] = "product_details";

@@ -181,7 +181,7 @@
 												foreach($get_mobile_casezz AS $each_mob_case){
 											?>
 												<div class="col-md-3" style="text-align:left;margin-top:5px;float:left;">
-													<span style="color:#009fdc;"> <?php echo $each_mob_case->raw_brand;?> </span>
+													<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;"> <?php echo $each_mob_case->raw_brand;?> </a>
 													<!--<ul style="padding-top:10px;">
 														<?php
 															$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
