@@ -388,7 +388,7 @@ $this->load->view("common/header");
 					                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
 					                                        <strong style="color:#ffffff;">Choose File...</strong>
 				                                      	</span>
-					                                      <input type="file" onchange="readURL(this);" name="design_image" id="pro_image" class="form-control" style="display:none;">
+					                                      <input type="file" onchange="readURL(this);" name="design_image" multiple="multiple" id="pro_image" class="form-control" style="display:none;">
 													</div>
 												</div>
 											</div>
