@@ -312,7 +312,7 @@ $this->load->view("common/header");
 													?>
 													<div class="col-auto">
 														<label class="colorinput">
-															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
+															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input" id="make_it_<?php echo $color_name[$key];?>">
 															<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
 														</label>
 													</div>
@@ -786,39 +786,27 @@ $this->load->view("common/footer");
 
 			</script>
 			<script>
-				document.getElementById('make_it_black').onclick = function(){
+				document.getElementById('make_it_Black').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/black/black_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_white').onclick = function(){
+				document.getElementById('make_it_White').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/white/white_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_army_green').onclick = function(){
+				document.getElementById('make_it_green').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/army_green/army_green_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_bold_red').onclick = function(){
+				document.getElementById('make_it_red').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/bold_red/bold_red_blank.png)';
-					 }
-				};
-
-				document.getElementById('make_it_mustard_yellow').onclick = function(){
-					 if( $(this).is(':checked') ){
-						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/mustard_yellow/mustard_yellow_blank.png)';
-					 }
-				};
-
-				document.getElementById('make_it_ocean_blue').onclick = function(){
-					 if( $(this).is(':checked') ){
-						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/ocean_blue/ocean_blue_blank.png)';
 					 }
 				};
 			</script>
