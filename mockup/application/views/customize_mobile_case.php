@@ -395,9 +395,9 @@ $this->load->view("common/header");
 													<div class="row p-2">
 														<div class="col-md-12 pull-left">
 															<label class="form-label">Upload Photo</label>
-															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-lg btn-danger file_upload_icon">
 						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-						                                        <strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+						                                        <strong style="color:#ffffff;">Choose File...</strong>
 					                                      	</span>
 						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
 						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
