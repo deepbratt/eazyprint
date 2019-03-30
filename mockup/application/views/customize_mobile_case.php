@@ -249,9 +249,9 @@ $this->load->view("common/metalinks");
 $this->load->view("common/header");
 ?>
 
-				<!--<div style="background:#f5365c;height:80px;">
-					<img src="<?php echo base_url();?>images/case-process-image.png">
-				</div>-->
+				<div style="background:#f5365c;height:80px;">
+					<!--<img src="<?php echo base_url();?>images/case-process-image.png">-->
+				</div>
 				<div class="container" style="margin-top:40px;">
 					<div class="side-app" style="">
 						<div class="col-md-12">
@@ -265,11 +265,11 @@ $this->load->view("common/header");
 										echo ucfirst($fetch_cat_name->category_name);
 									?>
 									</li>
-									<li class="breadcrumb-item" aria-current="page">
+									<!--<li class="breadcrumb-item" aria-current="page">
 									<?php
 										echo ucfirst($fetch_raw_data->raw_brand);
 									?>
-									</li>
+									</li>-->
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
 										echo ucfirst($fetch_raw_data->raw_title);
@@ -280,6 +280,9 @@ $this->load->view("common/header");
 							</div>
 						
 						<div class="row">
+							<div class="col-md-12">
+								<img src="<?php echo base_url();?>images/case-process-image.png">
+							</div>
 							<div class="col-md-7">
 								<div class="product-info carttoscroll">
 									 <div class="product-gallery" >
@@ -390,11 +393,14 @@ $this->load->view("common/header");
 										<div class="card-body" style="margin-top:-40px;">
 											<div class="form-group" style="padding-bottom:20px;">
 													<div class="row p-2">
-														<div class="col-md-3 pull-left">
-														  <label class="form-label" style="text-align:left;margin-left:-8px;">Upload Photo</label>
-														</div>
-														<div class="col-md-9 pull-right">
-															<input type="file" class="form-control" name="upload_image">
+														<div class="col-md-12 pull-left">
+															<label class="form-label">Upload Photo</label>
+															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+						                                        <strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+					                                      	</span>
+						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
+						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
 														</div>
 													</div>
 												</div>
@@ -403,7 +409,7 @@ $this->load->view("common/header");
 										<!-- CART STARTS -->
 										<div class="card-body">
 											<div class="row">
-												<div class="col-md-3">
+												<div class="col-md-3" style="margin-top:7px;">
 													<div class="quantity buttons_added">
 														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
 													</div>
@@ -810,5 +816,25 @@ $this->load->view("common/footer");
 				}
 			</script>
 		<!-- Accordions Ends -->
+		<!-- IMAGE PREVIEW STARTS-->
+			<script>
+			  function profile_imagezz(){
+			      $("input[id='pro_image']").click();
+			    }
+			  function show_image(input) {
+			    if (input.files && input.files[0]) {
+			      var reader = new FileReader();
+
+			      reader.onload = function (e) {
+			        $('#p_blah').attr('src', e.target.result);
+			      }
+
+			      reader.readAsDataURL(input.files[0]);
+			      $('#p_blah').show();
+			      $('#hide_span').hide();
+			    }
+			  }
+			</script>
+		<!-- IMAGE PREVIEW Ends-->
 	</body>
 </html>
