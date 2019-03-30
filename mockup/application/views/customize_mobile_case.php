@@ -372,7 +372,7 @@ $this->load->view("common/header");
 													<div class="selectgroup selectgroup-pills">
 														<?php
 															$explode_size = explode(',',$fetch_raw_data->raw_size);
-															foreach($explode_size AS $each_raw_size){
+															foreach($explode_size As $each_raw_size){
 														?>
 														<label class="selectgroup-item" >
 															<input type="radio" name="size" value="<?php echo $each_raw_size;?>" class="selectgroup-input">
@@ -706,18 +706,8 @@ $this->load->view("common/header");
 							}
 						?>
 						<p>&nbsp;</p>
-<<<<<<< HEAD:mockup/application/views/product_details.php.bak
-
-						<?php 
-							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 2){
-						?>
-
-						<?php
-							}
-=======
 						<?php
 							if(!empty($fetch_similar_pro_data)){
->>>>>>> aa095ad42996d3bb5f0d1a151a40b4a7b8951c33:mockup/application/views/customize_mobile_case.php
 						?>
 						<h1 class="page-title" style="color:black;text-align:left;font-size:45px;font-family:samarkan1;"> Similar Products </h1>
 						<p>&nbsp;</p>
