@@ -58,3 +58,4 @@ $route['product/(:num)'] = "product";
 $route['product/paging/(:num)'] = "product";
 $route['product_details/(:num)'] = "product_details";
 $route['checkout/(:num)'] = "checkout";
+$route['customize_mobile_case/(:num)'] = "customize_mobile_case";

@@ -104,6 +104,7 @@
 												<?php
 													$i = 1;											
 													foreach($fetch_product as $product_fetch){
+														//print_r($product_fetch);
 												?>
 												  <tr>
 												    <td><?php echo $i; ?></td>
@@ -115,7 +116,8 @@
 													<td><?php echo ucfirst($get_cat_name->category_name);?></td>
 												
 													<td>
-														<img src="<?php echo base_url('uploads/product_images/');?><?php echo $product_fetch->raw_image;?>" height="100">
+														
+														<img src="<?php echo base_url('uploads/product_images/mobile_case/');?><?php echo $product_fetch->raw_image;?>" height="100">
 													</td>
 													<td><?php echo $product_fetch->raw_name;?></td>
 													<td><?php echo $product_fetch->raw_title;?></td>
@@ -130,8 +132,8 @@
 														</label>
 													</td> -->
 													<td>
-														<a href="<?php echo base_url('edit_product/');?><?php echo $product_fetch->raw_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="<?php echo base_url('listing_product/delete_product/');?><?php echo $product_fetch->raw_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('add_order_summery/');?><?php echo $product_fetch->raw_id;?>" class="btn btn-primary"> Place Order</a>
+														
 													</td>
 												  </tr>
 												  <?php 

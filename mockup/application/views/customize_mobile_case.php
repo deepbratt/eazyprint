@@ -18,7 +18,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | <?php echo ucfirst($fetch_prod_data->product_title); ?></title>
+		<title>Eazyprint | <?php echo ucfirst($fetch_raw_data->raw_title); ?></title>
 		<style>
 			.card-body{
 				color:black !important;
@@ -250,7 +250,7 @@ $this->load->view("common/header");
 ?>
 
 				<div style="background:#f5365c;height:80px;">
-					<!--<img src="<?php echo base_url();?>images/blank_case.png">-->
+					<!--<img src="<?php echo base_url();?>images/case-process-image.png">-->
 				</div>
 				<div class="container" style="margin-top:40px;">
 					<div class="side-app" style="">
@@ -260,15 +260,19 @@ $this->load->view("common/header");
 									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
-										$this->load->model('product_details_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->product_details_m->cat_data($cat_id);
+										$cat_id = $fetch_raw_data->raw_category;
+										$fetch_cat_name = $this->customize_mobile_case_m->cat_data($cat_id);
 										echo ucfirst($fetch_cat_name->category_name);
 									?>
 									</li>
+									<!--<li class="breadcrumb-item" aria-current="page">
+									<?php
+										echo ucfirst($fetch_raw_data->raw_brand);
+									?>
+									</li>-->
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
-										echo ucfirst($fetch_prod_data->product_name);
+										echo ucfirst($fetch_raw_data->raw_title);
 									?>
 									</li>
 									<!--<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>-->
@@ -276,22 +280,20 @@ $this->load->view("common/header");
 							</div>
 						
 						<div class="row">
+							<div class="col-md-12">
+								<img src="<?php echo base_url();?>images/case-process-image.png">
+							</div>
 							<div class="col-md-7">
 								<div class="product-info carttoscroll">
 									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
-						                   <?php
-						                   		foreach($fetch_prod_image_data AS $each_pro_data_images){
-						                   ?>
-						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:96px;"></li>
-						                   <?php
-						                   		}
-						                   ?>
+						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt="" style="height:96px;"></li>
+						                  
 						                  </ol>
 						                </div>
 						                <div class="product-gallery-featured">
-						                  <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" alt=""  style="height:500px;">
+						                  <img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt=""  style="height:500px;">
 						                </div>
 						             </div>
 					            </div>
@@ -306,12 +308,12 @@ $this->load->view("common/header");
 												<div class="msg"></div>
 												<h1 style="font-size:30px;font-family:samarkan1;">
 													<?php
-														echo ucfirst($fetch_prod_data->product_title);
+														echo ucfirst($fetch_raw_data->raw_title);
 													?>
 												</h1>
 												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
 													<?php
-														echo ucfirst($fetch_prod_data->product_retail_price);
+														echo ucfirst($fetch_raw_data->raw_retail_price);
 													?> /-</h1>
 												<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
 													<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
@@ -380,30 +382,42 @@ $this->load->view("common/header");
 														<?php
 															}
 														?>
-														<!--<label class="selectgroup-item">
-															<input type="radio" name="value" value="JavaScript" class="selectgroup-input">
-															<span class="selectgroup-button" style="border:1px solid #000;color:#000;text-decoration: line-through;">XL</span>
-														</label>-->
 													</div>
 												</div>
-										</div>
-										<?php
-											}
-										?>
+											</div>
+											<?php
+												}
+											?>
 										<!-- SELECT SIZE ENDS -->
+										<!-- UPLOAD FILE STARTS -->
+										<div class="card-body" style="margin-top:-40px;">
+											<div class="form-group" style="padding-bottom:20px;">
+													<div class="row p-2">
+														<div class="col-md-12 pull-left">
+															<label class="form-label">Upload Photo</label>
+															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-lg btn-danger file_upload_icon">
+						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+						                                        <strong style="color:#ffffff;">Choose File...</strong>
+					                                      	</span>
+						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
+						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
+														</div>
+													</div>
+												</div>
+											</div>
+										<!-- UPLOAD FILE ENDS -->
 										<!-- CART STARTS -->
 										<div class="card-body">
 											<div class="row">
-												<div class="col-md-3">
-		
+												<div class="col-md-3" style="margin-top:7px;">
 													<div class="quantity buttons_added">
 														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
 													</div>
 												</div>
 
-												<input type="hidden" name="p_id" value="<?php echo $fetch_prod_data->product_id;?>">
-												<input type="hidden" name="price" value="<?php echo $fetch_prod_data->product_retail_price;?>">
-												<input type="hidden" name="design_image" value="<?php echo $fetch_prod_data->product_design_id;?>">
+												<input type="hidden" name="p_id" value="<?php echo $fetch_raw_data->raw_id;?>">
+												<input type="hidden" name="price" value="<?php echo $fetch_raw_data->raw_retail_price;?>">
+												<!--<input type="hidden" name="design_image" value="<?php echo $fetch_raw_data->raw_design_id;?>">-->
 												<input type="hidden" name="product_type" value="readymade">
 												<div class="col-md-9">
 													<button type="button" class="btn btn-info btn-block" style="font-size:20px;" onclick="add_to_cart()">Add To Bag</button>
@@ -433,25 +447,23 @@ $this->load->view("common/header");
 									</div>
 								</div>
 
-
 								<!--ENDS-->
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
 						<div class="row cartstop" style="color:black;">
-							
 							<div class="col-md-12" style="margin:0px;padding:0px;">
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
 								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
 								  <div style="padding:15px;" >
 								  	<h5>
 								  		<?php
-											echo ucfirst($fetch_prod_data->product_title);
+											echo ucfirst($fetch_raw_data->raw_title);
 										?>
 								  	</h5>
 								  	<p>
 								  		<?php
-											echo ucfirst($fetch_prod_data->product_desc);
+											echo ucfirst($fetch_raw_data->raw_desc);
 										?>
 								  	</p>
 								  </div>
@@ -554,16 +566,6 @@ $this->load->view("common/header");
 												<table class="table card-table table-vcenter text-nowrap">
 													<tbody>
 														<tr>
-															<td><strong>EZIN</strong></td>
-															<td><?php 
-																if($fetch_prod_data->product_sku != ''){
-																	echo $fetch_prod_data->product_sku;
-																}else{
-																	echo "N/A";
-																}
-															?></td>
-														</tr>
-														<tr>
 															<td><strong>Customer Reviews</strong></td>
 															<td>5.0</td>
 														</tr>
@@ -574,8 +576,8 @@ $this->load->view("common/header");
 													<tr>
 														<td><strong>Date First Available</strong></td>
 														<td><?php 
-															if($fetch_prod_data->product_added_date != ''){
-																echo date('d F Y',$fetch_prod_data->product_added_date);
+															if($fetch_raw_data->raw_added_date != ''){
+																echo date('d F Y',$fetch_raw_data->raw_added_date);
 															}else{
 																echo "N/A";
 															}
@@ -704,6 +706,7 @@ $this->load->view("common/header");
 							}
 						?>
 						<p>&nbsp;</p>
+<<<<<<< HEAD:mockup/application/views/product_details.php.bak
 
 						<?php 
 							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 2){
@@ -711,11 +714,13 @@ $this->load->view("common/header");
 
 						<?php
 							}
+=======
+						<?php
+							if(!empty($fetch_similar_pro_data)){
+>>>>>>> aa095ad42996d3bb5f0d1a151a40b4a7b8951c33:mockup/application/views/customize_mobile_case.php
 						?>
 						<h1 class="page-title" style="color:black;text-align:left;font-size:45px;font-family:samarkan1;"> Similar Products </h1>
 						<p>&nbsp;</p>
-
-
 						<!-- MORE PRODUCT SLIDER STARTS-->
 						<div class="row" style="margin-bottom:50px;">
 						  <div class="col-md-12">
@@ -776,9 +781,11 @@ $this->load->view("common/header");
 						        </a>
 						    </div>
 						   </div>
-						    
 						</div>
 						<!-- MORE PRODUCT SLIDER ENDS-->
+						<?php
+							}
+						?>
 					</div>
 				</div>
 			</div>
@@ -919,5 +926,25 @@ $this->load->view("common/footer");
 				}
 			</script>
 		<!-- Accordions Ends -->
+		<!-- IMAGE PREVIEW STARTS-->
+			<script>
+			  function profile_imagezz(){
+			      $("input[id='pro_image']").click();
+			    }
+			  function show_image(input) {
+			    if (input.files && input.files[0]) {
+			      var reader = new FileReader();
+
+			      reader.onload = function (e) {
+			        $('#p_blah').attr('src', e.target.result);
+			      }
+
+			      reader.readAsDataURL(input.files[0]);
+			      $('#p_blah').show();
+			      $('#hide_span').hide();
+			    }
+			  }
+			</script>
+		<!-- IMAGE PREVIEW Ends-->
 	</body>
 </html>
