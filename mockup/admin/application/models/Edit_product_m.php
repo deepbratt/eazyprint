@@ -30,13 +30,13 @@ class Edit_product_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_raw($raw_id)
+	public function fetch_raw($raw_brand)
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
-		$this->db->where('raw_id',$raw_id);
+		$this->db->where('raw_brand',$raw_brand);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	public function update_product($product_id,$records)
@@ -52,10 +52,11 @@ class Edit_product_m extends CI_Model {
 		return $record;
 	}
 
-	public function delete_image($product_image_id,$fetch_product_name){
+	public function delete_image($image_id,$image_name){
 
-		unlink("uploads/product_images/".$fetch_product_name);
-		$query = $this->db->query("delete from product_image where product_image_id='".$product_image_id."'");
+		unlink("uploads/product_images/".$image_name);
+		$this->db->where('product_image_id', $image_id);
+		$this->db->delete('product_image');
 		return true;
 	}
 
@@ -65,7 +66,7 @@ class Edit_product_m extends CI_Model {
 		$this->db->from('product_image');
 		$this->db->where('product_image_id',$product_id);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 }
 

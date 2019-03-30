@@ -19,9 +19,17 @@ class Edit_product extends CI_Controller {
 		$data['get_all_category'] = $this->add_product_m->get_category();
 		$data['get_all_brand'] = $this->edit_product_m->get_brand();
 		$raw_id = $data['fetch_product']->raw_id;
-		$data['fetch_raw'] = $this->edit_product_m->fetch_raw($raw_id);
+		$raw_brand = $data['fetch_product']->raw_brand;
+		$data['fetch_raw'] = $this->edit_product_m->fetch_raw($raw_brand);
 		$data['fetch_image'] = $this->edit_product_m->fetch_pro_img($product_id);
 		$this->load->view('products/edit_product',$data);
+	}
+
+	public function ajax_del_p_img(){
+		$this->load->model('edit_product_m');
+		$image_id = $this->input->post('img_id');
+		$image_name = $this->input->post('img_name');
+		$delete_image = $this->edit_product_m->delete_image($image_id,$image_name);
 	}
 
 	public function update_product()
