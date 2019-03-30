@@ -172,8 +172,12 @@
 											<span class="text-dark"> MOBILE BACKCOVER </span>
 										</span>
 									  </a>
-									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
-										
+									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;">
+											<div class="col-md-12" style="text-align:left;margin-top:5px;float:left;">
+												<h4 style="text-align:left;color:#000 !important;"> &nbsp;&nbsp; Create your own mobile case Starting @ 199/- </h4>
+												<p style="text-align:left;color:#000 !important;"> &nbsp;&nbsp; Select your phone brand </p> 
+
+											</div>
 											<?php
 												$ci =&get_instance();
 												$ci->load->model('home_m');
