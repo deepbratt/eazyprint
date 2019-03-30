@@ -284,7 +284,7 @@ $this->load->view("common/header");
 						                   <?php
 						                   		foreach($fetch_prod_image_data AS $each_pro_data_images){
 						                   ?>
-						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:96px;"></li>
+						                    <li style="padding:2px;margin:5px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt=""></li>
 						                   <?php
 						                   		}
 						                   ?>
