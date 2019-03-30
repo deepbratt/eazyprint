@@ -195,7 +195,7 @@
 															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
 														</div>
 													</td>
-													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class=" pro_price_1">0</span>x<span class="quantzz_1">1</span></td>
+													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_1">0</span>x<span class="quantzz_1">1</span></td>
 													<td class="text-center state_same gst_rate_1" id="cgst_rate">0%</td>
 													<td class="text-center state_same gst_rate_1" id="sgst_rate">0%</td>
 													<td class="text-center state_not_same gst_rate_1" id="igst_rate">0%</td>
@@ -372,11 +372,12 @@
 				if(quantity != ''){
 					var quant = quantity;
 					$('.quantzz_'+idzz+'').html(quant);
-					var amount = $('.pro_price_'+idzz+' span').val();
-					var gst_rate = $('.gst_rate_'+idzz+'').val();
+					var amount = $('.pro_price_'+idzz+'').html();
+					var gst_rate = $('.gst_rate_'+idzz+'').html();
 					var tax_amount = parseFloat(amount*(gst_rate/100));
-					
-					var Total = parseFloat(quant*tax_amount);
+					var Total = parseFloat(quant*(amount+tax_amount));
+					alert(Total);
+					exit;
 					$('#total_amount_'+idzz+' span').html(Total);
 					
 					/*var sum = 0;
