@@ -650,7 +650,7 @@ $this->load->view("common/header");
 											</tr>
 									</tbody>
 								</table>
-								<p>get </p>
+								<p style="text-align:center;color:#000;">Contact us for bulk orders <a href="<?php echo base_url();?>">Click here</a></p>
 							</div>
 							<div class="col-md-6" style="float:left;margin:0px;padding:0px;text-align:center;">
 								<h3 style="text-align:center;margin-bottom:10px;color:#000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUGS SPECIFICATION</h3>
@@ -704,6 +704,14 @@ $this->load->view("common/header");
 							}
 						?>
 						<p>&nbsp;</p>
+
+						<?php 
+							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 3){
+						?>
+
+						<?php
+							}
+						?>
 						<h1 class="page-title" style="color:black;text-align:left;font-size:45px;font-family:samarkan1;"> Similar Products </h1>
 						<p>&nbsp;</p>
 
