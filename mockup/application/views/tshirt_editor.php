@@ -218,6 +218,15 @@
 		.loader{
 			display:none;
 		}
+		.colorinput input[type=radio]:checked + span {
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			border: 1px solid #000;
+		}
+		.colorinput-color:before{
+			background:none !important;
+		}
 		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE ENDS */
 		</style>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
@@ -264,7 +273,7 @@ $this->load->view("common/header");
 						<div class="row">
 							<div class="col-md-7">
 								<div class="row">
-									<div class="col-md-12" style="height:800px;margin-top:100px;">
+									<div class="col-md-12" style="height:700px;margin-top:100px;overflow:hidden;">
 										<div style="background-image: url(<?php echo base_url('admin/uploads/product_images/t_shirt/');?><?php echo $fetch_raw_data->raw_image;?>); height:650px;background-size: cover;background-repeat: no-repeat;" id="background_image">
 											<div id="draggable_image" style="display:inline-block;">
 												<img src="<?php echo base_url();?>images/no-image.png" id="image_resize">
@@ -806,7 +815,7 @@ $this->load->view("common/footer");
 
 				document.getElementById('make_it_red').onclick = function(){
 					 if( $(this).is(':checked') ){
-						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/bold_red/bold_red_blank.png)';
+						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/bold_red/bold_red_blank1.png)';
 					 }
 				};
 			</script>

@@ -221,6 +221,15 @@
 		.loader{
 			display:none;
 		}
+		.colorinput input[type=radio]:checked + span {
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			border: 1px solid #000;
+		}
+		.colorinput-color:before{
+			background:none !important;
+		}
 		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE ENDS */
 		</style>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
