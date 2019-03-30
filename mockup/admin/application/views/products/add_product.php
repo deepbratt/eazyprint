@@ -221,13 +221,11 @@
 										<label class="form-label">Upload Design Image<br><span style="font-size:12px;"></span></label>
 									</div>
 									<div class="col-md-6">
-										<!-- <span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="design_image" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)"  /> -->
 										<span onclick="designed_image()" id="hide_span_3" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
 											<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
 											<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
 										</span>
-										<input type="file" name="designed" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
+										<input type="file" name="design_image" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
 										<img src="" onclick="designed_image()" style="height:150px;display:none;" id="designed_blah">
 									</div>
 								</div>
@@ -258,7 +256,7 @@
 								<div class="form-group">
 									<label class="form-label">Product Designed By</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_7" style="float:left;margin-top:11px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-									<input type="text" name="designed_by" id="product_designed" class="form-control" placeholder="Designed By" readonly>
+									<input type="text" name="designed_by" id="product_designed" class="form-control" placeholder="Designed By" value="<?php echo $this->session->userdata['logged_in']['name'];?>">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -406,23 +404,6 @@
 			$("input[name=meta_tags]").tagsinput('add', response.raw_tags);
 			$("input[name=meta_keyword]").tagsinput('add', response.raw_meta_keywords);
 			$('#product_meta_description').val(response.raw_meta_desc);
-
-			var designed_by = response.raw_added_by;
-			 $.ajax({
-			  url: '<?php echo base_url();?>add_product/ajax_fetch_designed_id',
-			  data: {'design_id': designed_by},
-			  type: "post",
-			  beforeSend: function(){ 
-			  $('#AjaxLoader_7').show();
-			  },
-			  complete: function(){
-			  	$('#AjaxLoader_7').hide();
-			  },
-			  success: function(response){
-				$('#product_designed').val(response);
-				//alert(response);
-			  }
-			  }); 
 		  	}
 		  }); 
 		}

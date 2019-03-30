@@ -129,7 +129,7 @@
 										<?php
 											foreach($get_all_brand As $all_brand){
 										?>
-											<option value="<?php echo $all_brand->raw_brand;?>" <?php echo(($fetch_product->raw_id == $all_brand->raw_id)?'selected':'');?>><?php echo ucfirst($all_brand->raw_brand);?></option>
+											<option value="<?php echo $all_brand->raw_brand;?>" <?php echo(($fetch_product->raw_brand == $all_brand->raw_brand)?'selected':'');?>><?php echo ucfirst($all_brand->raw_brand);?></option>
 										<?php 
 											}
 										?>
@@ -154,7 +154,13 @@
 									<label class="form-label">Choose Raw Metarial</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_5" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 									<select class="form-control raw_data_info" name="raw_name" onchange="fetch_raw_mat_data(this.value);">
-										<option vlaue="" selected disabled>Raw Material</option>
+										<?php
+											foreach($fetch_raw As $all_raw){
+										?>
+											<option value="<?php echo $all_raw->raw_name;?>" <?php echo(($fetch_product->raw_id == $all_raw->raw_id)?'selected':'');?>><?php echo ucfirst($all_raw->raw_name);?></option>
+										<?php 
+											}
+										?>
 									</select>
 								</div>
 							</div>
@@ -176,19 +182,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Name</label>
-									<input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name" >
+									<input type="text" class="form-control" id="product_name" name="product_name" value="<?php echo $fetch_product->product_name;?>" placeholder="Product Name" >
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Title</label>
-									<input type="text" class="form-control" id="product_title" name="product_title" placeholder="Product Title" >
+									<input type="text" class="form-control" id="product_title" name="product_title" value="<?php echo $fetch_product->product_title;?>" placeholder="Product Title" >
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Product Desc</label>
-									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" ></textarea>
+									<textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Description" ><?php echo $fetch_product->product_desc;?></textarea>
 								</div>
 							</div>
 						</div>
@@ -211,7 +217,20 @@
 									  </div>
 
 								</div>
-								<div class="row" id="vpb-display-preview"></div>
+								<div class="row" id="vpb-display-preview">
+								<?php
+								foreach($fetch_image as $get_image){
+								?>
+								<span class="pip frm_<?php echo $get_image->product_image_id;?>">
+									<img class="imageThumb" height="100" width="100" src="<?php echo base_url('uploads/product_images/');?><?php echo $get_image->product_image_path;?>" >
+									<br/>
+									<span class="remove" onclick="remove_p_img(<?php echo $get_image->product_image_id;?>);">Remove</span>
+								</span>
+								<input id="img_<?php echo $get_image->product_image_id;?>" type="hidden" value="<?php echo $get_image->product_image_path;?>">
+								<?php
+								}
+								?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -338,8 +357,23 @@
     </a>
 	</body>
 	<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
+	<!-- delete product image starts -->
+	<script>
+	  function remove_p_img(img)
+	  {
+		  var image_name = $('#img_'+img+'').val();
+		  $.ajax({
+		  url: '<?php echo base_url();?>edit_product/ajax_del_p_img',
+		  data: {'img_id': img,'img_name': image_name},
+		  type: "post",
+		  success: function(response){
+			$('.frm_'+img+'').remove();
+		  }
+		  });
+	  }
+  </script>
+	<!-- delete product image ends -->
     <script type="text/javascript">
-		
 	/* FETCH CATEGORY DATA STARTS */
 		function fetch_cat_id(e){
 		  $.ajax({
@@ -580,5 +614,7 @@
 	  }
 	});
   </script>
+
+  
 		
 </html>
