@@ -850,7 +850,7 @@ $this->load->view("common/header");
 							<div class="col-md-4" style="float:left;padding:0px;">
 								<h4 style="text-align:center;color:#000;"> Benefits You Get </h4>
 								<div class="md-tshirts-block-content ps-border-v2" style="border:1px solid #000;padding:20px;">
-								  <ul class="md-tshirts-upload" style="list-style:circle;margin-left:20px;margin-top:122px;margin-bottom:100px;">
+								  <ul class="md-tshirts-upload" style="list-style:circle;margin-left:20px;margin-top:125px;margin-bottom:100px;">
 									<li style="color:#000;">Customization Feature to All T-shirts</li>
 									<li style="color:#000;">Color Fastness Guaranteed</li>
 									<li style="color:#000;">Compacted Pre-shrunk</li>
