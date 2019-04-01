@@ -60,7 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">View Product &nbsp;&nbsp; <a href="<?php echo base_url("add_product");?>" class="btn btn-primary">Add New</a></h4>
+							<h4 class="page-title">View Product &nbsp;&nbsp; 
+							
+							<a href="<?php echo base_url("add_product");?>" class="btn btn-primary">Add New</a>
+							</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Listing Product</li>

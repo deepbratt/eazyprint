@@ -97,7 +97,7 @@
 			<?php
 				}
 			?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_product/add_pro');?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_product/update_product/');?><?php echo $this->uri->segment(2);?>">
               <div class="row">
                 <div class="col-lg-12">
 
@@ -125,7 +125,7 @@
 								<div class="form-group">
 									<label class="form-label">Choose Brand</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-									<select class="form-control brandz_name" name="raw_name" onchange="fetch_brand_data(this.value);">
+									<select class="form-control brandz_name" name="raw_brand" onchange="fetch_brand_data(this.value);">
 										<?php
 											foreach($get_all_brand As $all_brand){
 										?>
@@ -157,7 +157,7 @@
 										<?php
 											foreach($fetch_raw As $all_raw){
 										?>
-											<option value="<?php echo $all_raw->raw_name;?>" <?php echo(($fetch_product->raw_id == $all_raw->raw_id)?'selected':'');?>><?php echo ucfirst($all_raw->raw_name);?></option>
+											<option value="<?php echo $all_raw->raw_id;?>" <?php echo(($fetch_product->raw_id == $all_raw->raw_id)?'selected':'');?>><?php echo ucfirst($all_raw->raw_name);?></option>
 										<?php 
 											}
 										?>
@@ -245,13 +245,9 @@
 										<label class="form-label">Upload Design Image<br><span style="font-size:12px;"></span></label>
 									</div>
 									<div class="col-md-6">
-										<!-- <span onclick="design_image();" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
-										<input type="file" style="display:none;" name="design_image" id="vpb-data-file-design" onchange="vpb_design_image_preview(this)"  /> -->
-										<span onclick="designed_image()" id="hide_span_3" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
-											<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-											<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-										</span>
-										<input type="file" name="designed" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
+										<img src="<?php echo base_url('uploads/design_images/');?><?php echo $get_design->designed_image;?>" onclick="designed_image()" style="height:150px;" id="designed_blah">
+
+										<input type="file" name="design_image" id="designed_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);" multiple>
 										<img src="" onclick="designed_image()" style="height:150px;display:none;" id="designed_blah">
 									</div>
 								</div>
@@ -269,20 +265,20 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Wholesale Price(in INR)</label>
-									<input type="number" name="wholesale_price" id="product_wholesale" class="form-control" placeholder="Add Wholesale Price">
+									<input type="number" name="wholesale_price" id="product_wholesale" class="form-control" value="<?php echo $fetch_product->product_wholesale_price;?>" placeholder="Add Wholesale Price">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Retail Price(in INR)</label>
-									<input type="number" name="retail_price" id="product_retail" class="form-control" placeholder="Add Retail Price">
+									<input type="number" name="retail_price" id="product_retail" class="form-control" value="<?php echo $fetch_product->product_retail_price;?>" placeholder="Add Retail Price">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Designed By</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_7" style="float:left;margin-top:11px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-									<input type="text" name="designed_by" id="product_designed" class="form-control" placeholder="Designed By" readonly>
+									<input type="text" name="designed_by" id="product_designed" class="form-control" value="<?php echo $fetch_product->product_designed_by;?>" placeholder="Designed By">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -305,7 +301,7 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-							<span onclick="m_image()" id="hide_span_m" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+							<img src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_product->product_meta_image;?>" onclick="m_image()" style="height:150px;" id="m_blah">
 							<input type="file" name="meta_image" id="m_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL_m(this);">
 						   <img src="" onclick="m_image()" style="height:150px;display:none;" id="m_blah">
 						  </div>
@@ -314,19 +310,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Tags</label>
-									<input type="text" name="meta_tags" data-role="tagsinput" class="form-control " placeholder="Add Tags">
+									<input type="text" name="meta_tags" data-role="tagsinput" class="form-control " value="<?php echo $fetch_product->product_meta_tags;?>" placeholder="Add Tags">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Meta Keywords</label>
-									<input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
+									<input type="text" name="meta_keyword" data-role="tagsinput" class="form-control" value="<?php echo $fetch_product->product_meta_keyword;?>" placeholder="Add Meta Keywords">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Meta Description</label>
-									<textarea class="form-control" name="meta_desc" id="product_meta_description" placeholder="Enter Meta Description"></textarea>
+									<textarea class="form-control" name="meta_desc" id="product_meta_description" placeholder="Enter Meta Description"><?php echo $fetch_product->product_meta_desc;?></textarea>
 								</div>
 							</div>
 						</div>

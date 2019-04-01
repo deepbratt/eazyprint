@@ -39,8 +39,11 @@ class Edit_product_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function update_product($product_id,$records)
+	public function update_product($product_id,$records,$remove_meta)
 	{
+		if($remove_meta != ''){
+			unlink("uploads/meta_images/".$remove_meta);
+		}
 		$this->db->where('product_id', $product_id);
 		$this->db->update('products', $records);
 		return $product_id;
@@ -67,6 +70,24 @@ class Edit_product_m extends CI_Model {
 		$this->db->where('product_image_id',$product_id);
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	public function get_design($design_id)
+	{
+		$this->db->select('*');
+		$this->db->from('designs');
+		$this->db->where('design_id',$design_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function update_design($design_id,$design_array,$remove_design){
+		if($remove_design != ''){
+			unlink("uploads/design_images/".$remove_design);
+		}
+		$this->db->where('design_id', $design_id);
+		$this->db->update('designs', $design_array);
+		return true;
 	}
 }
 

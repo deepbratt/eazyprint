@@ -14,12 +14,13 @@ class Add_order_summery extends CI_Controller {
 
 	public function index()
 	{
-		//$this->load->model('order_summery_m');
-		//$data['fetch_product'] = $this->order_summery_m->fetch_pro();
-		//print_r($data['fetch_product']);
+		$this->load->model('add_order_summery_m');
+		$raw_id = $this->uri->segment(2);
+		$data['fetch_order_product'] = $this->add_order_summery_m->fetch_pro($raw_id);
+		//print_r($data['fetch_order_product']);
 		//exit;
 		//$this->load->view('products/order_summery',$data);
-		$this->load->view('orders/add_order_summery');
+		$this->load->view('orders/add_order_summery',$data);
 	}
 
 	public function delete_product()

@@ -41,8 +41,9 @@ class Add_product extends CI_Controller {
 	/* All RAW MATERIALS FETCH STARTS*/
 		public function ajax_fetch_raw_data(){
 			$this->load->model('add_product_m');
+			$category_id = $this->input->post('category_id');
 			$brand_name = $this->input->post('brand_id');
-			$fetch_raw_data = $this->add_product_m->get_raw_options($brand_name);
+			$fetch_raw_data = $this->add_product_m->get_raw_options($brand_name,$category_id);
 			?>
 				<option value="" selected disabled>Raw Material</option>
 			<?php
@@ -80,9 +81,6 @@ class Add_product extends CI_Controller {
 
 		$this->load->model('add_product_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		/*$p_image = count($_FILES['p_image']['name']);
-		print_r($p_image);
-		exit;*/
 		$category = $this->input->post('category');
 		$raw_brand = $this->input->post('raw_brand');
 		$raw_name = $this->input->post('raw_name');
@@ -117,9 +115,9 @@ class Add_product extends CI_Controller {
 				$uploadData = $this->upload->data();
 				$meta_image = $uploadData['file_name'];
 				
-			}else{
-				$meta_image = "";
 			}
+		}else{
+			$meta_image = "";
 		}
 
 		if(!empty($_FILES['design_image']['name'])){
@@ -135,9 +133,9 @@ class Add_product extends CI_Controller {
 				$uploadData = $this->upload->data();
 				$design_image = $uploadData['file_name'];
 				
-			}else{
-				$design_image = "";
 			}
+		}else{
+			$design_image = "";
 		}
 
 		$design_array = array(

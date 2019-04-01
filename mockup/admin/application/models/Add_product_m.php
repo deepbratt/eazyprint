@@ -21,11 +21,12 @@ class Add_product_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function get_raw_options($brand_name)
+	public function get_raw_options($brand_name,$category_id)
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
 		$this->db->where('raw_brand',$brand_name);
+		$this->db->where('raw_category',$category_id);
 		$query = $this->db->get();
 		return $query->result();
 	}
