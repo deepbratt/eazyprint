@@ -24,7 +24,29 @@ class Listing_product extends CI_Controller {
 	{
 		$product_id = $this->uri->segment(3);
 		$this->load->model('listing_product_m');
-		$delete_product = $this->listing_product_m->delete_pro($product_id);
+
+		//product image starts
+		$get_product_images = $this->listing_product_m->get_images($product_id);
+		$product_image_array = array();
+		foreach($get_product_images as $p_image){
+			$product_image_array[] = $p_image->product_image_path;
+		}
+		//product image ends
+
+		/*design image starts
+		$get_design_id = $this->listing_product_m->get_design_id($product_id);
+		$design_id = $get_design_id->product_design_id;
+		$get_design_image = $this->listing_product_m->get_design_image($design_id);
+		$design_image = $get_design_image->designed_image;
+		design image ends*/
+
+		//meta image starts
+		$get_design_id = $this->listing_product_m->get_design_id($product_id);
+		$meta_image = $get_design_id->product_meta_image;
+		  
+		//meta image ends
+		
+		$delete_product = $this->listing_product_m->delete_pro($product_id,$product_image_array,$meta_image);
 		if($delete_product){
 			$this->session->set_flashdata("success", "Success , Your have successfully deleted this Product!");
 			redirect('listing_product');

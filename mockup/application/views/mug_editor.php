@@ -184,6 +184,9 @@
 		.button:focus{
 			outline:0px !important;
 		}
+		.cartstop{
+			clear: both;
+		}
 	/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE STARTS */
 		#draggable_image{
 		    margin: 0px;
@@ -193,10 +196,10 @@
 			height: 30%;
 			width: 30%
 		}
-		.ui-wrapper{
+		/*.ui-wrapper{
 			top:250px !important;
-			left:236px !important;
-		}
+			left:148px !important;
+		}*/
 		.bg-black{
 			background-color: #000000;
 		}
@@ -253,7 +256,7 @@ $this->load->view("common/header");
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
 										$cat_id = $fetch_raw_data->raw_category;
-										$fetch_cat_name = $this->tshirt_editor_m->cat_data($cat_id);
+										$fetch_cat_name = $this->mug_editor_m->cat_data($cat_id);
 										echo ucfirst($fetch_cat_name->category_name);
 									?>
 									</li>
@@ -272,13 +275,16 @@ $this->load->view("common/header");
 							
 						<div class="row">
 							<div class="col-md-7">
-								<div class="row">
-									<div class="col-md-12" style="height:700px;margin-top:100px;overflow:hidden;">
-										<div style="background-image: url(<?php echo base_url('admin/uploads/product_images/t_shirt/');?><?php echo $fetch_raw_data->raw_image;?>); height:650px;background-size: cover;background-repeat: no-repeat;" id="background_image">
+								<div class="row carttoscroll">
+									<div class="col-md-12" style="margin-top:100px; overflow:hidden;padding: 0px;margin: 0px;">
+										<div id="background_image" style="height:350px;background-color:#f5f5f5;border:1px solid red; overflow:hidden;">
 											<div id="draggable_image" style="display:inline-block;">
 												<img src="<?php echo base_url();?>images/no-image.png" id="image_resize">
 		                                    </div>
 										</div>
+									</div>
+									<div class="col-md-12 text-center">
+										<img src="<?php echo base_url('images/');?>mugposition.jpg" style="height:178px;">
 									</div>
 								</div>
 							</div>
@@ -321,7 +327,7 @@ $this->load->view("common/header");
 													?>
 													<div class="col-auto">
 														<label class="colorinput">
-															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input" id="make_it_<?php echo $color_name[$key];?>">
+															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
 															<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
 														</label>
 													</div>
@@ -375,18 +381,18 @@ $this->load->view("common/header");
 										<!-- UPLOAD PHOTO STARTS -->
 										<div class="card-body" style="margin-top:-40px;">
 											<div class="form-group" style="padding-bottom:20px;">
-													<div class="row p-2">
-														<div class="col-md-12 pull-left">
-															<label class="form-label">Upload Photo</label>
-															<span onclick="profile_imagezz()" class="btn btn-lg btn-danger file_upload_icon">
-						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-						                                        <strong style="color:#ffffff;">Choose File...</strong>
-					                                      	</span>
-						                                      <input type="file" onchange="readURL(this);" name="design_image" id="pro_image" class="form-control" style="display:none;">
-														</div>
+												<div class="row p-2">
+													<div class="col-md-12 pull-left">
+														<label class="form-label">Upload Photo</label>
+														<span onclick="profile_imagezz()" class="btn btn-lg btn-danger file_upload_icon">
+					                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
+					                                        <strong style="color:#ffffff;">Choose File...</strong>
+				                                      	</span>
+					                                      <input type="file" onchange="readURL(this);" name="design_image" multiple="multiple" id="pro_image" class="form-control" style="display:none;">
 													</div>
 												</div>
 											</div>
+										</div>
 										<!-- UPLOAD PHOTO ENDS -->
 										<!-- CART STARTS -->
 										<div class="card-body">
@@ -744,6 +750,22 @@ $this->load->view("common/footer");
 			        $(".modal-profile").modal({show:true});
 			    });
 
+			    $(window).scroll(function () { 
+				 if($(window).scrollTop() > 670) {
+					$('.carttoscroll').css('position','fixed');
+					$('.carttoscroll').css('top','48px'); 
+					$('.carttoscroll').css('width','50%'); 
+				 }
+
+				 else if ($(window).scrollTop() <= 600) {
+					$('.carttoscroll').css('position','');
+					$('.carttoscroll').css('top','');
+					$('.carttoscroll').css('width','100%'); 
+				 }  
+					if ($('.carttoscroll').offset().top + $(".carttoscroll").height() > $(".cartstop").offset().top) {
+						$('.carttoscroll').css('top',-($(".carttoscroll").offset().top + $(".carttoscroll").height() - $(".cartstop").offset().top));
+					}
+				});
 			  });
 		</script>
 		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->
@@ -795,27 +817,39 @@ $this->load->view("common/footer");
 
 			</script>
 			<script>
-				document.getElementById('make_it_Black').onclick = function(){
+				document.getElementById('make_it_black').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/black/black_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_White').onclick = function(){
+				document.getElementById('make_it_white').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/white/white_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_green').onclick = function(){
+				document.getElementById('make_it_army_green').onclick = function(){
 					 if( $(this).is(':checked') ){
 						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/army_green/army_green_blank.png)';
 					 }
 				};
 
-				document.getElementById('make_it_red').onclick = function(){
+				document.getElementById('make_it_bold_red').onclick = function(){
 					 if( $(this).is(':checked') ){
-						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/bold_red/bold_red_blank1.png)';
+						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/bold_red/bold_red_blank.png)';
+					 }
+				};
+
+				document.getElementById('make_it_mustard_yellow').onclick = function(){
+					 if( $(this).is(':checked') ){
+						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/mustard_yellow/mustard_yellow_blank.png)';
+					 }
+				};
+
+				document.getElementById('make_it_ocean_blue').onclick = function(){
+					 if( $(this).is(':checked') ){
+						 document.getElementById('background_image').style.backgroundImage = 'url(http://localhost/pbeazyprint/mockup/images/editor/t-shirt/ocean_blue/ocean_blue_blank.png)';
 					 }
 				};
 			</script>

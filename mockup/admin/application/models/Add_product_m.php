@@ -60,6 +60,12 @@ class Add_product_m extends CI_Model {
 		return $record;
 	}
 
+	public function insert_design($design_array)
+	{
+		$this->db->insert('designs',$design_array);
+		return $this->db->insert_id();
+	}
+
 	public function get_raw_data($raw_id)
 	{
 		$this->db->select('*');

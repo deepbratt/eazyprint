@@ -6,7 +6,7 @@ class Add_product extends CI_Controller {
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('login');
+            redirect('admin_login');
         }else{
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 		}
@@ -80,9 +80,6 @@ class Add_product extends CI_Controller {
 
 		$this->load->model('add_product_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		/*$p_image = count($_FILES['p_image']['name']);
-		print_r($p_image);
-		exit;*/
 		$category = $this->input->post('category');
 		$raw_brand = $this->input->post('raw_brand');
 		$raw_name = $this->input->post('raw_name');
@@ -101,37 +98,7 @@ class Add_product extends CI_Controller {
 		$ad_date = time();
 		$product_status = '1';
 
-		if(!empty($_FILES['design_image']['name'])){
-
-			$this->load->library('upload');
-			$image = array();
-			$filesCount = count($_FILES['design_image']['name']);
-
-			for($i = 1; $i < $filesCount; $i++){
-				$_FILES['userFile']['name'] = $_FILES['design_image']['name'][$i];
-				$_FILES['userFile']['type'] = $_FILES['design_image']['type'][$i];
-				$_FILES['userFile']['tmp_name'] = $_FILES['design_image']['tmp_name'][$i];
-				$_FILES['userFile']['error'] = $_FILES['design_image']['error'][$i];
-				$_FILES['userFile']['size'] = $_FILES['design_image']['size'][$i];
-
-				$config['upload_path'] = 'uploads/design_images/';
-				$config['allowed_types'] = 'jpg|jpeg|png|gif';
-				$config['file_name'] = rand(999,99999).$_FILES['design_image']['name'][$i];
-				
-				$this->load->library('upload',$config);
-				$this->upload->initialize($config);
-				
-				if($this->upload->do_upload('userFile')){
-					$fileData = $this->upload->data();
-					$design_imagezz[$i]['file_name'] = $fileData['file_name'];
-					$design_imagezz[$i]['created'] = date("Y-m-d H:i:s");
-					$design_imagezz[$i]['modified'] = date("Y-m-d H:i:s");
-				}
-				//echo $design_imagezz[$i]['file_name'];
-				//echo ",";
-				//echo "<br>";
-			}
-		}
+		
 		
 
 		if(!empty($_FILES['meta_image']['name'])){
@@ -147,12 +114,58 @@ class Add_product extends CI_Controller {
 				$uploadData = $this->upload->data();
 				$meta_image = $uploadData['file_name'];
 				
-			}else{
-				$meta_image = "";
 			}
+		}else{
+			$meta_image = "";
 		}
 
-		$records = array('product_meta_image'=>$meta_image,'raw_id'=>$raw_name,'raw_brand'=>$raw_brand,'user_id'=>$user_id,'product_category_id'=>$category,'product_name'=>$product_name,'product_title'=>$product_title,'product_desc'=>$product_desc,'product_designed_by'=>$designed_by,'	product_wholesale_price'=>$wholesale_price,'product_retail_price'=>$retail_price,'product_sku'=>$p_sku,'product_meta_tags'=>$meta_tags,'product_meta_keyword'=>$meta_keyword,'product_meta_desc'=>$meta_desc,'product_added_date'=>$ad_date,'product_status'=>$product_status);
+		if(!empty($_FILES['design_image']['name'])){
+			$this->load->library('upload');
+			$config['upload_path'] = 'uploads/design_images/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['file_name'] = rand(999,99999).$_FILES['design_image']['name'];
+			
+			$this->load->library('upload',$config);
+			$this->upload->initialize($config);
+			
+			if($this->upload->do_upload('design_image')){
+				$uploadData = $this->upload->data();
+				$design_image = $uploadData['file_name'];
+				
+			}
+		}else{
+			$design_image = "";
+		}
+
+		$design_array = array(
+								'designed_by'=>$designed_by,
+								'designed_image'=>$design_image,
+								'raw_id'=>$raw_name,
+								'designed_date'=>$ad_date,
+								'status'=>$product_status,
+							 );
+		$insert_design = $this->add_product_m->insert_design($design_array);
+
+		$records = array(
+							'raw_id'=>$raw_name,
+							'raw_brand'=>$raw_brand,
+							'user_id'=>$user_id,
+							'product_category_id'=>$category,
+							'product_name'=>$product_name,
+							'product_title'=>$product_title,
+							'product_desc'=>$product_desc,
+							'product_design_id'=> $insert_design,
+							'product_designed_by'=>$designed_by,
+							'product_wholesale_price'=>$wholesale_price,
+							'product_retail_price'=>$retail_price,
+							'product_sku'=>$p_sku,
+							'product_meta_tags'=>$meta_tags,
+							'product_meta_image'=>$meta_image,
+							'product_meta_keyword'=>$meta_keyword,
+							'product_meta_desc'=>$meta_desc,
+							'product_added_date'=>$ad_date,
+							'product_status'=>$product_status
+						);
 
 			$update_product = $this->add_product_m->update_pro($records);
 
@@ -163,7 +176,7 @@ class Add_product extends CI_Controller {
 					$image = array();
 					$filesCount = count($_FILES['p_image']['name']);
 					
-					for($i = 1; $i < $filesCount; $i++){
+					for($i = 0; $i < $filesCount; $i++){
 						$_FILES['userFile']['name'] = $_FILES['p_image']['name'][$i];
 						$_FILES['userFile']['type'] = $_FILES['p_image']['type'][$i];
 						$_FILES['userFile']['tmp_name'] = $_FILES['p_image']['tmp_name'][$i];

@@ -284,7 +284,7 @@ $this->load->view("common/header");
 						                   <?php
 						                   		foreach($fetch_prod_image_data AS $each_pro_data_images){
 						                   ?>
-						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="" style="height:96px;"></li>
+						                    <li style="padding:2px;margin:5px;"><img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt=""></li>
 						                   <?php
 						                   		}
 						                   ?>
@@ -601,9 +601,275 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
+						<?php 
+							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 2){
+						?>
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-6" style="float:left;margin:0px;padding:0px;">
+								<h3 style="text-align:center;margin-bottom:10px;color:#000;">MUGS PRICING FOR BULK</h3>
+								<p>&nbsp;</p>
+								<table class="table table-bordered table-condensed">
+									<thead>
+										<tr>
+											<th style="color:#000;">Qty</th>
+											<th style="color:#000;">White Mug<br>Price/Piece</th>
+											<th style="color:#000;">Color Mug<br>Price/Piece</th>
+											<th style="color:#000;">Magic Mug<br>Price/Piece</th>
+										</tr>
+									</thead>
+									<tbody>
+											<tr>
+												<td style="color:#000;">Upto 4</td>
+												<td>Rs. 249</td>
+												<td>Rs. 329</td>
+												<td>Rs. 449</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">5 to 9</td>
+												<td>Rs. 229</td>
+												<td>Rs. 299</td>
+												<td>Rs. 429</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">10 to 29</td>
+												<td>Rs. 199</td>
+												<td>Rs. 279</td>
+												<td>Rs. 399</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">30 to 49</td>
+												<td>Rs. 189</td>
+												<td>Rs. 249</td>
+												<td>Rs. 379</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">50+</td>
+												<td>Rs. 179</td>
+												<td>Rs. 229</td>
+												<td>Rs. 349</td>
+											</tr>
+									</tbody>
+								</table>
+								<p style="text-align:center;color:#000;">Contact us for bulk orders <a href="<?php echo base_url();?>">Click here</a></p>
+							</div>
+							<div class="col-md-6" style="float:left;margin:0px;padding:0px;text-align:center;">
+								<h3 style="text-align:center;margin-bottom:10px;color:#000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUGS SPECIFICATION</h3>
+								<p>&nbsp;</p>
+								<img src="<?php echo base_url();?>/images/mug-specs.png" style="text-align:center;">
+							</div>
+							
+							
+							<div class="clearfix"></div>
+						</div>
 
+						<hr />
 
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-01.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>100% Satisfaction Guaranteed</h4>
+									<p>We continuously strive hard to achieve your satisfaction as Our Top Priority.</p>
+								</div>
+							</div>
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-02.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>Superior Print Quality</h4>
+									<p>High quality resolution imaging, quality mugs with multi-color printing..</p>
+								</div>
+							</div>
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-03.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>Fast Turnaround Times</h4>
+									<p>Order printing, packing, and handing over to courier in 2-3 business days.</p>
+								</div>
+							</div>
+					
+
+							<div class="clearfix"></div>
+						</div>
+
+						<hr />
+						<?php
+							}
+						?>
 						<p>&nbsp;</p>
+
+						<?php 
+							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 3){
+						?>
+						<h1 style="text-align:center;color:#000;"> Mobile Case Specifications </h1>
+						<hr />
+						<!-- mobile cover details starts -->
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-6" style="float:left;text-align:center;">
+								<img src="<?php echo base_url();?>images/mb1.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+							</div>
+
+							<div class="col-md-6" style="float:left;padding:10px;">
+								<h4 style="color:#000;font-weight:bold;margin-top:50px;">Permanent Printing</h4>
+								<p style="color:#000;">You will get your image/design embeded permanently onto the mobile back cover. If the case gets dirty wash it off with soap water and clean it with a soft cloth and reuse the mobile cover as you use it before.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- mobile cover details ends -->
+
+						<hr />
+						<!-- mobile cover details starts -->
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-6" style="float:left;padding:10px;">
+								<h4 style="color:#000;font-weight:bold;margin-top:50px;">Access to All Standard Buttons and Ports</h4>
+								<p style="color:#000;">Our mobile back cover/ case has precise cutouts to all standard buttons / ports and snugly fit to the mobile the way you desire it to be.</p>
+							</div>
+							<div class="col-md-6" style="float:left;text-align:center;">
+								<img src="<?php echo base_url();?>images/mb2.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- mobile cover details ends -->
+
+						
+						<hr />
+						<!-- mobile cover details starts -->
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-6" style="float:left;text-align:center;">
+								<img src="<?php echo base_url();?>images/mb3.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+							</div>
+							<div class="col-md-6" style="float:left;padding:10px;">
+								<h4 style="color:#000;font-weight:bold;margin-top:50px;">Edge to Edge printing</h4>
+								<p style="color:#000;">100% surface coverage with edge to edge printing on the mobile back cover as exactly as shown here.</p>
+							</div>
+							
+							<div class="clearfix"></div>
+						</div>
+						<!-- mobile cover details ends -->
+
+
+						<hr />
+						<!-- mobile cover details starts -->
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							
+							<div class="col-md-6" style="float:left;padding:10px;">
+								<h4 style="color:#000;font-weight:bold;margin-top:50px;">Material</h4>
+								<p style="color:#000;">Made of hard polymer plastic, our mobile back covers offers you an elegant look and will also serve as protection to your mobile from regular scratches & bumps.</p>
+							</div>
+							<div class="col-md-6" style="float:left;text-align:center;">
+								<img src="<?php echo base_url();?>images/mb4.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- mobile cover details ends -->
+						<hr />
+						<?php
+							}
+						?>
+
+						<?php 
+							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 1){
+						?>
+	
+						<hr />
+						<!-- mobile cover details starts -->
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							
+
+							<div class="col-md-4" style="float:left;">
+								<h4 style="text-align:center;color:#000;"> T-Shirt Specifications </h4>
+								<div class="md-tshirts-block-content" style="border:1px solid #000;">
+								  <div class="md-tshirts-paragraph" style="padding:15px;">
+									<p style="margin-top:30px;">
+									  <span style="color:#000;font-weight:bold;">100% Cotton</span>
+									</p>
+									<ul style="list-style:circle;margin-left:20px;">
+									  <li style="color:#000;"> 180-190 gsm (5.9 ounces)</li>
+									  <li style="color:#000;"> 100% Ring-spun Cotton</li>
+									  <li style="color:#000;"> 2% narrower lycra ribbed neck line, retains its shape after multiple washes</li>
+									  <li style="color:#000;"> Available in cool versatile colors</li>
+									</ul>
+									<p style="color:#000;font-weight:bold;">Amazing Print Quality</p> 
+									<span style="color:#000;"> We use direct to garment printing (DTG) technology to the fabric to get high quality T-Shirt printing. Avail free shipping to all custom t-shirts online across India with 100% satisfaction guaranteed at low price.
+									</span>
+									<p>&nbsp;</p>
+								  </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-4" style="float:left;">
+								<h4 style="text-align:center;color:#000;"> Size Chart </h4>
+								<table class="table table-bordered" style="border-color:#000;">
+								  <thead>
+									<tr>
+									  <th style="padding:22px;color:#000;border-color:#000;text-align:center;">Size</th>
+									  <th style="padding:22px;color:#000;border-color:#000;text-align:center;">Men (in)</th>
+									  <th style="padding:22px;color:#000;border-color:#000;text-align:center;">Women (in)</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+									  <td style="padding:22px;color:#000;border-color:#000;text-align:center;">S</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">38"</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">34"</td>
+									</tr>
+									<tr>
+									  <td style="padding:22px;color:#000;border-color:#000;text-align:center;">M</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">40"</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">36"</td>
+									</tr>
+									<tr>
+									  <td style="padding:22px;color:#000;border-color:#000;text-align:center;">L</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">42"</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">38"</td>
+									</tr>
+									<tr>
+									  <td style="padding:22px;color:#000;border-color:#000;text-align:center;">XL</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">44"</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">40"</td>
+									</tr>
+									<tr>
+									  <td style="padding:22px;color:#000;border-color:#000;text-align:center;">XXL</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">46"</td>
+									  <td style="padding:22px;text-align:center;border-color:#000;">42"</td>
+									</tr>
+								  </tbody>
+
+								</table>
+
+							</div>
+
+							<div class="col-md-4" style="float:left;padding:0px;">
+								<h4 style="text-align:center;color:#000;"> Benefits You Get </h4>
+								<div class="md-tshirts-block-content ps-border-v2" style="border:1px solid #000;padding:20px;">
+								  <ul class="md-tshirts-upload" style="list-style:circle;margin-left:20px;margin-top:122px;margin-bottom:100px;">
+									<li style="color:#000;">Customization Feature to All T-shirts</li>
+									<li style="color:#000;">Color Fastness Guaranteed</li>
+									<li style="color:#000;">Compacted Pre-shrunk</li>
+									<li style="color:#000;">Free Shipping</li>
+									<li style="color:#000;">High quality printing</li>
+									<li style="color:#000;">Easy &amp; Secure Payment</li>
+								  </ul>
+								</div>
+
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- mobile cover details ends -->
+
+						<hr />
+						
+						<?php
+						}
+						?>
 						<h1 class="page-title" style="color:black;text-align:left;font-size:45px;font-family:samarkan1;"> Similar Products </h1>
 						<p>&nbsp;</p>
 

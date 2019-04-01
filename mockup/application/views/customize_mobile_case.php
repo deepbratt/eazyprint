@@ -237,6 +237,15 @@
 		.loader{
 			display:none;
 		}
+		.colorinput input[type=radio]:checked + span {
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			border: 1px solid #000;
+		}
+		.colorinput-color:before{
+			background:none !important;
+		}
 		</style>
 
 <?php
@@ -372,7 +381,7 @@ $this->load->view("common/header");
 													<div class="selectgroup selectgroup-pills">
 														<?php
 															$explode_size = explode(',',$fetch_raw_data->raw_size);
-															foreach($explode_size AS $each_raw_size){
+															foreach($explode_size As $each_raw_size){
 														?>
 														<label class="selectgroup-item" >
 															<input type="radio" name="size" value="<?php echo $each_raw_size;?>" class="selectgroup-input">
@@ -395,9 +404,9 @@ $this->load->view("common/header");
 													<div class="row p-2">
 														<div class="col-md-12 pull-left">
 															<label class="form-label">Upload Photo</label>
-															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
+															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-lg btn-danger file_upload_icon">
 						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-						                                        <strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
+						                                        <strong style="color:#ffffff;">Choose File...</strong>
 					                                      	</span>
 						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
 						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
@@ -603,8 +612,108 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
+						<?php 
+							if(isset($fetch_raw_data->raw_category) && $fetch_raw_data->raw_category == 2){
+						?>
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-6" style="float:left;margin:0px;padding:0px;">
+								<h3 style="text-align:center;margin-bottom:10px;color:#000;">MUGS PRICING FOR BULK</h3>
+								<p>&nbsp;</p>
+								<table class="table table-bordered table-condensed">
+									<thead>
+										<tr>
+											<th style="color:#000;">Qty</th>
+											<th style="color:#000;">White Mug<br>Price/Piece</th>
+											<th style="color:#000;">Color Mug<br>Price/Piece</th>
+											<th style="color:#000;">Magic Mug<br>Price/Piece</th>
+										</tr>
+									</thead>
+									<tbody>
+											<tr>
+												<td style="color:#000;">Upto 4</td>
+												<td>Rs. 249</td>
+												<td>Rs. 329</td>
+												<td>Rs. 449</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">5 to 9</td>
+												<td>Rs. 229</td>
+												<td>Rs. 299</td>
+												<td>Rs. 429</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">10 to 29</td>
+												<td>Rs. 199</td>
+												<td>Rs. 279</td>
+												<td>Rs. 399</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">30 to 49</td>
+												<td>Rs. 189</td>
+												<td>Rs. 249</td>
+												<td>Rs. 379</td>
+											</tr>
+											<tr>
+												<td style="color:#000;">50+</td>
+												<td>Rs. 179</td>
+												<td>Rs. 229</td>
+												<td>Rs. 349</td>
+											</tr>
+									</tbody>
+								</table>
+								<p style="text-align:center;color:#000;">Contact us for bulk orders <a href="<?php echo base_url();?>">Click here</a></p>
+							</div>
+							<div class="col-md-6" style="float:left;margin:0px;padding:0px;text-align:center;">
+								<h3 style="text-align:center;margin-bottom:10px;color:#000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUGS SPECIFICATION</h3>
+								<p>&nbsp;</p>
+								<img src="<?php echo base_url();?>/images/mug-specs.png" style="text-align:center;">
+							</div>
+							
+							
+							<div class="clearfix"></div>
+						</div>
 
+						<hr />
 
+						<div class="col-md-12" style="margin:0px;padding:0px;">
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-01.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>100% Satisfaction Guaranteed</h4>
+									<p>We continuously strive hard to achieve your satisfaction as Our Top Priority.</p>
+								</div>
+							</div>
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-02.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>Superior Print Quality</h4>
+									<p>High quality resolution imaging, quality mugs with multi-color printing..</p>
+								</div>
+							</div>
+							<div class="col-md-4" style="float:left;margin:0px;padding:0px;">
+								<div class="col-md-2" style="float:left;">
+									<img src="<?php echo base_url();?>images/mugs-icon-03.png" alt="Mugs Printing Online Fast Delivery" title="Mugs Printing Online Fast Delivery" style="margin-top:10px;">
+								</div>
+
+								<div class="col-md-10" style="float:left;padding:10px;">
+									<h4>Fast Turnaround Times</h4>
+									<p>Order printing, packing, and handing over to courier in 2-3 business days.</p>
+								</div>
+							</div>
+					
+
+							<div class="clearfix"></div>
+						</div>
+
+						<hr />
+						<?php
+							}
+						?>
 						<p>&nbsp;</p>
 						<?php
 							if(!empty($fetch_similar_pro_data)){
