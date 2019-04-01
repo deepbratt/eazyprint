@@ -6,7 +6,6 @@
  .blk-mb :hover{
 	cursor:pointer;
 	text-decoration:underline;
-	background:#f5f5f5;
  }
  </style>
  <!-- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> -->
@@ -83,9 +82,33 @@
 											<span class="text-dark"> MUGS </span>
 										</span>
 									  </a>
-									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
+									  <div class="sub-item " style="border:1px solid #CCCCCC;border-top:none;">
 										<div class="row">
-
+											<?php
+												$ci =&get_instance();
+												$ci->load->model('home_m');
+												$get_mobile_casezz = $ci->home_m->fetch_mugs();
+												foreach($get_mobile_casezz AS $each_mob_case){
+											?>
+											<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
+												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+													<img src="admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
+													<?php echo $each_mob_case->raw_title;?> 
+												</a>
+												<!--<ul style="padding-top:10px;">
+													<?php
+														$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
+														foreach($fetch_each_case AS $each_casezz){
+													?>
+													<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
+													<?php
+														}	
+													?>
+												</ul>-->
+											</div>
+											<?php
+												}	
+											?>
 											
 
 										 </div>
@@ -157,22 +180,22 @@
 												$get_mobile_casezz = $ci->home_m->fetch_mobile_case();
 												foreach($get_mobile_casezz AS $each_mob_case){
 											?>
-												<div class="col-md-3 blk-mb" style="text-align:left;margin-top:5px;float:left;cursor:pointer !important;">
-													<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;"> <?php echo $each_mob_case->raw_brand;?> </a>
-													<!--<ul style="padding-top:10px;">
-														<?php
-															$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
-															foreach($fetch_each_case AS $each_casezz){
-														?>
-														<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
-														<?php
-															}	
-														?>
-													</ul>-->
-												</div>
-												<?php
-													}	
-												?>
+											<div class="col-md-3 blk-mb" style="text-align:left;margin-top:5px;float:left;cursor:pointer !important;">
+												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;"> <?php echo $each_mob_case->raw_brand;?> </a>
+												<!--<ul style="padding-top:10px;">
+													<?php
+														$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
+														foreach($fetch_each_case AS $each_casezz){
+													?>
+													<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
+													<?php
+														}	
+													?>
+												</ul>-->
+											</div>
+											<?php
+												}	
+											?>
 										
 									   </div>
 									</li>
