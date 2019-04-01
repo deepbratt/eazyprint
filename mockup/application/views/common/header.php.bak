@@ -97,8 +97,8 @@
 												foreach($get_mobile_casezz AS $each_mob_case){
 											?>
 											<div class="col-md-2 blk-mb" style="text-align:left;margin-top:5px;float:left;cursor:pointer !important;">
-												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;"> 
-												<img src="admin/uploads/mugs/<?php echo $each_mob_case->raw_image;?>">
+												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;text-align:center;"> 
+													<img src="admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:80px;"> <br />
 													<?php echo $each_mob_case->raw_title;?> 
 												</a>
 												<!--<ul style="padding-top:10px;">
