@@ -82,13 +82,8 @@
 											<span class="text-dark"> MUGS </span>
 										</span>
 									  </a>
-									  <div class="sub-item" style="border:1px solid #CCCCCC;border-top:none;box-shadow: 0px 1px 1px 1px #CCCCCC;">
+									  <div class="sub-item " style="border:1px solid #CCCCCC;border-top:none;">
 										<div class="row">
-											<div class="col-md-12" style="text-align:left;margin-top:5px;float:left;">
-												<h4 style="text-align:left;color:#000 !important;"> &nbsp;&nbsp; Create your own mugs Starting @ 199/- </h4>
-												<p style="text-align:left;color:#000 !important;"> &nbsp;&nbsp; Select your mug type </p> 
-												<div class="clearfix"></div>
-											</div>
 											<?php
 												$ci =&get_instance();
 												$ci->load->model('home_m');
@@ -96,8 +91,8 @@
 												foreach($get_mobile_casezz AS $each_mob_case){
 											?>
 											<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;text-align:center;"> 
-													<img src="admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:120px;text-align:center;"> <br />
+												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+													<img src="admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
 													<?php echo $each_mob_case->raw_title;?> 
 												</a>
 												<!--<ul style="padding-top:10px;">
