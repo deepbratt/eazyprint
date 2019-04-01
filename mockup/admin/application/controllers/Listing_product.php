@@ -43,7 +43,7 @@ class Listing_product extends CI_Controller {
 		//meta image starts
 		$get_design_id = $this->listing_product_m->get_design_id($product_id);
 		$meta_image = $get_design_id->product_meta_image;
-		
+		  
 		//meta image ends
 		
 		$delete_product = $this->listing_product_m->delete_pro($product_id,$product_image_array,$meta_image);
