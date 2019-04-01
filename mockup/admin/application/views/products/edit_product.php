@@ -157,7 +157,7 @@
 										<?php
 											foreach($fetch_raw As $all_raw){
 										?>
-											<option value="<?php echo $all_raw->raw_name;?>" <?php echo(($fetch_product->raw_id == $all_raw->raw_id)?'selected':'');?>><?php echo ucfirst($all_raw->raw_name);?></option>
+											<option value="<?php echo $all_raw->raw_id;?>" <?php echo(($fetch_product->raw_id == $all_raw->raw_id)?'selected':'');?>><?php echo ucfirst($all_raw->raw_name);?></option>
 										<?php 
 											}
 										?>
