@@ -41,8 +41,9 @@ class Add_product extends CI_Controller {
 	/* All RAW MATERIALS FETCH STARTS*/
 		public function ajax_fetch_raw_data(){
 			$this->load->model('add_product_m');
+			$category_id = $this->input->post('category_id');
 			$brand_name = $this->input->post('brand_id');
-			$fetch_raw_data = $this->add_product_m->get_raw_options($brand_name);
+			$fetch_raw_data = $this->add_product_m->get_raw_options($brand_name,$category_id);
 			?>
 				<option value="" selected disabled>Raw Material</option>
 			<?php

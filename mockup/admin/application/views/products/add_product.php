@@ -110,7 +110,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Choose Category</label>
-									<select class="form-control" name="category" onchange="fetch_cat_id(this.value);">
+									<select class="form-control cat_data" name="category" onchange="fetch_cat_id(this.value);">
 										<option value="" selected disabled>Category</option>
 										<?php
 											foreach($get_all_category As $all_category){
@@ -138,7 +138,7 @@
 					<h4>Please Wait...</h4>
 				</div>
 
-				<div class="card"  id="show_raw_material">
+				<div class="card"  id="show_raw_material" style="display:none;">
 					<div class="card-header">
 						<h3 class="card-title">Raw Material</h3>
 					</div>
@@ -161,7 +161,7 @@
 					<h4>Please Wait...</h4>
 				</div>
 
-			 	<div id="show_all_info" >
+			 	<div id="show_all_info" style="display:none;">
 				<div class="card">
 					<div class="card-header">
 						<h3 class="card-title">Product Information</h3>
@@ -354,9 +354,10 @@
 	/* FETCH CATEGORY DATA ENDS */
 	/* FETCH BRAND DATA STARTS */
 		function fetch_brand_data(e){
+		  var cat_id = $(".cat_data").val();
 		  $.ajax({
 		  url: '<?php echo base_url();?>add_product/ajax_fetch_raw_data',
-		  data: {'brand_id': e,},
+		  data: {'brand_id': e,'category_id': cat_id},
 		  type: "post",
 		  beforeSend: function(){
 		  $('#AjaxLoader_4').show();
