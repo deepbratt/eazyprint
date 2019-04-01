@@ -197,7 +197,7 @@
 			</div>
 					
 			<div class="card-header" style="color:#5e5e5e;">
-				<div class="card-title" style="width:100%;color:#5e5e5e;"> Material Type </div>
+				<div class="card-title" style="width:100%;"> Material Type </div>
 		    </div>
 			<div class="card-body">
 					<div class="form-group m-0">
