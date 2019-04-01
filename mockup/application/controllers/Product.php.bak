@@ -40,7 +40,7 @@ class Product extends CI_Controller {
             $config['total_rows'] = $total_records;
             $config['per_page'] = $limit_per_page;
             $config["uri_segment"] = 3;
-            
+            $config['use_page_numbers'] = TRUE;
 			$config['full_tag_open'] = '<ul class="pagination mg-b-0">'; 
 			$config['full_tag_close'] = '</ul>';
 			$config['first_tag_open'] = "<li class='page-item'>";
