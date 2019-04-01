@@ -96,26 +96,25 @@ class Account extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
 		}
-		
+		$this->session->set_flashdata("status", "address");
 		redirect('account');
 	}
 
 	public function update_password(){
 		$this->load->model('account_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$email = $this->input->post('email');
-		/* SEND EMAIL FOR VERIFICATION */
-		/*if($fetch_user_data->user_email != $email){
-			$check_duplicate_email = $this->account_m->check_email_row($email,$user_id);
-			if(sizeof($check_duplicate_email) < 1){
-				 EMAIL TO BE VERIFIED AND UPDATED
-				 redirect('verify_email');
-			}else{
-				$this->session->set_flashdata("exist", "Email Already Exist...");
-				redirect('account');
-			}
-		}*/
-
+		$old_pass = $this->input->post('old_pass');
+		$new_pass = $this->input->post('new_pass');
+		$con_pass = $this->input->post('con_pass');
+		
+		$check_prev = $this->account_m->fetch_cust_info($user_id);
+		if($old_pass == $check_prev->user_password){
+		}else{
+			$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
+			
+		}
+		$this->session->set_flashdata("status", "password");
+		redirect('account');
 	}
 
 }
