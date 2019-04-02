@@ -26,6 +26,9 @@ class Product_details extends CI_Controller {
 		$data['fetch_similar_pro_data'] = $this->product_details_m->fetch_similar_products($pro_cat_id);
 		/* FOR PRODUCT DETAILS ENDS*/
 		
+		if(empty($data['fetch_prod_data'])){
+			redirect('page_unavailable');
+		}
 		
 		$this->load->view('product_details',$data);
 	}
@@ -47,6 +50,7 @@ class Product_details extends CI_Controller {
 		$qty = $this->input->post('quantity');
 		$datetime = time();
 		
+
 		$check_cart_of_user = $this->product_details_m->check_cart($user_id,$product_id);
 
 		if(count($check_cart_of_user) < 1){
@@ -64,15 +68,15 @@ class Product_details extends CI_Controller {
 			);
 			$insert_cart = $this->product_details_m->save_cart($save_cart);
 			if($insert_cart){
-				echo $data = '<div class="alert alert-info" ><strong>Success:</strong> your product added to cart.</div>';
+				$this->session->set_flashdata("success", "Your product added to cart successfully");
 			}else{
-				echo $data = '<div class="alert alert-info" ><strong>Error:</strong> something went wrong!. Please try again later</div>';
+				$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
 			}
 		}else{
-			echo $data = '<div class="alert alert-info" ><strong>Error:</strong> something went wrong!. Please try again later</div>';
+			$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
 		}
-
-		return $data;
+			redirect('product_details/'.$product_id);
+		
 	}
 
 }
