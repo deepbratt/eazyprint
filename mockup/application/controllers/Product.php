@@ -27,7 +27,7 @@ class Product extends CI_Controller {
 		/* pagination */
 		// init params
         $data = array();
-        $limit_per_page = 6;
+        $limit_per_page = 9;
         $start_index = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         $total_records = $this->product_m->get_total();
  

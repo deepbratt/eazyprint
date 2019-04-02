@@ -76,13 +76,37 @@ class Add_product extends CI_Controller {
 			
 		}
 	/* Designed By DETAILS FETCH ENDS*/
+	
+
+	//Fetching mugs only starts
+	public function ajax_fetch_mugs(){
+		$this->load->model('add_product_m');
+		$category_id = $this->input->post('cat_id');
+		$fetch_mugs = $this->add_product_m->fetch_mugs($category_id);
+		?>
+			<option value="" selected disabled>Raw Material</option>
+		<?php
+			foreach($fetch_mugs AS $each_fetch_raw){
+		?>
+			<option value="<?php echo $each_fetch_raw->raw_id;?>"><?php echo $each_fetch_raw->raw_title;?></option>
+		<?php
+			}
+		
+	}
+	//Fetching mugs only sends
+	
 
 	public function add_pro(){ 
 
 		$this->load->model('add_product_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$category = $this->input->post('category');
-		$raw_brand = $this->input->post('raw_brand');
+		if($category == '2'){
+			$raw_brand = '';
+		}else{
+			$raw_brand = $this->input->post('raw_brand');
+		}
+		
 		$raw_name = $this->input->post('raw_name');
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
