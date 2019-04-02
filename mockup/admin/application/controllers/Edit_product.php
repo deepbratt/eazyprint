@@ -40,7 +40,11 @@ class Edit_product extends CI_Controller {
 		$product_id = $this->uri->segment(3);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$category = $this->input->post('category');
-		$raw_brand = $this->input->post('raw_brand');
+		if($category == '2'){
+			$raw_brand = '';
+		}else{
+			$raw_brand = $this->input->post('raw_brand');
+		}
 		$raw_name = $this->input->post('raw_name');
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
