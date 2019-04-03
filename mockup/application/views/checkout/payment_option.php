@@ -147,7 +147,7 @@
 								<!-- DELIVERY ADDRESS STARTS-->
 								<a href="<?php echo base_url('checkout/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">LOGIN</button></a>
 								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
