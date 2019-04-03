@@ -143,9 +143,7 @@
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								
 								<!-- LOGIN ENDS -->
-								<?php
-					  				if($user_id != ""){
-					  			?>
+								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion">LOGIN</button>
 								<button type="button" class="accordion">DELIVERY ADDRESS</button>
@@ -154,7 +152,6 @@
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
-
 								  <div class="row">
 									<div class="col-md-11 p-3">
 									  <div class="custom-controls-stacked">
@@ -222,10 +219,8 @@
 							  	</div>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
+							<p>&nbsp;</p>
 						
-						<?php
-							}
-						?>
 						</div>
 						<?php $this->load->view("checkout/product_details");?>
 						</div>

@@ -25,7 +25,7 @@
 				color:black !important;
 			}
 			/* ACCORDIONS STARTS*/
-				button.accordion {
+				a.accordion , button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
 				  padding: 10px;
@@ -37,12 +37,12 @@
 				  border: 1px solid #ccc;
 				}
 
-				button.accordion.active, button.accordion:hover {
+				a.accordion.active, a.accordion:hover, button.accordion.active, button.accordion:hover {
 				  color: #ffffff;
 				  background-color: #7490BD;
 				}
 
-				button.accordion:before {
+				a.accordion:before button.accordion:before {
 				  content: '\02795';
 				  font-size: 9px;
 				  float: left;
@@ -51,7 +51,7 @@
 				  margin-top: 7px;
 				}
 
-				button.accordion.active:before {
+				a.accordion.active:before button.accordion.active:before {
 				  content: "\2796";
 				}
 
@@ -142,8 +142,8 @@
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<button class="accordion <?php echo (($user_id != "")?'':'active')?>" >LOGIN</button>
-								<div class="accordion_panel <?php echo (($user_id != "")?'':'show')?>">
+								<button class="accordion active" >LOGIN</button>
+								<div class="accordion_panel show">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
 								  			<?php
@@ -238,267 +238,12 @@
 								  	</div>								  
 								</div>
 								<!-- LOGIN ENDS -->
-								<?php
-					  				if($user_id != ""){
-					  			?>
-								<!-- DELIVERY ADDRESS STARTS-->
-								
-								<button type="button" class="accordion <?php echo (($user_id != "")?'active':'')?>">DELIVERY ADDRESS</button>
-								<div class="accordion_panel <?php echo (($user_id != "")?'show':'')?>">
-									<div class="row">
-										<div class="col-md-11 p-3">
-										  <div class="custom-controls-stacked">
-											<label class="custom-control custom-radio">
-												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-												<span class="custom-control-label"><strong><?php echo $this->session->userdata['logged_in']['name'];?></strong></span>
-												<!--<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>-->
-												<span class="custom-control-label"><strong><?php echo $fetch_user_data->user_phone;?></strong></span>
-											</label>
-										  </div>
-										  <div class="form-group address_hide">
-										  	<p class="ml-5"><?php echo $fetch_user_data->user_address;?><br><?php echo $fetch_user_data->user_city;?><br><?php echo $fetch_user_data->user_state;?><br><?php echo $fetch_user_data->user_pincode;?></p>
-										  </div>
-										</div>
-										<div class="col-md-1 p-3">
-											<div class="form-group">
-												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;" id="show">EDIT</a>
-											</div>
-										</div>
-									</div>
-
-									<!-- EDIT ADDRESS -->
-									<div class="row address_edit" style="display:none;">
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Full Name</label>
-												<input type="text" class="form-control" value="<?php echo $this->session->userdata['logged_in']['name'];?>" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<label>Pincode</label>
-												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_pincode;?>" placeholder="Pincode">
-											</div>
-										</div>
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_phone;?>" placeholder="Mobile Number">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<label>Address</label>
-											<textarea class="form-control" placeholder="Address"><?php echo $fetch_user_data->user_address;?></textarea>
-										</div>
-										<div class="col-md-12" style="margin-top:10px;">
-											<button class="btn btn-success">Submit</button>
-											<button id="hide" class="btn btn-secondary">Cancel</button>
-										</div>
-									</div>
-								<!-- EDIT ADDRESS -->
-
-									
-									<div class="row">
-										<div class="col-md-12 p-3">
-											<a href="javascript:voide(0);" id="add_address_show" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
-										</div>
-									</div>
-									<!-- ADD NEW ADDRESS STARTS-->
-									<div class="row address_add" style="display:none;">
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Full Name</label>
-												<input type="text" class="form-control" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<label>Pincode</label>
-												<input type="text" class="form-control" placeholder="Pincode">
-											</div>
-										</div>
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" class="form-control" placeholder="Mobile Number">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<label>Address</label>
-											<textarea class="form-control" placeholder="Address"></textarea>
-										</div>
-										<div class="col-md-12" style="margin-top:10px;">
-											<button class="btn btn-success">Submit</button>
-											<button id="add_address_hide" class="btn btn-secondary">Cancel</button>
-										</div>
-									</div>
-								<!-- ADD NEW ADDRESS ENDS-->
-								</div>
-								<!-- DELIVERY ADDRESS ENDS-->
-								<!-- ORDER SUMMARY STARTS-->
-								<button type="button" class="accordion ">ORDER SUMMARY</button>
-								<div class="accordion_panel" >
-								  <div class="row p-3">
-								  	<div class="col-md-3">
-								  		<div class="form-group">
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" style="height:130px;">
-								  		</div>
-								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-										</div>
-								  	</div>
-								  	<div class="col-md-6">
-								  		<div class="form-group">
-								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
-								  		</div>
-								  		<?php
-								  			if($size != ''){
-								  		?>
-								  		<div class="form-group">
-								  			<span>Size: <?php echo $size;?></span>
-								  		</div>
-								  		<?php
-								  			}
-								  		?>
-								  		<div class="form-group">
-								  			<span>Seller: Eazyprint</span>
-								  		</div>
-								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></span>
-								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
-								  		</div>
-								  	</div>
-								  	<div class="col-md-3">
-								  		<div class="form-group">
-								  			<span>Delivery in 2Days, Thursday | Free</span>
-								  		</div>
-								  	</div>
-								  </div>
-								  <div class="row p-3">
-								  	<div class="col-md-9">
-								  		<div class="form-group">
-								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);">debashisnath1992@gmail.com</a></p>
-								  		</div>
-								  	</div>
-								  	<div class="col-md-3 text-right">
-								  		<div class="form-group">
-								  			<button class="btn btn-orange btn-lg">Continue</button>
-								  		</div>
-								  	</div>
-								  </div>
-								</div>
-								<!-- ORDER SUMMARY ENDS-->
-								<!-- PAYMENT OPTION STARTS -->
-								<button type="button" class="accordion ">PAYMENT OPTION</button>
-								<div class="accordion_panel ">
-
-								  <div class="row">
-									<div class="col-md-11 p-3">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<span class="custom-control-label"><strong>Axis Bank Debit Card</strong></span>
-											<span class="custom-control-label" style="float:right;font-weight:bold;">20xx xxxx xxxx xx87</span>
-										</label>
-									  </div>
-								  	  <div class="row">
-									  		<div class="col-md-3 ml-5">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<button class="btn btn-orange btn-lg">Continue</button>
-									  		</div>
-									  </div>	
-									  <div class="form-group p-4 ml-2">
-									  		<span style="color:green;"><i class="fas fa-rupee-sign"></i>50 instant discount applicable.</span>
-									  </div>
-									</div>
-								  </div>
-
-								   <div class="row">
-									<div class="col-md-11 p-3">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<strong class="custom-control-label">Credit / Debit/ ATM Card</strong>
-										</label>
-									  </div>
-									  <div class="row ml-3">
-									  		<div class="col-md-12">
-									  			<input type="text" class="form-control" value="" name="card_number" placeholder="CARD NUMBER">
-									  		</div>
-									  </div>	
-								  	  <div class="row  p-5">
-								  	  		<div class="col-md-3">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="Expiry Date" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<button class="btn btn-orange btn-lg">Continue</button>
-									  		</div>
-									  </div>
-									</div>
-								  </div>
-								   
-								   <!--<div class="row">
-										<iframe src="https://www.instamojo.com/@asimsagir/7b1edb2e88fd4f51b5ffc9aec0f93614/?embed=form" width="600" height="600" border="0"></iframe>
-
-										<iframe src="https://api.juspay.in/merchant/pay/ord_e294a26e66ad4336a992ceab81ad704c?mobile=true"width="630" height="400"style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"></iframe>
-								   </div>-->
-								   <div class="row">
-								   	<div class="col-md-12">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<span class="custom-control-label"><strong>Cash on Delivery</strong></span>
-										</label>
-									  </div>
-									</div>
-							  	</div>
-							</div>
-							<!-- PAYMENT OPTION ENDS -->
-						
-						<?php
-							}
-						?>
+								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('2');?>" class="accordion">DELIVERY ADDRESS</a>
+								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('2');?>" class="accordion">ORDER SUMMARY</a>
+								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('2');?>" class="accordion">PAYMENT OPTION</a>
+							<p>&nbsp;</p>
 						</div>
-						<!-- RIGHT SIDE PRODUCT DETAILS STARTS-->
-							<div class="col-md-5 col-sm-12 col-xs-12">
-								<div class="card">
-									<div class="card-header" style="background-color:#ffe4ca;">
-										<strong class="card-title" style="color:#000;">Price Details</strong>
-									</div>
-									<div class="card-body" style="padding:4px !important;">
-									  	<div class="table-responsive">
-											<table class="table card-table table-vcenter text-nowrap">
-												<tr>
-													<td>Price(1 Item)</td>
-													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
-												</tr>
-												<tr>
-													<td>Apply Coupon</td>
-													<td style="float:right;"><input type="text" placeholder="coupon" class="form-control" style="width:150px;"></td>
-												</tr>
-												<tr>
-													<td>Delivery Charges</td>
-													<td style="float:right;color:green;font-size:21px;;">FREE</td>
-												</tr>
-												<tr>
-													<td>Amount Payable</td>
-													<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</div> 
-								<div class="row" style="color:#878787;">
-									<div class="col-md-2">
-										<img src="<?php echo base_url();?>images/shield_a7ea6b.png" style="height:45px;"> 
-									</div>
-									<div class="col-md-10" style="margin-left:-21px;font-weight:500;">
-										Safe and Secure Payments. Easy Returns. 100% Authentic products.
-									</div>
-								</div>
-							</div>
-							<!-- RIGHT SIDE PRODUCT DETAILS ENDS-->
+						<?php $this->load->view("checkout/product_details");?>
 						</div>
 						<!-- P TAG MARTE HOBE-->
 					</div>

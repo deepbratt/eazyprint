@@ -25,7 +25,7 @@ class Checkout extends CI_Controller {
 			$single_image[] = $fetch_single_images->product_image_path;
 		}
 		$data['single_prod_image'] = $single_image;
-		$this->load->view('checkout/payment_option',$data);
+		$this->load->view('checkout/order_summary',$data);
 	}
 
 	public function authenticate(){
@@ -60,6 +60,27 @@ class Checkout extends CI_Controller {
 				redirect('checkout/'.$pro_id);
 			}
 		}
+	}
+
+	public function delivery_add()
+	{
+		$this->load->model('checkout_m');
+		
+		$this->load->view('checkout/delivery_address');
+	}
+
+	public function order_summ()
+	{
+		$this->load->model('checkout_m');
+		
+		$this->load->view('checkout/order_summary');
+	}
+
+	public function pay_option()
+	{
+		$this->load->model('checkout_m');
+		
+		$this->load->view('checkout/payment_option');
 	}
 
 }
