@@ -17,7 +17,7 @@ class Checkout_m extends CI_Model {
 		$this->db->from('user_address');
 		$this->db->where('user_id',$user_id);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	public function cat_data($cat_id){
