@@ -75,4 +75,13 @@ class Add_product_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	public function fetch_mugs($category_id)
+	{
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category', $category_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

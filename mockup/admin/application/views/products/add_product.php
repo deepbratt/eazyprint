@@ -122,7 +122,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6" id="brand_div">
 								<div class="form-group">
 									<label class="form-label">Choose Brand</label>
 									<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader_3" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
@@ -335,21 +335,34 @@
 		
 	/* FETCH CATEGORY DATA STARTS */
 		function fetch_cat_id(e){
-		  $.ajax({
-		  url: '<?php echo base_url();?>add_product/ajax_fetch_brand_data',
-		  data: {'cat_id': e,},
-		  type: "post",
-		  beforeSend: function(){
-		  $('#AjaxLoader_3').show();
-		  },
-		  complete: function(){
-			$('#AjaxLoader_3').hide();
-		  },
-		  success: function(response){
-			$('.brandz_name').html(response);
-			//alert(response);
-		  }
-		  }); 
+		  if(e == '2'){
+			 $('#brand_div').hide();
+			 $.ajax({
+				  url: '<?php echo base_url();?>add_product/ajax_fetch_mugs',
+				  data: {'cat_id': e,},
+				  type: "post",
+				  success: function(response){
+					$('#show_raw_material').show();
+					$('.raw_data_info').html(response);
+				  }
+			  }); 
+		  }else{
+			  $('#brand_div').show();
+			  $.ajax({
+				  url: '<?php echo base_url();?>add_product/ajax_fetch_brand_data',
+				  data: {'cat_id': e,},
+				  type: "post",
+				  beforeSend: function(){
+				  $('#AjaxLoader_3').show();
+				  },
+				  complete: function(){
+					$('#AjaxLoader_3').hide();
+				  },
+				  success: function(response){
+					$('.brandz_name').html(response);
+				  }
+			  }); 
+		 }
 		}
 	/* FETCH CATEGORY DATA ENDS */
 	/* FETCH BRAND DATA STARTS */

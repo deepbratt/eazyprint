@@ -56,7 +56,6 @@
 			  cursor: pointer;
 			  position: relative;
 			  width: 70px;
-			  height: 70px;
 			}
 
 			.thumbnails-list li img {
@@ -237,6 +236,12 @@
 		.loader{
 			display:none;
 		}
+		#errNm1 {
+		  color:red;
+		}
+		#errNm2 {
+		 color:red;
+		}
 		</style>
 
 <?php
@@ -301,69 +306,50 @@ $this->load->view("common/header");
 							<!----STARTS-->
 								<div class="row">
 									<div class="col-md-12">
+									
 										<div class="card-body cardbody" >
-												<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
-												<div class="msg"></div>
-												<h1 style="font-size:30px;font-family:samarkan1;">
-													<?php
-														echo ucfirst($fetch_prod_data->product_title);
-													?>
-												</h1>
-												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
-													<?php
-														echo ucfirst($fetch_prod_data->product_retail_price);
-													?> /-</h1>
-												<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
-													<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
-													<span style="color:green;font-weight:normal">40% OFF</span>
-												</div>
-												<span>Inclusive of all taxes</span>
+											<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
+											<?php
+											  if($this->session->flashdata('failed')){
+											?>
+											  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+											<?php
+											  }
+											  if($this->session->flashdata('success')){
+											?>
+											  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+											<?php
+												}
+											?>
 										</div>
-										 <?php $this->uri->segment(2);?>
-									<form method="POST" action="<?php echo base_url('Product_details/add_to_cart');?>">
-										<!-- SELECT COLOR STARTS -->
-										<?php
-											if($fetch_raw_data->raw_color_code != ''){
-										?>
-										<div class="card-body cardbody" style="margin-top:-25px;">
-											<div class="form-group m-0" style="padding-top:15px;padding-bottom:15px;">
-												<label class="form-label">Select Color</label>
-												<div class="row gutters-xs">
-													<?php
-														$color_code = explode(',',$fetch_raw_data->raw_color_code);
-														$color_name = explode(',',$fetch_raw_data->raw_color);
-														foreach($color_code AS $key=>$each_color_code){
-													?>
-													<div class="col-auto">
-														<label class="colorinput">
-															<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
-															<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
-														</label>
-													</div>
-													<?php
-														}
-													?>
-												</div>
+									<div id="prozzz_data_hide">
+									<form method="POST" name="cart_addzz" id="cartz_add" action="<?php echo base_url('product_details/add_to_cart');?>">
+
+										<div class="card-body cardbody" style="margin-top:-40px;">
+											<h1 style="font-size:30px;font-family:samarkan1;">
+												<?php
+													echo ucfirst($fetch_prod_data->product_title);
+												?>
+											</h1>
+											<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
+												<?php
+													echo ucfirst($fetch_prod_data->product_retail_price);
+												?> /-</h1>
+											<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
+												<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
+												<span style="color:green;font-weight:normal">40% OFF</span>
 											</div>
+											<span>Inclusive of all taxes</span>
 										</div>
-										<?php
-											}
-										?>
-										<!-- SELECT COLOR ENDS -->
 										<!-- SELECT SIZE STARTS -->
 										<?php
 											if($fetch_raw_data->raw_size != ''){
 										?>
-										<div class="card-body" style="margin-top:-40px;">
+										<div class="card-body">
 											<div class="form-group" style="border-bottom:1px dotted #000;padding-bottom:20px;">
 													<div class="row p-2">
-														<div class="col-md-3 pull-left">
+														<div class="col-md-12 pull-left">
 														  <label class="form-label" style="text-align:left;margin-left:-8px;">Select Size</label>
-														</div>
-														<div class="col-md-3"></div>
-														<div class="col-md-3"></div>
-														<div class="col-md-3 pull-right">
-															<a href="JavaScript:void(0);" class="form-label" style="text-align:right;">Size Guide</a>
 														</div>
 													</div>
 													
@@ -373,20 +359,16 @@ $this->load->view("common/header");
 															foreach($explode_size AS $each_raw_size){
 														?>
 														<label class="selectgroup-item" >
-															<input type="radio" name="size" value="<?php echo $each_raw_size;?>" class="selectgroup-input">
+															<input type="radio" name="size" data-error="#errNm1" value="<?php echo $each_raw_size;?>" class="selectgroup-input">
 															<span class="selectgroup-button" style="border:1px solid #000;color:#000;"><?php echo $each_raw_size;?></span>
 														</label>
-														
 														<?php
 															}
 														?>
-														<!--<label class="selectgroup-item">
-															<input type="radio" name="value" value="JavaScript" class="selectgroup-input">
-															<span class="selectgroup-button" style="border:1px solid #000;color:#000;text-decoration: line-through;">XL</span>
-														</label>-->
 													</div>
+													<span id="errNm1"></span>
 												</div>
-										</div>
+											</div>
 										<?php
 											}
 										?>
@@ -395,10 +377,10 @@ $this->load->view("common/header");
 										<div class="card-body">
 											<div class="row">
 												<div class="col-md-3">
-		
 													<div class="quantity buttons_added">
-														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="0" class="input-text qty text" size="4" pattern="" data-error="#errNm2"><input type="button" value="+" class="plus">
 													</div>
+													<span id="errNm2"></span>
 												</div>
 
 												<input type="hidden" name="p_id" value="<?php echo $fetch_prod_data->product_id;?>">
@@ -406,32 +388,16 @@ $this->load->view("common/header");
 												<input type="hidden" name="design_image" value="<?php echo $fetch_prod_data->product_design_id;?>">
 												<input type="hidden" name="product_type" value="readymade">
 												<div class="col-md-9">
-													<button type="button" class="btn btn-info btn-block" style="font-size:20px;" onclick="add_to_cart()">Add To Bag</button>
+													<button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
 												</div>
 						
 											</div>
 										</div>
 									</form>
 										<!-- CART ENDS -->
-										<!-- COD Starts-->
-										<div class="card-body">
-											<div class="cardprice" style="font-size:12px;">
-												<span>Check delivery date / COD availability</span><br>
-												<span class="pl-6">
-													<div class="row">
-														<div class="col-md-8">
-															<input type="text" class="form-control" placeholder="Enter Pincode">
-														</div>
-														<div class="col-md-4">
-															<button class="btn btn-small btn-white">CHECK</button>
-														</div>
-													</div>
-												</span>
-											</div>
-										</div>
-										<!-- COD ENDS-->
 									</div>
 								</div>
+							</div>
 
 
 								<!--ENDS-->
@@ -885,9 +851,17 @@ $this->load->view("common/header");
 						        	?>
 						            <div class="carousel-item col-md-3 <?php echo(($key==0)?'active':'');?>"  >
 						               <div class="panel panel-default">
-						                  <div class="panel-thumbnail" style="border-radius:5px 5px 0px 0px !important;border:1px solid #CCC !important;height:333px;width:100%;">
+						                  <div class="panel-thumbnail" style="border-radius:5px !important;text-align:center;">
 						                    <a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>">
-					                    	<img class="img-responsive" alt="" src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_similar_prod->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:250px;">
+					                    	
+						                    <div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px 1px 0px 1px solid #CCC !important;height:300px;">
+												<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>">
+													
+													<img class="img-responsive" alt="" src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_similar_prod->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												</a>
+												<div class="clearfix"></div>
+											</div>
+					                    	
 					                    	 <div class="card item-card" style="margin-top:-22px;">
 												<div class="cardtitle" style="text-align:center;">
 													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;">
@@ -944,42 +918,43 @@ $this->load->view("common/header");
 <?php
 $this->load->view("common/footer");
 ?>
-	<!-- cart ajax starts -->
-	<script type="text/javascript">
-
-// Ajax post
-
-	function add_to_cart(){
-		$(".loader").show();
-		var price = $("input[name=price]").val();
-		var size = $("input[name=size]").val();
-		if(size == null){var yosize = 0;}else{var yosize = $("input[name=size]").val();}
-
-		var color = $("input[name=color]").val();
-		if(color == null){var yocolor = 0;}else{var yocolor = $("input[name=color]").val();}
-
-		var product_id = $("input[name=p_id]").val();
-		var design_image = $("input[name=design_image]").val();
-		var product_type = $("input[name=product_type]").val();
-		var qty = $("input[name=quantity]").val();
-
-		$.ajax({
-			type: "POST",
-			url: "<?php echo base_url('product_details/add_to_cart'); ?>",
-			dataType: 'text',
-			data: {price: price, size: yosize,color: color,p_id: product_id,design_image: design_image,product_type: product_type,quantity:qty},
-			success: function(res) {
-				if (res)
-				{
-					$(".loader").hide();
-					$(".msg").html(res);
-				}
+	<script src="<?php echo base_url();?>js/jquery.validate.js"></script>
+	<script>
+		$('#cartz_add').validate({
+			rules: {
+			  size: {
+				required: true
+			  },
+			  quantity: {
+				required: true
+			  }
+			},
+			messages: {
+				size: "Size is required",
+				quantity: "Quantity is required"
+			},
+			errorPlacement: function(error, element) {
+			  var placement = $(element).data('error');
+			  if (placement) {
+				$(placement).append(error)
+			  }else{
+				error.insertAfter(element);
+			  }
 			}
-		});
-	}
-
+		  });
+		 
+		 $('#cartz_add').on('submit', function() {
+			 if( $(this).valid() ) {
+				 $("#loader").show();
+				 $("#prozzz_data_hide").hide();
+			 }else{
+				$("#loader").hide();
+				$("#prozzz_data_hide").show();
+			 }
+			 return $('#cartz_add').jqxValidator('validate');
+		 });
 	</script>
-	<!-- cart ajax ends -->
+	
 	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
 		<script>
 			// select all thumbnails
