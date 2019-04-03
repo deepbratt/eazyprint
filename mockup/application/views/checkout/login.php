@@ -253,7 +253,7 @@
 <?php
 $this->load->view("common/footer");
 ?>
-				<!-- ACCORDIONS STARTS -->
+				<!-- ACCORDIONS STARTS 
 				<script>
 					var acc = document.getElementsByClassName("accordion");
 					var i;
@@ -269,7 +269,7 @@ $this->load->view("common/footer");
 					for (i = 0; i < acc.length; i++) {
 					  acc[i].onclick = click_action;
 					}
-				</script>
+				</script>-->
 			<!-- Accordions Ends -->
 				<script>
 				$(document).ready(function(){
