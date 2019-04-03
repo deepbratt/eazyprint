@@ -15,18 +15,8 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
 		}
-
-		$data['color'] = $this->input->post('color');
-		$data['size'] = $this->input->post('size');
-		
 		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
 		
-		$data['fetch_prod_image_data'] = $this->checkout_m->prod_image_info($pro_id);
-		$single_image = array();
-		foreach($data['fetch_prod_image_data'] AS $fetch_single_images){
-			$single_image[] = $fetch_single_images->product_image_path;
-		}
-		$data['single_prod_image'] = $single_image;
 		$this->load->view('checkout/login',$data);
 	}
 
@@ -85,12 +75,8 @@ class Checkout extends CI_Controller {
 	{
 		$this->load->model('checkout_m');
 		$pro_id = $this->uri->segment(3);
-		
-
 		$data['size'] = $this->input->post('size');
-		
 		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
-		
 		$data['fetch_prod_image_data'] = $this->checkout_m->prod_image_info($pro_id);
 		$single_image = array();
 		foreach($data['fetch_prod_image_data'] AS $fetch_single_images){
