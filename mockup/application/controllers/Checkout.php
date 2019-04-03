@@ -6,7 +6,7 @@ class Checkout extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('checkout_m');
-		$pro_id = $this->uri->segment(2);
+		//$pro_id = $this->uri->segment(2);
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
 		}else{
@@ -15,7 +15,7 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
 		}
-		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
+		$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id']);
 		
 		$this->load->view('checkout/login',$data);
 	}
@@ -54,7 +54,7 @@ class Checkout extends CI_Controller {
 		}
 	}
 
-	public function delivery_add()
+	public function delivery_address()
 	{
 		$this->load->model('checkout_m');
 		$pro_id = $this->uri->segment(3);
@@ -65,13 +65,14 @@ class Checkout extends CI_Controller {
 		}
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
+			$data['fetch_user_address'] = $this->checkout_m->user_address_detailzz($data['user_id']);
 		}
 		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
 		
 		$this->load->view('checkout/delivery_address',$data);
 	}
 
-	public function order_summ()
+	public function order_summary()
 	{
 		$this->load->model('checkout_m');
 		$pro_id = $this->uri->segment(3);
@@ -86,7 +87,7 @@ class Checkout extends CI_Controller {
 		$this->load->view('checkout/order_summary',$data);
 	}
 
-	public function pay_option()
+	public function payment_option()
 	{
 		$this->load->model('checkout_m');
 		$pro_id = $this->uri->segment(3);

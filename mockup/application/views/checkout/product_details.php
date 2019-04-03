@@ -9,7 +9,7 @@
 					<table class="table card-table table-vcenter text-nowrap">
 						<tr>
 							<td>Price(1 Item)</td>
-							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
+							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 200</td>
 						</tr>
 						<tr>
 							<td>Apply Coupon</td>
@@ -21,7 +21,7 @@
 						</tr>
 						<tr>
 							<td>Amount Payable</td>
-							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></td>
+							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> 200</td>
 						</tr>
 					</table>
 				</div>

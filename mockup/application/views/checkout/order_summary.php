@@ -122,19 +122,7 @@
 							<div class="page-header">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$this->load->model('checkout_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_prod_data->product_name);
-									?>
-									</li>
+									<li class="breadcrumb-item" aria-current="page">Checkout</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -142,8 +130,8 @@
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">LOGIN</button></a>
-								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								<!-- ORDER SUMMARY STARTS-->
 								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
@@ -198,7 +186,7 @@
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
 								<!-- PAYMENT OPTION STARTS -->
-								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">PAYMENT OPTION</button></a>
+								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>
 							<!-- PAYMENT OPTION ENDS -->
 						</div>

@@ -122,19 +122,7 @@
 							<div class="page-header">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$this->load->model('checkout_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_prod_data->product_name);
-									?>
-									</li>
+									<li class="breadcrumb-item" aria-current="page">Checkout</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -142,7 +130,7 @@
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
@@ -152,13 +140,13 @@
 										  <div class="custom-controls-stacked">
 											<label class="custom-control custom-radio">
 												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-												<span class="custom-control-label"><strong><?php echo $this->session->userdata['logged_in']['name'];?></strong></span>
+												<span class="custom-control-label"><strong><?php echo $fetch_user_address->full_name;?></strong></span>
 												<!--<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>-->
-												<span class="custom-control-label"><strong><?php echo $fetch_user_data->user_phone;?></strong></span>
+												<span class="custom-control-label"><strong><?php echo $fetch_user_address->phone;?></strong></span>
 											</label>
 										  </div>
 										  <div class="form-group address_hide">
-										  	<p class="ml-5"><?php echo $fetch_user_data->user_address;?><br><?php echo $fetch_user_data->user_city;?><br><?php echo $fetch_user_data->user_state;?><br><?php echo $fetch_user_data->user_pincode;?></p>
+										  	<p class="ml-5"><?php echo $fetch_user_address->address;?><br><?php echo $fetch_user_address->city;?><br><?php echo $fetch_user_address->state;?><br><?php echo $fetch_user_address->postal_code;?><br><?php echo $fetch_user_address->country;?></p>
 										  </div>
 										</div>
 										<div class="col-md-1 p-3">
@@ -234,8 +222,8 @@
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								
-								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">ORDER SUMMARY</button></a>
-								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">PAYMENT OPTION</button></a>
+								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>
 						</div>
 						<?php $this->load->view("checkout/product_details");?>
