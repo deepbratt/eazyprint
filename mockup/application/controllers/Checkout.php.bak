@@ -98,7 +98,7 @@ class Checkout extends CI_Controller {
 				"amount" => "349",
 				"send_email" => false,
 				"send_sms" => false,
-				"phone" => "9230841054",
+				"phone" => "0987654321",
 				"email" => "foo@example.com",
 				"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
 				));
