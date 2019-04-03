@@ -18,14 +18,16 @@ class Checkout extends CI_Controller {
 
 		$data['color'] = $this->input->post('color');
 		$data['size'] = $this->input->post('size');
+		
 		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
+		
 		$data['fetch_prod_image_data'] = $this->checkout_m->prod_image_info($pro_id);
 		$single_image = array();
 		foreach($data['fetch_prod_image_data'] AS $fetch_single_images){
 			$single_image[] = $fetch_single_images->product_image_path;
 		}
 		$data['single_prod_image'] = $single_image;
-		$this->load->view('checkout/order_summary',$data);
+		$this->load->view('checkout/login',$data);
 	}
 
 	public function authenticate(){
@@ -65,22 +67,45 @@ class Checkout extends CI_Controller {
 	public function delivery_add()
 	{
 		$this->load->model('checkout_m');
+		$pro_id = $this->uri->segment(3);
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		}else{
+			$data['user_id'] = "";
+		}
+		if($data['user_id'] != ""){
+			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
+		}
+		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
 		
-		$this->load->view('checkout/delivery_address');
+		$this->load->view('checkout/delivery_address',$data);
 	}
 
 	public function order_summ()
 	{
 		$this->load->model('checkout_m');
+		$pro_id = $this->uri->segment(3);
 		
-		$this->load->view('checkout/order_summary');
+
+		$data['size'] = $this->input->post('size');
+		
+		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
+		
+		$data['fetch_prod_image_data'] = $this->checkout_m->prod_image_info($pro_id);
+		$single_image = array();
+		foreach($data['fetch_prod_image_data'] AS $fetch_single_images){
+			$single_image[] = $fetch_single_images->product_image_path;
+		}
+		$data['single_prod_image'] = $single_image;
+		$this->load->view('checkout/order_summary',$data);
 	}
 
 	public function pay_option()
 	{
 		$this->load->model('checkout_m');
-		
-		$this->load->view('checkout/payment_option');
+		$pro_id = $this->uri->segment(3);
+		$data['fetch_prod_data'] = $this->checkout_m->prod_info($pro_id);
+		$this->load->view('checkout/payment_option',$data);
 	}
 
 }

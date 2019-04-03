@@ -25,7 +25,7 @@
 				color:black !important;
 			}
 			/* ACCORDIONS STARTS*/
-				a.accordion , button.accordion {
+				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
 				  padding: 10px;
@@ -37,12 +37,12 @@
 				  border: 1px solid #ccc;
 				}
 
-				a.accordion.active, a.accordion:hover, button.accordion.active, button.accordion:hover {
+				button.accordion.active, button.accordion:hover {
 				  color: #ffffff;
 				  background-color: #7490BD;
 				}
 
-				a.accordion:before button.accordion:before {
+				button.accordion:before {
 				  content: '\02795';
 				  font-size: 9px;
 				  float: left;
@@ -51,7 +51,7 @@
 				  margin-top: 7px;
 				}
 
-				a.accordion.active:before button.accordion.active:before {
+				button.accordion.active:before {
 				  content: "\2796";
 				}
 
@@ -238,9 +238,9 @@
 								  	</div>								  
 								</div>
 								<!-- LOGIN ENDS -->
-								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('2');?>" class="accordion">DELIVERY ADDRESS</a>
-								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('2');?>" class="accordion">ORDER SUMMARY</a>
-								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('2');?>" class="accordion">PAYMENT OPTION</a>
+								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('2');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
+								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('2');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('2');?>"><button class="accordion">PAYMENT OPTION</button></a>
 							<p>&nbsp;</p>
 						</div>
 						<?php $this->load->view("checkout/product_details");?>

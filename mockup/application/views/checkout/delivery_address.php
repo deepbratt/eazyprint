@@ -142,7 +142,7 @@
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<button class="accordion" >LOGIN</button>
+								<a href="<?php echo base_url('checkout/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">LOGIN</button></a>
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
@@ -233,10 +233,9 @@
 								<!-- ADD NEW ADDRESS ENDS-->
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
-								<!-- ORDER SUMMARY STARTS-->
-								<button type="button" class="accordion ">ORDER SUMMARY</button>
-								<!-- PAYMENT OPTION STARTS -->
-								<button type="button" class="accordion ">PAYMENT OPTION</button>
+								
+								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout/pay_option/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>
 						</div>
 						<?php $this->load->view("checkout/product_details");?>
