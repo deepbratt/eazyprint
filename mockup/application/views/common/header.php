@@ -92,7 +92,7 @@
 											?>
 											<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
 												<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
-													<img src="admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
+													<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
 													<?php echo $each_mob_case->raw_title;?> 
 												</a>
 												<!--<ul style="padding-top:10px;">

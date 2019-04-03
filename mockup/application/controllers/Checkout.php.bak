@@ -6,7 +6,7 @@ class Checkout extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('checkout_m');
-		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != null){
+		if(isset($this->session->userdata['logged_in']['user_id']) && ){
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 		}else{
 			redirect('login');

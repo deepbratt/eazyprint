@@ -15,6 +15,7 @@ class Checkout_m extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('cart_selection');
 		$this->db->where('user_id',$user_id);
+		$this->db->where('product_status','1');
 		$query = $this->db->get();
 		return $query->row();
 	}

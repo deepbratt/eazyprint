@@ -83,7 +83,6 @@
 										</span>
 									  </a>
 									  <div class="sub-item " style="border:1px solid #CCCCCC;border-top:none;">
-									  	<div class="container-fluid">
 										<div class="row">
 											<?php
 												$ci =&get_instance();
@@ -111,7 +110,7 @@
 												}	
 											?>
 											
-											</div>
+
 										 </div>
 									   </div>
 									</li>
