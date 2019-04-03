@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Checkout_m extends CI_Model {
 
+	public function user_detailzz($user_id){
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$user_id);
+		$this->db->where('user_status','1');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function cat_data($cat_id){
 		$this->db->select('*');
 		$this->db->from('category');

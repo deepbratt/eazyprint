@@ -75,7 +75,7 @@ class Product_details extends CI_Controller {
 		}else{
 			$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
 		}
-			redirect('product_details/'.$product_id);
+			redirect('checkout/'.$product_id);
 		
 	}
 
