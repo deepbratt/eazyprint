@@ -38,6 +38,38 @@ class Add_order_summery extends CI_Controller {
 		}
 	}
 
+	public function add_order()
+	{
+		$this->load->model('add_order_summery_m');
+		$raw_id = $this->input->post('raw_id');
+
+		$this->load->library('upload');
+		$count_image = count($_FILES['meta_image']['name']);		
+		for($i = 0; $i < $count_image; $i++){
+			$_FILES['userFile']['name'] = $_FILES['meta_image']['name'][$i];
+			$_FILES['userFile']['type'] = $_FILES['meta_image']['type'][$i];
+			$_FILES['userFile']['tmp_name'] = $_FILES['meta_image']['tmp_name'][$i];
+			$_FILES['userFile']['error'] = $_FILES['meta_image']['error'][$i];
+			$_FILES['userFile']['size'] = $_FILES['meta_image']['size'][$i];
+
+			$config['upload_path'] = 'uploads/order_images/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['file_name'] = rand(999,99999).$_FILES['meta_image']['name'][$i];
+			
+			$this->load->library('upload',$config);
+			$this->upload->initialize($config);
+			
+			if($this->upload->do_upload('userFile')){
+				$fileData = $this->upload->data();
+				$product_image[$i]['file_name'] = $fileData['file_name'];
+				$product_image[$i]['created'] = date("Y-m-d H:i:s");
+				$product_image[$i]['modified'] = date("Y-m-d H:i:s");
+			}
+			$record = array('product_id'=>$update_product,'product_image_path'=>$product_image[$i]['file_name']);
+			$update_image = $this->add_product_m->update_pro_img($record);
+		}
+	}
+	
 	public function change_status()
 	{
 		$this->load->model('listing_product_m');
