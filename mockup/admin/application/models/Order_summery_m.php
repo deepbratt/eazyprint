@@ -7,6 +7,7 @@ class Order_summery_m extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
+		$this->db->order_by("raw_id","asc");
 		$query = $this->db->get();
 		return $query->result();
 	}

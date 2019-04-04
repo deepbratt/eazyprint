@@ -12,6 +12,15 @@ class Add_order_summery_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_seller_it($seller_id)
+	{
+		$this->db->select('*');
+		$this->db->from('eazycrew');
+		$this->db->where('crew_id',$seller_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function delete_pro($product_id)
 	{
 		$query = $this->db->query("delete from products where product_id='".$product_id."'");
