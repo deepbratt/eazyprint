@@ -33,6 +33,20 @@ $this->load->view("common/metalinks");
 	  .get_back:hover{
 	  color: #F66175;
 	  }
+	  .add_name{
+		font-size: 16px;
+		font-weight: 500;
+		color: black;
+	  }
+	  .add_details{
+		color: black;
+	  }
+	  .tmc{
+		color: #2DCE89;
+	  }
+	  .cpim{
+		color: #F5365C;
+	  }
 	 .field-icon {
 	  float: right;
 	  margin-right: 10px;
@@ -175,34 +189,81 @@ $this->load->view("common/header");
                     <div class="tab-pane" id="address">
                       <div class="col-lg-12">
                         <form class="card" method="POST" action="<?php echo base_url('account/update_address');?>">
-                          <div class="card-body">
+						<?php
+					    foreach($fetch_address as $get_add){
+					    ?>
+						<div class="card-body">
                             <div class="row">
+                              <div class="col-md-10">
+                                <div class="form-group">
+								  <span class="add_name"><?php echo strtoupper($get_add->full_name);?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $get_add->phone;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="background-color:#F5365C;color:white;display:<?php echo(($get_add->address_status == '1')?'':'none');?>">PRIMARY</code></span>
+								  <br>
+								  <span class="add_details"><?php echo $get_add->address;?></span>
+								  <br>
+								  <span class="add_details"><?php echo $get_add->city;?>, <?php echo $get_add->state;?>, Pin : <?php echo $get_add->postal_code;?></span>
+                                </div>
+                              </div>
+							  <div class="col-md-2">
+								<div class="btn btn-group dropdown">
+									<button aria-expanded="false" aria-haspopup="true" class="btn btn-oblong btn-sm btn-secondary dropdown-toggle btn btn-sm" data-toggle="dropdown" type="button">Manage</button>
+									<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(44px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+										<a class="dropdown-item" href="#" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">
+											<i class="fas fa-check text-success fa-fw" style="font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Mark as Primary
+										</a>
+										<a class="dropdown-item" href="#">
+											<i class="fas fa-pen text-success fa-fw"></i>&nbsp;&nbsp;&nbsp;Edit
+										</a>
+										<a class="dropdown-item" href="#">
+											<i class="fas fa-times text-danger fa-fw" style="font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Delete
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					  </div>
+					  <div id="edit_div<?php echo $get_add->user_address_id;?>">
+					  <div class="card-body">
+                            <div class="row">
+							  <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Name
+                                  </label>
+                                  <input type="text" class="form-control" name="name" placeholder="City" value="<?php echo $get_add->full_name;?>">
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Phone
+                                  </label>
+                                  <input type="text" class="form-control" name="phone" placeholder="State" value="<?php echo $get_add->phone;?>">
+                                </div>
+                              </div>
                               <div class="col-md-12">
                                 <div class="form-group">
                                   <label class="form-label">Address
                                   </label>
-                                  <textarea class="form-control" name="address" placeholder="Address" ><?php echo $fetch_account_details->user_address;?></textarea>
+                                  <textarea class="form-control" name="address" placeholder="Address" ><?php echo $get_add->address;?></textarea>
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">City
                                   </label>
-                                  <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo $fetch_account_details->user_city;?>">
+                                  <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo $get_add->city;?>">
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">State
                                   </label>
-                                  <input type="text" class="form-control" name="state" placeholder="State" value="<?php echo $fetch_account_details->user_state;?>">
+                                  <input type="text" class="form-control" name="state" placeholder="State" value="<?php echo $get_add->state;?>">
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">Postal Code
                                   </label>
-                                  <input type="number" class="form-control" name="pincode" placeholder="ZIP Code" value="<?php echo $fetch_account_details->user_pincode;?>">
+                                  <input type="number" class="form-control" name="pincode" placeholder="ZIP Code" value="<?php echo $get_add->postal_code;?>">
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
@@ -216,10 +277,81 @@ $this->load->view("common/header");
                               </div>
                             </div>
                           </div>
-                          <div class="card-footer text-right">
+						  <div class="card-footer text-right">
                             <button type="submit" class="btn btn-primary">Update Profile
                             </button>
                           </div>
+						  </div>
+					  <?php
+						}
+					  ?>
+
+						  <?php
+						  foreach($fetch_address as $get_add){
+						  ?>
+                          <div class="card-body">
+                            <div class="row">
+							  <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Name
+                                  </label>
+                                  <input type="text" class="form-control" name="name" placeholder="City" value="<?php echo $get_add->full_name;?>">
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Phone
+                                  </label>
+                                  <input type="text" class="form-control" name="phone" placeholder="State" value="<?php echo $get_add->phone;?>">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label">Address
+                                  </label>
+                                  <textarea class="form-control" name="address" placeholder="Address" ><?php echo $get_add->address;?></textarea>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">City
+                                  </label>
+                                  <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo $get_add->city;?>">
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">State
+                                  </label>
+                                  <input type="text" class="form-control" name="state" placeholder="State" value="<?php echo $get_add->state;?>">
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Postal Code
+                                  </label>
+                                  <input type="number" class="form-control" name="pincode" placeholder="ZIP Code" value="<?php echo $get_add->postal_code;?>">
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Country
+                                  </label>
+                                  <select class="form-control custom-select" name="country">
+                                    <option value="India" selected>India</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+						  <div class="card-footer text-right">
+                            <button type="submit" class="btn btn-primary">Update Profile
+                            </button>
+                          </div>
+						  <?php
+							}
+						  ?>
+                          
                         </form>
                       </div>
                     </div>

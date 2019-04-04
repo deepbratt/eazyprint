@@ -135,90 +135,43 @@
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
 								<div class="accordion_panel show">
+								<form method="POST" action="<?php echo base_url('checkout/add_delivery_address');?>">
 									<div class="row">
+										<?php
+											foreach($user_addrezzz AS $key=>$fetch_user_address){
+										?>
 										<div class="col-md-11 p-3">
 										  <div class="custom-controls-stacked">
 											<label class="custom-control custom-radio">
-												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+												
+												<input type="radio" class="custom-control-input" name="del_address" value="<?php echo $fetch_user_address->user_address_id;?>" <?php echo (($fetch_user_address->address_status == '1')?'checked':'')?>>
+												
 												<span class="custom-control-label"><strong><?php echo $fetch_user_address->full_name;?></strong></span>
 												<!--<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>-->
-												<span class="custom-control-label"><strong><?php echo $fetch_user_address->phone;?></strong></span>
+												<?php
+													if($fetch_user_address->phone != ""){
+												?>
+												<span class="custom-control-label"><strong>(<?php echo $fetch_user_address->phone;?>)</strong></span>
+												<?php
+													}
+												?>
 											</label>
 										  </div>
-										  <div class="form-group address_hide">
-										  	<p class="ml-5"><?php echo $fetch_user_address->address;?><br><?php echo $fetch_user_address->city;?><br><?php echo $fetch_user_address->state;?><br><?php echo $fetch_user_address->postal_code;?><br><?php echo $fetch_user_address->country;?></p>
+										  <div class="form-group address_hide_<?php echo $fetch_user_address->user_address_id;?>">
+										  	<p class="ml-5"><?php echo $fetch_user_address->address;?><br><?php echo $fetch_user_address->city;?>,&nbsp;<?php echo $fetch_user_address->state;?>,&nbsp;<?php echo $fetch_user_address->country;?><br><?php echo $fetch_user_address->postal_code;?></p>
 										  </div>
 										</div>
-										<div class="col-md-1 p-3">
-											<div class="form-group">
-												<a href="javascript:void(0);" style="font-size:15px;font-weight:bold;" id="show">EDIT</a>
-											</div>
+										<?php
+											}
+										?>
+										<div class="col-md-6">
+											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
+										</div>
+										<div class="col-md-6">
+											<button type="submit" class="btn btn-orange btn-lg" style="float:right;">Continue</button>
 										</div>
 									</div>
-
-									<!-- EDIT ADDRESS -->
-									<div class="row address_edit" style="display:none;">
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Full Name</label>
-												<input type="text" class="form-control" value="<?php echo $this->session->userdata['logged_in']['name'];?>" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<label>Pincode</label>
-												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_pincode;?>" placeholder="Pincode">
-											</div>
-										</div>
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_phone;?>" placeholder="Mobile Number">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<label>Address</label>
-											<textarea class="form-control" placeholder="Address"><?php echo $fetch_user_data->user_address;?></textarea>
-										</div>
-										<div class="col-md-12" style="margin-top:10px;">
-											<button class="btn btn-success">Submit</button>
-											<button id="hide" class="btn btn-secondary">Cancel</button>
-										</div>
-									</div>
-								<!-- EDIT ADDRESS -->
-
-									
-									<div class="row">
-										<div class="col-md-12 p-3">
-											<a href="javascript:voide(0);" id="add_address_show" style="font-weight: bold;font-size:13px;"><i class="fas fa-plus"></i> ADD NEW ADDRESS</a>
-										</div>
-									</div>
-									<!-- ADD NEW ADDRESS STARTS-->
-									<div class="row address_add" style="display:none;">
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Full Name</label>
-												<input type="text" class="form-control" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<label>Pincode</label>
-												<input type="text" class="form-control" placeholder="Pincode">
-											</div>
-										</div>
-										<div class="col-md-6 ">
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" class="form-control" placeholder="Mobile Number">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<label>Address</label>
-											<textarea class="form-control" placeholder="Address"></textarea>
-										</div>
-										<div class="col-md-12" style="margin-top:10px;">
-											<button class="btn btn-success">Submit</button>
-											<button id="add_address_hide" class="btn btn-secondary">Cancel</button>
-										</div>
-									</div>
-								<!-- ADD NEW ADDRESS ENDS-->
+								</form>
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								
@@ -255,14 +208,16 @@ $this->load->view("common/footer");
 				</script>-->
 			<!-- Accordions Ends -->
 				<script>
-				$(document).ready(function(){
-				    $("#hide").click(function(){
-				        $(".address_edit").hide();
-				        $(".address_hide").show();
+				function edit_addrr(e){
+					var addrez_id = e;
+					
+				    $("#hide_"+addrez_id+"").click(function(){
+				        $(".address_edit_"+addrez_id+"").hide();
+				        $(".address_hide_"+addrez_id+"").show();
 				    });
-				    $("#show").click(function(){
-				        $(".address_edit").show();
-				        $(".address_hide").hide();
+				    $("#show_"+addrez_id+"").click(function(){
+				        $(".address_edit_"+addrez_id+"").show();
+				        $(".address_hide_"+addrez_id+"").hide();
 				    });
 				    $("#add_address_hide").click(function(){
 				        $(".address_add").hide();
@@ -272,7 +227,7 @@ $this->load->view("common/footer");
 				        $(".address_add").show();
 				        $(".add_address_hide").hide();
 				    });
-				});
+				};
 				</script>
 	</body>
 </html>
