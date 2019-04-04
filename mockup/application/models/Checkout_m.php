@@ -28,14 +28,17 @@ class Checkout_m extends CI_Model {
 		return $query->row();
 	}
 
-	public function prod_info($user_id){
+	
+	public function prod_info($user_id,$ip_data){
 		$this->db->select('*');
 		$this->db->from('cart_selection');
 		$this->db->join('products','cart_selection.product_id = products.product_id');
-		$this->db->where('cart_selection.user_id',$user_id);
+		$this->db->where('cart_selection.ip_address',$ip_data);
+		$this->db->or_where('cart_selection.user_id',$user_id);
 		$this->db->where('products.product_status','1');
 		$query = $this->db->get();
 		return $query->result();
+		//return $this->db->last_query();
 	}
 
 	public function prod_image_info($prod_id){
