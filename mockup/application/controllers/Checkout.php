@@ -16,6 +16,12 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
 			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id']);
+
+			$amount_array = array();
+			foreach($data['fetch_prod_data'] AS $each_cart_data){
+				$amount_array[] = $each_cart_data->price;
+			}
+			$data['total_amount'] = array_sum($amount_array);
 		}
 		
 		$this->load->view('checkout/login',$data);
@@ -80,6 +86,12 @@ class Checkout extends CI_Controller {
 			$data['user_addrezzz'] = $this->checkout_m->user_address_detailzz($data['user_id']);
 			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id']);
 
+			$amount_array = array();
+			foreach($data['fetch_prod_data'] AS $each_cart_data){
+				$amount_array[] = $each_cart_data->price;
+			}
+			$data['total_amount'] = array_sum($amount_array);
+
 			$this->load->view('checkout/delivery_address',$data);
 		}else{
 			redirect('checkout');
@@ -129,6 +141,12 @@ class Checkout extends CI_Controller {
 		}
 		if($data['user_id'] != ""){
 			$data['prod_datazzz'] = $this->checkout_m->prod_info($data['user_id']);
+
+			$amount_array = array();
+			foreach($data['prod_datazzz'] AS $each_cart_data){
+				$amount_array[] = $each_cart_data->price;
+			}
+			$data['total_amount'] = array_sum($amount_array);
 		}else{
 			redirect('checkout');
 		}
@@ -185,14 +203,14 @@ class Checkout extends CI_Controller {
 			foreach($fetch_cart_data AS $each_cart_data){
 				$amount_array[] = $each_cart_data->price;
 			}
-			$total_amount = array_sum($amount_array);
+			$data['total_amount'] = array_sum($amount_array);
 
 			$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
 			try {
 				$response = $api->paymentRequestCreate(array(
 					"buyer_name" => $this->session->userdata['logged_in']['name'],
 					"purpose" => "Tshirt , Mobile case",
-					"amount" => $total_amount,
+					"amount" => $data['total_amount'],
 					"send_email" => false,
 					"send_sms" => false,
 					"phone" => $this->session->userdata['logged_in']['phone'],
