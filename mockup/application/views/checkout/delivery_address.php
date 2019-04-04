@@ -167,9 +167,15 @@
 										<div class="col-md-6">
 											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
 										</div>
+										<?php
+											if(!empty($user_addrezzz)){
+										?>
 										<div class="col-md-6">
 											<button type="submit" class="btn btn-orange btn-lg" style="float:right;">Continue</button>
 										</div>
+										<?php
+											}
+										?>
 									</div>
 								</form>
 								</div>

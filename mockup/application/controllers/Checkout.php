@@ -7,15 +7,17 @@ class Checkout extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('checkout_m');
+		$this->load->library('user_agent');
 		//$pro_id = $this->uri->segment(2);
+		$ip_data = $this->input->ip_address();
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
 		}else{
 			$data['user_id'] = "";
 		}
-		if($data['user_id'] != ""){
+		if($data['user_id'] != "" || $ip_data != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id']);
+			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
 			foreach($data['fetch_prod_data'] AS $each_cart_data){
@@ -56,7 +58,7 @@ class Checkout extends CI_Controller {
 			$this->session->set_userdata('logged_in',$session_data);
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 			$ip_data = $this->input->ip_address();
-			$cart_user_id = $this->checkout_m->prod_info($ip_data);
+			$cart_user_id = $this->checkout_m->prod_info($user_id,$ip_data);
 
 			if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "customer"){
 
@@ -75,7 +77,9 @@ class Checkout extends CI_Controller {
 	/* Delivery_address PAGE of checkout Starts*/
 	public function delivery_address()
 	{
+		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
+		$ip_data = $this->input->ip_address();
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
 		}else{
@@ -84,7 +88,7 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
 			$data['user_addrezzz'] = $this->checkout_m->user_address_detailzz($data['user_id']);
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id']);
+			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
 			foreach($data['fetch_prod_data'] AS $each_cart_data){
@@ -133,14 +137,16 @@ class Checkout extends CI_Controller {
 	/* Order_summary PAGE of checkout Starts*/
 	public function order_summary()
 	{
+		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
+		$ip_data = $this->input->ip_address();
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
 		}else{
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$data['prod_datazzz'] = $this->checkout_m->prod_info($data['user_id']);
+			$data['prod_datazzz'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
 			foreach($data['prod_datazzz'] AS $each_cart_data){
@@ -190,7 +196,9 @@ class Checkout extends CI_Controller {
 	/* Payment_option PAGE of checkout Starts*/
 	public function payment_option()
 	{
+		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
+		$ip_data = $this->input->ip_address();
 		$this->load->helper('Instamojo');
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
@@ -198,7 +206,7 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$fetch_cart_data = $this->checkout_m->prod_info($data['user_id']);
+			$fetch_cart_data = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 			$amount_array = array();
 			foreach($fetch_cart_data AS $each_cart_data){
 				$amount_array[] = $each_cart_data->price;
