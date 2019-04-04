@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Order Summary</title>
 		<style>
 			body{
 				color:black !important;
@@ -123,6 +123,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -135,46 +136,77 @@
 								<!-- ORDER SUMMARY STARTS-->
 								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
-								  <div class="row p-3">
-								  	<div class="col-md-3">
+								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
+								  <div class="row">
+								  	<?php
+								  		foreach($fetch_prod_data AS $fetch_prod_data){
+								  	?>
+								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" style="height:130px;">
+								  			<?php
+								  				$prod_id = $fetch_prod_data->product_id;
+								  				$fetch_prod_image = $this->checkout_m->prod_image_info($prod_id);
+								  			?>
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:130px;">
 								  		</div>
+								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
 								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
 										</div>
 								  	</div>
 								  	<div class="col-md-6">
 								  		<div class="form-group">
 								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
 								  		</div>
+								  		
 								  		<?php
-								  			if($size != ''){
+								  			if($fetch_prod_data->size != ''){
 								  		?>
 								  		<div class="form-group">
-								  			<span>Size: <?php echo $size;?></span>
+								  			<span>Size: <?php echo $fetch_prod_data->size;?></span>
 								  		</div>
 								  		<?php
 								  			}
 								  		?>
+							  		
+							  			<?php
+							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($fetch_prod_data->user_id);
+								  			if(!empty($fetch_supplier_name)){
+								  		?>
+								  		<div class="form-group">
+								  			<span>Seller: <?php echo $fetch_supplier_name->user_store_name;?></span>
+								  		</div>
+								  		<?php
+								  			}else{
+								  		?>
 								  		<div class="form-group">
 								  			<span>Seller: Eazyprint</span>
 								  		</div>
+								  		<?php
+								  			}
+								  		?>
+										  	
 								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></span>
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->price;?></span>
 								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
 								  		</div>
 								  	</div>
 								  	<div class="col-md-3">
 								  		<div class="form-group">
+											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $fetch_prod_data->cart_id;?>">Remove</a>
+										</div>
+								  		<div class="form-group">
 								  			<span>Delivery in 2Days, Thursday | Free</span>
 								  		</div>
 								  	</div>
+								  	<?php
+								  		}
+								  	?>
 								  </div>
 								  <div class="row p-3">
 								  	<div class="col-md-9">
 								  		<div class="form-group">
-								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);">debashisnath1992@gmail.com</a></p>
+								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);"><?php echo $this->session->userdata['logged_in']['email']?></a></p>
 								  		</div>
 								  	</div>
 								  	<div class="col-md-3 text-right">
@@ -183,6 +215,7 @@
 								  		</div>
 								  	</div>
 								  </div>
+								</form>
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
 								<!-- PAYMENT OPTION STARTS -->

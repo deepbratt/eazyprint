@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Delivery Address</title>
 		<style>
 			body{
 				color:black !important;
@@ -123,6 +123,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Delivery Address</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -135,14 +136,17 @@
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
 								<div class="accordion_panel show">
+								<form method="POST" action="<?php echo base_url('checkout/add_delivery_address');?>">
 									<div class="row">
 										<?php
-											foreach($fetch_user_address AS $fetch_user_address){
+											foreach($user_addrezzz AS $key=>$fetch_user_address){
 										?>
 										<div class="col-md-11 p-3">
 										  <div class="custom-controls-stacked">
 											<label class="custom-control custom-radio">
-												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
+												
+												<input type="radio" class="custom-control-input" name="del_address" value="<?php echo $fetch_user_address->user_address_id;?>" <?php echo (($fetch_user_address->address_status == '1')?'checked':'')?>>
+												
 												<span class="custom-control-label"><strong><?php echo $fetch_user_address->full_name;?></strong></span>
 												<!--<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>-->
 												<?php
@@ -161,20 +165,20 @@
 										<?php
 											}
 										?>
-
-										<div class="row">
-											<div class="col-md-6 text-left">
-												<form action="<?php echo base_url('checkout/manage_address');?>">
-												<button type="submit" style="font-weight: bold;font-size:13px;">Manage Address</button>
-												</form>
-											</div>
-											<div class="col-md-6 text-right">
-												<form action="<?php echo base_url('checkout/delivery_address');?>">
-												<button class="btn btn-orange btn-lg">Continue</button>
-												</form>
-											</div>
+										<div class="col-md-6">
+											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
 										</div>
+										<?php
+											if(!empty($user_addrezzz)){
+										?>
+										<div class="col-md-6">
+											<button type="submit" class="btn btn-orange btn-lg" style="float:right;">Continue</button>
+										</div>
+										<?php
+											}
+										?>
 									</div>
+								</form>
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								

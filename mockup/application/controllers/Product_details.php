@@ -56,6 +56,7 @@ class Product_details extends CI_Controller {
 		if(count($check_cart_of_user) < 1){
 			$save_cart = array(
 				'cart_id' => Null,
+				'ip_address' => $user_id,
 				'user_id' => $user_id,
 				'price' => $price,
 				'size' => $size,
