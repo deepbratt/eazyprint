@@ -123,17 +123,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$this->load->model('checkout_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_prod_data->product_name);
-									?>
+										Checkout
 									</li>
 								</ol>
 							</div>
@@ -141,6 +131,13 @@
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								<?php
+									if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == 'customer'){
+											$user_id = $this->session->userdata['logged_in']['user_id'];
+											$ci =&get_instance();
+											$ci->load->model('login_m');
+											$get_profile_details = $ci->login_m->get_profile_details($user_id);
+								?>
 								<!--LOGIN STARTS-->
 								<button class="accordion <?php echo (($user_id != "")?'':'active')?>" >LOGIN</button>
 								<div class="accordion_panel <?php echo (($user_id != "")?'':'show')?>">
@@ -161,11 +158,15 @@
 						                        ?>
 								  				<div class="form-group">
 									  				<h5>Name:</h5>
+<<<<<<< HEAD:mockup/application/views/checkout.php
+									  				<input type="email" value="" name="email" class="form-control" required>
+=======
 									  				<input type="email" value="" name="username" class="form-control">
+>>>>>>> 11be2cb78e94029e70367a3cca5c96ff9d2f735d:mockup/application/views/checkout/checkout_backup.php
 									  			</div>
 									  			<div class="form-group">
 									  				<h5>Password:</h5>
-									  				<input type="password" value="" name="password" class="form-control">
+									  				<input type="password" value="" name="password" class="form-control" required>
 									  			</div>
 									  			<div class="form-group">
 									  				<button type="submit" class="btn btn-primary">LOGIN</button>
@@ -237,6 +238,8 @@
 								  		</div>
 								  	</div>								  
 								</div>
+
+
 								<!-- LOGIN ENDS -->
 								<?php
 					  				if($user_id != ""){

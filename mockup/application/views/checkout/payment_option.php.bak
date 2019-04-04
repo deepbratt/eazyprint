@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -129,66 +128,28 @@
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
-								<!--LOGIN STARTS-->
+								
+								<!-- LOGIN ENDS -->
+								
+								<!-- DELIVERY ADDRESS STARTS-->
 								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								<!-- ORDER SUMMARY STARTS-->
-								<button type="button" class="accordion active">ORDER SUMMARY</button>
-								<div class="accordion_panel show">
-								  <div class="row p-3">
-								  	<div class="col-md-3">
-								  		<div class="form-group">
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" style="height:130px;">
-								  		</div>
-								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-										</div>
-								  	</div>
-								  	<div class="col-md-6">
-								  		<div class="form-group">
-								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
-								  		</div>
-								  		<?php
-								  			if($size != ''){
-								  		?>
-								  		<div class="form-group">
-								  			<span>Size: <?php echo $size;?></span>
-								  		</div>
-								  		<?php
-								  			}
-								  		?>
-								  		<div class="form-group">
-								  			<span>Seller: Eazyprint</span>
-								  		</div>
-								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->product_retail_price;?></span>
-								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
-								  		</div>
-								  	</div>
-								  	<div class="col-md-3">
-								  		<div class="form-group">
-								  			<span>Delivery in 2Days, Thursday | Free</span>
-								  		</div>
-								  	</div>
-								  </div>
-								  <div class="row p-3">
-								  	<div class="col-md-9">
-								  		<div class="form-group">
-								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);">debashisnath1992@gmail.com</a></p>
-								  		</div>
-								  	</div>
-								  	<div class="col-md-3 text-right">
-								  		<div class="form-group">
-								  			<button class="btn btn-orange btn-lg">Continue</button>
-								  		</div>
-								  	</div>
-								  </div>
-								</div>
-								<!-- ORDER SUMMARY ENDS-->
+								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!-- PAYMENT OPTION STARTS -->
-								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
-								<p>&nbsp;</p>
+								<button type="button" class="accordion active">PAYMENT OPTION</button>
+								<div class="accordion_panel show">
+								 
+								   <div class="row" style="max-height:400px; overflow:hiddden;">
+								   		<style>
+											.top-bar{display:none !important;}
+										</style>
+										<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="600" border="0"></iframe>
+								   </div>
+
+							</div>
 							<!-- PAYMENT OPTION ENDS -->
+							<p>&nbsp;</p>
+						
 						</div>
 						<?php $this->load->view("checkout/product_details");?>
 						</div>
@@ -200,7 +161,7 @@
 <?php
 $this->load->view("common/footer");
 ?>
-				<!-- ACCORDIONS STARTS
+				<!-- ACCORDIONS STARTS 
 				<script>
 					var acc = document.getElementsByClassName("accordion");
 					var i;
@@ -216,7 +177,7 @@ $this->load->view("common/footer");
 					for (i = 0; i < acc.length; i++) {
 					  acc[i].onclick = click_action;
 					}
-				</script> -->
+				</script>-->
 			<!-- Accordions Ends -->
 				<script>
 				$(document).ready(function(){

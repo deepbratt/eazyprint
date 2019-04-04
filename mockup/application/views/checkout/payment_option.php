@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -122,19 +121,7 @@
 							<div class="page-header">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$this->load->model('checkout_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_prod_data->product_name);
-									?>
-									</li>
+									<li class="breadcrumb-item" aria-current="page">Checkout</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -145,77 +132,20 @@
 								<!-- LOGIN ENDS -->
 								
 								<!-- DELIVERY ADDRESS STARTS-->
-								<a href="<?php echo base_url('checkout/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">LOGIN</button></a>
-								<a href="<?php echo base_url('checkout/delivery_add/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								<a href="<?php echo base_url('checkout/order_summ/');?><?php echo $this->uri->segment('3');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
+								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
-								  <div class="row">
-									<div class="col-md-11 p-3">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<span class="custom-control-label"><strong>Axis Bank Debit Card</strong></span>
-											<span class="custom-control-label" style="float:right;font-weight:bold;">20xx xxxx xxxx xx87</span>
-										</label>
-									  </div>
-								  	  <div class="row">
-									  		<div class="col-md-3 ml-5">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<button class="btn btn-orange btn-lg">Continue</button>
-									  		</div>
-									  </div>	
-									  <div class="form-group p-4 ml-2">
-									  		<span style="color:green;"><i class="fas fa-rupee-sign"></i>50 instant discount applicable.</span>
-									  </div>
-									</div>
-								  </div>
+								 
+								   <div class="row" style="max-height:400px; overflow:hiddden;">
+								   		<style>
+											.top-bar{display:none !important;}
+										</style>
+										<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="600" border="0" style="border:0px;"></iframe>
+								   </div>
 
-								   <div class="row">
-									<div class="col-md-11 p-3">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<strong class="custom-control-label">Credit / Debit/ ATM Card</strong>
-										</label>
-									  </div>
-									  <div class="row ml-3">
-									  		<div class="col-md-12">
-									  			<input type="text" class="form-control" value="" name="card_number" placeholder="CARD NUMBER">
-									  		</div>
-									  </div>	
-								  	  <div class="row  p-5">
-								  	  		<div class="col-md-3">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="Expiry Date" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<input type="text" class="form-control" value="" name="cvv" placeholder="CVV" style="width:120px;">
-									  		</div>
-									  		<div class="col-md-3">
-									  			<button class="btn btn-orange btn-lg">Continue</button>
-									  		</div>
-									  </div>
-									</div>
-								  </div>
-								   
-								   <!--<div class="row">
-										<iframe src="https://www.instamojo.com/@asimsagir/7b1edb2e88fd4f51b5ffc9aec0f93614/?embed=form" width="600" height="600" border="0"></iframe>
-
-										<iframe src="https://api.juspay.in/merchant/pay/ord_e294a26e66ad4336a992ceab81ad704c?mobile=true"width="630" height="400"style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"></iframe>
-								   </div>-->
-								   <div class="row">
-								   	<div class="col-md-12">
-									  <div class="custom-controls-stacked">
-										<label class="custom-control custom-radio">
-											<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-											<span class="custom-control-label"><strong>Cash on Delivery</strong></span>
-										</label>
-									  </div>
-									</div>
-							  	</div>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
 							<p>&nbsp;</p>
