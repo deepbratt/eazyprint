@@ -18,7 +18,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Payment Option</title>
 		<style>
 			body{
 				color:black !important;
@@ -122,6 +122,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Payment Option</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -130,7 +131,7 @@
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								
 								<!-- LOGIN ENDS -->
-								<?php print_r($response);?>
+								<!--<?php print_r($response);?>-->
 								<!-- DELIVERY ADDRESS STARTS-->
 								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
