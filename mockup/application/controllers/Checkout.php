@@ -139,9 +139,12 @@ class Checkout extends CI_Controller {
 		$this->load->model('checkout_m');
 		$cart_id = $this->input->post('cartzz_id');
 		$quantity = $this->input->post('quantity');
-
-		$quantity_data = array('qty'=>$quantity);
-		$update_quantity = $this->checkout_m->update_quantity($quantity_data,$cart_id);
+		
+		foreach($cart_id AS $key=>$each_cartzz_id){
+			$quantity_data = array('qty'=>$quantity[$key]);
+			$update_quantity = $this->checkout_m->update_quantity($quantity_data,$each_cartzz_id);
+		}
+		
 		if($update_quantity){
 			redirect('checkout/payment_option');
 		}
@@ -208,8 +211,6 @@ class Checkout extends CI_Controller {
 		exit;
 		$this->load->view('checkout/payment_option',$data);
 	}
-
-	
 	/* Payment_option PAGE of checkout Ends*/
 
 }

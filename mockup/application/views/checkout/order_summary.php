@@ -148,9 +148,9 @@
 								  			?>
 								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:130px;">
 								  		</div>
-								  		<input type="hidden" name="cartzz_id" value="<?php echo $fetch_prod_data->cart_id;?>">
+								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
 								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
 										</div>
 								  	</div>
 								  	<div class="col-md-6">
