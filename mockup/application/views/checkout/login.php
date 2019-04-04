@@ -135,7 +135,7 @@
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
 								  			<?php
-								  				if($user_id == ""){
+								  				if(empty($fetch_user_data)){
 								  			?>
 									  		<form method="POST" action="<?php echo base_url('checkout/authenticate/');?><?php echo $this->uri->segment('2');?>">
 									  			<?php
@@ -227,7 +227,7 @@
 								</div>
 								<!-- LOGIN ENDS -->
 								<?php
-					  				if($user_id != ""){
+					  				if(!empty($fetch_user_data)){
 					  			?>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
