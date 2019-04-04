@@ -29,7 +29,7 @@
 											<span class="text-dark"> <b> Merchandise Solution </b> </span>
 										</span>
 									</a>
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									<a class="nav-link d-flex" href="<?php echo base_url("seller");?>">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Partner Stores </b> </span>
 										</span>

@@ -82,7 +82,7 @@
 										foreach($get_categories AS $get_cat){
 									?>
 										<li class="nav-item with-sub  mega-dropdown">
-										  <a class="nav-link" href="<?php echo base_url();?>product/<?php echo $get_cat->cat_id;?>/<?php echo $get_cat->category_name;?>">
+										  <a class="nav-link" href="<?php echo base_url();?>product/<?php echo $get_cat->cat_id;?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark" style="text-transform:uppercase;"> <?php echo $get_cat->category_name;?> </span>
 											</span>
