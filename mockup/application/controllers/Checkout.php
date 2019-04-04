@@ -42,7 +42,8 @@ class Checkout extends CI_Controller {
 									  'user_id' => $row->user_id,
 									  'user_type' => $row->user_type,
 									  'name' =>$fullname,
-									  'email'=>$row->user_email
+									  'email'=>$row->user_email,
+									  'phone'=>$row->user_phone
 								   );
 			}
 			
@@ -171,25 +172,43 @@ class Checkout extends CI_Controller {
 	/* Payment_option PAGE of checkout Starts*/
 	public function payment_option()
 	{
+		$this->load->model('checkout_m');
 		$this->load->helper('Instamojo');
-		$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
-		try {
-			$response = $api->paymentRequestCreate(array(
-				"buyer_name" => "Shuvradeb Mondal",
-				"purpose" => "Tshirt , Mobile case",
-				"amount" => "10",
-				"send_email" => false,
-				"send_sms" => false,
-				"phone" => "9230841054",
-				"email" => "foo@example.com",
-				"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
-				));
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		}else{
+			$data['user_id'] = "";
 		}
-		catch (Exception $e) {
-			print('Error: ' . $e->getMessage());
+		if($data['user_id'] != ""){
+			$fetch_cart_data = $this->checkout_m->prod_info($data['user_id']);
+			$amount_array = array();
+			foreach($fetch_cart_data AS $each_cart_data){
+				$amount_array[] = $each_cart_data->price;
+			}
+			$total_amount = array_sum($amount_array);
+
+			$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
+			try {
+				$response = $api->paymentRequestCreate(array(
+					"buyer_name" => $this->session->userdata['logged_in']['name'],
+					"purpose" => "Tshirt , Mobile case",
+					"amount" => $total_amount,
+					"send_email" => false,
+					"send_sms" => false,
+					"phone" => $this->session->userdata['logged_in']['phone'],
+					"email" => $this->session->userdata['logged_in']['email'],
+					"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
+					));
+			}
+			catch (Exception $e) {
+				print('Error: ' . $e->getMessage());
+			}
+			$data['response'] = $response;
+			$this->load->view('checkout/payment_option',$data);
+		}else{
+			redirect('checkout');
 		}
-		$data['response'] = $response;
-		$this->load->view('checkout/payment_option',$data);
+		
 	}
 
 	public function payment_option_check(){
