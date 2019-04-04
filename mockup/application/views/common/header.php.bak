@@ -82,7 +82,7 @@
 										foreach($get_categories AS $get_cat){
 									?>
 										<li class="nav-item with-sub  mega-dropdown">
-										  <a class="nav-link" href="<?php echo base_url();?>products/<?php echo $get_cat->cat_id;?>/<?php echo $get_cat->category_name;?>">
+										  <a class="nav-link" href="<?php echo base_url();?>product/<?php echo $get_cat->cat_id;?>/<?php echo $get_cat->category_name;?>">
 											<span class="d-none d-lg-block">
 												<span class="text-dark" style="text-transform:uppercase;"> <?php echo $get_cat->category_name;?> </span>
 											</span>
@@ -205,7 +205,7 @@
 											$ci->load->model('login_m');
 											$get_profile_details = $ci->login_m->get_profile_details($user_id);
 									?>
-									<li class="nav-item right" style="margin-left:500px;">
+									<li class="nav-item right" style="margin-left:180px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 										<?php
 											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
