@@ -138,12 +138,8 @@
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
-								 
-								   <div class="row" style="max-height:400px; overflow:hiddden;">
-								   		<style>
-											.top-bar{display:none !important;}
-										</style>
-										<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="600" border="0"></iframe>
+								   <div class="row">
+											<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
 								   </div>
 
 							</div>

@@ -177,7 +177,7 @@ class Checkout extends CI_Controller {
 			$response = $api->paymentRequestCreate(array(
 				"buyer_name" => "Shuvradeb Mondal",
 				"purpose" => "Tshirt , Mobile case",
-				"amount" => "349",
+				"amount" => "10",
 				"send_email" => false,
 				"send_sms" => false,
 				"phone" => "9230841054",
@@ -196,13 +196,7 @@ class Checkout extends CI_Controller {
 		$this->load->helper('Instamojo');
 		$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
 		try {
-			$response = $api->paymentRequestCreate(array(
-				"purpose" => "FIFA 16",
-				"amount" => "3499",
-				"send_email" => true,
-				"email" => "foo@example.com",
-				"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
-				));
+			$response = $api->paymentRequestStatus(['PAYMENT REQUEST ID']);
 			print_r($response);
 		}
 		catch (Exception $e) {
