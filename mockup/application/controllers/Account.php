@@ -6,7 +6,7 @@ class Account extends CI_Controller {
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('login');
+            redirect('admin_login');
         }
     }
 
@@ -15,6 +15,7 @@ class Account extends CI_Controller {
 		$this->load->model('account_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_account_details'] = $this->account_m->fetch_cust_info($user_id);
+		$data['fetch_address'] = $this->account_m->fetch_address($user_id);
 		$this->load->view('customer/account',$data);
 	}
 

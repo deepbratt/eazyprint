@@ -10,6 +10,16 @@ class Account_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+	
+	public function fetch_address($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user_address');
+		$this->db->where('user_id', $user_id);
+		$this->db->order_by('address_status', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	public function check_email_row($new_email,$user_id){
 		$this->db->select('*');
