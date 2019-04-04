@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Login</title>
 		<style>
 			body{
 				color:black !important;
@@ -123,6 +123,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Login</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>

@@ -157,10 +157,10 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$data['prod_datazzz'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
-			foreach($data['prod_datazzz'] AS $each_cart_data){
+			foreach($data['fetch_prod_data'] AS $each_cart_data){
 				$amount_array[] = $each_cart_data->price;
 			}
 			$data['total_amount'] = array_sum($amount_array);
@@ -217,9 +217,9 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$fetch_cart_data = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 			$amount_array = array();
-			foreach($fetch_cart_data AS $each_cart_data){
+			foreach($data['fetch_prod_data'] AS $each_cart_data){
 				$amount_array[] = $each_cart_data->price;
 			}
 			$data['total_amount'] = array_sum($amount_array);

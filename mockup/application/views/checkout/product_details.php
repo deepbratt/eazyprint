@@ -8,13 +8,16 @@
 			  	<div class="table-responsive">
 					<table class="table card-table table-vcenter text-nowrap">
 						<tr>
-							<td>Price(1 Item)</td>
+							<?php
+								$count_data = sizeof($fetch_prod_data);
+							?>
+							<td>Price(<?php echo $count_data;?> Item)</td>
 							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $total_amount;?></td>
 						</tr>
-						<tr>
+						<!--<tr>
 							<td>Apply Coupon</td>
 							<td style="float:right;"><input type="text" placeholder="coupon" class="form-control" style="width:150px;"></td>
-						</tr>
+						</tr>-->
 						<tr>
 							<td>Delivery Charges</td>
 							<td style="float:right;color:green;font-size:21px;;">FREE</td>

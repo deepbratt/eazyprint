@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Order Summary</title>
 		<style>
 			body{
 				color:black !important;
@@ -123,6 +123,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
@@ -138,7 +139,7 @@
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
 								  <div class="row">
 								  	<?php
-								  		foreach($prod_datazzz AS $fetch_prod_data){
+								  		foreach($fetch_prod_data AS $fetch_prod_data){
 								  	?>
 								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
