@@ -130,7 +130,7 @@
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								
 								<!-- LOGIN ENDS -->
-								
+								<?php print_r($response);?>
 								<!-- DELIVERY ADDRESS STARTS-->
 								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
@@ -138,12 +138,8 @@
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
-								 
-								   <div class="row" style="max-height:400px; overflow:hiddden;">
-								   		<style>
-											.top-bar{display:none !important;}
-										</style>
-										<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="600" border="0" style="border:0px;"></iframe>
+								   <div class="row">
+											<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
 								   </div>
 
 							</div>
