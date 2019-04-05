@@ -55,8 +55,7 @@ class Product extends CI_Controller {
 			$config['cur_tag_close'] = "</a></li>";
 			$config['num_tag_open'] = "<li class='page-item'>";
 			$config['num_tag_close'] = "</li>"; 
-			$config['attributes'] =
-			array('class' => 'page-link');
+			$config['attributes'] = array('class' => 'page-link');
 
             $this->pagination->initialize($config);
              
