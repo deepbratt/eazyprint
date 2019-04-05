@@ -205,7 +205,7 @@
 											$ci->load->model('login_m');
 											$get_profile_details = $ci->login_m->get_profile_details($user_id);
 									?>
-									<li class="nav-item right" style="margin-left:280px;">
+									<li class="nav-item right" style="margin-left:180px;">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 										<?php
 											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
@@ -263,7 +263,7 @@
 										?>
 							            <div class="dropdown d-none d-md-flex"> 
 										  <a class=" icon" data-toggle="dropdown">
-										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill"><?php echo $count_cart_data;?></span>
+										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill" style="font-size:15px !important;"><?php echo $count_cart_data;?></span>
 										  </a> 
 										  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"> 
 										  	<?php
@@ -281,7 +281,7 @@
 										        	echo "...";
 										        ?></strong> 
 										        <strong>(<?php echo $each_cart_data->qty;?> pcs)</strong>
-										        <div class="small text-muted"><i class="fas fa-rupee-sign"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
+										        <div class="small"><i class="fas fa-rupee-sign" style="font-size:12px !important;"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
 										        </div> 
 										      </div> 
 										    </a> 
