@@ -146,7 +146,7 @@ $this->load->view("common/header");
 								?>
 								<div class="col-md-3">
 									<button class="accordion <?php echo (($raw_id == $each_brand->raw_id)?'active':'')?>" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#ffe4ca;text-transform:uppercase;"><?php echo $each_brand->raw_brand;?></button>
-									<div class="accordion_panel <?php echo (($raw_id == $each_brand->raw_id)?'show':'')?>" style="border:1px dotted black;margin-top:5px;">
+									<div class="accordion_panel <?php echo ((isset($each_brand->raw_id) && $raw_id == $each_brand->raw_id)?'show':'')?>" style="border:1px dotted black;margin-top:5px;">
 									  <div style="margin:15px;">
 									  	<?php
 									  		$fetch_models = $this->model_listing_m->fetch_models($each_brand->raw_brand);
