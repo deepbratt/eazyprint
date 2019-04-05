@@ -78,12 +78,10 @@
 									<h5 class="fred">NEED HELP
 									</h5> 
 									<ul>
-
 									  <li>
 										<a href="/contact-us" class="router-link-exact-active router-link-active" style="color:#000;">Contact Us
 										</a>
-									  </li>
-									  
+									  </li> 
 									  <li>
 										<a href="/faq/myorder" class="" style="color:#000;">FAQs
 										</a>
