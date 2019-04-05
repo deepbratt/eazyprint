@@ -27,18 +27,26 @@
 				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
-				  padding: 10px;
+				  padding: 0.5rem 1.5rem;
 				  width: 100%;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
+				  min-height:3.5rem;
 				}
 
-				button.accordion.active, button.accordion:hover {
-				  color: #ffffff;
-				  background-color: #7490BD;
+				button.accordion.active{
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ffe4ca;
+				}
+
+				button.accordion:hover {
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ced4da;
 				}
 
 				button.accordion:before {
