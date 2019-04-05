@@ -136,6 +136,9 @@
 								<!-- ORDER SUMMARY STARTS-->
 								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
+								<?php
+									if(!empty($fetch_prod_data)){
+								?>
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
 								  <div class="row">
 								  	<?php
@@ -216,6 +219,15 @@
 								  	</div>
 								  </div>
 								</form>
+								<?php
+									}else{
+								?>
+								<div class="row p-5" style="text-align:center;">
+									<img src="<?php echo base_url('images/empty-cart.jpg');?>" style="height:100%;">
+								</div>
+								<?php
+									}
+								?>
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
 								<!-- PAYMENT OPTION STARTS -->

@@ -268,46 +268,50 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
 			
-			$amount_array = array();
-			$quantity_array = array();
-			$gst_tax_array_each_product = array();
-			$original_cost = array();
-			$gst_tax = array();
-			$total_payable = array();
-			foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-				$amount_array[] = $each_cart_data->price;
-				$quantity_array[] = $each_cart_data->qty;
-				$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
+			if(!empty($data['fetch_prod_data'])){
+				$amount_array = array();
+				$quantity_array = array();
+				$gst_tax_array_each_product = array();
+				$original_cost = array();
+				$gst_tax = array();
+				$total_payable = array();
+				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+					$amount_array[] = $each_cart_data->price;
+					$quantity_array[] = $each_cart_data->qty;
+					$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
 
-				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-			}
-			$data['total_each_mat_price'] = array_sum($amount_array);
-			$data['total_each_mat_qty'] = array_sum($quantity_array);	
-			$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
-			$data['total_amount'] = array_sum($original_cost);
-			$data['gst_tax'] = array_sum($gst_tax);
-			$data['total_payable'] = array_sum($total_payable);
+					$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
+					$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+				}
+				$data['total_each_mat_price'] = array_sum($amount_array);
+				$data['total_each_mat_qty'] = array_sum($quantity_array);	
+				$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
+				$data['total_amount'] = array_sum($original_cost);
+				$data['gst_tax'] = array_sum($gst_tax);
+				$data['total_payable'] = array_sum($total_payable);
 
-			$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
-			try {
-				$response = $api->paymentRequestCreate(array(
-					"buyer_name" => $this->session->userdata['logged_in']['name'],
-					"purpose" => "Tshirt , Mobile case",
-					"amount" => $data['total_payable'],
-					"send_email" => false,
-					"send_sms" => false,
-					"phone" => $this->session->userdata['logged_in']['phone'],
-					"email" => $this->session->userdata['logged_in']['email'],
-					"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
-					));
+				$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
+				try {
+					$response = $api->paymentRequestCreate(array(
+						"buyer_name" => $this->session->userdata['logged_in']['name'],
+						"purpose" => "Tshirt , Mobile case",
+						"amount" => $data['total_payable'],
+						"send_email" => false,
+						"send_sms" => false,
+						"phone" => $this->session->userdata['logged_in']['phone'],
+						"email" => $this->session->userdata['logged_in']['email'],
+						"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
+						));
+				}
+				catch (Exception $e) {
+					print('Error: ' . $e->getMessage());
+				}
+				$data['response'] = $response;
+				$this->load->view('checkout/payment_option',$data);
+			}else{
+				redirect('checkout/order_summary');
 			}
-			catch (Exception $e) {
-				print('Error: ' . $e->getMessage());
-			}
-			$data['response'] = $response;
-			$this->load->view('checkout/payment_option',$data);
 		}else{
 			redirect('checkout');
 		}

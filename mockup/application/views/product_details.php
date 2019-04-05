@@ -378,7 +378,7 @@ $this->load->view("common/header");
 											<div class="row">
 												<div class="col-md-3">
 													<div class="quantity buttons_added">
-														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="0" class="input-text qty text" size="4" pattern="" data-error="#errNm2"><input type="button" value="+" class="plus">
+														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" class="input-text qty text" size="4" pattern="" data-error="#errNm2"><input type="button" value="+" class="plus">
 													</div>
 													<span id="errNm2"></span>
 												</div>
