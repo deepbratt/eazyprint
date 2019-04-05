@@ -55,7 +55,6 @@ class product_m extends CI_Model {
 	public function get_current_page_records($limit, $start, $cond) 
     {
         $this->db->limit($limit, $start);
-		$this->db->where($cond);
         $query = $this->db->get("products");
  
         if ($query->num_rows() > 0) 

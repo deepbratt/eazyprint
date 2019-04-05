@@ -13,7 +13,8 @@ class Product extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('product_m');
-		$data['products'] = $this->product_m->get_all_products();
+		$cond = array();
+		$data['products'] = $this->product_m->get_all_products($cond);
 
 		if(!empty($this->session->userdata['product_sidebar'])){
             $cat_id = $this->session->userdata['product_sidebar']['cat_id'];
@@ -57,7 +58,6 @@ class Product extends CI_Controller {
          
 
 		/* pagination ends */
-
 		$this->load->view('product',$data);
 	}
 

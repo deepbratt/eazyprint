@@ -13,7 +13,8 @@ class Product extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('product_m');
-		$data['products'] = $this->product_m->get_all_products();
+		$cond = array();
+		$data['products'] = $this->product_m->get_all_products($cond);
 
 		if(!empty($this->session->userdata['product_sidebar'])){
             $cat_id = $this->session->userdata['product_sidebar']['cat_id'];
@@ -29,7 +30,7 @@ class Product extends CI_Controller {
 	
         if ($total_records > 0) 
         {
-            $data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index);
+            $data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index, $cond);
             $config['base_url'] = base_url() . 'product/paging';
 			$config['first_url'] = '1';
             $config['total_rows'] = $total_records;
