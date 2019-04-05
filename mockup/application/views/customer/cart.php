@@ -56,13 +56,27 @@
 											</thead>
 											<tbody>
 											<?php
-												for($i=1;$i<5;$i++){
+												foreach($fetch_prod_data AS $each_cart_data){
 											?>
 											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Apple Iphone 6</td>
-												<td>1</td>
-												<td><strong><i class="fas fa-rupee-sign"></i> 250</strong></td>
+												<td>
+													<?php
+														$prod_id = $each_cart_data->product_id;
+														$fetch_image = $this->cart_m->prod_image_info($prod_id);
+													?>
+													<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_image->product_image_path;?>" alt="" class="h-8"></td>
+												<td><?php echo $each_cart_data->product_title;?></td>
+												<td><?php echo $each_cart_data->qty;?></td>
+												
+												<td><strong><i class="fas fa-rupee-sign"></i>
+													<?php 
+														$price = $each_cart_data->price;
+														$qty = $each_cart_data->qty;
+														$total_price = $price * $qty;
+														echo $total_price;
+													?></strong>
+												</td>
+
 												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
 												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
 											</tr>
