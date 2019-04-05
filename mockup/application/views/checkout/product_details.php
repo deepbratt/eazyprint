@@ -8,10 +8,7 @@
 			  	<div class="table-responsive">
 					<table class="table card-table table-vcenter text-nowrap">
 						<tr>
-							<?php
-								$count_data = sizeof($fetch_prod_data);
-							?>
-							<td>Price(<?php echo $count_data;?> Item)</td>
+							<td>Price(<?php echo $total_each_mat_qty;?> Item)</td>
 							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $total_amount;?></td>
 						</tr>
 						<!--<tr>
@@ -23,8 +20,8 @@
 							<td style="float:right;color:green;font-size:21px;;">FREE</td>
 						</tr>
 						<tr>
-							<td>Amount Payable</td>
-							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $total_amount;?></td>
+							<td>Amount Payable (inclusive Tax)</td>
+							<td style="float:right;font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $total_payable;?></td>
 						</tr>
 					</table>
 				</div>

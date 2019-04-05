@@ -21,6 +21,7 @@
     <?php
 $this->load->view("common/metalinks");
 ?>
+<link href="<?php echo base_url();?>css/select2.min.css" rel="stylesheet" />
     <link href="<?php echo base_url();?>css/timeline.min.css" rel="stylesheet" />
     <style>
       .sidebar_active{
@@ -188,11 +189,89 @@ $this->load->view("common/header");
                     </div>
                     <div class="tab-pane" id="address">
                       <div class="col-lg-12">
+					  <div class="card-body" id="new_button">
+						<div class="row">
+						  <div class="col-md-12">
+							<div class="form-group">
+							  <span class="add_name" style="cursor:pointer;" onclick="add_more();"><i class="fas fa-plus" style="font-size:14px;"></i>&nbsp;&nbsp;&nbsp;Add a new address</span>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					  <div id="append_div" style="display:none;">
+					  	<div class="card-body">
+							<div class="row">
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">Name</label>
+										<input type="text" class="form-control" name="name" placeholder="City">
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">Phone</label>
+										<input type="text" class="form-control" name="phone" placeholder="State">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="form-label">Address</label>
+										<textarea class="form-control" name="address" placeholder="Address"></textarea>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">City</label>
+										<select class="form-control select2-show-search" name="city" onchange="get_state(this.value);">
+											<option selected disabled>Select city</option>
+											<?php
+											foreach($get_all_cities as $fetch_all_cities){
+											?>
+											<option value="<?php echo $fetch_all_cities->city_id;?>"><?php echo $fetch_all_cities->city_name;?></option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">State</label>
+										<select class="form-control select2-show-search" name="state" id="select_state">
+											<option selected disabled>Select state</option>
+											<?php
+											foreach($get_all_state as $fetch_all_state){
+											?>
+											<option value="<?php echo $fetch_all_state->city_state;?>"><?php echo $fetch_all_state->city_state;?></option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">Postal Code</label>
+										<input type="number" class="form-control" name="pincode" placeholder="ZIP Code">
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="form-label">Country</label>
+										<input type="text" class="form-control" name="country" placeholder="Country" value="india" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card-footer text-right">
+							<button type="submit" class="btn btn-primary">Update Profile</button> <a href="javascript:void(0);" class="btn btn-primary" onclick="close_add();">close</a>
+						</div>
+					  </div>
                         <form class="card" method="POST" action="<?php echo base_url('account/update_address');?>">
 						<?php
 					    foreach($fetch_address as $get_add){
 					    ?>
-						<div class="card-body">
+						<div class="card-body" id="main_div<?php echo $get_add->user_address_id;?>">
                             <div class="row">
                               <div class="col-md-10">
                                 <div class="form-group">
@@ -210,7 +289,7 @@ $this->load->view("common/header");
 										<a class="dropdown-item" href="#" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">
 											<i class="fas fa-check text-success fa-fw" style="font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Mark as Primary
 										</a>
-										<a class="dropdown-item" href="#">
+										<a class="dropdown-item" href="javascript:void(0);" onclick="show_details(<?php echo $get_add->user_address_id;?>);">
 											<i class="fas fa-pen text-success fa-fw"></i>&nbsp;&nbsp;&nbsp;Edit
 										</a>
 										<a class="dropdown-item" href="#">
@@ -221,7 +300,7 @@ $this->load->view("common/header");
 							</div>
 						</div>
 					  </div>
-					  <div id="edit_div<?php echo $get_add->user_address_id;?>">
+					  <div id="edit_div<?php echo $get_add->user_address_id;?>" style="display:none;">
 					  <div class="card-body">
                             <div class="row">
 							  <div class="col-sm-6 col-md-6">
@@ -278,80 +357,14 @@ $this->load->view("common/header");
                             </div>
                           </div>
 						  <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary">Update Profile
-                            </button>
+                            <button type="submit" class="btn btn-primary" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">Mark as primary</button>
+							<button type="submit" class="btn btn-primary">Update Profile</button>
+							<a href="javascript:void(0);" class="btn btn-primary" onclick="show_details(<?php echo $get_add->user_address_id;?>);">close</a>
                           </div>
 						  </div>
 					  <?php
 						}
 					  ?>
-
-						  <?php
-						  foreach($fetch_address as $get_add){
-						  ?>
-                          <div class="card-body">
-                            <div class="row">
-							  <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Name
-                                  </label>
-                                  <input type="text" class="form-control" name="name" placeholder="City" value="<?php echo $get_add->full_name;?>">
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Phone
-                                  </label>
-                                  <input type="text" class="form-control" name="phone" placeholder="State" value="<?php echo $get_add->phone;?>">
-                                </div>
-                              </div>
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label class="form-label">Address
-                                  </label>
-                                  <textarea class="form-control" name="address" placeholder="Address" ><?php echo $get_add->address;?></textarea>
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">City
-                                  </label>
-                                  <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo $get_add->city;?>">
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">State
-                                  </label>
-                                  <input type="text" class="form-control" name="state" placeholder="State" value="<?php echo $get_add->state;?>">
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Postal Code
-                                  </label>
-                                  <input type="number" class="form-control" name="pincode" placeholder="ZIP Code" value="<?php echo $get_add->postal_code;?>">
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Country
-                                  </label>
-                                  <select class="form-control custom-select" name="country">
-                                    <option value="India" selected>India</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-						  <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary">Update Profile
-                            </button>
-                          </div>
-						  <?php
-							}
-						  ?>
-                          
                         </form>
                       </div>
                     </div>
@@ -406,9 +419,39 @@ $this->load->view("common/header");
     <?php
 $this->load->view("common/footer");
 ?>
+<script src="<?php echo base_url();?>js/select2.js"></script>
+<script src="<?php echo base_url();?>js/select2.full.min.js"></script>
+
   </body>
 </html>
 <script type="text/javascript" src="<?php echo base_url();?>js/jquery.password-validation.js"></script>
+<script>
+function show_details(add_id){
+	$( "#edit_div"+add_id+"" ).toggle();
+	$( "#main_div"+add_id+"" ).toggle();
+}
+
+function add_more(){
+	$("#new_button").toggle();
+	$('#append_div').toggle();
+}
+
+function close_add(){
+	$("#append_div").toggle();
+	$("#new_button").toggle();
+}
+
+function get_state(city_id){
+	$.ajax({
+	  url: '<?php echo base_url();?>account/ajax_fetch_state',
+	  data: {'city_id': city_id,},
+	  type: "post",
+	  success: function(response){
+		$('#select_state').html(response);
+	  }
+  }); 
+}
+</script>
 <script>
 	$(document).ready(function() {
 		$("#password_1").passwordValidation({"confirmField": "#password_2"}, function(element, valid, match, failedCases) {
