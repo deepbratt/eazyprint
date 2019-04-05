@@ -281,7 +281,7 @@
 										        	echo "...";
 										        ?></strong> 
 										        <strong>(<?php echo $each_cart_data->qty;?> pcs)</strong>
-										        <div class="small text-muted"><i class="fas fa-rupee-sign"></i> <?php echo $each_cart_data->price;?>
+										        <div class="small text-muted"><i class="fas fa-rupee-sign"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
 										        </div> 
 										      </div> 
 										    </a> 
