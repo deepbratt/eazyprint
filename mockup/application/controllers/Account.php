@@ -16,6 +16,8 @@ class Account extends CI_Controller {
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_account_details'] = $this->account_m->fetch_cust_info($user_id);
 		$data['fetch_address'] = $this->account_m->fetch_address($user_id);
+		$data['get_all_cities'] = $this->account_m->get_all_cities();
+		$data['get_all_state'] = $this->account_m->get_all_state();
 		$this->load->view('customer/account',$data);
 	}
 

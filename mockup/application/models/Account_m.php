@@ -21,6 +21,23 @@ class Account_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_all_cities()
+	{
+		$this->db->select('*');
+		$this->db->from('cities');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_all_state()
+	{
+		$this->db->select('*');
+		$this->db->from('cities');
+		$this->db->group_by('city_state');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function check_email_row($new_email,$user_id){
 		$this->db->select('*');
 		$this->db->from('user');
