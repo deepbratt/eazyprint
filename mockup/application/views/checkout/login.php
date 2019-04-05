@@ -28,18 +28,26 @@
 				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
-				  padding: 10px;
+				  padding: 0.5rem 1.5rem;
 				  width: 100%;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
+				  min-height:3.5rem;
 				}
 
-				button.accordion.active, button.accordion:hover {
-				  color: #ffffff;
-				  background-color: #7490BD;
+				button.accordion.active{
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ffe4ca;
+				}
+
+				button.accordion:hover {
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ced4da;
 				}
 
 				button.accordion:before {
@@ -131,7 +139,7 @@
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<!--LOGIN STARTS-->
-								<button class="accordion active" >LOGIN</button>
+								<button class="accordion active">LOGIN</button>
 								<div class="accordion_panel show">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
