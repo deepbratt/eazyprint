@@ -6,11 +6,7 @@ class Product extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-	  
-		// load Pagination library
 		$this->load->library('pagination');
-		 
-		// load URL helper
 		$this->load->helper('url');
 	}
 
@@ -25,21 +21,20 @@ class Product extends CI_Controller {
         }
 		
 		/* pagination */
-		// init params
+
         $data = array();
         $limit_per_page = 9;
-        $start_index = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $total_records = $this->product_m->get_total();
- 
+	
         if ($total_records > 0) 
         {
-            // get current page records
             $data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index);
-             
             $config['base_url'] = base_url() . 'product/paging';
+			$config['first_url'] = '1';
             $config['total_rows'] = $total_records;
             $config['per_page'] = $limit_per_page;
-            $config["uri_segment"] = 4;
+            $config["uri_segment"] = 3;
             $config['use_page_numbers'] = TRUE;
 			$config['full_tag_open'] = '<ul class="pagination mg-b-0">'; 
 			$config['full_tag_close'] = '</ul>';
@@ -51,17 +46,12 @@ class Product extends CI_Controller {
 			$config['next_tag_close'] = "</li>";
 			$config['last_tag_open'] = "<li class='page-item'>";
 			$config['last_tag_close'] = "</li>";
-			$config['cur_tag_open'] = "<li class='page-item active'><a class='page-link active' href=''>"; 
+			$config['cur_tag_open'] = "<li class='page-item active'><a class='page-link' href=''>"; 
 			$config['cur_tag_close'] = "</a></li>";
 			$config['num_tag_open'] = "<li class='page-item'>";
-			$config['num_tag_close'] = "</li>"; 
+			$config['num_tag_close'] = "</li>";
 			$config['attributes'] = array('class' => 'page-link');
-
-            $this->pagination->initialize($config);
-             
-            // build paging links
-			
-
+            $this->pagination->initialize($config);       
             $data["links"] = $this->pagination->create_links();
         }
          

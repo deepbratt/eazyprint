@@ -35,7 +35,7 @@
               <option value="3"> Mug </option>
               <option value="4"> Tiles </option>
             </select>
-          </div>
+          </div>-->
           <div class="form-group">
             <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_brand">
               <option selected disabled value=""> Brand </option>
@@ -67,7 +67,7 @@
               	}
               ?>
             </select>
-          </div>-->
+          </div>
 
         </div>
 
