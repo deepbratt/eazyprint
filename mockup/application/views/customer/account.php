@@ -222,23 +222,31 @@ $this->load->view("common/header");
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="form-label">City</label>
-										<select class="form-control select2-show-search" name="city">
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
-											<option>1esdfsd</option>
+										<select class="form-control select2-show-search" name="city" onchange="get_state(this.value);">
+											<option selected disabled>Select city</option>
+											<?php
+											foreach($get_all_cities as $fetch_all_cities){
+											?>
+											<option value="<?php echo $fetch_all_cities->city_id;?>"><?php echo $fetch_all_cities->city_name;?></option>
+											<?php
+											}
+											?>
 										</select>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="form-label">State</label>
-										<input type="text" class="form-control" name="state" placeholder="State">
+										<select class="form-control select2-show-search" name="state" id="select_state">
+											<option selected disabled>Select state</option>
+											<?php
+											foreach($get_all_state as $fetch_all_state){
+											?>
+											<option value="<?php echo $fetch_all_state->city_state;?>"><?php echo $fetch_all_state->city_state;?></option>
+											<?php
+											}
+											?>
+										</select>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
@@ -431,6 +439,17 @@ function add_more(){
 function close_add(){
 	$("#append_div").toggle();
 	$("#new_button").toggle();
+}
+
+function get_state(city_id){
+	$.ajax({
+	  url: '<?php echo base_url();?>account/ajax_fetch_state',
+	  data: {'city_id': city_id,},
+	  type: "post",
+	  success: function(response){
+		$('#select_state').html(response);
+	  }
+  }); 
 }
 </script>
 <script>
