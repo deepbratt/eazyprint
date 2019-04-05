@@ -306,10 +306,11 @@ $this->load->view("common/header");
 							<!----STARTS-->
 								<div class="row">
 									<div class="col-md-12">
-									
-										<div class="card-body cardbody" >
-											<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
-											<?php
+									<div class="card-body cardbody" >
+										<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
+									</div>
+									<div id="prozzz_data_hide">
+										<?php
 											  if($this->session->flashdata('failed')){
 											?>
 											  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
@@ -321,8 +322,6 @@ $this->load->view("common/header");
 											<?php
 												}
 											?>
-										</div>
-									<div id="prozzz_data_hide">
 									<form method="POST" name="cart_addzz" id="cartz_add" action="<?php echo base_url('product_details/add_to_cart');?>">
 
 										<div class="card-body cardbody" style="margin-top:-40px;">
