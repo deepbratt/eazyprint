@@ -130,7 +130,13 @@ $this->load->view("common/header");
 								<ol class="breadcrumb" style="background:#fff;">
 									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
-										 <?php echo $brand_name->raw_brand?>
+									<?php
+										if(isset($this->uri->segment)  && $this->uri->segment != ""){
+											echo $brand_name->raw_brand;
+										}else{
+											echo "Mobile Covers";
+										}
+									?>
 									</li>
 									<!--<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>-->
 								</ol>
@@ -145,7 +151,11 @@ $this->load->view("common/header");
 									foreach($fetch_brand_name As $each_brand){
 								?>
 								<div class="col-md-3">
-									<button class="accordion <?php echo (($raw_id == $each_brand->raw_id)?'active':'')?>" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#ffe4ca;text-transform:uppercase;"><?php echo $each_brand->raw_brand;?></button>
+									<button class="accordion <?php echo (($raw_id == $each_brand->raw_id)?'active':'')?>" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;text-transform:uppercase;"><?php echo $each_brand->raw_brand;?></button>
+
+									<?php
+										if(isset($raw_id) && $raw_id != ""){
+									?>
 									<div class="accordion_panel <?php echo (($raw_id == $each_brand->raw_id)?'show':'')?>" style="border:1px dotted black;margin-top:5px;">
 									  <div style="margin:15px;">
 									  	<?php
@@ -158,6 +168,24 @@ $this->load->view("common/header");
 									  	?>
 									  </div>
 									  </div>
+									  <?php
+									  	}else{
+									  ?>
+									  	<div class="accordion_panel" style="border:1px dotted black;margin-top:5px;">
+										  <div style="margin:15px;">
+										  	<?php
+										  		$fetch_models = $this->model_listing_m->fetch_models($each_brand->raw_brand);
+										  		foreach($fetch_models AS $each_models){
+										  	?>
+										  		<a href="<?php echo base_url('customize_mobile_case/');?><?php echo $each_models->raw_id;?>" style="color:#009fdc;"><i class="fas fa-arrow-right"></i> <?php echo $each_models->raw_name;?></a><br>
+										  	<?php
+										  		}
+										  	?>
+										  </div>
+										</div>
+									  <?php
+									  	}
+									  ?>
 									</div>
 								<?php
 									}	

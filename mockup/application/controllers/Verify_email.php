@@ -34,7 +34,8 @@ class Verify_email extends CI_Controller {
 									  'user_id' => $row->user_id,
 									  'user_type' => $row->user_type,
 									  'name' =>$fullname,
-									  'email'=>$row->user_email
+									  'email'=>$row->user_email,
+									  'phone'=>$row->user_phone
 								   );
 			}
 			
@@ -45,7 +46,7 @@ class Verify_email extends CI_Controller {
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "vendor"){
 				redirect('account');
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "customer"){
-				redirect('account');
+				redirect('home');
 			}else if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "eazycrew")
 			{
 				redirect('account');
