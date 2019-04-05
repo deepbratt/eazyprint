@@ -71,7 +71,7 @@
 						<div class="container">
 							<div class="row" style="height: 75px;margin-top: -3px;">
 								<a class="nav-link header-brand" href="<?php echo base_url('home');?>">
-									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:40px;">
+									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;">
 								</a>
 							
 								<div class="nav">
@@ -210,7 +210,7 @@
 										<?php
 											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
 										?>
-											<span class="avatar avatar-md brround" style="background-image: url('uploads/user_profile_image/<?php echo $get_profile_details->user_profile_image;?>')"></span>
+											<span class="avatar avatar-md brround" style="background-image: url('<?php echo base_url('uploads/user_profile_image/');?><?php echo $get_profile_details->user_profile_image;?>')"></span>
 										<?php
 											}else{
 										?>
@@ -221,7 +221,7 @@
 										</a>
 										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'orders')?'header_active':'');?>" href="<?php echo base_url('orders');?>"><i class="fas fa-box"></i> Orders</a>
-											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>
+											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>-->
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'cart')?'header_active':'');?>" href="<?php echo base_url('cart');?>"><i class="fas fa-cart-plus"></i> Cart</a>
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'rewards')?'header_active':'');?>" href="<?php echo base_url('rewards');?>"><i class="fas fa-briefcase"></i> Reward</a>
 											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'support')?'header_active':'');?>" href="<?php echo base_url('support');?>"><i class="fas fa-phone"></i> Support</a>-->
@@ -244,8 +244,71 @@
 									<?php
 										}
 									?>
-								</div>
+									<li class="nav-item right"> 
+										<?php
+											$ip = $this->input->ip_address();
+											if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+												$user_id = $this->session->userdata['logged_in']['user_id'];
+											}else{
+												$user_id = $ip;
+											}
+											$get_cart_data = $ci->home_m->prod_info($user_id,$ip);
+											if(!empty($get_cart_data)){
 
+												$count_cart_qty = array();
+												foreach($get_cart_data AS $each_cart_qty){
+													$count_cart_qty[] = $each_cart_qty->qty;
+												}
+											$count_cart_data = array_sum($count_cart_qty);
+										?>
+							            <div class="dropdown d-none d-md-flex"> 
+										  <a class=" icon" data-toggle="dropdown">
+										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill"><?php echo $count_cart_data;?></span>
+										  </a> 
+										  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"> 
+										  	<?php
+										  		foreach($get_cart_data AS $each_cart_data){
+										  			$fetch_prod_image = $ci->home_m->prod_image_info($each_cart_data->product_id);
+										  	?>
+										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('product_details/');?><?php echo $each_cart_data->product_id;?>"> 
+										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>)">
+										      </span> 
+										      <div> 
+										        <strong><?php 
+										        	$pro_title = $each_cart_data->product_title;
+										        	$trim_pro_title = substr($pro_title,0,20);
+										        	echo $trim_pro_title;
+										        	echo "...";
+										        ?></strong> 
+										        <strong>(<?php echo $each_cart_data->qty;?> pcs)</strong>
+										        <div class="small text-muted"><i class="fas fa-rupee-sign"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
+										        </div> 
+										      </div> 
+										    </a> 
+										    <?php
+										    	}
+										    ?>
+										    <div class="dropdown-divider">
+										    </div> 
+										    <a class="dropdown-item text-center text-muted-dark" href="<?php echo base_url('checkout');?>">Go to cart
+										    </a> 
+										  </div> 
+										</div>
+										<?php
+											}else{
+										?>
+										<div class="dropdown d-none d-md-flex"> 
+										  <a class=" icon" data-toggle="dropdown">
+										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill">0</span>
+										  </a> 
+										</div>
+										<?php
+											}
+										?>
+
+									</li>
+									
+								</div>
 							</div>
 						</div>
 					</div>
@@ -266,9 +329,6 @@
 										<span class="header-toggler-icon" style="color:#000;"></span>
 									</a>
 								</div>
-								
-								
-								
 							</div>
 						</div>
 					</div>
