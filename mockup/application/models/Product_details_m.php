@@ -46,10 +46,9 @@ class Product_details_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function check_cart($user_id,$ip_address,$product_id){
+	public function check_cart($ip_address,$product_id){
 		$this->db->select('*');
 		$this->db->from('cart_selection');
-		$this->db->where('user_id',$user_id);
 		$this->db->where('ip_address',$ip_address);
 		$this->db->where('product_id',$product_id);
 		$query = $this->db->get();
@@ -61,9 +60,8 @@ class Product_details_m extends CI_Model {
 		return true;
 	}
 
-	public function update_cart($update_cart_data,$cart_id,$user_id,$ip_address){
+	public function update_cart($update_cart_data,$cart_id,$ip_address){
 		$this->db->where("cart_id", $cart_id);
-		$this->db->where("user_id", $user_id);
 		$this->db->where("ip_address", $ip_address);
 		$query = $this->db->update('cart_selection', $update_cart_data);
 		return true;

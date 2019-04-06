@@ -138,6 +138,7 @@
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!--LOGIN STARTS-->
 								<button class="accordion active">LOGIN</button>
 								<div class="accordion_panel show">
@@ -232,6 +233,17 @@
 								  		<div class="col-md-12">
 								  			<span>Please note that upon clicking "Logout" you will lose all items in cart and will be redirected to Eazyprint home page.</span>
 								  		</div>
+								  		<?php
+								  			if(!empty($fetch_user_data)){
+								  		?>
+								  		<div class="col-md-12 text-right">
+									  		<div class="form-group">
+									  			<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="btn btn-orange btn-lg">Continue</button></a>
+									  		</div>
+									  	</div>
+									  	<?php
+									  		}
+									  	?>
 								  	</div>								  
 								</div>
 								<!-- LOGIN ENDS -->
@@ -239,7 +251,7 @@
 					  				if(!empty($fetch_user_data)){
 					  			?>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								
 								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<?php
 									}

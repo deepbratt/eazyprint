@@ -2,10 +2,82 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Checkout extends CI_Controller {
-
-	/* LOGIN PAGE of checkout Starts*/
+	/* Order_summary PAGE of checkout Starts*/
 	public function index()
 	{
+		$this->load->library('user_agent');
+		$this->load->model('checkout_m');
+		$ip_data = $this->input->ip_address();
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		}else{
+			$data['user_id'] = $ip_data;
+		}
+		if($data['user_id'] != ""){
+			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+
+			$amount_array = array();
+			$quantity_array = array();
+			$gst_tax_array_each_product = array();
+			$original_cost = array();
+			$gst_tax = array();
+			$total_payable = array();
+			foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+				$amount_array[] = $each_cart_data->price;
+				$quantity_array[] = $each_cart_data->qty;
+				$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
+
+				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
+				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+			}
+			$data['total_each_mat_price'] = array_sum($amount_array);
+			$data['total_each_mat_qty'] = array_sum($quantity_array);	
+			$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
+			$data['total_amount'] = array_sum($original_cost);
+			$data['gst_tax'] = array_sum($gst_tax);
+			$data['total_payable'] = array_sum($total_payable);
+		}
+		
+		$this->load->view('checkout/order_summary',$data);
+	}
+
+	public function update_order_summary(){
+		$this->load->model('checkout_m');
+		$cart_id = $this->input->post('cartzz_id');
+		$quantity = $this->input->post('quantity');
+		
+		foreach($cart_id AS $key=>$each_cartzz_id){
+			$quantity_data = array('qty'=>$quantity[$key]);
+			$update_quantity = $this->checkout_m->update_quantity($quantity_data,$each_cartzz_id);
+		}
+		
+		if($update_quantity){
+			redirect('checkout/login');
+		}
+	}
+
+	public function remove_cart(){
+		$this->load->model('checkout_m');
+		$cart_id = $this->uri->segment(3);
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		}else{
+			$data['user_id'] = "";
+		}
+		if($data['user_id'] != ""){
+			$remove_from_cart = $this->checkout_m->remove_cart_data($cart_id);
+			if($remove_from_cart){
+				redirect('checkout');
+			}
+		}else{
+			redirect('checkout');
+		}
+	}
+	/* Order_summary PAGE of checkout Ends*/
+
+	/* LOGIN PAGE of checkout Starts*/
+	public function login(){
 		$this->load->model('checkout_m');
 		$this->load->library('user_agent');
 		//$pro_id = $this->uri->segment(2);
@@ -103,8 +175,7 @@ class Checkout extends CI_Controller {
 	}
 	/* LOGIN PAGE of checkout Ends*/
 	/* Delivery_address PAGE of checkout Starts*/
-	public function delivery_address()
-	{
+	public function delivery_address(){
 		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
 		$ip_data = $this->input->ip_address();
@@ -147,7 +218,6 @@ class Checkout extends CI_Controller {
 	}
 
 	public function manage_address(){
-
 		$this->session->set_flashdata("status", "address");
 		redirect('account');
 	}
@@ -171,91 +241,14 @@ class Checkout extends CI_Controller {
 					$update_primary_address = $this->checkout_m->update_user_address_others($update_user_array_others,$data['user_id'],$addr_id);
 				}
 			}
-			
-			redirect('checkout/order_summary');
+			redirect('checkout/payment_option');
 		}else{
 			redirect('checkout');
 		}
 	}
 	/* Delivery_address PAGE of checkout Ends*/
-	/* Order_summary PAGE of checkout Starts*/
-	public function order_summary()
-	{
-		$this->load->library('user_agent');
-		$this->load->model('checkout_m');
-		$ip_data = $this->input->ip_address();
-		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
-			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
-		}else{
-			$data['user_id'] = "";
-		}
-		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
-
-			$amount_array = array();
-			$quantity_array = array();
-			$gst_tax_array_each_product = array();
-			$original_cost = array();
-			$gst_tax = array();
-			$total_payable = array();
-			foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-				$amount_array[] = $each_cart_data->price;
-				$quantity_array[] = $each_cart_data->qty;
-				$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
-
-				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-			}
-			$data['total_each_mat_price'] = array_sum($amount_array);
-			$data['total_each_mat_qty'] = array_sum($quantity_array);	
-			$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
-			$data['total_amount'] = array_sum($original_cost);
-			$data['gst_tax'] = array_sum($gst_tax);
-			$data['total_payable'] = array_sum($total_payable);
-		}else{
-			redirect('checkout');
-		}
-		
-		$this->load->view('checkout/order_summary',$data);
-	}
-
-	public function update_order_summary(){
-		$this->load->model('checkout_m');
-		$cart_id = $this->input->post('cartzz_id');
-		$quantity = $this->input->post('quantity');
-		
-		foreach($cart_id AS $key=>$each_cartzz_id){
-			$quantity_data = array('qty'=>$quantity[$key]);
-			$update_quantity = $this->checkout_m->update_quantity($quantity_data,$each_cartzz_id);
-		}
-		
-		if($update_quantity){
-			redirect('checkout/payment_option');
-		}
-	}
-
-	public function remove_cart(){
-		$this->load->model('checkout_m');
-		$cart_id = $this->uri->segment(3);
-		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
-			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
-		}else{
-			$data['user_id'] = "";
-		}
-		if($data['user_id'] != ""){
-			$remove_from_cart = $this->checkout_m->remove_cart_data($cart_id);
-			if($remove_from_cart){
-				redirect('checkout/order_summary');
-			}
-		}else{
-			redirect('checkout');
-		}
-	}
-	/* Order_summary PAGE of checkout Ends*/
 	/* Payment_option PAGE of checkout Starts*/
-	public function payment_option()
-	{
+	public function payment_option(){
 		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
 		$ip_data = $this->input->ip_address();
@@ -310,14 +303,12 @@ class Checkout extends CI_Controller {
 				$data['response'] = $response;
 				$this->load->view('checkout/payment_option',$data);
 			}else{
-				redirect('checkout/order_summary');
+				redirect('checkout');
 			}
 		}else{
 			redirect('checkout');
 		}
-		
 	}
-
 	public function payment_option_check(){
 		$this->load->helper('Instamojo');
 		$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
@@ -332,8 +323,6 @@ class Checkout extends CI_Controller {
 		$this->load->view('checkout/payment_option',$data);
 	}
 	/* Payment_option PAGE of checkout Ends*/
-
 }
-
 /* End of file Home.php */
 /* Location: ./application/controllers/Home.php */

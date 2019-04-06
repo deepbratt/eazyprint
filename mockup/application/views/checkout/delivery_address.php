@@ -138,8 +138,9 @@
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
@@ -190,7 +191,7 @@
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								
-								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								
 								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>
 						</div>

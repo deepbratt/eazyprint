@@ -52,7 +52,7 @@ class Product_details extends CI_Controller {
 		$datetime = time();
 		
 
-		$check_cart_of_user = $this->product_details_m->check_cart($user_id,$ip_address,$product_id);
+		$check_cart_of_user = $this->product_details_m->check_cart($ip_address,$product_id);
 		
 		if(empty($check_cart_of_user)){
 			$save_cart = array(
@@ -82,7 +82,7 @@ class Product_details extends CI_Controller {
 			$update_cart = array(
 				'qty' => $update_qty
 			);
-			$update_cart_data = $this->product_details_m->update_cart($update_cart,$cart_id,$user_id,$ip_address);
+			$update_cart_data = $this->product_details_m->update_cart($update_cart,$cart_id,$ip_address);
 			if($update_cart_data){
 				$this->session->set_flashdata("success", "Your product updated to cart successfully");
 			}else{
