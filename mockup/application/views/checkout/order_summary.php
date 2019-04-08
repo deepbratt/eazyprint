@@ -223,7 +223,7 @@
 								  	<?php
 								  		}
 								  	?>
-								  	<div class="col-md-3 text-right">
+								  	<div class="col-md-12 text-right">
 								  		<div class="form-group">
 								  			<button class="btn btn-orange btn-lg">Continue</button>
 								  		</div>
