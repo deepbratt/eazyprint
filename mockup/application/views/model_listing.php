@@ -18,7 +18,15 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | <?php echo $brand_name->raw_brand?></title>
+		<title>Eazyprint | 
+			<?php
+				if(isset($this->uri->segment)  && $this->uri->segment != ""){
+					echo $brand_name->raw_brand;
+				}else{
+					echo "Mobile Covers";
+				}
+			?>
+		</title>
 		<style>
 		/* ACCORDIONS STARTS*/
 		button.accordion {
