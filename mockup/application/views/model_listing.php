@@ -20,7 +20,7 @@
 		<!-- Title -->
 		<title>Eazyprint | 
 			<?php
-				if(isset($this->uri->segment)  && $this->uri->segment != ""){
+				if($this->uri->segment(2) != ""){
 					echo $brand_name->raw_brand;
 				}else{
 					echo "Mobile Covers";
@@ -139,7 +139,7 @@ $this->load->view("common/header");
 									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
 									<?php
-										if(isset($this->uri->segment)  && $this->uri->segment != ""){
+										if($this->uri->segment(2) != ""){
 											echo $brand_name->raw_brand;
 										}else{
 											echo "Mobile Covers";
