@@ -140,9 +140,9 @@
 								
 								<!-- LOGIN ENDS -->
 								<!--<?php print_r($response);?>-->
-								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!-- DELIVERY ADDRESS STARTS-->
-								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								
 								<!-- PAYMENT OPTION STARTS -->
