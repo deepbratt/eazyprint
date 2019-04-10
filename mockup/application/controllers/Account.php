@@ -194,7 +194,7 @@ class Account extends CI_Controller {
 		$check_prev = $this->account_m->fetch_cust_info($user_id);
 		if($old_pass == $check_prev->user_password){
 			if($new_pass == $con_pass){
-				$update_array = array('user_password' => new_pass);
+				$update_array = array('user_password' => $new_pass);
 				$update_password = $this->account_m->update_password($user_id,$update_array);
 				$this->session->set_flashdata("success_pass", "Address Updated Successfully!");
 			}else{
