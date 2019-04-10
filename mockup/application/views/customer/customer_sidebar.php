@@ -3,7 +3,7 @@
 		<div class="media-list">
 			<!-- orders -->
 			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'orders')?'sidebar_active':'');?>">
-				<div class="mediaicon">
+				<div class="mediaicon <?php echo(($this->uri->segment(1) == 'orders')?'mediaicon_active':'');?>">
 					<i class="fas fa-box"></i>
 				</div>
 				<div class="media-body ml-5 mt-1">
@@ -23,7 +23,7 @@
 			<!-- wishlist -->
 			<!-- cart -->
 			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'cart')?'sidebar_active':'');?>">
-				<div class="mediaicon">
+				<div class="mediaicon <?php echo(($this->uri->segment(1) == 'cart')?'mediaicon_active':'');?>">
 					<i class="fas fa-cart-plus" aria-hidden="true"></i>
 				</div>
 				<div class="media-body ml-5 mt-1">
@@ -53,7 +53,7 @@
 			<!-- support -->
 			<!-- account -->
 			<div class="media mt-1 p-2 <?php echo(($this->uri->segment(1) == 'account')?'sidebar_active':'');?>">
-				<div class="mediaicon">
+				<div class="mediaicon <?php echo(($this->uri->segment(1) == 'account')?'mediaicon_active':'');?>">
 					<i class="fas fa-user" aria-hidden="true"></i>
 				</div>
 				<div class="media-body ml-5 mt-1">

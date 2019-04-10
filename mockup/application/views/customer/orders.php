@@ -24,8 +24,14 @@
 		<link href="<?php echo base_url();?>css/timeline.min.css" rel="stylesheet" />
 		<style>
 		.sidebar_active{
-			background:#009fdc !important;
-		}
+        background:#f5365c !important;
+		border-radius: 25px;
+      }
+	  .mediaicon_active{
+	    border: 1px solid #fff;
+        background: #fff;
+        color: #F5365C;
+	  }
 		.sidebar_active .text-dark{
 			color:#fff !important;
 			margin-top:8px !important;
