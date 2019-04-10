@@ -37,7 +37,7 @@ class Product extends CI_Controller {
         $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $total_records = $this->product_m->get_total($cat_id,$brand_name,$size,$shape,$color,$material_type);
 		//echo $total_records;
-
+		$data['records_in_total'] = $total_records;
         if ($total_records > 0) 
         {
 			$data['products'] = $this->product_m->get_all_products($limit_per_page, $start_index,$cat_id,$brand_name,$size,$shape,$color,$material_type);
