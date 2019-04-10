@@ -49,15 +49,15 @@
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_pillows');?>"><span class="side-menu__label"> Pillows </span></a>
+					<a class="side-menu__item" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Pillows </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_plates');?>"><span class="side-menu__label"> Plates </span></a>
+					<a class="side-menu__item" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Plates </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_tiles');?>"><span class="side-menu__label"> Tiles </span></a>
+					<a class="side-menu__item" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Tiles </span></a>
 				</li>
 			</div>
 			<!-- Raw material Information Ends -->
