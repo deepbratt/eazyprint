@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'pbclickrstop.cvvq4j5rt662.us-east-2.rds.amazonaws.com',
-	'username' => 'clickrstop',
+	'hostname' => '148.66.157.235',
+	'username' => 'deepbratt5',
 	'password' => 'Samadder5#',
-	'database' => 'test',
+	'database' => 'eazyprint',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

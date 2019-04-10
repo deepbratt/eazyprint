@@ -81,19 +81,18 @@
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
 									
-									<div class="card-body">
+									<div class="card-body" style="zoom : 64% !important;">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
 													<th class="wd-15p">Order&nbsp;No</th>
 													<th class="wd-15p">Product&nbsp;Name</th>
-													<th class="wd-15p">Purchaser&nbsp;Email</th>
-													<th class="wd-15p">Supplier Name</th>
-													<th class="wd-15p">Creators Name</th>
-													<th class="wd-15p">Quantity</th>
 													<th class="wd-15p">Product&nbsp;Image</th>
+													<th class="wd-15p">Quantity</th>
 													<th class="wd-15p">Payable&nbsp;Amount</th>
+													<th class="wd-15p">Supplier Name</th>
+											
 													<th class="wd-15p">Payment Status</th>
 													<th class="wd-15p">Delivery Status</th>
 													<th class="wd-15p">Order Status</th>
@@ -103,18 +102,39 @@
 												<tbody>
 												<?php
 													$count_pending_order = count($get_pending_orders);
+													
+													if($count_pending_order > 0)
+													{
+														foreach($get_pending_orders As $all_orders)
+														{
 												?>
 												  <tr>
-												    <td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+												    <td>#<?php echo $all_orders->order_id;?></td>
+													<td><?php echo $all_orders->product_name;?></td>
+													<td><img src="<?php echo base_url('uploads/order_images/');?><?php echo $all_orders->product_image;?>" style="height:80px;width:80px;"></td>
+													<td><?php echo $all_orders->order_qty;?></td>
+													<td><?php echo $all_orders->order_amount;?></td>
+													<td><?php echo $all_orders->supplier_name;?></td>
+													<td>
+														<?php
+														if($all_orders->payment_status == 'completed')
+															{
+																$color= "color:green";
+															}
+															else
+															{
+																$color = "color:red;";
+															}
+
+
+														?>
+														
+															<span style="<?php echo $color;?>"><?php echo $all_orders->payment_status;?></span>
+													
+													</td>
+													<td><?php echo $all_orders->delivery_status ;?></td>
+												
+												
 												
 													<td class="switch_1">
 														<label class="custom-switch">
@@ -127,7 +147,10 @@
 														<a href="#"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
-											
+												<?php
+														}
+													}
+												?>
 												</tbody>
 											  </table>
 										</div>
