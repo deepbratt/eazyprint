@@ -1,4 +1,4 @@
-https://spruko.com/demo/ren/htm/Default/Horizontal/emailservices.html
+https://spruko.com/demo/ren/Horizontal-Light/index.html
 
 Admin Theme:
 https://spruko.com/demo/ren/htm/Default/Lefticons-Dark-Left/index.html

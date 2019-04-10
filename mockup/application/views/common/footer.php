@@ -1,4 +1,8 @@
-	
+	<style>
+	.fmnu li a:hover{
+		text-decoration:underline;
+	}
+	</style>
 
 	
 
@@ -77,31 +81,30 @@
 								  <div class="footerlinks">
 									<h5 class="fred">NEED HELP
 									</h5> 
-									<ul>
-									  <li>
-										<a href="/contact-us" class="router-link-exact-active router-link-active" style="color:#000;">Contact Us
-										</a>
-									  </li> 
-									  <li>
-										<a href="/faq/myorder" class="" style="color:#000;">FAQs
-										</a>
-									  </li> 
+									<ul class="fmnu">
 
 									  <li>
-										<a href="/faq/returnexchange" class="" style="color:#000;"> Sell Your Design
+										<a href="/contact-us" class="router-link-exact-active router-link-active" style="color:#000;text-transform:uppercase;">Contact Us
+										</a>
+									  </li>
+									  
+									  <li>
+										<a href="/faq/myorder" class="" style="color:#000;text-transform:uppercase;">FAQs
 										</a>
 									  </li>
 
 									  <li>
-										<a href="/faq/returnexchange" class="" style="color:#000;"> Offers
+										<a href="/faq/returnexchange" class="" style="color:#000;text-transform:uppercase;"> Offers
 										</a>
 									  </li>
+
 									  <li>
-										<a href="/terms-and-conditions" class="" style="color:#000;">Refund Policy
+										<a href="/terms-and-conditions" class="" style="color:#000;text-transform:uppercase;">Refund Policy
 										</a>
 									  </li>
+
 									  <li>
-										<a href="/terms-and-conditions" class="" style="color:#000;">Track Order
+										<a href="/terms-and-conditions" class="" style="color:#000;text-transform:uppercase;">Track Order
 										</a>
 									  </li>
 
@@ -113,33 +116,20 @@
 								  <div class="footerlinks">
 									<h5 class="fred">CATEGORIES
 									</h5> 
-									<ul>
+									<ul class="fmnu">
+									  <?php
+											$ci =&get_instance();
+											$ci->load->model('home_m');
+											$get_categories = $ci->home_m->get_cat();				
+											foreach($get_categories AS $get_cat){
+									  ?>
 									  <li>
-										<a href="/about-us" class="" style="color:#000;">Tshirts
+										<a href="<?php echo base_url();?>product/<?php echo $get_cat->cat_id;?>" class="" style="color:#000;text-transform:uppercase;"> <?php echo $get_cat->category_name;?>
 										</a>
 									  </li> 
-
-									  <li>
-										<a href="/schools-and-colleges" class="" style="color:#000;">Mugs
-										</a>
-									  </li>
-
-									  <li>
-										<a href="/sitemap" class="" style="color:#000;">Mobile back covers
-										</a>
-									  </li>
-
-									  <li>
-										<a href="/bulk-and-custom-orders" class="" style="color:#000;">Pillows
-										</a>
-									  </li> 
-
-									  <li>
-										<a href="/careers" class="" style="color:#000;">Plates
-										</a>
-									  </li>
-
-									  
+									  <?php
+											}
+									  ?>
 
 									</ul>
 								  </div>
@@ -147,29 +137,29 @@
 
 								<div class="col-6 col-md-3 col-xs-6 showdesktop">
 								  <div class="footerlinks">
-									<h5 class="fred"> Collaboration
+									<h5 class="fred"> COLLABORATION
 									</h5> 
-									<ul>
+									<ul class="fmnu">
 									  <li>
-										<a href="/profile" class="" style="color:#000;"> Bulk Orders
+										<a href="/profile" class="" style="color:#000;text-transform:uppercase;"> Bulk Orders
 										</a>
 									  </li> 
 									  <li>
-										<a href="/gift-voucher" class="" style="color:#000;"> Merchandise Solution
+										<a href="/gift-voucher" class="" style="color:#000;text-transform:uppercase;"> Merchandise Solution
 										</a>
 									  </li> 
 									  <li>
-										<a href="/souled-army" class="" style="color:#000;"> Partner Stores
+										<a href="/souled-army" class="" style="color:#000;text-transform:uppercase;"> Partner Stores
 										</a>
 									  </li> 
-									  <li>
+									  <!--<li>
 										<a href="/submit-art-work" class="" style="color:#000;"> Affiliate
 										</a>
 									  </li>
 									  <li>
 										<a href="/submit-art-work" class="" style="color:#000;"> Dropshipping
 										</a>
-									  </li>
+									  </li>-->
 									  
 									</ul>
 								  </div>

@@ -28,18 +28,26 @@
 				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
-				  padding: 10px;
+				  padding: 0.5rem 1.5rem;
 				  width: 100%;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
+				  min-height:3.5rem;
 				}
 
-				button.accordion.active, button.accordion:hover {
-				  color: #ffffff;
-				  background-color: #7490BD;
+				button.accordion.active{
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ffe4ca;
+				}
+
+				button.accordion:hover {
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ced4da;
 				}
 
 				button.accordion:before {
@@ -123,17 +131,7 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$this->load->model('checkout_m');
-										$cat_id = $fetch_prod_data->product_category_id;
-										$fetch_cat_name = $this->checkout_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_prod_data->product_name);
-									?>
+										Checkout
 									</li>
 								</ol>
 							</div>
@@ -141,39 +139,91 @@
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								<?php
+									if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == 'customer'){
+											$user_id = $this->session->userdata['logged_in']['user_id'];
+											$ci =&get_instance();
+											$ci->load->model('login_m');
+											$get_profile_details = $ci->login_m->get_profile_details($user_id);
+								?>
 								<!--LOGIN STARTS-->
-								<button class="accordion " >LOGIN</button>
-								<div class="accordion_panel ">
+								<button class="accordion <?php echo (($user_id != "")?'':'active')?>" >LOGIN</button>
+								<div class="accordion_panel <?php echo (($user_id != "")?'':'show')?>">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
-									  		<form method="POST" action="<?php echo base_url('checkout/login');?>">
+								  			<?php
+								  				if($user_id == ""){
+								  			?>
+									  		<form method="POST" action="<?php echo base_url('checkout/authenticate/');?><?php echo $this->uri->segment('2');?>">
+									  			<?php
+						                          if($this->session->flashdata('failed')){
+						                        ?>
+						                          <div class="alert alert-danger">
+						                            <strong><?php echo $this->session->flashdata('failed');?></strong>
+						                          </div>
+						                        <?php
+						                          }
+						                        ?>
 								  				<div class="form-group">
 									  				<h5>Name:</h5>
-									  				<input type="email" value="" name="email" class="form-control">
+<<<<<<< HEAD:mockup/application/views/checkout.php
+									  				<input type="email" value="" name="email" class="form-control" required>
+=======
+									  				<input type="email" value="" name="username" class="form-control">
+>>>>>>> 11be2cb78e94029e70367a3cca5c96ff9d2f735d:mockup/application/views/checkout/checkout_backup.php
 									  			</div>
 									  			<div class="form-group">
 									  				<h5>Password:</h5>
-									  				<input type="password" value="" name="password" class="form-control">
+									  				<input type="password" value="" name="password" class="form-control" required>
 									  			</div>
 									  			<div class="form-group">
 									  				<button type="submit" class="btn btn-primary">LOGIN</button>
 									  			</div>
 									  		</form>
-								  			<!--<div class="form-group">
+									  		<?php
+									  			}else{
+									  		?>
+									  		<?php
+									  			if($this->session->userdata['logged_in']['name'] != ""){
+									  		?>
+								  			<div class="form-group">
 								  				<h5>Name:</h5>
-								  				<span style="margin-left:5px;">Debashis Nath</span>
+								  				<span style="margin-left:5px;"><?php echo $this->session->userdata['logged_in']['name'];?></span>
 								  			</div>
+								  			<?php
+								  				}
+								  			?>
+								  			<?php
+									  			if($this->session->userdata['logged_in']['email'] != ""){
+									  		?>
+								  			<div class="form-group">
+								  				<h5>Email:</h5>
+								  				<span style="margin-left:5px;"><?php echo $this->session->userdata['logged_in']['email'];?></span>
+								  			</div>
+								  			<?php
+								  				}
+								  			?>
+								  			<?php
+									  			if($fetch_user_data->user_phone != ""){
+									  		?>
 								  			<div class="form-group">
 								  				<h5>Phone:</h5>
-								  				<span style="margin-left:5px;">7074459217</span>
+								  				<span style="margin-left:5px;"><?php echo $fetch_user_data->user_phone;?></span>
 								  			</div>
+								  			<?php
+								  				}
+								  			?>
+
 								  			<div class="form-group">
-								  				<a href="javascript:void(0);">Logout & Signin into another account</a>
+								  				<a href="<?php echo base_url('signout')?>">Logout & Signin into another account</a>
 								  			</div>
 								  		
-								  			<div class="form-group">
+								  			<!--<div class="form-group">
 								  				<a href="#" class="btn btn-azure btn-lg">Continue Checkout</a>
 								  			</div>-->
+								  			<?php
+								  				}
+								  			?>
 								  		</div>
 
 								  		<div class="col-md-6">
@@ -196,22 +246,28 @@
 								  		</div>
 								  	</div>								  
 								</div>
+
+
 								<!-- LOGIN ENDS -->
+								<?php
+					  				if($user_id != ""){
+					  			?>
 								<!-- DELIVERY ADDRESS STARTS-->
-								<button class="accordion active">DELIVERY ADDRESS</button>
-								<div class="accordion_panel show">
+								
+								<button type="button" class="accordion <?php echo (($user_id != "")?'active':'')?>">DELIVERY ADDRESS</button>
+								<div class="accordion_panel <?php echo (($user_id != "")?'show':'')?>">
 									<div class="row">
 										<div class="col-md-11 p-3">
 										  <div class="custom-controls-stacked">
 											<label class="custom-control custom-radio">
 												<input type="radio" class="custom-control-input" name="example-radios" value="option1" checked="">
-												<span class="custom-control-label"><strong>Debashis Nath</strong></span>
-												<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>
-												<span class="custom-control-label"><strong>7074459217</strong></span>
+												<span class="custom-control-label"><strong><?php echo $this->session->userdata['logged_in']['name'];?></strong></span>
+												<!--<span class="custom-control-label" style="background-color:#ccc;padding:5px;">Home</span>-->
+												<span class="custom-control-label"><strong><?php echo $fetch_user_data->user_phone;?></strong></span>
 											</label>
 										  </div>
 										  <div class="form-group address_hide">
-										  	<p class="ml-5">15/12 Uttara Apartment, Anandapuri, Barrackpore. PIN: 700122</p>
+										  	<p class="ml-5"><?php echo $fetch_user_data->user_address;?><br><?php echo $fetch_user_data->user_city;?><br><?php echo $fetch_user_data->user_state;?><br><?php echo $fetch_user_data->user_pincode;?></p>
 										  </div>
 										</div>
 										<div class="col-md-1 p-3">
@@ -225,22 +281,23 @@
 									<div class="row address_edit" style="display:none;">
 										<div class="col-md-6 ">
 											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Name">
+												<label>Full Name</label>
+												<input type="text" class="form-control" value="<?php echo $this->session->userdata['logged_in']['name'];?>" placeholder="Name">
 											</div>
 											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Pincode">
+												<label>Pincode</label>
+												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_pincode;?>" placeholder="Pincode">
 											</div>
 										</div>
 										<div class="col-md-6 ">
 											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Mobile Number">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Locality">
+												<label>Phone</label>
+												<input type="text" class="form-control" value="<?php echo $fetch_user_data->user_phone;?>" placeholder="Mobile Number">
 											</div>
 										</div>
 										<div class="col-md-12">
-											<textarea class="form-control" placeholder="Address"></textarea>
+											<label>Address</label>
+											<textarea class="form-control" placeholder="Address"><?php echo $fetch_user_data->user_address;?></textarea>
 										</div>
 										<div class="col-md-12" style="margin-top:10px;">
 											<button class="btn btn-success">Submit</button>
@@ -259,21 +316,22 @@
 									<div class="row address_add" style="display:none;">
 										<div class="col-md-6 ">
 											<div class="form-group">
+												<label>Full Name</label>
 												<input type="text" class="form-control" placeholder="Name">
 											</div>
 											<div class="form-group">
+												<label>Pincode</label>
 												<input type="text" class="form-control" placeholder="Pincode">
 											</div>
 										</div>
 										<div class="col-md-6 ">
 											<div class="form-group">
+												<label>Phone</label>
 												<input type="text" class="form-control" placeholder="Mobile Number">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Locality">
 											</div>
 										</div>
 										<div class="col-md-12">
+											<label>Address</label>
 											<textarea class="form-control" placeholder="Address"></textarea>
 										</div>
 										<div class="col-md-12" style="margin-top:10px;">
@@ -285,7 +343,7 @@
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								<!-- ORDER SUMMARY STARTS-->
-								<button class="accordion ">ORDER SUMMARY</button>
+								<button type="button" class="accordion ">ORDER SUMMARY</button>
 								<div class="accordion_panel" >
 								  <div class="row p-3">
 								  	<div class="col-md-3">
@@ -338,10 +396,10 @@
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
 								<!-- PAYMENT OPTION STARTS -->
-								<button class="accordion ">PAYMENT OPTION</button>
+								<button type="button" class="accordion ">PAYMENT OPTION</button>
 								<div class="accordion_panel ">
 
-								  <!--<div class="row">
+								  <div class="row">
 									<div class="col-md-11 p-3">
 									  <div class="custom-controls-stacked">
 										<label class="custom-control custom-radio">
@@ -389,16 +447,13 @@
 									  		</div>
 									  </div>
 									</div>
-								  </div>-->
+								  </div>
 								   
-								   <div class="row">
+								   <!--<div class="row">
 										<iframe src="https://www.instamojo.com/@asimsagir/7b1edb2e88fd4f51b5ffc9aec0f93614/?embed=form" width="600" height="600" border="0"></iframe>
 
-										<iframe src="https://api.juspay.in/merchant/pay/ord_e294a26e66ad4336a992ceab81ad704c?mobile=true"
-width="630" height="400"
-style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;">
-</iframe>
-								   </div>
+										<iframe src="https://api.juspay.in/merchant/pay/ord_e294a26e66ad4336a992ceab81ad704c?mobile=true"width="630" height="400"style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;"></iframe>
+								   </div>-->
 								   <div class="row">
 								   	<div class="col-md-12">
 									  <div class="custom-controls-stacked">
@@ -409,16 +464,18 @@ style="border: 1px solid #CCC;padding: 20px;height: auto;min-height: 300px;">
 									  </div>
 									</div>
 							  	</div>
-								  
-
-								</div>
-								<!-- PAYMENT OPTION ENDS -->
 							</div>
+							<!-- PAYMENT OPTION ENDS -->
+						
+						<?php
+							}
+						?>
+						</div>
 						<!-- RIGHT SIDE PRODUCT DETAILS STARTS-->
 							<div class="col-md-5 col-sm-12 col-xs-12">
 								<div class="card">
-									<div class="card-header" style="background-color:#f5f5f5">
-										<strong class="card-title">Price Details</strong>
+									<div class="card-header" style="background-color:#ffe4ca;">
+										<strong class="card-title" style="color:#000;">Price Details</strong>
 									</div>
 									<div class="card-body" style="padding:4px !important;">
 									  	<div class="table-responsive">

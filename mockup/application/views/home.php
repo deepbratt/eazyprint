@@ -288,7 +288,7 @@ $this->load->view("common/header");
 					</div>
 
 					<div class="container" style="text-align:center;padding-bottom:30px;">
-						<p style="text-align:center;"><img src="<?php echo base_url();?>images/final_desc" style="text-align:center;height:450px;"></p>
+						<p style="text-align:center;"><img src="<?php echo base_url();?>images/final_desc.png" style="text-align:center;height:450px;"></p>
 					</div>
 				</div>
 

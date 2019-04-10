@@ -36,10 +36,11 @@ class Product_details extends CI_Controller {
 	public function add_to_cart(){
 		$this->load->library('user_agent');
 		$this->load->model('product_details_m');
+		$ip_address = $this->input->ip_address();
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != null){
 			$user_id = $this->session->userdata['logged_in']['user_id'];
         }else{
-			$user_id = $this->input->ip_address();
+			$user_id = $ip_address;
 		}
 		$price = $this->input->post('price');
 		$size = (($this->input->post('size') != NULL)?$this->input->post('size'):' ');
@@ -51,11 +52,12 @@ class Product_details extends CI_Controller {
 		$datetime = time();
 		
 
-		$check_cart_of_user = $this->product_details_m->check_cart($user_id,$product_id);
-
-		if(count($check_cart_of_user) < 1){
+		$check_cart_of_user = $this->product_details_m->check_cart($ip_address,$product_id);
+		
+		if(empty($check_cart_of_user)){
 			$save_cart = array(
 				'cart_id' => Null,
+				'ip_address' => $user_id,
 				'user_id' => $user_id,
 				'price' => $price,
 				'size' => $size,
@@ -73,7 +75,20 @@ class Product_details extends CI_Controller {
 				$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
 			}
 		}else{
-			$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
+			$cart_id = $check_cart_of_user->cart_id;
+			$cart_qty = $check_cart_of_user->qty;
+			$update_qty = $cart_qty + $qty;
+
+			$update_cart = array(
+				'qty' => $update_qty
+			);
+			$update_cart_data = $this->product_details_m->update_cart($update_cart,$cart_id,$ip_address);
+			if($update_cart_data){
+				$this->session->set_flashdata("success", "Your product updated to cart successfully");
+			}else{
+				$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
+			}
+			//$this->session->set_flashdata("failed", "Something went wrong! Please try again later...");
 		}
 			redirect('product_details/'.$product_id);
 		

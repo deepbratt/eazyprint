@@ -306,42 +306,45 @@ $this->load->view("common/header");
 							<!----STARTS-->
 								<div class="row">
 									<div class="col-md-12">
-										<div class="card-body cardbody" >
-												<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
+									<div class="card-body cardbody" >
+										<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
+									</div>
+									<div id="prozzz_data_hide">
+										<!--<?php
+											  if($this->session->flashdata('failed')){
+											?>
+											  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+											<?php
+											  }
+											  if($this->session->flashdata('success')){
+											?>
+											  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+											<?php
+												}
+											?>-->
+									<form method="POST" name="cart_addzz" id="cartz_add" action="<?php echo base_url('product_details/add_to_cart');?>">
+
+										<div class="card-body cardbody" style="margin-top:-40px;">
+											<h1 style="font-size:30px;font-family:samarkan1;">
 												<?php
-												  if($this->session->flashdata('failed')){
+													echo ucfirst($fetch_prod_data->product_title);
 												?>
-												  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+											</h1>
+											<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
 												<?php
-												  }
-												  if($this->session->flashdata('success')){
-												?>
-												  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-												<?php
-													}
-												?>
-												<h1 style="font-size:30px;font-family:samarkan1;">
-													<?php
-														echo ucfirst($fetch_prod_data->product_title);
-													?>
-												</h1>
-												<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
-													<?php
-														echo ucfirst($fetch_prod_data->product_retail_price);
-													?> /-</h1>
-												<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
-													<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
-													<span style="color:green;font-weight:normal">40% OFF</span>
-												</div>
-												<span>Inclusive of all taxes</span>
+													echo ucfirst($fetch_prod_data->product_retail_price);
+												?> /-</h1>
+											<div style="font-size:16px;font-weight:bold;margin-bottom:10px;">
+												<span style="color:red;text-decoration:line-through;font-weight:normal"><i class="fas fa-rupee-sign"></i> 599</span>
+												<span style="color:green;font-weight:normal">40% OFF</span>
+											</div>
+											<span>Inclusive of all taxes</span>
 										</div>
-										 <?php $this->uri->segment(2);?>
-										<form method="POST" name="cart_addzz" id="cartz_add" action="<?php echo base_url('product_details/add_to_cart');?>">
 										<!-- SELECT SIZE STARTS -->
 										<?php
 											if($fetch_raw_data->raw_size != ''){
 										?>
-										<div class="card-body" style="margin-top:-40px;">
+										<div class="card-body">
 											<div class="form-group" style="border-bottom:1px dotted #000;padding-bottom:20px;">
 													<div class="row p-2">
 														<div class="col-md-12 pull-left">
@@ -374,7 +377,7 @@ $this->load->view("common/header");
 											<div class="row">
 												<div class="col-md-3">
 													<div class="quantity buttons_added">
-														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="0" class="input-text qty text" size="4" pattern="" data-error="#errNm2"><input type="button" value="+" class="plus">
+														<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" class="input-text qty text" size="4" pattern="" data-error="#errNm2"><input type="button" value="+" class="plus">
 													</div>
 													<span id="errNm2"></span>
 												</div>
@@ -393,6 +396,7 @@ $this->load->view("common/header");
 										<!-- CART ENDS -->
 									</div>
 								</div>
+							</div>
 
 
 								<!--ENDS-->
@@ -941,8 +945,10 @@ $this->load->view("common/footer");
 		 $('#cartz_add').on('submit', function() {
 			 if( $(this).valid() ) {
 				 $("#loader").show();
+				 $("#prozzz_data_hide").hide();
 			 }else{
 				$("#loader").hide();
+				$("#prozzz_data_hide").show();
 			 }
 			 return $('#cartz_add').jqxValidator('validate');
 		 });

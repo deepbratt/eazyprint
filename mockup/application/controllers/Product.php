@@ -6,37 +6,46 @@ class Product extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-	  
-		// load Pagination library
 		$this->load->library('pagination');
-		 
-		// load URL helper
 		$this->load->helper('url');
 	}
 
 	public function index()
 	{
 		$this->load->model('product_m');
-		$data['products'] = $this->product_m->get_all_products();
 
 		if(!empty($this->session->userdata['product_sidebar'])){
             $cat_id = $this->session->userdata['product_sidebar']['cat_id'];
             $brand_name = $this->session->userdata['product_sidebar']['brand_name'];
-        }
+			$size = $this->session->userdata['product_sidebar']['size'];
+			$shape = $this->session->userdata['product_sidebar']['shape'];
+			$color = $this->session->userdata['product_sidebar']['color'];
+			$material_type = $this->session->userdata['product_sidebar']['material_type'];
+        }else{
+			$cat_id = "";
+            $brand_name = "";
+			$size = "";
+			$shape = "";
+			$color = "";
+			$material_type = "";
+		}
 		
 		/* pagination */
-		// init params
+
         $data = array();
         $limit_per_page = 9;
-        $start_index = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
-        $total_records = $this->product_m->get_total();
- 
+        $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $total_records = $this->product_m->get_total($cat_id,$brand_name,$size,$shape,$color,$material_type);
+		//echo $total_records;
+
         if ($total_records > 0) 
         {
-            // get current page records
-            $data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index);
-             
-            $config['base_url'] = base_url() . 'product';
+			$data['products'] = $this->product_m->get_all_products($limit_per_page, $start_index,$cat_id,$brand_name,$size,$shape,$color,$material_type);
+			/*print_r($data['products']);
+			exit;*/
+            //$data["products"] = $this->product_m->get_current_page_records($limit_per_page, $start_index, $cond);
+            $config['base_url'] = base_url() . 'product/paging';
+			$config['first_url'] = '1';
             $config['total_rows'] = $total_records;
             $config['per_page'] = $limit_per_page;
             $config["uri_segment"] = 3;
@@ -49,27 +58,19 @@ class Product extends CI_Controller {
 			$config['prev_tag_close'] = "</li>";
 			$config['next_tag_open'] = "<li class='page-item'>";
 			$config['next_tag_close'] = "</li>";
-			$config['last_tag_open'] = "<li
-			class='page-item'>";
+			$config['last_tag_open'] = "<li class='page-item'>";
 			$config['last_tag_close'] = "</li>";
-			$config['cur_tag_open'] = "<li class='page-item active'><a class='page-link active' href=''>"; 
+			$config['cur_tag_open'] = "<li class='page-item active'><a class='page-link' href=''>"; 
 			$config['cur_tag_close'] = "</a></li>";
 			$config['num_tag_open'] = "<li class='page-item'>";
-			$config['num_tag_close'] = "</li>"; 
-			$config['attributes'] =
-			array('class' => 'page-link');
-
-            $this->pagination->initialize($config);
-             
-            // build paging links
-			
-
+			$config['num_tag_close'] = "</li>";
+			$config['attributes'] = array('class' => 'page-link');
+            $this->pagination->initialize($config);       
             $data["links"] = $this->pagination->create_links();
         }
          
 
 		/* pagination ends */
-
 		$this->load->view('product',$data);
 	}
 
@@ -105,13 +106,59 @@ class Product extends CI_Controller {
 		$this->load->model('product_m');
 		$category_id = $this->input->post('cat_id');
 		$brand_name = $this->input->post('brand_name');
+		$size = $this->input->post('size');
+		$shape = $this->input->post('shape');
+		$color = $this->input->post('color');
+		$material_type = $this->input->post('material_type');
+		
+		if($category_id == ""){
+			$category_id = $this->session->userdata['product_sidebar']['cat_id'];
+		}
+		if(isset($this->session->userdata['product_sidebar']['cat_id']) && $this->session->userdata['product_sidebar']['cat_id'] == $category_id){
+			if($brand_name == ""){
+				$brand_name = $this->session->userdata['product_sidebar']['brand_name'];
+			}
+			if($size == ""){
+				$size = $this->session->userdata['product_sidebar']['size'];
+			}
+			if($shape == ""){
+				$shape = $this->session->userdata['product_sidebar']['shape'];
+			}
+			if($color == ""){
+				$color = $this->session->userdata['product_sidebar']['color'];
+			}
+			if($material_type == ""){
+				$material_type = $this->session->userdata['product_sidebar']['material_type'];
+			}
+		}else{
+			$brand_name = "";
+			$size ="";
+			$shape = "";
+			$color = "";
+			$material_type = "";
+		}
+
 		$sidebar_filter = array(
 			"cat_id" => $category_id,
-			"brand_name" => $brand_name
+			"brand_name" => $brand_name,
+			"size" => $size,
+			"shape" => $shape,
+			"color" => $color,
+			"material_type"=> $material_type
 		);
 		$this->session->set_userdata('product_sidebar', $sidebar_filter);
+
+
 		return $sidebar_filter;
 
+	}
+
+	public function clear_all(){
+		unset(
+					$_SESSION['product_sidebar']
+					
+			);
+		redirect('product');
 	}
 
 

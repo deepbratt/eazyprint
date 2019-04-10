@@ -39,27 +39,35 @@ class product_m extends CI_Model {
 	}
 	/* FOR SIDEBAR ENDS */
 
-	public function get_all_products()
+	public function get_all_products($cond)
 	{
 		$this->db->select('*');
 		$this->db->from('products');
 		//$this->db->join('product_image', 'product_image.product_id = products.product_id');
 		//$this->db->join('category', 'category.cat_id = products.product_category_id');
-		//$this->db->where('orders.orders_id',$order_id);
+		$this->db->where($cond);
 		//$this->db->order_by('category_name');
 		$query = $this->db->get();
 		return $query->result();
 	}
 	
 	/*pagination */
-	public function get_current_page_records($limit, $start) 
+	public function get_current_page_records($limit, $start, $cond) 
     {
-		$this->db->select('*');
-		$this->db->from('products');
         $this->db->limit($limit, $start);
-        $query = $this->db->get();
-		return $query->result();
-
+        $query = $this->db->get("products");
+ 
+        if ($query->num_rows() > 0) 
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+             
+            return $data;
+        }
+ 
+        return false;
     }
      
     public function get_total() 

@@ -12,6 +12,16 @@ class Pending_orders_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_pending_it($order_status,$user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('orders');
+		$this->db->where('user_id',$user_id);
+		$this->db->where('order_status',$order_status);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 }
 
 /* End of file Purchase_order_m.php */

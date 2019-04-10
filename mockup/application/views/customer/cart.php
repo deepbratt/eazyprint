@@ -24,8 +24,17 @@
 		<link href="<?php echo base_url();?>css/timeline.min.css" rel="stylesheet" />
 		<style>
 		.sidebar_active{
-			background:#009fdc !important;
-		}
+        background:#f5365c !important;
+		border-radius: 25px;
+      }
+	  .mediaicon_active{
+	    border: 1px solid #fff;
+        background: #fff;
+        color: #F5365C;
+	  }
+	  .mediafont:hover {
+	   color: #F5365C !important;
+	  }
 		.sidebar_active .text-dark{
 			color:#fff !important;
 			margin-top:8px !important;
@@ -43,37 +52,58 @@
 				<div class="row">
 				<?php $this->load->view("customer/customer_sidebar");?>
 					<div class="col-lg-8">
-						
-						<div class="card store">
-									<div class="table-responsive">
-										<table class="table card-table table-vcenter">
-											<thead>
-												<td>Product</td>
-												<td>Name</td>
-												<td>Quantity</td>
-												<td>Price</td>
-												<td colspan="2" style="text-align:center;">Action</td>
-											</thead>
-											<tbody>
+						<div class="card store" style="min-height:250px;">
+							<?php
+								if(!empty($fetch_prod_data)){
+							?>
+							<div class="table-responsive">
+								<table class="table card-table table-vcenter">
+									<thead>
+										<td>Product</td>
+										<td>Name</td>
+										<td>Quantity</td>
+										<td>Price</td>
+										<td colspan="2" style="text-align:center;">Action</td>
+									</thead>
+									<tbody>
+									<?php
+									
+										foreach($fetch_prod_data AS $key=>$each_cart_data){
+									?>
+									<tr>
+										<td>
 											<?php
-												for($i=1;$i<5;$i++){
+												$prod_id = $each_cart_data->product_id;
+												$fetch_image = $this->cart_m->prod_image_info($prod_id);
 											?>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Apple Iphone 6</td>
-												<td>1</td>
-												<td><strong><i class="fas fa-rupee-sign"></i> 250</strong></td>
-												<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><i class="fas fa-trash fa-2x" ></i></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
-											</tr>
-											<?php
-												}	
-											?>
-											</tbody>
-										</table>
-									</div>
+											<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_image->product_image_path;?>" alt="" class="h-8"></td>
+										<td><?php echo $each_cart_data->product_title;?></td>
+										<td><?php echo $total_each_mat_qty[$key];?></td>
+										
+										<td><strong><i class="fas fa-rupee-sign"></i>
+											<?php echo $total_payable[$key];?></strong>
+										</td>
+
+										<td class="text-right text-muted d-none d-md-table-cell text-nowrap"><a href="<?php echo base_url('cart/remove_cart/');?><?php echo $each_cart_data->cart_id;?>"><i class="fas fa-trash fa-2x" ></i></a></td>
+
+										<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary" href="<?php echo base_url('checkout/delivery_address');?>"><i class="fas fa-shopping-cart"></i> Checkout</a></td>
+									</tr>
+									<?php
+										}
+									?>
+									</tbody>
+								</table>
+							</div>
+							<?php
+								}else{
+							?>
+								<div class="table-responsive" style="text-align:center;">
+									<img src="<?php echo base_url('images/empty-cart.jpg');?>" style="height:100%;">
 								</div>
-						
+							<?php
+								}
+							?>
+						</div>
 					</div>
 				</div>
 			</div>

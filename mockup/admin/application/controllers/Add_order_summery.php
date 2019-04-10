@@ -38,6 +38,112 @@ class Add_order_summery extends CI_Controller {
 		}
 	}
 
+	public function add_order()
+	{
+		$this->load->model('add_order_summery_m');
+		$raw_id = $this->input->post('raw_id');
+		$get_raw_product_details = $this->add_order_summery_m->get_row($raw_id);
+		$raw_seller = $get_raw_product_details->raw_added_by;
+		
+		$get_supplier_it = $this->add_order_summery_m->get_supplier($raw_seller);
+	
+		
+		$user_type = $this->session->userdata['logged_in']['user_type'];
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$get_user_details_it = $this->add_order_summery_m->get_user_details($user_id);
+
+		$user_email = $get_user_details_it->user_email;
+		$this->load->library('upload');
+		$count_image = count($_FILES['meta_image']['name']);		
+		for($i = 0; $i < $count_image; $i++){
+			$_FILES['userFile']['name'] = $_FILES['meta_image']['name'][$i];
+			$_FILES['userFile']['type'] = $_FILES['meta_image']['type'][$i];
+			$_FILES['userFile']['tmp_name'] = $_FILES['meta_image']['tmp_name'][$i];
+			$_FILES['userFile']['error'] = $_FILES['meta_image']['error'][$i];
+			$_FILES['userFile']['size'] = $_FILES['meta_image']['size'][$i];
+
+			$config['upload_path'] = 'uploads/order_images/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['file_name'] = rand(999,99999).$_FILES['meta_image']['name'][$i];
+			
+			$this->load->library('upload',$config);
+			$this->upload->initialize($config);
+			
+			if($this->upload->do_upload('userFile')){
+				$fileData = $this->upload->data();
+				$product_image[$i]['file_name'] = $fileData['file_name'];
+				$product_image[$i]['created'] = date("Y-m-d H:i:s");
+				$product_image[$i]['modified'] = date("Y-m-d H:i:s");
+			}
+			$order_time = time();
+			$records = array(
+							'product_name' => $get_raw_product_details->raw_name,
+							'product_image '=>$product_image[$i]['file_name'],
+							'user_id'=>$user_id,
+							'purchase_type'=>$user_type,
+							'purchaser_email'=>$user_email,
+							'supplier_name'=>$get_supplier_it->crew_fname,
+							'product_price'=>$get_raw_product_details->raw_retail_price,
+							'order_amount'=> $get_raw_product_details->raw_retail_price,
+							'order_qty'=>'1',
+							'payment_status'=>'pending',
+							'payment_method '=>'',
+							'order_status '=>'0',
+							'order_date'=>$order_time
+						);
+
+			
+		
+		$insert_new_order[] = $this->add_order_summery_m->insert_order($records);
+			
+		}
+			$count_order = count($insert_new_order);
+	
+		if($count_order > 0)
+		{
+			$get_it = implode("," ,$insert_new_order);
+			print_r($get_it);
+		}
+		else
+		{
+			echo "error";
+		}
+	}
+
+	public function update_order()
+	{
+		$this->load->model('add_order_summery_m');
+		$payment_type = $this->input->post('payment_option');
+		$raw_id = $this->input->post('raw_id');
+		$pay_status = "completed";
+		$payment_array = array('payment_status' => $pay_status ,'payment_method' => $payment_type);
+		$get_count_order_id = count($this->input->post('order_id'));
+		if($get_count_order_id)
+		{
+			$order_it = $this->input->post('order_id');
+			
+			foreach($order_it As $something)
+			{
+				$get_order_update = $this->add_order_summery_m->get_update($something,$payment_array);
+			
+			}
+				if($get_order_update)
+				{
+					redirect('order_success');
+				}
+				else
+				{
+					$this->session->set_flashdata("internal_error", "OPPS! Something Went Wrong.");
+					redirect('add_order_summery/'.$raw_id);
+				}
+		}
+		else
+		{
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
+			redirect('add_order_summery/'.$raw_id);
+		}	
+	}
+	
 	public function change_status()
 	{
 		$this->load->model('listing_product_m');
