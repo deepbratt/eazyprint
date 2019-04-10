@@ -148,16 +148,11 @@ class Product extends CI_Controller {
 		);
 		$this->session->set_userdata('product_sidebar', $sidebar_filter);
 
-
 		return $sidebar_filter;
-
 	}
 
 	public function clear_all(){
-		unset(
-					$_SESSION['product_sidebar']
-					
-			);
+		unset($_SESSION['product_sidebar']);
 		redirect('product');
 	}
 
