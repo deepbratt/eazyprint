@@ -129,7 +129,7 @@ class Add_order_summery extends CI_Controller {
 			}
 				if($get_order_update)
 				{
-					//redirect('admin_login');
+					redirect('order_success');
 				}
 				else
 				{
