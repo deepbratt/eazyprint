@@ -58,6 +58,7 @@
 								</div>-->
 								<div class="row">
 								<?php
+								if(!empty($products)){
 								foreach($products As $get_product){
 									$category_id = $get_product->product_category_id;
 									$category = $this->product_m->fetch_name_category($category_id);
@@ -75,8 +76,16 @@
 												<?php
 													$product_id = $get_product->product_id;
 													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
+													if($fetch_product_image->product_image_path != ""){
 												?>
-												<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+													<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												<?php
+													}else{	
+												?>
+													<img class="img-responsive" alt="" src="<?php echo base_url('images/no-image.png');?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												<?php
+													}	
+												?>
 											</a>
 											<div class="clearfix"></div>
 										</div>
@@ -106,7 +115,12 @@
 										</div>
 									</div>
 								<?php
-								}
+									}
+								}else{
+								?>
+									<div class="card-body">No results found</div>
+								<?php
+								}	
 								?>
 								</div>
 
