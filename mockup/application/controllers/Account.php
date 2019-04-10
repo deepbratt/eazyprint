@@ -6,7 +6,7 @@ class Account extends CI_Controller {
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('admin_login');
+            redirect('login');
         }
     }
 
@@ -19,6 +19,81 @@ class Account extends CI_Controller {
 		$data['get_all_cities'] = $this->account_m->get_all_cities();
 		$data['get_all_state'] = $this->account_m->get_all_state();
 		$this->load->view('customer/account',$data);
+	}
+
+	public function ajax_fetch_state()
+	{
+		$this->load->model('account_m');
+		$city_id = $this->input->post('city_id');
+		$get_spec_state = $this->account_m->get_spec_state($city_id);
+		$state = $get_spec_state->city_state;
+		$get_all_state = $this->account_m->get_all_state();
+		?>
+		<option selected disabled>Select state</option>
+		<?php
+		foreach($get_all_state as $fetch_all_state){
+		?>
+		<option value="<?php echo $fetch_all_state->city_state;?>" <?php echo(($fetch_all_state->city_state == $state)?'selected':'');?>><?php echo $fetch_all_state->city_state;?></option>
+		<?php
+		}
+		
+	}
+
+	public function add_address()
+	{
+		$this->load->model('account_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$name = $this->input->post('name');
+		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
+		$city = $this->input->post('city');
+		$state = $this->input->post('state');
+		$pincode = $this->input->post('pincode');
+		$country = 'India';
+		$status = '0';
+		$date = time();
+
+		$insert_array = array(
+								'user_id' => $user_id,
+								'full_name' => $name,
+								'phone' => $phone,
+								'address' => $address,
+								'city' => $city,
+								'state' => $state,
+								'postal_code' => $pincode,
+								'country' => $country,
+								'address_status' => $status,
+								'added_date' => $date,
+								'updated_date' => $date
+							 );
+		$insert_new_address = $this->account_m->insert_new_address($insert_array);
+		if($insert_new_address != ''){
+			$this->session->set_flashdata("address_success", "New address has been added successfully!");
+		}else{
+			$this->session->set_flashdata("address_failed", "Something went wrong. Please try again...");
+		}
+		$this->session->set_flashdata("status", "address");
+		redirect('account');
+	}
+
+	public function change_status(){
+		$this->load->model('account_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$address_id = $this->uri->segment(3);
+		$update_address_status = $this->account_m->update_address_status($address_id);
+		$update_other = $this->account_m->update_other_status($address_id,$user_id);
+		$this->session->set_flashdata("address_status_success", "Primary address has been updated successfully!");
+		$this->session->set_flashdata("status", "address");
+		redirect('account');
+	}
+
+	public function delete_address(){
+		$this->load->model('account_m');
+		$address_id = $this->uri->segment(3);
+		$delete_query = $this->account_m->delete_query($address_id);
+		$this->session->set_flashdata("address_del_success", "This address has been deleted successfully!");
+		$this->session->set_flashdata("status", "address");
+		redirect('account');
 	}
 
 	public function update_account_info(){
@@ -70,9 +145,9 @@ class Account extends CI_Controller {
 
 			$update_profile = $this->account_m->update_profile_info($account_info,$user_id,$prev_profile_img,$image_delete_status);
 			if($update_profile){
-				$this->session->set_flashdata("success", "General Information Updated Successfully!");
+				$this->session->set_flashdata("success_personal", "General Information Updated Successfully!");
 			}else{
-				$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
+				$this->session->set_flashdata("failed_personal", "Something went wrong. Please try again...");
 			}
 		
 		redirect('account');
@@ -80,24 +155,30 @@ class Account extends CI_Controller {
 
 	public function update_address(){
 		$this->load->model('account_m');
-		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$address = $this->input->post('address');
-		$city = $this->input->post('city');
-		$state = $this->input->post('state');
-		$pincode = $this->input->post('pincode');
+		$add_id = $this->input->post('update');
+		$name = $this->input->post('name_'.$add_id.'');
+		$phone = $this->input->post('phone_'.$add_id.'');
+		$address = $this->input->post('address_'.$add_id.'');
+		$city = $this->input->post('city_'.$add_id.'');
+		$state = $this->input->post('state_'.$add_id.'');
+		$pincode = $this->input->post('pincode_'.$add_id.'');
+		$date = time();
 
 		$cust_address_info = array(
-			'user_address' => $address,
-			'user_city' => $city,
-			'user_state' => $state,
-			'user_pincode' => $pincode
-		);
+								'full_name' => $name,
+								'phone' => $phone,
+								'address' => $address,
+								'city' => $city,
+								'state' => $state,
+								'postal_code' => $pincode,
+								'updated_date' => $date
+							 );
 
-		$update_address_info = $this->account_m->update_address_info($cust_address_info,$user_id);
+		$update_address_info = $this->account_m->update_address_info($cust_address_info,$add_id);
 		if($update_address_info){
-			$this->session->set_flashdata("success", "Address Updated Successfully!");
+			$this->session->set_flashdata("success_add_update", "Address Updated Successfully!");
 		}else{
-			$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
+			$this->session->set_flashdata("failed_add_update", "Something went wrong. Please try again...");
 		}
 		$this->session->set_flashdata("status", "address");
 		redirect('account');
@@ -112,9 +193,15 @@ class Account extends CI_Controller {
 		
 		$check_prev = $this->account_m->fetch_cust_info($user_id);
 		if($old_pass == $check_prev->user_password){
+			if($new_pass == $con_pass){
+				$update_array = array('user_password' => new_pass);
+				$update_password = $this->account_m->update_password($user_id,$update_array);
+				$this->session->set_flashdata("success_pass", "Address Updated Successfully!");
+			}else{
+				$this->session->set_flashdata("failed_pass1", "New password and Confirm password doesn't match!");
+			}
 		}else{
-			$this->session->set_flashdata("failed", "Something went wrong. Please try again...");
-			
+			$this->session->set_flashdata("failed_pass2", "Old password is not correct!");
 		}
 		$this->session->set_flashdata("status", "password");
 		redirect('account');

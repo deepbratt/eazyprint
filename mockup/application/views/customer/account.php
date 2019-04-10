@@ -93,33 +93,28 @@ $this->load->view("common/header");
                     </ul>
                   </div>
                 </div>
-                <?php
-				  if($this->session->flashdata('success')){
-				?>
-					<div class="alert alert-success">
-						<strong><?php echo $this->session->flashdata('success');?></strong>
-					</div>
-				<?php
-				}
-				if($this->session->flashdata('failed')){
-				?>
-					<div class="alert alert-danger">
-						<strong><?php echo $this->session->flashdata('failed');?></strong>
-					</div>
-				<?php
-				}
-				if($this->session->flashdata('exist')){
-				?>
-					<div class="alert alert-warning">
-						<strong><?php echo $this->session->flashdata('exist');?></strong>
-					</div>
-				<?php
-				}
-				?>
+                
+
                 <div class="panel-body tabs-menu-body">
                   <div class="tab-content">
                     <div class="tab-pane active " id="personal">
                       <div class="col-lg-12">
+						<?php
+						  if($this->session->flashdata('success_personal')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('success_personal');?></strong>
+							</div>
+						<?php
+						}
+						else if($this->session->flashdata('failed_personal')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('failed_personal');?></strong>
+							</div>
+						<?php
+						}
+						?>
                         <form class="card" method="POST" enctype="multipart/form-data" action="<?php echo base_url('account/update_account_info');?>">
                           <div class="card-body">
                             <div class="row">
@@ -189,6 +184,47 @@ $this->load->view("common/header");
                     </div>
                     <div class="tab-pane" id="address">
                       <div class="col-lg-12">
+						<?php
+						  if($this->session->flashdata('address_success')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('address_success');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('address_failed')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('address_failed');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('address_status_success')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('address_status_success');?></strong>
+							</div>
+						<?php
+						}
+						else if($this->session->flashdata('address_del_success')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('address_del_success');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('success_add_update')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('success_add_update');?></strong>
+							</div>
+						<?php
+						}
+						else if($this->session->flashdata('failed_add_update')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('failed_add_update');?></strong>
+							</div>
+						<?php
+						}
+						?>
 					  <div class="card-body" id="new_button">
 						<div class="row">
 						  <div class="col-md-12">
@@ -198,19 +234,20 @@ $this->load->view("common/header");
 						  </div>
 						</div>
 					  </div>
+					  <form method="post" action="<?php echo base_url('account/add_address');?>">
 					  <div id="append_div" style="display:none;">
 					  	<div class="card-body">
 							<div class="row">
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="form-label">Name</label>
-										<input type="text" class="form-control" name="name" placeholder="City">
+										<input type="text" class="form-control" name="name" placeholder="Full Name">
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="form-label">Phone</label>
-										<input type="text" class="form-control" name="phone" placeholder="State">
+										<input type="text" class="form-control" name="phone" placeholder="Phone Number">
 									</div>
 								</div>
 								<div class="col-md-12">
@@ -264,12 +301,14 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<div class="card-footer text-right">
-							<button type="submit" class="btn btn-primary">Update Profile</button> <a href="javascript:void(0);" class="btn btn-primary" onclick="close_add();">close</a>
+							<button type="submit" class="btn btn-primary">Add Address</button> <a href="javascript:void(0);" class="btn btn-primary" onclick="close_add();">close</a>
 						</div>
 					  </div>
+					  </form>
                         <form class="card" method="POST" action="<?php echo base_url('account/update_address');?>">
 						<?php
 					    foreach($fetch_address as $get_add){
+							$get_city_name = $this->account_m->get_spec_state($get_add->city);
 					    ?>
 						<div class="card-body" id="main_div<?php echo $get_add->user_address_id;?>">
                             <div class="row">
@@ -279,20 +318,20 @@ $this->load->view("common/header");
 								  <br>
 								  <span class="add_details"><?php echo $get_add->address;?></span>
 								  <br>
-								  <span class="add_details"><?php echo $get_add->city;?>, <?php echo $get_add->state;?>, Pin : <?php echo $get_add->postal_code;?></span>
+								  <span class="add_details"><?php echo $get_city_name->city_name;?>, <?php echo $get_add->state;?>, Pin : <?php echo $get_add->postal_code;?></span>
                                 </div>
                               </div>
 							  <div class="col-md-2">
 								<div class="btn btn-group dropdown">
 									<button aria-expanded="false" aria-haspopup="true" class="btn btn-oblong btn-sm btn-secondary dropdown-toggle btn btn-sm" data-toggle="dropdown" type="button">Manage</button>
 									<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(44px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
-										<a class="dropdown-item" href="#" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">
+										<a class="dropdown-item" href="<?php echo base_url('account/change_status/');?><?php echo $get_add->user_address_id;?>" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">
 											<i class="fas fa-check text-success fa-fw" style="font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Mark as Primary
 										</a>
 										<a class="dropdown-item" href="javascript:void(0);" onclick="show_details(<?php echo $get_add->user_address_id;?>);">
 											<i class="fas fa-pen text-success fa-fw"></i>&nbsp;&nbsp;&nbsp;Edit
 										</a>
-										<a class="dropdown-item" href="#">
+										<a class="dropdown-item" href="<?php echo base_url('account/delete_address/');?><?php echo $get_add->user_address_id;?>">
 											<i class="fas fa-times text-danger fa-fw" style="font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Delete
 										</a>
 									</div>
@@ -307,42 +346,60 @@ $this->load->view("common/header");
                                 <div class="form-group">
                                   <label class="form-label">Name
                                   </label>
-                                  <input type="text" class="form-control" name="name" placeholder="City" value="<?php echo $get_add->full_name;?>">
+                                  <input type="text" class="form-control" name="name_<?php echo $get_add->user_address_id;?>" placeholder="City" value="<?php echo $get_add->full_name;?>">
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">Phone
                                   </label>
-                                  <input type="text" class="form-control" name="phone" placeholder="State" value="<?php echo $get_add->phone;?>">
+                                  <input type="text" class="form-control" name="phone_<?php echo $get_add->user_address_id;?>" placeholder="State" value="<?php echo $get_add->phone;?>">
                                 </div>
                               </div>
                               <div class="col-md-12">
                                 <div class="form-group">
                                   <label class="form-label">Address
                                   </label>
-                                  <textarea class="form-control" name="address" placeholder="Address" ><?php echo $get_add->address;?></textarea>
+                                  <textarea class="form-control" name="address_<?php echo $get_add->user_address_id;?>" placeholder="Address" ><?php echo $get_add->address;?></textarea>
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">City
                                   </label>
-                                  <input type="text" class="form-control" name="city" placeholder="City" value="<?php echo $get_add->city;?>">
+                                  <select class="form-control select2-show-search" name="city_<?php echo $get_add->user_address_id;?>" onchange="get_edit_state(this.value,<?php echo $get_add->user_address_id;?>);">
+									<option selected disabled>Select city</option>
+									<?php
+									foreach($get_all_cities as $fetch_all_cities){
+									?>
+									<option value="<?php echo $fetch_all_cities->city_id;?>" <?php echo (($fetch_all_cities->city_id == $get_add->city)?'selected':'');?>><?php echo $fetch_all_cities->city_name;?></option>
+									<?php
+									}
+									?>
+								</select>
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">State
                                   </label>
-                                  <input type="text" class="form-control" name="state" placeholder="State" value="<?php echo $get_add->state;?>">
+                                  <select class="form-control select2-show-search" name="state_<?php echo $get_add->user_address_id;?>" id="select_state<?php echo $get_add->user_address_id;?>">
+										<option selected disabled>Select state</option>
+										<?php
+										foreach($get_all_state as $fetch_all_state){
+										?>
+										<option value="<?php echo $fetch_all_state->city_state;?>" <?php echo (($fetch_all_state->city_state == $get_add->state)?'selected':'');?>><?php echo $fetch_all_state->city_state;?></option>
+										<?php
+										}
+										?>
+									</select>
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">Postal Code
                                   </label>
-                                  <input type="number" class="form-control" name="pincode" placeholder="ZIP Code" value="<?php echo $get_add->postal_code;?>">
+                                  <input type="number" class="form-control" name="pincode_<?php echo $get_add->user_address_id;?>" placeholder="ZIP Code" value="<?php echo $get_add->postal_code;?>">
                                 </div>
                               </div>
                               <div class="col-sm-6 col-md-6">
@@ -357,8 +414,8 @@ $this->load->view("common/header");
                             </div>
                           </div>
 						  <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">Mark as primary</button>
-							<button type="submit" class="btn btn-primary">Update Profile</button>
+                            <a class="btn btn-primary" href="<?php echo base_url('account/change_status/');?><?php echo $get_add->user_address_id;?>" style="display:<?php echo(($get_add->address_status == '1')?'none':'');?>">Mark as primary</a>
+							<button type="submit" class="btn btn-primary" name="update" value="<?php echo $get_add->user_address_id;?>">Update Profile</button>
 							<a href="javascript:void(0);" class="btn btn-primary" onclick="show_details(<?php echo $get_add->user_address_id;?>);">close</a>
                           </div>
 						  </div>
@@ -369,12 +426,31 @@ $this->load->view("common/header");
                       </div>
                     </div>
                     <div class="tab-pane  " id="password">
+					 <div class="col-lg-12">
+					  <?php
+						  if($this->session->flashdata('success_pass')){
+						?>
+							<div class="alert alert-success">
+								<strong><?php echo $this->session->flashdata('success_pass');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('failed_pass1')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('failed_pass1');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('failed_pass2')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('failed_pass2');?></strong>
+							</div>
+						<?php
+						}
+						?>
                       <div class="card">
                         <div class="card-body">
                           <form  method="post" method="POST" action="<?php echo base_url('account/update_password');?>">
-                             
-							  
-							 
                               <label class="form-label">Enter old password
                               </label>
                               <div class="form-group">
@@ -395,10 +471,9 @@ $this->load->view("common/header");
                               </div>
 							  <div id="errors" class=""></div>
                               <div class="form-footer text-right">
-                                <button type="submit" class="btn btn-primary">Send me new password
+                                <button type="submit" class="btn btn-primary">Update Password
                                 </button>
                               </div>
-                            
                           </form>
                           <div class="text-center form-label mt-3 ">
                             Forget it, 
@@ -407,6 +482,7 @@ $this->load->view("common/header");
                           </div>
                         </div>
                       </div>
+					  </div>
                     </div>
                   </div>
                 </div>
@@ -447,7 +523,18 @@ function get_state(city_id){
 	  data: {'city_id': city_id,},
 	  type: "post",
 	  success: function(response){
-		$('#select_state').html(response);
+		$("#select_state").html(response);
+	  }
+  }); 
+}
+
+function get_edit_state(city_id,add_id){
+	$.ajax({
+	  url: '<?php echo base_url();?>account/ajax_fetch_state',
+	  data: {'city_id': city_id,},
+	  type: "post",
+	  success: function(response){
+		$("#select_state"+add_id+"").html(response);
 	  }
   }); 
 }
