@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Order Summary</title>
 		<style>
 			body{
 				color:black !important;
@@ -28,18 +28,26 @@
 				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
-				  padding: 10px;
+				  padding: 0.5rem 1.5rem;
 				  width: 100%;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
+				  min-height:3.5rem;
 				}
 
-				button.accordion.active, button.accordion:hover {
-				  color: #ffffff;
-				  background-color: #7490BD;
+				button.accordion.active{
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ffe4ca;
+				}
+
+				button.accordion:hover {
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ced4da;
 				}
 
 				button.accordion:before {
@@ -123,22 +131,23 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
-								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
-								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								<!-- ORDER SUMMARY STARTS-->
 								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
+								<?php
+									if(!empty($fetch_prod_data)){
+								?>
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
-								  <div class="row">
+								  <div class="row" style="overflow-y: scroll;max-height:300px;">
 								  	<?php
-								  		foreach($prod_datazzz AS $fetch_prod_data){
+								  		foreach($fetch_prod_data AS $fetch_prod_data){
 								  	?>
 								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
@@ -203,20 +212,39 @@
 								  	?>
 								  </div>
 								  <div class="row p-3">
+								  	<?php
+								  		if(isset($this->session->userdata['logged_in']['email']) && $this->session->userdata['logged_in']['email'] != ""){
+								  	?>
 								  	<div class="col-md-9">
 								  		<div class="form-group">
 								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);"><?php echo $this->session->userdata['logged_in']['email']?></a></p>
 								  		</div>
 								  	</div>
-								  	<div class="col-md-3 text-right">
+								  	<?php
+								  		}
+								  	?>
+								  	<div class="col-md-12 text-right">
 								  		<div class="form-group">
 								  			<button class="btn btn-orange btn-lg">Continue</button>
 								  		</div>
 								  	</div>
 								  </div>
 								</form>
+								<?php
+									}else{
+								?>
+								<div class="row p-5" style="text-align:center;">
+									<img src="<?php echo base_url('images/empty-cart.jpg');?>" style="height:100%;">
+								</div>
+								<?php
+									}
+								?>
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
+								<!--LOGIN STARTS-->
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
+								
 								<!-- PAYMENT OPTION STARTS -->
 								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>

@@ -33,6 +33,7 @@ class Checkout_m extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('cart_selection');
 		$this->db->join('products','cart_selection.product_id = products.product_id');
+		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
 		$this->db->where('cart_selection.user_id',$user_id);
 		$this->db->or_where('cart_selection.ip_address',$ip_data);
 		$this->db->where('products.product_status','1');

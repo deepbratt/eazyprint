@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Checkout</title>
+		<title>Eazyprint | Delivery Address</title>
 		<style>
 			body{
 				color:black !important;
@@ -28,18 +28,26 @@
 				button.accordion {
 				  background-color: #fff;
 				  cursor: pointer;
-				  padding: 10px;
+				  padding: 0.5rem 1.5rem;
 				  width: 100%;
 				  text-align: left;
 				  outline: none;
 				  font-size: 18px;
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
+				  min-height:3.5rem;
 				}
 
-				button.accordion.active, button.accordion:hover {
-				  color: #ffffff;
-				  background-color: #7490BD;
+				button.accordion.active{
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ffe4ca;
+				}
+
+				button.accordion:hover {
+				  color: #000;
+				  /*background-color: #7490BD;*/
+				  background-color: #ced4da;
 				}
 
 				button.accordion:before {
@@ -123,14 +131,16 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
+									<li class="breadcrumb-item" aria-current="page">Delivery Address</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
@@ -181,7 +191,7 @@
 								</div>
 								<!-- DELIVERY ADDRESS ENDS-->
 								
-								<a href="<?php echo base_url('checkout/order_summary');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								
 								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
 								<p>&nbsp;</p>
 						</div>

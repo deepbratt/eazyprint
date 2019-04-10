@@ -98,7 +98,7 @@
 															<i class="fas fa-shopping-cart"></i>
 														</a>-->
 
-														<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>" class="btn btn-success btn-xs tip" title="Buy" style="padding:5px 10px;">
+														<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>" class="btn btn-success btn-xs tip" title="Buy">
 															<i class="fas fa-shopping-cart"></i> Order Now
 														</a>
 													</div>

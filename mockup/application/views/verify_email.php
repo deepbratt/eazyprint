@@ -13,7 +13,7 @@
     <meta name="MobileOptimized" content="320">
     <link rel="icon" href="<?php echo base_url();?>images/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
-    <link class="user" href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet" type="text/css" />
+   <!--<link class="user" href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet" type="text/css" />-->
     <link class="user" href="<?php echo base_url();?>css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
     <link class="user" href="<?php echo base_url();?>css/main.css" rel="stylesheet" type="text/css" />
     <link class="user" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
