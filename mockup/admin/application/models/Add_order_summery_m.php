@@ -51,4 +51,47 @@ class Add_order_summery_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	public function get_row($raw_id)
+	{
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_id',$raw_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function get_user_details($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get();
+		//return $query->num_rows();
+		return $query->row();
+
+	}
+
+	public function get_supplier($raw_seller)
+	{
+		$this->db->select('*');
+		$this->db->from('eazycrew');
+		$this->db->where('crew_id',$raw_seller);
+		$query = $this->db->get();
+		return $query->row();
+
+	}
+
+	public function insert_order($records)
+	{
+		$this->db->insert('orders',$records);
+		return $this->db->insert_id();
+	}
+
+	public function get_update($something,$payment_array)
+	{
+		$this->db->where('order_id', $something);
+		$this->db->update('orders', $payment_array);
+		return true;
+	}
 }

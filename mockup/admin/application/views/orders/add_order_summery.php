@@ -25,8 +25,10 @@
     </script>
     <script src="<?php echo base_url();?>js/multiupload.js">
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
-    </script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
     <style>
       .card-body{
         padding: 0.5rem 1.5rem !important;
@@ -92,20 +94,20 @@
               </ol>
             </div>
             <?php
+			if($this->session->flashdata('internal_error')){
+		?>
+            <div class="alert alert-danger"> 
+              <strong>
+                <?php echo $this->session->flashdata('internal_error');?>
+              </strong> 
+            </div>
+            <?php
+}
 if($this->session->flashdata('failed')){
 ?>
             <div class="alert alert-danger"> 
               <strong>
                 <?php echo $this->session->flashdata('failed');?>
-              </strong> 
-            </div>
-            <?php
-}
-if($this->session->flashdata('success')){
-?>
-            <div class="alert alert-success"> 
-              <strong>
-                <?php echo $this->session->flashdata('success');?>
               </strong> 
             </div>
             <?php
@@ -215,7 +217,7 @@ if($this->session->flashdata('success')){
                       </div>
                     </div>
                   </div>
-				  <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_order_summery/add_order');?>">
+				 <form  method="post" name="form_name" id="form_id" class="form_class" >
                   <div class="row masima" style="margin-top:20px;">
 					
                     <div class="col-md-6">
@@ -298,16 +300,50 @@ if($this->session->flashdata('success')){
 					</div>
                 </div>
                 <div class="card-footer text-center">
-                  <button type="submit" name="submit" class="btn btn-primary">Confirm Order
+                  <button type="submit"  class="btn btn-primary" id="something" >Confirm Order
                   </button>
-                  <button type="reset" class="btn btn-secondary">Cancel
+                  <button type="reset" onclick="show_this();" class="btn btn-secondary">Cancel
                   </button>
                 </div>
 				</form>
-              </div>
+				
+			  </div>
               </div>
           </div>
           
+		  <div class="modal fade" id="getCodeModal" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+					  <!-- Modal content-->
+					  <div class="modal-content">
+						<div class="modal-header">
+						 <h4 class="modal-title">Please Choose Payment Option</h4>
+						  <!-- <button type="button" class="close" >&times;</button> -->
+						 
+						  
+						</div>
+						<form  action="<?php echo base_url('');?>add_order_summery/update_order" method="post">
+						<div class="modal-body">
+						
+						 <div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="payment_option" id="inlineRadio1" value="cod" required>
+						  <label class="form-check-label" for="inlineRadio1">Cash On Delivery</label>
+						</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="payment_option" id="inlineRadio2" value="online" required>
+						  <label class="form-check-label" for="inlineRadio2">Online Payment</label>
+						</div>
+					
+						  <input type="hidden" id="getCode" name="order_id[]">
+						  <input type="hidden" name="raw_id" value="<?php echo $this->uri->segment(2);?>">
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-success">Place Order</button>
+							<button type="button" class="btn btn-default" >Cancel Order</button>
+						</div>
+						</form>
+					  </div>
+					</div>
+				  </div> 
       </div>
       <!--footer-->
       <?php $this->load->view('common/footer');?>
@@ -315,18 +351,30 @@ if($this->session->flashdata('success')){
     </div>
     </div>
   </div>
+
+
 <!-- Back to top -->
 <a href="#top" id="back-to-top" style="display: inline;">
   <i class="fas fa-angle-up">
   </i>
 </a>
+
 </body>
 <script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js">
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
 
+
+
+</script>
 
 <script>
  $(document).ready(function() {
+
+
+
+
 	var max_fields      = 5; 
 	 var wrapper         = $(".masima"); 
 	 var add_button      = $(".add_morezz");
@@ -366,7 +414,33 @@ if($this->session->flashdata('success')){
 			$(".asdad_"+e+"").remove();
 		}
 
+        $("#form_id").submit(function(e) {
+		 
+            e.preventDefault(); 
+                 $.ajax({
+                     url:'<?php echo base_url();?>add_order_summery/add_order',
+                     type:"post",
+                     data:new FormData(this),
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,
+                      success: function(response){
+						 /*alert(response);
+						 exit;*/
+						$("#getCode").val(response);
+						 $('<button type="button" id="btnThankYou" class="hidden" data-toggle="modal" data-target="#getCodeModal" data-backdrop="static" data-keyboard="false">ThankYouButton</button>').appendTo('body');
 
+							//This will click the button and open the modal
+								$("#btnThankYou" ).trigger("click");
+							
+					
+                   }
+				  
+                 });
+            });
+
+	
 </script>
 <script type="text/javascript">
   //meta image starts
