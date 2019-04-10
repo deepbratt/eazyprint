@@ -12,9 +12,22 @@ class Pending_orders extends CI_Controller {
     
 	public function index()
 	{
+
+		$user_type = $this->session->userdata['logged_in']['user_type'];
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$this->load->model('pending_orders_m');
 		$order_status = "pending";
-		$data['get_pending_orders'] = $this->pending_orders_m->get_it($order_status);
+
+		if($user_type == 'dealer')
+		{
+			$data['get_pending_orders'] = $this->pending_orders_m->get_pending_it($order_status,$user_id);
+		}
+		else
+		{
+			$data['get_pending_orders'] = $this->pending_orders_m->get_it($order_status);
+		}
+		//$get_it = $this->pending_orders_m->get_it($order_status);
+		
 		
 		$this->load->view('orders/pending_orders',$data);
 	}
