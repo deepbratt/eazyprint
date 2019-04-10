@@ -32,6 +32,9 @@
         background: #fff;
         color: #F5365C;
 	  }
+	  .mediafont:hover {
+	   color: #F5365C !important;
+	  }
 		.sidebar_active .text-dark{
 			color:#fff !important;
 			margin-top:8px !important;
