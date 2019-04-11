@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing_mug_m extends CI_Model {
+class Listing_plates_m extends CI_Model {
 
-	public function fetch_pro_mug($user_id)
+	public function fetch_plate()
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
-		$this->db->where('raw_added_by', $user_id);
-		$this->db->where('raw_category','2');
+		$this->db->where('raw_category','5');
 		$query = $this->db->get();
 		return $query->result();
 	}
