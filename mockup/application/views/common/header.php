@@ -7,6 +7,11 @@
 	cursor:pointer;
 	text-decoration:underline;
  }
+ @media screen and (min-width: 998px) {
+  .ren-navbar .mega-dropdown .sub-item{
+	width:125% !important;
+  }
+}
  </style>
  <!-- <div id="global-loader" ><div class="showbox"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></div> -->
 		<div class="page">
@@ -57,23 +62,23 @@
 										</span>
 									</a>
 								</div>
-								<a href="javascript:void(0);" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse" style="margin-top:12px;">
-									<span class="header-toggler-icon" style="color:#000;"></span>
-								</a>
 							</div>
 						</div>
 					</div>
 				</header>
 				
 				<!-- Horizantal menu-->
-				<div id="myHeader">
+				<div id="">
 					<div class="ren-navbar fixed-header" id="headerMenuCollapse" >
 						<div class="container">
-							<div class="row" style="height: 75px;margin-top: -3px;">
+							<div class="row">
+							
+							<div class="col-md-2">
 								<a class="nav-link header-brand" href="<?php echo base_url('home');?>">
 									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;">
 								</a>
-							
+							</div>
+							<div class="col-md-8">
 								<div class="nav">
 									<?php
 										$ci =&get_instance();
@@ -85,9 +90,10 @@
 												$url = "".base_url('model_listing')."";
 											}
 									?>
+									
 										<li class="nav-item with-sub  mega-dropdown">
 										  <a class="nav-link" href="<?php echo $url;?>">
-											<span class="d-none d-lg-block">
+											<span class="d-lg-block">
 												<span class="text-dark" style="text-transform:uppercase;"> <?php echo $get_cat->category_name;?> </span>
 											</span>
 										  </a>
@@ -172,10 +178,50 @@
 														}	
 													?>
 												<?php
+													}else if($get_cat->cat_id == 4){
+													$ci =&get_instance();
+														$ci->load->model('home_m');
+														$get_pillows = $ci->home_m->fetch_pillows();
+														foreach($get_pillows AS $each_pillows){
+												?>	
+													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
+														<a href="<?php echo base_url('model_listing/');?><?php echo $each_pillows->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+															<img src="<?php echo base_url();?>admin/uploads/product_images/pillows/<?php echo $each_pillows->raw_image;?>" style="height:100px;text-align:center;"> <br />
+															<?php echo ucfirst($each_pillows->raw_title);?> 
+														</a>
+													</div>
+												<?php
+														}
+													}else if($get_cat->cat_id == 5){
+														$ci =&get_instance();
+														$ci->load->model('home_m');
+														$get_plates = $ci->home_m->fetch_plates();
+														foreach($get_plates AS $each_plates){
+												?>
+													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
+														<a href="<?php echo base_url('model_listing/');?><?php echo $each_plates->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+															<img src="<?php echo base_url();?>admin/uploads/product_images/plate/<?php echo $each_plates->raw_image;?>" style="height:100px;text-align:center;"> <br />
+															<?php echo ucfirst($each_plates->raw_title);?> 
+														</a>
+													</div>
+												<?php
+														}
+													}else if($get_cat->cat_id == 6){
+														$ci =&get_instance();
+														$ci->load->model('home_m');
+														$get_tiles = $ci->home_m->fetch_tiles();
+														foreach($get_tiles AS $each_tiles){
+												?>
+													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
+														<a href="<?php echo base_url('model_listing/');?><?php echo $each_tiles->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+															<img src="<?php echo base_url();?>admin/uploads/product_images/tiles/<?php echo $each_tiles->raw_image;?>" style="height:100px;text-align:center;"> <br />
+															<?php echo ucfirst($each_tiles->raw_title);?> 
+														</a>
+													</div>
+												<?php
+														}
 													}
 												?>
-												
-
 											 </div>
 										   </div>
 										</li>
@@ -183,13 +229,17 @@
 									<?php
 										}
 									?>
-									
+								</div>
+							</div>
+								<!-- NAV ENDS-->
+							<div class="col-md-2">
+								<div class="nav">
 									<?php
 										if(empty($this->session->userdata['logged_in']['user_id'])){
 									?>
-									<li class="nav-item" style="margin-left:180px;">
+									<li class="nav-item left">
 										<a class="nav-link" href="<?php echo base_url('login');?>">
-											<span class="d-none d-lg-block">
+											<span class="d-lg-block">
 												<span class="text-dark">LOGIN</span>
 											</span>
 										</a>
@@ -197,7 +247,7 @@
 
 									<li class="nav-item right">
 										<a class="nav-link" href="<?php echo base_url('signup');?>">
-											<span class="d-none d-lg-block">
+											<span class="d-lg-block">
 												<span class="text-dark">SIGNUP</span>
 											</span>
 										</a>
@@ -209,7 +259,7 @@
 											$ci->load->model('login_m');
 											$get_profile_details = $ci->login_m->get_profile_details($user_id);
 									?>
-									<li class="nav-item right" style="margin-left:180px;">
+									<li class="nav-item left">
 										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 										<?php
 											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
@@ -237,7 +287,7 @@
 									<?php
 										}else{
 									?>
-										<li class="nav-item right" style="margin-left:500px;">
+										<li class="nav-item left" style="margin-left:500px;">
 											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 												<i class="fas fa-user" style="font-size:33px;"></i>
 											</a>
@@ -265,7 +315,7 @@
 												}
 											$count_cart_data = array_sum($count_cart_qty);
 										?>
-							            <div class="dropdown d-none d-md-flex"> 
+							            <div class="dropdown d-md-flex"> 
 										  <a class=" icon" data-toggle="dropdown">
 										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill" style="font-size:15px !important;"><?php echo $count_cart_data;?></span>
 										  </a> 
@@ -301,7 +351,7 @@
 										<?php
 											}else{
 										?>
-										<div class="dropdown d-none d-md-flex"> 
+										<div class="dropdown d-md-flex"> 
 										  <a class=" icon" data-toggle="dropdown">
 										    <img src="<?php echo base_url('images/Shopping-Cart-icon.png')?>" style="height:50px;"><span class=" badge badge-info badge-pill">0</span>
 										  </a> 
@@ -309,27 +359,26 @@
 										<?php
 											}
 										?>
-
 									</li>
-									
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 
 
 					<!-- Mobile Menu Starts -->
 
-					<div class="ren-navbar fixed-header mobile_menu" id="headerMenuCollapse">
+					<div class="ren-navbar fixed-header mobile_menu">
 						<div class="container">
 							<div class="row" style="height: 75px;margin-top: -3px;">
-								<div class="col-md-10">
-									<a  href="<?php echo base_url('home');?>" style="padding-left:54%;">
+								<div class="col-md-10 col-xs-10 col-sm-10">
+									<a  href="<?php echo base_url('home');?>">
 										<img src="<?php echo base_url();?>images/logo_header.png" style="height:40px;margin-top:18px;">
 									</a>
 								</div>
-								<div class="col-md-2">
-									<a href="javascript:void(0);" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse" style="margin-top:12px;">
+								<div class="col-md-2 col-xs-2 col-sm-2" style="margin-top:25px;">
+									<a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
 										<span class="header-toggler-icon" style="color:#000;"></span>
 									</a>
 								</div>
