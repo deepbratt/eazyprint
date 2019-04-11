@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | Pending Orders</title>
+		<title>Eazyprint | Completed Orders</title>
 		<style>
 			b{
 				color:black;
@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">Pending Orders</h4>
+							<h4 class="page-title">Completed Orders</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Pending Orders</li>
+								<li class="breadcrumb-item active" aria-current="page">Completed Orders</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
@@ -81,61 +81,44 @@
 							<div class="col-md-12 col-lg-12">
 								<div class="card">
 									
-									<div class="card-body" style="zoom : 64% !important;">
+									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example" class="table table-striped table-bordered" style="width:100%">
 												<thead>
 												  <tr>
-													<th class="wd-15p">Order&nbsp;No</th>
-													<th class="wd-15p">Product&nbsp;Name</th>
-													<th class="wd-15p">Product&nbsp;Image</th>
+													<th class="wd-15p">Sl&nbsp;No</th>
+													<th class="wd-15p">Category&nbsp;Name</th>
+													<th class="wd-15p">Subcategory&nbsp;Name</th>
+													<th class="wd-15p">Brand</th>
+													<th class="wd-15p">Product</th>
 													<th class="wd-15p">Quantity</th>
-													<th class="wd-15p">Payable&nbsp;Amount</th>
-													<th class="wd-15p">Supplier Name</th>
-											
-													<th class="wd-15p">Payment Status</th>
-													<th class="wd-15p">Delivery Status</th>
-													<th class="wd-15p">Order Status</th>
+													<th class="wd-15p">Product&nbsp;Image</th>
+													<th class="wd-15p">Purchase&nbsp;Price</th>
+													<th class="wd-15p">Wholesale&nbsp;Price</th>
+													<th class="wd-15p">Status</th>
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
 												<tbody>
-												<?php
-													$count_pending_order = count($get_pending_orders);
-													
-													if($count_pending_order > 0)
-													{
-														foreach($get_pending_orders As $all_orders)
+													<?php
+														$count_completed_orders = count($get_completed_orders);
+														if($count_completed_orders > 0)
 														{
-												?>
+															foreach($get_completed_orders As $complete_orders)
+															{
+													?>
 												  <tr>
-												    <td>#<?php echo $all_orders->order_id;?></td>
-													<td><?php echo $all_orders->product_name;?></td>
-													<td><img src="<?php echo base_url('uploads/order_images/');?><?php echo $all_orders->product_image;?>" style="height:80px;width:80px;"></td>
-													<td><?php echo $all_orders->order_qty;?></td>
-													<td><?php echo $all_orders->order_amount;?></td>
-													<td><?php echo $all_orders->supplier_name;?></td>
+												    <td><?php echo ?></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
 													<td>
-														<?php
-														if($all_orders->payment_status == 'completed')
-															{
-																$color= "color:green;";
-															}
-															else
-															{
-																$color = "color:red;";
-															}
-
-
-														?>
-														
-															<span style="<?php echo $color;?>"><?php echo $all_orders->payment_status;?></span>
 													
 													</td>
-													<td><?php echo $all_orders->delivery_status ;?></td>
-												
-												
-												
+													<td></td>
+													<td></td>
 													<td class="switch_1">
 														<label class="custom-switch">
 															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"  onchange="change_status('');">
@@ -148,8 +131,8 @@
 													</td>
 												  </tr>
 												<?php
+															}
 														}
-													}
 												?>
 												</tbody>
 											  </table>
