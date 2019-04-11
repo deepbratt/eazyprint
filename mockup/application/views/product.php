@@ -58,6 +58,7 @@
 								</div>-->
 								<div class="row">
 								<?php
+								if(!empty($products)){
 								foreach($products As $get_product){
 									$category_id = $get_product->product_category_id;
 									$category = $this->product_m->fetch_name_category($category_id);
@@ -75,8 +76,16 @@
 												<?php
 													$product_id = $get_product->product_id;
 													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
+													if($fetch_product_image->product_image_path != ""){
 												?>
-												<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+													<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												<?php
+													}else{	
+												?>
+													<img class="img-responsive" alt="" src="<?php echo base_url('images/no-image.png');?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+												<?php
+													}	
+												?>
 											</a>
 											<div class="clearfix"></div>
 										</div>
@@ -106,40 +115,31 @@
 										</div>
 									</div>
 								<?php
-								}
+									}
+								}else{
+								?>
+									<div class="card-body">No results found</div>
+								<?php
+								}	
 								?>
 								</div>
 
-
-								<div class="pagination-wrapper center">
-									<nav aria-label="Page navigation">
-										<?php if (isset($links)) { ?>
-													<?php echo $links ?>
-												<?php } ?>
-										<ul class="pagination mg-b-0">
-											 
-											<!--<li class="page-item active">
-												<a class="page-link" href="#">1</a>
-											</li>
-											<li class="page-item">
-												<a class="page-link" href="#">2</a>
-											</li>
-											<li class="page-item">
-												<a class="page-link" href="#">3</a>
-											</li>
-											<li class="page-item">
-												<a class="page-link" href="#">4</a>
-											</li>
-											<li class="page-item">
-												<a class="page-link" href="#">5</a>
-											</li>
-											<li class="page-item">
-												<a aria-label="Next" class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
-											</li>-->
-										</ul>
-									</nav>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="pagination-wrapper">
+											<nav aria-label="Page navigation">
+												<?php 
+													if(isset($links)){
+														echo $links;
+													}
+												?>
+											</nav>
+										</div>
+									</div>
+									<div class="col-md-6 text-right" style="margin-top:8px;">
+										<span style="font-size:15px;font-weight:400;"><strong><?php echo $records_in_total;?></strong> records found</span>
+									</div>
 								</div>
-
 								<p>&nbsp;</p>
 
 

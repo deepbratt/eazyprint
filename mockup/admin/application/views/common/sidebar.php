@@ -49,7 +49,7 @@
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_pillows');?>"><span class="side-menu__label"> Pillows </span></a>
+					<a class="side-menu__item" href="<?php echo base_url('listing_pillows');?>"><span class="side-menu__label"> Cusions & Pillows </span></a>
 				</li>
 
 				<li class="slide">
