@@ -20,8 +20,15 @@
 		<?php
 		$this->load->view("common/metalinks");
 		?>
-			</head>
-			<body class="app">
+		</head>
+		<style>
+		.bottom-pagination{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		</style>
+		<body class="app">
 		<?php
 		$this->load->view("common/header");
 		?>
@@ -60,7 +67,8 @@
 								<?php
 								if(!empty($products)){
 								foreach($products As $get_product){
-									$category_id = $get_product->product_category_id;
+									$img_path = "admin/uploads/product_images/";
+									/*$category_id = $get_product->product_category_id;
 									$category = $this->product_m->fetch_name_category($category_id);
 									if($category = "tshirts"){
 										$img_path = "admin/uploads/product_images/";
@@ -68,7 +76,7 @@
 										$img_path = "admin/uploads/product_images/";
 									}else if($category = "mobile covers"){
 										$img_path = "admin/uploads/product_images/";
-									}
+									}*/
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;text-align:center;">
 										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px 1px 0px 1px solid #CCC !important;height:300px;">
@@ -124,7 +132,7 @@
 								?>
 								</div>
 
-								<div class="row">
+								<div class="bottom-pagination row">
 									<div class="col-md-6">
 										<div class="pagination-wrapper">
 											<nav aria-label="Page navigation">

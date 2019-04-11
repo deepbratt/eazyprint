@@ -157,8 +157,8 @@ class product_m extends CI_Model {
 		if($material_type != ""){
 			$this->db->where('raw_materials.raw_material_type',$material_type);
 		}
-
-		$this->db->order_by('category_name');
+		$this->db->group_by('products.product_id');
+		$this->db->order_by('category.category_name');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) 
         {
@@ -218,6 +218,8 @@ class product_m extends CI_Model {
 		if($material_type != ""){
 			$this->db->where('raw_materials.raw_material_type',$material_type);
 		}
+		$this->db->group_by('products.product_id');
+		$this->db->order_by('category.category_name');
 		$query = $this->db->get();
         return $query->num_rows();
     }
