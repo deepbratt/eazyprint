@@ -2,7 +2,7 @@
 	.card-header{
 		background:#f3f4f8;border-bottom:1px solid #d5def0;
 	}
-	.colorinput input[type=checkbox]:checked + span {
+	.colorinput input[type=radio]:checked + span {
 		-webkit-transform: rotate(45deg);
 		-ms-transform: rotate(45deg);
 		transform: rotate(45deg);
@@ -52,7 +52,7 @@
             </select>
           </div>-->
           <div class="form-group" id="reload_brand">
-            <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_brand">
+            <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_brand" <?php echo(($category_id == "")?'disabled':'');?>>
               <option selected disabled value=""> Brand </option>
               <?php
 			  
@@ -132,7 +132,7 @@
 							foreach($size_data AS $each_size_data){
 						?>
 							<label class="selectgroup-item">
-								<input type="checkbox" name="size" value="<?php echo $each_size_data->raw_size;?>" class="selectgroup-input ez_size" <?php echo (($each_size_data->raw_size == $size)?'checked':'')?> id="size_check">
+								<input type="checkbox" name="size" value="<?php echo $each_size_data->raw_size;?>" class="selectgroup-input ez_size" <?php echo (($category_id == "")?'disabled':(($each_size_data->raw_size == $size)?'checked':''))?> id="size_check">
 								<span class="selectgroup-button"><?php echo $each_size_data->raw_size;?></span>
 							</label>
 						<?php
@@ -160,7 +160,7 @@
 							foreach($shape_data AS $each_shape_data){
 						?>
 						<label class="custom-control custom-checkbox">
-							<input type="radio" class="custom-control-input" name="shape" value="<?php echo $each_shape_data->raw_shapetype;?>" <?php echo (($each_shape_data->raw_shapetype == $shape_type)?'checked':'')?> onClick="shape_check(this.value);">
+							<input type="radio" class="custom-control-input" name="shape" value="<?php echo $each_shape_data->raw_shapetype;?>" <?php echo (($category_id == "")?'disabled':(($each_shape_data->raw_shapetype == $shape_type)?'checked':''))?> onClick="shape_check(this.value);">
 							<span class="custom-control-label"><?php echo $each_shape_data->raw_shapetype;?></span>
 						</label>
 						<?php
@@ -188,7 +188,7 @@
 						?>
 						<div class="col-auto">
 							<label class="colorinput">
-								<input name="color" type="checkbox" value="<?php echo $each_color_data->raw_color_code;?>" class="colorinput-input" <?php echo (($each_color_data->raw_color_code == $color_type)?'checked':'')?> onClick="color_check(this.value);">
+								<input name="color" type="radio" value="<?php echo $each_color_data->raw_color_code;?>" class="colorinput-input" <?php echo (($category_id == "")?'disabled':(($each_color_data->raw_color_code == $color_type)?'checked':''))?> onClick="color_check(this.value);">
 								<span class="colorinput-color" style="background-color:<?php echo $each_color_data->raw_color_code;?>"></span>
 							</label>
 						</div>
@@ -215,7 +215,7 @@
 								foreach($material_type_data AS $each_material_type_data){
 							?>
 							<label class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" name="material_type" value="<?php echo $each_material_type_data->raw_material_type;?>" <?php echo (($each_material_type_data->raw_material_type == $material_type)?'checked':'')?> onclick="material_typezz(this.value);">
+								<input type="radio" class="custom-control-input" name="material_type" value="<?php echo $each_material_type_data->raw_material_type;?>" <?php echo (($category_id == "")?'disabled':(($each_material_type_data->raw_material_type == $material_type)?'checked':''))?> onclick="material_typezz(this.value);">
 								<span class="custom-control-label"><?php echo $each_material_type_data->raw_material_type;?></span>
 							</label>
 							<?php

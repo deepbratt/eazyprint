@@ -132,7 +132,7 @@ class Product extends CI_Controller {
 			}
 		}else{
 			$brand_name = "";
-			$size ="";
+			$size = "";
 			$shape = "";
 			$color = "";
 			$material_type = "";
