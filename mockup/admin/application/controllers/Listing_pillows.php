@@ -26,15 +26,15 @@ class Listing_pillows extends CI_Controller {
 	public function delete_pillow()
 	{
 		$raw_id = $this->uri->segment(3);
-		$this->load->model('listing_mug_m');
-		$delete_mug = $this->listing_mug_m->delete_mug($raw_id);
+		$this->load->model('listing_pillows_m');
+		$delete_pillow = $this->listing_pillows_m->delete_pillow($raw_id);
 		if($delete_mug){
-			$this->session->set_flashdata("success", "Success , Your have successfully deleted this T-shirt!");
-			redirect('listing_mug');
+			$this->session->set_flashdata("success", "Success , Your have successfully deleted this Pillow!");
+			redirect('listing_pilows');
 		}
 		else{
 			$this->session->set_flashdata("failed", "Something went wrong!");
-			redirect('listing_mug');
+			redirect('listing_pilows');
 		}
 	}
 
