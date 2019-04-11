@@ -131,23 +131,30 @@
 								}	
 								?>
 								</div>
-
-								<div class="bottom-pagination row">
-									<div class="col-md-6">
-										<div class="pagination-wrapper">
-											<nav aria-label="Page navigation">
-												<?php 
-													if(isset($links)){
-														echo $links;
-													}
-												?>
-											</nav>
+								
+									<div class="row">
+										<div class="col-md-6 col-xs-6 col-sm-6">
+											<div class="pagination-wrapper">
+												<nav aria-label="Page navigation">
+													<?php 
+														if(isset($links)){
+															echo $links;
+														}
+													?>
+												</nav>
+											</div>
 										</div>
+										<?php
+											if($records_in_total > 0){
+										?>
+										<div class="col-md-6 col-xs-6 col-sm-6" style="text-align:right;margin-top:15px;">
+											<span style="font-size:15px;font-weight:400;"><strong><?php echo $records_in_total;?></strong> record(s) found</span>
+										</div>
+										<?php
+											}	
+										?>
 									</div>
-									<div class="col-md-6 text-right" style="margin-top:8px;">
-										<span style="font-size:15px;font-weight:400;"><strong><?php echo $records_in_total;?></strong> records found</span>
-									</div>
-								</div>
+								
 								<p>&nbsp;</p>
 
 
