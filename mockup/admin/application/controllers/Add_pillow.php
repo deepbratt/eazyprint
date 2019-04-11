@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Add_mug extends CI_Controller {
+class Add_pillow extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -15,16 +15,16 @@ class Add_mug extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('products/add_mug');
+		$this->load->view('products/add_pillow');
 	}
 
-	public function add_pro_mug()
+	public function add_pro_pillow()
 		{ 
-		$this->load->model('add_mug_m');
+		$this->load->model('add_pillow_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		
 		//$category = $this->input->post('category');
-		$category = '2';
+		$category = '4';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');
@@ -52,7 +52,7 @@ class Add_mug extends CI_Controller {
 		$raw_status = '1';
 
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/pillows/';
+			$config['upload_path'] = 'uploads/product_images/mug/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			
@@ -89,7 +89,7 @@ class Add_mug extends CI_Controller {
 
 			$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_shapetype'=>$product_shape,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_added_date'=>$ad_date);
 
-			$update_mug = $this->add_mug_m->update_pro_mug($records);
+			$update_mug = $this->add_pillow_m->update_pro_mug($records);
 
 			if($update_mug)
 			{
@@ -99,7 +99,7 @@ class Add_mug extends CI_Controller {
 			{
 				$this->session->set_flashdata("failed", "Product Updated Successfully!");
 			}
-			redirect('add_mug');
+			redirect('add_pillow');
 	}
 
 }

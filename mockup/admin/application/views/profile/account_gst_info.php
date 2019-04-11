@@ -64,13 +64,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">First Name</label>
-													<input type="text" class="form-control" name="f_name" placeholder="Enter First Name">
+													<input type="text" class="form-control" name="f_name" value="<?php echo (($user_details->user_fname != '')?$user_details->user_fname:'');?>" placeholder="Enter First Name">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control" name="l_name" placeholder="Enter last Name">
+													<input type="text" class="form-control" name="l_name" placeholder="Enter last Name" value="<?php echo (($user_details->user_lname != '')?$user_details->user_lname:'');?>">
 												</div>
 											</div>
 										</div>
@@ -78,13 +78,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Email</label>
-													<input type="email" class="form-control" name="email" placeholder="Enter Email">
+													<input type="email" class="form-control" name="email" placeholder="Enter Email" value="<?php echo (($user_details->user_email != '')?$user_details->user_email:'');?>">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Mobile</label>
-													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile">
+													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" value="<?php echo (($user_details->user_phone != '')?$user_details->user_phone:'');?>">
 												</div>
 											</div>
 										</div>
@@ -92,7 +92,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Address</label>
-													<textarea class="form-control" name="address" placeholder="Enter Address Here"></textarea>
+													<textarea class="form-control" name="address" placeholder="Enter Address Here"><?php echo (($user_details->user_address != '')?$user_details->user_address:'');?></textarea>
 												</div>
 											</div>
 										</div>
@@ -105,7 +105,7 @@
 														<?php
 															foreach($fetch_city_state AS $each_state){
 														?>
-															<option value="<?php echo $each_state->city_state;?>"><?php echo $each_state->city_state;?></option>
+															<option value="<?php echo $each_state->city_state;?>" <?php echo (($each_state->city_state == $user_details->user_state)?'selected':'');?>><?php echo $each_state->city_state;?></option>
 														<?php
 															}
 														?>
@@ -118,11 +118,15 @@
 													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
+
 														<?php
-															foreach($fetch_city_state AS $each_city){
+															if($user_details->user_city != '')
+															{
+																foreach($fetch_city_state AS $each_city){
 														?>
-															<option value="<?php echo $each_city->city_name;?>"><?php echo $each_city->city_name;?></option>
+															<option value="<?php echo $each_city->city_name;?>" <?php echo (($each_state->city_name == $user_details->user_city)?'selected':'');?>><?php echo $each_city->city_name;?></option>
 														<?php
+															}
 															}
 														?>
 													</select>

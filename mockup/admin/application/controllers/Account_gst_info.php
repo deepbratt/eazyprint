@@ -13,7 +13,10 @@ class Account_gst_info extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('account_gst_info_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_city_state'] = $this->account_gst_info_m->fetch_state_city();
+		$data['user_details'] = $this->account_gst_info_m->get_user_details($user_id);
+		
 		$this->load->view('profile/account_gst_info',$data);
 	}
 

@@ -26,9 +26,8 @@ class Completed_orders extends CI_Controller {
 			$data['get_completed_orders'] = $this->completed_orders_m->get_it($order_status);
 		}
 
-		print_r ($data['get_completed_orders']);
-		exit;
-		$this->load->view('orders/completed_orders');
+	
+		$this->load->view('orders/completed_orders',$data);
 	}
 }
 
