@@ -18,14 +18,12 @@ class Edit_plate extends CI_Controller {
 		$this->load->view('products/edit_plate',$data);
 	}
 
-	public function update_pro_mug()
+	public function update_raw_plate()
 	{
-		$this->load->model('edit_mug_m');
+		$this->load->model('edit_plate_m');
 		$raw_id = $this->uri->segment(3);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-
-		//$category = $this->input->post('category');
-		$category = '2';
+		$category = '5';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');
@@ -52,9 +50,9 @@ class Edit_plate extends CI_Controller {
 		$update_date = time();
 		$raw_status = '1';
 
-		$get_prev = $this->edit_mug_m->fetch_pro_mug($raw_id);
+		$get_prev = $this->edit_plate_m->fetch_plate($raw_id);
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/mug/';
+			$config['upload_path'] = 'uploads/product_images/plate/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			
@@ -105,17 +103,17 @@ class Edit_plate extends CI_Controller {
 			$pre_meta = '';
 		}
 
-		$update_mug = $this->edit_mug_m->update_mug($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
+		$update_plate = $this->edit_plate_m->update_plate($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
 
-		if($update_mug)
+		if($update_plate)
 		{
-			$this->session->set_flashdata("success", "Mug Updated Successfully!");
+			$this->session->set_flashdata("success", "This plate updated successfully!");
 		}
 		else
 		{
-			$this->session->set_flashdata("failed", "Something Went Wrong!");
+			$this->session->set_flashdata("failed", "Something went wrong!");
 		}
-		redirect('edit_mug/'.$raw_id);
+		redirect('edit_plate/'.$raw_id);
 	}
 
 }

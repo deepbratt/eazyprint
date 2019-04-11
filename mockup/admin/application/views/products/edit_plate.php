@@ -67,7 +67,7 @@
 			<?php
 				}
 			?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_mug/update_pro_mug/');?><?php echo $this->uri->segment(2);?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_plate/update_raw_plate/');?><?php echo $this->uri->segment(2);?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">

@@ -11,13 +11,13 @@ class Edit_plate_m extends CI_Model {
 		return $query->row();
 	}
 	
-	public function update_mug($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status)
+	public function update_plate($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status)
 	{
 		
 		$this->db->where('raw_id', $raw_id);
 		if($image_status == '1')
 		{
-			unlink("uploads/product_images/mug/".$pre_img);
+			unlink("uploads/product_images/plate/".$pre_img);
 		}
 		if($meta_status == '1'){
 			unlink("uploads/meta_images/".$pre_meta);
