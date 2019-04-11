@@ -158,9 +158,9 @@
 			?>
 			<!-- Orders Starts -->
 			<li class="sidebar_header">
-               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'header-active':'');?>" data-target="#orderz">Orders</a>
+               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'completed_orders')?'header-active':'');?>" data-target="#orderz">Orders</a>
             </li>
-			<div id="orderz" class="collapse <?php echo(($this->uri->segment(1) == 'order_summery' ||$this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'processing_orders')?'show':'');?>">
+			<div id="orderz" class="collapse <?php echo(($this->uri->segment(1) == 'order_summery' ||$this->uri->segment(1) == 'pending_orders' || $this->uri->segment(1) == 'completed_orders')?'show':'');?>">
 				<li class="slide">
 					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'order_summery')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('order_summery');?>">Add Orders</a>
 				</li>
@@ -168,7 +168,7 @@
 					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'pending_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('pending_orders');?>">Pending Orders</a>
 				</li>
 				<li class="slide">
-					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'processing_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('processing_orders');?>">Completed Orders</a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'completed_orders')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('completed_orders');?>">Completed Orders</a>
 				</li>
 			</div>
 			<!-- Orders Ends -->

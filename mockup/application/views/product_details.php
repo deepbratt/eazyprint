@@ -863,7 +863,7 @@ $this->load->view("common/header");
 					                    	
 					                    	 <div class="card item-card" style="margin-top:-22px;">
 												<div class="cardtitle" style="text-align:center;">
-													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;">
+													<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" style="text-align:center;font-size:16px;color:#424242;">
 														<?php
 															$pro_name = $each_similar_prod->product_name;
 															$substr_pro_name = substr($pro_name,0,20);
@@ -878,11 +878,8 @@ $this->load->view("common/header");
 												</p>
 												<div class="border-top text-center" style="padding:7px;">
 													<div>
-														<a href="#" class="btn btn-danger btn-xs tip" title="Favorite">
-															<i class="fas fa-heart"></i>
-														</a>
-														<a href="#" class="btn btn-success btn-xs tip" title="Buy">
-															<i class="fas fa-shopping-cart"></i>
+														<a href="<?php echo base_url("product_details");?>/<?php echo $each_similar_prod->product_id;?>" class="btn btn-success btn-xs tip" title="Buy" style="padding:5px 10px;">
+															<i class="fas fa-shopping-cart"></i> Order Now
 														</a>
 													</div>
 												</div>
