@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.png" />
 
 		<!-- Title -->
-		<title>Eazyprint | Listing Mug</title>
+		<title>Eazyprint | Listing Plate</title>
 		<style>
 			b{
 				color:black;
@@ -60,10 +60,10 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">View Mug &nbsp;&nbsp; <a href="<?php echo base_url("add_mug");?>" class="btn btn-primary">Add New</a></h4>
+							<h4 class="page-title">View Plate &nbsp;&nbsp; <a href="<?php echo base_url("add_plate");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Listing Mug</li>
+								<li class="breadcrumb-item active" aria-current="page">Listing Plate</li>
 							</ol>
 						</div>
 						<div class="alert alert-success success_div" style="display:none;">
@@ -103,27 +103,27 @@
 
 												<?php
 													$i = 1;											
-													foreach($fetch_mug as $mug_fetch){
+													foreach($fetch_plate as $get_plate){
 												?>
 												  <tr>
 												    <td><?php echo $i; ?></td>
-													<td><?php echo $mug_fetch->raw_name;?></td>
-													<td><img src="<?php echo base_url('uploads/product_images/mug/');?><?php echo $mug_fetch->raw_image;?>" height="100"></td>
-													<td><?php echo $mug_fetch->raw_shapetype;?></td>
-													<td><?php echo $mug_fetch->raw_weight;?>&nbsp;<?php echo $mug_fetch->raw_weight_unit;?></td>
-													<td><?php echo $mug_fetch->raw_color;?></td>
-													<td><?php echo $mug_fetch->raw_quantity;?></td>
-													<td><?php echo $mug_fetch->raw_gst_rate;?></td>
-													<td><?php echo date('d/m/Y',$mug_fetch->raw_added_date);?></td>
-													<td class="switch_<?php echo $mug_fetch->raw_id;?>">
+													<td><?php echo $get_plate->raw_name;?></td>
+													<td><img src="<?php echo base_url('uploads/product_images/plate/');?><?php echo $get_plate->raw_image;?>" height="100"></td>
+													<td><?php echo $get_plate->raw_shapetype;?></td>
+													<td><?php echo $get_plate->raw_weight;?>&nbsp;<?php echo $get_plate->raw_weight_unit;?></td>
+													<td><?php echo $get_plate->raw_color;?></td>
+													<td><?php echo $get_plate->raw_quantity;?></td>
+													<td><?php echo $get_plate->raw_gst_rate;?></td>
+													<td><?php echo date('d/m/Y',$get_plate->raw_added_date);?></td>
+													<td class="switch_<?php echo $get_plate->raw_id;?>">
 														<label class="custom-switch">
-															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($mug_fetch->raw_status == 1)?'checked':'');?> onchange="change_status('<?php echo $mug_fetch->raw_id;?>','<?php echo $mug_fetch->raw_status;?>');">
+															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($get_plate->raw_status == 1)?'checked':'');?> onchange="change_status('<?php echo $get_plate->raw_id;?>','<?php echo $get_plate->raw_status;?>');">
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
 													<td>
-														<a href="<?php echo base_url('edit_mug/');?><?php echo $mug_fetch->raw_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="<?php echo base_url('listing_mug/delete_mug/');?><?php echo $mug_fetch->raw_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('edit_plate/');?><?php echo $get_plate->raw_id;?>"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('listing_plates/delete_plate/');?><?php echo $get_plate->raw_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												  <?php 

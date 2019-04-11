@@ -62,3 +62,8 @@ $route['edit_mug/(:num)'] = "edit_mug";
 $route['edit_tiles/(:num)'] = "edit_tiles";
 $route['edit_product/(:num)'] = "edit_product";
 $route['add_order_summery/(:num)'] = "add_order_summery";
+$route['listing_pillow/(:num)'] = "listing_pillow";
+$route['edit_plate/(:num)'] = "edit_plate";
+$route['edit_plate/update_raw_plate/(:num)'] = "edit_plate/update_raw_plate";
+$route['edit_pillow/(:num)'] = "edit_pillow";
+

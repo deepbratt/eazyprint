@@ -52,6 +52,36 @@ class Home_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_pillows(){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_status', '1');
+		$this->db->where('raw_category', '4');
+		$this->db->group_by('raw_title');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function fetch_plates(){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_status', '1');
+		$this->db->where('raw_category', '5');
+		$this->db->group_by('raw_title');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function fetch_tiles(){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_status', '1');
+		$this->db->where('raw_category', '6');
+		$this->db->group_by('raw_title');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function each_models($brand_name)
 	{
 		$this->db->select('*');

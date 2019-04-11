@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing_plates extends CI_Controller {
+class Listing_pillows extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('admin_login');
+            redirect('login');
         }else{
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 		}
@@ -15,23 +15,26 @@ class Listing_plates extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('listing_plates_m');
-		$data['fetch_plate'] = $this->listing_plates_m->fetch_plate();
-		$this->load->view('products/listing_plates',$data);
+		$this->load->model('listing_pillows_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$data['fetch_pillow'] = $this->listing_pillows_m->fetch_pro_pillow($user_id);
+		
+		$this->load->view('products/listing_pilows',$data);
+		//$this->load->view('products/listing_pillows');
 	}
 
-	public function delete_mug()
+	public function delete_pillow()
 	{
 		$raw_id = $this->uri->segment(3);
-		$this->load->model('listing_mug_m');
-		$delete_mug = $this->listing_mug_m->delete_mug($raw_id);
+		$this->load->model('listing_pillows_m');
+		$delete_pillow = $this->listing_pillows_m->delete_pillow($raw_id);
 		if($delete_mug){
-			$this->session->set_flashdata("success", "Success , Your have successfully deleted this T-shirt!");
-			redirect('listing_mug');
+			$this->session->set_flashdata("success", "Success , Your have successfully deleted this Pillow!");
+			redirect('listing_pilows');
 		}
 		else{
 			$this->session->set_flashdata("failed", "Something went wrong!");
-			redirect('listing_mug');
+			redirect('listing_pilows');
 		}
 	}
 
