@@ -12,7 +12,7 @@ class Listing_pillows_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function delete_mug($raw_id)
+	public function delete_pillow($raw_id)
 	{
 		$query = $this->db->query("delete from raw_materials where raw_id='".$raw_id."'");
 		return true;
