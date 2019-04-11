@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Listing_mug extends CI_Controller {
+class Listing_plates extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('login');
+            redirect('admin_login');
         }else{
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 		}
@@ -15,10 +15,9 @@ class Listing_mug extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('listing_mug_m');
-		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$data['fetch_mug'] = $this->listing_mug_m->fetch_pro_mug($user_id);
-		$this->load->view('products/listing_mug',$data);
+		$this->load->model('listing_plates_m');
+		$data['fetch_plate'] = $this->listing_plates_m->fetch_plate();
+		$this->load->view('products/listing_plates',$data);
 	}
 
 	public function delete_mug()
