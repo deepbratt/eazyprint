@@ -335,7 +335,7 @@
 		
 	/* FETCH CATEGORY DATA STARTS */
 		function fetch_cat_id(e){
-		  if(e == '2'){
+		  if(e == '2' || e == '4' || e == '5' || e == '6'){
 			 $('#brand_div').hide();
 			 $.ajax({
 				  url: '<?php echo base_url();?>add_product/ajax_fetch_mugs',
