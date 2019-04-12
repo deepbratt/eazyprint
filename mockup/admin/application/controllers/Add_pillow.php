@@ -56,7 +56,7 @@ class Add_pillow extends CI_Controller {
 		$raw_status = '1';
 
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/mug/';
+			$config['upload_path'] = 'uploads/product_images/pillows/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			

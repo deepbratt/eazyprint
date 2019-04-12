@@ -109,7 +109,7 @@
 												  <tr>
 												    <td><?php echo $i; ?></td>
 													<td><?php echo $pillow_fetch->raw_name;?></td>
-													<td><img src="<?php echo base_url('uploads/product_images/mug/');?><?php echo $pillow_fetch->raw_image;?>" height="100"></td>
+													<td><img src="<?php echo base_url('uploads/product_images/pillows/');?><?php echo $pillow_fetch->raw_image;?>" height="100"></td>
 													<td><?php echo $pillow_fetch->raw_shapetype;?></td>
 													<td><?php echo $pillow_fetch->raw_weight;?>&nbsp;<?php echo $pillow_fetch->raw_weight_unit;?></td>
 													<td><?php echo $pillow_fetch->raw_color;?></td>
