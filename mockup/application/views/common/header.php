@@ -9,7 +9,7 @@
  }
  @media screen and (min-width: 998px) {
   .ren-navbar .mega-dropdown .sub-item{
-	width:125% !important;
+	width:142% !important;
   }
 }
  </style>
@@ -78,7 +78,7 @@
 									<img alt="ren logo" class="header-brand-img" src="<?php echo base_url();?>images/logo_header.png" style="height:30px;">
 								</a>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-7">
 								<div class="nav">
 									<?php
 										$ci =&get_instance();
@@ -92,7 +92,7 @@
 									?>
 									
 										<li class="nav-item with-sub  mega-dropdown">
-										  <a class="nav-link" href="<?php echo $url;?>">
+										  <a class="nav-link" href="<?php echo base_url('link/');?><?php echo $get_cat->cat_id;?>">
 											<span class="d-lg-block">
 												<span class="text-dark" style="text-transform:uppercase;"> <?php echo $get_cat->category_name;?> </span>
 											</span>
@@ -101,21 +101,10 @@
 											<div class="row">
 
 												<?php
-													if($get_cat->cat_id == 2){
+													if($get_cat->cat_id == 1){
 														$ci =&get_instance();
 														$ci->load->model('home_m');
-														$get_mobile_casezz = $ci->home_m->fetch_mugs();
-														foreach($get_mobile_casezz AS $each_mob_case){
-												?>
-													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
-															<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
-															<?php echo $each_mob_case->raw_title;?> 
-														</a>
-													</div>
-												<?php
-														}
-													}else if($get_cat->cat_id == 1){
+														
 												?>
 													<div class="col-md-2" style="text-align:left;">
 														<span style="color:#009fdc;"> Tshirts </span>
@@ -147,7 +136,20 @@
 														</a>
 														<span class="text-dark">Merchandised Tshirts</span>
 													</div>
+
+												<?php
+													}else if($get_cat->cat_id == 2){
+													$get_mobile_casezz = $ci->home_m->fetch_mugs();
+													foreach($get_mobile_casezz AS $each_mob_case){
+												?>
+													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
+														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+															<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
+															<?php echo $each_mob_case->raw_title;?> 
+														</a>
+													</div>
 												<?php	
+													}
 													}else if($get_cat->cat_id == 3){
 												?>
 													<div class="col-md-12" style="text-align:left;margin-top:5px;float:left;">
@@ -232,7 +234,7 @@
 								</div>
 							</div>
 								<!-- NAV ENDS-->
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<div class="nav">
 									<?php
 										if(empty($this->session->userdata['logged_in']['user_id'])){
@@ -372,12 +374,12 @@
 					<div class="ren-navbar fixed-header mobile_menu">
 						<div class="container">
 							<div class="row" style="height: 75px;margin-top: -3px;">
-								<div class="col-md-10 col-xs-10 col-sm-10">
+								<div class="col-md-10 col-xs-6 col-sm-6">
 									<a  href="<?php echo base_url('home');?>">
 										<img src="<?php echo base_url();?>images/logo_header.png" style="height:40px;margin-top:18px;">
 									</a>
 								</div>
-								<div class="col-md-2 col-xs-2 col-sm-2" style="margin-top:25px;">
+								<div class="col-md-2 col-xs-6 col-sm-6" style="margin-top:25px;">
 									<a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
 										<span class="header-toggler-icon" style="color:#000;"></span>
 									</a>
