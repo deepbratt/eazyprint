@@ -21,8 +21,12 @@
 			color : red;
 			font-weight: 450;
 		}
-		input.error[type="text"],input.error[type="number"],input.error[type="email"],span.error,textarea.error{
+		input.error[type="text"],input.error[type="number"],input.error[type="email"],select.error,textarea.error{
 			border : 1px solid red !important;
+			color : #7490BD;
+		}
+		select{
+			color : #7490BD;
 		}
 		</style>
        <?php $this->load->view('common/metalinks');?>
@@ -115,7 +119,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">State</label>
-													<select class="form-control select2-show-search" id="val_state" name="state" onchange="state_name(this.value);" >
+													<select class="form-control " id="val_state" name="state" onchange="state_name(this.value);" >
 														<option vlaue="" selected disabled>Choose State</option>
 														<?php
 															foreach($fetch_city_state AS $each_state){
@@ -131,7 +135,7 @@
 												<div class="form-group">
 													<label class="form-label">City</label>
 													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
-													<select class="form-control city_state select2-show-search" name="city">
+													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
 														<?php
 															foreach($fetch_city_state AS $each_city){
@@ -244,13 +248,13 @@
 	</script>
 	<script>
 
-	window.setInterval(function(){
+	/*window.setInterval(function(){
 	  if($('#val_state').hasClass('error')){
 				$('#select2-val_state-container').addClass('error');
 			}else{
 				$('#select2-val_state-container').removeClass('error');
 			}
-	}, 1000);
+	}, 1000);*/
 	</script>
 	<script>
 		function state_name(state){
