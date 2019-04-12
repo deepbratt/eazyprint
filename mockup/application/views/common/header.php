@@ -85,10 +85,6 @@
 										$ci->load->model('home_m');
 										$get_categories = $ci->home_m->get_cat();				
 										foreach($get_categories AS $get_cat){
-											$url = "".base_url()."product/".$get_cat->cat_id."";
-											if($get_cat->cat_id == 3){
-												$url = "".base_url('model_listing')."";
-											}
 									?>
 									
 										<li class="nav-item with-sub  mega-dropdown">
@@ -104,7 +100,6 @@
 													if($get_cat->cat_id == 1){
 														$ci =&get_instance();
 														$ci->load->model('home_m');
-														
 												?>
 													<div class="col-md-2" style="text-align:left;">
 														<span style="color:#009fdc;"> Tshirts </span>
@@ -139,13 +134,13 @@
 
 												<?php
 													}else if($get_cat->cat_id == 2){
-													$get_mobile_casezz = $ci->home_m->fetch_mugs();
-													foreach($get_mobile_casezz AS $each_mob_case){
+													$get_mugs = $ci->home_m->fetch_mugs();
+													foreach($get_mugs AS $each_mugs){
 												?>
 													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
-															<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mob_case->raw_image;?>" style="height:100px;text-align:center;"> <br />
-															<?php echo $each_mob_case->raw_title;?> 
+														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mugs->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+															<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mugs->raw_image;?>" style="height:100px;text-align:center;"> <br />
+															<?php echo $each_mugs->raw_title;?> 
 														</a>
 													</div>
 												<?php	
