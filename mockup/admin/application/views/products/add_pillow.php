@@ -150,6 +150,33 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product length</label>
+									<input type="text" class="form-control" name="dimension_len" placeholder="Product length">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product Height</label>
+									<input type="text" class="form-control" name="dimension_height" placeholder="Product Height">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product width</label>
+									<input type="text" class="form-control" name="dimension_width" placeholder="Product Width">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Dimension Unit</label>
+									<select name="product_dimension_unit" class="form-control select2-show-search">
+										<option value="mm">mm</option>
+										<option value="cm">cm</option>
+									</select>
+								</div>
+							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Product Weight</label>
