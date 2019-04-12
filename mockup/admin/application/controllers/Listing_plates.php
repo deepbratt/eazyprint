@@ -20,42 +20,27 @@ class Listing_plates extends CI_Controller {
 		$this->load->view('products/listing_plates',$data);
 	}
 
-	public function delete_mug()
+	public function delete_plate()
 	{
+		$this->load->model('listing_plates_m');
 		$raw_id = $this->uri->segment(3);
-		$this->load->model('listing_mug_m');
-		$delete_mug = $this->listing_mug_m->delete_mug($raw_id);
-		if($delete_mug){
-			$this->session->set_flashdata("success", "Success , Your have successfully deleted this T-shirt!");
-			redirect('listing_mug');
+		$get_plate_details = $this->listing_plates_m->get_plate_details($raw_id);
+		$raw_img = $get_plate_details->raw_image;
+		$meta_img = $get_plate_details->raw_meta_img;
+		$delete_plate = $this->listing_plates_m->delete_plate($raw_id,$raw_img,$meta_img);
+		if($delete_plate){
+			$this->session->set_flashdata("success", "Success , Your have successfully deleted this plate!");
+			redirect('listing_plates');
 		}
 		else{
 			$this->session->set_flashdata("failed", "Something went wrong!");
-			redirect('listing_mug');
+			redirect('listing_plates');
 		}
 	}
 
-	public function change_status()
-	{
-		$this->load->model('listing_mug_m');
-		$raw_id = $this->input->post('raw_id');
-		$raw_status = $this->input->post('raw_status');
-		if($raw_status == 1){
-			$changed_status = "0";
-		}else if($raw_status == 0){
-			$changed_status = "1";
-		}
-		$update_array = array('raw_status' => $changed_status);
-		$update_mug = $this->listing_mug_m->update_status($raw_id,$update_array);
-?>
-		<label class="custom-switch">
-			<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" <?php echo (($changed_status == 1)?'checked':'');?> onchange="change_status('<?php echo $raw_id;?>','<?php echo $changed_status;?>');">
-			<span class="custom-switch-indicator"></span>
-		</label>
-<?php
-	}
+	
 
 }
 
-/* End of file Admin_listing_mug.php */
-/* Location: ./application/controllers/Admin_listing_mug.php */
+/* End of file Listing_plates.php */
+/* Location: ./application/controllers/Listing_plates.php */

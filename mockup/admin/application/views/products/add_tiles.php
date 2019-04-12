@@ -14,7 +14,7 @@
     <link rel="icon" href="<?php echo base_url('images')?>/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('images')?>/favicon.png" />
     <!-- Title -->
-    <title>Eazyprint | Edit Plate</title>
+    <title>Eazyprint | Add Tiles</title>
 	  <link rel="stylesheet" href="<?php echo base_url('css/');?>bootstrap-tagsinput.css">
 	<!-- Quantity Plugin -->
 	<script src="<?php echo base_url();?>js/jquery-3.2.1.min.js"></script>
@@ -46,16 +46,16 @@
         <div class="my-3 my-md-5 app-content">
           <div class="side-app">
             <div class="page-header">
-              <h4 class="page-title">Edit Plate &nbsp;&nbsp;<a href="<?php echo base_url("listing_plates");?>" class="btn btn-primary">View All</a></h4>
+              <h4 class="page-title">Add Tiles &nbsp;&nbsp;<a href="<?php echo base_url("listing_tiles");?>" class="btn btn-primary">View All</a></h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                   <a href="#">Eazycrew
                   </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Plate </li>
+                <li class="breadcrumb-item active" aria-current="page">Add Tiles </li>
               </ol>
             </div>
-			<?php
+      		<?php
 			  if($this->session->flashdata('failed')){
 			?>
 			  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
@@ -67,7 +67,7 @@
 			<?php
 				}
 			?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('edit_plate/update_raw_plate/');?><?php echo $this->uri->segment(2);?>">
+            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_tiles/add_pro_tiles');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -79,7 +79,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Category</label>
-									<input type="text" class="form-control" name="category" value="Plate" readonly>
+									<input type="text" class="form-control" name="category" value="Tiles" readonly>
 								</div>
 							</div>
 						</div>
@@ -94,19 +94,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Name</label>
-									<input type="text" class="form-control" name="product_name" value="<?php echo $fetch_plate->raw_name;?>" placeholder="Product Name">
+									<input type="text" class="form-control" name="product_name" placeholder="Product Name">
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Title</label>
-									<input type="text" class="form-control" name="product_title" value="<?php echo $fetch_plate->raw_title;?>" placeholder="Product Title">
+									<input type="text" class="form-control" name="product_title" placeholder="Product Title">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label class="form-label">Product Description</label>
-									<textarea class="form-control" name="product_desc" placeholder="Enter Product Description"><?php echo $fetch_plate->raw_desc;?></textarea>
+									<label class="form-label">Product Desc</label>
+									<textarea class="form-control" name="product_desc" placeholder="Enter Product Description"></textarea>
 								</div>
 							</div>
 						</div>
@@ -123,24 +123,9 @@
 								</label>
 							  </div>
 							  <div class="col-md-10">
-							  	<?php
-								if($fetch_plate->raw_image == ''){
-								?>
-								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon">
-									<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-									<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-								</span>
-								<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" >
+								<span onclick="product_image()" id="hide_span" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+								<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple">
 								<img src="" onclick="product_image()" style="height:150px;display:none;" id="p_blah">
-								<?php
-								}else{
-								?>
-									<input type="file" name="p_image" id="p_image" class="form-control hide_p_file" style="display:none;" placeholder="Add Product Image" onchange="show_image(this);" multiple="multiple" value="">
-									<img src="<?php echo base_url('uploads/product_images/plate/');?><?php echo $fetch_plate->raw_image;?>" onclick="product_image()" style="height:150px;" id="p_blah">
-								<?php
-								}
-								?>
-								
 							  </div>
 						</div>
 					</div>
@@ -154,13 +139,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Material Type</label>
-									<input type="text" class="form-control" name="product_material_type" value="<?php echo $fetch_plate->raw_material_type;?>" placeholder="Product Metarial Type">
+									<input type="text" class="form-control" name="product_material_type" placeholder="Product Metarial Type">
 							  </div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Shape</label>
-									<input type="text" class="form-control" name="product_shape" value="<?php echo $fetch_plate->raw_shapetype;?>" placeholder="Product Shape">
+									<input type="text" class="form-control" name="product_shape" placeholder="Product Shape">
 								</div>
 							</div>
 						</div>
@@ -168,80 +153,60 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Product length</label>
-									<input type="text" class="form-control" name="dimension_len" value="<?php echo $fetch_plate->raw_dimension_length;?>" placeholder="Product length">
+									<input type="text" class="form-control" name="dimension_len" placeholder="Product length">
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Product Height</label>
-									<input type="text" class="form-control" name="dimension_height" value="<?php echo $fetch_plate->raw_dimension_height;?>" placeholder="Product Height">
+									<input type="text" class="form-control" name="dimension_height" placeholder="Product Height">
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Product width</label>
-									<input type="text" class="form-control" name="dimension_width" value="<?php echo $fetch_plate->raw_dimension_width;?>" placeholder="Product Width">
+									<input type="text" class="form-control" name="dimension_width" placeholder="Product Width">
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Dimension Unit</label>
-									<select name="product_dimension_unit"  class="form-control select2-show-search">
-										<option value="mm" <?php echo (($fetch_plate->raw_dimension_unit == 'mm')?'selected':'');?>>mm</option>
-										<option value="cm" <?php echo (($fetch_plate->raw_dimension_unit == 'cm')?'selected':'');?>>cm</option>
+									<select name="product_dimension_unit" class="form-control select2-show-search">
+										<option value="mm">mm</option>
+										<option value="cm">cm</option>
 									</select>
 								</div>
 							</div>
+							</div>
+						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Product Weight</label>
-									<input type="text" name="product_weight" class="form-control" value="<?php echo $fetch_plate->raw_weight;?>" placeholder="Add Product Weight">
+									<input type="text" name="product_weight" class="form-control" placeholder="Add Product Weight">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Weighing Unit</label>
 									<select name="product_weight_unit" class="form-control select2-show-search">
-										<option value="kg" <?php echo (($fetch_plate->raw_weight_unit == 'kg')?'selected':'');?>>kg</option>
-										<option value="gm" <?php echo (($fetch_plate->raw_weight_unit == 'gm')?'selected':'');?>>gm</option>
+										<option value="kg">kg</option>
+										<option value="gm">gm</option>
 									 </select>
 								</div>
 							</div>
 
 	                         <div class="col-md-12 pro_colorzz">
 	                         	<div class="row">
-								
 		                          <div class="col-md-6">
 		                          	<div class="form-group">
 			                           <label class="form-label">Product Color</label>
-									   <?php
-										$explode_color = explode(',',$fetch_plate->raw_color);
-										foreach($explode_color AS $each_color)
-										{
-										?>
-											<div class="form-group">
-			                           <input type="text" class="form-control" name="product_color[]" value="<?php echo $each_color;?>" placeholder="New Product Color Name" value="">
-									   </div>
-									   <?php
-										}
-										?>
+			                           <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value="">
 			                          </div>
 		                          </div>
-								 
 		                          <div class="col-md-2" style="margin-top:1.5rem;">
-		                          	
-										<?php
-										$explode_color_code = explode(',',$fetch_plate->raw_color_code);
-										foreach($explode_color_code AS $each_color_code)
-										{
-										?>
-											<div class="form-group">
-		                           		<input type="color" class="form-control" name="color_code[]" value="<?php echo $each_color_code;?>" placeholder="New Product Color Code"  style="height:42px;" value="">
-										</div>
-										<?php
-										}
-											?>
-		                           	
+		                          	<div class="form-group">
+		                           		<input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value="">
+		                           	</div>
 		                          </div>
 		                          <div class="col-md-4"  style="margin-top:1.5rem;">
 		                          	<div class="form-group">
@@ -255,13 +220,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Product Quantity</label>
-									<input type="number" name="product_quantity" class="form-control" value="<?php echo $fetch_plate->raw_quantity;?>" placeholder="Add quantity">
+									<input type="number" name="product_quantity" class="form-control" placeholder="Add quantity">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Minimum Order</label>
-									<input type="number" name="min_order" class="form-control" value="<?php echo $fetch_plate->min_order;?>" placeholder="Add Minimum Order">
+									<input type="number" name="min_order" class="form-control" placeholder="Add Minimum Order">
 								</div>
 							</div>
 						</div>
@@ -276,19 +241,19 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Wholesale Price</label>
-									<input type="number" name="wholesale_price" class="form-control" value="<?php echo $fetch_plate->raw_wholesale_price;?>" placeholder="Add Wholesale Price">
+									<input type="number" name="wholesale_price" class="form-control" placeholder="Add Wholesale Price">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Retail Price</label>
-									<input type="number" name="retail_price" class="form-control" value="<?php echo $fetch_plate->raw_retail_price;?>" placeholder="Add Retail Price">
+									<input type="number" name="retail_price" class="form-control" placeholder="Add Retail Price">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Purchase Price</label>
-									<input type="number" name="purchase_price" class="form-control" value="<?php echo $fetch_plate->raw_purchase_price;?>" placeholder="Add Purchase Price">
+									<input type="number" name="purchase_price" class="form-control" placeholder="Add Purchase Price">
 								</div>
 							</div>
 						</div>
@@ -305,42 +270,28 @@
 							</label>
 						  </div>
 						  <div class="col-md-10">
-						  <?php
-						  if($fetch_plate->raw_meta_img == ''){
-						  ?>
-							<span onclick="meta_img()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon">
-								<i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
-								<strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong>
-							</span>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
-						    <img src="" onclick="meta_img()" style="height:150px;display:none;" id="blah">
-						  <?php
-						  }else{
-						  ?>
-							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;"  placeholder="Add Meta Image" onchange="readURL(this);">
-						    <img src="<?php echo base_url('uploads/meta_images/');?><?php echo $fetch_plate->raw_meta_img;?>" onclick="meta_img()" style="height:150px;" id="blah">
-						  <?php
-						  }
-						  ?>
+							<span onclick="meta_image()" id="hide_span_2" style="margin-top:-5px !important;" class="btn btn-icon btn-primary file_upload_icon"><i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i><strong style="color:#000000;padding:10px;font-size:15px;">Choose File...</strong></span>
+							<input type="file" name="meta_image" id="my_file"  class="form-control hide_file" style="display:none;" placeholder="Add Meta Image" onchange="readURL(this);">
+						   <img src="" onclick="meta_image()" style="height:150px;display:none;" id="blah">
 						  </div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Tags</label>
-									<input type="text" name="meta_tags[]" data-role="tagsinput" value="<?php echo $fetch_plate->raw_tags;?>" class="form-control" placeholder="Add Tags">
+									<input type="text" name="meta_tags[]" data-role="tagsinput" class="form-control" placeholder="Add Tags">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">Meta Keywords</label>
-									<input type="text" name="meta_keyword[]" data-role="tagsinput" value="<?php echo $fetch_plate->raw_meta_keywords;?>" class="form-control" placeholder="Add Meta Keywords">
+									<input type="text" name="meta_keyword[]" data-role="tagsinput" class="form-control" placeholder="Add Meta Keywords">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label class="form-label">Meta Description</label>
-									<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"><?php echo $fetch_plate->raw_meta_desc;?></textarea>
+									<textarea class="form-control" name="meta_desc" placeholder="Enter Meta Description"></textarea>
 								</div>
 							</div>
 						</div>
@@ -355,13 +306,13 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">HSN Code</label>
-									<input type="text" name="hsn_code" class="form-control" value="<?php echo $fetch_plate->raw_hsn_code;?>" placeholder="Add HS Code">
+									<input type="text" name="hsn_code" class="form-control" placeholder="Add HS Code">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label class="form-label">GST Rate(%)</label>
-									<input type="text" name="gst_rate" class="form-control" value="<?php echo $fetch_plate->raw_gst_rate;?>" placeholder="Add GST Rate">
+									<input type="text" name="gst_rate" class="form-control" placeholder="Add GST Rate">
 								</div>
 							</div>
 						</div>
@@ -503,7 +454,7 @@
 		}
 
 
-		function meta_img(){
+		function meta_image(){
 			$("input[id='my_file']").click();
 		}
 

@@ -294,7 +294,7 @@ $this->load->view("common/header");
 									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
-						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt="" style="height:96px;"></li>
+						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/mug/');?><?php echo $fetch_raw_data->raw_image;?>" alt="" style="height:96px;"></li>
 						                  
 						                  </ol>
 						                </div>

@@ -1,29 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Edit_plate extends CI_Controller {
+class Add_tiles extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
         if(!$this->session->userdata['logged_in']['user_id']){
-            redirect('admin_login');
-        }
-    }
+            redirect('login');
+        }else{
+			$user_id = $this->session->userdata['logged_in']['user_id'];
+		}
+		
+     }
 
 	public function index()
 	{
-		$this->load->model('edit_plate_m');
-		$raw_id = $this->uri->segment(2);
-		$data['fetch_plate'] = $this->edit_plate_m->fetch_plate($raw_id);
-		$this->load->view('products/edit_plate',$data);
+		$this->load->view('products/add_tiles');
 	}
 
-	public function update_raw_plate()
-	{
-		$this->load->model('edit_plate_m');
-		$raw_id = $this->uri->segment(3);
+	public function add_pro_tiles()
+		{ 
+		$this->load->model('add_tiles_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$category = '5';
+		
+		//$category = $this->input->post('category');
+		$category = '6';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');
@@ -51,12 +52,11 @@ class Edit_plate extends CI_Controller {
 		$meta_desc = $this->input->post('meta_desc');
 		$hsn_code = $this->input->post('hsn_code');
 		$gst_rate = $this->input->post('gst_rate');
-		$update_date = time();
+		$ad_date = time();
 		$raw_status = '1';
 
-		$get_prev = $this->edit_plate_m->fetch_plate($raw_id);
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/plate/';
+			$config['upload_path'] = 'uploads/product_images/tiles/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			
@@ -66,11 +66,13 @@ class Edit_plate extends CI_Controller {
 			if($this->upload->do_upload('p_image')){
 				$uploadData = $this->upload->data();
 				$product_image = $uploadData['file_name'];
+				
+			}else{
+				$product_image = "";
 			}
-		}else{
-			$product_image = $get_prev->raw_image;
 		}
 		
+
 		if(!empty($_FILES['meta_image']['name'])){
 			$config['upload_path'] = 'uploads/meta_images/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -82,45 +84,29 @@ class Edit_plate extends CI_Controller {
 			if($this->upload->do_upload('meta_image')){
 				$uploadData = $this->upload->data();
 				$meta_image = $uploadData['file_name'];
+				
+			}else{
+				$meta_image = "";
 			}
-		}else{
-			$meta_image = $get_prev->raw_meta_img;
 		}
 
-		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_shapetype'=>$product_shape,'raw_dimension_length'=>$dimension_len,'raw_dimension_height'=>$dimension_height,'raw_dimension_width'=>$dimension_width,'raw_dimension_unit'=>$product_dimension_unit,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_updated_date'=>$update_date);
 
-		if($product_image != $get_prev->raw_image)
-		{
-			$image_status = '1';
-			$pre_img = $get_prev->raw_image;
-		}else{
-			$image_status = '';
-			$pre_img = '';
-		}
+			$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_dimension_length'=>$dimension_len,'raw_dimension_height'=>$dimension_height,'raw_dimension_width'=>$dimension_width,'raw_dimension_unit'=>$product_dimension_unit,'raw_shapetype'=>$product_shape,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_added_date'=>$ad_date);
 
-		if($meta_image != $get_prev->raw_meta_img)
-		{
-			$meta_status = '1';
-			$pre_meta = $get_prev->raw_meta_img;
-		}else{
-			$meta_status = '';
-			$pre_meta = '';
-		}
+			$update_tiles = $this->add_tiles_m->update_pro_tiles($records);
 
-		$update_plate = $this->edit_plate_m->update_plate($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
-
-		if($update_plate)
-		{
-			$this->session->set_flashdata("success", "This plate updated successfully!");
-		}
-		else
-		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
-		}
-		redirect('edit_plate/'.$raw_id);
+			if($update_tiles)
+			{
+				$this->session->set_flashdata("success", "Product Updated Successfully!");
+			}
+			else
+			{
+				$this->session->set_flashdata("failed", "Product Updated Successfully!");
+			}
+			redirect('add_tiles');
 	}
 
 }
 
-/* End of file Edit_plate.php */
-/* Location: ./application/controllers/Edit_plate.php */
+/* End of file Admin_add_mug.php */
+/* Location: ./application/controllers/Admin_add_mug.php */

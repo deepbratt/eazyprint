@@ -15,12 +15,36 @@ class Product extends CI_Controller {
 		$this->load->model('product_m');
 
 		if(!empty($this->session->userdata['product_sidebar'])){
-            $cat_id = $this->session->userdata['product_sidebar']['cat_id'];
-            $brand_name = $this->session->userdata['product_sidebar']['brand_name'];
-			$size = $this->session->userdata['product_sidebar']['size'];
-			$shape = $this->session->userdata['product_sidebar']['shape'];
-			$color = $this->session->userdata['product_sidebar']['color'];
-			$material_type = $this->session->userdata['product_sidebar']['material_type'];
+			if(isset($this->session->userdata['product_sidebar']['cat_id']) && $this->session->userdata['product_sidebar']['cat_id'] != ""){
+				 $cat_id = $this->session->userdata['product_sidebar']['cat_id'];
+			}else{
+				 $cat_id = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['brand_name']) && $this->session->userdata['product_sidebar']['brand_name'] != ""){
+				 $brand_name = $this->session->userdata['product_sidebar']['brand_name'];
+			}else{
+				 $brand_name = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['size']) && $this->session->userdata['product_sidebar']['size'] != ""){
+				 $size = $this->session->userdata['product_sidebar']['size'];
+			}else{
+				 $size = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['shape']) && $this->session->userdata['product_sidebar']['shape'] != ""){
+				 $shape = $this->session->userdata['product_sidebar']['shape'];
+			}else{
+				 $shape = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['color']) && $this->session->userdata['product_sidebar']['color'] != ""){
+				 $color = $this->session->userdata['product_sidebar']['color'];
+			}else{
+				 $color = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['material_type']) && $this->session->userdata['product_sidebar']['material_type'] != ""){
+				 $material_type = $this->session->userdata['product_sidebar']['material_type'];
+			}else{
+				 $material_type = "";
+			}
         }else{
 			$cat_id = "";
             $brand_name = "";
@@ -29,7 +53,7 @@ class Product extends CI_Controller {
 			$color = "";
 			$material_type = "";
 		}
-		
+
 		/* pagination */
 
         $data = array();

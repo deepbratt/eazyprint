@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Edit_plate extends CI_Controller {
+class Edit_tiles extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
@@ -12,18 +12,20 @@ class Edit_plate extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('edit_plate_m');
+		$this->load->model('edit_tiles_m');
 		$raw_id = $this->uri->segment(2);
-		$data['fetch_plate'] = $this->edit_plate_m->fetch_plate($raw_id);
-		$this->load->view('products/edit_plate',$data);
+		$data['fetch_tiles'] = $this->edit_tiles_m->fetch_pro_tiles($raw_id);
+		$this->load->view('products/edit_tiles',$data);
 	}
 
-	public function update_raw_plate()
+	public function update_pro_tiles()
 	{
-		$this->load->model('edit_plate_m');
+		$this->load->model('edit_tiles_m');
 		$raw_id = $this->uri->segment(3);
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$category = '5';
+
+		//$category = $this->input->post('category');
+		$category = '6';
 		$product_name = $this->input->post('product_name');
 		$product_title = $this->input->post('product_title');
 		$product_desc = $this->input->post('product_desc');
@@ -54,9 +56,9 @@ class Edit_plate extends CI_Controller {
 		$update_date = time();
 		$raw_status = '1';
 
-		$get_prev = $this->edit_plate_m->fetch_plate($raw_id);
+		$get_prev = $this->edit_tiles_m->fetch_pro_tiles($raw_id);
 		if(!empty($_FILES['p_image']['name'])){
-			$config['upload_path'] = 'uploads/product_images/plate/';
+			$config['upload_path'] = 'uploads/product_images/tiles/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 			$config['file_name'] = rand(999,99999).$_FILES['p_image']['name'];
 			
@@ -107,20 +109,20 @@ class Edit_plate extends CI_Controller {
 			$pre_meta = '';
 		}
 
-		$update_plate = $this->edit_plate_m->update_plate($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
+		$update_tiles = $this->edit_tiles_m->update_tiles($raw_id,$records,$pre_img,$image_status,$pre_meta,$meta_status);
 
-		if($update_plate)
+		if($update_tiles)
 		{
-			$this->session->set_flashdata("success", "This plate updated successfully!");
+			$this->session->set_flashdata("success", "Tiles Updated Successfully!");
 		}
 		else
 		{
-			$this->session->set_flashdata("failed", "Something went wrong!");
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
 		}
-		redirect('edit_plate/'.$raw_id);
+		redirect('edit_tiles/'.$raw_id);
 	}
 
 }
 
-/* End of file Edit_plate.php */
-/* Location: ./application/controllers/Edit_plate.php */
+/* End of file Edit_dealers.php */
+/* Location: ./application/controllers/Edit_dealers.php */
