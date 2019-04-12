@@ -29,6 +29,10 @@ class Edit_plate extends CI_Controller {
 		$product_desc = $this->input->post('product_desc');
 		$product_material_type = $this->input->post('product_material_type');
 		$product_shape = $this->input->post('product_shape');
+		$dimension_len = $this->input->post('dimension_len');
+		$dimension_height = $this->input->post('dimension_height');
+		$dimension_width = $this->input->post('dimension_width');
+		$product_dimension_unit = $this->input->post('product_dimension_unit');
 		$product_weight = $this->input->post('product_weight');
 		$product_weight_unit = $this->input->post('product_weight_unit');
 		$product_color = $this->input->post('product_color');
@@ -83,7 +87,7 @@ class Edit_plate extends CI_Controller {
 			$meta_image = $get_prev->raw_meta_img;
 		}
 
-		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_shapetype'=>$product_shape,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_updated_date'=>$update_date);
+		$records = array('raw_added_by'=>$user_id,'raw_category'=>$category,'raw_name'=>$product_name,'raw_image'=>$product_image,'raw_meta_img'=>$meta_image,'	raw_title'=>$product_title,'raw_desc'=>$product_desc,'raw_material_type'=>$product_material_type,'raw_shapetype'=>$product_shape,'raw_dimension_length'=>$dimension_len,'raw_dimension_height'=>$dimension_height,'raw_dimension_width'=>$dimension_width,'raw_dimension_unit'=>$product_dimension_unit,'raw_weight'=>$product_weight,'raw_weight_unit'=>$product_weight_unit,'raw_color'=>$implode_color,'raw_color_code'=>$implode_color_code,'raw_quantity'=>$product_quantity,'min_order'=>$min_order,'raw_wholesale_price'=>$wholesale_price,'raw_retail_price'=>$retail_price,'raw_purchase_price'=>$purchase_price,'raw_tags'=>$implode_meta_tags,'raw_meta_keywords'=>$implode_meta_keywords,'raw_meta_desc'=>$meta_desc,'raw_hsn_code'=>$hsn_code,'raw_gst_rate'=>$gst_rate,'raw_status'=>$raw_status,'raw_updated_date'=>$update_date);
 
 		if($product_image != $get_prev->raw_image)
 		{

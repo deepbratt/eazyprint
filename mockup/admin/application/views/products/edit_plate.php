@@ -165,6 +165,33 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product length</label>
+									<input type="text" class="form-control" name="dimension_len" value="<?php echo $fetch_plate->raw_dimension_length;?>" placeholder="Product length">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product Height</label>
+									<input type="text" class="form-control" name="dimension_height" value="<?php echo $fetch_plate->raw_dimension_height;?>" placeholder="Product Height">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Product width</label>
+									<input type="text" class="form-control" name="dimension_width" value="<?php echo $fetch_plate->raw_dimension_width;?>" placeholder="Product Width">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="form-label">Dimension Unit</label>
+									<select name="product_dimension_unit"  class="form-control select2-show-search">
+										<option value="mm" <?php echo (($fetch_plate->raw_dimension_unit == 'mm')?'selected':'');?>>mm</option>
+										<option value="cm" <?php echo (($fetch_plate->raw_dimension_unit == 'cm')?'selected':'');?>>cm</option>
+									</select>
+								</div>
+							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Product Weight</label>
@@ -174,9 +201,9 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Weighing Unit</label>
-									<select name="product_weight_unit" value="<?php echo $fetch_plate->raw_weight_unit;?>" class="form-control select2-show-search">
-										<option value="kg">kg</option>
-										<option value="gm">gm</option>
+									<select name="product_weight_unit" class="form-control select2-show-search">
+										<option value="kg" <?php echo (($fetch_plate->raw_weight_unit == 'kg')?'selected':'');?>>kg</option>
+										<option value="gm" <?php echo (($fetch_plate->raw_weight_unit == 'gm')?'selected':'');?>>gm</option>
 									 </select>
 								</div>
 							</div>
