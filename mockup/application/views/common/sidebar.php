@@ -41,17 +41,36 @@
               ?>
             </select>
           </div>
-		
-		  <!--<div class="form-group">
-            <select name="beast" id="select-beast" class="form-control custom-select">
-              <option selected disabled> Sub-Category </option>
-              <option value="1"> Phone </option>
-              <option value="2"> T-shirt </option>
-              <option value="3"> Mug </option>
-              <option value="4"> Tiles </option>
+          
+          <?php
+          	if($category_id == '4' || $category_id == '5' || $category_id == '6'){
+          ?>
+          	<div class="form-group">
+            <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_pro_type" <?php echo(($category_id == "")?'disabled':'');?>>
+              <option selected disabled value=""> Type </option>
+              <?php
+			  
+				if(isset($this->session->userdata['product_sidebar']['pro_type']) && $this->session->userdata['product_sidebar']['pro_type'] !=""){
+					$pro_type = $this->session->userdata['product_sidebar']['pro_type'];
+				}else{
+					$pro_type = "";
+				}
+              	$ci =&get_instance();
+				$ci->load->model('product_m');
+				//$category_id = '';
+				$fetch_pro_type_data = $ci->product_m->fetch_prod_type_data($category_id);
+              	foreach($fetch_pro_type_data AS $each_pro_type_data){
+              ?>
+              <option value="<?php echo $each_pro_type_data->raw_title;?>" <?php echo(($pro_type == $each_pro_type_data->raw_title)?'selected':'');?>> <?php echo $each_pro_type_data->raw_title;?> </option>
+              <?php
+              	}
+              ?>
             </select>
-          </div>-->
-          <div class="form-group" id="reload_brand">
+          </div>
+          <?php
+          	}else{
+          ?>
+          <div class="form-group">
             <select name="sidebar_brand" id="select-beast" class="form-control custom-select ez_brand" <?php echo(($category_id == "")?'disabled':'');?>>
               <option selected disabled value=""> Brand </option>
               <?php
@@ -65,7 +84,7 @@
 				$ci->load->model('product_m');
 				//$category_id = '';
 				$fetch_brand_data = $ci->product_m->fetch_brandzz($category_id);
-              	foreach(array_unique($fetch_brand_data) AS $each_brand_data){
+              	foreach($fetch_brand_data AS $each_brand_data){
               ?>
               <option value="<?php echo $each_brand_data->raw_brand;?>" <?php echo(($brand_name == $each_brand_data->raw_brand)?'selected':'');?>> <?php echo $each_brand_data->raw_brand;?> </option>
               <?php
@@ -73,31 +92,21 @@
               ?>
             </select>
           </div>
-		  <!--<?php
-			if(isset($this->session->userdata['product_sidebar']['cat_id']) && $this->session->userdata['product_sidebar']['cat_id'] == '3'){
-		  ?>
-          <div class="form-group">
-            <select name="beast" id="select-beast1" class="form-control custom-select ez_model">
-              <option selected disabled value=""> Model </option>
-             <?php
-              	$ci =&get_instance();
-				$ci->load->model('product_m');
-				$brand_name = '';
-				$fetch_model_data = $ci->product_m->fetch_modelzz($brand_name);
-              	foreach($fetch_model_data AS $each_model_data){
-              ?>
-              <option value="<?php echo $each_model_data->raw_name;?>"> <?php echo $each_model_data->raw_name;?> </option>
-              <?php
-              	}
-              ?>
-            </select>
-          </div>
 		  <?php
-			  }		  
-		  ?>-->
-
+		  	}
+		  ?>
 		</div>
 		<?php
+			if(isset($this->session->userdata['product_sidebar']['brand_name']) && $this->session->userdata['product_sidebar']['brand_name'] !=""){
+				$brand_name = $this->session->userdata['product_sidebar']['brand_name'];
+			}else{
+				$brand_name = "";
+			}
+			if(isset($this->session->userdata['product_sidebar']['pro_type']) && $this->session->userdata['product_sidebar']['pro_type'] !=""){
+				$pro_type = $this->session->userdata['product_sidebar']['pro_type'];
+			}else{
+				$pro_type = "";
+			}
 			if(isset($this->session->userdata['product_sidebar']['size']) && $this->session->userdata['product_sidebar']['size'] !=""){
 				$size = $this->session->userdata['product_sidebar']['size'];
 			}else{
@@ -128,7 +137,7 @@
 			   <div class="form-group m-0">
 					<div class="selectgroup selectgroup-pills">
 						<?php
-							$size_data = $this->product_m->fetch_size($category_id,$brand_name);
+							$size_data = $this->product_m->fetch_size($category_id,$brand_name,$pro_type);
 							foreach($size_data AS $each_size_data){
 						?>
 							<label class="selectgroup-item">
@@ -155,8 +164,7 @@
 				<div class="form-group m-0">
 					<div class="custom-controls-stacked">
 						<?php
-							
-							$shape_data = $this->product_m->fetch_shape($category_id,$brand_name,$size);
+							$shape_data = $this->product_m->fetch_shape($category_id,$brand_name,$pro_type,$size);
 							foreach($shape_data AS $each_shape_data){
 						?>
 						<label class="custom-control custom-checkbox">
@@ -183,7 +191,7 @@
 				<div class="form-group m-0">
 					<div class="row gutters-xs">
 						<?php
-							$color_data = $this->product_m->fetch_colorz($category_id,$brand_name,$size,$shape_type);
+							$color_data = $this->product_m->fetch_colorz($category_id,$brand_name,$pro_type,$size,$shape_type);
 							foreach($color_data AS $each_color_data){
 						?>
 						<div class="col-auto">
@@ -211,7 +219,7 @@
 					<div class="form-group m-0">
 						<div class="custom-controls-stacked">
 							<?php
-								$material_type_data = $this->product_m->fetch_material_type_data($category_id,$brand_name,$size,$shape_type,$color_type);
+								$material_type_data = $this->product_m->fetch_material_type_data($category_id,$brand_name,$pro_type,$size,$shape_type,$color_type);
 								foreach($material_type_data AS $each_material_type_data){
 							?>
 							<label class="custom-control custom-checkbox">
@@ -240,6 +248,19 @@
 		type: "post",
 			success: function(response){
 				location.reload();
+				//alert(response);
+			}
+	  	});
+	  });
+	$(".ez_pro_type").on('change', function() {
+	    var pro_type_name = $(this).children("option:selected").val();
+	    $.ajax({
+		url: '<?php echo base_url();?>product/ajax_sidebar_filter',
+		data: {'pro_type_name': pro_type_name,},
+		type: "post",
+			success: function(response){
+			  location.reload();
+			  //alert(response);
 			}
 	  	});
 	  });

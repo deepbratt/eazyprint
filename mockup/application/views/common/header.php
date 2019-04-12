@@ -93,7 +93,7 @@
 												<span class="text-dark" style="text-transform:uppercase;"> <?php echo $get_cat->category_name;?> </span>
 											</span>
 										  </a>
-										  <div class="sub-item " style="border:1px solid #CCCCCC;border-top:none;">
+										  <div class="sub-item " style="border:1px solid #CCCCCC;border-top:none;margin-top:-10px;">
 											<div class="row">
 
 												<?php
@@ -138,7 +138,7 @@
 													foreach($get_mugs AS $each_mugs){
 												?>
 													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mugs->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+														<a href="<?php echo base_url('link/prodata/');?><?php echo $each_mugs->raw_category;?>/<?php echo $each_mugs->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
 															<img src="<?php echo base_url();?>admin/uploads/product_images/mug/<?php echo $each_mugs->raw_image;?>" style="height:100px;text-align:center;"> <br />
 															<?php echo $each_mugs->raw_title;?> 
 														</a>
@@ -159,17 +159,7 @@
 														foreach($get_mobile_casezz AS $each_mob_case){
 													?>
 													<div class="col-md-3 blk-mb" style="text-align:left;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;"> <?php echo $each_mob_case->raw_brand;?> </a>
-														<!--<ul style="padding-top:10px;">
-															<?php
-																$fetch_each_case = $ci->home_m->each_models($each_mob_case->raw_brand);
-																foreach($fetch_each_case AS $each_casezz){
-															?>
-															<li class="text-dark"><?php echo $each_casezz->raw_name;?></li>
-															<?php
-																}	
-															?>
-														</ul>-->
+														<a href="<?php echo base_url('link/prodata/');?><?php echo $each_mob_case->raw_category;?>/<?php echo $each_mob_case->raw_id;?>"style="color:#009fdc;cursor:pointer !important;"> <?php echo $each_mob_case->raw_brand;?> </a>
 													</div>
 													<?php
 														}	
@@ -182,7 +172,7 @@
 														foreach($get_pillows AS $each_pillows){
 												?>	
 													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_pillows->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+														<a href="<?php echo base_url('link/prodata/');?><?php echo $each_pillows->raw_category;?>/<?php echo $each_pillows->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
 															<img src="<?php echo base_url();?>admin/uploads/product_images/pillows/<?php echo $each_pillows->raw_image;?>" style="height:100px;text-align:center;"> <br />
 															<?php echo ucfirst($each_pillows->raw_title);?> 
 														</a>
@@ -196,7 +186,7 @@
 														foreach($get_plates AS $each_plates){
 												?>
 													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_plates->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+														<a href="<?php echo base_url('link/prodata/');?><?php echo $each_plates->raw_category;?>/<?php echo $each_plates->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
 															<img src="<?php echo base_url();?>admin/uploads/product_images/plate/<?php echo $each_plates->raw_image;?>" style="height:100px;text-align:center;"> <br />
 															<?php echo ucfirst($each_plates->raw_title);?> 
 														</a>
@@ -210,7 +200,7 @@
 														foreach($get_tiles AS $each_tiles){
 												?>
 													<div class="col-md-2 blk-mb" style="text-align:center;margin-top:5px;float:left;cursor:pointer !important;">
-														<a href="<?php echo base_url('model_listing/');?><?php echo $each_tiles->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
+														<a href="<?php echo base_url('link/prodata/');?><?php echo $each_tiles->raw_category;?>/<?php echo $each_tiles->raw_id;?>"style="color:#000;cursor:pointer !important;text-align:center;"> 
 															<img src="<?php echo base_url();?>admin/uploads/product_images/tiles/<?php echo $each_tiles->raw_image;?>" style="height:100px;text-align:center;"> <br />
 															<?php echo ucfirst($each_tiles->raw_title);?> 
 														</a>

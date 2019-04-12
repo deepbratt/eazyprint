@@ -65,6 +65,7 @@
 								</div>-->
 								<div class="row">
 								<?php
+								
 								if(!empty($products)){
 								foreach($products As $get_product){
 									$img_path = "admin/uploads/product_images/";

@@ -20,14 +20,29 @@ class product_m extends CI_Model {
 		if($category_id != ''){
 			$this->db->where('products.product_category_id',$category_id);
 		}
-		$this->db->where('raw_materials.raw_brand !=', "");
+		//$this->db->where('raw_materials.raw_brand !=', "");
+		$this->db->group_by('products.raw_brand');
+		$query = $this->db->get();
+		return $query->result();
+		//return $this->db->last_query();
+	}
+
+	public function fetch_prod_type_data($category_id)
+	{
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
+		if($category_id != ''){
+			$this->db->where('products.product_category_id',$category_id);
+		}
+		//$this->db->where('raw_materials.raw_brand !=', "");
 		$this->db->group_by('products.raw_id');
 		$query = $this->db->get();
 		return $query->result();
 		//return $this->db->last_query();
 	}
 
-	public function fetch_modelzz($brand_name)
+	public function fetch_modelzz($category_id,$brand_name)
 	{
 		$this->db->select('*');
 		$this->db->from('products');
@@ -40,7 +55,7 @@ class product_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_size($category_id,$brand_name)
+	public function fetch_size($category_id,$brand_name,$pro_type)
 	{
 		$this->db->select('*');
 		$this->db->from('products');
@@ -50,6 +65,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ''){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ''){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		$this->db->where('raw_materials.raw_size !=', "");
 		$this->db->group_by('raw_materials.raw_size');
@@ -57,7 +75,7 @@ class product_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_shape($category_id,$brand_name,$size)
+	public function fetch_shape($category_id,$brand_name,$pro_type,$size)
 	{
 		$this->db->select('*');
 		$this->db->from('products');
@@ -67,6 +85,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ''){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ''){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		if($size != ''){
 			$this->db->where('raw_materials.raw_size',$size);
@@ -78,7 +99,7 @@ class product_m extends CI_Model {
 		//return $this->db->last_query();
 	}
 
-	public function fetch_colorz($category_id,$brand_name,$size,$shape) 
+	public function fetch_colorz($category_id,$brand_name,$pro_type,$size,$shape) 
 	{
 		$this->db->select('*');
 		$this->db->from('products');
@@ -88,6 +109,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ''){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ''){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		if($size != ''){
 			$this->db->where('raw_materials.raw_size',$size);
@@ -102,7 +126,7 @@ class product_m extends CI_Model {
 		//return $this->db->last_query();
 	}
 
-	public function fetch_material_type_data($category_id,$brand_name,$size,$shape,$color) 
+	public function fetch_material_type_data($category_id,$brand_name,$pro_type,$size,$shape,$color) 
 	{
 		$this->db->select('*');
 		$this->db->from('products');
@@ -112,6 +136,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ''){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ''){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		if($size != ''){
 			$this->db->where('raw_materials.raw_size',$size);
@@ -130,7 +157,7 @@ class product_m extends CI_Model {
 	}
 	/* FOR SIDEBAR ENDS */
 
-	public function get_all_products($limit, $start, $cat_id,$brand_name,$size,$shape,$color,$material_type)
+	public function get_all_products($limit, $start, $cat_id,$brand_name,$pro_type,$size,$shape,$color,$material_type)
 	{
 		$this->db->limit($limit, $start);
 		$this->db->select('*');
@@ -144,6 +171,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ""){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ""){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		if($size != ""){
 			$this->db->where('raw_materials.raw_size',$size);
@@ -170,6 +200,7 @@ class product_m extends CI_Model {
             return $data;
         }
 		return $query->result();
+		//return $this->db->last_query();
 	}
 	
 	/*pagination */
@@ -192,7 +223,7 @@ class product_m extends CI_Model {
         return false;
     }*/
      
-    public function get_total($cat_id,$brand_name,$size,$shape,$color,$material_type) 
+    public function get_total($cat_id,$brand_name,$pro_type,$size,$shape,$color,$material_type) 
     {
 		$this->db->select('*');
 		$this->db->from('products');
@@ -205,6 +236,9 @@ class product_m extends CI_Model {
 		}
 		if($brand_name != ""){
 			$this->db->where('raw_materials.raw_brand',$brand_name);
+		}
+		if($pro_type != ""){
+			$this->db->where('raw_materials.raw_title',$pro_type);
 		}
 		if($size != ""){
 			$this->db->where('raw_materials.raw_size',$size);
@@ -222,6 +256,7 @@ class product_m extends CI_Model {
 		$this->db->order_by('category.category_name');
 		$query = $this->db->get();
         return $query->num_rows();
+        //return $this->db->last_query();
     }
 	
 	/* pagination */
