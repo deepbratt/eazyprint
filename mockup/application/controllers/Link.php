@@ -5,7 +5,9 @@ class Link extends CI_Controller {
 
 	public function index()
 	{
-		
+		$fetch_cat_id = $this->uri->segment(2);
+		$_SESSION['product_sidebar']['cat_id'] = $fetch_cat_id;
+		redirect('product');
 	}
 
 }
