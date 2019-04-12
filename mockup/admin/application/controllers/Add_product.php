@@ -101,7 +101,7 @@ class Add_product extends CI_Controller {
 		$this->load->model('add_product_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$category = $this->input->post('category');
-		if($category == '2'){
+		if($category == '2' || $category == '4' || $category == '5' || $category == '6'){
 			$raw_brand = '';
 		}else{
 			$raw_brand = $this->input->post('raw_brand');
