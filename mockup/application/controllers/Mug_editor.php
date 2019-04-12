@@ -7,7 +7,7 @@ class Mug_editor extends CI_Controller {
 	{
 		$this->load->model('mug_editor_m');
 		//$data['raw_mat_id'] = $this->uri->segment(2);
-		$data['raw_mat_id'] = '223';
+		$data['raw_mat_id'] = '236';
 		$data['fetch_raw_data'] = $this->mug_editor_m->fetch_model_name($data['raw_mat_id']);
 		$data['fetch_similar_pro_data'] = $this->mug_editor_m->fetch_similar($data['raw_mat_id']);
 		$this->load->view('Mug_editor',$data);
