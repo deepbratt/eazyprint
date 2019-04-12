@@ -11,17 +11,20 @@ class Listing_plates_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-
-	public function delete_mug($raw_id)
-	{
-		$query = $this->db->query("delete from raw_materials where raw_id='".$raw_id."'");
-		return true;
-	}
-
-	public function update_status($raw_id,$update_array)
-	{
+	
+	public function get_plate_details($raw_id){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
 		$this->db->where('raw_id', $raw_id);
-		$this->db->update('raw_materials', $update_array);
+		$query = $this->db->get();
+		return $query->row();
+	}
+	public function delete_plate($raw_id,$raw_img,$meta_img)
+	{
+		unlink("uploads/product_images/plate/".$raw_img);
+		unlink("uploads/meta_images/".$meta_img);
+		$this->db->where('raw_id', $raw_id);
+		$this->db->delete('raw_materials');
 		return true;
 	}
 }
