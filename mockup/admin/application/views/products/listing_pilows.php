@@ -92,6 +92,7 @@
 													<th class="wd-15p">Product Shape</th>
 													<th class="wd-15p">Product Weight</th>
 													<th class="wd-15p">Product Color</th>
+													<th class="wd-15p">Product Dimension</th>
 													<th class="wd-15p">Product Quantity</th>
 													<th class="wd-15p">GST Rate(%)</th>
 													<th class="wd-15p">Added Date</th>
@@ -108,10 +109,20 @@
 												  <tr>
 												    <td><?php echo $i; ?></td>
 													<td><?php echo $pillow_fetch->raw_name;?></td>
-													<td><img src="<?php echo base_url('uploads/product_images/mug/');?><?php echo $pillow_fetch->raw_image;?>" height="100"></td>
+													<td><img src="<?php echo base_url('uploads/product_images/pillows/');?><?php echo $pillow_fetch->raw_image;?>" height="100"></td>
 													<td><?php echo $pillow_fetch->raw_shapetype;?></td>
 													<td><?php echo $pillow_fetch->raw_weight;?>&nbsp;<?php echo $pillow_fetch->raw_weight_unit;?></td>
 													<td><?php echo $pillow_fetch->raw_color;?></td>
+													<td>
+													<?php
+														if($pillow_fetch->raw_dimension_length != '')
+														{
+													?>
+														<span><?php echo $pillow_fetch->raw_dimension_length;?> * <?php echo $pillow_fetch->raw_dimension_width;?> * <?php echo $pillow_fetch->raw_dimension_height;?> <?php echo $pillow_fetch->raw_dimension_unit;?></span>
+													<?php
+														}
+														?>
+													</td>
 													<td><?php echo $pillow_fetch->raw_quantity;?></td>
 													<td><?php echo $pillow_fetch->raw_gst_rate;?></td>
 													<td><?php echo date('d/m/Y',$pillow_fetch->raw_added_date);?></td>
