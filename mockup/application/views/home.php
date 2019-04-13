@@ -206,10 +206,10 @@ $this->load->view("common/header");
 						<div class="row">
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center ">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/2');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mugs_thumb.png" >
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/2');?>">
 										<h3 class="product_ttl">Mugs & Bottles</h3>
 									</a>
 								</div>
@@ -218,10 +218,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/3');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/mob_case.png" >
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/3');?>">
 										<h3 class="product_ttl">Mobile Back Covers</h3>
 									</a>
 								</div>
@@ -229,10 +229,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/1');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/tshirts_thumb.png">
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/1');?>">
 										<h3 class="product_ttl">Clothing & Fashion</h3>
 									</a>
 								</div>
@@ -242,10 +242,10 @@ $this->load->view("common/header");
 						<div class="row">
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/6');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/roomtiles_thumb2.png" >
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/6');?>">
 										<h3 class="product_ttl"> Floor Tiles & Frames </h3>
 									</a>
 								</div>
@@ -253,10 +253,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/5');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/plates_thmb.png" >
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/5');?>">
 										<h3 class="product_ttl"> Dinner Plates </h3>
 									</a>
 								</div>
@@ -264,10 +264,10 @@ $this->load->view("common/header");
 
 							<div class="col-md-4 col-sm-12 col-xs-12">
 								<div class="card card-primary text-center">
-									<a href="<?php echo base_url('product');?>" class="bg-dark">
+									<a href="<?php echo base_url('link/prodata/4');?>" class="bg-dark">
 										<img class="img-responsive img_op" src="<?php echo base_url();?>images/banners/cussions_cases_thumb.png" >
 									</a>
-									<a href="<?php echo base_url('product');?>">
+									<a href="<?php echo base_url('link/prodata/4');?>">
 										<h3 class="product_ttl"> Pillows & Cusions </h3>
 									</a>
 								</div>

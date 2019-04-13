@@ -19,6 +19,24 @@ class Product_details_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function fetch_phone_models(){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category','3');
+		$this->db->group_by('raw_brand');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function brand_models($brand_name){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category','3');
+		$this->db->where('raw_brand',$brand_name);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function prod_info($prod_id){
 		$this->db->select('*');
 		$this->db->from('products');
@@ -36,11 +54,12 @@ class Product_details_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_similar_products($pro_cat_id){
+	public function fetch_similar_products($pro_cat_id,$pro_id){
 		$this->db->select('*');
 		$this->db->from('products');
 		$this->db->join('product_image','products.product_id = product_image.product_id');
 		$this->db->where('products.product_category_id',$pro_cat_id);
+		$this->db->where('products.product_id !=',$pro_id);
 		$this->db->group_by('product_image.product_id');
 		$query = $this->db->get();
 		return $query->result();

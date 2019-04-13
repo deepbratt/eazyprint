@@ -21,7 +21,7 @@ class Product extends CI_Controller {
 			}else{
 				 $cat_id = "";
 			}
-			if(isset($this->session->userdata['product_sidebar']['brand_name']) && $this->session->userdata['product_sidebar']['brand_name'] != ""){
+			if(isset($this->session->userdata['product_sidebar']['brand_name']) && $this->session->userdata['product_sidebar']['brand_name'] != "" && $cat_id != "3"){
 				 $brand_name = $this->session->userdata['product_sidebar']['brand_name'];
 			}else{
 				 $brand_name = "";

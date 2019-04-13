@@ -23,7 +23,7 @@ class Product_details extends CI_Controller {
 
 		/* FOR PRODUCT DETAILS STARTS*/
 		$pro_cat_id = $data['fetch_prod_data']->product_category_id;
-		$data['fetch_similar_pro_data'] = $this->product_details_m->fetch_similar_products($pro_cat_id);
+		$data['fetch_similar_pro_data'] = $this->product_details_m->fetch_similar_products($pro_cat_id,$prod_id);
 		/* FOR PRODUCT DETAILS ENDS*/
 		
 		if(empty($data['fetch_prod_data'])){
@@ -31,6 +31,20 @@ class Product_details extends CI_Controller {
 		}
 		
 		$this->load->view('product_details',$data);
+	}
+
+	public function fetch_models(){
+		$this->load->model('product_details_m');
+		$brand_name = $this->input->post('brand_name');
+		$fetch_models = $this->product_details_m->brand_models($brand_name);
+	?>
+		<option value="" disabled selected>Choose Model</option>
+	<?php
+		foreach($fetch_models AS $each_modelzz){
+	?>
+		<option value="<?php echo $each_modelzz->raw_title;?>"><?php echo $each_modelzz->raw_title;?></option>
+	<?php
+		}
 	}
 
 	public function add_to_cart(){
@@ -41,6 +55,14 @@ class Product_details extends CI_Controller {
 			$user_id = $this->session->userdata['logged_in']['user_id'];
         }else{
 			$user_id = $ip_address;
+		}
+
+		if(isset($this->session->userdata['product_sidebar']['cat_id']) && $this->session->userdata['product_sidebar']['cat_id'] == "3"){
+			$brand_name = $this->input->post('phone_brand');
+			$model_number = $this->input->post('phone_model');
+		}else{
+			$brand_name = "";
+			$model_number = "";
 		}
 		$price = $this->input->post('price');
 		$size = (($this->input->post('size') != NULL)?$this->input->post('size'):' ');
@@ -59,6 +81,8 @@ class Product_details extends CI_Controller {
 				'cart_id' => Null,
 				'ip_address' => $user_id,
 				'user_id' => $user_id,
+				'brand_name' => $brand_name,
+				'model_number' => $model_number,
 				'price' => $price,
 				'size' => $size,
 				'color' => $color,
