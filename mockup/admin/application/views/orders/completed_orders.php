@@ -136,9 +136,9 @@
 															<span class="custom-switch-indicator"></span>
 														</label>
 													</td>
+													
 													<td>
-														<a href="#"><img src="<?php echo base_url('images/Edit.png');?>" style="height:30px"></a>
-														<a href="#"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
+														<a href="<?php echo base_url('completed_orders/delete_orders/');?><?php echo $complete_orders->order_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
 													</td>
 												  </tr>
 												<?php

@@ -22,6 +22,13 @@ class Completed_orders_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function get_order_dlt($order_id)
+	{
+		$this->db->where('order_id', $order_id);
+		$this->db->delete('orders');
+		return true;
+	}
+
 }
 
 /* End of file Purchase_order_m.php */

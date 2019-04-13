@@ -65,14 +65,13 @@ class Checkout extends CI_Controller {
 		}else{
 			$data['user_id'] = "";
 		}
-		if($data['user_id'] != ""){
+	
 			$remove_from_cart = $this->checkout_m->remove_cart_data($cart_id);
 			if($remove_from_cart){
 				redirect('checkout');
 			}
-		}else{
-			redirect('checkout');
-		}
+	
+		
 	}
 	/* Order_summary PAGE of checkout Ends*/
 

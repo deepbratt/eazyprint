@@ -67,4 +67,5 @@ $route['edit_plate/(:num)'] = "edit_plate";
 $route['edit_plate/update_raw_plate/(:num)'] = "edit_plate/update_raw_plate";
 
 $route['edit_pillow/(:num)'] = "edit_pillow";
+$route['completed_orders/delete_orders/(:num)'] = "completed_orders/delete_orders";
 
