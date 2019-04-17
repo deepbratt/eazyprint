@@ -22,6 +22,17 @@
 		  font-size:18px;
 		  z-index: 2;
 		}
+		.error{
+			color : red;
+			font-weight: 450;
+		}
+		input.error[type="text"],input.error[type="number"],input.error[type="email"],select.error,textarea.error{
+			border : 1px solid red !important;
+			color : #7490BD;
+		}
+		select{
+			color : #7490BD;
+		}
 		</style>
 
 		<!-- Title -->
@@ -64,7 +75,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('admin_setting/update_admin');?>">
+								<form name="setting" method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('admin_setting/update_admin');?>">
 									<div class="card-header">
 										<h3 class="card-title">Setting</h3>
 									</div>
@@ -216,8 +227,27 @@
 		<script src="<?php echo base_url('js');?>/spectrum.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery-ui.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
+		<script src="<?php echo base_url('js');?>/jquery.validate.js"></script>
 	</body>
-
+	<script>
+	$(function() {
+	  $("form[name='setting']").validate({
+		rules: {
+		  f_name: "required",
+		  l_name: "required",
+		  "category[]" : "required",
+		},
+		messages: {
+		  f_name: "This field is required",
+		  l_name: "This field is required",
+		  "category[]" : "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+	</script>
 </html>
 
 
