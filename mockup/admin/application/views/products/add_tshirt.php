@@ -34,6 +34,17 @@
 		width:53.1px;
 		margin-top:-15px;
 	}
+	.error{
+		color : red;
+		font-weight: 450;
+	}
+	input.error[type="text"],input.error[type="number"],input.error[type="email"],input.error[type="color"],input.error[type="file"],select.error,textarea.error{
+		border : 1px solid red !important;
+		color : #7490BD;
+	}
+	select{
+		color : #7490BD;
+	}
 	</style>
     <?php $this->load->view('common/metalinks');?>
   </head>
@@ -67,7 +78,7 @@
 				<?php
 					}
 				?>
-            <form  method="post" enctype="multipart/form-data" action="<?php echo base_url('add_tshirt/add_pro_tshirt');?>">
+            <form  method="post" name="add_tshirt" enctype="multipart/form-data" action="<?php echo base_url('add_tshirt/add_pro_tshirt');?>">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="card">
@@ -165,7 +176,8 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<label class="form-label">Dimension Unit</label>
-									<select name="product_dimension_unit" class="form-control select2-show-search">
+									<select name="product_dimension_unit" class="form-control">
+										<option selected disabled>Choose Unit</option>
 										<option value="mm">mm</option>
 										<option value="cm">cm</option>
 									</select>
@@ -186,7 +198,8 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Weighing Unit</label>
-									<select name="product_weight_unit" class="form-control select2-show-search">
+									<select name="product_weight_unit" class="form-control">
+										<option selected disabled>Choose Unit</option>
 										<option value="kg">kg</option>
 										<option value="gm">gm</option>
 									 </select>
@@ -198,12 +211,12 @@
 		                          <div class="col-md-6">
 		                          	<div class="form-group">
 			                           <label class="form-label">Product Color</label>
-			                           <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value="">
+			                           <input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" >
 			                          </div>
 		                          </div>
 		                          <div class="col-md-2" style="margin-top:1.5rem;">
 		                          	<div class="form-group">
-		                           		<input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value="">
+		                           		<input type="color" class="form-control" name="color_code[]" required style="height:42px;" >
 		                           	</div>
 		                          </div>
 		                          <div class="col-md-4"  style="margin-top:1.5rem;">
@@ -340,6 +353,72 @@
     </a>
 	</body>
 	<script src="<?php echo base_url('js/');?>bootstrap-tagsinput.js"></script>
+	<script src="<?php echo base_url('js');?>/jquery.validate.js"></script>
+
+	<script>
+	$(function() {
+	  $("form[name='add_tshirt']").validate({
+		rules: {
+		  brand: "required",
+		  product_name: "required",
+		  product_title : "required",
+		  product_desc : "required",
+		  p_image : "required",
+		  product_material_type : "required",
+		  product_size : "required",
+		  dimension_len : "required",
+		  product_dimension_unit : "required",
+		  product_shape : "required",
+		  product_weight : "required",
+		  product_weight_unit : "required",
+		  "product_color[]" : "required",
+		  "color_code[]" : "required",
+		  product_quantity: "required",
+		  min_order: "required",
+		  wholesale_price : "required",
+		  retail_price : "required",
+		  purchase_price : "required",
+		  meta_image : "required",
+		  "meta_tags[]" : "required",
+		  "meta_keyword[]" : "required",
+		  meta_desc : "required",
+		  hsn_code: "required",
+		  gst_rate: "required",
+		},
+		messages: {
+		  brand: "This field is required",
+		  product_name: "This field is required",
+		  product_title : "This field is required",
+		  product_desc : "This field is required",
+		  p_image : "This field is required",
+		  product_material_type : "This field is required",
+		  product_size : "This field is required",
+		  dimension_len : "This field is required",
+		  product_dimension_unit : "This field is required",
+		  product_shape : "This field is required",
+		  product_weight : "This field is required",
+		  product_weight_unit : "This field is required",
+		  "product_color[]" : "This field is required",
+		  "color_code[]" : "This field is required",
+		  product_quantity: "This field is required",
+		  min_order: "This field is required",
+		  wholesale_price : "This field is required",
+		  retail_price : "This field is required",
+		  purchase_price : "This field is required",
+		  meta_image : "This field is required",
+		  "meta_tags[]" : "This field is required",
+		  "meta_keyword[]" : "This field is required",
+		  meta_desc : "This field is required",
+		  hsn_code: "This field is required",
+		  gst_rate: "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+	</script>
+
     <script type="text/javascript">
 		$('#cp2').colorpicker();
 
@@ -535,7 +614,7 @@
       
       var max_fields      = 5; 
       var wrapper         = $(".pro_colorzz");
-      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" value=""></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" value=""></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
+      var htmlcontent = '<div class=" atrri_add_cont"><div class="row"><div class="col-md-6"><div class="form-group"><input type="text" class="form-control" name="product_color[]" placeholder="New Product Color Name" ></div></div><div class="col-md-2"><div class="form-group"><input type="color" class="form-control" name="color_code[]" placeholder="New Product Color Code"  style="height:42px;" ></div></div><div class="col-md-4"><div class="form-group"><a href="javascript:void(0);" onclick="" class="remove btn btn-danger" >Remove</a></div></div></div></div>';
       
       var x = 1;
 
