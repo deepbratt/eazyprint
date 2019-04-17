@@ -12,8 +12,8 @@ class Admin_setting extends CI_Controller {
 
 	public function index()
 	{
-		echo $this->session->userdata['logged_in']['crew_image'];
-		exit;
+		/*echo $this->session->userdata['logged_in']['crew_image'];
+		exit;*/
 		$this->load->model('admin_setting_m');
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$data['fetch_user'] = $this->admin_setting_m->fetch_user($user_id);
@@ -69,7 +69,12 @@ class Admin_setting extends CI_Controller {
 
 
 		$update_admin = $this->admin_setting_m->update_user($user_id,$records,$image,$img_stat,$prev_img);
-		$this->session->set_userdata('crew_image', $image);
+
+		$data = $this->session->userdata('logged_in');  
+		$data['name'] = $f_name.' '.$l_name;  
+		$data['crew_image'] = $image;
+		$this->session->set_userdata('logged_in', $data); 
+
 		$this->session->set_flashdata("success", "Profile Updated Successfully!");
 		redirect('admin_setting');
 		

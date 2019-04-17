@@ -8,7 +8,7 @@
 			</li>
 			<!-- Dashboard Ends -->
 		<?php
-				if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "admin")
+				if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "admin")
 				{
 			?>
 			<!-- Contacts STARTS -->
@@ -153,7 +153,7 @@
 
 			<!-- sidebar part for delars -->
 			<?php
-				if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "dealer")
+				if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "dealer")
 				{
 			?>
 			<!-- Orders Starts -->
