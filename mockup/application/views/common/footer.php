@@ -124,7 +124,7 @@
 											foreach($get_categories AS $get_cat){
 									  ?>
 									  <li>
-										<a href="<?php echo base_url();?>product/<?php echo $get_cat->cat_id;?>" class="" style="color:#000;text-transform:uppercase;"> <?php echo $get_cat->category_name;?>
+										<a href="<?php echo base_url();?>link/<?php echo $get_cat->cat_id;?>" class="" style="color:#000;text-transform:uppercase;"> <?php echo $get_cat->category_name;?>
 										</a>
 									  </li> 
 									  <?php
