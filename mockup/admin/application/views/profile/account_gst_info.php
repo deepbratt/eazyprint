@@ -143,6 +143,9 @@
 										</div>
 									</div>
 								</div>
+								<?php
+								if($this->session->userdata['logged_in']['crew_role'] != 'admin'){
+								?>
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">GST Information</h3>
@@ -154,6 +157,9 @@
 										</div>
 									</div>
 								</div>
+								<?php
+							    }
+								?>
 								  <div class="card-footer text-center">
 									<button type="submit" class="btn btn-primary">Submit
 									</button>
