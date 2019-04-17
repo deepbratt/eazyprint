@@ -242,7 +242,7 @@
 		?>
 			<!-- Inventory STARTS -->
 			<li class="sidebar_header">
-				<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'listing_inventory')?'active':'');?>" href="<?php echo base_url('listing_inventory');?>">Inventory</a>
+				<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'Listing_inventory')?'active':'');?>" href="<?php echo base_url('Listing_inventory');?>">Inventory</a>
 			</li>
 			<!-- Inventory ENDS -->
 		<?php
