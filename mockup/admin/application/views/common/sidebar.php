@@ -235,6 +235,19 @@
 		<?php
 				}
 		?>
+
+		<?php
+			if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "inventory")
+			{
+		?>
+			<!-- Inventory STARTS -->
+			<li class="sidebar_header">
+				<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'listing_inventory')?'active':'');?>" href="<?php echo base_url('listing_inventory');?>">Inventory</a>
+			</li>
+			<!-- Inventory ENDS -->
+		<?php
+			}
+		?>
 			<!-- Settings ENDS -->
 
 		</ul>
