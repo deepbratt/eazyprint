@@ -274,7 +274,7 @@
 									<?php
 										}else{
 									?>
-										<li class="nav-item left" style="margin-left:500px;">
+										<li class="nav-item left">
 											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 												<i class="fas fa-user" style="font-size:33px;"></i>
 											</a>
