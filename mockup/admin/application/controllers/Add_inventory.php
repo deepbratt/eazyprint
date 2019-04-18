@@ -41,14 +41,26 @@ class Add_inventory extends CI_Controller {
 	}
 
 	public function add_new_inventory(){
+		$this->load->model('add_inventory_m');
 		$category = $this->input->post('category');
 		$brand = $this->input->post('brand');
 		$model = $this->input->post('model');
 		$quantity = $this->input->post('quantity');
-
-		$insert_array = (
-			'category'=>
+		$upload_date = time();
+		$insert_array = array(
+			'category'=> $category,
+			'brand' => $brand,
+			'model' => $model,
+			'qty' => $quantity,
+			'update_date' => $upload_date,
+			'status' => '1'
 		);
+		$insert_data = $this->add_inventory_m->insert_inventory($insert_array);
+		if($insert_data){
+			redirect('listing_inventory');
+		}else{
+			redirect('add_inventory');
+		}
 	}
 }
 

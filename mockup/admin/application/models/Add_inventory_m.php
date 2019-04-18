@@ -28,6 +28,11 @@ class Add_inventory_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function insert_inventory($insert_inventory){
+		$this->db->insert('eazyprint_inventory',$insert_inventory);
+		return true;
+	}
+
 
 
 }
