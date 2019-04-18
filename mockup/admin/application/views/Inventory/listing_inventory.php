@@ -63,7 +63,7 @@
 				<div class="app-content my-3 my-md-5">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">View Inventory</h4>
+							<h4 class="page-title">View Inventory &nbsp;&nbsp; <a href="<?php echo base_url("add_inventory");?>" class="btn btn-primary">Add New</a></h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Listing Inventory</li>
@@ -153,10 +153,27 @@
 		<script src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
 		<script src="<?php echo base_url();?>js/dataTables.bootstrap4.min.js"></script>
 		<!-- Data table js -->
+		<!-- Export button for tables Starts-->
+		<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>-->
+		<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+		<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+		<!-- Export button for tables ends-->
 		<script>
-			$(function(e) {
-				$('#example').DataTable();
-			} );
+			
+			  $(document).ready(function() {
+				$('#example').DataTable( {
+					dom: 'Bfrtip',
+					buttons: [
+						'copy', 'csv', 'excel', 'print'
+					]
+				});
+
+			});
+		   
 
 			function update_quant(quant_value,inventory_id)
 			{

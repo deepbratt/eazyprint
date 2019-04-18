@@ -237,7 +237,7 @@
 		?>
 
 		<?php
-			if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "inventory")
+			if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "operations")
 			{
 		?>
 			<!-- Inventory STARTS -->
