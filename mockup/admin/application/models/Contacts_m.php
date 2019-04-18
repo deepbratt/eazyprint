@@ -49,7 +49,7 @@ class Contacts_m extends CI_Model {
 	public function fetch_all_contacts_info($user_type){
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->where('user_crew_role',$user_type);
+		$this->db->where('user_type',$user_type);
 		$query = $this->db->get();
 		return $query->result();
 	}
