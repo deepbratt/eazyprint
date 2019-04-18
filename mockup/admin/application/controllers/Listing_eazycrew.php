@@ -13,7 +13,7 @@ class Listing_eazycrew extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('contacts_m');
-		$user_type = 'eazycrew';
+		$user_type = 'admin';
 		$data['fetch_customer_info'] = $this->contacts_m->fetch_all_contacts_info($user_type);
  		$this->load->view('contacts/listing_eazycrew',$data);
 	}

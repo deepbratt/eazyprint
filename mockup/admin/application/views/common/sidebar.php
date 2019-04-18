@@ -153,7 +153,7 @@
 
 			<!-- sidebar part for delars -->
 			<?php
-				if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "dealer")
+				if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "dealer")
 				{
 			?>
 			<!-- Orders Starts -->
