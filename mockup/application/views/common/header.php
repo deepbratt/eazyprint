@@ -85,6 +85,9 @@
 										$ci->load->model('home_m');
 										$get_categories = $ci->home_m->get_cat();				
 										foreach($get_categories AS $get_cat){
+											if($get_cat->cat_id == 4 || $get_cat->cat_id == 5 || $get_cat->cat_id == 6){
+												continue;
+											}
 									?>
 									
 										<li class="nav-item with-sub  mega-dropdown">
