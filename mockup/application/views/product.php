@@ -81,7 +81,7 @@
 								?>
 									<div class="col-lg-4" style="border-radius:5px !important;text-align:center;">
 										<div class="card item-card" style="border-radius:5px 5px 0px 0px !important;border:1px 1px 0px 1px solid #CCC !important;height:300px;">
-											<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>">
+											<a href="<?php echo base_url("product/redirect");?>/<?php echo $get_product->product_id;?>">
 												<?php
 													$product_id = $get_product->product_id;
 													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
@@ -100,7 +100,7 @@
 										</div>
 										<div class="card item-card" style="margin-top:-22px;background:#fafafa;">
 												<div class="cardtitle" style="text-align:center;">
-													<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>" style="text-align:center;font-size:16px;color:#424242;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
+													<a href="<?php echo base_url("product/redirect");?>/<?php echo $get_product->product_id;?>" style="text-align:center;font-size:16px;color:#424242;"><?php echo ucfirst(substr($get_product->product_name,0,25));?></a>
 												</div>
 												<p style="font-family:arial;text-align:center;"> 
 													<span style="color:red;font-size:18px;" ><strike><i class="fas fa-rupee-sign"></i> 999</strike> </span> 
@@ -116,7 +116,7 @@
 															<i class="fas fa-shopping-cart"></i>
 														</a>-->
 
-														<a href="<?php echo base_url("product_details");?>/<?php echo $get_product->product_id;?>" class="btn btn-success btn-xs tip" title="Buy" style="padding:5px 10px;">
+														<a href="<?php echo base_url("product/redirect");?>/<?php echo $get_product->product_id;?>" class="btn btn-success btn-xs tip" title="Buy" style="padding:5px 10px;">
 															<i class="fas fa-shopping-cart"></i> Order Now
 														</a>
 													</div>

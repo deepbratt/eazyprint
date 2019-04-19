@@ -190,6 +190,27 @@ class Product extends CI_Controller {
 		redirect('product');
 	}
 
+	public function redirect(){
+		$this->load->model('product_m');
+		$pro_id = $this->uri->segment(3);
+		$fetch_pro_data = $this->product_m->fetch_products($pro_id);
+		
+		if($fetch_pro_data->raw_category == '3'){
+			$sidebar_filter = array(
+				"cat_id" => $fetch_pro_data->raw_category,
+				"brand_name" => $fetch_pro_data->raw_brand,
+				"pro_type" => "",
+				"size" => "",
+				"shape" => "",
+				"color" => "",
+				"material_type"=> ""
+			);
+		}
+		
+		$this->session->set_userdata('product_sidebar', $sidebar_filter);
+		redirect('product_details/'.$pro_id);
+	}
+
 
 }
 

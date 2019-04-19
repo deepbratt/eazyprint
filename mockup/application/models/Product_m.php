@@ -279,6 +279,15 @@ class product_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function fetch_products($pro_id){
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
+		$this->db->where('products.product_id',$pro_id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function update_supplier_service($more_service_data)
 	{
 	  $query = $this->db->update_batch('supplier_service',$more_service_data,'supplier_service_id');
