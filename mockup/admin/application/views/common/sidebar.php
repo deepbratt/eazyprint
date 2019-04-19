@@ -240,6 +240,30 @@
 			if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "operations")
 			{
 		?>
+			<!-- Transactions Starts -->
+			<li class="sidebar_header">
+               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'header-active':'');?>" data-target="#transaction">Transactions</a>
+            </li>
+			<div id="transaction" class="collapse <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'show':'');?>">
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_sale_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_sale_order');?>">
+						Sale Invoice
+					</a>
+				</li>
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_purchase_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_purchase_order');?>">Purchase Invoice
+					</a>
+				</li>
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_report')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_report');?>">Report
+					</a>
+				</li>
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'transaction_history')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('transaction_history');?>">Transaction History
+					</a>
+				</li>
+			</div>
+			<!-- Transactions Ends -->
 			<!-- Inventory STARTS -->
 			<li class="sidebar_header">
 				<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'Listing_inventory')?'active':'');?>" href="<?php echo base_url('Listing_inventory');?>">Inventory</a>
