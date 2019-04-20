@@ -148,11 +148,12 @@
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
+								 <form method="post" action="<?php echo base_url('checkout/pay_mode');?>">
 								   <div class="row">
 								   	<div class="col-md-12 pay_online"> 
 								   		<div class="form-group"> 
 								   			<label class="custom-control custom-radio"> 
-								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="online_pay();"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="online" required> 
 								   				<span class="custom-control-label">Pay Online</span> 
 								   			</label> 
 								   		</div>
@@ -160,7 +161,7 @@
 								   	<div class="col-md-12 cod"> 
 								   		<div class="form-group"> 
 								   			<label class="custom-control custom-radio"> 
-								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="cod_pay();" > 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="cash_delivery" required> 
 								   				<span class="custom-control-label">Cash on Delivery</span>
 								   			</label> 
 								   		</div>
@@ -170,10 +171,12 @@
 									</div>
 									<div class="col-md-12 pay_mode_change"> 
 								   		<div class="form-group"> 
-								   			<button class="btn btn-info" onclick="change_mode();">Change Payment Mode</button>
+								   			<button class="btn btn-info">Change Payment Mode</button>
 								   		</div>
 								   	</div>
+								   	<button type="submit" class="btn btn-primary">Confirm Order</button>
 								   </div>
+								  </form>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
 							<p>&nbsp;</p>
@@ -241,18 +244,7 @@ $this->load->view("common/footer");
 					$('.cod').show();
 					$('.pay_online').show();
 				}
-				function cod_pay(){
-					window.location = "<?php  echo base_url('checkout/cash_delivery'); ?>";
-					/*$.ajax({
-			        url: '<?php echo base_url();?>checkout/cash_delivery',
-			        data: {},
-			        type: "post",
-			        success: function(response){
-			          alert(response);
-			          //$("#modelzz").html(response);
-			        }
-			      });*/
-				}
+				
 				</script>
 	</body>
 </html>

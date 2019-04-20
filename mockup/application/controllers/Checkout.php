@@ -248,6 +248,14 @@ class Checkout extends CI_Controller {
 		}
 	}
 	/* Delivery_address PAGE of checkout Ends*/
+	public function pay_mode(){
+		$pay_mode = $this->input->post('pay_mode');
+		if($pay_mode == 'online'){
+			redirect('checkout/payment_option');
+		}else if($pay_mode == 'cash_delivery'){
+			redirect('checkout/cash_delivery');
+		}
+	}
 	/* Payment_option PAGE of checkout Starts*/
 	public function payment_option(){
 		$this->load->library('user_agent');
@@ -334,6 +342,7 @@ class Checkout extends CI_Controller {
 	/* Payment_option PAGE of checkout COD Starts*/
 	public function cash_delivery(){
 		$this->load->model('checkout_m');
+		//$pay_mode = $this->input->post('pay_mode');
 		$ip_data = $this->input->ip_address();
 		$date = time();
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
