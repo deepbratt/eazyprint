@@ -262,6 +262,12 @@ $this->load->view("common/header");
 	    						<strong><?php echo $this->session->flashdata('exist');?></strong>
 	    					</div>
 	    				<?php
+	    					}else if($this->session->flashdata('success')){
+	    				?>
+	    					<div class="alert alert-success">
+	    						<strong><?php echo $this->session->flashdata('success');?></strong>
+	    					</div>
+	    				<?php
 	    					}
 	    				?>
                         <div class="row">
@@ -273,7 +279,7 @@ $this->load->view("common/header");
 
                               <input type="text" class="form-control landing_input_text sd-input error-input" placeholder="Phone Number" tabindex="10" autocomplete="new-phone" name="reg_phone" required="required" style="margin-top:3px;">
 
-                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email OR Username" tabindex="10" autocomplete="new-email" name="reg_email" required="required" style="margin-top:3px;">
+                              <input type="email" class="form-control landing_input_text sd-input error-input" placeholder="Email" tabindex="10" autocomplete="new-email" name="reg_email" required="required" style="margin-top:3px;">
                               <span class="bar"></span>
                             </div>
                             <span class="error-gst hidden errorGst" id="gst-error">

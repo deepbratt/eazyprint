@@ -69,7 +69,7 @@
 				  padding-left: 15px;
 				  overflow: hidden;
 				  padding-top: 0px;
-				  box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
+				  
 				  transition: 0.6s ease-in-out;
 				  opacity: 0;
 				  margin-bottom: 8px;
@@ -121,9 +121,127 @@
 				<?php
 				$this->load->view("common/header");
 				?>
-				<div>
-					<img src="<?php echo base_url();?>images/checkout_banner.png">
-				</div>
+						    <div class=" " style="background-color: #e40046;" >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 register_col_height">
+            <span id="j_id0:j_id30">
+              <style>
+                .readOnly    
+                {
+                  cursor: not-allowed;
+                  opacity: 1;
+                  background-color: #eeeeee;
+                  padding-left: 8px;
+                  font-size: 14px;
+                  font-weight: 500;
+                  margin-bottom: 0;
+                  display: block;
+                  color: #333333;
+                  width: 96%;
+                }
+                .field-icon {
+                  float: right;
+                  margin-left: -25px;
+                  margin-top: -25px;
+                  position: relative;
+                  z-index: 2;
+                  width: 25px;
+                }
+                input.error-input {
+                  border-color: #fb0229!important;
+                }
+                #divPwd2 .tooltip{
+                  left:60px;
+                }
+                #divPwd2 .tooltip.top .tooltip-arrow {
+                  left: 10%;
+                }
+                #divPwd2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divPincode2 .tooltip{
+                  left:60px;
+                }
+                #divPincode2 .tooltip.top .tooltip-arrow {
+                  left: 10%;
+                }
+                #divPincode2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divShippingaddr2 .tooltip{
+                  left:60px;
+                }
+                #divShippingaddr2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divShippingaddr2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divMobNo2 .tooltip{
+                  left:-125px;
+                }
+                #divMobNo2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divMobNo2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divEmailId2 .tooltip{
+                  left:-85px;
+                }
+                #divEmailId2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divEmailId2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+              </style>
+          
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="bx-wrapper BN1">
+        <div class="bx-viewport"> 
+          <div class="bx-wrapper" style="max-width: 1360px;">
+            <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;">
+              <ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);">
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="BN2 hidden">
+        <img src="<?php echo base_url();?>images/login_banner.png">
+      </div> 
+      <div class="BN3 hidden">
+        <img src="<?php echo base_url();?>images/login_banner.png">
+      </div>
+      <style>
+        .bxslider img{
+          height:400px;
+        }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;
+        }
+      </style> 
+    </div>
 				<div class="container">
 					<div class="side-app">
 						<div class="col-md-12">

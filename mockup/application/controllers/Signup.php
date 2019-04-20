@@ -11,6 +11,7 @@ class Signup extends CI_Controller {
 	public function newRegister(){
 
 		$this->load->model('signup_m');
+		$this->load->library('Emailtemp');
 		$fname = $this->input->post('reg_fname');
 		$lname = $this->input->post('reg_lname');
 		$phone = $this->input->post('reg_phone');
@@ -28,6 +29,7 @@ class Signup extends CI_Controller {
 				'user_phone' => $phone,
 				'user_email' => $email,
 				'user_type' => 'customer',
+				'user_crew_role' => 'na',
 				'user_status' => '0',
 				'user_email_status' => '0',
 				'user_phone_status' => '0',
@@ -36,11 +38,29 @@ class Signup extends CI_Controller {
 			);
 
 			$insert_new_user = $this->signup_m->register_new_user($user_detailszz);
+			
 			if($insert_new_user){
 				$verify_code .= $rand_code;
 				$verify_code .= '/';
 				$verify_code .= $insert_new_user;
-				redirect('verify_email/'.$verify_code);
+				
+				//Mail function starts
+				$message = $this->emailtemp->user_regisuccess($fname,$lname,$verify_code);
+					
+				$this->load->library('email');
+				$this->email->set_mailtype("html");
+
+				$this->email->from('support@eazyprint.in', 'EazyPrint');
+				$this->email->to($email); 
+
+				$this->email->subject('Registration Confirmation-EazyPrint');
+				$this->email->message($message);    
+
+				$okay = $this->email->send();
+				//Mail function ends
+				$this->session->set_flashdata("success", "Please check you email inbox for completing your registration. Thank you!");
+				redirect('signup');
+				//redirect('verify_email/'.$verify_code);
 			}else{
 				redirect('signup');
 			}
