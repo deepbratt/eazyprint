@@ -120,9 +120,127 @@
 				<?php
 				$this->load->view("common/header");
 				?>
-				<div>
-					<img src="<?php echo base_url();?>images/checkout_banner.png">
-				</div>
+										    <div class=" " style="background-color: #e40046;" >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 register_col_height">
+            <span id="j_id0:j_id30">
+              <style>
+                .readOnly    
+                {
+                  cursor: not-allowed;
+                  opacity: 1;
+                  background-color: #eeeeee;
+                  padding-left: 8px;
+                  font-size: 14px;
+                  font-weight: 500;
+                  margin-bottom: 0;
+                  display: block;
+                  color: #333333;
+                  width: 96%;
+                }
+                .field-icon {
+                  float: right;
+                  margin-left: -25px;
+                  margin-top: -25px;
+                  position: relative;
+                  z-index: 2;
+                  width: 25px;
+                }
+                input.error-input {
+                  border-color: #fb0229!important;
+                }
+                #divPwd2 .tooltip{
+                  left:60px;
+                }
+                #divPwd2 .tooltip.top .tooltip-arrow {
+                  left: 10%;
+                }
+                #divPwd2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divPincode2 .tooltip{
+                  left:60px;
+                }
+                #divPincode2 .tooltip.top .tooltip-arrow {
+                  left: 10%;
+                }
+                #divPincode2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divShippingaddr2 .tooltip{
+                  left:60px;
+                }
+                #divShippingaddr2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divShippingaddr2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divMobNo2 .tooltip{
+                  left:-125px;
+                }
+                #divMobNo2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divMobNo2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+                #divEmailId2 .tooltip{
+                  left:-85px;
+                }
+                #divEmailId2 .tooltip.top .tooltip-arrow {
+                  left: 90%;
+                }
+                #divEmailId2 .tooltip.top .tooltip-inner {
+                  text-align: left;
+                }
+              </style>
+          
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="bx-wrapper BN1">
+        <div class="bx-viewport"> 
+          <div class="bx-wrapper" style="max-width: 1360px;">
+            <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;">
+              <ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);">
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
+                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="BN2 hidden">
+        <img src="<?php echo base_url();?>images/login_banner.png">
+      </div> 
+      <div class="BN3 hidden">
+        <img src="<?php echo base_url();?>images/login_banner.png">
+      </div>
+      <style>
+        .bxslider img{
+          height:400px;
+        }
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;
+        }
+      </style> 
+      </div>
 				<div class="container">
 					<div class="side-app">
 						<div class="col-md-12">
@@ -148,11 +266,12 @@
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
+								 <form method="post" action="<?php echo base_url('checkout/pay_mode');?>">
 								   <div class="row">
 								   	<div class="col-md-12 pay_online"> 
 								   		<div class="form-group"> 
 								   			<label class="custom-control custom-radio"> 
-								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="online_pay();"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="online" onclick="online_pay();" required> 
 								   				<span class="custom-control-label">Pay Online</span> 
 								   			</label> 
 								   		</div>
@@ -160,7 +279,7 @@
 								   	<div class="col-md-12 cod"> 
 								   		<div class="form-group"> 
 								   			<label class="custom-control custom-radio"> 
-								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="cod_pay();" > 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="cash_delivery" required> 
 								   				<span class="custom-control-label">Cash on Delivery</span>
 								   			</label> 
 								   		</div>
@@ -168,12 +287,18 @@
 								   	<div class="hide_pay_online">
 										<iframe src="https://test.instamojo.com/@himadrimajumder8/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
 									</div>
-									<div class="col-md-12 pay_mode_change"> 
-								   		<div class="form-group"> 
-								   			<button class="btn btn-info" onclick="change_mode();">Change Payment Mode</button>
+									<div class="col-md-6 ">
+										<div class="form-group pay_mode_change">
+								   			<a class="btn btn-info" href="javascript:void(0);" onclick="change_mode();">Change Payment Mode</a>
 								   		</div>
 								   	</div>
+								   	<div class="col-md-6 text-right">
+								  		<div class="form-group">
+								  			<button type="submit" class="btn btn-orange btn-lg">Continue</button>
+								  		</div>
+								  	</div>
 								   </div>
+								  </form>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
 							<p>&nbsp;</p>
@@ -241,18 +366,7 @@ $this->load->view("common/footer");
 					$('.cod').show();
 					$('.pay_online').show();
 				}
-				function cod_pay(){
-					window.location = "<?php  echo base_url('checkout/cash_delivery'); ?>";
-					/*$.ajax({
-			        url: '<?php echo base_url();?>checkout/cash_delivery',
-			        data: {},
-			        type: "post",
-			        success: function(response){
-			          alert(response);
-			          //$("#modelzz").html(response);
-			        }
-			      });*/
-				}
+				
 				</script>
 	</body>
 </html>
