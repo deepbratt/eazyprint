@@ -338,7 +338,7 @@ if($this->session->flashdata('failed')){
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-success">Place Order</button>
-							<button type="button" class="btn btn-default" >Cancel Order</button>
+							<a href="<?php echo base_url('add_order_summery');?>"  class="btn btn-default" >Cancel Order</a>
 						</div>
 						</form>
 					  </div>

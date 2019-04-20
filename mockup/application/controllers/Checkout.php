@@ -29,7 +29,7 @@ class Checkout extends CI_Controller {
 
 				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
 				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 			}
 			$data['total_each_mat_price'] = array_sum($amount_array);
 			$data['total_each_mat_qty'] = array_sum($quantity_array);	
@@ -111,12 +111,14 @@ class Checkout extends CI_Controller {
 
 				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
 				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 			}
 			$data['total_each_mat_price'] = array_sum($amount_array);
-			$data['total_each_mat_qty'] = array_sum($quantity_array);	
+			$data['total_each_mat_qty'] = array_sum($quantity_array);
 			$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
 			$data['total_amount'] = array_sum($original_cost);
+			//print_r($data['total_amount']);
+			
 			$data['gst_tax'] = array_sum($gst_tax);
 			$data['total_payable'] = array_sum($total_payable);
 			
@@ -201,7 +203,7 @@ class Checkout extends CI_Controller {
 
 				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
 				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 			}
 			$data['total_each_mat_price'] = array_sum($amount_array);
 			$data['total_each_mat_qty'] = array_sum($quantity_array);	
@@ -274,31 +276,36 @@ class Checkout extends CI_Controller {
 
 					$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
 					$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) + ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 				}
+			
 				$data['total_each_mat_price'] = array_sum($amount_array);
 				$data['total_each_mat_qty'] = array_sum($quantity_array);	
 				$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
 				$data['total_amount'] = array_sum($original_cost);
 				$data['gst_tax'] = array_sum($gst_tax);
+			
 				$data['total_payable'] = array_sum($total_payable);
-
-				$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
+				
+				$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a" ,"https://test.instamojo.com/api/1.1/");
+				//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
 				try {
 					$response = $api->paymentRequestCreate(array(
 						"buyer_name" => $this->session->userdata['logged_in']['name'],
 						"purpose" => "Tshirt , Mobile case",
-						"amount" => $data['total_payable'],
+						//"amount" => $data['total_amount'],
+						"amount" => "10.00",
 						"send_email" => false,
 						"send_sms" => false,
 						"phone" => $this->session->userdata['logged_in']['phone'],
 						"email" => $this->session->userdata['logged_in']['email'],
-						"redirect_url" => "http://localhost/pbeazyprint/mockup/checkout/payment_option_check"
+						"redirect_url" => "http://eazyprint.in/beta/checkout/payment_option_check"
 						));
 				}
 				catch (Exception $e) {
 					print('Error: ' . $e->getMessage());
 				}
+				//print_r()
 				$data['response'] = $response;
 				$this->load->view('checkout/payment_option',$data);
 			}else{
@@ -310,7 +317,8 @@ class Checkout extends CI_Controller {
 	}
 	public function payment_option_check(){
 		$this->load->helper('Instamojo');
-		$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
+		$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a","https://test.instamojo.com/api/1.1/");
+		//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
 		try {
 			$response = $api->paymentRequestStatus(['PAYMENT REQUEST ID']);
 			print_r($response);

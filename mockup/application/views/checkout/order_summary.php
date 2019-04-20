@@ -242,7 +242,7 @@
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
 								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								
 								<!-- PAYMENT OPTION STARTS -->

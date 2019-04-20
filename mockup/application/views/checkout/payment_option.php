@@ -142,14 +142,14 @@
 								<!--<?php print_r($response);?>-->
 								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!-- DELIVERY ADDRESS STARTS-->
-								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">LOGIN</button></a>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
 								
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
 								   <div class="row">
-										<iframe src="https://www.instamojo.com/@deepbratt/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
+										<iframe src="https://test.instamojo.com/@himadrimajumder8/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
 								   </div>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
