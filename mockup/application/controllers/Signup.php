@@ -11,6 +11,7 @@ class Signup extends CI_Controller {
 	public function newRegister(){
 
 		$this->load->model('signup_m');
+		$this->load->library('Emailtemp');
 		$fname = $this->input->post('reg_fname');
 		$lname = $this->input->post('reg_lname');
 		$phone = $this->input->post('reg_phone');
@@ -40,7 +41,24 @@ class Signup extends CI_Controller {
 				$verify_code .= $rand_code;
 				$verify_code .= '/';
 				$verify_code .= $insert_new_user;
-				redirect('verify_email/'.$verify_code);
+				
+				//Mail function starts
+				$message = $this->Emailtemp->user_regisuccess($fname,$lname,$verify_code);
+					
+				$this->load->library('email');
+				$this->email->set_mailtype("html");
+
+				$this->email->from('noreply@protectbox.com', 'ProtectBox');
+				$this->email->to($email); 
+
+				$this->email->subject('Registration Confirmation-ProtectBox');
+				$this->email->message($message);    
+
+				$okay = $this->email->send();
+				//Mail function ends
+				$this->session->set_flashdata("success", "Please check you email inbox for completing your registration. Thank you!");
+				redirect('signup');
+				//redirect('verify_email/'.$verify_code);
 			}else{
 				redirect('signup');
 			}
