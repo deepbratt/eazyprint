@@ -258,7 +258,7 @@
 										<?php
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px;"></i>
+											<i class="fas fa-user" style="font-size:33px !important;"></i>
 										<?php
 											}
 										?>
