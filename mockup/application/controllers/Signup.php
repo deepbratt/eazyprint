@@ -29,6 +29,7 @@ class Signup extends CI_Controller {
 				'user_phone' => $phone,
 				'user_email' => $email,
 				'user_type' => 'customer',
+				'user_crew_role' => 'na',
 				'user_status' => '0',
 				'user_email_status' => '0',
 				'user_phone_status' => '0',
@@ -37,21 +38,22 @@ class Signup extends CI_Controller {
 			);
 
 			$insert_new_user = $this->signup_m->register_new_user($user_detailszz);
+			
 			if($insert_new_user){
 				$verify_code .= $rand_code;
 				$verify_code .= '/';
 				$verify_code .= $insert_new_user;
 				
 				//Mail function starts
-				$message = $this->Emailtemp->user_regisuccess($fname,$lname,$verify_code);
+				$message = $this->emailtemp->user_regisuccess($fname,$lname,$verify_code);
 					
 				$this->load->library('email');
 				$this->email->set_mailtype("html");
 
-				$this->email->from('noreply@protectbox.com', 'ProtectBox');
+				$this->email->from('support@eazyprint.in', 'EazyPrint');
 				$this->email->to($email); 
 
-				$this->email->subject('Registration Confirmation-ProtectBox');
+				$this->email->subject('Registration Confirmation-EazyPrint');
 				$this->email->message($message);    
 
 				$okay = $this->email->send();

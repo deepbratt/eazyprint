@@ -476,10 +476,10 @@ class Emailtemp{
 			   <tr>
 				<td align="center" valign="top"><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
-					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-08" src="image/fb.png" width="40" height="40" alt="" /></a></td>
-					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-09" src="image/insta.png" width="40" height="40" alt="" /></a></td>
-					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-10" src="image/yt.png" width="40" height="40" alt="" /></a></td>
-					<td align="center" style="padding-left: 5px;" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-11" src="image/wp.png" width="32" height="32" alt="" /></a></td>
+					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-08" src="http://eazyprint.in/beta/images/email/fb.png" width="40" height="40" alt="" /></a></td>
+					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-09" src="http://eazyprint.in/beta/images/email/insta.png" width="40" height="40" alt="" /></a></td>
+					<td align="center" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-10" src="http://eazyprint.in/beta/images/email/yt.png" width="40" height="40" alt="" /></a></td>
+					<td align="center" style="padding-left: 5px;" valign="middle"><a href="#"><img editable="true" mc:edit="bm9-11" src="http://eazyprint.in/beta/images/email/wp.png" width="32" height="32" alt="" /></a></td>
 				  </tr>
 				</table></td>
 			  </tr>
