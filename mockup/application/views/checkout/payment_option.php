@@ -153,7 +153,7 @@
 								   	<div class="col-md-12 pay_online"> 
 								   		<div class="form-group"> 
 								   			<label class="custom-control custom-radio"> 
-								   				<input type="radio" name="pay_mode" class="custom-control-input" value="online" required> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="online" onclick="online_pay();" required> 
 								   				<span class="custom-control-label">Pay Online</span> 
 								   			</label> 
 								   		</div>
@@ -169,12 +169,16 @@
 								   	<div class="hide_pay_online">
 										<iframe src="https://test.instamojo.com/@himadrimajumder8/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
 									</div>
-									<div class="col-md-12 pay_mode_change"> 
-								   		<div class="form-group"> 
-								   			<button class="btn btn-info">Change Payment Mode</button>
+									<div class="col-md-6 ">
+										<div class="form-group pay_mode_change">
+								   			<a class="btn btn-info" href="javascript:void(0);" onclick="change_mode();">Change Payment Mode</a>
 								   		</div>
 								   	</div>
-								   	<button type="submit" class="btn btn-primary">Confirm Order</button>
+								   	<div class="col-md-6 text-right">
+								  		<div class="form-group">
+								  			<button type="submit" class="btn btn-orange btn-lg">Continue</button>
+								  		</div>
+								  	</div>
 								   </div>
 								  </form>
 							</div>
