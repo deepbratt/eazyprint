@@ -386,7 +386,7 @@ class Emailtemp{
             <td height="15" align="center" valign="top" style="font-size:15px; line-height:15px;">&nbsp;</td>
           </tr>
 		   <tr>
-                <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:24px; color:#312e2e; font-weight:normal; line-height:24px;" mc:edit="bm17-03">
+                <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:24px; color:#312e2e; font-weight:normal; line-height:24px;" mc:edit="bm17-03">
 					<multiline>
 						Hi '.ucfirst($fname).' '.ucfirst($lname).',
 					</multiline></td>
