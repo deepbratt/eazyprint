@@ -19,7 +19,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Login</title>
+		<title>Eazyprint | Order Summary</title>
 		<style>
 			body{
 				color:black !important;
@@ -69,7 +69,7 @@
 				  padding-left: 15px;
 				  overflow: hidden;
 				  padding-top: 0px;
-				 
+				
 				  transition: 0.6s ease-in-out;
 				  opacity: 0;
 				  margin-bottom: 8px;
@@ -249,134 +249,121 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
-									<li class="breadcrumb-item" aria-current="page">Login</li>
+									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
 						<div class="row" style="padding:0px;margin:0px;">
 						
-							<div class="col-md-7 col-sm-12 col-xs-12">
-								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
-								<!--LOGIN STARTS-->
-								<button class="accordion active">USER DETAILS</button>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<!-- ORDER SUMMARY STARTS-->
+								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
-								  	<div class="row p-2">
-								  		<div class="col-md-6">
+								<?php
+									$get_count_order = count($fetch_prod_data);
+									
+									if($get_count_order > 0){
+										
+								?>
+								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
+								  <div class="row" style="overflow-y: scroll;max-height:300px;">
+								  	<?php
+								  		foreach($fetch_prod_data AS $fetch_prod_yoo){
+								  	?>
+								  	<div class="col-md-3 p-3">
+								  		<div class="form-group">
 								  			<?php
-								  				if(empty($fetch_user_data)){
+								  				$prod_id = $fetch_prod_data->product_id;
+								  				$fetch_prod_image = $this->checkout_m->prod_image_info($prod_id);
 								  			?>
-									  		<form method="POST" action="<?php echo base_url('checkout/authenticate/');?><?php echo $this->uri->segment('2');?>">
-									  			<?php
-						                          if($this->session->flashdata('failed')){
-						                        ?>
-						                          <div class="alert alert-danger">
-						                            <strong><?php echo $this->session->flashdata('failed');?></strong>
-						                          </div>
-						                        <?php
-						                          }
-						                        ?>
-								  				<div class="form-group">
-									  				<h5>Name:</h5>
-									  				<input type="email" value="" name="username" class="form-control">
-									  			</div>
-									  			<div class="form-group">
-									  				<h5>Password:</h5>
-									  				<input type="password" value="" name="password" class="form-control">
-									  			</div>
-									  			<div class="form-group">
-									  				<button type="submit" class="btn btn-primary">LOGIN</button>
-									  			</div>
-									  		</form>
-									  		<?php
-									  			}else{
-									  		?>
-									  		<?php
-									  			if($this->session->userdata['logged_in']['name'] != ""){
-									  		?>
-								  			<div class="form-group">
-								  				<h5>Name:</h5>
-								  				<span style="margin-left:5px;"><?php echo $this->session->userdata['logged_in']['name'];?></span>
-								  			</div>
-								  			<?php
-								  				}
-								  			?>
-								  			<?php
-									  			if($this->session->userdata['logged_in']['email'] != ""){
-									  		?>
-								  			<div class="form-group">
-								  				<h5>Email:</h5>
-								  				<span style="margin-left:5px;"><?php echo $this->session->userdata['logged_in']['email'];?></span>
-								  			</div>
-								  			<?php
-								  				}
-								  			?>
-								  			<?php
-									  			if($fetch_user_data->user_phone != ""){
-									  		?>
-								  			<div class="form-group">
-								  				<h5>Phone:</h5>
-								  				<span style="margin-left:5px;"><?php echo $fetch_user_data->user_phone;?></span>
-								  			</div>
-								  			<?php
-								  				}
-								  			?>
-
-								  			<div class="form-group">
-								  				<a href="<?php echo base_url('signout')?>">Logout & Signin into another account</a>
-								  			</div>
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:130px;">
+								  		</div>
+								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
+								  		<div class="quantity buttons_added">
+											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+										</div>
+								  	</div>
+								  	<div class="col-md-6">
+								  		<div class="form-group">
+								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
+								  		</div>
 								  		
-								  			<!--<div class="form-group">
-								  				<a href="#" class="btn btn-azure btn-lg">Continue Checkout</a>
-								  			</div>-->
-								  			<?php
-								  				}
-								  			?>
-								  		</div>
-
-								  		<div class="col-md-6">
-								  			<h5 style="padding-bottom:10px;">Advantages of our secure login</h5>
-								  			<div class="form-group">
-								  				<i class="fas fa-truck-moving"></i>
-								  				<span style="margin-left:5px;font-size: 13px;">Easily Track Orders, Hassle free Returns</span>
-								  			</div>
-								  			<div class="form-group">
-								  				<i class="fas fa-bell"></i>
-								  				<span style="margin-left:12px;font-size: 13px;">Get Relevant Alerts</span>
-								  			</div>
-								  			<div class="form-group">
-								  				<i class="fas fa-star"></i>
-								  				<span style="margin-left:8px;font-size: 13px;">Wishlist, Reviews, Ratings and more.</span>
-								  			</div>
-								  		</div>
-								  		<div class="col-md-12">
-								  			<span>Please note that upon clicking "Logout" you will lose all items in cart and will be redirected to Eazyprint home page.</span>
+								  		<?php
+								  			if($fetch_prod_data->size != ''){
+								  		?>
+								  		<div class="form-group">
+								  			<span>Size: <?php echo $fetch_prod_data->size;?></span>
 								  		</div>
 								  		<?php
-								  			if(!empty($fetch_user_data)){
+								  			}
 								  		?>
-								  		<div class="col-md-12 text-right">
-									  		<div class="form-group">
-									  			<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="btn btn-orange btn-lg">Continue</button></a>
-									  		</div>
-									  	</div>
-									  	<?php
-									  		}
-									  	?>
-								  	</div>								  
-								</div>
-								<!-- LOGIN ENDS -->
+							  		
+							  			<?php
+							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($fetch_prod_data->user_id);
+								  			if(!empty($fetch_supplier_name)){
+								  		?>
+								  		<div class="form-group">
+								  			<span>Seller: <?php echo $fetch_supplier_name->user_store_name;?></span>
+								  		</div>
+								  		<?php
+								  			}else{
+								  		?>
+								  		<div class="form-group">
+								  			<span>Seller: Eazyprint</span>
+								  		</div>
+								  		<?php
+								  			}
+								  		?>
+										  	
+								  		<div class="form-group">
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->price;?></span>
+								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
+								  		</div>
+								  	</div>
+								  	<div class="col-md-3">
+								  		<div class="form-group">
+											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $fetch_prod_data->cart_id;?>">Remove</a>
+										</div>
+								  		<div class="form-group">
+								  			<span>Delivery in 2Days, Thursday | Free</span>
+								  		</div>
+								  	</div>
+								  	<?php
+								  		}
+								  	?>
+								  </div>
+								  <div class="row p-3">
+								  	<?php
+								  		if(isset($this->session->userdata['logged_in']['email']) && $this->session->userdata['logged_in']['email'] != ""){
+								  	?>
+								  	<div class="col-md-9">
+								  		<div class="form-group">
+								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);"><?php echo $this->session->userdata['logged_in']['email']?></a></p>
+								  		</div>
+								  	</div>
+								  	<?php
+								  		}
+								  	?>
+								  	<div class="col-md-12 text-right">
+								  		<div class="form-group">
+								  			<button class="btn btn-orange btn-lg">Continue</button>
+								  		</div>
+								  	</div>
+								  </div>
+								</form>
 								<?php
-					  				if(!empty($fetch_user_data)){
-					  			?>
-								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								
-								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
+									}else{
+								?>
+								<div class="row p-5" style="text-align:center;">
+									<img src="<?php echo base_url('images/empty-cart.jpg');?>" style="height:100%;">
+								</div>
 								<?php
 									}
 								?>
-							<p>&nbsp;</p>
+								</div>
+						
 						</div>
-						<?php $this->load->view("checkout/product_details");?>
+					
 						</div>
 						<!-- P TAG MARTE HOBE-->
 					</div>
@@ -386,7 +373,7 @@
 <?php
 $this->load->view("common/footer");
 ?>
-				<!-- ACCORDIONS STARTS 
+				<!-- ACCORDIONS STARTS
 				<script>
 					var acc = document.getElementsByClassName("accordion");
 					var i;
@@ -402,7 +389,7 @@ $this->load->view("common/footer");
 					for (i = 0; i < acc.length; i++) {
 					  acc[i].onclick = click_action;
 					}
-				</script>-->
+				</script> -->
 			<!-- Accordions Ends -->
 				<script>
 				$(document).ready(function(){
