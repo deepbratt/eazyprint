@@ -1,45 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Checkout extends CI_Controller {
+class My_orders extends CI_Controller {
 	/* Order_summary PAGE of checkout Starts*/
 	public function index()
 	{
 		$this->load->library('user_agent');
-		$this->load->model('checkout_m');
+		$this->load->model('my_orders_m');
 		$ip_data = $this->input->ip_address();
-		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
-			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
-		}else{
-			$data['user_id'] = $ip_data;
-		}
+		$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+	
 		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->my_orders_m->order_info($data['user_id']);
+			
+			
 
-			$amount_array = array();
-			$quantity_array = array();
-			$gst_tax_array_each_product = array();
-			$original_cost = array();
-			$gst_tax = array();
-			$total_payable = array();
-			foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-				$amount_array[] = $each_cart_data->price;
-				$quantity_array[] = $each_cart_data->qty;
-				$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
-
-				$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-				$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-			}
-			$data['total_each_mat_price'] = array_sum($amount_array);
-			$data['total_each_mat_qty'] = array_sum($quantity_array);	
-			$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
-			$data['total_amount'] = array_sum($original_cost);
-			$data['gst_tax'] = array_sum($gst_tax);
-			$data['total_payable'] = array_sum($total_payable);
+		}
+		else
+		{
+			redirect('login');
 		}
 		
-		$this->load->view('checkout/order_summary',$data);
+		$this->load->view('order/my_orders',$data);
 	}
 
 	public function update_order_summary(){
@@ -330,82 +312,6 @@ class Checkout extends CI_Controller {
 		$this->load->view('checkout/payment_option',$data);
 	}
 	/* Payment_option PAGE of checkout Ends*/
-
-	/* Payment_option PAGE of checkout COD Starts*/
-	public function cash_delivery(){
-		$this->load->model('checkout_m');
-		$ip_data = $this->input->ip_address();
-		$date = time();
-		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
-			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
-		}else{
-			$data['user_id'] = "";
-		}
-		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
-			
-			if(!empty($data['fetch_prod_data'])){
-				$amount_array = array();
-				$quantity_array = array();
-				$gst_tax_array_each_product = array();
-				$original_cost = array();
-				$gst_tax = array();
-				$total_payable = array();
-				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-					$amount_array[] = $each_cart_data->price;
-					$quantity_array[] = $each_cart_data->qty;
-					$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
-
-					$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-					$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				}
-			
-				$data['total_each_mat_price'] = array_sum($amount_array);
-				$data['total_each_mat_qty'] = array_sum($quantity_array);	
-				$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
-				$data['total_amount'] = array_sum($original_cost);
-				$data['gst_tax'] = array_sum($gst_tax);
-			
-				$data['total_payable'] = array_sum($total_payable);
-
-				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-					$cart_data = array(
-						'product_id'=> $each_cart_data->product_id,
-						'product_name'=>$each_cart_data->product_name,
-						'product_image' => $each_cart_data->design_image,
-						'user_id' => $data['user_id'],
-						'purchase_type'=>'customer',
-						'purchaser_email'=>$this->session->userdata['logged_in']['email'],
-						'supplier_name'=>$each_cart_data->raw_added_by,
-						'product_price' =>$total_payable[$key],
-						'order_amount' =>$original_cost[$key],
-						'order_qty'=>$each_cart_data->qty,
-						'payment_status'=> 'pending',
-						'order_status'=> 'pending',
-						'payment_method'=>'cod',
-						'order_date'=>$date,
-					);
-					$insert_order = $this->checkout_m->order_place($cart_data);
-				}
-				if($insert_order){
-					$remove_from_cart = $this->checkout_m->remove_cart_order_place($data['user_id']);
-					foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-						$raw_id = $each_cart_data->raw_id;
-						$updated_quantity = $each_cart_data->raw_quantity - $each_cart_data->qty;
-
-						$quant_data = array(
-							'raw_quantity' => $updated_quantity
-						);
-						$update_quantity = $this->checkout_m->update_quant($quant_data,$raw_id);
-					}
-					redirect('thank_you');
-				}
-			}
-		}
-	}
-	/* Payment_option PAGE of checkout COD Ends*/
-
 }
 /* End of file Home.php */
 /* Location: ./application/controllers/Home.php */

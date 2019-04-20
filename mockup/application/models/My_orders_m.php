@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Checkout_m extends CI_Model {
+class My_orders_m extends CI_Model {
 
 	public function user_detailzz($user_id){
 		$this->db->select('*');
@@ -10,6 +10,16 @@ class Checkout_m extends CI_Model {
 		$this->db->where('user_status','1');
 		$query = $this->db->get();
 		return $query->row();
+	}
+
+	public function order_info($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('orders');
+		$this->db->where('user_id',$user_id);
+		
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 	public function user_address_detailzz($user_id){
@@ -80,23 +90,6 @@ class Checkout_m extends CI_Model {
 		$query = $this->db->update('cart_selection', $update_data);
 		return true;
 	}
-	/* CASH ON DELIVERY CODES STARTS*/
-	public function order_place($order_data){
-		$this->db->insert('orders', $order_data);
-		return true;
-	}
-
-	public function remove_cart_order_place($user_id){
-		$query = $this->db->query("delete from cart_selection where user_id='".$user_id."'");
-		return true;
-	}
-
-	public function update_quant($quant_data,$raw_id){
-		$this->db->where("raw_id", $raw_id);
-		$query = $this->db->update('raw_materials', $quant_data);
-		return true;
-	}
-	/* CASH ON DELIVERY CODES ENDS*/
 
 }
 
