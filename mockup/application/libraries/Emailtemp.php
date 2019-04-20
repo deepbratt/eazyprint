@@ -408,13 +408,13 @@ class Emailtemp{
                
               <tr>
                 <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
-					<multiline>Hello! You have successfully signed up for EazyPrint.</multiline>
+					<multiline>Hello! You have signed up for an account in EazyPrint.</multiline>
 				</td>
               </tr>
 			  <tr>
                 <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
 					<multiline>
-					Please click the "Login" button below enter your email address & password to access your account.
+					Please click the "Complete" button below and create your password to complete your account.
 					</multiline>
 				</td>
               </tr>
@@ -425,7 +425,7 @@ class Emailtemp{
               <tr>
                 <td align="center" valign="top"><table width="150" border="0" align="center" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td height="50" align="center" valign="middle" bgcolor="#e0365a" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; font-weight:bold; -moz-border-radius: 30px; border-radius: 30px;" mc:edit="bm17-07"><multiline><a href="https://www.eazyprint.in/beta/verify_email/'.$verify_code.'" style="text-decoration:none; color:#FFF;">Login Here</a></multiline></td>
+                    <td height="50" align="center" valign="middle" bgcolor="#e0365a" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; font-weight:bold; -moz-border-radius: 30px; border-radius: 30px;" mc:edit="bm17-07"><multiline><a href="https://www.eazyprint.in/beta/verify_email/'.$verify_code.'" style="text-decoration:none; color:#FFF;">Complete Here</a></multiline></td>
                   </tr>
 					
                 </table></td>
