@@ -5,7 +5,7 @@ class Add_eazycrew extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        if(!$this->session->userdata['logged_in']['user_id']){
+        if(!$this->session->userdata['logged_in']['user_id'] && $this->session->userdata['logged_in']['user_crew_role'] != 'admin'){
             redirect('admin_login');
         }
     }
