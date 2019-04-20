@@ -80,6 +80,23 @@ class Checkout_m extends CI_Model {
 		$query = $this->db->update('cart_selection', $update_data);
 		return true;
 	}
+	/* CASH ON DELIVERY CODES STARTS*/
+	public function order_place($order_data){
+		$this->db->insert('orders', $order_data);
+		return true;
+	}
+
+	public function remove_cart_order_place($user_id){
+		$query = $this->db->query("delete from cart_selection where user_id='".$user_id."'");
+		return true;
+	}
+
+	public function update_quant($quant_data,$raw_id){
+		$this->db->where("raw_id", $raw_id);
+		$query = $this->db->update('raw_materials', $quant_data);
+		return true;
+	}
+	/* CASH ON DELIVERY CODES ENDS*/
 
 }
 

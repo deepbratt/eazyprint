@@ -68,7 +68,7 @@
 				  padding-left: 15px;
 				  overflow: hidden;
 				  padding-top: 0px;
-				  box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);
+				  /*box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);*/
 				  transition: 0.6s ease-in-out;
 				  opacity: 0;
 				  margin-bottom: 8px;
@@ -149,7 +149,30 @@
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
 								<div class="accordion_panel show">
 								   <div class="row">
+								   	<div class="col-md-12 pay_online"> 
+								   		<div class="form-group"> 
+								   			<label class="custom-control custom-radio"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="online_pay();"> 
+								   				<span class="custom-control-label">Pay Online</span> 
+								   			</label> 
+								   		</div>
+								   	</div>
+								   	<div class="col-md-12 cod"> 
+								   		<div class="form-group"> 
+								   			<label class="custom-control custom-radio"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input " onclick="cod_pay();" > 
+								   				<span class="custom-control-label">Cash on Delivery</span>
+								   			</label> 
+								   		</div>
+								   	</div>
+								   	<div class="hide_pay_online">
 										<iframe src="https://test.instamojo.com/@himadrimajumder8/<?php echo $response['id'];?>/?embed=form" width="600" height="520" border="0" style="border:0px;text-align:center;"></iframe>
+									</div>
+									<div class="col-md-12 pay_mode_change"> 
+								   		<div class="form-group"> 
+								   			<button class="btn btn-info" onclick="change_mode();">Change Payment Mode</button>
+								   		</div>
+								   	</div>
 								   </div>
 							</div>
 							<!-- PAYMENT OPTION ENDS -->
@@ -166,6 +189,7 @@
 <?php
 $this->load->view("common/footer");
 ?>
+
 				<!-- ACCORDIONS STARTS 
 				<script>
 					var acc = document.getElementsByClassName("accordion");
@@ -202,7 +226,33 @@ $this->load->view("common/footer");
 				        $(".address_add").show();
 				        $(".add_address_hide").hide();
 				    });
+				    $('.hide_pay_online').hide();
+				    $('.pay_mode_change').hide();
 				});
+				function online_pay(){
+					$('.hide_pay_online').show();
+					$('.cod').hide();
+					$('.pay_online').hide();
+					$('.pay_mode_change').show();
+				}
+				function change_mode(){
+					$('.hide_pay_online').hide();
+					$('.pay_mode_change').hide();
+					$('.cod').show();
+					$('.pay_online').show();
+				}
+				function cod_pay(){
+					window.location = "<?php  echo base_url('checkout/cash_delivery'); ?>";
+					/*$.ajax({
+			        url: '<?php echo base_url();?>checkout/cash_delivery',
+			        data: {},
+			        type: "post",
+			        success: function(response){
+			          alert(response);
+			          //$("#modelzz").html(response);
+			        }
+			      });*/
+				}
 				</script>
 	</body>
 </html>
