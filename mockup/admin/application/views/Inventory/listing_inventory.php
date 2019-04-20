@@ -36,6 +36,9 @@
 			.card-body{
 				zoom: 70%;
 			}
+			.out_stock{
+				background:red !important;
+			}
 			td{
 				color:black;
 				font-family:arial;
@@ -104,7 +107,7 @@
 													$i = 1;											
 													foreach($fetch_stock as $stock_fetch){
 												?>
-												  <tr>
+												  <tr class="<?php echo (($stock_fetch->qty == '0')?'out_stock':'')?>">
 												    <td><?php echo $i; ?></td>
 													<td><?php echo ucfirst($stock_fetch->category);?></td>
 													<td><?php echo ucfirst($stock_fetch->brand);?></td>

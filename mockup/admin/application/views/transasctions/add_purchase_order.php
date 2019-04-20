@@ -80,7 +80,7 @@
 												</div>
 												<div class="row p-2">
 													<div class="col-md-4 top-title">
-														<h5>Supplier Name</h5>
+														<h5>Vendor Name</h5>
 													</div>
 													<div class="col-md-8">
 														<select name="supplier_id" class="form-control select2-show-search" onchange="supplierzz_id(this.value);" style="border:none !important;">
@@ -93,6 +93,7 @@
 							                              		}
 							                              	?>
 							                             </select>
+							                             
 													</div>
 												</div>
 												<div class="row p-2">
@@ -100,7 +101,7 @@
 														<h5>GST Number</h5>
 													</div>
 													<div class="col-md-8">
-														<input type="text" class="form-control" value="" name="gst_number" placeholder="GST Number">
+														<input type="text" class="form-control gst_details" value="" name="gst_number" placeholder="GST Number" readonly>
 													</div>
 												</div>
 												<div class="row p-2">
@@ -327,6 +328,14 @@
 					  $('.supp_addr').html(response);
 					}
 			  	});
+			  	$.ajax({
+				url: '<?php echo base_url();?>add_purchase_order/ajax_gst_info',
+				data: {'supp_id': e,},
+				type: "post",
+				success: function(response){
+				  $('.gst_details').val(response);
+				}
+			    });
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_place_of_supply',
 				data: {'supp_id': e,},
@@ -338,6 +347,7 @@
 				  //alert(response);
 				}
 			  });
+			  
 			}
 
 			function get_state(state){
@@ -372,24 +382,18 @@
 				if(quantity != ''){
 					var quant = quantity;
 					$('.quantzz_'+idzz+'').html(quant);
-					var amount = $('.pro_price_'+idzz+'').html();
-					var gst_rate = $('.gst_rate_'+idzz+'').html();
+					var amount = parseFloat($('.pro_price_'+idzz+'').html());
+					var gst_rate = parseFloat($('.gst_rate_'+idzz+'').html());
 					var tax_amount = parseFloat(amount*(gst_rate/100));
 					var Total = parseFloat(quant*(amount+tax_amount));
-					alert(Total);
-					exit;
 					$('#total_amount_'+idzz+' span').html(Total);
-					
-					/*var sum = 0;
-						 $(this).find('.combat').each(function () {
-							 alert('YES');
-							 exit;
-							 var combat = $(this).text();
-							 if (!isNaN(combat) && combat.length !== 0) {
-								 sum += parseFloat(combat);
-							 }
-						 });
-					$(this).find('.total-combat span').html(sum);*/
+				}else{
+					var quant = 1;
+					var amount = parseFloat($('.pro_price_'+idzz+'').html());
+					var gst_rate = parseFloat($('.gst_rate_'+idzz+'').html());
+					var tax_amount = parseFloat(amount*(gst_rate/100));
+					var Total = parseFloat(quant*(amount+tax_amount));
+					$('#total_amount_'+idzz+' span').html(Total);
 				}
 			}
 

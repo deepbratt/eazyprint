@@ -51,6 +51,13 @@ class Add_purchase_order extends CI_Controller {
       		}
 	}
 
+	public function ajax_gst_info(){
+		$this->load->model('purchase_order_m');
+		$supplier_id = $this->input->post('supp_id');
+		$fetch_supplier_gst = $this->purchase_order_m->supplier_addr($supplier_id);
+		echo $fetch_supplier_gst->user_gst_number;
+	}
+
 	public function ajax_fetch_prod_details(){
 		$this->load->model('purchase_order_m');
 		$product_id = $this->input->post('product_id');

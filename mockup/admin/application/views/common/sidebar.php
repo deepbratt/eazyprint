@@ -254,14 +254,6 @@
 					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_purchase_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_purchase_order');?>">Purchase Invoice
 					</a>
 				</li>
-				<li class="slide">
-					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_report')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_report');?>">Report
-					</a>
-				</li>
-				<li class="slide">
-					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'transaction_history')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('transaction_history');?>">Transaction History
-					</a>
-				</li>
 			</div>
 			<!-- Transactions Ends -->
 			<!-- Inventory STARTS -->
