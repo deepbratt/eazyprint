@@ -407,12 +407,12 @@ class Emailtemp{
             <td align="center" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                
               <tr>
-                <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
+                <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
 					<multiline>Hello! You have successfully signed up for EazyPrint.</multiline>
 				</td>
               </tr>
 			  <tr>
-                <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
+                <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
 					<multiline>
 					Please click the "Login" button below enter your email address & password to access your account.
 					</multiline>
@@ -434,7 +434,7 @@ class Emailtemp{
 				<td height="15" align="center" valign="top" style="font-size:15px; line-height:15px;">&nbsp;</td>
 			  </tr>
 			  <tr>
-                <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
+                <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
 					<multiline>
 					If this was not you, then please ignore and delete this email.
 					</multiline>
@@ -444,7 +444,7 @@ class Emailtemp{
 				<td height="15" align="center" valign="top" style="font-size:15px; line-height:15px;">&nbsp;</td>
 			  </tr>
 			 <tr>
-                <td align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
+                <td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
 					<multiline>
 						Kind regards,<br/>
 						EazyPrint
@@ -487,7 +487,7 @@ class Emailtemp{
 				<td height="15" align="center" valign="top" style="font-size:15px; line-height:15px;">&nbsp;</td>
 			  </tr>
 			  <tr>
-				<td align="center" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; mc:edit="bm9-13"><multiline>15/1 Sitala Bari Road, Uttara Apartment,Barrackpore,Kol-122</multiline></td>
+				<td align="center" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; mc:edit="bm9-13"><multiline>15/1 Sitala Bari Road, Uttara Apartment,Barrackpore,Kol-122</multiline></td>
 			  </tr>
 			  <tr>
 				<td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#312e2e; font-weight:bold; line-height:28px;" mc:edit="bm9-14"><multiline>Copyright &copy; 2019 eazyprint.in </multiline></td>
