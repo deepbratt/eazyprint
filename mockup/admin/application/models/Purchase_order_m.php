@@ -6,9 +6,9 @@ class Purchase_order_m extends CI_Model {
 	public function admin_info($user_id){
 
 		$this->db->select('*');
-		$this->db->from('eazycrew');
-		$this->db->where('crew_id',$user_id);
-		$this->db->where('crew_status','1');
+		$this->db->from('user');
+		$this->db->where('user_id',$user_id);
+		$this->db->where('user_status','1');
 		$query = $this->db->get();
 		return $query->row();
 	}

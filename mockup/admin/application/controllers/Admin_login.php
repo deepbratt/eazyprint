@@ -22,11 +22,12 @@ class Admin_login extends CI_Controller {
 	        redirect('admin_login');
 		}else{
 			$session_data = array(
-									'user_id' => $login_auth->crew_id,
-									'name' => $login_auth->crew_fname.' '.$login_auth->crew_lname,
-									'email'=> $login_auth->crew_email,
-									'user_type' => $login_auth->crew_role,
-									'crew_image' => $login_auth->crew_image
+									'user_id' => $login_auth->user_id,
+									'name' => $login_auth->user_fname.' '.$login_auth->user_lname,
+									'email'=> $login_auth->user_email,
+									'crew_role' => $login_auth->user_crew_role,
+									'user_type' => $login_auth->user_type,
+									'crew_image' => $login_auth->user_profile_image
 								 );
 			
 			$this->session->set_userdata('logged_in', $session_data);

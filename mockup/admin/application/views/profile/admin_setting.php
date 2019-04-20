@@ -22,6 +22,17 @@
 		  font-size:18px;
 		  z-index: 2;
 		}
+		.error{
+			color : red;
+			font-weight: 450;
+		}
+		input.error[type="text"],input.error[type="number"],input.error[type="email"],select.error,textarea.error{
+			border : 1px solid red !important;
+			color : #7490BD;
+		}
+		select{
+			color : #7490BD;
+		}
 		</style>
 
 		<!-- Title -->
@@ -64,7 +75,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('admin_setting/update_admin');?>">
+								<form name="setting" method="post" class="card" enctype="multipart/form-data" action="<?php echo base_url('admin_setting/update_admin');?>">
 									<div class="card-header">
 										<h3 class="card-title">Setting</h3>
 									</div>
@@ -75,14 +86,14 @@
 												<div class="row">
 													<div class="col-md-12" align="center">
 													<?php
-													if($profile_image == '')
+													if($fetch_user->user_profile_image == '')
 													{
 													?>
-														<img class="brround" style="height:150px;width:150px;" src="https://placeholdit.imgix.net/~text?txtsize=33&txtcolor=ffffff&txt=Upload%20Image&bg=333333&w=150&h=150" id="blah">
+														<img class="brround" style="height:150px;width:150px;" src="https://via.placeholder.com/150?text=Upload+Image" id="blah">
 													<?php
 													}else{
 													?>
-														<img class="brround" style="height:150px;width:150px;" src="uploads/crew_images/<?php echo $profile_image;?>" id="blah">
+														<img class="brround" style="height:150px;width:150px;" src="uploads/crew_images/<?php echo $fetch_user->user_profile_image;?>" id="blah">
 													<?php
 													}
 													?>
@@ -97,7 +108,7 @@
 													<label class="form-label">First Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" value="<?php echo $f_name;?>" name="f_name" placeholder="Enter First Name">
+													<input type="text" class="form-control" value="<?php echo $fetch_user->user_fname;?>" name="f_name" placeholder="Enter First Name">
 												  </div>
 												</div>
 											</div>
@@ -108,7 +119,7 @@
 													<label class="form-label">Last Name</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="text" class="form-control" value="<?php echo $l_name;?>" name="l_name" placeholder="Enter last Name">
+													<input type="text" class="form-control" value="<?php echo $fetch_user->user_lname;?>" name="l_name" placeholder="Enter last Name">
 												  </div>
 												</div>
 											</div>
@@ -119,7 +130,7 @@
 													<label class="form-label">Email</label>
 												  </div>
 												  <div class="col-md-10">
-													<input type="email" class="form-control" value="<?php echo $email;?>" name="email" placeholder="Enter Email">
+													<input type="email" class="form-control" value="<?php echo $fetch_user->user_email;?>" name="email" placeholder="Enter Email" disabled>
 												  </div>
 												</div>
 											</div>
@@ -134,7 +145,7 @@
 												  </div>
 												  <div class="col-md-10">
 												  <?php
-														$get_cate = explode(",",$product_category);
+														$get_cate = explode(",",$fetch_user->category_want_to_sell);
 												  		$this->load->model('admin_setting_m');
 														$get_category = $this->admin_setting_m->get_category();
 														//print_r($get_category);
@@ -156,7 +167,7 @@
 										?>
 									  </div>
 									  <div class="card-footer text-right">
-										<button type="submit" class="btn btn-primary">Submit
+										<button type="submit" class="btn btn-primary">Update
 										</button>
 										<button type="reset" class="btn btn-secondary">Cancel</button>
 									  </div>
@@ -216,8 +227,27 @@
 		<script src="<?php echo base_url('js');?>/spectrum.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery-ui.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
+		<script src="<?php echo base_url('js');?>/jquery.validate.js"></script>
 	</body>
-
+	<script>
+	$(function() {
+	  $("form[name='setting']").validate({
+		rules: {
+		  f_name: "required",
+		  l_name: "required",
+		  "category[]" : "required",
+		},
+		messages: {
+		  f_name: "This field is required",
+		  l_name: "This field is required",
+		  "category[]" : "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+	</script>
 </html>
 
 

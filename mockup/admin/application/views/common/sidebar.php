@@ -8,7 +8,7 @@
 			</li>
 			<!-- Dashboard Ends -->
 		<?php
-				if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "admin")
+				if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "admin")
 				{
 			?>
 			<!-- Contacts STARTS -->
@@ -33,31 +33,31 @@
 
 			<!-- Raw material Information Starts-->
 			<li class="sidebar_header">
-               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug')?'header-active':'');?>" data-target="#rawmaterials">Raw Materials</a>
+               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug' || $this->uri->segment(1) == 'add_pillow' || $this->uri->segment(1) == 'listing_pillows' ||$this->uri->segment(1) == 'edit_pillow' || $this->uri->segment(1) == 'add_plate' || $this->uri->segment(1) == 'listing_plates' ||$this->uri->segment(1) == 'edit_plate' || $this->uri->segment(1) == 'add_tiles' || $this->uri->segment(1) == 'listing_tiles' ||$this->uri->segment(1) == 'edit_tiles')?'header-active':'');?>" data-target="#rawmaterials">Raw Materials</a>
             </li>
-			<div id="rawmaterials" class="collapse <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug')?'show':'');?>">
+			<div id="rawmaterials" class="collapse <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' ||$this->uri->segment(1) == 'edit_mobile_case' || $this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt' || $this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug' || $this->uri->segment(1) == 'add_pillow' || $this->uri->segment(1) == 'listing_pillows' ||$this->uri->segment(1) == 'edit_pillow' || $this->uri->segment(1) == 'add_plate' || $this->uri->segment(1) == 'listing_plates' ||$this->uri->segment(1) == 'edit_plate' || $this->uri->segment(1) == 'add_tiles' || $this->uri->segment(1) == 'listing_tiles' ||$this->uri->segment(1) == 'edit_tiles')?'show':'');?>">
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_tshirt');?>"><span class="side-menu__label"> T-Shirt </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_tshirt' || $this->uri->segment(1) == 'listing_tshirt' || $this->uri->segment(1) == 'edit_tshirt')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_tshirt');?>"><span class="side-menu__label"> T-Shirt </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_mobile_case');?>"><span class="side-menu__label"> Mobile Cases </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_mobile_case' || $this->uri->segment(1) == 'listing_mobile_case' || $this->uri->segment(1) == 'edit_mobile_case')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_mobile_case');?>"><span class="side-menu__label"> Mobile Cases </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Coffee Mugs </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_mug' || $this->uri->segment(1) == 'listing_mug' || $this->uri->segment(1) == 'edit_mug')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_mug');?>"><span class="side-menu__label"> Coffee Mugs </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_pillows');?>"><span class="side-menu__label"> Cusions & Pillows </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_pillow' || $this->uri->segment(1) == 'listing_pillows' || $this->uri->segment(1) == 'edit_pillow')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_pillows');?>"><span class="side-menu__label"> Cusions & Pillows </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_plates');?>"><span class="side-menu__label"> Plates </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_plate' || $this->uri->segment(1) == 'listing_plates' || $this->uri->segment(1) == 'edit_plate')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_plates');?>"><span class="side-menu__label"> Plates </span></a>
 				</li>
 
 				<li class="slide">
-					<a class="side-menu__item" href="<?php echo base_url('listing_tiles');?>"><span class="side-menu__label"> Tiles </span></a>
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_tiles' || $this->uri->segment(1) == 'listing_tiles' || $this->uri->segment(1) == 'edit_tiles')?'active_sidebar_submenu':'');?>" href="<?php echo base_url('listing_tiles');?>"><span class="side-menu__label"> Tiles </span></a>
 				</li>
 			</div>
 			<!-- Raw material Information Ends -->
@@ -234,6 +234,35 @@
 			</div>
 		<?php
 				}
+		?>
+
+		<?php
+			if(isset($this->session->userdata['logged_in']['crew_role']) && $this->session->userdata['logged_in']['crew_role'] == "operations")
+			{
+		?>
+			<!-- Transactions Starts -->
+			<li class="sidebar_header">
+               <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'header-active':'');?>" data-target="#transaction">Transactions</a>
+            </li>
+			<div id="transaction" class="collapse <?php echo(($this->uri->segment(1) == 'add_sale_order' || $this->uri->segment(1) == 'add_purchase_order')?'show':'');?>">
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_sale_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_sale_order');?>">
+						Sale Invoice
+					</a>
+				</li>
+				<li class="slide">
+					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'add_purchase_order')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('add_purchase_order');?>">Purchase Invoice
+					</a>
+				</li>
+			</div>
+			<!-- Transactions Ends -->
+			<!-- Inventory STARTS -->
+			<li class="sidebar_header">
+				<a class="sidebar_header_uppercase <?php echo(($this->uri->segment(1) == 'Listing_inventory')?'active':'');?>" href="<?php echo base_url('Listing_inventory');?>">Inventory</a>
+			</li>
+			<!-- Inventory ENDS -->
+		<?php
+			}
 		?>
 			<!-- Settings ENDS -->
 

@@ -85,6 +85,9 @@
 										$ci->load->model('home_m');
 										$get_categories = $ci->home_m->get_cat();				
 										foreach($get_categories AS $get_cat){
+											if($get_cat->cat_id == 4 || $get_cat->cat_id == 5 || $get_cat->cat_id == 6){
+												continue;
+											}
 									?>
 									
 										<li class="nav-item with-sub  mega-dropdown">
@@ -255,7 +258,7 @@
 										<?php
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px;"></i>
+											<i class="fas fa-user" style="font-size:33px !important;"></i>
 										<?php
 											}
 										?>
@@ -274,7 +277,7 @@
 									<?php
 										}else{
 									?>
-										<li class="nav-item left" style="margin-left:500px;">
+										<li class="nav-item left">
 											<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
 												<i class="fas fa-user" style="font-size:33px;"></i>
 											</a>
