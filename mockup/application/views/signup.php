@@ -262,6 +262,12 @@ $this->load->view("common/header");
 	    						<strong><?php echo $this->session->flashdata('exist');?></strong>
 	    					</div>
 	    				<?php
+	    					}else if($this->session->flashdata('success')){
+	    				?>
+	    					<div class="alert alert-success">
+	    						<strong><?php echo $this->session->flashdata('success');?></strong>
+	    					</div>
+	    				<?php
 	    					}
 	    				?>
                         <div class="row">
