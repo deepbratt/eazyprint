@@ -40,7 +40,7 @@
     <script src="<?php echo base_url();?>js/VFState.js" type="text/javascript">
     </script>
     <!-- Title -->
-    <title>Eazyprint | Login
+    <title>Eazyprint | Bulk Order
     </title>
     <?php
 $this->load->view("common/metalinks");
@@ -300,16 +300,16 @@ $this->load->view("common/header");
             <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;">
               <ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);">
                 <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
-                  <img src="<?php echo base_url();?>images/banner_bulk.png" style="visibility: visible;">
+                  <img src="<?php echo base_url();?>images/bulk.png" style="visibility: visible;">
                 </li>
                 <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true">
-                  <img src="<?php echo base_url();?>images/banner_bulk.png" style="visibility: visible;">
+                  <img src="<?php echo base_url();?>images/bulk.png" style="visibility: visible;">
                 </li>
                 <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false">
-                  <img src="<?php echo base_url();?>images/banner_bulk.png" style="visibility: visible;">
+                  <img src="<?php echo base_url();?>images/bulk.png" style="visibility: visible;">
                 </li>
                 <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
-                  <img src="<?php echo base_url();?>images/banner_bulk.png" style="visibility: visible;">
+                  <img src="<?php echo base_url();?>images/bulk.png" style="visibility: visible;">
                 </li>
               </ul>
             </div>
@@ -317,10 +317,10 @@ $this->load->view("common/header");
         </div>
       </div> 
       <div class="BN2 hidden">
-        <img src="<?php echo base_url();?>images/banner_bulk.png">
+        <img src="<?php echo base_url();?>images/bulk.png">
       </div> 
       <div class="BN3 hidden">
-        <img src="<?php echo base_url();?>images/banner_bulk.png">
+        <img src="<?php echo base_url();?>images/bulk.png">
       </div>
       <style>
         .bxslider img{
