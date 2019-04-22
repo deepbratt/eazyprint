@@ -24,7 +24,7 @@
 						<div class="container-fluid">
 							<div class="d-flex" style="height: 25px;">
 								<div class="d-flex order-lg-3 mr-auto">
-									<a class="nav-link d-flex" href="javascript:void(0);">
+									<a class="nav-link d-flex" href="<?php echo base_url('bulk_order');?>">
 										<span class="d-none d-lg-block" style="font-size: 11px;">
 											<span class="text-dark"> <b> Bulk Orders </b> </span>
 										</span>

@@ -246,8 +246,54 @@
 		.colorinput-color:before{
 			background:none !important;
 		}
+		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE STARTS */
+		#draggable_image{
+		    margin: 0px;
+			resize: both;
+			position: absolute;
+			display: block;
+			height: 30%;
+			width: 30%
+		}
+		.ui-wrapper{
+			top:0px !important;
+			left:0px !important;
+		}
+		.bg-black{
+			background-color: #000000;
+		}
+		.bg-white{
+			background-color: #ffffff;
+		}
+		.bg-army_green{
+			background-color: #4b5320;
+		}
+		.bg-bold_red{
+			background-color: #ba3f38;
+		}
+		.bg-mustard_yellow{
+			background-color: #ffdb58;
+		}
+		.bg-ocean_blue{
+			background-color: #0077be;
+		}
+		.loader{
+			display:none;
+		}
+		.colorinput input[type=radio]:checked + span {
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			border: 1px solid #000;
+		}
+		.colorinput-color:before{
+			background:none !important;
+		}
+		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE ENDS */
 		</style>
-
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 <?php
 $this->load->view("common/metalinks");
 ?>
@@ -290,12 +336,11 @@ $this->load->view("common/header");
 						
 						<div class="row">
 							<div class="col-md-7">
-								<div class="product-info carttoscroll">
+								<div class="product-info ">
 									 <div class="product-gallery" >
 						                <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
 						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/mug/');?><?php echo $fetch_raw_data->raw_image;?>" alt="" style="height:96px;"></li>
-						                  
 						                  </ol>
 						                </div>
 						                <div class="product-gallery-featured">
@@ -303,6 +348,14 @@ $this->load->view("common/header");
 						                </div>
 						             </div>
 					            </div>
+								<div class="col-md-12" style="overflow:hidden;padding:0px;">
+									<div style="height:220px;border:1px solid red" id="background_image">
+										<div id="draggable_image" style="display:inline-block;">
+											<img src="<?php echo base_url();?>images/no-image.png" id="image_resize">
+										</div>
+									</div>
+								</div>
+
 							</div>
 
 							<div class="col-md-5" style="border:1px dotted #000;margin-top:15px;">
@@ -401,12 +454,11 @@ $this->load->view("common/header");
 													<div class="row p-2">
 														<div class="col-md-12 pull-left">
 															<label class="form-label">Upload Photo</label>
-															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-lg btn-danger file_upload_icon">
+															<span onclick="profile_imagezz()" class="btn btn-lg btn-danger file_upload_icon">
 						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
 						                                        <strong style="color:#ffffff;">Choose File...</strong>
 					                                      	</span>
-						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
-						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
+						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="readURL(this);">
 														</div>
 													</div>
 												</div>
@@ -433,23 +485,7 @@ $this->load->view("common/header");
 										</div>
 									</form>
 										<!-- CART ENDS -->
-										<!-- COD Starts-->
-										<div class="card-body">
-											<div class="cardprice" style="font-size:12px;">
-												<span>Check delivery date / COD availability</span><br>
-												<span class="pl-6">
-													<div class="row">
-														<div class="col-md-8">
-															<input type="text" class="form-control" placeholder="Enter Pincode">
-														</div>
-														<div class="col-md-4">
-															<button class="btn btn-small btn-white">CHECK</button>
-														</div>
-													</div>
-												</span>
-											</div>
-										</div>
-										<!-- COD ENDS-->
+										
 									</div>
 								</div>
 
@@ -457,7 +493,7 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
-						<div class="row cartstop" style="color:black;">
+						<div class="row" style="color:black;">
 							<div class="col-md-12" style="margin:0px;padding:0px;">
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
 								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
@@ -826,24 +862,27 @@ $this->load->view("common/footer");
 	</script>
 	<!-- cart ajax ends -->
 	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
-		<script>
-			// select all thumbnails
-			const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
-			// select featured
-			const galleryFeatured = document.querySelector(".product-gallery-featured img");
+		<script type="text/javascript">
+			function profile_imagezz(){
+			  $("input[id='pro_image']").click();
+			}
+		   
+			function readURL(input) {
+				
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
 
-			// loop all items
-			galleryThumbnail.forEach((item) => {
-			  item.addEventListener("mouseover", function () {
-			    let image = item.children[0].src;
-			    galleryFeatured.src = image;
-			  });
-			});
+					reader.onload = function (e) {
+						$('#image_resize').attr('src', e.target.result); 
+					}
 
-			// show popover
-			$(".main-questions").popover('show');
+					reader.readAsDataURL(input.files[0]);
+					$('#image_resize').show();
+				}
+			}
 		</script>
-
+		
+	<!-- IMAGE SLIDER PRODUCT DETAILS ENDS -->
 		<script>
 			$('#carouselExample').on('slide.bs.carousel', function (e) {
 
@@ -884,23 +923,8 @@ $this->load->view("common/footer");
 			        content.html($(this).html());
 			        $(".modal-profile").modal({show:true});
 			    });
-			    /* Image Scroll */
-			    $(window).scroll(function () { 
-				 if($(window).scrollTop() > 670) {
-					$('.carttoscroll').css('position','fixed');
-					$('.carttoscroll').css('top','48px'); 
-					$('.carttoscroll').css('width','50%'); 
-				 }
-
-				 else if ($(window).scrollTop() <= 600) {
-					$('.carttoscroll').css('position','');
-					$('.carttoscroll').css('top','');
-					$('.carttoscroll').css('width','100%'); 
-				 }  
-					if ($('.carttoscroll').offset().top + $(".carttoscroll").height() > $(".cartstop").offset().top) {
-						$('.carttoscroll').css('top',-($(".carttoscroll").offset().top + $(".carttoscroll").height() - $(".cartstop").offset().top));
-					}
-				});
+				$('#draggable_image').draggable();
+				$('#image_resize').resizable();
 			  });
 		</script>
 		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->
@@ -922,25 +946,6 @@ $this->load->view("common/footer");
 				}
 			</script>
 		<!-- Accordions Ends -->
-		<!-- IMAGE PREVIEW STARTS-->
-			<script>
-			  function profile_imagezz(){
-			      $("input[id='pro_image']").click();
-			    }
-			  function show_image(input) {
-			    if (input.files && input.files[0]) {
-			      var reader = new FileReader();
-
-			      reader.onload = function (e) {
-			        $('#p_blah').attr('src', e.target.result);
-			      }
-
-			      reader.readAsDataURL(input.files[0]);
-			      $('#p_blah').show();
-			      $('#hide_span').hide();
-			    }
-			  }
-			</script>
-		<!-- IMAGE PREVIEW Ends-->
+		
 	</body>
 </html>
