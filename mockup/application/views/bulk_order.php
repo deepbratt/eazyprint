@@ -253,10 +253,10 @@ $this->load->view("common/header");
                     <div class="form-group">
                       <div class="col-md-12 show-hd actv" id="fr-new-user">
 					    <?php
-	    				 if($this->session->flashdata('success')){
+	    				 if($this->session->flashdata('Success')){
 	    				?>
 	    					<div class="alert alert-success">
-	    						<strong><?php echo $this->session->flashdata('success');?></strong>
+	    						<strong><?php echo $this->session->flashdata('Success');?></strong>
 	    					</div>
 	    				<?php
 	    					}
