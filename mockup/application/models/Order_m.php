@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_orders_m extends CI_Model {
+class Order_m extends CI_Model {
 
 	public function user_detailzz($seller_id){
 		$this->db->select('*');

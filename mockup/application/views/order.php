@@ -119,53 +119,85 @@ $this->load->view("common/header");
 									<!-- media-list -->
 								</div>
 							</div>
-							<div class="col-md-8 col-sm-12 col-xs-12">
-								<div class="card store">
-									<div class="card-status bg-success"></div>
-									<div class="table-responsive">
-										<table class="table card-table table-vcenter">
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-											<tr>
-												<td><img src="<?php echo base_url();?>images/14.png" alt="" class="h-8"></td>
-												<td>Name</td>
-												<td>Order No.</td>
-												<td>Tracking ID</td>
-												<td><strong>INR Price</strong></td>
-												<td class="text-right text-white d-none d-md-table-cell text-nowrap"><a class="btn btn-sm btn-primary"><i class="fas fa-shopping-cart"></i> Track Order</a></td>
-											</tr>
-										</table>
-									</div>
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="card store">
+								<div class="card-status bg-success"></div>
+							 	<?php
+								  		foreach($fetch_prod_data AS $fetch_prod_yoo){
+								  	?>
+								<div class="row" style="border:1px solid #cccccc;margin-top:10px;padding:20px;">
+								  	<div class="col-md-1 p-1">
+								  		<div class="form-group">
+								  			<?php
+								  				$prod_id = $fetch_prod_yoo->product_id;
+								  				$fetch_prod_image = $this->order_m->prod_image_info($prod_id);
+								  			?>
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:140px;">
+								  		</div>
+								  	</div>
+								  	<div class="col-md-7">
+								  		<div class="form-group">
+								  			<h4><?php echo $fetch_prod_yoo->product_name;?></h4>
+								  		</div>
+								  		
+								  	
+							  		
+							  			<?php
+											$seller_id = $fetch_prod_yoo->supplier_name;
+											
+							  				$fetch_supplier_name = $this->order_m->user_detailzz($seller_id);
+											$count_user = count($fetch_supplier_name);
+								  			if($count_user > 0){
+								  		?>
+								  		<div class="form-group">
+								  			<span><b>Seller:</b> <?php echo $fetch_supplier_name->user_fname;?></span>
+								  		</div>
+								  		<?php
+								  			}else{
+								  		?>
+								  		<div class="form-group">
+								  			<span><b>Seller:</b> Eazyprint</span>
+								  		</div>
+								  		<?php
+								  			}
+								  		?>
+
+										<div class="form-group">
+								  			<span><b>Qty:</b> <?php echo $fetch_prod_yoo->order_qty;?></span>
+								  		</div>
+										  	
+								  		<div class="form-group">
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_yoo->order_amount;?></span>
+								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
+								  		</div>
+								  	</div>
+								  	<div class="col-md-3">
+								  		<div class="form-group">
+											<a href="<?php echo base_url('my_orders/refund_process/');?><?php echo $fetch_prod_yoo->order_id;?>">Refund</a>
+										</div>
+										<div class="form-group">
+								  			<span>Order Place on <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->order_date);?></span></span>
+								  		</div>
+
+										<?php
+											if($fetch_prod_yoo->delivery_date != '')
+											{
+										?>
+								  		<div class="form-group">
+								  			<span>Delivery on <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->delivery_date);?></span></span>
+								  		</div>
+										<?php
+											}
+										?>
+										<div class="form-group">
+								  			<span>Delivery Status | <span style="font-weight:bold;color:#e40046;"><?php echo $fetch_prod_yoo->delivery_status;?></span></span>
+								  		</div>
+								  	</div>
+								  	
+								  </div>
+								  <?php
+								}
+									 ?>
 								</div>
 							</div>
 						</div>

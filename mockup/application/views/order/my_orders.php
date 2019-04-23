@@ -97,7 +97,7 @@
 
 				div.accordion_panel.show {
 				  opacity: 1;
-				  max-height: 800px;
+				  max-height:1500px; ;
 				  padding:23px;
 				}
 			/* ACCORDIONS ENDS*/
@@ -118,10 +118,10 @@
 	</head>
 	<body class="app">
 
-				<?php
-				$this->load->view("common/header");
-				?>
-							    <div class=" " style="background-color: #e40046;" >
+	<?php
+		$this->load->view("common/header");
+	?>
+	<div class=" " style="background-color: #e40046;" >
       <div class="container">
         <div class="row">
           <div class="col-md-12 register_col_height">
@@ -245,19 +245,12 @@
 				<div class="container">
 					<div class="side-app">
 						<div class="col-md-12">
-							<div class="page-header">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">Checkout</li>
-									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
-								</ol>
-							</div>
-						<p>&nbsp;</p>
-						<div class="row" style="padding:0px;margin:0px;">
+					
+						<div class="row" style="margin-top:10px;">
 						
-							<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12" >
 								<!-- ORDER SUMMARY STARTS-->
-								<button type="button" class="accordion active">ORDER SUMMARY</button>
+								<button type="button" class="accordion active">MY ORDERS</button>
 								<div class="accordion_panel show">
 								<?php
 									$get_count_order = count($fetch_prod_data);
@@ -266,72 +259,83 @@
 										
 								?>
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
-								  <div class="row" style="overflow-y: scroll;max-height:300px;">
 								  	<?php
 								  		foreach($fetch_prod_data AS $fetch_prod_yoo){
 								  	?>
-								  	<div class="col-md-3 p-3">
+								  <div class="row" style="border:1px solid #cccccc;margin-top:10px;padding:20px;">
+								
+								  	<div class="col-md-1 p-1">
 								  		<div class="form-group">
 								  			<?php
-								  				$prod_id = $fetch_prod_data->product_id;
-								  				$fetch_prod_image = $this->checkout_m->prod_image_info($prod_id);
+								  				$prod_id = $fetch_prod_yoo->product_id;
+								  				$fetch_prod_image = $this->my_orders_m->prod_image_info($prod_id);
 								  			?>
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:130px;">
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:140px;">
 								  		</div>
-								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
-								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-										</div>
 								  	</div>
-								  	<div class="col-md-6">
+								  	<div class="col-md-7">
 								  		<div class="form-group">
-								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
+								  			<h4><?php echo $fetch_prod_yoo->product_name;?></h4>
 								  		</div>
 								  		
-								  		<?php
-								  			if($fetch_prod_data->size != ''){
-								  		?>
-								  		<div class="form-group">
-								  			<span>Size: <?php echo $fetch_prod_data->size;?></span>
-								  		</div>
-								  		<?php
-								  			}
-								  		?>
+								  	
 							  		
 							  			<?php
-							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($fetch_prod_data->user_id);
-								  			if(!empty($fetch_supplier_name)){
+											$seller_id = $fetch_prod_yoo->supplier_name;
+											
+							  				$fetch_supplier_name = $this->my_orders_m->user_detailzz($seller_id);
+											$count_user = count($fetch_supplier_name);
+								  			if($count_user > 0){
 								  		?>
 								  		<div class="form-group">
-								  			<span>Seller: <?php echo $fetch_supplier_name->user_store_name;?></span>
+								  			<span><b>Seller:</b> <?php echo $fetch_supplier_name->user_fname;?></span>
 								  		</div>
 								  		<?php
 								  			}else{
 								  		?>
 								  		<div class="form-group">
-								  			<span>Seller: Eazyprint</span>
+								  			<span><b>Seller:</b> Eazyprint</span>
 								  		</div>
 								  		<?php
 								  			}
 								  		?>
+
+										<div class="form-group">
+								  			<span><b>Qty:</b> <?php echo $fetch_prod_yoo->order_qty;?></span>
+								  		</div>
 										  	
 								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->price;?></span>
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_yoo->order_amount;?></span>
 								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
 								  		</div>
 								  	</div>
 								  	<div class="col-md-3">
 								  		<div class="form-group">
-											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $fetch_prod_data->cart_id;?>">Remove</a>
+											<a href="<?php echo base_url('my_orders/refund_process/');?><?php echo $fetch_prod_yoo->order_id;?>">Refund</a>
 										</div>
+										<div class="form-group">
+								  			<span>Order Place on <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->order_date);?></span></span>
+								  		</div>
+
+										<?php
+											if($fetch_prod_yoo->delivery_date != '')
+											{
+										?>
 								  		<div class="form-group">
-								  			<span>Delivery in 2Days, Thursday | Free</span>
+								  			<span>Delivery on <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->delivery_date);?></span></span>
+								  		</div>
+										<?php
+											}
+										?>
+										<div class="form-group">
+								  			<span>Delivery Status | <span style="font-weight:bold;color:#e40046;"><?php echo $fetch_prod_yoo->delivery_status;?></span></span>
 								  		</div>
 								  	</div>
-								  	<?php
+								  	
+								  </div>
+								  <?php
 								  		}
 								  	?>
-								  </div>
 								  <div class="row p-3">
 								  	<?php
 								  		if(isset($this->session->userdata['logged_in']['email']) && $this->session->userdata['logged_in']['email'] != ""){
