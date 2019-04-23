@@ -357,7 +357,7 @@
 								  	<?php
 								  		if(isset($this->session->userdata['logged_in']['email']) && $this->session->userdata['logged_in']['email'] != ""){
 								  	?>
-								  	<div class="col-md-9">
+								  	<div class="col-md-8">
 								  		<div class="form-group">
 								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);"><?php echo $this->session->userdata['logged_in']['email']?></a></p>
 								  		</div>
@@ -365,7 +365,7 @@
 								  	<?php
 								  		}
 								  	?>
-								  	<div class="col-md-12 text-right">
+								  	<div class="col-md-4 p-3 text-right">
 								  		<div class="form-group">
 								  			<button class="btn btn-orange btn-lg">Continue</button>
 								  		</div>
