@@ -22,24 +22,47 @@ class Bulk_order extends CI_Controller {
 		$date = time();
 		$status = '1';
 
-		//Mail function starts for user
-		$message = $this->emailtemp->user_bulk($email);
-
-		$this->load->library('email');
-		$this->email->set_mailtype("html");
-
-		$this->email->from('support@eazyprint.in', 'EazyPrint');
-		$this->email->to($email);
-
-		$this->email->subject('Bulk order query confirmation');
-		$this->email->message($message);
-
-		$okay = $this->email->send();
-		//Mail function ends for user
+		
 
 		$records = array('bulk_name'=>$name,'bulk_email'=>$email,'bulk_phone'=>$phone,'bulk_cat'=>$category,'bulk_quantity'=>$quantity,'bulk_status'=>$status,'bulk_date'=>$date);
 
 		$update_bulk = $this->bulk_order_m->update_order($records);
+
+		if($update_bulk){
+			//Mail function starts for user
+			$message = $this->emailtemp->user_bulk($name);
+
+			$this->load->library('email');
+			$this->email->set_mailtype("html");
+
+			$this->email->from('noreply@eazyprint.in', 'EazyPrint');
+			$this->email->to($email);
+
+			$this->email->subject('Bulk order query confirmation');
+			$this->email->message($message);
+
+			$okay = $this->email->send();
+			//Mail function ends for user
+
+			//Mail function starts for admin
+			if($okay){
+				$admin_message = $this->emailtemp->admin_bulk($name,$email,$phone,$category,$quantity);
+
+				$this->load->library('email');
+				$this->email->set_mailtype("html");
+
+				$this->email->from('noreply@eazyprint.in', 'EazyPrint');
+				$this->email->to('sales@eazyprint.in');
+
+				$this->email->subject('New bulk order query received');
+				$this->email->message($admin_message);
+
+				$okay = $this->email->send();
+			}
+			
+			//Mail function ends for admin
+		}
+		$this->session->set_flashdata("Success", "Thank you for your request, we will get back to you soon!");
 		redirect('bulk_order');
 	}
 }
