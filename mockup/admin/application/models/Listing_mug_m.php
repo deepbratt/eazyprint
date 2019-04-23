@@ -7,7 +7,6 @@ class Listing_mug_m extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
-		$this->db->where('raw_added_by', $user_id);
 		$this->db->where('raw_category','2');
 		$query = $this->db->get();
 		return $query->result();

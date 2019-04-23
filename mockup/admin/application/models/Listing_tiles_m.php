@@ -7,7 +7,6 @@ class Listing_tiles_m extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('raw_materials');
-		$this->db->where('raw_added_by', $user_id);
 		$this->db->where('raw_category','6');
 		$query = $this->db->get();
 		return $query->result();
