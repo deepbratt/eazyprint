@@ -549,7 +549,7 @@ class Emailtemp{
 					<head>
 
 					<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-					<title>EazyPrint Registration</title>
+					<title>EazyPrint Bulk Order Confirmation</title>
 
 					<style type="text/css">
 
@@ -675,28 +675,10 @@ class Emailtemp{
 								   
 								  <tr>
 									<td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
-										<multiline>Hello! You have signed up for an account in EazyPrint.</multiline>
-									</td>
-								  </tr>
-								  <tr>
-									<td align="left" valign="top" style="font-family:Open Sans, sans-serif, Verdana; font-size:17px; color:#312e2e; font-weight:normal; line-height:24px; " mc:edit="bm17-05">
-										<multiline>
-										Please click the "Complete" button below and create your password to complete your account.
-										</multiline>
+										<multiline>Hello! Thank you for reaching to us, we will get back to you soon with your bulk order related query.</multiline>
 									</td>
 								  </tr>
 
-								  <tr>
-									<td height="20" align="center" valign="top">&nbsp;</td>
-								  </tr>
-								  <tr>
-									<td align="center" valign="top"><table width="150" border="0" align="center" cellpadding="0" cellspacing="0">
-									  <tr>
-										<td height="50" align="center" valign="middle" bgcolor="#e0365a" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFF; font-weight:bold; -moz-border-radius: 30px; border-radius: 30px;" mc:edit="bm17-07"><multiline><a href="https://www.eazyprint.in/beta/verify_email/'.$verify_code.'" style="text-decoration:none; color:#FFF;">Complete Here</a></multiline></td>
-									  </tr>
-										
-									</table></td>
-								  </tr>
 								  <tr>
 									<td height="15" align="center" valign="top" style="font-size:15px; line-height:15px;">&nbsp;</td>
 								  </tr>
