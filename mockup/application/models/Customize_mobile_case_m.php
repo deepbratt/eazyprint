@@ -29,6 +29,24 @@ class Customize_mobile_case_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_phone_models(){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category','3');
+		$this->db->group_by('raw_brand');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function brand_models($brand_name){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category','3');
+		$this->db->where('raw_brand',$brand_name);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 }
 
 /* End of file Customize_mobile_case_m.php */

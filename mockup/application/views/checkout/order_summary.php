@@ -260,20 +260,29 @@
 								<button type="button" class="accordion active">ORDER SUMMARY</button>
 								<div class="accordion_panel show">
 								<?php
+									$this->load->model('checkout_m');
 									if(!empty($fetch_prod_data)){
 								?>
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
 								  <div class="row" style="overflow-y: scroll;max-height:300px;">
 								  	<?php
-								  		foreach($fetch_prod_data AS $fetch_prod_data){
+								  		foreach($fetch_prod_data AS $key=>$fetch_prod_data){
 								  	?>
 								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
 								  			<?php
 								  				$prod_id = $fetch_prod_data->product_id;
-								  				$fetch_prod_image = $this->checkout_m->prod_image_info($prod_id);
+								  				$fetch_prod = $this->checkout_m->prod_data($prod_id);
+								  				if($fetch_prod_data->product_type == 'readymade'){
 								  			?>
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:130px;">
+								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod->product_image_path;?>" style="height:130px;">
+								  			<?php
+								  				}else if($fetch_prod_data->product_type == 'customised'){
+								  			?>
+								  			<img src="<?php echo base_url('admin/uploads/custom_images/');?><?php echo $fetch_prod_data->design_image;?>" style="height:130px;">
+								  			<?php
+								  				}
+								  			?>
 								  		</div>
 								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
 								  		<div class="quantity buttons_added">
@@ -282,7 +291,22 @@
 								  	</div>
 								  	<div class="col-md-6">
 								  		<div class="form-group">
-								  			<h4><?php echo $fetch_prod_data->product_title;?></h4>
+								  			<?php
+								  				if($fetch_prod_data->product_type == 'readymade'){
+								  			?>
+								  				<h4><?php echo $fetch_prod->product_title;?></h4>
+								  			<?php
+								  				}else if($fetch_prod_data->product_type == 'customised'){
+								  			?>
+								  				<h4>Customized
+								  					<?php
+								  					$fetch_cat_name = $this->checkout_m->cat_data($fetch_prod_data->raw_category);
+								  					echo $fetch_cat_name->category_name;
+								  					?>
+								  				</h4>
+								  			<?php
+								  				}
+								  			?>
 								  		</div>
 								  		
 								  		<?php
@@ -359,12 +383,20 @@
 								?>
 								</div>
 								<!-- ORDER SUMMARY ENDS-->
-								<!--LOGIN STARTS-->
-								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
+								<?php
+					  				if(!empty($fetch_user_data)){
+					  			?>
+					  			<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
-								
 								<!-- PAYMENT OPTION STARTS -->
 								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
+								<?php
+									}else{
+								?>
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">Login</button></a>
+								<?php
+									}
+								?>
 								<p>&nbsp;</p>
 							<!-- PAYMENT OPTION ENDS -->
 						</div>

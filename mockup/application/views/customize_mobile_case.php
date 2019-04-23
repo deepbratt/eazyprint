@@ -18,7 +18,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | <?php echo ucfirst($fetch_raw_data->raw_title); ?></title>
+		<title>Eazyprint | Customize Phone Case</title>
 		<style>
 			.card-body{
 				color:black !important;
@@ -246,6 +246,54 @@
 		.colorinput-color:before{
 			background:none !important;
 		}
+		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE STARTS */
+		#draggable_image{
+		    margin: 0px;
+			resize: both;
+			position: absolute;
+			display: block;
+			height: 30%;
+			width: 30%
+		}
+		.ui-wrapper{
+			top:152px !important;
+			left:0px !important;
+		}
+		.bg-black{
+			background-color: #000000;
+		}
+		.bg-white{
+			background-color: #ffffff;
+		}
+		.bg-army_green{
+			background-color: #4b5320;
+		}
+		.bg-bold_red{
+			background-color: #ba3f38;
+		}
+		.bg-mustard_yellow{
+			background-color: #ffdb58;
+		}
+		.bg-ocean_blue{
+			background-color: #0077be;
+		}
+		.loader{
+			display:none;
+		}
+		.colorinput input[type=radio]:checked + span {
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			border: 1px solid #000;
+		}
+		.colorinput-color:before{
+			background:none !important;
+		}
+		/* IMAGE DRAG AND RESIZE WITH COLOR CHANGE ENDS */
+		</style>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 		</style>
 
 <?php
@@ -267,23 +315,8 @@ $this->load->view("common/header");
 							<div class="page-header" style="margin-top:-100px;">
 								<ol class="breadcrumb" style="background:#fff;">
 									<li class="breadcrumb-item"><a href="<?php echo base_url('home');?>">Home</a></li>
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										$cat_id = $fetch_raw_data->raw_category;
-										$fetch_cat_name = $this->customize_mobile_case_m->cat_data($cat_id);
-										echo ucfirst($fetch_cat_name->category_name);
-									?>
-									</li>
-									<!--<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_raw_data->raw_brand);
-									?>
-									</li>-->
-									<li class="breadcrumb-item" aria-current="page">
-									<?php
-										echo ucfirst($fetch_raw_data->raw_title);
-									?>
-									</li>
+									<li class="breadcrumb-item" aria-current="page">Mobile Cover</li>
+									<li class="breadcrumb-item" aria-current="page">Customize Phone Case</li>
 									<!--<li class="breadcrumb-item active" aria-current="page">Moto G5 Plus backcover</li>-->
 								</ol>
 							</div>
@@ -293,17 +326,21 @@ $this->load->view("common/header");
 								<img src="<?php echo base_url();?>images/case-process-image.png">
 							</div>
 							<div class="col-md-7">
-								<div class="product-info carttoscroll">
+								 <div class="product-info">
 									 <div class="product-gallery" >
-						                <div class="product-gallery-thumbnails" style="padding:16px;">
+						              <div class="product-gallery-thumbnails" style="padding:16px;">
 						                  <ol class="thumbnails-list list-unstyled">
 						                    <li style="height:96px;"><img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt="" style="height:96px;"></li>
 						                  
 						                  </ol>
 						                </div>
-						                <div class="product-gallery-featured">
-						                  <img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt=""  style="height:500px;">
+						                <div class="product-gallery-featured" style="overflow:hidden;">
+						                  <img src="<?php echo base_url('admin/uploads/product_images/mobile_case/');?><?php echo $fetch_raw_data->raw_image;?>" alt=""  style="height:500px;" id="background_image">
+										  	<div id="draggable_image" style="display:inline-block;">
+												<img src="<?php echo base_url();?>images/no-image.png" id="image_resize">
+		                                    </div>
 						                </div>
+
 						             </div>
 					            </div>
 							</div>
@@ -312,30 +349,30 @@ $this->load->view("common/header");
 							<!----STARTS-->
 								<div class="row">
 									<div class="col-md-12">
-										<div class="card-body cardbody" >
-											<div class="loader" id="loader"><img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" /></div>
-											<?php
-											  if($this->session->flashdata('failed')){
-											?>
-											  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
-											<?php
-											  }
-											  if($this->session->flashdata('success')){
-											?>
-											  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
-											<?php
-												}
-											?>
+									<div class="card-body cardbody" >
+										<div class="loader" id="loader">
+										  <img src="<?php echo base_url()?>/images/0_4Gzjgh9Y7Gu8KEtZ.gif" />
 										</div>
+									</div>
 									<div id="prozzz_data_hide">
-									<form method="POST" name="cart_addzz" id="cartz_add" action="<?php echo base_url('customize_mobile_case/add_to_cart');?>">
+										
+										<?php
+										  if($this->session->flashdata('failed')){
+										?>
+										  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+										<?php
+										  }
+										  if($this->session->flashdata('success')){
+										?>
+										  <div class="alert alert-success"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+										<?php
+											}
+										?>
+								
+									<form method="POST" enctype="multipart/form-data" name="cart_addzz" id="cartz_add" action="<?php echo base_url('customize_mobile_case/add_to_cart');?>">
 
-										<div class="card-body cardbody" >
-											<h1 style="font-size:30px;font-family:samarkan1;">
-												<?php
-													echo ucfirst($fetch_raw_data->raw_title);
-												?>
-											</h1>
+										<div class="card-body cardbody">
+											<h1 style="font-size:30px;font-family:samarkan1;">Customize Phone Case</h1>
 											<h1 style="font-size:45px;font-weight:normal"><i class="fas fa-rupee-sign"></i> 
 												<?php
 													echo ucfirst($fetch_raw_data->raw_retail_price);
@@ -346,7 +383,38 @@ $this->load->view("common/header");
 											</div>
 											<span>Inclusive of all taxes</span>
 										</div>
-
+										 <!-- SELECT MODEL STARTS -->
+				                        
+				                        <div class="card-body cardbody">
+				                          <div class="row">
+				                            <div class="col-md-6 pull-left">
+				                              <select name="phone_brand" id="select-beast" class="form-control custom-select" onchange="fetch_brand_namezz(this.value);">
+				                                <option value="" disabled selected>Choose Brand
+				                                </option>
+				                                <?php
+												$fetch_brand_name = $this->customize_mobile_case_m->fetch_phone_models();
+												foreach($fetch_brand_name AS $each_brand){
+												?>
+				                                <option value="<?php echo $each_brand->raw_brand;?>">
+				                                <?php echo $each_brand->raw_brand;?>
+				                                </option>
+				                              <?php
+												}
+												?>
+				                              </select>
+				                          </div>
+				                          <div class="col-md-6 pull-left">
+				                            <div id="AjaxLoader_1" style="text-align:center;z-index: 2;display:none;">
+				                              <h4>Please Wait...</h4>
+				                            </div>
+				                            <select name="phone_model" id="modelzz" class="form-control custom-select">
+				                              <option value="" disabled selected>Choose Model</option>
+				                            </select>
+				                          </div>
+				                        </div>
+				                        <span id="errNm1"></span>
+				                        </div>
+				                      <!-- SELECT MODEL ENDS -->
 										<!-- SELECT COLOR STARTS -->
 										<?php
 											if($fetch_raw_data->raw_color_code != ''){
@@ -419,12 +487,11 @@ $this->load->view("common/header");
 													<div class="row p-2">
 														<div class="col-md-12 pull-left">
 															<label class="form-label">Upload Photo</label>
-															<span onclick="profile_imagezz()" id="hide_span" class="btn btn-lg btn-danger file_upload_icon">
+															<span onclick="profile_imagezz()" class="btn btn-lg btn-danger file_upload_icon">
 						                                        <i class="fas fa-cloud-upload-alt" style="font-size:31px;"></i>
 						                                        <strong style="color:#ffffff;">Choose File...</strong>
 					                                      	</span>
-						                                      <input type="file" name="design_image" id="pro_image" class="form-control" style="display:none;" onchange="show_image(this);">
-						                                      <img src="" onclick="profile_imagezz()" style="height:150px;display:none;" id="p_blah">
+						                                      <input type="file" onchange="readURL(this);" name="design_image" id="pro_image" class="form-control" style="display:none;">
 														</div>
 													</div>
 												</div>
@@ -439,10 +506,11 @@ $this->load->view("common/header");
 													</div>
 												</div>
 
-												<input type="hidden" name="p_id" value="<?php echo $fetch_raw_data->raw_id;?>">
+												<input type="hidden" name="p_id" value="">
+												<input type="hidden" name="raw_id" value="<?php echo $fetch_raw_data->raw_id;?>">
 												<input type="hidden" name="price" value="<?php echo $fetch_raw_data->raw_retail_price;?>">
 												<!--<input type="hidden" name="design_image" value="<?php echo $fetch_raw_data->raw_design_id;?>">-->
-												<input type="hidden" name="product_type" value="readymade">
+												<input type="hidden" name="product_type" value="customised">
 												<div class="col-md-9">
 													<button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
 												</div>
@@ -458,7 +526,7 @@ $this->load->view("common/header");
 							</div>
 						</div>
 						<h1>&nbsp;</h1>
-						<div class="row cartstop" style="color:black;">
+						<div class="row" style="color:black;">
 							<div class="col-md-12" style="margin:0px;padding:0px;">
 								<button class="accordion" style="border:1px dotted black;font-size:25px;font-family:samarkan1;background:#f5f5f5;">Product Description</button>
 								<div class="accordion_panel show" style="border:1px dotted black;margin-top:5px;">
@@ -791,6 +859,32 @@ $this->load->view("common/header");
 $this->load->view("common/footer");
 ?>
 	<!-- cart ajax starts -->
+	<script>
+    function fetch_brand_namezz(e){
+      $.ajax({
+        url: '<?php echo base_url();?>product_details/fetch_models',
+        data: {
+          'brand_name': e,}
+        ,
+        type: "post",
+        beforeSend: function(){
+          $('#AjaxLoader_1').show();
+          $('#modelzz').hide();
+        }
+        ,
+        complete: function(){
+          $('#AjaxLoader_1').hide();
+          $('#modelzz').show();
+        }
+        ,
+        success: function(response){
+          //alert(response);
+          $("#modelzz").html(response);
+        }
+      }
+            );
+    }
+  </script>
 	<script src="<?php echo base_url();?>js/jquery.validate.js"></script>
 	<script>
 		$('#cartz_add').validate({
@@ -828,6 +922,34 @@ $this->load->view("common/footer");
 		 });
 	</script>
 	<!-- cart ajax ends -->
+	<!-- IMAGE RESIZE AND COLOR CHANGE STARTS -->
+	<script type="text/javascript">
+		function profile_imagezz(){
+		  $("input[id='pro_image']").click();
+		}
+	   
+		function readURL(input) {
+			
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#image_resize').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				$('#image_resize').show();
+				$('#hide_span').hide();
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		$(window).load(function(){
+			$('#draggable_image').draggable();
+			$('#image_resize').resizable();
+		});
+
+	</script>
 	<!-- IMAGE SLIDER PRODUCT DETAILS STARTS-->
 		<script>
 			// select all thumbnails
@@ -874,37 +996,6 @@ $this->load->view("common/footer");
 			  $('#carouselExample').carousel({ 
 			      interval: 2000
 			  });
-
-
-			  $(document).ready(function() {
-			/* show lightbox when clicking a thumbnail */
-			    $('a.thumb').click(function(event){
-			      event.preventDefault();
-			      var content = $('.modal-body');
-			      content.empty();
-			        var title = $(this).attr("title");
-			        $('.modal-title').html(title);        
-			        content.html($(this).html());
-			        $(".modal-profile").modal({show:true});
-			    });
-			    /* Image Scroll */
-			    $(window).scroll(function () { 
-				 if($(window).scrollTop() > 670) {
-					$('.carttoscroll').css('position','fixed');
-					$('.carttoscroll').css('top','48px'); 
-					$('.carttoscroll').css('width','50%'); 
-				 }
-
-				 else if ($(window).scrollTop() <= 600) {
-					$('.carttoscroll').css('position','');
-					$('.carttoscroll').css('top','');
-					$('.carttoscroll').css('width','100%'); 
-				 }  
-					if ($('.carttoscroll').offset().top + $(".carttoscroll").height() > $(".cartstop").offset().top) {
-						$('.carttoscroll').css('top',-($(".carttoscroll").offset().top + $(".carttoscroll").height() - $(".cartstop").offset().top));
-					}
-				});
-			  });
 		</script>
 		<!-- IMAGE SLIDER PRODUCT DETAILS ENDS-->
 		<!-- ACCORDIONS STARTS -->
@@ -925,25 +1016,5 @@ $this->load->view("common/footer");
 				}
 			</script>
 		<!-- Accordions Ends -->
-		<!-- IMAGE PREVIEW STARTS-->
-			<script>
-			  function profile_imagezz(){
-			      $("input[id='pro_image']").click();
-			    }
-			  function show_image(input) {
-			    if (input.files && input.files[0]) {
-			      var reader = new FileReader();
-
-			      reader.onload = function (e) {
-			        $('#p_blah').attr('src', e.target.result);
-			      }
-
-			      reader.readAsDataURL(input.files[0]);
-			      $('#p_blah').show();
-			      $('#hide_span').hide();
-			    }
-			  }
-			</script>
-		<!-- IMAGE PREVIEW Ends-->
 	</body>
 </html>

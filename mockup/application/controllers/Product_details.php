@@ -68,18 +68,19 @@ class Product_details extends CI_Controller {
 		$size = (($this->input->post('size') != NULL)?$this->input->post('size'):' ');
 		$color = (($this->input->post('color') != NULL)?$this->input->post('color'):' ');
 		$product_id = $this->input->post('p_id');
+		$raw_id = $this->input->post('raw_id');
 		$design_image = $this->input->post('design_image');
 		$product_type = $this->input->post('product_type');
 		$qty = $this->input->post('quantity');
 		$datetime = time();
 		
 
-		$check_cart_of_user = $this->product_details_m->check_cart($ip_address,$product_id);
+		$check_cart_of_user = $this->product_details_m->check_cart($ip_address,$product_id,$raw_id);
 		
 		if(empty($check_cart_of_user)){
 			$save_cart = array(
 				'cart_id' => Null,
-				'ip_address' => $user_id,
+				'ip_address' => $ip_address,
 				'user_id' => $user_id,
 				'brand_name' => $brand_name,
 				'model_number' => $model_number,
@@ -87,6 +88,7 @@ class Product_details extends CI_Controller {
 				'size' => $size,
 				'color' => $color,
 				'product_id' => $product_id,
+				'raw_id' => $raw_id,
 				'design_image' => $design_image,
 				'cart_date' => $datetime,
 				'product_type' => $product_type,

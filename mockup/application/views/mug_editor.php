@@ -344,7 +344,7 @@ $this->load->view("common/header");
 						                  </ol>
 						                </div>
 						                <div class="product-gallery-featured">
-						                  <img src="<?php echo base_url('admin/uploads/product_images/mug/');?><?php echo $fetch_raw_data->raw_image;?>" alt=""  style="height:500px;">
+						                  <img src="<?php echo base_url('admin/uploads/product_images/mug/');?><?php echo $fetch_raw_data->raw_image;?>" alt=""  style="height:350px;">
 						                </div>
 						             </div>
 					            </div>
@@ -381,7 +381,7 @@ $this->load->view("common/header");
 												<span>Inclusive of all taxes</span>
 										</div>
 										 <?php $this->uri->segment(2);?>
-									<form method="POST" action="<?php echo base_url('Product_details/add_to_cart');?>">
+									<form method="POST" enctype="multipart/form-data" action="<?php echo base_url('mug_editor/add_to_cart');?>">
 										<!-- SELECT COLOR STARTS -->
 										<?php
 											if($fetch_raw_data->raw_color_code != ''){
@@ -473,12 +473,13 @@ $this->load->view("common/header");
 													</div>
 												</div>
 
-												<input type="hidden" name="p_id" value="<?php echo $fetch_raw_data->raw_id;?>">
+												<input type="hidden" name="p_id" value="">
+												<input type="hidden" name="raw_id" value="<?php echo $fetch_raw_data->raw_id;?>">
 												<input type="hidden" name="price" value="<?php echo $fetch_raw_data->raw_retail_price;?>">
 												<!--<input type="hidden" name="design_image" value="<?php echo $fetch_raw_data->raw_design_id;?>">-->
-												<input type="hidden" name="product_type" value="readymade">
+												<input type="hidden" name="product_type" value="customised">
 												<div class="col-md-9">
-													<button type="button" class="btn btn-info btn-block" style="font-size:20px;" onclick="add_to_cart()">Add To Bag</button>
+													<button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag</button>
 												</div>
 						
 											</div>

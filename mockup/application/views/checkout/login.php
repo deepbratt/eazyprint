@@ -258,7 +258,17 @@
 							<div class="col-md-7 col-sm-12 col-xs-12">
 								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
 								<!--LOGIN STARTS-->
-								<button class="accordion active">USER DETAILS</button>
+								<?php
+					  				if(!empty($fetch_user_data)){
+					  			?>
+									<button class="accordion active">USER DETAILS</button>
+								<?php
+									}else{
+								?>
+									<button class="accordion active">Login</button>
+								<?php
+									}
+								?>
 								<div class="accordion_panel show">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">

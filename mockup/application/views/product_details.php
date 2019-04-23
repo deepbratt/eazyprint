@@ -361,7 +361,7 @@ $this->load->view("common/header");
                           <div class="row">
                             <div class="col-md-6 pull-left">
                               <select name="phone_brand" id="select-beast" class="form-control custom-select" onchange="fetch_brand_namezz(this.value);">
-                                <option value="" disabled selected>Choose Model
+                                <option value="" disabled selected>Choose Brand
                                 </option>
                                 <?php
 								$fetch_brand_name = $this->product_details_m->fetch_phone_models();
@@ -451,6 +451,7 @@ foreach($explode_size AS $each_raw_size){
                           </span>
                         </div>
                         <input type="hidden" name="p_id" value="<?php echo $fetch_prod_data->product_id;?>">
+                        <input type="hidden" name="raw_id" value="<?php echo $fetch_prod_data->raw_id;?>">
                         <input type="hidden" name="price" value="<?php echo $fetch_prod_data->product_retail_price;?>">
                         <input type="hidden" name="design_image" value="<?php echo $fetch_prod_data->product_design_id;?>">
                         <input type="hidden" name="product_type" value="readymade">

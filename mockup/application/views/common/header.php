@@ -296,7 +296,7 @@
 											}else{
 												$user_id = $ip;
 											}
-											$get_cart_data = $ci->home_m->prod_info($user_id,$ip);
+											$get_cart_data = $ci->home_m->cart_info($user_id,$ip);
 											if(!empty($get_cart_data)){
 
 												$count_cart_qty = array();
@@ -312,25 +312,44 @@
 										  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"> 
 										  	<?php
 										  		foreach($get_cart_data AS $each_cart_data){
-										  			$fetch_prod_image = $ci->home_m->prod_image_info($each_cart_data->product_id);
+										  		if($each_cart_data->product_type == 'readymade'){
+										  			$fetch_prod_image = $ci->home_m->prod_data($each_cart_data->product_id);
 										  	?>
 										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('product_details/');?><?php echo $each_cart_data->product_id;?>"> 
 										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>)">
 										      </span> 
 										      <div> 
 										        <strong><?php 
-										        	$pro_title = $each_cart_data->product_title;
-										        	$trim_pro_title = substr($pro_title,0,20);
-										        	echo $trim_pro_title;
-										        	echo "...";
+											        	$pro_title = $fetch_prod_image->product_title;
+											        	$trim_pro_title = substr($pro_title,0,20);
+											        	echo $trim_pro_title;
+											        	echo "...";
 										        ?></strong> 
 										        <strong>(<?php echo $each_cart_data->qty;?> pcs)</strong>
 										        <div class="small"><i class="fas fa-rupee-sign" style="font-size:12px !important;"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
 										        </div> 
-										      </div> 
+										    </div> 
 										    </a> 
 										    <?php
-										    	}
+										    	}else if($each_cart_data->product_type == 'customised'){
+										    ?>
+										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('checkout');?>"> 
+										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/custom_images/');?><?php echo $each_cart_data->design_image;?>)">
+										      </span> 
+										      <div> 
+										        <strong><?php 
+											        	echo "Customized ";
+											        	$fetch_cat_name = $ci->home_m->cat_data($each_cart_data->raw_category);
+								  						echo $fetch_cat_name->category_name;
+										        ?></strong> 
+										        <strong>(<?php echo $each_cart_data->qty;?> pcs)</strong>
+										        <div class="small"><i class="fas fa-rupee-sign" style="font-size:12px !important;"></i> <?php echo ($each_cart_data->price * $each_cart_data->qty);?>
+										        </div> 
+										    </div> 
+										    </a> 
+										    <?php
+											    	}
+											   	}
 										    ?>
 										    <div class="dropdown-divider">
 										    </div> 

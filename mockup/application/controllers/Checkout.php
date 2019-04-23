@@ -14,8 +14,9 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = $ip_data;
 		}
 		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
-
+			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
+			
 			$amount_array = array();
 			$quantity_array = array();
 			$gst_tax_array_each_product = array();
@@ -96,7 +97,7 @@ class Checkout extends CI_Controller {
 		}
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
 			$quantity_array = array();
@@ -156,7 +157,7 @@ class Checkout extends CI_Controller {
 			$this->session->set_userdata('logged_in',$session_data);
 			$user_id = $this->session->userdata['logged_in']['user_id'];
 			$ip_data = $this->input->ip_address();
-			$cart_user_id = $this->checkout_m->prod_info($user_id,$ip_data);
+			$cart_user_id = $this->checkout_m->cart_info($user_id,$ip_data);
 			
 
 			if(isset($this->session->userdata['logged_in']['user_type']) && $this->session->userdata['logged_in']['user_type'] == "customer"){
@@ -188,7 +189,7 @@ class Checkout extends CI_Controller {
 		if($data['user_id'] != ""){
 			$data['fetch_user_data'] = $this->checkout_m->user_detailzz($data['user_id']);
 			$data['user_addrezzz'] = $this->checkout_m->user_address_detailzz($data['user_id']);
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 
 			$amount_array = array();
 			$quantity_array = array();
@@ -268,7 +269,7 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 			
 			if(!empty($data['fetch_prod_data'])){
 				$amount_array = array();
@@ -351,7 +352,7 @@ class Checkout extends CI_Controller {
 			$data['user_id'] = "";
 		}
 		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->checkout_m->prod_info($data['user_id'],$ip_data);
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 			
 			if(!empty($data['fetch_prod_data'])){
 				$amount_array = array();

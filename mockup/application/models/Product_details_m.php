@@ -65,11 +65,16 @@ class Product_details_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function check_cart($ip_address,$product_id){
+	public function check_cart($ip_address,$product_id,$raw_id){
 		$this->db->select('*');
 		$this->db->from('cart_selection');
 		$this->db->where('ip_address',$ip_address);
-		$this->db->where('product_id',$product_id);
+		if($product_id != ""){
+			$this->db->where('product_id',$product_id);
+		}
+		if($raw_id != ""){
+			$this->db->where('raw_id',$raw_id);
+		}
 		$query = $this->db->get();
 		return $query->row();
 	}
