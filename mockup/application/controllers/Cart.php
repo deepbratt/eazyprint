@@ -28,7 +28,7 @@ class Cart extends CI_Controller {
 
 		}
 
-		$data['fetch_prod_data'] = $this->cart_m->prod_info($data['user_id'],$ip_data);
+		$data['fetch_prod_data'] = $this->cart_m->cart_info($data['user_id'],$ip_data);
 		
 			$amount_array = array();
 			$quantity_array = array();

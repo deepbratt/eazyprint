@@ -74,10 +74,27 @@
 										<td>
 											<?php
 												$prod_id = $each_cart_data->product_id;
-												$fetch_image = $this->cart_m->prod_image_info($prod_id);
+												$fetch_prod_data = $this->cart_m->prod_data($prod_id);
+												if($each_cart_data->product_type == 'readymade'){
 											?>
-											<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_image->product_image_path;?>" alt="" class="h-8"></td>
-										<td><?php echo $each_cart_data->product_title;?></td>
+												<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_data->product_image_path;?>" alt="" class="h-8">
+											<?php
+												}else if($each_cart_data->product_type == 'customised'){
+											?>
+												<img src="<?php echo base_url('admin/uploads/custom_images/');?><?php echo $each_cart_data->design_image;?>" alt="" class="h-8">
+											<?php
+												}
+											?>
+										</td>
+										<td><?php
+											if($each_cart_data->product_type == 'readymade'){
+												echo $fetch_prod_data->product_title;
+											}else if($each_cart_data->product_type == 'customised'){
+												echo "Customized ";
+												$fetch_cat_name = $this->cart_m->cat_data($each_cart_data->raw_category);
+								  				echo $fetch_cat_name->category_name;
+											}
+										?></td>
 										<td><?php echo $total_each_mat_qty[$key];?></td>
 										
 										<td><strong><i class="fas fa-rupee-sign"></i>
