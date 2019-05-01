@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order_m extends CI_Model {
+class Orders_m extends CI_Model {
 
 	public function user_detailzz($seller_id){
 		$this->db->select('*');
@@ -55,7 +55,7 @@ class Order_m extends CI_Model {
 	public function prod_image_info($prod_id){
 		$this->db->select('*');
 		$this->db->from('product_image');
-		$this->db->where('product_id',$prod_id);
+		$this->db->where('product_image_id',$prod_id);
 		$query = $this->db->get();
 		return $query->row();
 	}
@@ -89,6 +89,12 @@ class Order_m extends CI_Model {
 		$this->db->where("cart_id", $cart_id);
 		$query = $this->db->update('cart_selection', $update_data);
 		return true;
+	}
+
+	public function get_it_product($get_order_id)
+	{
+		
+
 	}
 
 }

@@ -12,7 +12,35 @@ class Orders extends CI_Controller {
     
 	public function index()
 	{
-		$this->load->view('customer/orders');
+		$this->load->library('user_agent');
+		$this->load->model('orders_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$data['get_orders'] = $this->orders_m->order_info($user_id);
+		
+		
+		$this->load->view('customer/orders',$data);
+	}
+
+	public function refund_process()
+	{
+		$this->load->model('orders_m');
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$get_order_id = $this->uri->segment(3);
+		$get_order_details = $this->orders_m->get_it_product($get_order_id);
+		$refund_date = time();
+		$refund_status = "pending";
+		$records =  array(
+						  'order_id' => $get_order_id,
+						  'user_type' => $row->user_type,
+						  'name' =>$fullname,
+						  'email'=>$row->user_email,
+						  'phone'=>$row->user_phone
+					   );
+		
+
+		
+
+
 	}
 
 }

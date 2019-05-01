@@ -8,11 +8,10 @@ class My_orders extends CI_Controller {
 		$this->load->library('user_agent');
 		$this->load->model('my_orders_m');
 		$ip_data = $this->input->ip_address();
-		$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		$user_id = $this->session->userdata['logged_in']['user_id'];
 	
-		if($data['user_id'] != ""){
-			$data['fetch_prod_data'] = $this->my_orders_m->order_info($data['user_id']);
-			
+		if($user_id  != ""){
+			$data['fetch_prod_data'] = $this->my_orders_m->order_info($user_id);
 			
 
 		}
