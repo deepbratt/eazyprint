@@ -137,7 +137,8 @@ class Add_product extends CI_Controller {
 			
 			if($this->upload->do_upload('meta_image')){
 				$uploadData = $this->upload->data();
-				$meta_image = $uploadData['file_name'];
+				$path = base_url('uploads/meta_images/');
+				$meta_image = $path.''.$uploadData['file_name'];
 				
 			}
 		}else{
@@ -155,7 +156,8 @@ class Add_product extends CI_Controller {
 			
 			if($this->upload->do_upload('design_image')){
 				$uploadData = $this->upload->data();
-				$design_image = $uploadData['file_name'];
+				$path = base_url('uploads/design_images/');
+				$design_image = $path.''.$uploadData['file_name'];
 				
 			}
 		}else{
@@ -217,7 +219,8 @@ class Add_product extends CI_Controller {
 						
 						if($this->upload->do_upload('userFile')){
 							$fileData = $this->upload->data();
-							$product_image[$i]['file_name'] = $fileData['file_name'];
+							$path = base_url('uploads/product_images/');
+							$product_image[$i]['file_name'] = $path.''.$fileData['file_name'];
 							$product_image[$i]['created'] = date("Y-m-d H:i:s");
 							$product_image[$i]['modified'] = date("Y-m-d H:i:s");
 						}

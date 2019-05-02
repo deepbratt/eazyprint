@@ -56,6 +56,15 @@ class Account_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function check_exist($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user_address');
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 	public function insert_new_address($insert_array)
 	{
 		$this->db->insert('user_address', $insert_array);

@@ -279,7 +279,7 @@
 												<?php
 													if($fetch_user_address->phone != ""){
 												?>
-												<span class="custom-control-label"><strong>(<?php echo $fetch_user_address->phone;?>)</strong></span>
+												<span class="custom-control-label"><strong>(<?php echo $fetch_user_address->phone;?>)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="background-color:#F5365C;color:white;display:<?php echo(($fetch_user_address->address_status == '1')?'':'none');?>">PRIMARY</code></span>
 												<?php
 													}
 												?>
@@ -292,9 +292,19 @@
 										<?php
 											}
 										?>
+										<div class="col-md-11">
+											<?php
+											  if($this->session->flashdata('failed')){
+											?>
+											  <div class="alert alert-danger"> <strong><?php echo $this->session->flashdata('failed');?></strong> </div>
+											<?php
+											  }
+											?>
+										</div>
 										<div class="col-md-6">
 											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
 										</div>
+										
 										<?php
 											if(!empty($user_addrezzz)){
 										?>

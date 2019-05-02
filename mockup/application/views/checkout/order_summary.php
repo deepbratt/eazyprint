@@ -266,29 +266,29 @@
 								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
 								  <div class="row" style="overflow-y: scroll;max-height:300px;">
 								  	<?php
-								  		foreach($fetch_prod_data AS $key=>$fetch_prod_data){
+								  		foreach($fetch_prod_data AS $key=>$each_prod_data){
 								  	?>
 								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
-								  			<img src="<?php echo $fetch_prod_data->design_image;?>" style="height:130px;">
+								  			<img src="<?php echo $each_prod_data->design_image;?>" style="height:130px;">
 								  		</div>
-								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
+								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $each_prod_data->cart_id;?>">
 								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $fetch_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $each_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
 										</div>
 								  	</div>
 								  	<div class="col-md-6">
 								  		<div class="form-group">
 								  			<?php
-								  				if($fetch_prod_data->product_type == 'readymade'){
+								  				if($each_prod_data->product_type == 'readymade'){
 								  			?>
 								  				<h4><?php echo $fetch_prod->product_title;?></h4>
 								  			<?php
-								  				}else if($fetch_prod_data->product_type == 'customised'){
+								  				}else if($each_prod_data->product_type == 'customised'){
 								  			?>
 								  				<h4>Customized
 								  					<?php
-								  					$fetch_cat_name = $this->checkout_m->cat_data($fetch_prod_data->raw_category);
+								  					$fetch_cat_name = $this->checkout_m->cat_data($each_prod_data->raw_category);
 								  					echo $fetch_cat_name->category_name;
 								  					?>
 								  				</h4>
@@ -298,17 +298,17 @@
 								  		</div>
 								  		
 								  		<?php
-								  			if($fetch_prod_data->size != ''){
+								  			if($each_prod_data->size != ''){
 								  		?>
 								  		<div class="form-group">
-								  			<span>Size: <?php echo $fetch_prod_data->size;?></span>
+								  			<span>Size: <?php echo $each_prod_data->size;?></span>
 								  		</div>
 								  		<?php
 								  			}
 								  		?>
 							  		
 							  			<?php
-							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($fetch_prod_data->user_id);
+							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($each_prod_data->user_id);
 								  			if(!empty($fetch_supplier_name)){
 								  		?>
 								  		<div class="form-group">
@@ -325,13 +325,13 @@
 								  		?>
 										  	
 								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_data->price;?></span>
+								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $each_prod_data->price;?></span>
 								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
 								  		</div>
 								  	</div>
 								  	<div class="col-md-3">
 								  		<div class="form-group">
-											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $fetch_prod_data->cart_id;?>">Remove</a>
+											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $each_prod_data->cart_id;?>">Remove</a>
 										</div>
 								  		<div class="form-group">
 								  			<span>Delivery in 2Days, Thursday | Free</span>
