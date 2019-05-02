@@ -268,55 +268,63 @@ class Checkout extends CI_Controller {
 		}else{
 			$data['user_id'] = "";
 		}
+
 		if($data['user_id'] != ""){
 			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 			
 			if(!empty($data['fetch_prod_data'])){
-				$amount_array = array();
-				$quantity_array = array();
-				$gst_tax_array_each_product = array();
-				$original_cost = array();
-				$gst_tax = array();
-				$total_payable = array();
-				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-					$amount_array[] = $each_cart_data->price;
-					$quantity_array[] = $each_cart_data->qty;
-					$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
+				$data['fetch_address_data'] = $this->checkout_m->address_info($data['user_id'],$ip_data);
+				if($data['fetch_address_data']->address_id != ''){
 
-					$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-					$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-				}
-			
-				$data['total_each_mat_price'] = array_sum($amount_array);
-				$data['total_each_mat_qty'] = array_sum($quantity_array);	
-				$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
-				$data['total_amount'] = array_sum($original_cost);
-				$data['gst_tax'] = array_sum($gst_tax);
-			
-				$data['total_payable'] = array_sum($total_payable);
+					$amount_array = array();
+					$quantity_array = array();
+					$gst_tax_array_each_product = array();
+					$original_cost = array();
+					$gst_tax = array();
+					$total_payable = array();
+					foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+						$amount_array[] = $each_cart_data->price;
+						$quantity_array[] = $each_cart_data->qty;
+						$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
+
+						$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
+						$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+						$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+					}
 				
-				$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a" ,"https://test.instamojo.com/api/1.1/");
-				//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
-				try {
-					$response = $api->paymentRequestCreate(array(
-						"buyer_name" => $this->session->userdata['logged_in']['name'],
-						"purpose" => "Tshirt , Mobile case",
-						//"amount" => $data['total_amount'],
-						"amount" => "10.00",
-						"send_email" => false,
-						"send_sms" => false,
-						"phone" => $this->session->userdata['logged_in']['phone'],
-						"email" => $this->session->userdata['logged_in']['email'],
-						"redirect_url" => "http://eazyprint.in/beta/checkout/payment_option_check"
-						));
+					$data['total_each_mat_price'] = array_sum($amount_array);
+					$data['total_each_mat_qty'] = array_sum($quantity_array);	
+					$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
+					$data['total_amount'] = array_sum($original_cost);
+					$data['gst_tax'] = array_sum($gst_tax);
+				
+					$data['total_payable'] = array_sum($total_payable);
+					
+					$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a" ,"https://test.instamojo.com/api/1.1/");
+					//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
+					try {
+						$response = $api->paymentRequestCreate(array(
+							"buyer_name" => $this->session->userdata['logged_in']['name'],
+							"purpose" => "Tshirt , Mobile case",
+							//"amount" => $data['total_amount'],
+							"amount" => "10.00",
+							"send_email" => false,
+							"send_sms" => false,
+							"phone" => $this->session->userdata['logged_in']['phone'],
+							"email" => $this->session->userdata['logged_in']['email'],
+							"redirect_url" => "http://eazyprint.in/beta/checkout/payment_option_check"
+							));
+					}
+					catch (Exception $e) {
+						print('Error: ' . $e->getMessage());
+					}
+					//print_r()
+					$data['response'] = $response;
+					$this->load->view('checkout/payment_option',$data);
+				}else{
+					$this->session->set_flashdata("failed", "Please manage your address");
+					redirect('checkout/delivery_address');
 				}
-				catch (Exception $e) {
-					print('Error: ' . $e->getMessage());
-				}
-				//print_r()
-				$data['response'] = $response;
-				$this->load->view('checkout/payment_option',$data);
 			}else{
 				redirect('checkout');
 			}
@@ -378,11 +386,20 @@ class Checkout extends CI_Controller {
 				$data['gst_tax'] = array_sum($gst_tax);
 			
 				$data['total_payable'] = array_sum($total_payable);
+				
 
 				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+					
+					if($data['fetch_prod_data'][$key]->product_type == 'readymade'){
+						$product_name = $each_cart_data->product_name;
+					}else if($data['fetch_prod_data'][$key]->product_type == 'customised'){
+						$fetch_cat_name = $this->checkout_m->cat_data($each_cart_data->raw_category);
+						$product_name = 'customised'.' '.$fetch_cat_name->category_name;
+					}
+
 					$cart_data = array(
 						'product_id'=> $each_cart_data->product_id,
-						'product_name'=>$each_cart_data->product_name,
+						'product_name'=>$product_name,
 						'product_image' => $each_cart_data->design_image,
 						'user_id' => $data['user_id'],
 						'purchase_type'=>'customer',
@@ -396,8 +413,10 @@ class Checkout extends CI_Controller {
 						'payment_method'=>'cod',
 						'order_date'=>$date,
 					);
+					
 					$insert_order = $this->checkout_m->order_place($cart_data);
 				}
+				
 				if($insert_order){
 					$remove_from_cart = $this->checkout_m->remove_cart_order_place($data['user_id']);
 					foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
