@@ -256,10 +256,11 @@
 										?>
 											<span class="avatar avatar-md brround" style="background-image: url('<?php echo base_url('uploads/user_profile_image/');?><?php echo $get_profile_details->user_profile_image;?>')"></span>
 										<?php
+											<?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['last_name']; echo $last_n[0];
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px !important;"></i> <?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['last_name']; echo $last_n[0];?>
-										<?php
+											<i class="fas fa-user" style="font-size:33px !important;"></i> 
+											<?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['last_name']; echo $last_n[0];
 											}
 										?>
 										</a>
