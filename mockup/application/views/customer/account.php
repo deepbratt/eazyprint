@@ -70,7 +70,7 @@ $this->load->view("common/metalinks");
 		color : red;
 		font-weight: 450;
 	}
-	input.error[type="text"],input.error[type="number"],input.error[type="email"],input.error[type="color"],input.error[type="file"],select.error,textarea.error{
+	input.error[type="text"],input.error[type="password"],input.error[type="number"],input.error[type="email"],input.error[type="color"],input.error[type="file"],select.error,textarea.error{
 		border : 1px solid red !important;
 		color : #7490BD;
 	}
@@ -469,23 +469,23 @@ $this->load->view("common/header");
 						?>
                       <div class="card">
                         <div class="card-body">
-                          <form  method="post" method="POST" action="<?php echo base_url('account/update_password');?>">
+                          <form  method="post" name="update_password" method="POST" action="<?php echo base_url('account/update_password');?>">
                               <label class="form-label">Enter old password
                               </label>
                               <div class="form-group">
-                                <input type="password" class="form-control" id="password-field" placeholder="Enter old password" name="old_pass" required>
+                                <input type="password" class="form-control" id="password-field" placeholder="Enter old password" name="old_pass" >
 								<span toggle="#password-field" class="fas fa-eye field-icon toggle-password"></span>
                               </div>
 							  <label class="form-label">Enter new password
                               </label>
                               <div class="form-group">
-                                <input type="password" class="form-control" id="password_1" placeholder="Enter new password" name="new_pass" required>
+                                <input type="password" class="form-control" id="password_1" placeholder="Enter new password" name="new_pass" >
 								<span toggle="#password_1" class="fas fa-eye field-icon toggle-password"></span>
                               </div>
 							  <label class="form-label">Re-enter new password
                               </label>
                               <div class="form-group">
-                                <input type="password" class="form-control" id="password_2" placeholder="Re-enter new password" name="con_pass" required>
+                                <input type="password" class="form-control" id="password_2" placeholder="Re-enter new password" name="con_pass" >
 								<span toggle="#password_2" class="fas fa-eye field-icon toggle-password"></span> 
                               </div>
 							  <div id="errors" class=""></div>
@@ -563,6 +563,25 @@ $this->load->view("common/footer");
 		  city : "This field is required",
 		  pincode : "This field is required",
 		  country : "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+
+	//Update password validation starts
+	$(function() {
+	  $("form[name='update_password']").validate({
+		rules: {
+		  old_pass: "required",
+		  new_pass: "required",
+		  con_pass : "required",
+		},
+		messages: {
+		  old_pass: "This field is required",
+		  new_pass: "This field is required",
+		  con_pass : "This field is required",
 		},
 		submitHandler: function(form) {
 		  form.submit();
