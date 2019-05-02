@@ -27,19 +27,29 @@ class Orders extends CI_Controller {
 		$user_id = $this->session->userdata['logged_in']['user_id'];
 		$get_order_id = $this->uri->segment(3);
 		$get_order_details = $this->orders_m->get_it_product($get_order_id);
+		
 		$refund_date = time();
 		$refund_status = "pending";
 		$records =  array(
 						  'order_id' => $get_order_id,
-						  'user_type' => $row->user_type,
-						  'name' =>$fullname,
-						  'email'=>$row->user_email,
-						  'phone'=>$row->user_phone
+						  'product_id' => $get_order_details->product_id,
+						  'user_id' =>$user_id,
+						  'refund_date'=>$refund_date,
+						  'refund_status'=>$refund_status
 					   );
-		
 
-		
+		$insert_refund_process = $this->orders_m->insert_refund($records);
 
+		if($insert_refund_process)
+		{
+			$this->session->set_flashdata("success", "Refund Placed Successfully");
+			redirect('orders');
+		}
+		else
+		{
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
+			redirect('orders');
+		}
 
 	}
 

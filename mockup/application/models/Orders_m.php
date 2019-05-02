@@ -102,8 +102,18 @@ class Orders_m extends CI_Model {
 
 	public function get_it_product($get_order_id)
 	{
-		
+		$this->db->select('*');
+		$this->db->from('orders');
+		$this->db->where('order_id',$get_order_id);
+		$query = $this->db->get();
+		return $query->row();
 
+	}
+	
+	public function insert_refund($records)
+	{
+		$this->db->insert('refund',$records);
+		return true;
 	}
 
 }
