@@ -151,12 +151,17 @@ if($this->session->flashdata('failed')){
 							  	$seller_id = $fetch_order_product->raw_added_by;
 								$this->load->model('add_order_summery_m');
 								$get_seller = $this->add_order_summery_m->get_seller_it($seller_id);
-								$get_seller_name = $get_seller->crew_fname;
+							
 							  ?>
-                              <div class="form-group">
-                                <span>Seller: <span style="font-weight:bold;"><?php echo $get_seller_name;?></span>
-                                </span>
-                              </div>
+								<div class="form-group">
+									<span>Seller: <span style="font-weight:bold;">Eazyprint</span>
+									</span>
+								</div>						
+								<!-- <div class="form-group">
+								<span>Seller: <span style="font-weight:bold;"><?php echo $get_seller_name;?></span>
+								</span>
+							  </div>
+						 -->
                               <div class="form-group">
                                 <span style="font-size:21px;">
                                   <i class="fas fa-rupee-sign">
@@ -333,7 +338,7 @@ if($this->session->flashdata('failed')){
 						  <label class="form-check-label" for="inlineRadio2">Online Payment</label>
 						</div>
 					
-						  <input type="hidden" id="getCode" name="order_id[]">
+						  <input type="hidden" id="getCode" name="order_id">
 						  <input type="hidden" name="raw_id" value="<?php echo $this->uri->segment(2);?>">
 						</div>
 						<div class="modal-footer">
@@ -415,7 +420,7 @@ if($this->session->flashdata('failed')){
 		}
 
         $("#form_id").submit(function(e) {
-		 
+			
             e.preventDefault(); 
                  $.ajax({
                      url:'<?php echo base_url();?>add_order_summery/add_order',
@@ -426,15 +431,13 @@ if($this->session->flashdata('failed')){
                      cache:false,
                      async:false,
                       success: function(response){
-						 /*alert(response);
-						 exit;*/
+						
 						$("#getCode").val(response);
 						 $('<button type="button" id="btnThankYou" class="hidden" data-toggle="modal" data-target="#getCodeModal" data-backdrop="static" data-keyboard="false">ThankYouButton</button>').appendTo('body');
 
 							//This will click the button and open the modal
 								$("#btnThankYou" ).trigger("click");
-							
-					
+
                    }
 				  
                  });

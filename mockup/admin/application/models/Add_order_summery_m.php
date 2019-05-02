@@ -15,8 +15,8 @@ class Add_order_summery_m extends CI_Model {
 	public function get_seller_it($seller_id)
 	{
 		$this->db->select('*');
-		$this->db->from('eazycrew');
-		$this->db->where('crew_id',$seller_id);
+		$this->db->from('user');
+		$this->db->where('user_id',$seller_id);
 		$query = $this->db->get();
 		return $query->row();
 	}
@@ -75,11 +75,23 @@ class Add_order_summery_m extends CI_Model {
 	public function get_supplier($raw_seller)
 	{
 		$this->db->select('*');
-		$this->db->from('eazycrew');
-		$this->db->where('crew_id',$raw_seller);
+		$this->db->from('user');
+		$this->db->where('user_id',$raw_seller);
 		$query = $this->db->get();
-		return $query->row();
+		return $query->num_rows();
+		//return $query->row();
 
+	}
+
+	public function get_supplier_details($raw_seller)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$raw_seller);
+		$query = $this->db->get();
+		//return $query->num_rows();
+		return $query->row();
+	
 	}
 
 	public function insert_order($records)

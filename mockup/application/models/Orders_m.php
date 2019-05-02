@@ -30,6 +30,15 @@ class Orders_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function user_detail($seller_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$seller_id);
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 	public function cat_data($cat_id){
 		$this->db->select('*');
 		$this->db->from('category');
