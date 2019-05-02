@@ -76,7 +76,7 @@
 	  
         <div class="row">
 		<!--  Tabs -->   
-			<div class="col-md-12 rounded_div" style="padding:15px;">	
+			<div class="col-md-12 rounded_div" style="padding:35px;">	
 				<div style="" class="thank_you">Thank You.</div>
 				<div style="" class="order_success">Your Order Was Completed Successfully</div>
 
@@ -97,12 +97,8 @@
 						<img src="<?php echo base_url()?>images/if_031_Printer_183593.png" style="height:50px;">
 					</div>
 				</div>
-				
-				<div class="col-md-12">
-					<div style="" class="subscription"><i>Please visit <a href="<?php echo base_url("my_order");?>" style="color:#000;text-decoration:underline;">My Subscription </a> to monitor the progress of the items in your order <b>#<?php echo $this->uri->segment(2)?></b>. </i></div>
-				</div>
+
             </div>
-			
 			  <!-- End col-md-12-->
 		  </div>
         <!-- End row -->
