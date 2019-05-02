@@ -66,6 +66,14 @@ $this->load->view("common/metalinks");
 	  font-size:15px;
 	  z-index: 2;
 	 }
+	 .error{
+		color : red;
+		font-weight: 450;
+	}
+	input.error[type="text"],input.error[type="number"],input.error[type="email"],input.error[type="color"],input.error[type="file"],select.error,textarea.error{
+		border : 1px solid red !important;
+		color : #7490BD;
+	}
     </style>
   </head>
   <body class="app">
@@ -125,7 +133,7 @@ $this->load->view("common/header");
 						<?php
 						}
 						?>
-                        <form class="card" method="POST" enctype="multipart/form-data" action="<?php echo base_url('account/update_account_info');?>">
+                        <form class="card" method="POST" name="update_general" enctype="multipart/form-data" action="<?php echo base_url('account/update_account_info');?>">
                           <div class="card-body">
                             <div class="row">
                                <div class="col-md-4">
@@ -155,14 +163,14 @@ $this->load->view("common/header");
                                 <div class="form-group">
                                   <label class="form-label">First Name
                                   </label>
-                                  <input type="text" class="form-control" name="fname" placeholder="First Name" value="<?php echo $fetch_account_details->user_fname;?>" required>
+                                  <input type="text" class="form-control" name="fname" placeholder="First Name" value="<?php echo $fetch_account_details->user_fname;?>">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">Last Name
                                   </label>
-                                  <input type="text" class="form-control" name="lname"  placeholder="Last Name" value="<?php echo $fetch_account_details->user_lname;?>" required>
+                                  <input type="text" class="form-control" name="lname"  placeholder="Last Name" value="<?php echo $fetch_account_details->user_lname;?>">
                                 </div>
                               </div>
                                <div class="col-sm-6 col-md-12">
@@ -176,7 +184,7 @@ $this->load->view("common/header");
                                 <div class="form-group">
                                   <label class="form-label">Phone
                                   </label>
-                                  <input type="number" class="form-control" id="mobile" name="phone"  placeholder="Phone" value="<?php echo $fetch_account_details->user_phone;?>" onkeyup="check(); return false;"  required>
+                                  <input type="number" class="form-control" id="mobile" name="phone"  placeholder="Phone" value="<?php echo $fetch_account_details->user_phone;?>" onkeyup="check(); return false;" >
                                   <span id="message"></span>
                                 </div>
                               </div>
@@ -244,7 +252,7 @@ $this->load->view("common/header");
 						  </div>
 						</div>
 					  </div>
-					  <form method="post" action="<?php echo base_url('account/add_address');?>">
+					  <form method="post" name="add_address" action="<?php echo base_url('account/add_address');?>">
 					  <div id="append_div" style="display:none;">
 					  	<div class="card-body">
 							<div class="row">
@@ -373,27 +381,11 @@ $this->load->view("common/header");
                                   <textarea class="form-control" name="address_<?php echo $get_add->user_address_id;?>" placeholder="Address" ><?php echo $get_add->address;?></textarea>
                                 </div>
                               </div>
-                              <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">City
-                                  </label>
-                                  <select class="form-control select2-show-search" name="city_<?php echo $get_add->user_address_id;?>" onchange="get_edit_state(this.value,<?php echo $get_add->user_address_id;?>);">
-									<option selected disabled>Select city</option>
-									<?php
-									foreach($get_all_cities as $fetch_all_cities){
-									?>
-									<option value="<?php echo $fetch_all_cities->city_id;?>" <?php echo (($fetch_all_cities->city_id == $get_add->city)?'selected':'');?>><?php echo $fetch_all_cities->city_name;?></option>
-									<?php
-									}
-									?>
-								</select>
-                                </div>
-                              </div>
-                              <div class="col-sm-6 col-md-6">
+							  <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">State
                                   </label>
-                                  <select class="form-control select2-show-search" name="state_<?php echo $get_add->user_address_id;?>" id="select_state<?php echo $get_add->user_address_id;?>">
+                                  <select class="form-control select2-show-search" name="state_<?php echo $get_add->user_address_id;?>" onchange="get_edit_city(this.value,<?php echo $get_add->user_address_id;?>);">
 										<option selected disabled>Select state</option>
 										<?php
 										foreach($get_all_state as $fetch_all_state){
@@ -405,6 +397,23 @@ $this->load->view("common/header");
 									</select>
                                 </div>
                               </div>
+                              <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">City
+                                  </label>
+                                  <select class="form-control select2-show-search" name="city_<?php echo $get_add->user_address_id;?>" id="edit_city_<?php echo $get_add->user_address_id;?>">
+									<option selected disabled>Select city</option>
+									<?php
+									foreach($get_all_cities as $fetch_all_cities){
+									?>
+									<option value="<?php echo $fetch_all_cities->city_id;?>" <?php echo (($fetch_all_cities->city_id == $get_add->city)?'selected':'');?>><?php echo $fetch_all_cities->city_name;?></option>
+									<?php
+									}
+									?>
+								</select>
+                                </div>
+                              </div>
+                              
                               <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                   <label class="form-label">Postal Code
@@ -510,7 +519,57 @@ $this->load->view("common/footer");
 
   </body>
 </html>
-<script type="text/javascript" src="<?php echo base_url();?>js/jquery.password-validation.js"></script>
+<script src="<?php echo base_url('js');?>/jquery.validate.js"></script>
+<script>
+
+	//Update genaral info validationn info
+	$(function() {
+	  $("form[name='update_general']").validate({
+		rules: {
+		  fname: "required",
+		  lname: "required",
+		  email : "required",
+		  mobile : "required",
+		},
+		messages: {
+		  fname: "This field is required",
+		  lname: "This field is required",
+		  email : "This field is required",
+		  mobile : "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+
+	//Add address validation starts
+	$(function() {
+	  $("form[name='add_address']").validate({
+		rules: {
+		  name: "required",
+		  phone: "required",
+		  address : "required",
+		  state : "required",
+		  city : "required",
+		  pincode : "required",
+		  country : "required",
+		},
+		messages: {
+		  name: "This field is required",
+		  phone: "This field is required",
+		  address : "This field is required",
+		  state : "This field is required",
+		  city : "This field is required",
+		  pincode : "This field is required",
+		  country : "This field is required",
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+	</script>
 <script>
 function show_details(add_id){
 	$( "#edit_div"+add_id+"" ).toggle();
@@ -538,13 +597,14 @@ function get_city(state_id){
   }); 
 }
 
-function get_edit_state(city_id,add_id){
+function get_edit_city(state_id,add_id){
+	
 	$.ajax({
-	  url: '<?php echo base_url();?>account/ajax_fetch_state',
-	  data: {'city_id': city_id,},
+	  url: '<?php echo base_url();?>account/ajax_fetch_city',
+	  data: {'state_id': state_id,},
 	  type: "post",
 	  success: function(response){
-		$("#select_state"+add_id+"").html(response);
+		$("#edit_city_"+add_id+"").html(response);
 	  }
   }); 
 }
