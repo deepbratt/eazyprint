@@ -63,7 +63,7 @@
 										<td>Name</td>
 										<td>Quantity</td>
 										<td>Price</td>
-										<td colspan="2" style="text-align:center;">Action</td>
+										<td colspan="2" style="text-align:center;">yoo</td>
 									</thead>
 									<tbody>
 									<?php

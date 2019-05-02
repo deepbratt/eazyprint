@@ -51,7 +51,7 @@ $this->load->view("common/header");
         </p>
         <div class="row">
           <?php $this->load->view("customer/customer_sidebar");?>
-          <div class="col-lg-8">
+          <div class="col-lg-8" style="margin-bottom:30px;">
 			<?php
 				$count_order = count($get_orders);
 				
@@ -61,19 +61,23 @@ $this->load->view("common/header");
 					//print_r ();
 					foreach($get_orders As $fetch_prod_yoo)
 					{
+
 				
 			?>
-            <div class="row" style="border:1px solid #cccccc;margin-top:10px;padding:20px;">
+            <div class="row" style="border:1px solid #cccccc;padding:20px;">
               <div class="col-md-1 p-1">
                 <div class="form-group">
 				<?php
 					$this->load->model('orders_m');
-					$prod_id = $fetch_prod_yoo->product_image;
-					$fetch_prod_image = $this->orders_m->prod_image_info($prod_id);
 
+					$prod_id = $fetch_prod_yoo->product_image;
+
+					$fetch_prod_image = $this->orders_m->prod_image_info($prod_id);
+					//print_r($fetch_prod_image);
+					
 					
 				?>
-                  <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:140px;">
+                  <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:170px;">
                 </div>
               </div>
               <div class="col-md-7">
@@ -85,6 +89,7 @@ $this->load->view("common/header");
 					$seller_id = $fetch_prod_yoo->supplier_name;
 				
 					$fetch_supplier_name = $this->orders_m->user_detailzz($seller_id);
+					//print_r($fetch_supplier_name);
 					//print_r($fetch_supplier_name);
 					//$count_user = count($fetch_supplier_name);
 					if($fetch_supplier_name->user_fname != ''){
@@ -112,8 +117,8 @@ $this->load->view("common/header");
                     <i class="fas fa-rupee-sign">
                     </i> <?php echo $fetch_prod_yoo->order_amount;?>
                   </span>
-                  <strong style="padding-left:10px;color:green;">1 Offer Available
-                  </strong>
+                  <!-- <strong style="padding-left:10px;color:green;">1 Offer Available
+                  </strong> -->
                 </div>
               </div>
               <div class="col-md-3">
