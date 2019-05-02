@@ -250,12 +250,13 @@
 											$get_profile_details = $ci->login_m->get_profile_details($user_id);
 									?>
 									<li class="nav-item left">
-										<a class="nav-link" data-toggle="dropdown" href="javascript:void(0);">
+										<a class="nav-link" data-toggle="account_section" href="javascript:void(0);">
 										<?php
 											if(isset($get_profile_details->user_profile_image) && $get_profile_details->user_profile_image != ""){
 										?>
 											<span class="avatar avatar-md brround" style="background-image: url('<?php echo base_url('uploads/user_profile_image/');?><?php echo $get_profile_details->user_profile_image;?>')"></span>
 										<?php
+												echo "&nbsp;&nbsp;";
 												echo $this->session->userdata['logged_in']['first_name'];
 												$last_n = $this->session->userdata['logged_in']['last_name']; 
 												echo "&nbsp;&nbsp;";
@@ -265,7 +266,7 @@
 												echo "<i class='fas fa-chevron-down'></i>";
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px !important;"></i> 
+											<!-- <i class="fas fa-user" style="font-size:33px !important;"></i>  -->
 											<?php 
 												echo $this->session->userdata['logged_in']['first_name'];
 												$last_n = $this->session->userdata['logged_in']['last_name']; 
@@ -277,7 +278,7 @@
 											}
 										?>
 										</a>
-										<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
+										<div id="account_section" class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="margin-top: -6px !important;">
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'orders')?'header_active':'');?>" href="<?php echo base_url('orders');?>"><i class="fas fa-box"></i> Orders</a>
 											<!--<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'wishlist')?'header_active':'');?>" href="<?php echo base_url('wishlist');?>"><i class="fas fa-heart"></i> Wishlist</a>-->
 											<a class="dropdown-item <?php echo(($this->uri->segment(1) == 'cart')?'header_active':'');?>" href="<?php echo base_url('cart');?>"><i class="fas fa-cart-plus"></i> Cart</a>
