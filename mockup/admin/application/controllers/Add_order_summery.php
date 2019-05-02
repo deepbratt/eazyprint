@@ -42,11 +42,20 @@ class Add_order_summery extends CI_Controller {
 	{
 		$this->load->model('add_order_summery_m');
 		$raw_id = $this->input->post('raw_id');
+		
 		$get_raw_product_details = $this->add_order_summery_m->get_row($raw_id);
 		$raw_seller = $get_raw_product_details->raw_added_by;
-		
-		$get_supplier_it = $this->add_order_summery_m->get_supplier($raw_seller);
-	
+
+		$get_supplier_count = $this->add_order_summery_m->get_supplier($raw_seller);
+		if($get_supplier_count > 0)
+		{
+			$get_supplier_details = $this->add_order_summery_m->get_supplier_details($raw_seller);
+			$supplier_name = $fetch_supplier_name->user_fname;
+		}
+		else
+		{
+			$supplier_name = "Eazyprint";
+		}
 		
 		$user_type = $this->session->userdata['logged_in']['user_type'];
 		$user_id = $this->session->userdata['logged_in']['user_id'];
@@ -82,27 +91,28 @@ class Add_order_summery extends CI_Controller {
 							'user_id'=>$user_id,
 							'purchase_type'=>$user_type,
 							'purchaser_email'=>$user_email,
-							'supplier_name'=>$get_supplier_it->crew_fname,
+							'supplier_name'=>$supplier_name,
 							'product_price'=>$get_raw_product_details->raw_retail_price,
 							'order_amount'=> $get_raw_product_details->raw_retail_price,
 							'order_qty'=>'1',
 							'payment_status'=>'pending',
 							'payment_method '=>'',
 							'order_status '=>'0',
-							'order_date'=>$order_time
+							'order_date'=>$order_time,
+							'delivery_status'=>'Yet To Be Shipped'
 						);
-
-			
 		
 		$insert_new_order[] = $this->add_order_summery_m->insert_order($records);
+		
 			
 		}
-			$count_order = count($insert_new_order);
+		
+		$count_order = count($insert_new_order);
 	
 		if($count_order > 0)
 		{
 			$get_it = implode("," ,$insert_new_order);
-			print_r($get_it);
+			echo $get_it;
 		}
 		else
 		{
@@ -117,17 +127,20 @@ class Add_order_summery extends CI_Controller {
 		$raw_id = $this->input->post('raw_id');
 		$pay_status = "completed";
 		$payment_array = array('payment_status' => $pay_status ,'payment_method' => $payment_type);
-		$get_count_order_id = count($this->input->post('order_id'));
-		if($get_count_order_id)
+		$all_order = explode(",",$this->input->post('order_id'));
+		//print_r($all_order);
+
+		$get_count_order_id = count($all_order);
+		if($get_count_order_id > 0)
 		{
-			$order_it = $this->input->post('order_id');
+			//$order_it = $this->input->post('order_id');
 			
-			foreach($order_it As $something)
+			foreach($all_order As $something)
 			{
 				$get_order_update = $this->add_order_summery_m->get_update($something,$payment_array);
 			
 			}
-				if($get_order_update)
+			if($get_order_update)
 				{
 					redirect('order_success');
 				}

@@ -70,14 +70,11 @@ $this->load->view("common/header");
 				<?php
 					$this->load->model('orders_m');
 
-					$prod_id = $fetch_prod_yoo->product_image;
-
-					$fetch_prod_image = $this->orders_m->prod_image_info($prod_id);
-					//print_r($fetch_prod_image);
+				
 					
 					
 				?>
-                  <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>" style="height:170px;">
+                  <img src="<?php echo $fetch_prod_yoo->product_image;?>" style="max-height:200px;">
                 </div>
               </div>
               <div class="col-md-7">
@@ -86,13 +83,15 @@ $this->load->view("common/header");
                   </h4>
                 </div>
             	<?php
+					$this->load->model('orders_m');
 					$seller_id = $fetch_prod_yoo->supplier_name;
-				
-					$fetch_supplier_name = $this->orders_m->user_detailzz($seller_id);
+					$count_it = $this->orders_m->user_detail($seller_id);
+					if($count_it > 0){
+						$fetch_supplier_name = $this->orders_m->user_detailzz($seller_id);
 					//print_r($fetch_supplier_name);
 					//print_r($fetch_supplier_name);
 					//$count_user = count($fetch_supplier_name);
-					if($fetch_supplier_name->user_fname != ''){
+					
 				?>
 				<div class="form-group">
 					<span><b>Seller:</b> <?php echo $fetch_supplier_name->user_fname;?></span>
