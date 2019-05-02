@@ -38,7 +38,16 @@ class Account_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function get_spec_state($city_id)
+	public function get_spec_city($state_id)
+	{
+		$this->db->select('*');
+		$this->db->from('cities');
+		$this->db->where('city_state',$state_id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_city_name($city_id)
 	{
 		$this->db->select('*');
 		$this->db->from('cities');
