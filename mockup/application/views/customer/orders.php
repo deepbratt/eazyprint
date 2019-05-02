@@ -49,6 +49,26 @@ $this->load->view("common/header");
       <div class="side-app">
         <p>&nbsp;
         </p>
+		   <?php
+				if($this->session->flashdata('success')){
+			?>
+				<div class="alert alert-success" style="text-align:center;"> 
+				  <strong >
+					<?php echo $this->session->flashdata('success');?>
+				  </strong> 
+				</div>
+            <?php
+			}
+				if($this->session->flashdata('failed')){
+			?>
+				<div class="alert alert-danger"> 
+				  <strong>
+					<?php echo $this->session->flashdata('failed');?>
+				  </strong> 
+				</div>
+			<?php
+			}
+			?>
         <div class="row">
           <?php $this->load->view("customer/customer_sidebar");?>
           <div class="col-lg-8" style="margin-bottom:30px;">
