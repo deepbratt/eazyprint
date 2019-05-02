@@ -206,11 +206,15 @@
         <div class="bx-viewport"> 
           <div class="bx-wrapper" style="max-width: 1360px;">
             <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 200px;">
+              
                 <!--<li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
                   <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
                 </li>-->
+				
 					<h1 style="color:#fff;text-align:center;padding:20px;padding-top:50px;">Seamleess Checkout Experience</h1>
 					<h4 style="color:#fff;text-align:center;margin-top:-20px;">Eazy Checkout within few clicks</h4>
+                
+
             </div>
           </div>
         </div>
