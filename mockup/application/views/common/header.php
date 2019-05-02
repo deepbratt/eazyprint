@@ -258,7 +258,7 @@
 										<?php
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px !important;"></i>
+											<i class="fas fa-user" style="font-size:33px !important;"></i> <?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['first_name']; echo $last_n[0];?>
 										<?php
 											}
 										?>
@@ -316,7 +316,7 @@
 										  			$fetch_prod_image = $ci->home_m->prod_data($each_cart_data->product_id);
 										  	?>
 										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('product_details/');?><?php echo $each_cart_data->product_id;?>"> 
-										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>)">
+										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo $fetch_prod_image->product_image_path;?>)">
 										      </span> 
 										      <div> 
 										        <strong><?php 
