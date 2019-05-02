@@ -44,7 +44,7 @@ class Mug_editor extends CI_Controller {
 			if($this->upload->do_upload('design_image')){
 				$uploadData = $this->upload->data();
 				$path = base_url('admin/uploads/custom_images/');
-				$design_image = $path.'/'.$uploadData['file_name'];
+				$design_image = $path.''.$uploadData['file_name'];
 			}else{
 				$design_image = "";
 			}

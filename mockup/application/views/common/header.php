@@ -334,7 +334,7 @@
 										    	}else if($each_cart_data->product_type == 'customised'){
 										    ?>
 										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('checkout');?>"> 
-										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/custom_images/');?><?php echo $each_cart_data->design_image;?>)">
+										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo $each_cart_data->design_image;?>)">
 										      </span> 
 										      <div> 
 										        <strong><?php 
