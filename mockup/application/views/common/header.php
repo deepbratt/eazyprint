@@ -262,7 +262,7 @@
 												echo $last_n[0];
 												echo ".";
 												echo "&nbsp;&nbsp;";
-												echo "<i class='fas fa-chevron-right'></i>";
+												echo "<i class='fas fa-chevron-down'></i>";
 											}else{
 										?>
 											<i class="fas fa-user" style="font-size:33px !important;"></i> 
@@ -273,7 +273,7 @@
 												echo $last_n[0];
 												echo ".";
 												echo "&nbsp;&nbsp;";
-												echo "<i class='fas fa-chevron-right'></i>";
+												echo "<i class='fas fa-chevron-down'></i>";
 											}
 										?>
 										</a>
