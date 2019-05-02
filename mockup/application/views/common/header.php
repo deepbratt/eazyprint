@@ -258,7 +258,7 @@
 										<?php
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px !important;"></i> <?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['first_name']; echo $last_n[0];?>
+											<i class="fas fa-user" style="font-size:33px !important;"></i> <?php echo $this->session->userdata['logged_in']['first_name'];?>&nbsp;&nbsp;<?php $last_n = $this->session->userdata['logged_in']['last_name']; echo $last_n[0];?>
 										<?php
 											}
 										?>
