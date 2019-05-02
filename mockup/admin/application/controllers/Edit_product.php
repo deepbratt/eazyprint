@@ -73,7 +73,8 @@ class Edit_product extends CI_Controller {
 			
 			if($this->upload->do_upload('meta_image')){
 				$uploadData = $this->upload->data();
-				$meta_image = $uploadData['file_name'];
+				$path = base_url('uploads/meta_images/');
+				$meta_image = $path.''.$uploadData['file_name'];
 				$remove_meta = $fetch_product->product_meta_image;
 			}
 		}else{
@@ -96,7 +97,8 @@ class Edit_product extends CI_Controller {
 			if($this->upload->do_upload('design_image')){
 				$uploadData = $this->upload->data();
 				$design_image = $uploadData['file_name'];
-				$remove_design = $fetch_design->designed_image;
+				$path = base_url('uploads/design_images/');
+				$remove_design = $path.''.$fetch_design->designed_image;
 				
 			}
 		}else{
@@ -162,8 +164,9 @@ class Edit_product extends CI_Controller {
 					$this->upload->initialize($config);
 					
 					if($this->upload->do_upload('userFile')){
-						$fileData = $this->upload->data();
-						$product_image[$i]['file_name'] = $fileData['file_name'];
+						$fileData = $this->upload->data;
+						$path = base_url('uploads/product_images/');
+						$product_image[$i]['file_name'] = $path.''.$fileData['file_name'];
 						$product_image[$i]['created'] = date("Y-m-d H:i:s");
 						$product_image[$i]['modified'] = date("Y-m-d H:i:s");
 					}
