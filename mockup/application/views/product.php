@@ -87,7 +87,7 @@
 													$fetch_product_image = $this->product_m->fetch_pro_image($product_id);
 													if($fetch_product_image->product_image_path != ""){
 												?>
-													<img class="img-responsive" alt="" src="<?php echo base_url();?><?php echo $img_path;?><?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
+													<img class="img-responsive" alt="" src="<?php echo $fetch_product_image->product_image_path;?>" data-holder-rendered="true" style="text-align:center;padding:10px;object-fit: contain;height:300px;">
 												<?php
 													}else{	
 												?>
@@ -145,7 +145,7 @@
 												</nav>
 											</div>
 										</div>
-										<?php
+										<!--<?php
 											if($records_in_total > 0){
 										?>
 										<div class="col-md-6 col-xs-6 col-sm-6" style="text-align:right;margin-top:15px;">
@@ -153,7 +153,7 @@
 										</div>
 										<?php
 											}	
-										?>
+										?>-->
 									</div>
 								
 								<p>&nbsp;</p>

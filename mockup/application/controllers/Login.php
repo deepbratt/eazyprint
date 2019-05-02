@@ -22,11 +22,15 @@ class Login extends CI_Controller {
 			$session_data = array();
 			foreach($last_id as $row)
 			{
-			  $fullname = $row->user_fname . " " . $row->user_lname;
+			  $fullname = ucfirst($row->user_fname) . " " . ucfirst($row->user_lname);
 			  $session_data = array(
 									  'user_id' => $row->user_id,
 									  'user_type' => $row->user_type,
+				  					  //There is a reason behind this part,so dont touch this, I repeat dont fucking touch this part
 									  'name' =>$fullname,
+									  'first_name' => ucfirst($row->user_fname),
+									  'last_name' => ucfirst($row->user_lname),
+									  //Restriction ends here
 									  'email'=>$row->user_email,
 									  'phone'=>$row->user_phone
 								   );

@@ -409,6 +409,7 @@ class Checkout extends CI_Controller {
 						'order_amount' =>$original_cost[$key],
 						'order_qty'=>$each_cart_data->qty,
 						'payment_status'=> 'pending',
+						'delivery_status'=> 'Yet To Be Shipped',
 						'order_status'=> 'pending',
 						'payment_method'=>'cod',
 						'order_date'=>$date,

@@ -256,10 +256,24 @@
 										?>
 											<span class="avatar avatar-md brround" style="background-image: url('<?php echo base_url('uploads/user_profile_image/');?><?php echo $get_profile_details->user_profile_image;?>')"></span>
 										<?php
+												echo $this->session->userdata['logged_in']['first_name'];
+												$last_n = $this->session->userdata['logged_in']['last_name']; 
+												echo "&nbsp;&nbsp;";
+												echo $last_n[0];
+												echo ".";
+												echo "&nbsp;&nbsp;";
+												echo "<i class='fas fa-chevron-down'></i>";
 											}else{
 										?>
-											<i class="fas fa-user" style="font-size:33px !important;"></i>
-										<?php
+											<i class="fas fa-user" style="font-size:33px !important;"></i> 
+											<?php 
+												echo $this->session->userdata['logged_in']['first_name'];
+												$last_n = $this->session->userdata['logged_in']['last_name']; 
+												echo "&nbsp;&nbsp;";
+												echo $last_n[0];
+												echo ".";
+												echo "&nbsp;&nbsp;";
+												echo "<i class='fas fa-chevron-down'></i>";
 											}
 										?>
 										</a>
@@ -316,7 +330,7 @@
 										  			$fetch_prod_image = $ci->home_m->prod_data($each_cart_data->product_id);
 										  	?>
 										    <a class="dropdown-item d-flex pb-3" href="<?php echo base_url('product_details/');?><?php echo $each_cart_data->product_id;?>"> 
-										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod_image->product_image_path;?>)">
+										      <span class="avatar mr-3 align-self-center" style="background-image: url(<?php echo $fetch_prod_image->product_image_path;?>)">
 										      </span> 
 										      <div> 
 										        <strong><?php 
