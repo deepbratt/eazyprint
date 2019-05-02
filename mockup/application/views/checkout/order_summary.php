@@ -270,19 +270,7 @@
 								  	?>
 								  	<div class="col-md-3 p-3">
 								  		<div class="form-group">
-								  			<?php
-								  				$prod_id = $fetch_prod_data->product_id;
-								  				$fetch_prod = $this->checkout_m->prod_data($prod_id);
-								  				if($fetch_prod_data->product_type == 'readymade'){
-								  			?>
-								  			<img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $fetch_prod->product_image_path;?>" style="height:130px;">
-								  			<?php
-								  				}else if($fetch_prod_data->product_type == 'customised'){
-								  			?>
-								  			<img src="<?php echo base_url('admin/uploads/custom_images/');?><?php echo $fetch_prod_data->design_image;?>" style="height:130px;">
-								  			<?php
-								  				}
-								  			?>
+								  			<img src="<?php echo $fetch_prod_data->design_image;?>" style="height:130px;">
 								  		</div>
 								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $fetch_prod_data->cart_id;?>">
 								  		<div class="quantity buttons_added">

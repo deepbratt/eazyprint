@@ -41,7 +41,8 @@ class Tshirt_editor extends CI_Controller {
 			
 			if($this->upload->do_upload('design_image')){
 				$uploadData = $this->upload->data();
-				$design_image = $uploadData['file_name'];
+				$path = base_url('admin/uploads/custom_images/');
+				$design_image = $path.'/'.$uploadData['file_name'];
 			}else{
 				$design_image = "";
 			}

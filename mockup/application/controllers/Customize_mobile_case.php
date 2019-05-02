@@ -57,7 +57,8 @@ class Customize_mobile_case extends CI_Controller {
 			
 			if($this->upload->do_upload('design_image')){
 				$uploadData = $this->upload->data();
-				$design_image = $uploadData['file_name'];
+				$path = base_url('admin/uploads/custom_images');
+				$design_image = $path.'/'.$uploadData['file_name'];
 
 			$check_cart_of_user = $this->product_details_m->check_cart($ip_address,$product_id,$raw_id);
 
