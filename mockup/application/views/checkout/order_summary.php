@@ -281,6 +281,7 @@
 								  		<div class="form-group">
 								  			<?php
 								  				if($each_prod_data->product_type == 'readymade'){
+												$fetch_prod = $this->checkout_m->prod_data($each_prod_data->product_id);
 								  			?>
 								  				<h4><?php echo $fetch_prod->product_title;?></h4>
 								  			<?php

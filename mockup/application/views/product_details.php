@@ -285,7 +285,7 @@ $this->load->view("common/header");
 						foreach($fetch_prod_image_data AS $each_pro_data_images){
 						?>
                       <li style="padding:2px;margin:5px;">
-                        <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $each_pro_data_images->product_image_path;?>" alt="">
+                        <img src="<?php echo $each_pro_data_images->product_image_path;?>" alt="">
                       </li>
                       <?php
 						}
@@ -293,7 +293,7 @@ $this->load->view("common/header");
                     </ol>
                   </div>
                   <div class="product-gallery-featured">
-                    <img src="<?php echo base_url('admin/uploads/product_images/');?><?php echo $single_prod_image[0];?>" alt=""  style="height:500px;">
+                    <img src="<?php echo $single_prod_image[0];?>" alt=""  style="height:500px;">
                   </div>
                 </div>
               </div>
@@ -453,7 +453,7 @@ foreach($explode_size AS $each_raw_size){
                         <input type="hidden" name="p_id" value="<?php echo $fetch_prod_data->product_id;?>">
                         <input type="hidden" name="raw_id" value="<?php echo $fetch_prod_data->raw_id;?>">
                         <input type="hidden" name="price" value="<?php echo $fetch_prod_data->product_retail_price;?>">
-                        <input type="hidden" name="design_image" value="<?php echo $fetch_prod_data->product_design_id;?>">
+                        <input type="hidden" name="design_image" value="<?php echo $single_prod_image[0];?>">
                         <input type="hidden" name="product_type" value="readymade">
                         <div class="col-md-9">
                           <button type="submit" class="btn btn-info btn-block" style="font-size:20px;">Add To Bag
