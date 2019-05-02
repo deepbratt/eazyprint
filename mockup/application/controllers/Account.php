@@ -48,7 +48,14 @@ class Account extends CI_Controller {
 		$state = $this->input->post('state');
 		$pincode = $this->input->post('pincode');
 		$country = 'India';
-		$status = '0';
+
+		$check_exist = $this->account_m->check_exist($user_id);
+		if($check_exist > 0){
+			$status = '0';
+		}else{
+			$status = '1';
+		}
+		
 		$date = time();
 
 		$insert_array = array(
