@@ -148,7 +148,11 @@ class Checkout extends CI_Controller {
 			  $session_data = array(
 									  'user_id' => $row->user_id,
 									  'user_type' => $row->user_type,
+									   //There is a reason behind this part,so dont touch this, I repeat dont fucking touch this part
 									  'name' =>$fullname,
+									  'first_name' => ucfirst($row->user_fname),
+									  'last_name' => ucfirst($row->user_lname),
+									  //Restriction ends here
 									  'email'=>$row->user_email,
 									  'phone'=>$row->user_phone
 								   );
@@ -390,13 +394,16 @@ class Checkout extends CI_Controller {
 
 				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
 					
+					
 					if($data['fetch_prod_data'][$key]->product_type == 'readymade'){
-						$product_name = $each_cart_data->product_name;
+						$product_name = $data['fetch_prod_data'][$key]->product_name;
 					}else if($data['fetch_prod_data'][$key]->product_type == 'customised'){
 						$fetch_cat_name = $this->checkout_m->cat_data($each_cart_data->raw_category);
 						$product_name = 'customised'.' '.$fetch_cat_name->category_name;
 					}
-
+					echo $product_name;
+					echo "<br>";
+					echo "<br>";
 					$cart_data = array(
 						'product_id'=> $each_cart_data->product_id,
 						'product_name'=>$product_name,
@@ -412,11 +419,14 @@ class Checkout extends CI_Controller {
 						'delivery_status'=> 'Yet To Be Shipped',
 						'order_status'=> 'pending',
 						'payment_method'=>'cod',
-						'order_date'=>$date,
+						'order_date'=>$date
 					);
-					
-					$insert_order = $this->checkout_m->order_place($cart_data);
+					print_r($cart_data);
+					echo "<br>";
+					echo "<br>";
+					//$insert_order = $this->checkout_m->order_place($cart_data);
 				}
+				exit;
 				
 				if($insert_order){
 					$remove_from_cart = $this->checkout_m->remove_cart_order_place($data['user_id']);
