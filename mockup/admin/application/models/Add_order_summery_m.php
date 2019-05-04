@@ -18,6 +18,15 @@ class Add_order_summery_m extends CI_Model {
 		$this->db->from('user');
 		$this->db->where('user_id',$seller_id);
 		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
+	public function get_seller_it_now($seller_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$seller_id);
+		$query = $this->db->get();
 		return $query->row();
 	}
 

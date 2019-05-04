@@ -151,17 +151,29 @@ if($this->session->flashdata('failed')){
 							  	$seller_id = $fetch_order_product->raw_added_by;
 								$this->load->model('add_order_summery_m');
 								$get_seller = $this->add_order_summery_m->get_seller_it($seller_id);
-							
+								if($get_seller > 0)
+								{
+									$get_seller_got = $this->add_order_summery_m->get_seller_it_now($seller_id);
 							  ?>
 								<div class="form-group">
+									<span>Seller: <span style="font-weight:bold;"><?php echo $get_seller_got;?></span>
+									</span>
+								</div>
+							<?php
+								}
+							  else
+							  {
+							?>
+							
+
+							  <div class="form-group">
 									<span>Seller: <span style="font-weight:bold;">Eazyprint</span>
 									</span>
-								</div>						
-								<!-- <div class="form-group">
-								<span>Seller: <span style="font-weight:bold;"><?php echo $get_seller_name;?></span>
-								</span>
-							  </div>
-						 -->
+								</div>
+						 
+						 <?php
+							  }
+							?>
                               <div class="form-group">
                                 <span style="font-size:21px;">
                                   <i class="fas fa-rupee-sign">

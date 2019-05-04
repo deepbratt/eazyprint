@@ -28,6 +28,16 @@ class Checkout_m extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_last()
+	{
+		$this->db->select('order_id');
+		$this->db->from('orders');
+		$this->db->order_by('order_id','desc');
+		//$this->db->limit('0', '1');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	
 	public function cart_info($user_id,$ip_data){
 		$this->db->select('*');

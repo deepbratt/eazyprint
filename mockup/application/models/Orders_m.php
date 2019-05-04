@@ -116,6 +116,12 @@ class Orders_m extends CI_Model {
 		return true;
 	}
 
+	public function get_cancel_order($order_id)
+	{
+		$query = $this->db->query("delete from orders where order_id='".$order_id."'");
+		return true;
+	}
+
 }
 
 /* End of file Checkout_m.php */
