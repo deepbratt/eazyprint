@@ -401,16 +401,14 @@ class Checkout extends CI_Controller {
 
 				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
 					
-					
 					if($data['fetch_prod_data'][$key]->product_type == 'readymade'){
-						$product_name = $data['fetch_prod_data'][$key]->product_name;
+						$prod_data = $this->checkout_m->prod_data($each_cart_data->product_id);
+						$product_name = $prod_data->product_name;
 					}else if($data['fetch_prod_data'][$key]->product_type == 'customised'){
 						$fetch_cat_name = $this->checkout_m->cat_data($each_cart_data->raw_category);
 						$product_name = 'customised'.' '.$fetch_cat_name->category_name;
 					}
-					echo $product_name;
-					echo "<br>";
-					echo "<br>";
+					
 					$cart_data = array(
 						'product_id'=> $each_cart_data->product_id,
 						'product_name'=>$product_name,
@@ -428,12 +426,9 @@ class Checkout extends CI_Controller {
 						'payment_method'=>'cod',
 						'order_date'=>$date
 					);
-					print_r($cart_data);
-					echo "<br>";
-					echo "<br>";
-					//$insert_order = $this->checkout_m->order_place($cart_data);
+					
+					$insert_order = $this->checkout_m->order_place($cart_data);
 				}
-				exit;
 				
 				if($insert_order){
 					$remove_from_cart = $this->checkout_m->remove_cart_order_place($data['user_id']);

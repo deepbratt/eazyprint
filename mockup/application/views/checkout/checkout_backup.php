@@ -108,9 +108,9 @@
 			.custom-control-label:before{
 				border:2px solid #7490bd !important;
 			}
-			.fa, .fas{
+			/*.fa, .fas{
 				font-size:20px !important;
-			}
+			}*/
 		</style>
 		<?php
 		$this->load->view("common/metalinks");
