@@ -254,10 +254,17 @@ class Checkout extends CI_Controller {
 	}
 	/* Delivery_address PAGE of checkout Ends*/
 	public function pay_mode(){
+
 		$pay_mode = $this->input->post('pay_mode');
+		echo $pay_mode;
+		exit;
+
 		if($pay_mode == 'online'){
-			redirect('checkout/payment_option');
-		}else if($pay_mode == 'cash_delivery'){
+
+			$this->load->view('ccavenue/ccavRequestHandler');
+		}
+		else if($pay_mode == 'cash_delivery')
+		{
 			redirect('checkout/cash_delivery');
 		}
 	}

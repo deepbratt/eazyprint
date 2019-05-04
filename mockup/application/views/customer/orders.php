@@ -142,8 +142,22 @@ $this->load->view("common/header");
               </div>
               <div class="col-md-3">
                 <div class="form-group">
+				<?php
+					if($fetch_prod_yoo->delivery_status == 'Delivered')
+						{
+				?>
                   <a href="<?php echo base_url('orders/refund_process/');?><?php echo $fetch_prod_yoo->order_id;?>">Refund
                   </a>
+				 <?php
+						}
+					else
+						{
+				 ?>
+				<a href="<?php echo base_url('orders/cancel_order/');?><?php echo $fetch_prod_yoo->order_id;?>">Cancel Order
+                  </a>
+				<?php
+						}
+				?>
                 </div>
                 <div class="form-group">
                   <span>Order Place on 
