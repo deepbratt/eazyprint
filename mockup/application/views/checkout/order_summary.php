@@ -36,6 +36,7 @@
 				  transition: 0.4s;
 				  border: 1px solid #ccc;
 				  min-height:3.5rem;
+				  margin-top:5px;
 				}
 
 				button.accordion.active{

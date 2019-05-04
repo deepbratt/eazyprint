@@ -1,7 +1,7 @@
 <!-- RIGHT SIDE PRODUCT DETAILS STARTS-->
 	<div class="col-md-5 col-sm-12 col-xs-12">
-		<div class="card">
-			<div class="card-header" style="background-color:#f5f5f5;">
+		<div class="card" style="border:1px solid #CCC;">
+			<div class="card-header" style="background-color:#f5f5f5;border-bottom:1px solid #CCC;">
 				<strong class="card-title" style="color:#000;">Price Details</strong>
 			</div>
 			<div class="card-body" style="padding:4px !important;">
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 		</div> 
-		<div class="row" style="color:#878787;">
+		<div class="row" style="color:#878787;border:1px dotted #CCC;">
 			<div class="col-md-2">
 				<img src="<?php echo base_url();?>images/shield_a7ea6b.png" style="height:45px;"> 
 			</div>

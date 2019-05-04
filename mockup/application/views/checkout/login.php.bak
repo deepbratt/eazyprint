@@ -202,34 +202,22 @@
           </div>
         </div>
       </div>
-      <div class="bx-wrapper BN1">
+      
+	  <div class="bx-wrapper BN1">
         <div class="bx-viewport"> 
           <div class="bx-wrapper" style="max-width: 1360px;">
-            <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 400px;">
-              <ul class="bxslider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2760px, 0px, 0px);">
-                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
+            <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 200px;">
+                <!--<li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
                   <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
-                </li>
-                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="true">
-                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
-                </li>
-                <li style="float: left; list-style: none; position: relative; width: 1360px;" aria-hidden="false">
-                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
-                </li>
-                <li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
-                  <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
-                </li>
-              </ul>
+                </li>-->
+					<p style="color:#fff;text-align:center;padding-top:35px;"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:36px;"></i></p>
+					<h1 style="color:#fff;text-align:center;padding:20px;margin-top:-20px;">Seamleess Checkout Experience</h1>
+					<h4 style="color:#fff;text-align:center;margin-top:-20px;">Eazy Checkout within few clicks</h4>
             </div>
           </div>
         </div>
       </div> 
-      <div class="BN2 hidden">
-        <img src="<?php echo base_url();?>images/login_banner.png">
-      </div> 
-      <div class="BN3 hidden">
-        <img src="<?php echo base_url();?>images/login_banner.png">
-      </div>
+
       <style>
         .bxslider img{
           height:400px;
