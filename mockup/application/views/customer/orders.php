@@ -68,6 +68,18 @@ $this->load->view("common/header");
 				</div>
 			<?php
 			}
+			if($this->session->flashdata('order_cancel_success'))
+			{
+
+			?>
+			<div class="alert alert-success" style="text-align:center;"> 
+			  <strong >
+				<?php echo $this->session->flashdata('order_cancel_success');?>
+			  </strong> 
+			</div>
+			<?php
+
+			}
 			?>
         <div class="row">
           <?php $this->load->view("customer/customer_sidebar");?>

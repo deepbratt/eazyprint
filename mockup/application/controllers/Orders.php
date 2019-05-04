@@ -53,6 +53,26 @@ class Orders extends CI_Controller {
 
 	}
 
+	public function cancel_order()
+	{
+		$this->load->model('orders_m');
+		$order_id = $this->uri->segment(3);
+		$get_cancel_order = $this->orders_m->get_cancel_order($order_id);
+		if($get_cancel_order)
+		{
+			
+			$this->session->set_flashdata("order_cancel_success", "You Have Successfully Canceled The Order");
+			redirect('orders');
+		}
+		else
+		{
+			$this->session->set_flashdata("failed", "Something Went Wrong!");
+			redirect('orders');
+		}
+
+		
+	}
+
 }
 
 /* End of file Home.php */
