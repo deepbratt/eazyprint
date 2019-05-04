@@ -42,7 +42,7 @@
 				button.accordion.active{
 				  color: #000;
 				  /*background-color: #7490BD;*/
-				  background-color: #ffe4ca;
+				  background-color: #f5f5f5;
 				}
 
 				button.accordion:hover {
@@ -251,7 +251,7 @@
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
-								<div class="accordion_panel show">
+								<div class="accordion_panel show" style="border:1px solid #CCC;border-top:0px;">
 								<form method="POST" action="<?php echo base_url('checkout/add_delivery_address');?>">
 									<div class="row">
 										<?php

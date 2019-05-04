@@ -255,7 +255,7 @@
 								
 								<!-- PAYMENT OPTION STARTS -->
 								<button type="button" class="accordion active">PAYMENT OPTION</button>
-								<div class="accordion_panel show">
+								<div class="accordion_panel show" style="border:0px 1px 1px 1px solid #CCC;">
 								 <form method="post" action="<?php echo base_url('checkout/pay_mode');?>">
 								   <div class="row">
 								   	<div class="col-md-12 pay_online"> 

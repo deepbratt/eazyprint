@@ -42,7 +42,7 @@
 				button.accordion.active{
 				  color: #000;
 				  /*background-color: #7490BD;*/
-				  background-color: #ffe4ca;
+				  background-color: #f5f5f5;
 				}
 
 				button.accordion:hover {
@@ -258,7 +258,7 @@
 								<?php
 									}
 								?>
-								<div class="accordion_panel show">
+								<div class="accordion_panel show" style="border:1px solid #CCC;border-top:0px;">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
 								  			<?php
