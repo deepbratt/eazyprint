@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
@@ -19,7 +18,7 @@
 		<link href="<?php echo base_url();?>css/quantity_style.css" rel="stylesheet" />
 		<script src="<?php echo base_url();?>js/quantity_style.js"></script>
 		<!-- Title -->
-		<title>Eazyprint | Order Summary</title>
+		<title>Eazyprint | Payment Option</title>
 		<style>
 			body{
 				color:black !important;
@@ -69,7 +68,7 @@
 				  padding-left: 15px;
 				  overflow: hidden;
 				  padding-top: 0px;
-				
+				  /*box-shadow: 0 0 0 1px rgba(61,119,180,.12), 0 8px 16px 0 rgba(91,139,199,.24);*/
 				  transition: 0.6s ease-in-out;
 				  opacity: 0;
 				  margin-bottom: 8px;
@@ -121,7 +120,7 @@
 				<?php
 				$this->load->view("common/header");
 				?>
-	<div class=" " style="background-color: #e40046;" >
+										    <div class=" " style="background-color: #e40046;" >
       <div class="container">
         <div class="row">
           <div class="col-md-12 register_col_height">
@@ -202,6 +201,7 @@
           </div>
         </div>
       </div>
+
       <div class="bx-wrapper BN1">
         <div class="bx-viewport"> 
           <div class="bx-wrapper" style="max-width: 1360px;">
@@ -215,14 +215,8 @@
             </div>
           </div>
         </div>
-      </div> 
-      
-	  <!--<div class="BN2 hidden">
-        <img src="<?php echo base_url();?>images/login_banner.png">
-      </div> 
-      <div class="BN3 hidden">
-        <img src="<?php echo base_url();?>images/login_banner.png">
-      </div>-->
+      </div>
+
       <style>
         .bxslider img{
           height:400px;
@@ -234,7 +228,7 @@
           width: 55%;
         }
       </style> 
-    </div>
+      </div>
 				<div class="container">
 					<div class="side-app">
 						<div class="col-md-12">
@@ -242,145 +236,73 @@
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">Home</a></li>
 									<li class="breadcrumb-item" aria-current="page">Checkout</li>
-									<li class="breadcrumb-item" aria-current="page">Order Summary</li>
+									<li class="breadcrumb-item" aria-current="page">Payment Option</li>
 								</ol>
 							</div>
 						<p>&nbsp;</p>
 						<div class="row" style="padding:0px;margin:0px;">
 						
 							<div class="col-md-7 col-sm-12 col-xs-12">
-								<!-- ORDER SUMMARY STARTS-->
-								<button type="button" class="accordion active">ORDER SUMMARY</button>
-								<div class="accordion_panel show">
-								<?php
-									$this->load->model('checkout_m');
-									if(!empty($fetch_prod_data)){
-								?>
-								<form method="POST" action="<?php echo base_url('checkout/update_order_summary');?>">
-								  <div class="row" style="overflow-y: scroll;max-height:300px;">
-								  	<?php
-								  		foreach($fetch_prod_data AS $key=>$each_prod_data){
-								  	?>
-								  	<div class="col-md-3 p-3">
-								  		<div class="form-group">
-								  			<img src="<?php echo $each_prod_data->design_image;?>" style="height:130px;">
-								  		</div>
-								  		<input type="hidden" name="cartzz_id[]" value="<?php echo $each_prod_data->cart_id;?>">
-								  		<div class="quantity buttons_added">
-											<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity[]" value="<?php echo $each_prod_data->qty;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-										</div>
-								  	</div>
-								  	<div class="col-md-6">
-								  		<div class="form-group">
-								  			<?php
-								  				if($each_prod_data->product_type == 'readymade'){
-												$fetch_prod = $this->checkout_m->prod_data($each_prod_data->product_id);
-								  			?>
-								  				<h4><?php echo $fetch_prod->product_title;?></h4>
-								  			<?php
-								  				}else if($each_prod_data->product_type == 'customised'){
-								  			?>
-								  				<h4>Customized
-								  					<?php
-								  					$fetch_cat_name = $this->checkout_m->cat_data($each_prod_data->raw_category);
-								  					echo $fetch_cat_name->category_name;
-								  					?>
-								  				</h4>
-								  			<?php
-								  				}
-								  			?>
-								  		</div>
-								  		
-								  		<?php
-								  			if($each_prod_data->size != ''){
-								  		?>
-								  		<div class="form-group">
-								  			<span>Size: <?php echo $each_prod_data->size;?></span>
-								  		</div>
-								  		<?php
-								  			}
-								  		?>
-							  		
-							  			<?php
-							  				$fetch_supplier_name = $this->checkout_m->user_detailzz($each_prod_data->user_id);
-								  			if(!empty($fetch_supplier_name)){
-								  		?>
-								  		<div class="form-group">
-								  			<span>Seller: <?php echo $fetch_supplier_name->user_store_name;?></span>
-								  		</div>
-								  		<?php
-								  			}else{
-								  		?>
-								  		<div class="form-group">
-								  			<span>Seller: Eazyprint</span>
-								  		</div>
-								  		<?php
-								  			}
-								  		?>
-										  	
-								  		<div class="form-group">
-								  			<span style="font-size:21px;"><i class="fas fa-rupee-sign"></i> <?php echo $each_prod_data->price;?></span>
-								  			<strong style="padding-left:10px;color:green;">1 Offer Available</strong>
-								  		</div>
-								  	</div>
-								  	<div class="col-md-3">
-								  		<div class="form-group">
-											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $each_prod_data->cart_id;?>">Remove</a>
-										</div>
-								  		<div class="form-group">
-								  			<span>Delivery in 2Days, Thursday | Free</span>
-								  		</div>
-								  	</div>
-								  	<?php
-								  		}
-								  	?>
-								  </div>
-								  <div class="row p-3">
-								  	<?php
-								  		if(isset($this->session->userdata['logged_in']['email']) && $this->session->userdata['logged_in']['email'] != ""){
-								  	?>
-								  	<div class="col-md-8">
-								  		<div class="form-group">
-								  			<p>Order Confirmation email will be sent to <a href="javascript:void(0);"><?php echo $this->session->userdata['logged_in']['email']?></a></p>
-								  		</div>
-								  	</div>
-								  	<?php
-								  		}
-								  	?>
-								  	<div class="col-md-4 p-3 text-right">
-								  		<div class="form-group">
-								  			<button class="btn btn-orange btn-lg">Continue</button>
-								  		</div>
-								  	</div>
-								  </div>
-								</form>
-								<?php
-									}else{
-								?>
-								<div class="row p-5" style="text-align:center;">
-									<img src="<?php echo base_url('images/empty-cart.jpg');?>" style="height:100%;">
-								</div>
-								<?php
-									}
-								?>
-								</div>
-								<!-- ORDER SUMMARY ENDS-->
-								<?php
-					  				if(!empty($fetch_user_data)){
-					  			?>
-					  			<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
+								
+								<!-- LOGIN ENDS -->
+								<!--<?php print_r($response);?>-->
+								<a href="<?php echo base_url('checkout');?>"><button class="accordion">ORDER SUMMARY</button></a>
+								<!-- DELIVERY ADDRESS STARTS-->
+								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">USER DETAILS</button></a>
 								<a href="<?php echo base_url('checkout/delivery_address');?>"><button class="accordion">DELIVERY ADDRESS</button></a>
+								
 								<!-- PAYMENT OPTION STARTS -->
-								<a href="<?php echo base_url('checkout/payment_option');?>"><button class="accordion">PAYMENT OPTION</button></a>
-								<?php
-									}else{
-								?>
-								<a href="<?php echo base_url('checkout/login');?>"><button class="accordion">Login</button></a>
-								<?php
-									}
-								?>
-								<p>&nbsp;</p>
+								<button type="button" class="accordion active">PAYMENT OPTION</button>
+								<div class="accordion_panel show">
+								 <form method="post" action="<?php echo base_url('checkout/pay_mode');?>">
+								   <div class="row">
+								   	<div class="col-md-12 pay_online"> 
+								   		<div class="form-group"> 
+								   			<label class="custom-control custom-radio"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="online"  required> 
+								   				<span class="custom-control-label">Pay Online</span> 
+								   			</label> 
+								   		</div>
+								   	</div>
+								   	<div class="col-md-12 cod"> 
+								   		<div class="form-group"> 
+								   			<label class="custom-control custom-radio"> 
+								   				<input type="radio" name="pay_mode" class="custom-control-input" value="cash_delivery" required> 
+								   				<span class="custom-control-label">Cash on Delivery</span>
+								   			</label> 
+								   		</div>
+								   	</div>
+										<?php
+											$this->load->model('checkout_m');
+											$get_last_order_id = $this->checkout_m->get_last();
+											$last_id = $get_last_order_id->order_id +1;
+										?>
+										<input type="hidden" name="language" value="EN"/>
+										<input type="hidden" name="currency" value="INR"/>
+										<input type="hidden" name="amount" value="10.00"/>
+										<input type="hidden" name="tid" id="tid" readonly />
+										<input type="hidden" name="merchant_id" value="185282"/>
+										<input type="text" name="order_id" value="<?php echo $last_id;?>"/>
+										<input type="hidden" name="redirect_url" value="https://eazyprint.in/beta/application/views/ccavenue/ccavResponseHandler.php"/>
+										<input type="hidden" name="cancel_url" value="https://eazyprint.in/beta/application/views/ccavenue/ccavResponseHandler.php"/>
+										<input type="hidden" name="billing_country" value="India"/>
+										<input type="hidden" name="integration_type" value="iframe_normal"/>
+									<div class="col-md-6 ">
+										<div class="form-group pay_mode_change">
+								   			<a class="btn btn-info" href="javascript:void(0);" onclick="change_mode();">Change Payment Mode</a>
+								   		</div>
+								   	</div>
+								   	<div class="col-md-6 text-right">
+								  		<div class="form-group">
+								  			<button type="submit" class="btn btn-orange btn-lg">Continue</button>
+								  		</div>
+								  	</div>
+								   </div>
+								  </form>
+							</div>
 							<!-- PAYMENT OPTION ENDS -->
+							<p>&nbsp;</p>
+						
 						</div>
 						<?php $this->load->view("checkout/product_details");?>
 						</div>
@@ -392,7 +314,8 @@
 <?php
 $this->load->view("common/footer");
 ?>
-				<!-- ACCORDIONS STARTS
+
+				<!-- ACCORDIONS STARTS 
 				<script>
 					var acc = document.getElementsByClassName("accordion");
 					var i;
@@ -408,7 +331,7 @@ $this->load->view("common/footer");
 					for (i = 0; i < acc.length; i++) {
 					  acc[i].onclick = click_action;
 					}
-				</script> -->
+				</script>-->
 			<!-- Accordions Ends -->
 				<script>
 				$(document).ready(function(){
@@ -428,7 +351,11 @@ $this->load->view("common/footer");
 				        $(".address_add").show();
 				        $(".add_address_hide").hide();
 				    });
+				    $('.hide_pay_online').hide();
+				    $('.pay_mode_change').hide();
 				});
+		
+				
 				</script>
 	</body>
 </html>
