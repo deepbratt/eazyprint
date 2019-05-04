@@ -209,7 +209,8 @@
                 <!--<li style="float: left; list-style: none; position: relative; width: 1360px;" class="bx-clone" aria-hidden="true">
                   <img src="<?php echo base_url();?>images/login_banner.png" style="visibility: visible;">
                 </li>-->
-					<h1 style="color:#fff;text-align:center;padding:20px;padding-top:50px;">Seamleess Checkout Experience</h1>
+					<p style="color:#fff;text-align:center;padding-top:50px;"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:36px;"></i></p>
+					<h1 style="color:#fff;text-align:center;padding:20px;margin-top:-20px;">Seamleess Checkout Experience</h1>
 					<h4 style="color:#fff;text-align:center;margin-top:-20px;">Eazy Checkout within few clicks</h4>
             </div>
           </div>
