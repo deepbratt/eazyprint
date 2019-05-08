@@ -73,6 +73,13 @@ class Orders extends CI_Controller {
 		
 	}
 
+	public function req_invoice()
+	{
+		$this->load->model('orders_m');
+		echo $order_id = $this->uri->segment(3);
+		exit;
+	}
+
 }
 
 /* End of file Home.php */
