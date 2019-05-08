@@ -257,6 +257,7 @@ class Checkout extends CI_Controller {
 
 		$pay_mode = $this->input->post('pay_mode');
 		echo $pay_mode;
+		exit;
 
 		if($pay_mode == 'online'){
 
