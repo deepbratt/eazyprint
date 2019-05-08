@@ -119,7 +119,7 @@
 														$get_images = $this->listing_product_m->get_images($pro_id);
 													?>
 													<td>
-													<img src="<?php echo base_url('uploads/product_images/');?><?php echo $get_images[0]->product_image_path;?>" height="100">
+													<img src="<?php echo $get_images[0]->product_image_path;?>" height="100">
 													</td>
 													<td><?php echo $product_fetch->product_name;?></td>
 													<td><?php echo $product_fetch->product_title;?></td>

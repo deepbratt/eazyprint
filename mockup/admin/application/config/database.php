@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '148.66.157.235',
+	'hostname' => 'ec2-18-191-3-46.us-east-2.compute.amazonaws.com',
 	//'hostname' => 'localhost',
-	'username' => 'deepbratt5',
+	'username' => 'clickrstop',
 	'password' => 'Samadder5#',
-	'database' => 'eazyprint',
+	'database' => 'test',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
