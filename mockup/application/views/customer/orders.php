@@ -86,32 +86,41 @@ $this->load->view("common/header");
           <div class="col-lg-8" style="margin-bottom:30px;">
 			<?php
 				$count_order = count($get_orders);
-				
 				if($count_order > 0)
 				{
 					//print_r ($get_orders);
 					//print_r ();
 					foreach($get_orders As $fetch_prod_yoo)
 					{
-
-				
 			?>
+			<div class="row" style="border:1px solid #cccccc;padding:20px;">
+				<div class="col-md-6">
+					<code style="background: #f5365c;color:white;padding: 5px;font-size: 16px;">Order Id : <?php echo $fetch_prod_yoo->order_id;?></code>&nbsp;&nbsp;&nbsp;&nbsp;
+					<?php 
+					if($fetch_prod_yoo->delivery_status != 'Delivered'){
+					?>
+						<code style="background: #f5365c;color:white;padding: 5px;font-size: 16px;">Track</code>
+					<?php
+					}else{
+					?>
+						<a href="<?php echo base_url('orders/req_invoice/');?><?php echo $fetch_prod_yoo->order_id;?>"><code style="background: #f5365c;color:white;padding: 5px;font-size: 16px;">Request Invoice</code></a>
+					<?php
+					}
+					?>
+				</div>
+			</div>
             <div class="row" style="border:1px solid #cccccc;padding:20px;">
               <div class="col-md-1 p-1">
                 <div class="form-group">
 				<?php
 					$this->load->model('orders_m');
-
-				
-					
-					
 				?>
                   <img src="<?php echo $fetch_prod_yoo->product_image;?>" style="max-height:200px;">
                 </div>
               </div>
               <div class="col-md-7">
                 <div class="form-group">
-                  <h4><?php echo $fetch_prod_yoo->product_name;?>
+                  <h4 style="color:black;"><?php echo $fetch_prod_yoo->product_name;?>
                   </h4>
                 </div>
             	<?php
@@ -119,82 +128,73 @@ $this->load->view("common/header");
 					$seller_id = $fetch_prod_yoo->supplier_name;
 					$count_it = $this->orders_m->user_detail($seller_id);
 					if($count_it > 0){
-						$fetch_supplier_name = $this->orders_m->user_detailzz($seller_id);
-					//print_r($fetch_supplier_name);
-					//print_r($fetch_supplier_name);
-					//$count_user = count($fetch_supplier_name);
-					
+					$fetch_supplier_name = $this->orders_m->user_detailzz($seller_id);
 				?>
-				<div class="form-group">
-					<span><b>Seller:</b> <?php echo $fetch_supplier_name->user_fname;?></span>
-				</div>
+					<div class="form-group">
+						<span><b style="color:black;">Seller : <?php echo $fetch_supplier_name->user_fname;?></b> </span>
+					</div>
 				<?php
 					}else{
 				?>
-				<div class="form-group">
-					<span><b>Seller:</b> Eazyprint</span>
-				</div>
+					<div class="form-group">
+						<span><b style="color:black;">Seller : Eazyprint</b> </span>
+					</div>
 				<?php
 					}
 				?>
                 <div class="form-group">
                   <span>
-                    <b>Qty:
-                    </b> <?php echo $fetch_prod_yoo->order_qty;?>
+                    <b style="color:black;">Qty : <?php echo $fetch_prod_yoo->order_qty;?></b>&nbsp;&nbsp;&nbsp;&nbsp;
+					<b style="color:black;"><i class="fas fa-rupee-sign"></i> <?php echo $fetch_prod_yoo->order_amount;?></b>
                   </span>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
+                  <span>
+				  <?php
+					if($fetch_prod_yoo->delivery_status == 'Delivered')
+						{
+					?>
+					  <a href="<?php echo base_url('orders/refund_process/');?><?php echo $fetch_prod_yoo->order_id;?>"><code style="background: #f5365c;color:white;padding: 5px;font-size: 16px;">Refund</code></a>
+					 <?php
+							}
+						else
+							{
+					 ?>
+					<a href="<?php echo base_url('orders/cancel_order/');?><?php echo $fetch_prod_yoo->order_id;?>"><code style="background: #f5365c;color:white;padding: 5px;font-size: 16px;">Cancel Order</code></a>
+					<?php
+							}
+					?>
+                    
+                  </span>
+                </div>
+                <!-- <div class="form-group">
                   <span style="font-size:21px;">
                     <i class="fas fa-rupee-sign">
                     </i> <?php echo $fetch_prod_yoo->order_amount;?>
                   </span>
-                  <!-- <strong style="padding-left:10px;color:green;">1 Offer Available
-                  </strong> -->
-                </div>
+                  <strong style="padding-left:10px;color:green;">1 Offer Available
+                  </strong> 
+                </div> -->
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="form-group">
-				<?php
-					if($fetch_prod_yoo->delivery_status == 'Delivered')
-						{
-				?>
-                  <a href="<?php echo base_url('orders/refund_process/');?><?php echo $fetch_prod_yoo->order_id;?>">Refund
-                  </a>
-				 <?php
-						}
-					else
-						{
-				 ?>
-				<a href="<?php echo base_url('orders/cancel_order/');?><?php echo $fetch_prod_yoo->order_id;?>">Cancel Order
-                  </a>
-				<?php
-						}
-				?>
-                </div>
-                <div class="form-group">
-                  <span>Order Place on 
-                    <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->order_date);?>
-                    </span>
-                  </span>
+                  <b style="color:black;">Order Place on :&nbsp;</b>
+                  <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->order_date);?></span>
                 </div>
 				<?php
 					if($fetch_prod_yoo->delivery_date != '')
 						{
 				?>
                 <div class="form-group">
-                  <span>Delivery on 
-                    <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->delivery_date);?>
-                    </span>
-                  </span>
+                  <b style="color:black;">Delivery on :&nbsp; </b>
+                  <span style="font-weight:bold;color:#e40046;"><?php echo  gmdate("d-m-Y", $fetch_prod_yoo->delivery_date);?></span>
                 </div>
 				<?php
 						}
 				?>
                 <div class="form-group">
-                  <span>Delivery Status | 
-                    <span style="font-weight:bold;color:#e40046;"><?php echo $fetch_prod_yoo->delivery_status;?>
-                    </span>
-                  </span>
+                  <b style="color:black;">Delivery Status :&nbsp;</b>
+                  <span style="font-weight:bold;color:#e40046;"><?php echo $fetch_prod_yoo->delivery_status;?></span>
                 </div>
               </div>
             </div>
