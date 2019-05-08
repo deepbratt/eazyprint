@@ -291,7 +291,7 @@
 											?>
 										</div>
 										<div class="col-md-6">
-											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
+											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg btn-red" style="float:left;">Manage Address</a>
 										</div>
 										
 										<?php

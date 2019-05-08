@@ -321,7 +321,7 @@
 								  			?>
 
 								  			<div class="form-group">
-								  				<a href="<?php echo base_url('signout')?>">Logout & Signin into another account</a>
+								  				<a href="<?php echo base_url('signout')?>" class="btn btn-warning">Logout & Signin into another account</a>
 								  			</div>
 								  		
 								  			<!--<div class="form-group">

@@ -251,7 +251,7 @@
 								
 								<!-- DELIVERY ADDRESS STARTS-->
 								<button type="button" class="accordion active">DELIVERY ADDRESS</button>
-								<div class="accordion_panel show">
+								<div class="accordion_panel show" style="border:1px solid #CCC;border-top:0px;">
 								<form method="POST" action="<?php echo base_url('checkout/add_delivery_address');?>">
 									<div class="row">
 										<?php
@@ -291,7 +291,7 @@
 											?>
 										</div>
 										<div class="col-md-6">
-											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg" style="float:left;">Manage Address</a>
+											<a href="<?php echo base_url('checkout/manage_address');?>" class="btn btn-link btn-lg btn-primary" style="float:left;">Manage Address</a>
 										</div>
 										
 										<?php
