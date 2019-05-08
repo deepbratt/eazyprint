@@ -63,3 +63,4 @@ $route['cart/(:num)'] = "cart";
 $route['customize_mobile_case/(:num)'] = "customize_mobile_case";
 $route['refund_process/(:num)'] = "refund_process";
 $route['cancel_order/(:num)'] = "cancel_order";
+$route['orders/req_invoice/(:num)'] = "orders/req_invoice";
