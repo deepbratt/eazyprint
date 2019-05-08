@@ -107,7 +107,15 @@ class Orders_m extends CI_Model {
 		$this->db->where('order_id',$get_order_id);
 		$query = $this->db->get();
 		return $query->row();
+	}
 
+	public function get_address_detail($address_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user_address');
+		$this->db->where('user_address_id',$address_id);
+		$query = $this->db->get();
+		return $query->row();
 	}
 	
 	public function insert_refund($records)
