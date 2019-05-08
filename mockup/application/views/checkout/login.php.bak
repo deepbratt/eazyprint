@@ -258,7 +258,7 @@
 								<?php
 									}
 								?>
-								<div class="accordion_panel show">
+								<div class="accordion_panel show" style="border:1px solid #CCC;border-top:0px;">
 								  	<div class="row p-2">
 								  		<div class="col-md-6">
 								  			<?php
@@ -321,7 +321,7 @@
 								  			?>
 
 								  			<div class="form-group">
-								  				<a href="<?php echo base_url('signout')?>">Logout & Signin into another account</a>
+								  				<a href="<?php echo base_url('signout')?>" class="btn btn-red">Logout & Signin into another account</a>
 								  			</div>
 								  		
 								  			<!--<div class="form-group">

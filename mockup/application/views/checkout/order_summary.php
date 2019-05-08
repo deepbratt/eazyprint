@@ -326,7 +326,7 @@
 								  	</div>
 								  	<div class="col-md-3">
 								  		<div class="form-group">
-											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $each_prod_data->cart_id;?>">Remove</a>
+											<a href="<?php echo base_url('checkout/remove_cart/');?><?php echo $each_prod_data->cart_id;?>" class="btn btn-red">Remove</a>
 										</div>
 								  		<div class="form-group">
 								  			<span>Delivery in 2Days, Thursday | Free</span>

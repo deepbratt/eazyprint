@@ -205,7 +205,7 @@ $this->load->view("common/header");
 				{
 			?>
 			<div class="row" style="border:1px solid #cccccc;margin-top:10px;padding:20px;text-align:center;">
-				<p style="text-align:center;">You Have Not Place Any Order Yet!!</p>
+				<span>You Have Not Place Any Order Yet!!</span>
 			</div>
 			<?php
 				}
