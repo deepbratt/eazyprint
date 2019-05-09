@@ -15,6 +15,7 @@ class Add_customer extends CI_Controller {
 		$this->load->model('contacts_m');
 		$user_type = 'customer';
 		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city($user_type);
+		$data['fetch_all_city'] = $this->contacts_m->fetch_all_cities();
 		$this->load->view('contacts/add_customer',$data);
 	}
 

@@ -11,6 +11,13 @@ class Contacts_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_all_cities(){
+		$this->db->select('*');
+		$this->db->from('cities');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function all_cities($state_name){
 		$this->db->select('*');
 		$this->db->from('cities');
