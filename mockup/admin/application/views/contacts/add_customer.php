@@ -132,7 +132,7 @@
 													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
 														<?php
-															foreach($fetch_city_state AS $each_city){
+															foreach($fetch_all_city AS $each_city){
 														?>
 															<option value="<?php echo $each_city->city_name;?>"><?php echo $each_city->city_name;?></option>
 														<?php
@@ -216,7 +216,7 @@
 		});
 		function state_name(state){
 				$.ajax({
-				url: '<?php echo base_url();?>account_add_customer/ajax_state_name',
+				url: '<?php echo base_url();?>add_customer/ajax_state_name',
 				data: {'state': state,},
 				type: "post",
 				beforeSend: function(){

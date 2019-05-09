@@ -16,7 +16,19 @@
 
 		<!-- Title -->
 		<title>Eazyprint | Edit Dealer</title>
-
+		<style>
+		.error{
+			color : red;
+			font-weight: 450;
+		}
+		input.error[type="text"],input.error[type="number"],input.error[type="email"],select.error,textarea.error{
+			border : 1px solid red !important;
+			color : #7490BD;
+		}
+		select{
+			color : #7490BD;
+		}
+		</style>
        <?php $this->load->view('common/metalinks');?>
 	</head>
 	<body class="app sidebar-mini rtl">
@@ -61,7 +73,7 @@
 						?>
 						<div class="row">
 							<div class="col-md-12">
-								<form  method="post" action="<?php echo base_url('edit_dealer/update_dealer');?>/<?php echo $this->uri->segment(2);?>">
+								<form  method="post" name="add_dealer" action="<?php echo base_url('edit_dealer/update_dealer');?>/<?php echo $this->uri->segment(2);?>">
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Profile</h3>
@@ -193,7 +205,47 @@
 		<script src="<?php echo base_url('js');?>/spectrum.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery-ui.js"></script>
 		<script src="<?php echo base_url('js');?>/jquery.maskedinput.js"></script>
+		<script src="<?php echo base_url('js');?>/jquery.validate.js"></script>
 	</body>
+
+	<script>
+	$(function() {
+	  $("form[name='add_dealer']").validate({
+		rules: {
+		  f_name: "required",
+		  l_name: "required",
+		  email : "required",
+		  mobile : "required",
+		  address : "required",
+		  state : "required",
+		  city : "required",
+		  pincode : "required",
+		  legal_name : "required",
+		  gst_number : "required",
+		  trade_license_number : "required",
+		},
+		messages: {
+		  f_name: "This field is required",
+		  l_name: "This field is required",
+		  email : "This field is required",
+		  mobile : "This field is required",
+		  address : "This field is required",
+		  state : "This field is required",
+		  city : "This field is required",
+		  pincode : "This field is required",
+		  legal_name : "This field is required",
+		  gst_number : "This field is required",
+		  trade_license_number : "This field is required",
+		  
+		},
+		submitHandler: function(form) {
+		  form.submit();
+		}
+	  });
+	});	
+
+	
+	</script>
 	<script>
 		function state_name(state){
 				$.ajax({
