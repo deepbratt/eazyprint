@@ -209,7 +209,31 @@ if($this->session->flashdata('failed')){
                                   <td style="float:right;font-size:21px;">
                                     <i class="fas fa-rupee-sign">
                                     </i> 
-                                    <span class="bikes"><?php echo $fetch_order_product->raw_retail_price;?></span>
+									<?php
+										$discount_amount = ($fetch_order_product->raw_retail_price * $discount_percentage )/100;
+										$amount_payable = $fetch_order_product->raw_retail_price - $discount_amount;
+
+										$gst_percentage = $fetch_order_product->raw_gst_rate;
+										$get_gst_amount  = ($amount_payable * $gst_percentage)/100;
+										$per_peice_price = ($amount_payable -$get_gst_amount);  
+
+
+
+									?>
+                                    <span class="bikes"><?php echo round($per_peice_price);?></span>
+									<span style="display:none" class = "per_price_gst"><?php echo $per_peice_price;?> </span>
+									<span style="display:none" class="per_price"><?php echo $amount_payable;?></span>
+									<span style="display:none" class="gst_percentage"><?php echo $get_gst_amount;?></span>
+                                  </td>
+                                </tr>
+								 <tr>
+                                  <td>GST&nbsp;&nbsp;(<span class="other"><?php echo $fetch_order_product->raw_gst_rate;?></span>%)
+								  	
+                                  </td>
+                                  <td style="float:right;font-size:21px;">
+                                    <i class="fas fa-rupee-sign">
+                                    </i> 
+                                    <span class="onno"><?php echo round($get_gst_amount);?></span>
                                   </td>
                                 </tr>
                                 <tr>
@@ -224,7 +248,7 @@ if($this->session->flashdata('failed')){
                                   <td style="float:right;font-size:21px;">
                                     <i class="fas fa-rupee-sign">
                                     </i> 
-                                    <span class="hikes"><?php echo $fetch_order_product->raw_retail_price;?></span>
+                                    <span class="hikes"><?php echo $amount_payable;?></span>
                                   </td>
                                 </tr>
                               </table>
@@ -301,7 +325,10 @@ if($this->session->flashdata('failed')){
                                 <option value="10" >10
                                 </option>
                               </select>
-							  <input type="hidden" name="raw_id" value="<?php echo $this->uri->segment(2);?>">
+								<input type="hidden" name="raw_id" value="<?php echo $this->uri->segment(2);?>">
+								<input type="hidden" name= "per_price_gst" value="<?php echo $per_peice_price;?>">
+								<input type="hidden" name= "per_price" value="<?php echo $amount_payable;?>">
+								<input type="hidden" name= "gst_percentage" value="<?php echo $get_gst_amount;?>">	
                             </div>
                           </div>
                         </div>
@@ -398,15 +425,26 @@ if($this->session->flashdata('failed')){
 	 
 	  var x = 1; 
 	  $(add_button).click(function(e){
+		  //product count
 		  var el = parseInt($('.likes').text());
+
+		  //product increment
 		  $('.likes').text(el+1);
 			
 			var ml = el+1;
-			var vl  = parseInt($('.bikes').text());
+			var price_with_gst  = parseFloat($('.per_price_gst').text());
+			var per_price = parseFloat($('.per_price').text());
+			var gst_percentage = parseFloat($('.gst_percentage').text());
+		
+			//product price with gst
+			$('.bikes').text(Math.round(ml*price_with_gst));
+
+			//gst Information 
+			$('.onno').text(Math.round(ml*gst_percentage));
 			
-			var cl = parseInt($('.hikes').text());
-			$('.hikes').text(ml*vl);
-			
+			//total payable amount
+			$('.hikes').text(ml*per_price);
+				
 		e.preventDefault();
 		if(x < max_fields){ 
 		  x++; 
@@ -421,12 +459,21 @@ if($this->session->flashdata('failed')){
 
 	  function row_remove(e){
 		  var el = parseInt($('.likes').text());
-		 
+			
 		  $('.likes').text(el-1);
 			var ml = el-1;
-			var vl  = parseInt($('.bikes').text());
-			var cl = parseInt($('.hikes').text());
-			$('.hikes').text(ml*vl);
+			var price_with_gst  = parseFloat($('.per_price_gst').text());
+			var per_price = parseFloat($('.per_price').text());
+			var gst_percentage = parseFloat($('.gst_percentage').text());
+
+			//product price with gst
+			$('.bikes').text(Math.round(ml*price_with_gst));
+
+			//gst Information 
+			$('.onno').text(Math.round(ml*gst_percentage));
+			
+			//total payable amount
+			$('.hikes').text(ml*per_price);
 			
 			$(".asdad_"+e+"").remove();
 		}
@@ -443,6 +490,8 @@ if($this->session->flashdata('failed')){
                      cache:false,
                      async:false,
                       success: function(response){
+						 alert(response);
+						 exit;
 						
 						$("#getCode").val(response);
 						 $('<button type="button" id="btnThankYou" class="hidden" data-toggle="modal" data-target="#getCodeModal" data-backdrop="static" data-keyboard="false">ThankYouButton</button>').appendTo('body');

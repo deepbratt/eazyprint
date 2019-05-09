@@ -115,4 +115,34 @@ class Add_order_summery_m extends CI_Model {
 		$this->db->update('orders', $payment_array);
 		return true;
 	}
+
+	public function get_details_it($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get();
+		//return $query->num_rows();
+		return $query->row();
+	}
+
+	public function get_discount_fetch($user_class)
+	{
+		$this->db->select('*');
+		$this->db->from('userclass_details');
+		$this->db->where('userclass_name',$user_class);
+		$query = $this->db->get();
+		//return $query->num_rows();
+		return $query->row();
+	}
+
+	public function get_address($user_id)
+	{
+		$this->db->select('*');
+		$this->db->from('user_address');
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get();
+		//return $query->num_rows();
+		return $query->row();
+	}
 }
