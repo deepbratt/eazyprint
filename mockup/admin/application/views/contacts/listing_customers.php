@@ -100,13 +100,16 @@
 												<?php
 												$i = 1;
 												foreach($fetch_customer_info as $each_dealers_data){
+													$ci =&get_instance();
+													$ci->load->model('contacts_m');
+													$fetch_cus_address = $ci->contacts_m->fetch_cus_address($each_dealers_data->user_id);
 												?>
 												  <tr>
 												    <td class="wd-15p"><?php echo $i;?></td>
 													<td class="wd-15p"><?php echo $each_dealers_data->user_fname;?>&nbsp;<?php echo $each_dealers_data->user_lname;?></td>
 													<td class="wd-15p"><?php echo $each_dealers_data->user_email;?></td>
 													<td class="wd-15p"><?php echo $each_dealers_data->user_phone;?></td>
-													<td class="wd-15p"><?php echo $each_dealers_data->user_address;?><br><?php echo $each_dealers_data->user_city;?>&nbsp;<?php echo $each_dealers_data->user_state;?><br>PIN:<?php echo $each_dealers_data->user_pincode;?></td>
+													<td class="wd-15p"><?php echo $fetch_cus_address->address;?><br><?php echo $fetch_cus_address->city;?>&nbsp;<?php echo $fetch_cus_address->state;?><br>PIN:<?php echo $fetch_cus_address->postal_code;?></td>
 													<td class="wd-15p"><?php echo date('d/m/Y',$each_dealers_data->user_date);?></td>
 													<td class="switch_<?php echo $each_dealers_data->user_id;?>">
 														<label class="custom-switch">
