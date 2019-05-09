@@ -490,9 +490,6 @@ if($this->session->flashdata('failed')){
                      cache:false,
                      async:false,
                       success: function(response){
-						 alert(response);
-						 exit;
-						
 						$("#getCode").val(response);
 						 $('<button type="button" id="btnThankYou" class="hidden" data-toggle="modal" data-target="#getCodeModal" data-backdrop="static" data-keyboard="false">ThankYouButton</button>').appendTo('body');
 
