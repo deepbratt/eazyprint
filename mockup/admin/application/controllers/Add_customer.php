@@ -52,24 +52,34 @@ class Add_customer extends CI_Controller {
 
 		$check_email = $this->contacts_m->check_contacts_data_email($email,$user_type);
 		if($check_email < 1){
-			$dealer_info = array(
+			$cus_info = array(
 				'user_type' => $user_type,
 				'user_fname'=> $fname,
 				'user_lname' => $lname,
 				'user_email'=> $email,
 				'user_phone' => $mobile,
-				'user_address'=> $address,
-				'user_pincode' => $pincode,
-				'user_state'=> $state,
-				'user_city' => $city,
 				'user_email_status' => '0',
 				'user_phone_status'=> '0',
 				'user_status' => '1',
 				'user_date'=> $date
 			);
 
-			$insert_new_dealer = $this->contacts_m->insert_contacts($dealer_info);
-			if($insert_new_dealer){
+			$insert_cus = $this->contacts_m->insert_contacts($cus_info);
+			if($insert_cus != ''){
+				$address_info = array(
+					'user_id' => $insert_cus,
+					'full_name'=> $fname.' '.$lname,
+					'phone' => $mobile,
+					'address'=> $address,
+					'city' => $city,
+					'state'=> $state,
+					'postal_code' => $pincode,
+					'country'=> 'India',
+					'address_status' => '1',
+					'added_date' => $date,
+					'updated_date'=> $date
+				);
+				$insert_cus_address = $this->contacts_m->insert_cus_address($address_info);
 				$this->session->set_flashdata("success", "Customer Added Successfully!");
 			}else{
 				$this->session->set_flashdata("failed", "Something went wrong. Please try again...");

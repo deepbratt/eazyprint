@@ -46,9 +46,16 @@ class Contacts_m extends CI_Model {
 		return $query->num_rows();
 		//return $this->db->last_query();
 	}
+
 	public function insert_contacts($dealer_info)
 	{
 		$this->db->insert('user', $dealer_info);
+		return $this->db->insert_id();
+	}
+
+	public function insert_cus_address($address_info)
+	{
+		$this->db->insert('user_address', $address_info);
 		return true;
 	}
 
