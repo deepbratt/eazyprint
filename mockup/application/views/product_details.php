@@ -352,6 +352,34 @@ $this->load->view("common/header");
                         </div>
                         <span>Inclusive of all taxes
                         </span>
+						<?php
+						if($fetch_prod_data->product_category_id == 2){
+						?>
+						<div class="card-body cardbody" style="margin-top:-25px;">
+							<div class="form-group m-0" style="padding-top:15px;padding-bottom:15px;">
+								<label class="form-label">Select Color</label>
+								<div class="row gutters-xs">
+									<?php
+										$get_color = $this->product_details_m->fetch_raw_color($fetch_prod_data->product_category_id);
+										$color_code = explode(',',$fetch_raw_data->raw_color_code);
+										$color_name = explode(',',$fetch_raw_data->raw_color);
+										foreach($color_code AS $key=>$each_color_code){
+									?>
+									<div class="col-auto">
+										<label class="colorinput">
+											<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
+											<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
+										</label>
+									</div>
+									<?php
+										}
+									?>
+								</div>
+							</div>
+						</div>
+						<?php
+							}
+						?>
                         <!-- SELECT MODEL STARTS -->
                         <?php
 					if(isset($this->session->userdata['product_sidebar']['brand_name']) && $this->session->userdata['product_sidebar']['brand_name'] != ""){

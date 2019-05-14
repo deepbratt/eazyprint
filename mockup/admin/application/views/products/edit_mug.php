@@ -188,9 +188,9 @@
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="form-label">Weighing Unit</label>
-									<select name="product_weight_unit" value="<?php echo $fetch_mug->raw_weight_unit;?>" class="form-control select2-show-search">
-										<option value="kg">kg</option>
-										<option value="gm">gm</option>
+									<select name="product_weight_unit" class="form-control select2-show-search">
+										<option value="kg" <?php echo(($fetch_mug->raw_weight_unit == 'kg')?'selected':'');?>>kg</option>
+										<option value="gm" <?php echo(($fetch_mug->raw_weight_unit == 'gm')?'selected':'');?>>gm</option>
 									 </select>
 								</div>
 							</div>

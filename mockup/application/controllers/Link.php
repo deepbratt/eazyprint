@@ -31,7 +31,7 @@ class Link extends CI_Controller {
 			$fetch_raw_data = $this->link_m->fetch_raw_data($fetch_raw_id,$fetch_cat_id);
 			
 			$_SESSION['product_sidebar']['brand_name'] = "";
-			$_SESSION['product_sidebar']['color'] = $fetch_raw_data->raw_color_code;
+			$_SESSION['product_sidebar']['color'] = "";
 			$_SESSION['product_sidebar']['pro_type'] = "";
 			$_SESSION['product_sidebar']['size'] = "";
 			$_SESSION['product_sidebar']['shape'] = "";

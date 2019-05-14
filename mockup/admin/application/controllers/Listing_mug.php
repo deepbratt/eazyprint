@@ -27,7 +27,7 @@ class Listing_mug extends CI_Controller {
 		$this->load->model('listing_mug_m');
 		$delete_mug = $this->listing_mug_m->delete_mug($raw_id);
 		if($delete_mug){
-			$this->session->set_flashdata("success", "Success , Your have successfully deleted this T-shirt!");
+			$this->session->set_flashdata("success", "Success , Your have successfully deleted this Mug!");
 			redirect('listing_mug');
 		}
 		else{
