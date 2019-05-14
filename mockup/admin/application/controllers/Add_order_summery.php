@@ -17,6 +17,15 @@ class Add_order_summery extends CI_Controller {
 		$this->load->model('add_order_summery_m');
 		$raw_id = $this->uri->segment(2);
 		$data['fetch_order_product'] = $this->add_order_summery_m->fetch_pro($raw_id);
+
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$get_user_class = $this->add_order_summery_m->get_details_it($user_id);
+		
+		$user_class = $get_user_class->user_class;
+		$get_discount = $this->add_order_summery_m->get_discount_fetch($user_class);
+		$data['discount_percentage']  = $get_discount->userclass_discount_percentage;
+		
+
 		//print_r($data['fetch_order_product']);
 		//exit;
 		//$this->load->view('products/order_summery',$data);
@@ -41,10 +50,50 @@ class Add_order_summery extends CI_Controller {
 	public function add_order()
 	{
 		$this->load->model('add_order_summery_m');
+
+		$user_type = $this->session->userdata['logged_in']['user_type'];
+		$user_id = $this->session->userdata['logged_in']['user_id'];
+		$get_user_address = $this->add_order_summery_m->get_address($user_id);
+		$user_address_id = $get_user_address->user_address_id;
+		$user_state = $get_user_address->state;
+		$get_user_details_it = $this->add_order_summery_m->get_user_details($user_id);
+		$user_class = $get_user_details_it->user_class;
+		$get_discount_percentage = $this->add_order_summery_m->get_discount_fetch($user_class);
+		$discount_percentage = $get_discount_percentage->userclass_discount_percentage;
+
+
+
 		$raw_id = $this->input->post('raw_id');
+		$payable_amount = $this->input->post('per_price');
+		$amount_excluding_gst = $this->input->post('per_price_gst');
+		$gst_percentage = round($this->input->post('gst_percentage'));
+		
+		$ctaxamt = '';
+		$staxamt = '';
+		$itaxamt = '';
+		
+		  if($user_state=='West Bengal')
+		  {
+			$ctaxamt = $gst_percentage / 2;
+			$staxamt = $gst_percentage - $ctaxamt;
+			$itaxamt = 0;
+
+			
+		  }
+		  else{
+			  
+			$ctaxamt = 0;
+			$staxamt = 0;
+			$itaxamt = $gst_percentage;
+		  }
 		
 		$get_raw_product_details = $this->add_order_summery_m->get_row($raw_id);
 		$raw_seller = $get_raw_product_details->raw_added_by;
+		$raw_gst_percentage = $get_raw_product_details->raw_gst_rate;
+		$raw_selling_price = $get_raw_product_details->raw_retail_price;
+
+		$discount_amount = ($raw_selling_price * $discount_percentage)/100;
+	
 
 		$get_supplier_count = $this->add_order_summery_m->get_supplier($raw_seller);
 		if($get_supplier_count > 0)
@@ -56,10 +105,9 @@ class Add_order_summery extends CI_Controller {
 		{
 			$supplier_name = "Eazyprint";
 		}
-		
-		$user_type = $this->session->userdata['logged_in']['user_type'];
-		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$get_user_details_it = $this->add_order_summery_m->get_user_details($user_id);
+
+		$coustomized_type = "raw";
+		//$product_id =
 
 		$user_email = $get_user_details_it->user_email;
 		$this->load->library('upload');
@@ -83,23 +131,33 @@ class Add_order_summery extends CI_Controller {
 				$product_image[$i]['file_name'] = $fileData['file_name'];
 				$product_image[$i]['created'] = date("Y-m-d H:i:s");
 				$product_image[$i]['modified'] = date("Y-m-d H:i:s");
+				$path = base_url('uploads/order_images/');
+				$order_images = $path.''.$product_image[$i]['file_name'];
 			}
 			$order_time = time();
 			$records = array(
-							'product_name' => $get_raw_product_details->raw_name,
-							'product_image '=>$product_image[$i]['file_name'],
+							'order_type' => $coustomized_type,
+							'product_id' => $get_raw_product_details->raw_id,
+							'product_image'=>$order_images,
 							'user_id'=>$user_id,
+							'user_address_id'=>$user_address_id,
 							'purchase_type'=>$user_type,
-							'purchaser_email'=>$user_email,
-							'supplier_name'=>$supplier_name,
-							'product_price'=>$get_raw_product_details->raw_retail_price,
-							'order_amount'=> $get_raw_product_details->raw_retail_price,
+							'supplier_id'=>'Eazyprint',
+							'product_price'=>$payable_amount,
+							'CGST'=>$ctaxamt,
+							'SGST'=> $staxamt,
+							'IGST'=>$itaxamt,
+							'gst_percentage'=>$gst_percentage,
+							'discount '=>$discount_amount,
+							'total_amount'=>$raw_selling_price,
 							'order_qty'=>'1',
+							'payment_method'=>'',
+							'delivery_fee'=>'',
+							'delivery_tracking_id'=>'',
 							'payment_status'=>'pending',
-							'payment_method '=>'',
-							'order_status '=>'0',
 							'order_date'=>$order_time,
-							'delivery_status'=>'Yet To Be Shipped'
+							'delivery_date'=>''
+							
 						);
 		
 		$insert_new_order[] = $this->add_order_summery_m->insert_order($records);
@@ -124,8 +182,9 @@ class Add_order_summery extends CI_Controller {
 	{
 		$this->load->model('add_order_summery_m');
 		$payment_type = $this->input->post('payment_option');
+		
 		$raw_id = $this->input->post('raw_id');
-		$pay_status = "completed";
+		$pay_status = "pending";
 		$payment_array = array('payment_status' => $pay_status ,'payment_method' => $payment_type);
 		$all_order = explode(",",$this->input->post('order_id'));
 		//print_r($all_order);

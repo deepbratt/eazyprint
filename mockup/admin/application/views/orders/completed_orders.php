@@ -91,8 +91,8 @@
 													<th class="wd-15p">Product&nbsp;Image</th>
 													<th class="wd-15p">Quantity</th>
 													<th class="wd-15p">Payable&nbsp;Amount</th>
-													<th class="wd-15p">Supplier Name</th>
-											
+													
+													<th class="wd-15p">Payment Type</th>
 													<th class="wd-15p">Payment Status</th>
 													<th class="wd-15p">Delivery Status</th>
 													<th class="wd-15p">Order Status</th>
@@ -106,17 +106,44 @@
 														{
 															foreach($get_completed_orders As $complete_orders)
 															{
+
+																$this->load->model('completed_orders_m');
+																if($complete_orders->order_type == 'raw')
+																{
+																	$raw_id = $complete_orders->product_id;
+																	$get_raw_details = $this->completed_orders_m->get_all_details($raw_id);
+																	$product_name = $get_raw_details->raw_name;
+
+																}
+																else
+																{
+																	$product_id = $complete_orders->product_id;
+																	$get_product_details = $this->completed_orders_m->get_pr_details($product_id);
+																	$product_name = $get_product_details->product_name;
+																}
 													?>
 												  <tr>
 												    <td># <?php echo $complete_orders->order_id;?></td>
 													<td><?php echo $complete_orders->product_name;?></td>
-													<td><img src="<?php echo base_url('uploads/order_images/');?><?php echo $complete_orders->product_image;?>" style="height:80px;width:80px;"></td>
+													<td><img src="<?php echo $complete_orders->product_image;?>" style="height:80px;width:80px;"></td>
 													<td><?php echo $complete_orders->order_qty;?></td>
 													<td><?php echo $complete_orders->order_amount;?></td>
-													<td><?php echo $complete_orders->supplier_name;?></td>
+													<td>
+														<?php 
+															if($complete_orders->payment_method == 'cod')
+															{
+																$method = "CASH ON DELIVERY";
+															}
+															else
+															{
+																$method = "ONLINE PAYMENT";
+															}
+														?>
+														<span style=""><?php echo $method;?></span>
+													</td>
 													<td>
 														<?php
-															if($complete_orders->payment_status == 'completed')
+															if($complete_orders->payment_status == 'paid')
 															{
 																$color= "color:green;";
 															}
@@ -128,7 +155,25 @@
 														?>
 														<span style="<?php echo $color;?>"><?php echo $complete_orders->payment_status;?></span>
 													</td>
-													<td><?php echo $complete_orders->delivery_status;?></td>
+													<td>
+														<?php 
+															if($all_orders->delivery_date !=  '')
+															{
+														?>
+															<span style="color:green;">Deliverd On <?php echo $complete_orders->delivery_date;?></span>
+														<?php	
+															}
+														else
+															{
+														?>
+															<span style="color:red;">Will Be Delivered In 2-3 Days</span>
+														<?php
+
+															}
+
+														
+													?>
+													</td>
 													
 													<td class="switch_1">
 														<label class="custom-switch">

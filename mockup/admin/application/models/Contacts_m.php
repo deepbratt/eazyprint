@@ -11,6 +11,13 @@ class Contacts_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_all_cities(){
+		$this->db->select('*');
+		$this->db->from('cities');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function all_cities($state_name){
 		$this->db->select('*');
 		$this->db->from('cities');
@@ -39,9 +46,16 @@ class Contacts_m extends CI_Model {
 		return $query->num_rows();
 		//return $this->db->last_query();
 	}
+
 	public function insert_contacts($dealer_info)
 	{
 		$this->db->insert('user', $dealer_info);
+		return $this->db->insert_id();
+	}
+
+	public function insert_cus_address($address_info)
+	{
+		$this->db->insert('user_address', $address_info);
 		return true;
 	}
 
@@ -54,6 +68,15 @@ class Contacts_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_cus_address($user_id){
+		$this->db->select('*');
+		$this->db->from('user_address');
+		$this->db->where('user_id',$user_id);
+		$this->db->where('address_status','1');
+		$query = $this->db->get();
+		return $query->row();
+	}
+	
 	public function delete_contacts($dealer_id)
 	{
 		$query = $this->db->query("delete from user where user_id='".$dealer_id."'");

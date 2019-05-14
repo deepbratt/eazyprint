@@ -50,8 +50,9 @@ class Edit_dealer extends CI_Controller {
 		$gst_number = $this->input->post('gst_number');
 		$trade_license_number = $this->input->post('trade_license_number');
 		$date = time();
-
-		$check_email = $this->contacts_m->check_contacts_data($email,$dealer_id);
+		
+		$user_type = $this->session->userdata['logged_in']['user_type'];
+		$check_email = $this->contacts_m->check_contacts_data($email,$dealer_id,$user_type);
 		if($check_email < 1){
 			$dealer_info = array(
 				'user_type' => 'dealer',

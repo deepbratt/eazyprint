@@ -76,11 +76,18 @@ class Orders extends CI_Controller {
 	public function req_invoice()
 	{
 		$this->load->model('orders_m');
-		echo $order_id = $this->uri->segment(3);
-		exit;
+		$order_id = $this->uri->segment(3);
+		$get_order_details = $this->orders_m->get_it_product($order_id);
+		$address_id = $get_order_details->user_address_id;
+		$get_address_detail = $this->orders_m->get_address_detail($address_id);
+
+		//for current scenario GST calculation
+		if($get_address_detail->state != 'West Bengal'){
+			$
+		}
 	}
 
 }
 
-/* End of file Home.php */
-/* Location: ./application/controllers/Home.php */
+/* End of file Orders.php */
+/* Location: ./application/controllers/Orders.php */
