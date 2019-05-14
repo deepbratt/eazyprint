@@ -57,10 +57,16 @@
 							</div>
 						<?php
 						}
-						if($this->session->flashdata('failed')){
+						else if($this->session->flashdata('failed')){
 						?>
 							<div class="alert alert-danger">
 								<strong><?php echo $this->session->flashdata('failed');?></strong>
+							</div>
+						<?php
+						}else if($this->session->flashdata('exist')){
+						?>
+							<div class="alert alert-danger">
+								<strong><?php echo $this->session->flashdata('exist');?></strong>
 							</div>
 						<?php
 						}
