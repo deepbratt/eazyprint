@@ -137,7 +137,7 @@ class Add_order_summery extends CI_Controller {
 			$order_time = time();
 			$records = array(
 							'order_type' => $coustomized_type,
-							'product_id' => $get_raw_product_details->raw_name,
+							'product_id' => $get_raw_product_details->raw_id,
 							'product_image'=>$order_images,
 							'user_id'=>$user_id,
 							'user_address_id'=>$user_address_id,
@@ -182,8 +182,9 @@ class Add_order_summery extends CI_Controller {
 	{
 		$this->load->model('add_order_summery_m');
 		$payment_type = $this->input->post('payment_option');
+		
 		$raw_id = $this->input->post('raw_id');
-		$pay_status = "completed";
+		$pay_status = "pending";
 		$payment_array = array('payment_status' => $pay_status ,'payment_method' => $payment_type);
 		$all_order = explode(",",$this->input->post('order_id'));
 		//print_r($all_order);

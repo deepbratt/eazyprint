@@ -199,7 +199,7 @@
 			<!-- Transactions Ends -->
 
 			<!-- Deals STARTS -->
-			<li class="sidebar_header">
+			<!-- <li class="sidebar_header">
                <a href="javascript:void(0);" data-toggle="collapse" class="sidebar_header_uppercase collapsible <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'header-active':'');?>" data-target="#dealz">Offers</a>
             </li>
 			<div id="dealz" class="collapse <?php echo(($this->uri->segment(1) == 'admin_add_coupon' || $this->uri->segment(1) == 'admin_listing_coupon' ||$this->uri->segment(1) == 'admin_edit_coupon' || $this->uri->segment(1) == 'admin_add_offer' || $this->uri->segment(1) == 'admin_listing_offer' ||$this->uri->segment(1) == 'admin_edit_offer')?'show':'');?>">
@@ -211,7 +211,7 @@
 					<a class="side-menu__item <?php echo(($this->uri->segment(1) == 'admin_listing_offer')?'active_sidebar_submenu':'');?>"  href="<?php echo base_url('admin_listing_offer');?>">Promotional Offers
 					</a>
 				</li>
-			</div>
+			</div> -->
 			<!-- Deals ENDS -->
 
 			<!-- Settings STARTS -->
