@@ -253,26 +253,13 @@ class Checkout extends CI_Controller {
 		}
 	}
 	/* Delivery_address PAGE of checkout Ends*/
-	public function pay_mode(){
-
-		$pay_mode = $this->input->post('pay_mode');
-		echo $pay_mode;
-
-		if($pay_mode == 'online'){
-
-			$this->load->view('ccavenue/dataFrom.php');
-		}
-		else if($pay_mode == 'cash_delivery')
-		{
-			redirect('checkout/cash_delivery');
-		}
-	}
+	
 	/* Payment_option PAGE of checkout Starts*/
 	public function payment_option(){
 		$this->load->library('user_agent');
 		$this->load->model('checkout_m');
 		$ip_data = $this->input->ip_address();
-		$this->load->helper('Instamojo');
+
 		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
 			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
 		}else{
@@ -310,26 +297,7 @@ class Checkout extends CI_Controller {
 				
 					$data['total_payable'] = array_sum($total_payable);
 					
-					$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a" ,"https://test.instamojo.com/api/1.1/");
-					//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
-					try {
-						$response = $api->paymentRequestCreate(array(
-							"buyer_name" => $this->session->userdata['logged_in']['name'],
-							"purpose" => "Tshirt , Mobile case",
-							//"amount" => $data['total_amount'],
-							"amount" => "10.00",
-							"send_email" => false,
-							"send_sms" => false,
-							"phone" => $this->session->userdata['logged_in']['phone'],
-							"email" => $this->session->userdata['logged_in']['email'],
-							"redirect_url" => "http://eazyprint.in/beta/checkout/payment_option_check"
-							));
-					}
-					catch (Exception $e) {
-						print('Error: ' . $e->getMessage());
-					}
-					//print_r()
-					$data['response'] = $response;
+				
 					$this->load->view('checkout/payment_option',$data);
 				}else{
 					$this->session->set_flashdata("failed", "Please manage your address");
@@ -342,22 +310,66 @@ class Checkout extends CI_Controller {
 			redirect('checkout');
 		}
 	}
-	public function payment_option_check(){
-		$this->load->helper('Instamojo');
-		$api = new Instamojo\Instamojo("test_0585a74ce61ecef45aeeadaf929", "test_1995353d16ea9bbe09c88d09b4a","https://test.instamojo.com/api/1.1/");
-		//$api = new Instamojo\Instamojo("12525746f3a4acf5461d5a7a8fbeb643", "284647be790ec63df9a3f9109e2f4352");
-		try {
-			$response = $api->paymentRequestStatus(['PAYMENT REQUEST ID']);
-			print_r($response);
+	
+	public function pay_mode(){
+		$pay_mode = $this->input->post('pay_mode');
+		if($pay_mode == 'online'){
+			redirect('checkout/checkout_send_ccavenue');
 		}
-		catch (Exception $e) {
-			print('Error: ' . $e->getMessage());
+		else if($pay_mode == 'cash_delivery')
+		{
+			redirect('checkout/cash_delivery');
 		}
-		exit;
-		$this->load->view('checkout/payment_option',$data);
 	}
-	/* Payment_option PAGE of checkout Ends*/
+	
+	public function checkout_send_ccavenue(){
+		$this->load->library('user_agent');
+		$this->load->model('checkout_m');
+		$ip_data = $this->input->ip_address();
 
+		if(isset($this->session->userdata['logged_in']['user_id']) && $this->session->userdata['logged_in']['user_id'] != ""){
+			$data['user_id'] = $this->session->userdata['logged_in']['user_id'];
+		}else{
+			$data['user_id'] = "";
+		}
+
+		if($data['user_id'] != ""){
+			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
+			
+			if(!empty($data['fetch_prod_data'])){
+				$data['fetch_address_data'] = $this->checkout_m->address_info($data['user_id'],$ip_data);
+				if($data['fetch_address_data']->address_id != ''){
+
+					$amount_array = array();
+					$quantity_array = array();
+					$gst_tax_array_each_product = array();
+					$original_cost = array();
+					$gst_tax = array();
+					$total_payable = array();
+					foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+						$amount_array[] = $each_cart_data->price;
+						$quantity_array[] = $each_cart_data->qty;
+						$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
+
+						$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
+						$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+						$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+					}
+				
+					$data['total_amount'] = array_sum($original_cost);				
+					$this->load->view('ccavenue/datafrom',$data);
+				}
+			}
+		}
+		$this->load->view('ccavenue/datafrom',$data);
+	}
+
+	public function checkout_ccavenue(){
+		$data = "";
+		$this->load->view('ccavenue/ccavRequestHandler',$data);
+	}
+
+	
 	/* Payment_option PAGE of checkout COD Starts*/
 	public function cash_delivery(){
 		$this->load->model('checkout_m');

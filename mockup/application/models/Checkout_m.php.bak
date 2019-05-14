@@ -20,6 +20,10 @@ class Checkout_m extends CI_Model {
 		return $query->result();
 	}
 	
+	public function user_address_primary($user_id){
+	
+	}
+	
 	public function address_fetch($addr_id){
 		$this->db->select("*");
 		$this->db->from("user_address");
