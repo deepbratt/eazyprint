@@ -232,7 +232,7 @@
       .loader{
         display:none;
       }
-      #errNm1,#errNm2,#errNm3,#errNm4{
+      #errNm1,#errNm2,#errNm3,#errNm4,#errNm5{
         color:red;
       }
       /*#errNm2 {
@@ -361,19 +361,19 @@ $this->load->view("common/header");
 								<div class="row gutters-xs">
 									<?php
 										$get_color = $this->product_details_m->fetch_raw_color($fetch_prod_data->product_category_id);
-										$color_code = explode(',',$fetch_raw_data->raw_color_code);
-										$color_name = explode(',',$fetch_raw_data->raw_color);
-										foreach($color_code AS $key=>$each_color_code){
+										foreach($get_color AS $each_color_code){
 									?>
 									<div class="col-auto">
-										<label class="colorinput">
-											<input name="color" type="radio" value="<?php echo $color_name[$key];?>" class="colorinput-input">
-											<span class="colorinput-color" style="background-color: <?php echo $each_color_code;?>;color:#fff;"></span>
+										<label class="colorinput" >
+											<input onclick="move_color('<?php echo $each_color_code->raw_color_code;?>');" data-error="#errNm5" name="color" type="radio" value="<?php echo $each_color_code->raw_color;?>" class="colorinput-input"1 >
+											<span  class="colorinput-color" style="background-color: <?php echo $each_color_code->raw_color_code;?>;color:#fff;"></span>
 										</label>
 									</div>
 									<?php
 										}
 									?>
+									<span id="errNm5"></span>
+									<input type="hidden" name="color_code" id="clr_code" value="">
 								</div>
 							</div>
 						</div>
@@ -1138,6 +1138,10 @@ foreach($explode_size AS $each_raw_size){
 $this->load->view("common/footer");
 ?>
   <script>
+  function move_color(cc){
+	$("#clr_code").val(cc);
+  }
+
     function fetch_brand_namezz(e){
       $.ajax({
         url: '<?php echo base_url();?>product_details/fetch_models',
@@ -1166,6 +1170,10 @@ $this->load->view("common/footer");
   <script src="<?php echo base_url();?>js/jquery.validate.js">
   </script>
   <script>
+
+  
+
+
     $('#cartz_add').validate({
       rules: {
         phone_brand: {
@@ -1182,6 +1190,9 @@ $this->load->view("common/footer");
         ,
         quantity: {
           required: true
+        },
+		color: {
+          required: true
         }
       }
       ,
@@ -1189,7 +1200,8 @@ $this->load->view("common/footer");
         phone_brand : "Brand is required",
         phone_model : "Model is required",
         size: "Size is required",
-        quantity: "Quantity is required"
+        quantity: "Quantity is required",
+		color: "Color is required"
       }
       ,
       errorPlacement: function(error, element) {

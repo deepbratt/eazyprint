@@ -67,6 +67,7 @@ class Product_details extends CI_Controller {
 		$price = $this->input->post('price');
 		$size = (($this->input->post('size') != NULL)?$this->input->post('size'):' ');
 		$color = (($this->input->post('color') != NULL)?$this->input->post('color'):' ');
+		$color_code = (($this->input->post('color_code') != NULL)?$this->input->post('color_code'):' ');
 		$product_id = $this->input->post('p_id');
 		$raw_id = $this->input->post('raw_id');
 		$design_image = $this->input->post('design_image');
@@ -87,6 +88,7 @@ class Product_details extends CI_Controller {
 				'price' => $price,
 				'size' => $size,
 				'color' => $color,
+				'color_code' => $color_code,
 				'product_id' => $product_id,
 				'raw_id' => $raw_id,
 				'design_image' => $design_image,
