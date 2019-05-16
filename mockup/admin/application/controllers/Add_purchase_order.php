@@ -42,6 +42,7 @@ class Add_purchase_order extends CI_Controller {
 		$this->load->model('purchase_order_m');
 		$supplier_id = $this->input->post('supp_id');
 		$fetch_supplier_addr = $this->purchase_order_m->supplier_addr($supplier_id);
+		print_r($fetch_supplier_addr);
 		$fetch_cities = $this->purchase_order_m->fetch_cities();
 
 		foreach($fetch_cities AS $each_fetch_cities){

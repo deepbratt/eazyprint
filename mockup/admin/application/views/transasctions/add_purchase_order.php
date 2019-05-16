@@ -333,6 +333,7 @@
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
+				
 				  $('.gst_details').val(response);
 				}
 			    });
@@ -341,6 +342,7 @@
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
+					alert(response);
 				  $('.placeofsupply').html(response);
 				  $('.suppl_state').html(response);
 				  $('#create_invoice').show();
