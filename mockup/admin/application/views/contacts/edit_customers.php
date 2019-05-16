@@ -123,7 +123,7 @@
 													<select class="form-control" name="state" onchange="state_name(this.value);"  data-dropup-auto="false">
 														<option vlaue="" selected disabled>Choose State</option>
 														<?php
-															foreach($fetch_city_state AS $each_state){
+															foreach($fetch_state AS $each_state){
 														?>
 															<option value="<?php echo $each_state->city_state;?>" <?php echo (($fetch_dealer_data->user_state == $each_state->city_state)?'selected':'')?>><?php echo $each_state->city_state;?></option>
 														<?php
@@ -139,7 +139,7 @@
 													<select class="form-control city_state" name="city">
 														<option vlaue="" selected disabled>Choose City</option>
 														<?php
-															foreach($fetch_city_state AS $each_city){
+															foreach($fetch_city AS $each_city){
 														?>
 															<option value="<?php echo $each_city->city_name;?>" <?php echo (($fetch_dealer_data->user_city == $each_city->city_name)?'selected':'')?>><?php echo $each_city->city_name;?></option>
 														<?php

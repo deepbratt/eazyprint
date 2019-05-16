@@ -14,8 +14,10 @@ class Edit_customers extends CI_Controller {
 	{
 		$this->load->model('contacts_m');
 		$dealer_id = $this->uri->segment(2);
-		$data['fetch_city_state'] = $this->contacts_m->fetch_state_city();
+		$data['fetch_state'] = $this->contacts_m->fetch_state_city();
+		$data['fetch_city'] = $this->contacts_m->fetch_all_cities();
 		$data['fetch_dealer_data'] = $this->contacts_m->fetch_contacts_info($dealer_id);
+		$data['fetch_cus_address'] = $this->contacts_m->fetch_contacts_info($dealer_id);
 		$this->load->view('contacts/edit_customers',$data);
 	}
 

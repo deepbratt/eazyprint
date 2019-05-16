@@ -274,21 +274,18 @@
 								   			</label> 
 								   		</div>
 								   	</div>
-										<?php
-											$this->load->model('checkout_m');
-											$get_last_order_id = $this->checkout_m->get_last();
-											$last_id = $get_last_order_id->order_id +1;
-										?>
+
 										<input type="hidden" name="language" value="EN"/>
 										<input type="hidden" name="currency" value="INR"/>
 										<input type="hidden" name="amount" value="10.00"/>
 										<input type="hidden" name="tid" id="tid" readonly />
 										<input type="hidden" name="merchant_id" value="185282"/>
-										<input type="text" name="order_id" value="<?php echo $last_id;?>"/>
+										<input type="text" name="order_id" value="123"/>
 										<input type="hidden" name="redirect_url" value="https://eazyprint.in/beta/application/views/ccavenue/ccavResponseHandler.php"/>
 										<input type="hidden" name="cancel_url" value="https://eazyprint.in/beta/application/views/ccavenue/ccavResponseHandler.php"/>
 										<input type="hidden" name="billing_country" value="India"/>
 										<input type="hidden" name="integration_type" value="iframe_normal"/>
+
 									<div class="col-md-6 ">
 										<div class="form-group pay_mode_change">
 								   			<a class="btn btn-info" href="javascript:void(0);" onclick="change_mode();">Change Payment Mode</a>
