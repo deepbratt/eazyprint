@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 		<!-- Title -->
-		<title>Eazyprint | GST Information</title>
+		<title>Eazyprint | Delear's Information</title>
 
        <?php $this->load->view('common/metalinks');?>
 	</head>
@@ -30,10 +30,10 @@
 				<div class="my-3 my-md-5 app-content">
 					<div class="side-app">
 						<div class="page-header">
-							<h4 class="page-title">GST Information</h4>
+							<h4 class="page-title"> Delear's Information</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Eazycrew</a></li>
-								<li class="breadcrumb-item active" aria-current="page">GST Information</li>
+								<li class="breadcrumb-item active" aria-current="page"> Delear's Information</li>
 							</ol>
 						</div>
 						<?php
@@ -84,7 +84,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Mobile</label>
-													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" value="<?php echo (($user_details->user_phone != '')?$user_details->user_phone:'');?>">
+													<input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" value="<?php echo (($user_address_details->phone != '')?$user_address_details->phone:'');?>">
 												</div>
 											</div>
 										</div>
@@ -92,7 +92,7 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Address</label>
-													<textarea class="form-control" name="address" placeholder="Enter Address Here"><?php echo (($user_details->user_address != '')?$user_details->user_address:'');?></textarea>
+													<textarea class="form-control" name="address" placeholder="Enter Address Here"><?php echo (($user_address_details->phone != '')?$user_address_details->address:'');?></textarea>
 												</div>
 											</div>
 										</div>
@@ -100,12 +100,20 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">State</label>
+													<?php
+														//print_r($fetch_city_state);
+													
+													?>
 													<select class="form-control" name="state" onchange="state_name(this.value);">
 														<option vlaue="" selected disabled>Choose State</option>
 														<?php
+															
 															foreach($fetch_city_state AS $each_state){
+
+
+																
 														?>
-															<option value="<?php echo $each_state->city_state;?>" <?php echo (($each_state->city_state == $user_details->user_state)?'selected':'');?>><?php echo $each_state->city_state;?></option>
+															<option value="<?php echo $each_state->city_state;?>" <?php echo (($each_state->city_state == $user_address_details->state)?'selected':'');?>><?php echo $each_state->city_state;?></option>
 														<?php
 															}
 														?>
@@ -114,18 +122,29 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
+											
 													<label class="form-label">City</label>
 													<img src="<?php echo base_url();?>images/ajax-loader2.gif" id="AjaxLoader" style="float:left;margin-top:10px;margin-left:9px;position: absolute;z-index: 2;display: none;">
 													<select class="form-control city_state" name="city">
-														<option vlaue="" selected disabled>Choose City</option>
+														<option value=""  >Choose City</option>
 
 														<?php
-															if($user_details->user_city != '')
+															$this->load->model('account_gst_info_m');
+															if($user_address_details->city != '')
 															{
-																foreach($fetch_city_state AS $each_city){
+																$city = $user_address_details->city;
+																$state = $user_address_details->state;
+																$get_city_name = $this->account_gst_info_m->get_city($city);
+																$city_name = $get_city_name->city_name;
+																$get_all_city = $this->account_gst_info_m->all_cities($state);
+
+																foreach($get_all_city As $each_city)
+																{	
+
 														?>
-															<option value="<?php echo $each_city->city_name;?>" <?php echo (($each_state->city_name == $user_details->user_city)?'selected':'');?>><?php echo $each_city->city_name;?></option>
+															<option value="<?php echo $each_city->city_id;?>" <?php echo (($each_city->city_name == $city_name)?'selected':'')?>><?php echo $each_city->city_name;?></option>
 														<?php
+															
 															}
 															}
 														?>
@@ -137,13 +156,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Pincode</label>
-													<input type="number" class="form-control" name="pincode" placeholder="Enter Pincode">
+													<input type="number" class="form-control" name="pincode" value="<?php echo $user_address_details->postal_code;?>" placeholder="Enter Pincode">
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<?php
+								<!-- <?php
 								if($this->session->userdata['logged_in']['crew_role'] != 'admin'){
 								?>
 								<div class="card">
@@ -159,7 +178,7 @@
 								</div>
 								<?php
 							    }
-								?>
+								?> -->
 								  <div class="card-footer text-center">
 									<button type="submit" class="btn btn-primary">Submit
 									</button>

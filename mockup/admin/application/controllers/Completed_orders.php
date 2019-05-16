@@ -15,7 +15,7 @@ class Completed_orders extends CI_Controller {
 		$this->load->model('completed_orders_m');
 		$user_type = $this->session->userdata['logged_in']['user_type'];
 		$user_id = $this->session->userdata['logged_in']['user_id'];
-		$order_status = "completed";
+		$order_status = "paid";
 
 		if($user_type == 'dealer')
 		{

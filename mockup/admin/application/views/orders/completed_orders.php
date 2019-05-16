@@ -95,7 +95,7 @@
 													<th class="wd-15p">Payment Type</th>
 													<th class="wd-15p">Payment Status</th>
 													<th class="wd-15p">Delivery Status</th>
-													<th class="wd-15p">Order Status</th>
+													
 													<th class="wd-15p">Action</th>
 												  </tr>
 												</thead>
@@ -124,10 +124,10 @@
 													?>
 												  <tr>
 												    <td># <?php echo $complete_orders->order_id;?></td>
-													<td><?php echo $complete_orders->product_name;?></td>
+													<td><?php echo $product_name;?></td>
 													<td><img src="<?php echo $complete_orders->product_image;?>" style="height:80px;width:80px;"></td>
 													<td><?php echo $complete_orders->order_qty;?></td>
-													<td><?php echo $complete_orders->order_amount;?></td>
+													<td><?php echo $complete_orders->product_price;?></td>
 													<td>
 														<?php 
 															if($complete_orders->payment_method == 'cod')
@@ -153,11 +153,11 @@
 															}
 
 														?>
-														<span style="<?php echo $color;?>"><?php echo $complete_orders->payment_status;?></span>
+														<span style="<?php echo $color;?>"><?php echo ucfirst($complete_orders->payment_status);?></span>
 													</td>
 													<td>
 														<?php 
-															if($all_orders->delivery_date !=  '')
+															if($complete_orders->delivery_date !=  '')
 															{
 														?>
 															<span style="color:green;">Deliverd On <?php echo $complete_orders->delivery_date;?></span>
@@ -175,12 +175,12 @@
 													?>
 													</td>
 													
-													<td class="switch_1">
+													<!-- <td class="switch_1">
 														<label class="custom-switch">
 															<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"  onchange="change_status('');">
 															<span class="custom-switch-indicator"></span>
 														</label>
-													</td>
+													</td> -->
 													
 													<td>
 														<a href="<?php echo base_url('completed_orders/delete_orders/');?><?php echo $complete_orders->order_id;?>"><img src="<?php echo base_url('images/Delete.png');?>" style="height:30px"></a>
