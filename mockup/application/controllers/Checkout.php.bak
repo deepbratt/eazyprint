@@ -356,16 +356,23 @@ class Checkout extends CI_Controller {
 						$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 					}
 				
+					$data['total_each_mat_price'] = array_sum($amount_array);
+					$data['total_each_mat_qty'] = array_sum($quantity_array);	
+					$data['total_each_material_tax'] = array_sum($gst_tax_array_each_product);	
 					$data['total_amount'] = array_sum($original_cost);
-
+					$data['gst_tax'] = array_sum($gst_tax);
 				
 					$data['total_payable'] = array_sum($total_payable);
 					
 				
 					$this->load->view('ccavenue/datafrom',$data);
+				}else{
+					$this->session->set_flashdata("failed", "Please manage your address");
+					redirect('checkout/delivery_address');
 				}
 			}
 		}
+
 		$this->load->view('ccavenue/datafrom',$data);
 	}
 

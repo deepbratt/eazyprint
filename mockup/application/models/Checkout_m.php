@@ -23,9 +23,12 @@ class Checkout_m extends CI_Model {
 	public function address_fetch($addr_id){
 		$this->db->select("*");
 		$this->db->from("user_address");
+		//$this->db->join('cities','cities.city_id = user_address.city');
 		$this->db->where('user_address_id',$addr_id);
+		$this->db->where('address_status',1);
 		$query = $this->db->get();
-		return $query->result();
+		//return $query->row();
+		return $this->db->last_query();
 	}
 
 

@@ -22,11 +22,20 @@
 	</script>
 </head>
 <?php
+	
 	print_r($fetch_address_data);
 ?>
 <!-- onload="document.customerData.submit()" -->
-<body onload="document.customerData.submit()">
+<body>
 	<form method="post" name="customerData" action="<?php echo base_url('checkout/checkout_ccavenue');?>">
+			<?php
+				/*$this->load->model('checkout_m');
+				$addr_id = $fetch_address_data->address_id;
+				$user_address = $this->checkout_m->address_fetch($addr_id);
+
+				print_r($user_address);
+				exit;*/
+			?>
 			<input type="text" name="tid" id="tid" readonly />
 			<input type="text" name="merchant_id" value="185282"/>
 			<input type="text" name="order_id" value="123654789"/>
@@ -36,11 +45,7 @@
 			<input type="text" name="cancel_url" value="https://www.eazyprint.in/IFRAME_KIT/ccavResponseHandler.php"/>
 			<input type="text" name="language" value="EN"/>
 
-			<?php
-				$this->load->model('checkout_m');
-				$fetch_cat_name = $this->checkout_m->address_fetch($addr_id);
-
-			?>
+			
 			<input type="text" name="billing_name" value="Charli"/>
 			<input type="text" name="billing_address" value="Room no 1101, near Railway station Ambad"/>
 			<input type="text" name="billing_city" value="Indore"/>
