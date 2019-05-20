@@ -28,6 +28,15 @@ class Product_details_m extends CI_Model {
 		return $query->result();
 	}
 
+	public function fetch_raw_color($raw_category){
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_category',$raw_category);
+		$this->db->group_by('raw_color_code');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function brand_models($brand_name){
 		$this->db->select('*');
 		$this->db->from('raw_materials');
