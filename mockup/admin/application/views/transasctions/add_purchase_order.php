@@ -28,7 +28,24 @@
 			.table td{
 				vertical-align: middle !important;
 			}
+		input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 		</style>
+	<style>
+		.intro {
+			border:1px solid red;
+			}
+	</style>
+
        <?php $this->load->view('common/metalinks');?>
 	</head>
 	<body class="app sidebar-mini rtl">
@@ -125,7 +142,7 @@
 														<h5>Place of Supply</h5>
 													</div>
 													<div class="col-md-8">
-														<select name="place_of_supply" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value)">
+														<select name="place_of_supply" id="myselect" class="form-control select2-show-search placeofsupply" onchange="get_state(this.value)">
 														 	<option value="" disabled selected>Choose State</option>
 														 	<?php
 															  	foreach($fetch_cities AS $each_fetch_cities){
@@ -156,7 +173,7 @@
 										<div class="table-responsive push" id="create_invoice">
 											<table class="table table-bordered table-hover">
 												<tr>
-													<th class="text-center " style="width: 20%">Product</th>
+													<th class="text-center " style="width: 15%">Product</th>
 													<th class="text-center" style="width: 1%">Quantity</th>
 													<th class="text-center" style="width: 1%">Amount</th>
 													<th class="text-center state_same" style="width: 20%" colspan="2">Tax</th>
@@ -178,29 +195,20 @@
 													<th>Add&nbsp;More</th>
 												</tr>
 											
-												<tr class="clone_row">
+												<tr class="clone_row_1">
 													<td>
-														<select class="form-control select2-show-search" name="product_name" onchange="prod_datazz(this.value,'1')">
-															<option value="" selected="" disabled="">Choose Product</option>
-															<?php
-																foreach($fetch_products AS $each_product){
-															?>
-																<option value="<?php echo $each_product->product_id;?>"><?php echo ucfirst($each_product->product_title);?></option>
-															<?php
-																}
-															?>
-														</select>
+														<input type="text" class="form-control yoo" name="raw_id" onchange="prod_datazz(this.value,'1')" placeholder="Enter Raw Id">
 													</td>
 													<td class="text-center">
 														<div class="quantity buttons_added">
-															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
+															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" id="qty_1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
 														</div>
 													</td>
 													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_1">0</span>x<span class="quantzz_1">1</span></td>
-													<td class="text-center state_same gst_rate_1" id="cgst_rate">0%</td>
-													<td class="text-center state_same gst_rate_1" id="sgst_rate">0%</td>
-													<td class="text-center state_not_same gst_rate_1" id="igst_rate">0%</td>
-													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title">0</span></td>
+													<td class="text-center state_same gst_rate_1 cgst_rating_1" id="cgst_rate">0%</td>
+													<td class="text-center state_same gst_rate_1 sgst_rating_1" id="sgst_rate">0%</td>
+													<td class="text-center state_not_same gst_rate_1 igst_rating_1" id="igst_rate">0%</td>
+													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title_1">0</span></td>
 
 													<td class="text-center add_more" style="border:none;"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
 												</tr>
@@ -289,22 +297,22 @@
 			  var wrapper         = $(".clone_row"); //Fields wrapper
 			  var add_button      = $(".add_more"); //Add button ID
 			  
-			  var fetch_products = <?php echo json_encode($fetch_products);?>;
+			 // var fetch_products = <?php echo json_encode($fetch_products);?>;
 			  /*var get_categories = <?php echo json_encode($get_categories)?>;*/
 
 			  var x = 1; //initlal text box count
 			  $(add_button).click(function(e){ //on add input button click
-					
+				//alert('yoo');	
 				e.preventDefault();
 				if(x < max_fields){ //max input box allowed
 				  x++; //text box increment
-				  var htmlz = "<td><select class='form-control select2-show-search pro_data' name='product_name' onchange='prod_datazz(this.value,"+x+");'><option value='' selected='' disabled=''>Choose Product</option></select></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span class='pro_price_"+x+"'>0</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center state_same gst_rate_"+x+"'>0%</td><td class='text-center state_same gst_rate_"+x+"'>0%</td><td class='text-center state_not_same gst_rate_"+x+"'>0%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title'>0</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
+				  var htmlz = "<td><input type='text' class='form-control yoo' name='raw_id' onchange='prod_datazz(this.value,"+x+")' placeholder='Enter Raw Id'></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' id='qty_"+x+"' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span class='pro_price_"+x+"'>0</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center state_same gst_rate_"+x+" cgst_rating_"+x+"'>0%</td><td class='text-center state_same gst_rate_"+x+" sgst_rating_"+x+"' >0%</td><td class='text-center state_not_same gst_rate_"+x+" igst_rating_"+x+"'>0%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title_"+x+"'>0</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
 				}
-				$(".clone_row").after("<tr>"+htmlz+"</tr>");
-				$.each(fetch_products, function () {
+				$(".clone_row_1").after("<tr class='clone_row_"+x+"'>"+htmlz+"</tr>");
+				/*$.each(fetch_products, function () {
 					var optionHTML = '<option value="'+this.product_id+'">'+this.product_title+'</option>';
 					$(".pro_data").append(optionHTML);
-				});
+				});*/
 				$('select').select2();
 				$('.state_same').show();
 				$('.state_not_same').hide();
@@ -333,7 +341,7 @@
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
-				
+					//alert(response);
 				  $('.gst_details').val(response);
 				}
 			    });
@@ -342,7 +350,7 @@
 				data: {'supp_id': e,},
 				type: "post",
 				success: function(response){
-					alert(response);
+					//alert(response);
 				  $('.placeofsupply').html(response);
 				  $('.suppl_state').html(response);
 				  $('#create_invoice').show();
@@ -354,7 +362,10 @@
 
 			function get_state(state){
 				var placeofsupply = state;
+				alert(state);
+				
 				var fetch_supply_state = $('.suppl_state').val();
+				alert(fetch_supply_state);
 				if(placeofsupply == fetch_supply_state){
 					$('.state_same').show();
 					$('.state_not_same').hide();
@@ -364,39 +375,44 @@
 				}
 			}
 			
-			function prod_datazz(prod_id,idzzz){
+			function prod_datazz(raw_id,idzzz){
 				//alert(idzzz);
+				var supply =  $('#myselect option:selected').val();
+				
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_fetch_prod_details',
-				data: {'product_id': prod_id,},
+				data: {'raw_id': raw_id,'count_id':idzzz,'supply':supply},
 				type: "post",
-				dataType: 'json',
-					success: function(response){
-						$('.pro_price_'+idzzz+'').html(response.product_retail_price);
-						$('.gst_rate_'+idzzz+'').html(response.raw_gst_rate);					
-					}
+			
+				success: function(response){
+					//alert(response);
+				  $(".clone_row_"+idzzz+'').html(response);
+					
+
+				}
 			  	});
 			}
 
 			function quantity_amtzz(quantity,idzz){
-				var subTotal = 0;
-				var quant = 0;
-				if(quantity != ''){
-					var quant = quantity;
-					$('.quantzz_'+idzz+'').html(quant);
-					var amount = parseFloat($('.pro_price_'+idzz+'').html());
-					var gst_rate = parseFloat($('.gst_rate_'+idzz+'').html());
-					var tax_amount = parseFloat(amount*(gst_rate/100));
-					var Total = parseFloat(quant*(amount+tax_amount));
-					$('#total_amount_'+idzz+' span').html(Total);
-				}else{
-					var quant = 1;
-					var amount = parseFloat($('.pro_price_'+idzz+'').html());
-					var gst_rate = parseFloat($('.gst_rate_'+idzz+'').html());
-					var tax_amount = parseFloat(amount*(gst_rate/100));
-					var Total = parseFloat(quant*(amount+tax_amount));
-					$('#total_amount_'+idzz+' span').html(Total);
-				}
+			
+				var raw_total_price  = parseInt($('.card-title_'+idzz+'').text());
+				var amount = parseInt($('.pro_price_'+idzz+'').text());
+				var cgst = parseInt($('.cgst_rating_'+idzz+'').text());
+				var sgst = parseInt($('.sgst_rating_'+idzz+'').text());
+				var igst = parseInt($('.igst_rating_'+idzz+'').text());
+	
+				$('.quantzz_'+idzz+'').text(quantity);
+				var qty_price = 
+				
+				
+				
+				
+
+				
+				
+
+				
+		
 			}
 
 		</script>

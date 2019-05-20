@@ -27,8 +27,9 @@ class Purchase_order_m extends CI_Model {
 
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->where('user_id',$supplier_id);
-		$this->db->where('user_status','1');
+		$this->db->join('user_address','user_address.user_id = user.user_id');
+		$this->db->where('user.user_id',$supplier_id);
+		//$this->db->where('user.user_status','1');
 		$query = $this->db->get();
 		return $query->row();
 	}
@@ -42,13 +43,11 @@ class Purchase_order_m extends CI_Model {
 		return $query->result();
 	}
 
-	public function fetch_products_from_id($product_id){
+	public function fetch_products_from_id($raw_id){
 
 		$this->db->select('*');
-		$this->db->from('products');
-		$this->db->join('raw_materials','products.raw_id = raw_materials.raw_id');
-		$this->db->where('products.product_id',$product_id);
-		$this->db->where('products.product_status','1');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_id',$raw_id);
 		$query = $this->db->get();
 		return $query->row();
 	}
@@ -59,6 +58,24 @@ class Purchase_order_m extends CI_Model {
 		$this->db->group_by('city_state');
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	public function yoo_city_name($city)
+	{
+		$this->db->select('*');
+		$this->db->from('cities');
+		$this->db->where('city_id',$city);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function fetch_raw_from_id($raw_id)
+	{
+		$this->db->select('*');
+		$this->db->from('raw_materials');
+		$this->db->where('raw_id',$raw_id);
+		$query = $this->db->get();
+		return $query->row();
 	}
 
 }
