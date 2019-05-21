@@ -22,8 +22,8 @@
 	</script>
 </head>
 <?php
-	
 	print_r($fetch_address_data);
+
 ?>
 <!-- onload="document.customerData.submit()" -->
 <body>
@@ -39,15 +39,15 @@
 			<input type="text" name="tid" id="tid" readonly />
 			<input type="text" name="merchant_id" value="185282"/>
 			<input type="text" name="order_id" value="123654789"/>
-			<input type="text" name="amount" value="<?php echo $total_amount;?>"/>
+			<input type="text" name="amount" value="123"/>
 			<input type="text" name="currency" value="INR"/>
 			<input type="text" name="redirect_url" value="https://www.eazyprint.in/IFRAME_KIT/ccavResponseHandler.php"/>
 			<input type="text" name="cancel_url" value="https://www.eazyprint.in/IFRAME_KIT/ccavResponseHandler.php"/>
 			<input type="text" name="language" value="EN"/>
 
 			
-			<input type="text" name="billing_name" value="Charli"/>
-			<input type="text" name="billing_address" value="Room no 1101, near Railway station Ambad"/>
+			<input type="text" name="billing_name" value="<?php echo $fetch_address_data->full_name;?>"/>
+			<input type="text" name="billing_address" value="<?php echo $fetch_address_data->full_name;?>"/>
 			<input type="text" name="billing_city" value="Indore"/>
 			<input type="text" name="billing_state" value="MP"/>
 			<input type="text" name="billing_zip" value="425001"/>
