@@ -11,7 +11,15 @@ class Checkout_m extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
-
+	
+	public function user_address_active($user_id){
+		$this->db->select("*");
+		$this->db->from("user_address");
+		$this->db->where('user_id',$user_id);
+		$this->db->where('address_status',"1");
+		$query = $this->db->get();
+		return $query->row();
+	}
 	public function user_address_detailzz($user_id){
 		$this->db->select('*');
 		$this->db->from('user_address');

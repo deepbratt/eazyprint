@@ -337,33 +337,26 @@ class Checkout extends CI_Controller {
 			$data['fetch_prod_data'] = $this->checkout_m->cart_info($data['user_id'],$ip_data);
 			
 			if(!empty($data['fetch_prod_data'])){
-				$data['fetch_address_data'] = $this->checkout_m->address_info($data['user_id'],$ip_data);
-				if($data['fetch_address_data']->address_id != ''){
+				$data['fetch_address_data'] = $this->checkout_m->user_address_detailzz($data['user_id']);
+				$amount_array = array();
+				$quantity_array = array();
+				$gst_tax_array_each_product = array();
+				$original_cost = array();
+				$gst_tax = array();
+				$total_payable = array();
+				foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
+					$amount_array[] = $each_cart_data->price;
+					$quantity_array[] = $each_cart_data->qty;
+					$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
 
-					$amount_array = array();
-					$quantity_array = array();
-					$gst_tax_array_each_product = array();
-					$original_cost = array();
-					$gst_tax = array();
-					$total_payable = array();
-					foreach($data['fetch_prod_data'] AS $key=>$each_cart_data){
-						$amount_array[] = $each_cart_data->price;
-						$quantity_array[] = $each_cart_data->qty;
-						$gst_tax_array_each_product[] = $each_cart_data->raw_gst_rate;
-
-						$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
-						$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-						$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
-					}
-				
-					$data['total_amount'] = array_sum($original_cost);
-
-				
-					$data['total_payable'] = array_sum($total_payable);
-					
-				
-					$this->load->view('ccavenue/datafrom',$data);
+					$original_cost[] = ($each_cart_data->price * $each_cart_data->qty);
+					$gst_tax[] = ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
+					$total_payable[] =  ($each_cart_data->price * $each_cart_data->qty) - ($each_cart_data->raw_gst_rate * ($each_cart_data->price * $each_cart_data->qty)/100);
 				}
+			
+				$data['total_amount'] = array_sum($original_cost);				
+				$this->load->view('ccavenue/datafrom',$data);
+
 			}
 		}
 		$this->load->view('ccavenue/datafrom',$data);
