@@ -183,14 +183,14 @@ input[type=number] {
 												</tr>
 												<tr class="state_same">
 													<th colspan="3"></th>
-													<th class="text-center">CGST</th>
-													<th class="text-center">SGST</th>
+													<th class="text-center">CGST (<i class="fas fa-rupee-sign"></i>)</th>
+													<th class="text-center">SGST (<i class="fas fa-rupee-sign"></i>)</th>
 													<th></th>
 													<th>Add&nbsp;More</th>
 												</tr>
 												<tr class="state_not_same">
 													<th colspan="3"></th>
-													<th class="text-center">IGST</th>
+													<th class="text-center">IGST (<i class="fas fa-rupee-sign"></i>)</th>
 													<th></th>
 													<th>Add&nbsp;More</th>
 												</tr>
@@ -203,12 +203,17 @@ input[type=number] {
 														<div class="quantity buttons_added">
 															<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" id="qty_1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'1')"><input type="button" value="+" class="plus">
 														</div>
+
+														<span class="gst_charge_1" style="display:none;">0</span> 
 													</td>
-													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_1">0</span>x<span class="quantzz_1">1</span></td>
-													<td class="text-center state_same gst_rate_1 cgst_rating_1" id="cgst_rate">0%</td>
-													<td class="text-center state_same gst_rate_1 sgst_rating_1" id="sgst_rate">0%</td>
-													<td class="text-center state_not_same gst_rate_1 igst_rating_1" id="igst_rate">0%</td>
-													<td class="text-right combat" id="total_amount_1"><i class="fas fa-rupee-sign"></i><span class="card-title_1">0</span></td>
+													<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_1">0</span></td>
+													<td class="text-center state_same gst_rate_1 " id="cgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<span class="cgst_rating_1">0</span></td>
+													<td class="text-center state_same gst_rate_1 " id="sgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<span class="sgst_rating_1">0</span></td>
+													<td class="text-center state_not_same gst_rate_1 " id="igst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<span class="igst_rating_1">0</span></td>
+													<td class="text-right combat" id="total_amount_1">
+													<i class="fas fa-rupee-sign"></i><span class="card-title_1">0</span>
+													<span class="purchase_price_1" style="display:none;">0</span>
+													</td>
 
 													<td class="text-center add_more" style="border:none;"><a href="javascript:void(0);"><i class="fas fa-plus-circle" style="font-size:20px;color:green;"></i></a></td>
 												</tr>
@@ -306,7 +311,7 @@ input[type=number] {
 				e.preventDefault();
 				if(x < max_fields){ //max input box allowed
 				  x++; //text box increment
-				  var htmlz = "<td><input type='text' class='form-control yoo' name='raw_id' onchange='prod_datazz(this.value,"+x+")' placeholder='Enter Raw Id'></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' id='qty_"+x+"' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span class='pro_price_"+x+"'>0</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center state_same gst_rate_"+x+" cgst_rating_"+x+"'>0%</td><td class='text-center state_same gst_rate_"+x+" sgst_rating_"+x+"' >0%</td><td class='text-center state_not_same gst_rate_"+x+" igst_rating_"+x+"'>0%</td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title_"+x+"'>0</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
+				  var htmlz = "<td><input type='text' class='form-control yoo' name='raw_id' onchange='prod_datazz(this.value,"+x+")' placeholder='Enter Raw Id'></td><td class='text-center'><div class='quantity buttons_added'><input type='button' value='-' class='minus'><input type='number' step='1' min='1' max='' name='quantity' value='1' id='qty_"+x+"' title='Qty' class='input-text qty text' size='4' pattern='' inputmode='' onchange='quantity_amtzz(this.value,"+x+")'><input type='button' value='+' class='plus'></div><span class='gst_charge_"+x+"'></span></td><td class='text-right' id='amountzz'><i class='fas fa-rupee-sign'></i><span class='pro_price_"+x+"'>0</span>x<span class='quantzz_"+x+"'>1</span></td><td class='text-center state_same gst_rate_"+x+"'><i class='fas fa-rupee-sign'></i><span class='cgst_rating_"+x+"'>0</span></td><td class='text-center state_same gst_rate_"+x+"'><i class='fas fa-rupee-sign'></i><span class='sgst_rating_"+x+"'>0</span></td><td class='text-center state_not_same gst_rate_"+x+"'><i class='fas fa-rupee-sign'></i><span class='igst_rating_"+x+"'>0</span></td><td class='text-right' id='total_amount_"+x+"'><i class='fas fa-rupee-sign'></i><span class='card-title_"+x+"'>0</span><span class='purchase_price_"+x+" ' style='display:none;'>0</span></td><td class='text-center' style='border:none;'><a href='javascript:void(0);' onclick='remove_rowzz(this);'><i class='fas fa-minus-circle' style='font-size:20px;color:red;'></i></a></td>"; //add input box
 				}
 				$(".clone_row_1").after("<tr class='clone_row_"+x+"'>"+htmlz+"</tr>");
 				/*$.each(fetch_products, function () {
@@ -328,6 +333,7 @@ input[type=number] {
 		</script>
 		<script>
 			function supplierzz_id(e){
+				
 				$.ajax({
 				url: '<?php echo base_url();?>add_purchase_order/ajax_supplier_addr',
 				data: {'supp_id': e,},
@@ -362,10 +368,9 @@ input[type=number] {
 
 			function get_state(state){
 				var placeofsupply = state;
-				alert(state);
-				
+
 				var fetch_supply_state = $('.suppl_state').val();
-				alert(fetch_supply_state);
+			
 				if(placeofsupply == fetch_supply_state){
 					$('.state_same').show();
 					$('.state_not_same').hide();
@@ -393,27 +398,31 @@ input[type=number] {
 			  	});
 			}
 
-			function quantity_amtzz(quantity,idzz){
-			
-				var raw_total_price  = parseInt($('.card-title_'+idzz+'').text());
-				var amount = parseInt($('.pro_price_'+idzz+'').text());
-				var cgst = parseInt($('.cgst_rating_'+idzz+'').text());
-				var sgst = parseInt($('.sgst_rating_'+idzz+'').text());
-				var igst = parseInt($('.igst_rating_'+idzz+'').text());
-	
-				$('.quantzz_'+idzz+'').text(quantity);
-				var qty_price = 
+			function quantity_amtzz(qty,idzz)
+			{
+				var purchase_price = parseInt($('.purchase_price_'+idzz+'').text());
+				var gst_percentage = parseInt($('.gst_charge_'+idzz+'').text());
+				var total_price = purchase_price * qty;
 				
-				
-				
+				var gst = Math.round(total_price*(gst_percentage/100));
+				var excluding_gst_price = total_price - gst;
+				var cgst = (gst/2);
+				var sgst = gst-cgst;
+				var igst = gst;
+
+				$('.pro_price_'+idzz+'').text(excluding_gst_price);
+				$('.cgst_rating_'+idzz+'').text(cgst);
+				$('.sgst_rating_'+idzz+'').text(sgst);
+				$('.igst_rating_'+idzz+'').text(igst);
+				$('.card-title_'+idzz+'').text(total_price);
+
 				
 
 				
-				
 
-				
-		
 			}
+
+	
 
 		</script>
 		

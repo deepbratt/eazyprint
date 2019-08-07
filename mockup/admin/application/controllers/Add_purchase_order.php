@@ -108,16 +108,19 @@ class Add_purchase_order extends CI_Controller {
 			<div class="quantity buttons_added">
 				<input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" id="qty_<?php echo $id;?>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" onchange="quantity_amtzz(this.value,'<?php echo $id;?>')"><input type="button" value="+" class="plus">
 			</div>
+			<span class="gst_charge_<?php echo $id;?>" style="display:none;"><?php echo $raw_gst;?></span> 
 		</td>
 		
-		<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_<?php echo $id;?>">&nbsp;<?php echo $price;?></span>x<span class="quantzz_<?php echo $id;?>">1</span></td>
+		<td class="text-right" id="amountzz"><i class="fas fa-rupee-sign"></i><span class="pro_price_<?php echo $id;?>">&nbsp;<?php echo $price;?></span></td>
 		
-		<td class="text-center state_same gst_rate_<?php echo $id;?> cgst_rating_<?php echo $id;?>" style="<?php echo (($supply_place != 'West Bengal')?'display:none':'');?>" id="cgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<?php echo $ctaxamt;?><span>(<?php echo $ctax_percentage;?>%)</span></td>
-		<td class="text-center state_same gst_rate_<?php echo $id;?> sgst_rating_<?php echo $id;?>" style="<?php echo (($supply_place != 'West Bengal')?'display:none':'');?>" id="sgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<?php echo $staxamt;?>(<?php echo $stax_percentage;?>%)</td>
+		<td class="text-center state_same gst_rate_<?php echo $id;?> " style="<?php echo (($supply_place != 'West Bengal')?'display:none':'');?>" id="cgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<span class="cgst_rating_<?php echo $id;?>"><?php echo $ctaxamt;?></span></td>
+		<td class="text-center state_same gst_rate_<?php echo $id;?> " style="<?php echo (($supply_place != 'West Bengal')?'display:none':'');?>" id="sgst_rate"><i class="fas fa-rupee-sign"></i>&nbsp;<span class="sgst_rating_<?php echo $id;?>"><?php echo $staxamt;?></span></td>
 	
-		<td class="text-center state_not_same gst_rate_<?php echo $id;?> igst_rating_<?php echo $id;?>" style="<?php echo (($supply_place == 'West Bengal')?'display:none':'');?>" id="igst_rate"><i class="fas fa-rupee-sign"></i><?php echo $itaxamt;?>(<?php echo $itax_percentage;?>%)</td> 
+		<td class="text-center state_not_same gst_rate_<?php echo $id;?> " style="<?php echo (($supply_place == 'West Bengal')?'display:none':'');?>" id="igst_rate"><i class="fas fa-rupee-sign"></i><span class="igst_rating_<?php echo $id;?>"><?php echo $itaxamt;?></span></td> 
 		
-		<td class="text-right combat" id="total_amount_<?php echo $id;?>"><i class="fas fa-rupee-sign"></i><span class="card-title_<?php echo $id;?>"><?php echo $raw_price;?></span></td>
+		<td class="text-right combat" id="total_amount_<?php echo $id;?>"><i class="fas fa-rupee-sign"></i><span class="card-title_<?php echo $id;?>"><?php echo $raw_price;?></span>
+		<span class="purchase_price_<?php echo $id;?>" style="display:none;"><?php echo $raw_price;?></span>
+		</td>
 		<?php
 			if($id == '1')
 		{
