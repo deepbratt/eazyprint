@@ -4,15 +4,15 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
         <meta charset="utf-8">
-        <title>Merchandise maker for Youtubers | Eazyprint</title>
+        <title>Merchandise maker for Youtubers | Spreadshop</title>
         <meta name="description" content="Open your own free print-on-demand shop and make money off your YouTube channel by selling merchandise. We handle inventory, shipping and customer service for you.">
-        <meta name="title" content="Merchandise maker for Youtubers | Eazyprint">
+        <meta name="title" content="Merchandise maker for Youtubers | Spreadshop">
         <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
         <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">
 		<?php include ('metalinks.php');?>
-            </head>
+    </head>
     <body class="sprd-responsive-cnt">
-		<?php include ('header.php');?>      
+	<?php include ('header.php');?>      
         <main>
             
 
@@ -23,7 +23,7 @@
             <div class="teaser__wrapper">
                 <h1 class="h0">YouTube Merchandise Maker</h1>
                 <h3 class="h4">Create and sell merchandise for your YouTube community in your own free Shop</h3>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint</div>
+                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Spreadshop</div>
             </div>
         </div>
     </section>
@@ -54,7 +54,7 @@
             </div>
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="images/OpenShop" alt="OOpen Shop">
+                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/OpenShop" alt="OOpen Shop">
                 </div>
                 <div class="howTo__text">
                     <h3>Open your own Shop</h3>
@@ -64,7 +64,7 @@
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="images/UploadDesigns" alt="Upload Designs">
+                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/UploadDesigns" alt="Upload Designs">
                 </div>
                 <div class="howTo__text">
                     <h3>Upload your designs</h3>
@@ -74,7 +74,7 @@
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="images/LinkYourYT" alt="Link Youtube">
+                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/LinkYourYT" alt="Link Youtube">
                 </div>
                 <div class="howTo__text">
                     <h3>Link your YouTube channel with your Shop</h3>
@@ -84,7 +84,7 @@
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="images/LinkYourShop" alt="Share Merch">
+                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/LinkYourShop" alt="Share Merch">
                 </div>
                 <div class="howTo__text">
                     <h3>Share your merch shop with your fans!</h3>
@@ -107,9 +107,9 @@
 
         <div class="products__image">
             <picture>
-                <source srcset="images/products_mobile" media="(max-width: 480px)">
-                <source srcset="images/products_desktop" media="(min-width: 481px)">
-                <img src="images/products_desktop" alt="Products">
+                <source srcset="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_mobile" media="(max-width: 480px)">
+                <source srcset="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_desktop" media="(min-width: 481px)">
+                <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_desktop" alt="Products">
             </picture>
         </div>
 
@@ -128,7 +128,7 @@
         </div>
 
         <div class="products__button">
-            <a class="sprd-button ghost ghost--dark" href="#">See All Products</a>
+            <a class="sprd-button ghost ghost--dark" href="https://www.spreadshop.com/assortment">See All Products</a>
         </div>
     </section>
 
@@ -138,7 +138,7 @@
             <h2 class="h1 text-center">Promote Your Merch</h2>
             <div class="row">
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="#">
+                    <a href="https://www.spreadshirt.com/blog/tag/shop-marketing/">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -151,7 +151,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="#">
+                    <a href="https://www.spreadshirt.com/blog">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -163,7 +163,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="#">
+                    <a href="https://www.spreadshirt.com/blog/2016/11/21/placeit-customizable-advertising-material-for-your-shop/">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -175,7 +175,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="#">
+                    <a href="https://www.spreadshirt.com/blog/2014/08/13/google-adwords-tips-for-partners/">
                         <div class="promote__image">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <g>
@@ -201,12 +201,12 @@
                     </div>
 
                     <div class="service__image h1">
-                        <img src="images/design-services.gif" alt="Design Service">
+                        <img src="//www.spreadshop.com/content/pages/YoutubeMerchandiseMaker/design-services.gif" alt="Design Service">
                     </div>
 
                     <div class="service__text">
                         <p>Need your own custom design? We've got your back! Our premium design team will put their creativity to work, so you'll have AMAZING designs that will WOW your fans!</p>
-                        <a class="sprd-button ghost ghost--dark" href="#">
+                        <a class="sprd-button ghost ghost--dark" href="https://www.spreadshop.com/premiumdesign">
                             Get Your Own Design
                         </a>
                     </div>
@@ -222,7 +222,7 @@
 
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="#" alt="Zack D'Ulisse">
+                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials3" alt="Zack D'Ulisse">
                     </div>
                     <div class="creators__text">
                         <strong>Zack D'Ulisse</strong>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="#" alt="Jeff Rice">
+                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials2" alt="Jeff Rice">
                     </div>
                     <div class="creators__text">
                         <strong>Jeff Rice</strong>
@@ -240,7 +240,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="#" alt="Jeremy Kalgreen">
+                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials1" alt="Jeremy Kalgreen">
                     </div>
                     <div class="creators__text">
                         <strong>Jeremy Kalgreen</strong>
@@ -249,7 +249,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="#" alt="Robbert Muurbloempje">
+                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials4" alt="Robbert Muurbloempje">
                     </div>
                     <div class="creators__text">
                         <strong>Robbert Muurbloempje</strong>
@@ -292,5 +292,9 @@
     </section>
 </div>        </main>
 
-      <?php include ('footer.php');?>
+    <?php include ('footer.php');?> 
+	<script src="js/script_merch_maker.js">
+    </script> 
+		
+</body>
 </html>

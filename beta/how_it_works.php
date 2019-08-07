@@ -208,6 +208,8 @@
 </div>        </main>
 
 <?php include ('footer.php');?>
+<script src="js/script_how_it_works.js">
+    </script> 
 
          </body>
 </html>
