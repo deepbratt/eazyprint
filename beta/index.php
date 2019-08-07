@@ -38,27 +38,27 @@
                 <div class="swiper-wrapper">
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="//www.spreadshop.com/content/f_auto,q_70/pages/homepage/teaser1" alt="Spreadshop Teaser">
+                      <img src="images/teaser1" alt="Spreadshop Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="//www.spreadshop.com/content/f_auto,q_70/pages/homepage/teaser2" alt="Spreadshop Teaser">
+                      <img src="images/teaser2" alt="Spreadshop Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="//www.spreadshop.com/content/f_auto,q_70/pages/homepage/teaser3" alt="Spreadshop Teaser">
+                      <img src="images/teaser3" alt="Spreadshop Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="//www.spreadshop.com/content/f_auto,q_70/pages/homepage/teaser4" alt="Spreadshop Teaser">
+                      <img src="images/teaser4" alt="Spreadshop Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="//www.spreadshop.com/content/f_auto,q_70/pages/homepage/teaser5" alt="Spreadshop Teaser">
+                      <img src="images/teaser5" alt="Spreadshop Teaser">
                     </div>
                   </div>
                 </div>
@@ -103,8 +103,8 @@
               </div>
               <div class="col-12 col-lg-7">
                 <div class="shop-examples__image-wrapper">
-                  <img class="shop-examples__image shop-examples__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/ShopSample_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/ShopSample_1" alt="Shop Examples">                        
-                  <img class="shop-examples__image shop-examples__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/ShopSample_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/ShopSample_2" alt="Shop Examples">                    
+                  <img class="shop-examples__image shop-examples__image--1 lazyload" src="images/ShopSample_1" data-src="images/ShopSample_1" alt="Shop Examples">                        
+                  <img class="shop-examples__image shop-examples__image--2 lazyload" src="images/ShopSample_2" data-src="images/ShopSample_2" alt="Shop Examples">                    
                 </div>
               </div>
             </div>
@@ -209,16 +209,16 @@
               <div class="col-12 col-lg-7">
                 <div class="products__image-wrapper">
                   <div>
-                    <img class="products__image products__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_470x510_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_470x510_1" alt="Product Examples">                            
-                    <img class="products__image products__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_470x510_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_470x510_2" alt="Product Examples">                        
+                    <img class="products__image products__image--1 lazyload" src="images/products_470x510_1" data-src="images/products_470x510_1" alt="Product Examples">                            
+                    <img class="products__image products__image--1 lazyload" src="images/products_470x510_2" data-src="images/products_470x510_2" alt="Product Examples">                        
                   </div>
                   <div>
-                    <img class="products__image products__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_330x330_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_330x330_1" alt="Product Examples">                            
-                    <img class="products__image products__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_330x330_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_330x330_2" alt="Product Examples">                        
+                    <img class="products__image products__image--2 lazyload" src="images/products_330x330_1" data-src="images/products_330x330_1" alt="Product Examples">                            
+                    <img class="products__image products__image--2 lazyload" src="images/products_330x330_2" data-src="images/products_330x330_2" alt="Product Examples">                        
                   </div>
                   <div>
-                    <img class="products__image products__image--3 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_355x355_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_355x355_1" alt="Product Examples">                            
-                    <img class="products__image products__image--3 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/products_355x355_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/products_355x355_2" alt="Product Examples">                        
+                    <img class="products__image products__image--3 lazyload" src="images/products_355x355_1" data-src="images/products_355x355_1" alt="Product Examples">                            
+                    <img class="products__image products__image--3 lazyload" src="images/products_355x355_2" data-src="images/products_355x355_2" alt="Product Examples">                        
                   </div>
                 </div>
               </div>
@@ -297,7 +297,7 @@
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_ChefShirts" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_ChefShirts" data-src="images/spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_ChefShirts" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                                
@@ -317,7 +317,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_HighFrontier" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_HighFrontier" alt="Spotlight The High Frontier">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_HighFrontier" data-src="images/spotlight_HighFrontier" alt="Spotlight The High Frontier">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_HighFrontier" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_HighFrontier" alt="Spotlight The High Frontier">                                                
@@ -337,7 +337,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_LittleAdventure" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_LittleAdventure" data-src="images/spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_LittleAdventure" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                                
@@ -357,7 +357,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_DadsLife" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_DadsLife" alt="Spotlight Dad’s Life">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_DadsLife" data-src="images/spotlight_DadsLife" alt="Spotlight Dad’s Life">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_DadsLife" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_DadsLife" alt="Spotlight Dad’s Life">                                                
@@ -377,7 +377,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_Waldogs" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_Waldogs" alt="Spotlight Waldogs">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_Waldogs" data-src="images/spotlight_Waldogs" alt="Spotlight Waldogs">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Waldogs" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Waldogs" alt="Spotlight Waldogs">                                                
@@ -397,7 +397,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_DangerEcole" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_DangerEcole" data-src="images/spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_DangerEcole" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                                
@@ -417,7 +417,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_Nektarinchen" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_Nektarinchen" data-src="images/spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Nektarinchen" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                                
@@ -437,7 +437,7 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/spotlight_Amorphia" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                        
+                        <img class="d-none d-lg-block lazyload" src="images/spotlight_Amorphia" data-src="images/spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Amorphia" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                                
@@ -496,43 +496,43 @@
             <div class="swiper-container js-slider-designs">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/1" alt="Design Example">                    
+                  <img class=" lazyload" src="images/1" data-src="images/1" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/2" alt="Design Example">                    
+                  <img class=" lazyload" src="images/2" data-src="images/2" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/3" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/3" alt="Design Example">                    
+                  <img class=" lazyload" src="images/3" data-src="images/3" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/4" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/4" alt="Design Example">                    
+                  <img class=" lazyload" src="images/4" data-src="images/4" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/5" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/5" alt="Design Example">                    
+                  <img class=" lazyload" src="images/5" data-src="images/5" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/6" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/6" alt="Design Example">                    
+                  <img class=" lazyload" src="images/6" data-src="images/6" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/7" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/7" alt="Design Example">                    
+                  <img class=" lazyload" src="images/7" data-src="images/7" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/8" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/8" alt="Design Example">                    
+                  <img class=" lazyload" src="images/8" data-src="images/8" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/9" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/9" alt="Design Example">                    
+                  <img class=" lazyload" src="images/9" data-src="images/9" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/10" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/10" alt="Design Example">                    
+                  <img class=" lazyload" src="images/10" data-src="images/10" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/11" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/11" alt="Design Example">                    
+                  <img class=" lazyload" src="images/11" data-src="images/11" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/12" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/12" alt="Design Example">                    
+                  <img class=" lazyload" src="images/12" data-src="images/12" alt="Design Example">                    
                 </div>
                 <div class="swiper-slide">
-                  <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/designs/13" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/designs/13" alt="Design Example">                    
+                  <img class=" lazyload" src="images/13" data-src="images/13" alt="Design Example">                    
                 </div>
               </div>
             </div>
@@ -554,19 +554,19 @@
               <div class="col-12 col-lg-7">
                 <div class="team__image-wrapper">
                   <div>
-                    <img class="team__image team__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_470x510_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_470x510_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_470x510_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_470x510_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--1 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_470x510_3" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_470x510_3" alt="Spreadshop Team">                        
+                    <img class="team__image team__image--1 lazyload" src="images/people_470x510_1" data-src="images/people_470x510_1" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--1 lazyload" src="images/people_470x510_2" data-src="images/people_470x510_2" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--1 lazyload" src="images/people_470x510_3" data-src="images/people_470x510_3" alt="Spreadshop Team">                        
                   </div>
                   <div>
-                    <img class="team__image team__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_330x330_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_330x330_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_330x330_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_330x330_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--2 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_330x330_3" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_330x330_3" alt="Spreadshop Team">                        
+                    <img class="team__image team__image--2 lazyload" src="images/people_330x330_1" data-src="images/people_330x330_1" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--2 lazyload" src="images/people_330x330_2" data-src="images/people_330x330_2" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--2 lazyload" src="images/people_330x330_3" data-src="images/people_330x330_3" alt="Spreadshop Team">                        
                   </div>
                   <div>
-                    <img class="team__image team__image--3 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_355x355_1" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_355x355_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--3 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_355x355_2" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_355x355_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--3 lazyload" src="//www.spreadshop.com/content/f_auto,q_60,e_blur:2000/pages/homepage/people_355x355_3" data-src="//www.spreadshop.com/content/f_auto,q_60/pages/homepage/people_355x355_3" alt="Spreadshop Team">                        
+                    <img class="team__image team__image--3 lazyload" src="images/people_355x355_1" data-src="images/people_355x355_1" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--3 lazyload" src="images/people_355x355_2" data-src="images/people_355x355_2" alt="Spreadshop Team">                            
+                    <img class="team__image team__image--3 lazyload" src="images/people_355x355_3" data-src="images/people_355x355_3" alt="Spreadshop Team">                        
                   </div>
                 </div>
               </div>
@@ -602,7 +602,7 @@
             <div class="blog__post-wrapper row">
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/31/your-shop-your-style-customize-your-shop-theme/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1564586215/MDS-2065_teaser_fqbmcn.jpg" alt="Your Shop, Your Style: Customize your Shop Theme">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/MDS-2065_teaser_fqbmcn" alt="Your Shop, Your Style: Customize your Shop Theme">
                   <small>July 31, 2019
                   </small>
                   <h3>Your Shop, Your Style: Customize your Shop Theme
@@ -611,7 +611,7 @@
               </div>
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/31/sorting-by-topics-create-tool/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1564568090/BP_createTool_teaser_atum75.jpg" alt="Your Topics in the Create Tool">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/BP_createTool_teaser_atum75" alt="Your Topics in the Create Tool">
                   <small>July 31, 2019
                   </small>
                   <h3>Your Topics in the Create Tool
@@ -620,7 +620,7 @@
               </div>
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/30/tool-box-font-combinations-with-canva/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1564480717/MDS-2153-Toolbox-Canva-Fonts_pnxpkw.jpg" alt="Tool Box: Font Combinations with Canva">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/MDS-2153-Toolbox-Canva-Fonts_pnxpkw" alt="Tool Box: Font Combinations with Canva">
                   <small>July 30, 2019
                   </small>
                   <h3>Tool Box: Font Combinations with Canva
@@ -629,7 +629,7 @@
               </div>
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/30/3-facebook-ad-targeting-mistakes-youre-probably-making/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1564478468/MDS-2154-BP-FB-Ads---Targeting_fjpecl.jpg" alt="3 Facebook Ad Targeting Mistakes You’re Probably Making">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/MDS-2154-BP-FB-Ads---Targeting_fjpecl" alt="3 Facebook Ad Targeting Mistakes You’re Probably Making">
                   <small>July 30, 2019
                   </small>
                   <h3>3 Facebook Ad Targeting Mistakes You’re Probably Making
@@ -638,7 +638,7 @@
               </div>
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/30/shop-of-the-month-slinga-illustration/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1564476599/SotM_Blog_EN_pdf4rr.png" alt="Shop of the Month: Slinga Illustration">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/SotM_Blog_EN_pdf4rr" alt="Shop of the Month: Slinga Illustration">
                   <small>July 30, 2019
                   </small>
                   <h3>Shop of the Month: Slinga Illustration
@@ -647,7 +647,7 @@
               </div>
               <div class="blog__post col-12 col-sm-6 col-lg-4">
                 <a href="https://www.spreadshirt.com/blog/2019/07/11/spreadshop-promos-july-september-2019/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://sprdblog-res.cloudinary.com/image/upload/f_auto,q_60,w_500/v1562831563/MDS-2161-BP-Shop-Promos-Q3_dcxrwd.jpg" alt="Spreadshop Promos: July-September 2019">
+                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="images/MDS-2161-BP-Shop-Promos-Q3_dcxrwd" alt="Spreadshop Promos: July-September 2019">
                   <small>July 11, 2019
                   </small>
                   <h3>Spreadshop Promos: July-September 2019
