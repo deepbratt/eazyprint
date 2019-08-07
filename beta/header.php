@@ -1,3 +1,8 @@
+<style>
+header .logo img {
+	height:64px !important;
+}
+</style>
 <header>
       <div class="container">
         <div class="menu-layer js-menu-layer">
@@ -130,7 +135,7 @@
         </nav>        
         <div class="logo">
           <a href="https://www.spreadshop.com">
-            <img src="//www.spreadshop.com/content/v3/assets/spreadshop_logo.svg" title="Spreadshop" alt="Spreadshop">
+            <img src="images/logo.png" title="Spreadshop" alt="Spreadshop">
           </a>
         </div>
         <nav class="nav-user">
