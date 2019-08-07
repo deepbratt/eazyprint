@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/styles_homepage.css">        
+<link rel="stylesheet" href="css/styles_homepage.css">  
+<link rel="stylesheet" href="css/styles_merch_maker.css">
+<link rel="stylesheet" href="css/styles_how_it_works.css">
 <link rel="shortcut icon" type="image/ico" href="images/spreadshop_favicon.png">
 <link rel="apple-touch-icon" href="images/spreadshop_favicon.png">
 <link rel="canonical" href="https://www.spreadshop.com">

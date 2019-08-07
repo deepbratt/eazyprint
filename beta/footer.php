@@ -310,4 +310,8 @@
     <script src="js/script.js">
     </script>
     <script src="js/script_homepage.js">
-    </script>    
+    </script>   
+	 <script src="js/script_merch_maker.js">
+    </script>   
+	<script src="js/script_how_it_works.js">
+    </script>   
