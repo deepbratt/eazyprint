@@ -4,11 +4,11 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
         <meta charset="utf-8">
-        <title>Merchandise maker for Youtubers | Spreadshop</title>
+        <title>Merchandise maker for Youtubers | Eazyprint</title>
         <meta name="description" content="Open your own free print-on-demand shop and make money off your YouTube channel by selling merchandise. We handle inventory, shipping and customer service for you.">
-        <meta name="title" content="Merchandise maker for Youtubers | Spreadshop">
-        <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-        <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">
+        <meta name="title" content="Merchandise maker for Youtubers | Eazyprint">
+        <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
+        <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w"> -->
 		<?php include ('metalinks.php');?>
     </head>
     <body class="sprd-responsive-cnt">
@@ -23,7 +23,7 @@
             <div class="teaser__wrapper">
                 <h1 class="h0">YouTube Merchandise Maker</h1>
                 <h3 class="h4">Create and sell merchandise for your YouTube community in your own free Shop</h3>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Spreadshop</div>
+                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint</div>
             </div>
         </div>
     </section>
@@ -54,41 +54,41 @@
             </div>
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/OpenShop" alt="OOpen Shop">
+                    <img src="images/OpenShop" alt="OOpen Shop">
                 </div>
                 <div class="howTo__text">
                     <h3>Open your own Shop</h3>
-                    <p>If you’re wondering how to make merchandise for your YouTube channel, then you’re in the right place! Opening a Spreadshop is simple. Sign-up takes a matter of minutes. Before you know it, your shop will be up and running, just waiting for your wonderful designs!</p>
+                    <p>If you're wondering how to make merchandise for your YouTube channel, then you're in the right place! Opening a Spreadshop is simple. Sign-up takes a matter of minutes. Before you know it, your shop will be up and running, just waiting for your wonderful designs!</p>
                 </div>
             </div>
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/UploadDesigns" alt="Upload Designs">
+                    <img src="images/UploadDesigns" alt="Upload Designs">
                 </div>
                 <div class="howTo__text">
                     <h3>Upload your designs</h3>
-                    <p>Think of Spreadshop as your own personal YouTube merchandise maker. Whether you have one design or one hundred designs, everything can be easily uploaded onto any of our merchandise. From apparel to drinkware and accessories, you’ll never run out of ideas for your Spreadshop!</p>
+                    <p>Think of Spreadshop as your own personal YouTube merchandise maker. Whether you have one design or one hundred designs, everything can be easily uploaded onto any of our merchandise. From apparel to drinkware and accessories, you'll never run out of ideas for your Spreadshop!</p>
                 </div>
             </div>
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/LinkYourYT" alt="Link Youtube">
+                    <img src="images/LinkYourYT" alt="Link Youtube">
                 </div>
                 <div class="howTo__text">
                     <h3>Link your YouTube channel with your Shop</h3>
-                    <p>One of the greatest benefits of Spreadshop is that you can easily link to your social media accounts from your shop’s header. Utilizing your header image will allow you to drive traffic to your YouTube channel, to your website, to wherever you’d like! So, if you’re looking to create merchandise for YouTubers, Spreadshop is well-equipped with all of the tools you’ll need to succeed.</p>
+                    <p>One of the greatest benefits of Spreadshop is that you can easily link to your social media accounts from your shop's header. Utilizing your header image will allow you to drive traffic to your YouTube channel, to your website, to wherever you'd like! So, if you're looking to create merchandise for YouTubers, Spreadshop is well-equipped with all of the tools you'll need to succeed.</p>
                 </div>
             </div>
 
             <div class="row howTo__item">
                 <div class="howTo__image">
-                    <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/LinkYourShop" alt="Share Merch">
+                    <img src="images/LinkYourShop" alt="Share Merch">
                 </div>
                 <div class="howTo__text">
                     <h3>Share your merch shop with your fans!</h3>
-                    <p>Now it’s time to spread the word about your incredible merchandise! Promote your Spreadshop with YouTube videos and social media posts. Add your shop link to your YouTube header so your Spreadshop is just one click away for all your dedicated subscribers!</p>
+                    <p>Now it's time to spread the word about your incredible merchandise! Promote your Spreadshop with YouTube videos and social media posts. Add your shop link to your YouTube header so your Spreadshop is just one click away for all your dedicated subscribers!</p>
                 </div>
             </div>
         </div>
@@ -107,28 +107,28 @@
 
         <div class="products__image">
             <picture>
-                <source srcset="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_mobile" media="(max-width: 480px)">
-                <source srcset="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_desktop" media="(min-width: 481px)">
-                <img src="//www.spreadshop.com/content/f_auto,q_70/pages/YoutubeMerchandiseMaker/products_desktop" alt="Products">
+                <source srcset="images/products_mobile" media="(max-width: 480px)">
+                <source srcset="images/products_desktop" media="(min-width: 481px)">
+                <img src="images/products_desktop" alt="Products">
             </picture>
         </div>
 
         <div class="container products__text">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
-                    <p>Spreadshop’s product selection consists of over 100 customizable products ready for your designs. You deserve the best, so know that our merchandise for YouTubers will reach above and beyond your quality standards.</p>
-                    <p>We understand that every subscriber is different, so we’ve carefully developed a product assortment for both the big spenders and the penny savers, so everyone is happy! No matter the budget, no matter the product, there is something for every single one of your fans.</p>
+                    <p>Spreadshop's product selection consists of over 100 customizable products ready for your designs. You deserve the best, so know that our merchandise for YouTubers will reach above and beyond your quality standards.</p>
+                    <p>We understand that every subscriber is different, so we've carefully developed a product assortment for both the big spenders and the penny savers, so everyone is happy! No matter the budget, no matter the product, there is something for every single one of your fans.</p>
                 </div>
 
                 <div class="col-12 col-lg-5 toggel-text">
-                    <p>We pride the Spreadshop brand on quality. Why would you settle for anything less? Spreadshop’s product range offers anything from soft and comfy apparel to the latest trendy accessories, all ready for customization.</p>
+                    <p>We pride the Spreadshop brand on quality. Why would you settle for anything less? Spreadshop's product range offers anything from soft and comfy apparel to the latest trendy accessories, all ready for customization.</p>
                     <p>We welcome as much creativity as possible. No minimums, no campaigning, no limits. There is nothing but opportunity waiting for you, here at Spreadshop.</p>
                 </div>
             </div>
         </div>
 
         <div class="products__button">
-            <a class="sprd-button ghost ghost--dark" href="https://www.spreadshop.com/assortment">See All Products</a>
+            <a class="sprd-button ghost ghost--dark" href="#">See All Products</a>
         </div>
     </section>
 
@@ -201,12 +201,12 @@
                     </div>
 
                     <div class="service__image h1">
-                        <img src="//www.spreadshop.com/content/pages/YoutubeMerchandiseMaker/design-services.gif" alt="Design Service">
+                        <img src="images/design-services.gif" alt="Design Service">
                     </div>
 
                     <div class="service__text">
                         <p>Need your own custom design? We've got your back! Our premium design team will put their creativity to work, so you'll have AMAZING designs that will WOW your fans!</p>
-                        <a class="sprd-button ghost ghost--dark" href="https://www.spreadshop.com/premiumdesign">
+                        <a class="sprd-button ghost ghost--dark" href="#">
                             Get Your Own Design
                         </a>
                     </div>
@@ -222,7 +222,7 @@
 
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials3" alt="Zack D'Ulisse">
+                        <img src="images/testimonials3" alt="Zack D'Ulisse">
                     </div>
                     <div class="creators__text">
                         <strong>Zack D'Ulisse</strong>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials2" alt="Jeff Rice">
+                        <img src="images/testimonials2" alt="Jeff Rice">
                     </div>
                     <div class="creators__text">
                         <strong>Jeff Rice</strong>
@@ -240,7 +240,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials1" alt="Jeremy Kalgreen">
+                        <img src="images/testimonials1" alt="Jeremy Kalgreen">
                     </div>
                     <div class="creators__text">
                         <strong>Jeremy Kalgreen</strong>
@@ -249,7 +249,7 @@
                 </div>
                 <div class="col-6 col-lg-3 creators__item">
                     <div class="creators__image">
-                        <img src="//www.spreadshop.com/content/pages/SellMerchandise/testimonials4" alt="Robbert Muurbloempje">
+                        <img src="images/testimonials4" alt="Robbert Muurbloempje">
                     </div>
                     <div class="creators__text">
                         <strong>Robbert Muurbloempje</strong>
@@ -267,13 +267,13 @@
                     <h2 class="h1">Shipping & Customer Support</h2>
                 </div>
                 <div class="col-12 col-lg-5">
-                    <p>When it comes to merchandise for YouTubers, it’s important to make things as easy as possible. You’re busy building a brand, so we’ll take care of production, fulfillment and shipping at no cost to you!</p>
-                    <p>If you have questions, our award-winning customer support has answers. With 15+ years of industry experience, we’ve seen and heard it all, so ask away!</p>
+                    <p>When it comes to merchandise for YouTubers, it's important to make things as easy as possible. You're busy building a brand, so we'll take care of production, fulfillment and shipping at no cost to you!</p>
+                    <p>If you have questions, our award-winning customer support has answers. With 15+ years of industry experience, we've seen and heard it all, so ask away!</p>
                 </div>
 
                 <div class="col-12 col-lg-5">
                     <p>Additionally, Spreadshop offers a strong community on our forum and on our social media profiles. By utilizing these resources, you can connect with like-minded people and discuss your ideas, questions and goals as a shop owner.</p>
-                    <p>We want to support you as much as possible, so we have nothing but resources ready at your convenience. You’ll always be in-the-know about your Spreadshop, so you can keep on selling!</p>
+                    <p>We want to support you as much as possible, so we have nothing but resources ready at your convenience. You'll always be in-the-know about your Spreadshop, so you can keep on selling!</p>
                 </div>
             </div>
         </div>

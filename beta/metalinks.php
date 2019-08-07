@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="css/styles_homepage.css">  
 <link rel="stylesheet" href="css/styles_merch_maker.css">
 <link rel="stylesheet" href="css/styles_how_it_works.css">
+<link rel="stylesheet" href="css/styles_pricing.css">
+<link rel="stylesheet" href="css/styles_sell_without_inv.css">
+
 <link rel="shortcut icon" type="image/ico" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/favicon.png">
 <link rel="canonical" href="https://www.eazyprint.in">
