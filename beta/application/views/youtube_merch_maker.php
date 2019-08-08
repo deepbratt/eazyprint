@@ -57,7 +57,7 @@
                 </div>
                 <div class="howTo__text">
                     <h3>Open your own Shop</h3>
-                    <p>If you're wondering how to make merchandise for your YouTube channel, then you're in the right place! Opening a Spreadshop is simple. Sign-up takes a matter of minutes. Before you know it, your shop will be up and running, just waiting for your wonderful designs!</p>
+                    <p>If you're wondering how to make merchandise for your YouTube channel, then you're in the right place! Opening a Eazyprint is simple. Sign-up takes a matter of minutes. Before you know it, your shop will be up and running, just waiting for your wonderful designs!</p>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                 </div>
                 <div class="howTo__text">
                     <h3>Upload your designs</h3>
-                    <p>Think of Spreadshop as your own personal YouTube merchandise maker. Whether you have one design or one hundred designs, everything can be easily uploaded onto any of our merchandise. From apparel to drinkware and accessories, you'll never run out of ideas for your Spreadshop!</p>
+                    <p>Think of Eazyprint as your own personal YouTube merchandise maker. Whether you have one design or one hundred designs, everything can be easily uploaded onto any of our merchandise. From apparel to drinkware and accessories, you'll never run out of ideas for your Eazyprint!</p>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
                 </div>
                 <div class="howTo__text">
                     <h3>Link your YouTube channel with your Shop</h3>
-                    <p>One of the greatest benefits of Spreadshop is that you can easily link to your social media accounts from your shop's header. Utilizing your header image will allow you to drive traffic to your YouTube channel, to your website, to wherever you'd like! So, if you're looking to create merchandise for YouTubers, Spreadshop is well-equipped with all of the tools you'll need to succeed.</p>
+                    <p>One of the greatest benefits of Eazyprint is that you can easily link to your social media accounts from your shop's header. Utilizing your header image will allow you to drive traffic to your YouTube channel, to your website, to wherever you'd like! So, if you're looking to create merchandise for YouTubers, Eazyprint is well-equipped with all of the tools you'll need to succeed.</p>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
                 </div>
                 <div class="howTo__text">
                     <h3>Share your merch shop with your fans!</h3>
-                    <p>Now it's time to spread the word about your incredible merchandise! Promote your Spreadshop with YouTube videos and social media posts. Add your shop link to your YouTube header so your Spreadshop is just one click away for all your dedicated subscribers!</p>
+                    <p>Now it's time to spread the word about your incredible merchandise! Promote your Eazyprint with YouTube videos and social media posts. Add your shop link to your YouTube header so your Eazyprint is just one click away for all your dedicated subscribers!</p>
                 </div>
             </div>
         </div>
@@ -115,13 +115,13 @@
         <div class="container products__text">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
-                    <p>Spreadshop's product selection consists of over 100 customizable products ready for your designs. You deserve the best, so know that our merchandise for YouTubers will reach above and beyond your quality standards.</p>
+                    <p>Eazyprint's product selection consists of over 100 customizable products ready for your designs. You deserve the best, so know that our merchandise for YouTubers will reach above and beyond your quality standards.</p>
                     <p>We understand that every subscriber is different, so we've carefully developed a product assortment for both the big spenders and the penny savers, so everyone is happy! No matter the budget, no matter the product, there is something for every single one of your fans.</p>
                 </div>
 
                 <div class="col-12 col-lg-5 toggel-text">
-                    <p>We pride the Spreadshop brand on quality. Why would you settle for anything less? Spreadshop's product range offers anything from soft and comfy apparel to the latest trendy accessories, all ready for customization.</p>
-                    <p>We welcome as much creativity as possible. No minimums, no campaigning, no limits. There is nothing but opportunity waiting for you, here at Spreadshop.</p>
+                    <p>We pride the Eazyprint brand on quality. Why would you settle for anything less? Eazyprint's product range offers anything from soft and comfy apparel to the latest trendy accessories, all ready for customization.</p>
+                    <p>We welcome as much creativity as possible. No minimums, no campaigning, no limits. There is nothing but opportunity waiting for you, here at Eazyprint.</p>
                 </div>
             </div>
         </div>
@@ -271,8 +271,8 @@
                 </div>
 
                 <div class="col-12 col-lg-5">
-                    <p>Additionally, Spreadshop offers a strong community on our forum and on our social media profiles. By utilizing these resources, you can connect with like-minded people and discuss your ideas, questions and goals as a shop owner.</p>
-                    <p>We want to support you as much as possible, so we have nothing but resources ready at your convenience. You'll always be in-the-know about your Spreadshop, so you can keep on selling!</p>
+                    <p>Additionally, Eazyprint offers a strong community on our forum and on our social media profiles. By utilizing these resources, you can connect with like-minded people and discuss your ideas, questions and goals as a shop owner.</p>
+                    <p>We want to support you as much as possible, so we have nothing but resources ready at your convenience. You'll always be in-the-know about your Eazyprint, so you can keep on selling!</p>
                 </div>
             </div>
         </div>
@@ -284,7 +284,7 @@
                 <div class="col-12">
                     <h2 class="h1">Ready to Start Selling Your Merch?</h2>
                     <p>No matter your passion, we'll make it happen.</p>
-                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Spreadshop</div>
+                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint</div>
                 </div>
             </div>
         </div>
