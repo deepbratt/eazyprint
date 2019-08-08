@@ -30,11 +30,11 @@
             <div class="scroll-wrapper">
                 <div class="subnav__wrapper">
                     <ul class="subnav__tabs">
-                        <li class="subnav__tab is-active" data-tribe="one">What is Spreadshop</li>
-                        <li class="subnav__tab" data-tribe="two">How Spreadshop Works</li>
+                        <li class="subnav__tab is-active" data-tribe="one">What is Eazyprint</li>
+                        <li class="subnav__tab" data-tribe="two">How Eazyprint Works</li>
                         <li class="subnav__tab" data-tribe="three">Product Range</li>
                         <li class="subnav__tab" data-tribe="four">How We Print</li>
-                        <li class="subnav__tab" data-tribe="five">Earning Money with Spreadshop</li>
+                        <li class="subnav__tab" data-tribe="five">Earning Money with Eazyprint</li>
                         <li class="subnav__tab" data-tribe="six">How We Ship</li>
                     </ul>
                 </div>
@@ -46,36 +46,36 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h2 class="h1">What is Spreadshop?</h2>
+                    <h2 class="h1">What is Eazyprint?</h2>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">Spreadshop is a free online shop system</h3>
-                        <p class="accordion__text">Creating and selling shirts online without inventory has never been this easy! You’ll never have to buy or store inventory, you’ll never have to pack or ship boxes, and (best of all) you’ll never have to spend a cent! Spreadshop is 100% free, so there's no risk and no catch. So, what are you waiting for?</p>
+                        <h3 class="accordion__head">Eazyprint is a free online shop system</h3>
+                        <p class="accordion__text">Creating and selling shirts online without inventory has never been this easy! You'll never have to buy or store inventory, you'll never have to pack or ship boxes, and (best of all) you'll never have to spend a cent! Spreadshop is 100% free, so there's no risk and no catch. So, what are you waiting for?</p>
                     </div>
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">With Spreadshop you make money</h3>
-                        <p class="accordion__text">Spreadshop was built around the needs of entrepreneurs, so we’ve made your experience selling custom shirts and accessories as simple and hassle-free as possible. Setup is so easy that your shop can be up and running in a matter of minutes. We don’t believe in minimums, so you’ll profit from every single sale you make. Learn more about <span class="js-textlink" data-tribe="five" >making money with Spreadshop.</span></p>
+                        <h3 class="accordion__head">With Eazyprint you make money</h3>
+                        <p class="accordion__text">Eazyprint was built around the needs of entrepreneurs, so we've made your experience selling custom shirts and accessories as simple and hassle-free as possible. Setup is so easy that your shop can be up and running in a matter of minutes. We don't believe in minimums, so you'll profit from every single sale you make. Learn more about <span class="js-textlink" data-tribe="five" >making money with Eazyprint.</span></p>
                     </div>
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">Spreadshop is for everybody</h3>
-                        <p class="accordion__text">Whether you’re a YouTuber, a blogger, a gamer, or you simply want to start your own t-shirt brand, Spreadshop is the perfect solution to grow your brand and engage your fans. Your opportunity is waiting... will you embrace it?</p>
+                        <h3 class="accordion__head">Eazyprint is for everybody</h3>
+                        <p class="accordion__text">Whether you're a YouTuber, a blogger, a gamer, or you simply want to start your own t-shirt brand, Spreadshop is the perfect solution to grow your brand and engage your fans. Your opportunity is waiting... will you embrace it?</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-5">
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">Spreadshop offers the highest commission</h3>
-                        <p class="accordion__text">Spreadshop offers the highest commission opportunities in the industry, so you’ll make the commission that you deserve when you sell shirts online without inventory. With three ways to earn, multiple currency options and irresistible shop promotions, you’ll be rolling in the dough!</p>
+                        <h3 class="accordion__head">Eazyprint offers the highest commission</h3>
+                        <p class="accordion__text">Eazyprint offers the highest commission opportunities in the industry, so you'll make the commission that you deserve when you sell shirts online without inventory. With three ways to earn, multiple currency options and irresistible shop promotions, you'll be rolling in the dough!</p>
                     </div>
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">Spreadshop takes care of your customers</h3>
-                        <p class="accordion__text">We want your customers to be as happy as you are with Spreadshop, so we pride ourselves on our expertise as well as our print and product quality. As a shop owner, you can rest assured that your customers are receiving nothing but the best. Whether your audience is local or all over the world, their shopping experience will be a breeze!</p>
+                        <h3 class="accordion__head">Eazyprint takes care of your customers</h3>
+                        <p class="accordion__text">We want your customers to be as happy as you are with Eazyprint, so we pride ourselves on our expertise as well as our print and product quality. As a shop owner, you can rest assured that your customers are receiving nothing but the best. Whether your audience is local or all over the world, their shopping experience will be a breeze!</p>
                     </div>
                     <div class="js-accordion accordion__wrapper">
-                        <h3 class="accordion__head">Spreadshop prints and fulfills for you</h3>
+                        <h3 class="accordion__head">Eazyprint prints and fulfills for you</h3>
                         <p class="accordion__text">No one wants to sit on boxes and boxes of inventory. Instead of being stuck with excess inventory, you can turn to us to fulfill all of your orders. Take the risk out of selling, and let Spreadshop handle all of your orders... you won't regret it!</p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="h1 h1-center">How Spreadshop Works</h2>
+                    <h2 class="h1 h1-center">How Eazyprint Works</h2>
                 </div>
 
                 <div class="col-12 icon-wrapper">
@@ -167,8 +167,8 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <h2 class="h1">How We Print</h2>
-                    <p>When selling custom shirts, quality is one of the most important things to take into consideration. Spreadshop’s collection of apparel and accessories offer various styles from reputable brands, so your customers have plenty of quality options to choose from.</p>
-                    <p>With Spreadshop, quality goes far beyond the product. Our various printing processes are guaranteed to output outstanding printing results that will amaze your customers. With over 15 years of experience in the industry, you can trust that we get things done the right way.</p>
+                    <p>When selling custom shirts, quality is one of the most important things to take into consideration. Eazyprint's collection of apparel and accessories offer various styles from reputable brands, so your customers have plenty of quality options to choose from.</p>
+                    <p>With Eazyprint, quality goes far beyond the product. Our various printing processes are guaranteed to output outstanding printing results that will amaze your customers. With over 15 years of experience in the industry, you can trust that we get things done the right way.</p>
                 </div>
             </div>
 
@@ -180,7 +180,7 @@
 
                     <div class="product-quality__text">
                         <h3>Digital Direct Printing</h3>
-                        <p>Digital Direct is Spreadshop’s go-to printing technique. It’s a computer-controlled method which disperses color onto merchandise creating a polished, seamless look. Digital direct is available for all file formats for your convenience.</p>
+                        <p>Digital Direct is Eazyprint's go-to printing technique. It's a computer-controlled method which disperses color onto merchandise creating a polished, seamless look. Digital direct is available for all file formats for your convenience.</p>
                     </div>
                 </div>
             </div>
@@ -267,8 +267,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 text-center">
-                    <h2 class="h1 h1-center">Earning Money with Spreadshop</h2>
-                    <p>Why earn one way when you can earn three ways! It’s true: you can profit in three different ways when you sell custom apparel with Spreadshop. Between affiliate commission, volume commission and earning from your design price, your bank account will keep on growing!</p>
+                    <h2 class="h1 h1-center">Earning Money with Eazyprint</h2>
+                    <p>Why earn one way when you can earn three ways! It's true: you can profit in three different ways when you sell custom apparel with Eazyprint. Between affiliate commission, volume commission and earning from your design price, your bank account will keep on growing!</p>
                 </div>
 
                 <div class="col-12 text-center">
@@ -282,7 +282,7 @@
                                 </svg>
                                 <h3 class="h2">Affiliate Commission</h3>
                             </div>
-                            <p>When you sign up with Spreadshop, you’re automatically entitled to 20% commission with every sale made in your shop! No matter the price, no matter the product, 20% is yours to keep! Whether it’s your first sale or your thousandth sale, you’ll always be making a profit!</p>
+                            <p>When you sign up with Eazyprint, you're automatically entitled to 20% commission with every sale made in your shop! No matter the price, no matter the product, 20% is yours to keep! Whether it's your first sale or your thousandth sale, you'll always be making a profit!</p>
                         </div>
 
                         <div class="earningMoney__plus">
@@ -301,7 +301,7 @@
                                 </svg>
                                 <h3 class="h2">Volume Bonus</h3>
                             </div>
-                            <p>When you sell custom apparel through your Spreadshop, hard work will never go unnoticed, which is why we’ve implemented a volume commission program! The more you sell, the more you’ll earn per sale. Starting with 26 sales, you could earn up to an additional 40% commission. Your profits can only grow with Spreadshop!</p>
+                            <p>When you sell custom apparel through your Eazyprint, hard work will never go unnoticed, which is why we've implemented a volume commission program! The more you sell, the more you'll earn per sale. Starting with 26 sales, you could earn up to an additional 40% commission. Your profits can only grow with Eazyprint!</p>
                         </div>
 
                         <div class="earningMoney__plus">
@@ -323,13 +323,13 @@
 
                                 <h3 class="h2">Your Design Price</h3>
                             </div>
-                            <p>You’re the one putting the creativity to work, so you know what your designs are really worth. That’s why we’ll leave it up to you to determine your design price! Whatever you charge for your amazing designs is yours to keep! To reiterate: 100% of the design price goes right into your wallet!</p>
+                            <p>You're the one putting the creativity to work, so you know what your designs are really worth. That's why we'll leave it up to you to determine your design price! Whatever you charge for your amazing designs is yours to keep! To reiterate: 100% of the design price goes right into your wallet!</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-lg-8 text-center">
-                    <p>Between our three ways to earn, your only worry will be finding a wallet big enough to hold all of your cash! Plus, with Spreadshop’s monthly shop promotions, your fans won’t be able to resist your custom shirts and accessories! Spreadshop offers the highest commission opportunities for a reason: we want your hard work to pay off. Of course, don’t take our word for it. Instead, open your own Spreadshop, sell shirts online without inventory, and watch as your earnings grow!</p>
+                    <p>Between our three ways to earn, your only worry will be finding a wallet big enough to hold all of your cash! Plus, with Eazyprint's monthly shop promotions, your fans won't be able to resist your custom shirts and accessories! Eazyprint offers the highest commission opportunities for a reason: we want your hard work to pay off. Of course, don't take our word for it. Instead, open your own Eazyprint, sell shirts online without inventory, and watch as your earnings grow!</p>
                 </div>
             </div>
         </div>
@@ -340,7 +340,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
                     <h2 class="h1">Shipping</h2>
-                    <p>No need to worry about the hassle of shipping! Along with producing and fulfilling your orders, we’ll ship them too!</p>
+                    <p>No need to worry about the hassle of shipping! Along with producing and fulfilling your orders, we'll ship them too!</p>
                     <p>For any checkouts in your shop, here is a <a href="#">shipping calculator</a> for reference!</p>
                 </div>
                 <div class="col-12 col-lg-5">
