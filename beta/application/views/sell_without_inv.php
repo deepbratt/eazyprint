@@ -212,37 +212,46 @@
                     <img src="<?php echo base_url('images/')?>products_tshirt" alt="Premium T-shirts">
                     <p>Premium T-Shirts</p>
                 </div>
-                <div class="col-6 col-lg-2 product-range__tile">
-                    <img src="<?php echo base_url('images/')?>products_longsleeve" alt="Premium Long Sleeve T-Shirts">
-                    <p>Premium Long Sleeve T-Shirts</p>
-                </div>
-                <div class="col-6 col-lg-2 product-range__tile">
+				 <div class="col-6 col-lg-2 product-range__tile">
                     <img src="<?php echo base_url('images/')?>products_hoodie" alt="Premium Hoodies">
                     <p>Premium Hoodies</p>
                 </div>
                 <div class="col-6 col-lg-2 product-range__tile">
-                    <img src="<?php echo base_url('images/')?>products_tanktop" alt="Premium Tank Tops">
-                    <p>Premium Tank Tops</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-6 col-lg-2 product-range__tile">
-                    <img src="<?php echo base_url('images/')?>products_vneck" alt="V-Neck T-Shirts">
-                    <p>V-Neck T-Shirts</p>
+                    <img src="<?php echo base_url('images/')?>cap.jpg" alt="Premium Caps">
+                    <p>Premium Caps</p>
                 </div>
                 <div class="col-6 col-lg-2 product-range__tile">
-                    <img src="<?php echo base_url('images/')?>products_mobile" alt="Phone Cases">
-                    <p>Phone Cases</p>
+                    <img src="<?php echo base_url('images/')?>jeans.jpg" alt="Premium Jeans">
+                    <p>Premium Jeans</p>
                 </div>
-                <div class="col-6 col-lg-2 product-range__tile">
+				<div class="col-6 col-lg-2 product-range__tile">
                     <img src="<?php echo base_url('images/')?>products_mug" alt="Color Mugs">
                     <p>Color Mugs</p>
                 </div>
-                <div class="col-6 col-lg-2 product-range__tile">
-                    <img src="<?php echo base_url('images/')?>products_bag" alt="Sweatshirt Cinch Bags">
-                    <p>Sweatshirt Cinch Bags</p>
-                </div>
+				
+            </div>
+
+            <div class="row justify-content-center">
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>products_mobile" alt="Phone Cases">
+					<p>Phone Cases</p>
+				</div>
+				 <div class="col-6 col-lg-2 product-range__tile">
+						<img src="<?php echo base_url('images/')?>tiles.jpg" alt="Floor Tiles">
+						<p>Floor Tiles</p>
+				  </div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>dinner_plates.jpg" alt="Dinner Plates">
+					<p>Dinner Plates</p>
+				</div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>cusions.jpg" alt="Pillows & Cusions" style="height:170px;">
+					<p>Pillows & Cusions</p>
+				</div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>rings.jpg" alt="Key Rings">
+					<p>Key Rings</p>
+				</div>
             </div>
             <div class="row">
                 <div class="col-12">

@@ -29,15 +29,15 @@ header .logo img {
                 </h4>
                 <ul>
                   <li>
-                    <a href="https://www.spreadshop.com">Home
+                    <a href="<?php echo base_url('home');?>">Home
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.spreadshop.com/how-spreadshop-works">How it Works
+                    <a href="<?php echo base_url('how_it_works');?>">How it Works
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.spreadshop.com/examples">Shop Examples
+                    <a href="<?php echo base_url('examples');?>">Clients/Vendors
                     </a>
                   </li>
                 </ul>
@@ -47,16 +47,16 @@ header .logo img {
                 </h4>
                 <ul>
                   <li>
-                    <a href="https://www.spreadshop.com/pricing">Pricing
+                    <a href="<?php echo base_url('pricing');?>">Pricing
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="https://www.spreadshop.com/assortment">Assortment
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <h4>Grow Your Business
                 </h4>
                 <ul>
@@ -73,34 +73,34 @@ header .logo img {
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
               <li>
                 <h4>Common Use Cases
                 </h4>
                 <ul>
                   <li>
-                    <a href="https://www.spreadshop.com/youtube-merchandise-maker">YouTube Merchandise Maker
+                    <a href="<?php echo base_url('youtube_merch_maker');?>">YouTube Merchandise Maker
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="https://www.spreadshop.com/merchandise-creator">Merchandise Creator
                     </a>
                   </li>
                   <li>
                     <a href="https://www.spreadshop.com/sell-custom-tshirts">Sell Custom T-shirts
                     </a>
-                  </li>
+                  </li> -->
                   <li>
-                    <a href="https://www.spreadshop.com/sell-shirts-without-inventory">Sell Shirts Without Inventory
+                    <a href="<?php echo base_url('sell_without_inv');?>">Sell Shirts Without Inventory
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="https://www.spreadshop.com/free-online-store-with-products-included">Free Online Shop
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <h4>Support
                 </h4>
                 <ul>
@@ -109,7 +109,7 @@ header .logo img {
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </nav>            
           <nav class="mobile-login">
@@ -124,11 +124,11 @@ header .logo img {
         <nav class="nav-pages">
           <ul>
             <li>
-              <a href="https://www.spreadshop.com/how-spreadshop-works">How It Works
+              <a href="<?php echo base_url('how_it_works');?>">How It Works
               </a>
             </li>
             <li>
-              <a href="https://www.spreadshop.com/examples">Shop Examples
+              <a href="<?php echo base_url('examples');?>">Clients/Vendors
               </a>
             </li>
           </ul>

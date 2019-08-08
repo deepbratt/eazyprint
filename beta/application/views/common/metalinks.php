@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="<?php echo base_url('css/styles_how_it_works.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('css/styles_pricing.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('css/styles_sell_without_inv.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('css/styles_examples.css');?>">
 
 <link rel="shortcut icon" type="image/ico" href="<?php echo base_url('images/favicon.png');?>">
 <link rel="apple-touch-icon" href="<?php echo base_url('images/favicon.png');?>">
