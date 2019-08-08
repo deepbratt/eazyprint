@@ -3,10 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
     <meta charset="utf-8">
-    <title>Create and sell print on demand merchandise | Spreadshop
+    <title>Create and sell print on demand merchandise | Eazyprint
     </title>
-    <meta name="description" content="With Spreadshop you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
-    <meta name="title" content="Create and sell print on demand merchandise | Spreadshop">
+    <meta name="description" content="With Eazyprint you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
+    <meta name="title" content="Create and sell print on demand merchandise | Eazyprint">
     <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
     <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">
     <?php include('metalinks.php');?>
@@ -116,7 +116,7 @@
               <div class="calculator__text col-12 col-lg-6 col-xl-5">
                 <h2 class="h1">Earn more and spend nothing
                 </h2>
-                <p>It doesn't always take money to make money. Open your free Spreadshop, create custom merch and see how much you can really earn!
+                <p>It doesn't always take money to make money. Open your free Eazyprint, create custom merch and see how much you can really earn!
                 </p>
                 <div class="sprd-button secondary" data-lightbox="register-modal">Open Your Merch Shop
                 </div>
@@ -202,7 +202,7 @@
                   </h2>
                   <p>Spreadshop carries nothing but quality, reputable products that are totally worthy of your brand.
                   </p>
-                  <a class="sprd-button light" href="https://www.spreadshop.com/assortment">Browse Spreadshop Products
+                  <a class="sprd-button light" href="https://www.spreadshop.com/assortment">Browse Eazyprint Products
                   </a>
                 </div>
               </div>
@@ -284,7 +284,7 @@
             <div class="row align-content-center justify-content-between">
               <div class="col-12 col-lg-5 col-xl-3">
                 <div class="spotlight__text-wrapper">
-                  <h2 class="h1">The Spreadshop spotlight
+                  <h2 class="h1">The Eazyprint spotlight
                   </h2>
                   <p>Connect with our shop owners and see how they create with passion and make merch happen!
                   </p>
@@ -308,7 +308,7 @@
                               </small>
                             </div>
                           </div>
-                          <blockquote>Erin is a woman of many interests. She’s cleverly found ways to combine her passions, leading her to open her very own Spreadshop, Chef Shirts.
+                          <blockquote>Erin is a woman of many interests. She’s cleverly found ways to combine her passions, leading her to open her very own Eazyprint, Chef Shirts.
                           </blockquote>
                           <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
                           </a>
@@ -328,7 +328,7 @@
                               </small>
                             </div>
                           </div>
-                          <blockquote>Chris Petty, who’s seen plenty of success with his Spreadshop, The High Frontier, found a clever way to monetize his blog with his love for space.
+                          <blockquote>Chris Petty, who’s seen plenty of success with his Eazyprint, The High Frontier, found a clever way to monetize his blog with his love for space.
                           </blockquote>
                           <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
                           </a>
@@ -388,7 +388,7 @@
                               </small>
                             </div>
                           </div>
-                          <blockquote>You&#039;ll be wowed by the clever designs and marketing behind this canine success story. Let’s give a warm paw and a big woof to the Spreadshop, Waldogs!
+                          <blockquote>You&#039;ll be wowed by the clever designs and marketing behind this canine success story. Let’s give a warm paw and a big woof to the Eazyprint, Waldogs!
                           </blockquote>
                           <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
                           </a>
@@ -408,7 +408,7 @@
                               </small>
                             </div>
                           </div>
-                          <blockquote>Jack&#039;s Spreadshop is a hit in the French market, and now he’s ready to conquer the world. Read about Jack’s success story behind Danger Ecole.
+                          <blockquote>Jack&#039;s Eazyprint is a hit in the French market, and now he’s ready to conquer the world. Read about Jack’s success story behind Danger Ecole.
                           </blockquote>
                           <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
                           </a>
@@ -472,7 +472,7 @@
                 <div class="designs__text-wrapper">
                   <h2 class="h1">Look like a pro from the get-go
                   </h2>
-                  <p>Get the best designs at unbeatable prices with Spreadshop's Premium Design Service! Our team of creative minds will work with you to achieve the ultimate merch masterpiece!
+                  <p>Get the best designs at unbeatable prices with Eazyprint's Premium Design Service! Our team of creative minds will work with you to achieve the ultimate merch masterpiece!
                   </p>
                   <a class="sprd-button light" href="https://www.spreadshop.com/premiumdesign">Get a Custom Design
                   </a>
@@ -483,7 +483,7 @@
                   <ul>
                     <li class="h3">One-of-a-kind premium designs
                     </li>
-                    <li class="h3">Custom Spreadshop styling
+                    <li class="h3">Custom Eazyprint styling
                     </li>
                     <li class="h3">Thumb-stopping social media sharables
                     </li>
@@ -547,7 +547,7 @@
                   </h2>
                   <p>Meet the team behind your custom merch shop!
                   </p>
-                  <a class="sprd-button light" href="https://www.youtube.com/playlist?list=PLViyz2Ty9pLw-GTaGkQPDabVYZ4mhX4MJ" target="_blank" rel="noopener">Meet the Spreadshop Team
+                  <a class="sprd-button light" href="https://www.youtube.com/playlist?list=PLViyz2Ty9pLw-GTaGkQPDabVYZ4mhX4MJ" target="_blank" rel="noopener">Meet the Eazyprint Team
                   </a>
                 </div>
               </div>
@@ -665,7 +665,7 @@
                 </h2>
                 <p>No matter your passion, we'll make it happen.
                 </p>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Spreadshop
+                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
                 </div>
                 <p class="d-none d-md-block">Always free. Always.
                 </p>

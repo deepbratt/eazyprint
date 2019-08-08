@@ -25,7 +25,7 @@ header .logo img {
           <nav class="main-links">
             <ul>
               <li>
-                <h4>About Spreadshop
+                <h4>About Eazyprint
                 </h4>
                 <ul>
                   <li>
@@ -43,7 +43,7 @@ header .logo img {
                 </ul>
               </li>
               <li>
-                <h4>New to Spreadshop
+                <h4>New to Eazyprint
                 </h4>
                 <ul>
                   <li>
@@ -113,9 +113,9 @@ header .logo img {
             </ul>
           </nav>            
           <nav class="mobile-login">
-            <div class="sprd-button secondary" data-lightbox="register-modal">Open a Spreadshop
+            <div class="sprd-button secondary" data-lightbox="register-modal">Open a Eazyprint
             </div>
-            <div>Already have a Spreadshop? 
+            <div>Already have a Eazyprint? 
               <span data-lightbox="login-modal">Login here
               </span>
             </div>
@@ -154,13 +154,13 @@ header .logo img {
                   </a>
                 </div>
                 <div>New here? 
-                  <span class="login-modal__register" data-lightbox="register-modal">Open a Spreadshop
+                  <span class="login-modal__register" data-lightbox="register-modal">Open a Eazyprint
                   </span>
                 </div>
               </div>
             </li>
             <li class="nav-user__register">
-              <div class="sprd-button secondary" data-lightbox="register-modal">Open a Spreadshop
+              <div class="sprd-button secondary" data-lightbox="register-modal">Open a Eazyprint
               </div>
             </li>
           </ul>
