@@ -1,5 +1,5 @@
 <!-- footer ends -->
-<footer class="footer">
+<footer class="footer" style="background: #333;">
       <div class="container">
         <div class="footer__page-links row">
           <div class="col-md-3">
