@@ -284,7 +284,8 @@
                 <div class="col-12">
                     <h2 class="h1">Ready to Start Selling Your Merch?</h2>
                     <p>No matter your passion, we'll make it happen.</p>
-                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint</div>
+                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
+					</div>
                 </div>
             </div>
         </div>

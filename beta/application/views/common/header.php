@@ -154,13 +154,13 @@ header .logo img {
                   </a>
                 </div>
                 <div>New here? 
-                  <span class="login-modal__register" data-lightbox="register-modal">Open a Eazyprint
+                  <span class="login-modal__register" data-lightbox="register-modal">Open a Store
                   </span>
                 </div>
               </div>
             </li>
             <li class="nav-user__register">
-              <div class="sprd-button secondary" data-lightbox="register-modal">Open a Eazyprint
+              <div class="sprd-button secondary" data-lightbox="register-modal">Open a Store
               </div>
             </li>
           </ul>

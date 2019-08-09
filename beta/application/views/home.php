@@ -7,15 +7,15 @@
     </title>
     <meta name="description" content="With Eazyprint you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
     <meta name="title" content="Create and sell print on demand merchandise | Eazyprint">
-    <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-    <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">
-	<?php $this->load->view("common/metalinks");?>
+    <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
+    <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">-->
+	<?php $this->load->view("common/metalinks");?> 
   </head>
   <body class="sprd-responsive-cnt">
 	<?php $this->load->view("common/header");?>
     <main>
       <div id="spreadshop-home" data-tracking="Spreadshop-Homepage">
-        <section class="spreadshop-teaser">
+        <section class="spreadshop-teaser" style="background: lightblue  no-repeat fixed center;">
           <div class="spreadshop-teaser__wrapper">
             <div class="container">
               <div class="spreadshop-teaser__text">
@@ -35,7 +35,7 @@
             </div>
             <div class="spreadshop-teaser__slider">
               <div class="swiper-container js-slider-teaser">
-                <div class="swiper-wrapper">
+               <div class="swiper-wrapper">
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
                       <img src="<?php echo base_url('images/')?>teaser1" alt="Spreadshop Teaser">
@@ -61,11 +61,11 @@
                       <img src="<?php echo base_url('images/')?>teaser5" alt="Spreadshop Teaser">
                     </div>
                   </div>
-                </div>
+                </div> 
               </div>
               <div class="spreadshop-teaser__fade-out">
               </div>
-            </div>
+            </div> 
           </div>
         </section>
         <section class="shop-examples">
@@ -103,8 +103,8 @@
               </div>
               <div class="col-12 col-lg-7">
                 <div class="shop-examples__image-wrapper">
-                  <img class="shop-examples__image shop-examples__image--1 lazyload" src="<?php echo base_url('images/')?>ShopSample_1" data-src="<?php echo base_url('images/')?>ShopSample_1" alt="Shop Examples">                        
-                  <img class="shop-examples__image shop-examples__image--2 lazyload" src="<?php echo base_url('images/')?>ShopSample_2" data-src="<?php echo base_url('images/')?>ShopSample_2" alt="Shop Examples">                    
+                  <img class="shop-examples__image shop-examples__image--1 lazyload" src="<?php echo base_url('images/')?>example1.png" data-src="<?php echo base_url('images/')?>example1.png" alt="Shop Examples">                        
+                  <img class="shop-examples__image shop-examples__image--2 lazyload" src="<?php echo base_url('images/')?>example2.png" data-src="<?php echo base_url('images/')?>example2.png" alt="Shop Examples">                    
                 </div>
               </div>
             </div>
@@ -198,11 +198,11 @@
             <div class="row align-content-center justify-content-between">
               <div class="col-12 col-lg-5 col-xl-4">
                 <div class="products__text-wrapper">
-                  <h2 class="h1">Spreadshop will look great on you, and our products will too!
+                  <h2 class="h1">Eazyprint will look great on you, and our products will too!
                   </h2>
-                  <p>Spreadshop carries nothing but quality, reputable products that are totally worthy of your brand.
+                  <p>Eazyprint carries nothing but quality, reputable products that are totally worthy of your brand.
                   </p>
-                  <a class="sprd-button light" href="https://www.spreadshop.com/assortment">Browse Eazyprint Products
+                  <a class="sprd-button light" href="#">Browse Eazyprint Products
                   </a>
                 </div>
               </div>
@@ -210,7 +210,7 @@
                 <div class="products__image-wrapper">
                   <div>
                     <img class="products__image products__image--1 lazyload" src="<?php echo base_url('images/')?>products_470x510_1" data-src="<?php echo base_url('images/')?>products_470x510_1" alt="Product Examples">                            
-                    <img class="products__image products__image--1 lazyload" src="<?php echo base_url('images/')?>products_470x510_2" data-src="<?php echo base_url('images/')?>products_470x510_2" alt="Product Examples">                        
+                    <img class="products__image products__image--1 lazyload" src="<?php echo base_url('images/')?>examples4.jpg" data-src="<?php echo base_url('images/')?>examples4.jpg" alt="Product Examples">                        
                   </div>
                   <div>
                     <img class="products__image products__image--2 lazyload" src="<?php echo base_url('images/')?>products_330x330_1" data-src="<?php echo base_url('images/')?>products_330x330_1" alt="Product Examples">                            
@@ -218,7 +218,7 @@
                   </div>
                   <div>
                     <img class="products__image products__image--3 lazyload" src="<?php echo base_url('images/')?>products_355x355_1" data-src="<?php echo base_url('images/')?>products_355x355_1" alt="Product Examples">                            
-                    <img class="products__image products__image--3 lazyload" src="<?php echo base_url('images/')?>products_355x355_2" data-src="<?php echo base_url('images/')?>products_355x355_2" alt="Product Examples">                        
+                    <img class="products__image products__image--3 lazyload" src="<?php echo base_url('images/')?>example3.jpg" data-src="<?php echo base_url('images/')?>example3.jpg" alt="Product Examples">                        
                   </div>
                 </div>
               </div>
@@ -267,7 +267,7 @@
                       <div class="ressources__text">
                         <h3>Premium access to photos
                         </h3>
-                        <p>Spreadshop has partnered with Placeit, offering thousands of product photos for you to mockup.
+                        <p>Eazyprint has partnered with Placeit, offering thousands of product photos for you to mockup.
                         </p>
                       </div>
                     </li>
@@ -288,7 +288,7 @@
                   </h2>
                   <p>Connect with our shop owners and see how they create with passion and make merch happen!
                   </p>
-                  <a class="sprd-button ghost" href="https://www.spreadshop.com/examples">See Shop Examples
+                  <a class="sprd-button ghost" href="<?php echo base_url('examples');?>">See Shop Examples
                   </a>
                 </div>
               </div>
@@ -304,13 +304,13 @@
                             <div>
                               <h3>Chef Shirts
                               </h3>
-                              <small>Spreadshop Partner since 2018
+                              <small>Eazyprint Partner since 2018
                               </small>
                             </div>
                           </div>
                           <blockquote>Erin is a woman of many interests. She’s cleverly found ways to combine her passions, leading her to open her very own Eazyprint, Chef Shirts.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -324,13 +324,13 @@
                             <div>
                               <h3>The High Frontier
                               </h3>
-                              <small>Spreadshop Partner since 2017
+                              <small>Eazyprint Partner since 2017
                               </small>
                             </div>
                           </div>
                           <blockquote>Chris Petty, who’s seen plenty of success with his Eazyprint, The High Frontier, found a clever way to monetize his blog with his love for space.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -344,13 +344,13 @@
                             <div>
                               <h3>Little Adventures
                               </h3>
-                              <small>Spreadshop Partner since 2017
+                              <small>Eazyprint Partner since 2017
                               </small>
                             </div>
                           </div>
                           <blockquote>Julia, a YouTube sensation and the shop owner of Little Adventures, explains how her love for small rodents became a social media hit.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -364,13 +364,13 @@
                             <div>
                               <h3>Dad’s Life
                               </h3>
-                              <small>Spreadshop Partner since 2017
+                              <small>Eazyprint Partner since 2017
                               </small>
                             </div>
                           </div>
                           <blockquote>Being a dad changes the outlook on life. Roman and the guys from the shop, Dad’s Life, managed to make a success with what it means to become a dad.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -380,17 +380,17 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Waldogs" data-src="<?php echo base_url('images/')?>spotlight_Waldogs" alt="Spotlight Waldogs">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Waldogs" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Waldogs" alt="Spotlight Waldogs">                                                
+                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Waldogs" data-src="#" alt="Spotlight Waldogs">                                                
                             <div>
                               <h3>Waldogs
                               </h3>
-                              <small>Spreadshop Partner since 2015
+                              <small>Eazyprint Partner since 2015
                               </small>
                             </div>
                           </div>
                           <blockquote>You&#039;ll be wowed by the clever designs and marketing behind this canine success story. Let’s give a warm paw and a big woof to the Eazyprint, Waldogs!
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -400,17 +400,17 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_DangerEcole" data-src="<?php echo base_url('images/')?>spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_DangerEcole" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                                
+                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_DangerEcole" data-src="#" alt="Spotlight Danger Ecole">                                                
                             <div>
                               <h3>Danger Ecole
                               </h3>
-                              <small>Spreadshop Partner since 2008
+                              <small>Eazyprint Partner since 2008
                               </small>
                             </div>
                           </div>
                           <blockquote>Jack&#039;s Eazyprint is a hit in the French market, and now he’s ready to conquer the world. Read about Jack’s success story behind Danger Ecole.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -420,17 +420,17 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Nektarinchen" data-src="<?php echo base_url('images/')?>spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Nektarinchen" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                                
+                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Nektarinchen" data-src="#" alt="Spotlight Gscheade Leibal">                                                
                             <div>
                               <h3>Gscheade Leibal
                               </h3>
-                              <small>Spreadshop Partner since 2006
+                              <small>Eazyprint Partner since 2006
                               </small>
                             </div>
                           </div>
                           <blockquote>One of the most successful shops, Gscheade Leibal, is owned by Nektarinchen and her boyfriend who embrace the peculiarities of the Austrian dialect.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -440,7 +440,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Amorphia" data-src="<?php echo base_url('images/')?>spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Amorphia" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                                
+                            <img class="d-lg-none lazyload" src="//www.spreadshop.com/content/f_auto,q_60,w_200,e_blur:2000/pages/homepage/spotlight_Amorphia" data-src="#" alt="Spotlight Amorphia Apparel">                                                
                             <div>
                               <h3>Amorphia Apparel
                               </h3>
@@ -450,7 +450,7 @@
                           </div>
                           <blockquote>Jeremy Kalgreem, the mastermind behind Amorphia Apparel, has written a true success story during an 11-year long Spreadshirt journey.
                           </blockquote>
-                          <a href="https://www.spreadshirt.com/blog/2018/09/28/shop-of-the-month-chef-shirts/" target="_blank" rel="noopener">Read Full Interview
+                          <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
                         </div>
                       </div>
@@ -461,214 +461,6 @@
                   <div class="spotlight-next">
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="designs">
-          <div class="container">
-            <div class="row align-content-center justify-content-between">
-              <div class="col-12 col-lg-6 col-xl-5">
-                <div class="designs__text-wrapper">
-                  <h2 class="h1">Look like a pro from the get-go
-                  </h2>
-                  <p>Get the best designs at unbeatable prices with Eazyprint's Premium Design Service! Our team of creative minds will work with you to achieve the ultimate merch masterpiece!
-                  </p>
-                  <a class="sprd-button light" href="https://www.spreadshop.com/premiumdesign">Get a Custom Design
-                  </a>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 col-xl-6">
-                <div class="designs__list-wrapper">
-                  <ul>
-                    <li class="h3">One-of-a-kind premium designs
-                    </li>
-                    <li class="h3">Custom Eazyprint styling
-                    </li>
-                    <li class="h3">Thumb-stopping social media sharables
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="designs__slider-wrapper">
-            <div class="swiper-container js-slider-designs">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>1" data-src="<?php echo base_url('images/')?>1" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>2" data-src="<?php echo base_url('images/')?>2" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>3" data-src="<?php echo base_url('images/')?>3" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>4" data-src="<?php echo base_url('images/')?>4" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>5" data-src="<?php echo base_url('images/')?>5" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>6" data-src="<?php echo base_url('images/')?>6" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>7" data-src="<?php echo base_url('images/')?>7" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>8" data-src="<?php echo base_url('images/')?>8" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>9" data-src="<?php echo base_url('images/')?>9" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>10" data-src="<?php echo base_url('images/')?>10" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>11" data-src="<?php echo base_url('images/')?>11" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>12" data-src="<?php echo base_url('images/')?>12" alt="Design Example">                    
-                </div>
-                <div class="swiper-slide">
-                  <img class=" lazyload" src="<?php echo base_url('images/')?>13" data-src="<?php echo base_url('images/')?>13" alt="Design Example">                    
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="team">
-          <div class="container">
-            <div class="row align-content-center justify-content-between">
-              <div class="col-12 col-lg-5 col-xl-4">
-                <div class="team__text-wrapper">
-                  <h2 class="h1">Real people who have your back
-                  </h2>
-                  <p>Meet the team behind your custom merch shop!
-                  </p>
-                  <a class="sprd-button light" href="https://www.youtube.com/playlist?list=PLViyz2Ty9pLw-GTaGkQPDabVYZ4mhX4MJ" target="_blank" rel="noopener">Meet the Eazyprint Team
-                  </a>
-                </div>
-              </div>
-              <div class="col-12 col-lg-7">
-                <div class="team__image-wrapper">
-                  <div>
-                    <img class="team__image team__image--1 lazyload" src="<?php echo base_url('images/')?>people_470x510_1" data-src="<?php echo base_url('images/')?>people_470x510_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--1 lazyload" src="<?php echo base_url('images/')?>people_470x510_2" data-src="<?php echo base_url('images/')?>people_470x510_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--1 lazyload" src="<?php echo base_url('images/')?>people_470x510_3" data-src="<?php echo base_url('images/')?>people_470x510_3" alt="Spreadshop Team">                        
-                  </div>
-                  <div>
-                    <img class="team__image team__image--2 lazyload" src="<?php echo base_url('images/')?>people_330x330_1" data-src="<?php echo base_url('images/')?>people_330x330_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--2 lazyload" src="<?php echo base_url('images/')?>people_330x330_2" data-src="<?php echo base_url('images/')?>people_330x330_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--2 lazyload" src="<?php echo base_url('images/')?>people_330x330_3" data-src="<?php echo base_url('images/')?>people_330x330_3" alt="Spreadshop Team">                        
-                  </div>
-                  <div>
-                    <img class="team__image team__image--3 lazyload" src="<?php echo base_url('images/')?>people_355x355_1" data-src="<?php echo base_url('images/')?>people_355x355_1" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--3 lazyload" src="<?php echo base_url('images/')?>people_355x355_2" data-src="<?php echo base_url('images/')?>people_355x355_2" alt="Spreadshop Team">                            
-                    <img class="team__image team__image--3 lazyload" src="<?php echo base_url('images/')?>people_355x355_3" data-src="<?php echo base_url('images/')?>people_355x355_3" alt="Spreadshop Team">                        
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="blog">
-          <div class="container">
-            <div class="row align-content-center justify-content-between">
-              <div class="col-12 col-lg-6 col-xl-5">
-                <div class="blog__text-wrapper">
-                  <h2 class="h1">Stay in the loop
-                  </h2>
-                  <p>Our blog is one of the most helpful resources for shop owners. You'll always be in the know and never in the dark.
-                  </p>
-                  <a class="sprd-button light" href="https://www.spreadshirt.com/blog/spreadshop/" target="_blank" rel="noopener">Visit Our Blog
-                  </a>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 col-xl-6">
-                <div class="blog__list-wrapper">
-                  <ul>
-                    <li class="h3">Design Tutorials
-                    </li>
-                    <li class="h3">Marketing Tips and Tricks
-                    </li>
-                    <li class="h3">Regular Dev Updates
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="blog__post-wrapper row">
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/31/your-shop-your-style-customize-your-shop-theme/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>MDS-2065_teaser_fqbmcn" alt="Your Shop, Your Style: Customize your Shop Theme">
-                  <small>July 31, 2019
-                  </small>
-                  <h3>Your Shop, Your Style: Customize your Shop Theme
-                  </h3>
-                </a>
-              </div>
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/31/sorting-by-topics-create-tool/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>BP_createTool_teaser_atum75" alt="Your Topics in the Create Tool">
-                  <small>July 31, 2019
-                  </small>
-                  <h3>Your Topics in the Create Tool
-                  </h3>
-                </a>
-              </div>
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/30/tool-box-font-combinations-with-canva/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>MDS-2153-Toolbox-Canva-Fonts_pnxpkw" alt="Tool Box: Font Combinations with Canva">
-                  <small>July 30, 2019
-                  </small>
-                  <h3>Tool Box: Font Combinations with Canva
-                  </h3>
-                </a>
-              </div>
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/30/3-facebook-ad-targeting-mistakes-youre-probably-making/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>MDS-2154-BP-FB-Ads---Targeting_fjpecl" alt="3 Facebook Ad Targeting Mistakes You’re Probably Making">
-                  <small>July 30, 2019
-                  </small>
-                  <h3>3 Facebook Ad Targeting Mistakes You’re Probably Making
-                  </h3>
-                </a>
-              </div>
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/30/shop-of-the-month-slinga-illustration/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>SotM_Blog_EN_pdf4rr" alt="Shop of the Month: Slinga Illustration">
-                  <small>July 30, 2019
-                  </small>
-                  <h3>Shop of the Month: Slinga Illustration
-                  </h3>
-                </a>
-              </div>
-              <div class="blog__post col-12 col-sm-6 col-lg-4">
-                <a href="https://www.spreadshirt.com/blog/2019/07/11/spreadshop-promos-july-september-2019/" target="_blank" rel="noopener">
-                  <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="<?php echo base_url('images/')?>MDS-2161-BP-Shop-Promos-Q3_dcxrwd" alt="Spreadshop Promos: July-September 2019">
-                  <small>July 11, 2019
-                  </small>
-                  <h3>Spreadshop Promos: July-September 2019
-                  </h3>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="banner">
-          <div class="container">
-            <div class="row text-center">
-              <div class="col-12">
-                <h2 class="h1">Ready to start selling your merch?
-                </h2>
-                <p>No matter your passion, we'll make it happen.
-                </p>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
-                </div>
-                <p class="d-none d-md-block">Always free. Always.
-                </p>
               </div>
             </div>
           </div>
