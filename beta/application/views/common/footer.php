@@ -1,60 +1,84 @@
-<footer class="footer">
+<!-- footer ends -->
+<footer class="footer" style="background: #333;">
       <div class="container">
-        <div class="footer__page-links">
-          <div>
-            <h4>Sell Merchandise
+        <div class="footer__page-links row">
+          <div class="col-md-3">
+            <h4>CUSTOMER SERVICE
             </h4>
             <ul>
               <li>
-                <a href="https://www.spreadshop.com/sell-merchandise">Custom Merchandise
+                <a href="javascript:void(0);">Contact Us
                 </a>
               </li>
               <li>
-                <a href="https://www.spreadshop.com/youtube-merchandise-maker">YouTube Merchandise Maker
+                <a href="javascript:void(0);">Track Order
                 </a>
               </li>
               <li>
-                <a href="https://www.spreadshop.com/merchandise-creator">Merchandise Creator
+                <a href="javascript:void(0);">Return Order
                 </a>
               </li>
               <li>
-                <a href="https://www.spreadshop.com/sell-custom-tshirts">Sell Custom T-shirts
-                </a>
-              </li>
-              <li>
-                <a href="https://www.spreadshop.com/sell-shirts-without-inventory">Sell Shirts Without Inventory
-                </a>
-              </li>
-              <li>
-                <a href="https://www.spreadshop.com/free-online-store-with-products-included">Free Online Shop
+                <a href="javascript:void(0);">Cancel Order
                 </a>
               </li>
             </ul>
           </div>
-          <div>
-            <h4>About Spreadshop
+          <div class="col-md-3">
+            <h4>COMPANY
             </h4>
             <ul>
               <li>
-                <a href="//www.spreadshirt.com/about-us-C68" target="_blank" rel="noopener">About Us
+                <a href="javascript:void(0);" target="_blank" rel="noopener">About Us
                 </a>
               </li>
               <li>
-                <a href="//help.spreadshirt.com/hc/en-us/categories/200829585-Partner-Help" target="_blank" rel="noopener">Help
+                <a href="javascript:void(0);" target="_blank" rel="noopener">We're Hiring
                 </a>
               </li>
               <li>
-                <a href="//www.spreadshirt.com/legal-information-C1338" target="_blank" rel="noopener">Legal
+                <a href="javascript:void(0);" target="_blank" rel="noopener">Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="https://www.spreadshop.com/ecommerce-wiki">Wiki
+                <a href="javascript:void(0);">Privacy Policy
+                </a>
+              </li>
+			  <li>
+                <a href="javascript:void(0);">Blog
                 </a>
               </li>
             </ul>
-          </div>        
+          </div>   
+		  <div class="col-md-3">
+            <h4>CONNECT WITH US
+            </h4>
+            <ul>
+				<li>
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-square" style="font-size: 20px;"></i>&nbsp;10B People like this
+				  </a>
+				</li>
+				<li>
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram" style="font-size: 20px;"></i>&nbsp;1B Followers
+				  </a>
+				</li>
+				<!-- <li>
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter-square" style="font-size: 30px;"></i>
+				  </a>
+				</li>
+				<li>
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube-square" style="font-size: 30px;"></i>
+				  </a>
+				</li> -->
+			  </ul>
+          </div>
+		  <div class="col-md-3">
+            <h4>100% SECURE PAYMENT
+            </h4>
+			<img class="paymentImg" src="<?php echo base_url('images/');?>secure-pay-1560341534.png" title="secure payments" alt="secure payments">
+          </div>
         </div>
-        <div>
+        <!-- <div>
           <div class="language-switcher">
             <div class="language-switcher__active-locale">
               <span class="icon icon--us">English
@@ -82,7 +106,7 @@
               <img src="https://www.spreadshop.com/content/assets/spreadshirt_logo" alt="Spreadshirt Logo">
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="footer__social-links">
         <div class="container">
@@ -119,7 +143,11 @@
           </a>
         </div>
       </div>
-    </footer>        
+    </footer>   
+	
+	<!-- footer ends -->
+
+
     <div id="login-modal" class="lightbox" style="display: none;">
       <div class="lightbox__black-layer js-lightbox-close">
       </div>
