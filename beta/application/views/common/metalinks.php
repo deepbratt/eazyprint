@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="<?php echo base_url('css/styles_sell_without_inv.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('css/styles_examples.css');?>">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 <link rel="shortcut icon" type="image/ico" href="<?php echo base_url('images/favicon.png');?>">
 <link rel="apple-touch-icon" href="<?php echo base_url('images/favicon.png');?>">
 <link rel="canonical" href="https://www.eazyprint.in">
