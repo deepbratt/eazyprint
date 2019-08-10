@@ -334,7 +334,17 @@
             </div>
         </div>
     </section>
-
+  <section class="seven endTeaser">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="h1">Ready to Start Selling Your Merch?</h2>
+                    <p>No matter your passion, we'll make it happen.</p>
+                    <div class="sprd-button secondary" data-lightbox="register-modal">Start Your Free Shop</div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="six shipping">
         <div class="container">
             <div class="row justify-content-center">
@@ -350,17 +360,7 @@
         </div>
     </section>
 
-    <section class="seven endTeaser">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12">
-                    <h2 class="h1">Ready to Start Selling Your Merch?</h2>
-                    <p>No matter your passion, we'll make it happen.</p>
-                    <div class="sprd-button secondary" data-lightbox="register-modal">Start Your Free Shop</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 </div>        
 </main>
 <?php $this->load->view("common/footer");?>

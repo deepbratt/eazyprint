@@ -38,29 +38,29 @@
                <div class="swiper-wrapper">
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="<?php echo base_url('images/')?>teaser1" alt="Spreadshop Teaser">
+                      <img src="<?php echo base_url('images/')?>final_banner1.png" alt="Eazyprint Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="<?php echo base_url('images/')?>teaser2" alt="Spreadshop Teaser">
+                      <img src="<?php echo base_url('images/')?>final_banner2.png" alt="Eazyprint Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="<?php echo base_url('images/')?>teaser3" alt="Spreadshop Teaser">
+                      <img src="<?php echo base_url('images/')?>final_banner3.png" alt="Eazyprint Teaser">
                     </div>
                   </div>
                   <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
-                      <img src="<?php echo base_url('images/')?>teaser4" alt="Spreadshop Teaser">
+                      <img src="<?php echo base_url('images/')?>final_banner6.png" alt="Eazyprint Teaser">
                     </div>
                   </div>
-                  <div class="swiper-slide swiper-no-swiping">
+                  <!-- <div class="swiper-slide swiper-no-swiping">
                     <div class="spreadshop-teaser__image-wrapper">
                       <img src="<?php echo base_url('images/')?>teaser5" alt="Spreadshop Teaser">
                     </div>
-                  </div>
+                  </div> -->
                 </div> 
               </div>
               <div class="spreadshop-teaser__fade-out">

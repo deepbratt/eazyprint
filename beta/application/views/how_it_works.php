@@ -3,10 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
     <meta charset="utf-8">
-    <title>How Spreadshop works | Eazyprint
+    <title>How Eazyprint works | Eazyprint
     </title>
-    <meta name="description" content="How does Spreadshop work? We are happy to explain! Sell merch, make money, we’ll do everything else. Open a free online shop today!">
-    <meta name="title" content="How Spreadshop works | Spreadshop">
+    <meta name="description" content="How does Eazyprint work? We are happy to explain! Sell merch, make money, we’ll do everything else. Open a free online shop today!">
+    <meta name="title" content="How Eazyprint works | Eazyprint">
     <?php $this->load->view("common/metalinks");?>
   </head>
   <body class="sprd-responsive-cnt">
@@ -29,7 +29,7 @@
         </section>
         <section class="works-video">
           <div class="container">
-            <h2 class="h1 text-center">This Is What Happens When You Become a Spreadshop Shop Owner:
+            <h2 class="h1 text-center">This Is What Happens When You Become a Eazyprint Shop Owner:
             </h2>
             <div class="row video-text">
               <div class="col-12 col-lg-6 responsive-video-wrapper">
@@ -65,7 +65,7 @@
                 </h2>
                 <p>No matter your passion, we'll make it happen.
                 </p>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
+                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint Store
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" data-link="argument3" >We’ll Do the Hard Work for You
+                    <a href="#" data-link="argument3" >We'll Do the Hard Work for You
                     </a>
                   </li>
                   <li>
@@ -112,11 +112,11 @@
                     <div class="col-12 col-md-6">
                       <h3>It's all about YOU
                       </h3>
-                      <p>Spreadshop is a free online shop platform powered by Spreadshirt. You’ll receive your own URL and a professional, customizable shop system, giving you the tools needed to start your own online merch business.
+                      <p>Eazyprint is a free online shop platform powered by Clickrstop. You'll receive your own URL and a professional, customizable shop system, giving you the tools needed to start your own online merch business.
                       </p>
                       <h3>Award-Winning Customer Service
                       </h3>
-                      <p>We offer a variety of tools to make your Spreadshop experience easy. Our dedicated support team offers personal assistance, video tutorials, feature requests and FAQ's to get you the answers you need.
+                      <p>We offer a variety of tools to make your Eazyprint experience easy. Our dedicated support team offers personal assistance, video tutorials, feature requests and FAQ's to get you the answers you need.
                       </p>
                       <h3>You're in control
                       </h3>
@@ -126,7 +126,7 @@
                     <div class="col-12 col-md-6">
                       <h3>Website Integration
                       </h3>
-                      <p>We've made it fast and simple to integrate Spreadshop into your own website! No matter where your online presence is, your Spreadshop can easily be integrated into the back end.
+                      <p>We've made it fast and simple to integrate Eazyprint into your own website! No matter where your online presence is, your store can easily be integrated into the back end.
                       </p>
                       <img class=" lazyload" src="<?php echo base_url('images/')?>HowItWorks_1" data-src="<?php echo base_url('images/')?>HowItWorks_1" alt="The Shop Owner Experience">                                
                     </div>
@@ -141,11 +141,11 @@
                     <div class="col-12 col-md-6">
                       <h3>Highest Commission
                       </h3>
-                      <p>Spreadshop offers the highest commission opportunities in the industry. Not only will you profit from your designs, you're also guaranteed at least 20% commission from every sale you make. Plus, we'll even reward you with volume bonuses. The more you sell, the more commission you make per sale!
+                      <p>Eazyprint offers the highest commission opportunities in the industry. Not only will you profit from your designs, you're also guaranteed at least 20% commission from every sale you make. Plus, we'll even reward you with volume bonuses. The more you sell, the more commission you make per sale!
                       </p>
                       <h3>No Minimums
                       </h3>
-                      <p>You'll profit from your very first sale! There are no minimum sale requirements, so you can sell at your own pace. The Spreadshop system is pressure-free!
+                      <p>You'll profit from your very first sale! There are no minimum sale requirements, so you can sell at your own pace. The Eazyprint system is pressure-free!
                       </p>
                       <h3>Track Profits On-The-Go
                       </h3>
@@ -178,13 +178,13 @@
                       </p>
                       <h3>No-Cost Fulfillment
                       </h3>
-                      <p>Our production facilities will quality check and neatly package your orders. We’re dedicated to maintaining a positive experience for both our shop owners and their customers.
+                      <p>Our production facilities will quality check and neatly package your orders. We're dedicated to maintaining a positive experience for both our shop owners and their customers.
                       </p>
                     </div>
                     <div class="col-12 col-md-6">
                       <h3>Worldwide Shipping
                       </h3>
-                      <p>Take your Spreadshop global! There's no point in limiting your customer-base, so we’re ready to make your fans happy all around the world! No matter where your products are going, we'll make sure they get there.
+                      <p>Take your Eazyprint global! There's no point in limiting your customer-base, so we're ready to make your fans happy all around the world! No matter where your products are going, we'll make sure they get there.
                       </p>
                       <img class=" lazyload" src="<?php echo base_url('images/')?>HowItWorks_3.jfif" data-src="<?php echo base_url('images/')?>HowItWorks_3.jfif" alt="We’ll Do the Hard Work for You">                                
                     </div>
@@ -199,15 +199,15 @@
                     <div class="col-12 col-md-6">
                       <h3>Connect Your Social Media Accounts
                       </h3>
-                      <p>Spreadshop allows you to easily link social media accounts with your shop. Connect with your customers through social media while marketing new products to your followers. It's a win-win situation!
+                      <p>Eazyprint allows you to easily link social media accounts with your shop. Connect with your customers through social media while marketing new products to your followers. It's a win-win situation!
                       </p>
                       <h3>Tips &amp; Tricks
                       </h3>
-                      <p>Spreadshop offers insiders tips and tricks to reveal marketing best-practices. Through our blog or forum, learn how to optimize your shop and how to reel in more sales!
+                      <p>Eazyprint offers insiders tips and tricks to reveal marketing best-practices. Through our blog or forum, learn how to optimize your shop and how to reel in more sales!
                       </p>
                       <h3>Promotions
                       </h3>
-                      <p>Spreadshop strives to support you as a shop owner. Whether we’re offering free shipping or discount codes, we're here to help boost your sales. With our monthly promotions, your customers will always have a reason to come back for more.
+                      <p>Eazyprint strives to support you as a shop owner. Whether we're offering free shipping or discount codes, we're here to help boost your sales. With our monthly promotions, your customers will always have a reason to come back for more.
                       </p>
                     </div>
                     <div class="col-12 col-md-6">
@@ -228,21 +228,21 @@
                     <div class="col-12 col-md-6">
                       <h3>Wide Selection
                       </h3>
-                      <p>Spreadshop offers over 200 customizable products. See your designs stand out on anything from quality apparel to fun and innovative accessories. Your customers will love showing off your merch wherever they go!
+                      <p>Eazyprint offers over 200 customizable products. See your designs stand out on anything from quality apparel to fun and innovative accessories. Your customers will love showing off your merch wherever they go!
                       </p>
                       <h3>Various Price Ranges
                       </h3>
-                      <p>Spreadshop offers products for any budget. Whether your customers are budget-friendly or big-spenders, we assure you that there is something for all your fans!
+                      <p>Eazyprint offers products for any budget. Whether your customers are budget-friendly or big-spenders, we assure you that there is something for all your fans!
                       </p>
                       <h3>Top-Notch Quality
                       </h3>
-                      <p>Spreadshop’s product library offers trustworthy, reputable brands as well as our own Spreadshirt private-label. Each product is hand selected and quality-checked, so you can be confident in what your selling.
+                      <p>Eazyprint's product library offers trustworthy, reputable brands as well as our own eazyprint private-label. Each product is hand selected and quality-checked, so you can be confident in what your selling.
                       </p>
                     </div>
                     <div class="col-12 col-md-6">
                       <h3>No Limits
                       </h3>
-                      <p>We love to see you creating. That’s why there is no limit to how many products you can sell in your Spreadshop. Customize as many of our products as you want and keep on selling!
+                      <p>We love to see you creating. That's why there is no limit to how many products you can sell in your Eazyprint. Customize as many of our products as you want and keep on selling!
                       </p>
                       <img class=" lazyload" src="<?php echo base_url('images/')?>HowItWorks_5" data-src="<?php echo base_url('images/')?>HowItWorks_5" alt="Products">                                
                     </div>
@@ -257,7 +257,7 @@
                     <div class="col-12 col-md-6">
                       <h3>Trustworthy System
                       </h3>
-                      <p>Your Spreadshop is powered by Spreadshirt, a global e-commerce company with 15+ years of experience in merchandise. Your checkout includes a free SSL certificate. All transactions are protected by the same security level used by banks.
+                      <p>Your Eazyprint is powered by Clickrstop, a global e-commerce company with 15+ years of experience in merchandise. Your checkout includes a free SSL certificate. All transactions are protected by the same security level used by banks.
                       </p>
                       <h3>Quality Print Results
                       </h3>
@@ -265,13 +265,13 @@
                       </p>
                       <h3>Multiple Payment Options
                       </h3>
-                      <p>Spreadshop accepts both PayPal payments and credit card payments. All payments are handled by us, so all you need to do is watch your profits grow!
+                      <p>Eazyprint accepts both PayPal payments and credit card payments. All payments are handled by us, so all you need to do is watch your profits grow!
                       </p>
                     </div>
                     <div class="col-12 col-md-6">
                       <h3>Mobile-Friendly Shop System
                       </h3>
-                      <p>Spreadshop’s platform adapts to any device. Your customers can browse and buy from your online shop using any mobile phone or tablet with ease.
+                      <p>Spreadshop's platform adapts to any device. Your customers can browse and buy from your online shop using any mobile phone or tablet with ease.
                       </p>
                       <img class="lazyload" src="<?php echo base_url('images/')?>HowItWorks_6" data-src="<?php echo base_url('images/')?>HowItWorks_6" alt="Customer Experience">                                
                     </div>
@@ -289,7 +289,7 @@
                 </h2>
                 <p>No matter your passion, we'll make it happen.
                 </p>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Spreadshop
+                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint Store
                 </div>
               </div>
             </div>
