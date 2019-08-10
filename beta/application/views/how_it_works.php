@@ -33,12 +33,9 @@
             </h2>
             <div class="row video-text">
               <div class="col-12 col-lg-6 responsive-video-wrapper">
-                <div class="responsive-video">
-                  <iframe height="460" src="https://www.youtube.com/embed/_74aDmwx-_M?rel=0&amp;modestbranding=1&amp;controls=1&amp;showinfo=0&amp;color=white" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen style="width:100%;">
-                  </iframe>
-                </div>
+              <img class=" lazyload" src="<?php echo base_url('images/')?>how_it_works1.jpeg" data-src="<?php echo base_url('images/')?>how_it_works1.jpeg" style="border-radius:10px;" alt="The Shop Owner Experience">  
               </div>
-              <div class="col-12 col-lg-6 text-wrapper d-none d-lg-inline">
+              <div class="col-12 col-lg-6 text-wrapper d-none d-lg-inline" style="margin-top:30px;">
                 <h3>What is Eazyprint?
                 </h3>
                 <p>Eazyprint is an online shop system allowing users to create and sell merchandise 
@@ -182,9 +179,9 @@
                       </p>
                     </div>
                     <div class="col-12 col-md-6">
-                      <h3>Worldwide Shipping
+                      <h3>All India Shipping
                       </h3>
-                      <p>Take your Eazyprint global! There's no point in limiting your customer-base, so we're ready to make your fans happy all around the world! No matter where your products are going, we'll make sure they get there.
+                      <p>Take your Eazyprint National! There's no point in limiting your customer-base, so we're ready to make your fans happy all around in india! No matter where your products are going, we'll make sure they get there.
                       </p>
                       <img class=" lazyload" src="<?php echo base_url('images/')?>HowItWorks_3.jfif" data-src="<?php echo base_url('images/')?>HowItWorks_3.jfif" alt="We’ll Do the Hard Work for You">                                
                     </div>
@@ -244,7 +241,7 @@
                       </h3>
                       <p>We love to see you creating. That's why there is no limit to how many products you can sell in your Eazyprint. Customize as many of our products as you want and keep on selling!
                       </p>
-                      <img class=" lazyload" src="<?php echo base_url('images/')?>HowItWorks_5" data-src="<?php echo base_url('images/')?>HowItWorks_5" alt="Products">                                
+                      <img class=" lazyload" src="<?php echo base_url('images/')?>banner5.png" data-src="<?php echo base_url('images/')?>banner5.png" alt="Products" style="height:300px;">                                
                     </div>
                   </div>
                 </div>
@@ -259,10 +256,7 @@
                       </h3>
                       <p>Your Eazyprint is powered by Clickrstop, a global e-commerce company with 15+ years of experience in merchandise. Your checkout includes a free SSL certificate. All transactions are protected by the same security level used by banks.
                       </p>
-                      <h3>Quality Print Results
-                      </h3>
-                      <p>Our printing technology is optimized to output print results of the highest quality. We want your customers to be happy, so you can be rest assured that they are getting the best!
-                      </p>
+                    
                       <h3>Multiple Payment Options
                       </h3>
                       <p>Eazyprint accepts both PayPal payments and credit card payments. All payments are handled by us, so all you need to do is watch your profits grow!
@@ -273,7 +267,10 @@
                       </h3>
                       <p>Spreadshop's platform adapts to any device. Your customers can browse and buy from your online shop using any mobile phone or tablet with ease.
                       </p>
-                      <img class="lazyload" src="<?php echo base_url('images/')?>HowItWorks_6" data-src="<?php echo base_url('images/')?>HowItWorks_6" alt="Customer Experience">                                
+                       <h3>Quality Print Results
+                      </h3>
+                      <p>Our printing technology is optimized to output print results of the highest quality. We want your customers to be happy, so you can be rest assured that they are getting the best!
+                      </p>                           
                     </div>
                   </div>
                 </div>
@@ -285,7 +282,7 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-12">
-						<h2 class="h1">Let’s Get Started!</h2>
+						<h2 class="h1">Let's Get Started!</h2>
 						<p>No matter your passion, we'll make it happen.</p>
 						<div class="sprd-button secondary" data-lightbox="register-modal">Start Your Free Shop</div>
 					</div>

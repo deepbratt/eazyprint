@@ -174,9 +174,9 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 product-quality__item">
-                    <div class="product-quality__image product-quality__video">
-                        <iframe src="https://www.youtube.com/embed/Y3ExvytM9Ww?rel=0&amp;modestbranding=1&amp;controls=1&amp;showinfo=0&amp;color=white" gesture="media" allow="encrypted-media" allowfullscreen="" style="width:100%;" height="460" frameborder="0"></iframe>
-                    </div>
+					<div class="col-12 col-lg-6 responsive-video-wrapper">
+						<img class=" lazyload" src="<?php echo base_url('images/')?>how_it_works1.jpeg" data-src="<?php echo base_url('images/')?>how_it_works1.jpeg" style="border-radius:10px;" alt="The Shop Owner Experience">  
+					</div>
 
                     <div class="product-quality__text">
                         <h3>Digital Direct Printing</h3>
@@ -187,16 +187,17 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 product-quality__item">
-                    <div class="product-quality__image">
+                 
+                    <div class="product-quality__text">
+                        <h3>Thermo Sublimation</h3>
+                        <p>Thermo Sublimation, laser transfer and FLEX printing are all transfer foil printing techniques. While each process has a different purpose, each will produce beautiful, amazing, quality prints, so you can be confident when you sell your custom apparel.</p>
+                    </div>
+					   <div class="product-quality__image">
                         <picture>
                             <source srcset="<?php echo base_url('images/')?>thermosublimation" media="(max-width: 480px)">
                             <source srcset="<?php echo base_url('images/')?>thermosublimation" media="(min-width: 481px)">
                             <img src="<?php echo base_url('images/')?>thermosublimation" alt="Thermo Sublimation">
                         </picture>
-                    </div>
-                    <div class="product-quality__text">
-                        <h3>Thermo Sublimation</h3>
-                        <p>Thermo Sublimation, laser transfer and FLEX printing are all transfer foil printing techniques. While each process has a different purpose, each will produce beautiful, amazing, quality prints, so you can be confident when you sell your custom apparel.</p>
                     </div>
                 </div>
             </div>

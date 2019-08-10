@@ -3,11 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
         <meta charset="utf-8">
-        <title>Start your own eCommerce business and open your own free shop | Spreadshop</title>
-        <meta name="description" content="Spreadshop offers a unique opportunity to create a 100% FREE online shop in no time. ✓ No fees ✓ No trial period ✓ High commission opportunities. Find out more!">
-        <meta name="title" content="Start your own eCommerce business and open your own free shop | Spreadshop">
-        <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-        <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w"> -->
+        <title>Start your own eCommerce business and open your own free shop | Eazyprint</title>
+        
 		<?php $this->load->view("common/metalinks");?>
       </head>
     <body class="sprd-responsive-cnt">
@@ -16,9 +13,9 @@
 <div id="pricing">
     <section class="pricing-teaser text-center">
         <div class="container">
-            <h1 class="h0">How You Get Paid with Spreadshop</h1>
-            <h2 class="h4">Run your business with Spreadshop without ever paying a fee. Ever.</h2>
-            <div class="sprd-button secondary" data-lightbox="register-modal">Open a Spreadshop</div>
+            <h1 class="h0">How You Get Paid with Eazyprint</h1>
+            <h2 class="h4">Run your business with Eazyprint without ever paying a fee. Ever.</h2>
+            <div class="sprd-button secondary" data-lightbox="register-modal">Open a Eazyprint</div>
         </div>
     </section>
 
@@ -48,7 +45,7 @@
                         <div class="pricing-usp__icon pricing-usp__icon--graph"></div>
                         <div class="pricing-usp__text">
                             <h3>Over $52 million sent to creatives</h3>
-                            <p>TRUTH: We’ve had thousands of creators find success with Spreadshop. Brands of all sizes have grown and continue to grow their business with Spreadshop.</p>
+                            <p>TRUTH: We’ve had thousands of creators find success with Eazyprint. Brands of all sizes have grown and continue to grow their business with Eazyprint.</p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +58,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="text-center">
-                        <h2 class="h1">You’ll Never Pay a Penny with Spreadshop</h2>
+                        <h2 class="h1">You'll Never Pay a Penny with Eazyprint</h2>
                         <h3>We keep a portion of the product base price and the rest is all yours!</h3>
                     </div>
                     <div class="pricing-percentage__details">
@@ -71,8 +68,8 @@
                             </div>
                         </div>
                         <div class="pricing-percentage__labels">
-                            <div class="pricing-percentage__label pricing-percentage__label--seller"><span>This is what you’ll earn with us</span>to continue to grow your business</div>
-                            <div class="pricing-percentage__label pricing-percentage__label--spreadshop"><span>This is what we’ll keep</span>so we can continue to keep Spreadshop free</div>
+                            <div class="pricing-percentage__label pricing-percentage__label--seller"><span>This is what you'll earn with us</span>to continue to grow your business</div>
+                            <div class="pricing-percentage__label pricing-percentage__label--Eazyprint"><span>This is what we’ll keep</span>so we can continue to keep Eazyprint free</div>
                         </div>
                     </div>
                 </div>
@@ -84,34 +81,34 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5 order-md-2 text-center">
-                    <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_70,e_blur:2000/pages/pricing/pricing-icon1" data-src="//www.spreadshop.com/content/f_auto,q_70/pages/pricing/pricing-icon1" alt="Monthly payout">                </div>
+                    <img class=" lazyload" src="<?php echo base_url();?>images/pricing-icon1" data-src="<?php echo base_url();?>images/pricing-icon1" alt="Monthly payout">                </div>
                 <div class="col-12 col-md-5 order-md-1 align-self-center">
                     <h2>Monthly payout</h2>
-                    <p>When you have an additional source of income to count on, there’s a lot more you can do for your business. So, when you’re making sales in your Spreadshop, that monthly payout will provide you with something that you can reinvest into your business. Plus, it’s easy to track your sales and stats on-the-go, so you'll know what to expect for every payout!</p>
+                    <p>When you have an additional source of income to count on, there's a lot more you can do for your business. So, when you're making sales in your Eazyprint, that monthly payout will provide you with something that you can reinvest into your business. Plus, it’s easy to track your sales and stats on-the-go, so you'll know what to expect for every payout!</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5 text-center">
-                    <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_70,e_blur:2000/pages/pricing/pricing-icon2" data-src="//www.spreadshop.com/content/f_auto,q_70/pages/pricing/pricing-icon2" alt="High commission opportunities">                </div>
+                    <img class=" lazyload" src="<?php echo base_url();?>images/pricing-icon2" data-src="<?php echo base_url();?>images/pricing-icon2" alt="High commission opportunities">                </div>
                 <div class="col-12 col-md-5 align-self-center">
                     <h2>High commission opportunities</h2>
-                    <p>With Spreadshop, you’ll get out what you put in. If you’re working hard to market your shop and make sales, the money will follow. We offer the highest commission opportunities in the industry! While you determine your own design price, we’ll give you an additional 20% commission from the product base price! Plus, with our volume commission, you can earn up to an additional 40% per sale. With three ways to earn, making money is almost too easy.</p>
+                    <p>With Eazyprint, you'll get out what you put in. If you’re working hard to market your shop and make sales, the money will follow. We offer the highest commission opportunities in the industry! While you determine your own design price, we’ll give you an additional 20% commission from the product base price! Plus, with our volume commission, you can earn up to an additional 40% per sale. With three ways to earn, making money is almost too easy.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5 order-md-2 text-center">
-                    <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_70,e_blur:2000/pages/pricing/pricing-icon3" data-src="//www.spreadshop.com/content/f_auto,q_70/pages/pricing/pricing-icon3" alt="Promotions for your customers">                </div>
+                    <img class=" lazyload" src="<?php echo base_url();?>images/pricing-icon3" data-src="<?php echo base_url();?>images/pricing-icon3" alt="Promotions for your customers">                </div>
                 <div class="col-12 col-md-5 order-md-1 align-self-center">
                     <h2>Promotions for your customers</h2>
-                    <p>What’s better than having lots of customers? Having lots of loyal customers. With Spreadshop’s monthly shop promotions, they’ll keep coming back for more while your customer base continues to grow! Plus, Spreadshop covers the money your customers are saving, so nothing is coming out of your pocket.</p>
+                    <p>What’s better than having lots of customers? Having lots of loyal customers. With Spreadshop's monthly shop promotions, they’ll keep coming back for more while your customer base continues to grow! Plus, Eazyprint covers the money your customers are saving, so nothing is coming out of your pocket.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-md-5 text-center">
-                    <img class=" lazyload" src="//www.spreadshop.com/content/f_auto,q_70,e_blur:2000/pages/pricing/pricing-icon4" data-src="//www.spreadshop.com/content/f_auto,q_70/pages/pricing/pricing-icon4" alt="No fees? Is this for real?">                </div>
+                    <img class=" lazyload" src="<?php echo base_url();?>images/pricing-icon4" data-src="<?php echo base_url();?>images/pricing-icon4" alt="No fees? Is this for real?">                </div>
                 <div class="col-12 col-md-5 align-self-center">
                     <h2>No fees? Is this for real?</h2>
-                    <p>Yes. Spreadshop is (and always will be) 100% FREE! No surprise fees, no subscription charges, no catch. You can only make money with Spreadshop... never lose it.</p>
+                    <p>Yes. Eazyprint is (and always will be) 100% FREE! No surprise fees, no subscription charges, no catch. You can only make money with Eazyprint... never lose it.</p>
                 </div>
             </div>
         </div>
@@ -122,7 +119,7 @@
         <div class="row justify-content-center">
             <div class="slider__headline text-center col-12 col-lg-10 col-xl-8">
                 <h2 class="h1">This Is How Much Money You Can Make</h2>
-                <p>Browse through some examples and learn how much money can really be made with Spreadshop.</p>
+                <p>Browse through some examples and learn how much money can really be made with Eazyprint.</p>
             </div>
         </div>
 
