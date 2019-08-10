@@ -14,8 +14,8 @@
   <body class="sprd-responsive-cnt">
 	<?php $this->load->view("common/header");?>
     <main>
-      <div id="spreadshop-home" data-tracking="Spreadshop-Homepage">
-        <section class="spreadshop-teaser" style="background: lightblue  no-repeat fixed center;">
+      <div id="spreadshop-home" data-tracking="Spreadshop-Homepage" style="">
+        <section class="spreadshop-teaser" style="background: #005988 no-repeat fixed center;">
           <div class="spreadshop-teaser__wrapper">
             <div class="container">
               <div class="spreadshop-teaser__text">
@@ -26,7 +26,7 @@
                 <div>
                   <div class="sprd-button secondary" data-lightbox="register-modal">Open Your Merch Shop
                   </div>
-                  <div class="spreadshop-teaser__free-note d-none d-md-block">Always free. Always.
+                  <div class="spreadshop-teaser__free-note d-none d-md-block" style="color:#fff;">Always free. Always.
                   </div>
                   <div class="spreadshop-teaser__calculator-link d-md-none js-calculator-link">See how much you can earn
                   </div>

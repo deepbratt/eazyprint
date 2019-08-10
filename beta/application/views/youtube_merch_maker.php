@@ -36,7 +36,6 @@
                         <li class="subnav__tab" data-tribe="products">Product Range</li>
                         <li class="subnav__tab" data-tribe="promote">Promote Your Merch</li>
                         <li class="subnav__tab" data-tribe="service">Design Assistance</li>
-                        <li class="subnav__tab" data-tribe="creators">Featured Creators</li>
                         <li class="subnav__tab" data-tribe="shipping">Customer Support</li>
                     </ul>
                 </div>
@@ -92,42 +91,63 @@
             </div>
         </div>
     </section>
+	<section class="four product-range products">
+        <div class="container">
+            <h2 class="h1 text-center">Product Range</h2>
 
-    <section class="products">
-        <div class="products__headline">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10">
-                        <h2 class="h1">Product Range</h2>
+            <div class="row justify-content-center">
+                <div class="col-6 col-lg-2 product-range__tile">
+                    <img src="<?php echo base_url('images/')?>products_tshirt" alt="Premium T-shirts">
+                    <p>Premium T-Shirts</p>
+                </div>
+				 <div class="col-6 col-lg-2 product-range__tile">
+                    <img src="<?php echo base_url('images/')?>products_hoodie" alt="Premium Hoodies">
+                    <p>Premium Hoodies</p>
+                </div>
+                <div class="col-6 col-lg-2 product-range__tile">
+                    <img src="<?php echo base_url('images/')?>cap.jpg" alt="Premium Caps">
+                    <p>Premium Caps</p>
+                </div>
+                <div class="col-6 col-lg-2 product-range__tile">
+                    <img src="<?php echo base_url('images/')?>jeans.jpg" alt="Premium Jeans">
+                    <p>Premium Jeans</p>
+                </div>
+				<div class="col-6 col-lg-2 product-range__tile">
+                    <img src="<?php echo base_url('images/')?>products_mug" alt="Color Mugs">
+                    <p>Color Mugs</p>
+                </div>
+				
+            </div>
+
+            <div class="row justify-content-center">
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>products_mobile" alt="Phone Cases">
+					<p>Phone Cases</p>
+				</div>
+				 <div class="col-6 col-lg-2 product-range__tile">
+						<img src="<?php echo base_url('images/')?>tiles.jpg" alt="Floor Tiles">
+						<p>Floor Tiles</p>
+				  </div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>dinner_plates.jpg" alt="Dinner Plates">
+					<p>Dinner Plates</p>
+				</div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>cusions.jpg" alt="Pillows & Cusions" style="height:170px;">
+					<p>Pillows & Cusions</p>
+				</div>
+				<div class="col-6 col-lg-2 product-range__tile">
+					<img src="<?php echo base_url('images/')?>rings.jpg" alt="Key Rings">
+					<p>Key Rings</p>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="products__button text-center">
+                        <a class="sprd-button ghost ghost--dark" href="#">See All Products</a>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="products__image">
-            <picture>
-                <source srcset="<?php echo base_url('images/')?>products_mobile" media="(max-width: 480px)">
-                <source srcset="<?php echo base_url('images/')?>products_desktop" media="(min-width: 481px)">
-                <img src="<?php echo base_url('images/')?>products_desktop" alt="Products">
-            </picture>
-        </div>
-
-        <div class="container products__text">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-5">
-                    <p>Eazyprint's product selection consists of over 100 customizable products ready for your designs. You deserve the best, so know that our merchandise for YouTubers will reach above and beyond your quality standards.</p>
-                    <p>We understand that every subscriber is different, so we've carefully developed a product assortment for both the big spenders and the penny savers, so everyone is happy! No matter the budget, no matter the product, there is something for every single one of your fans.</p>
-                </div>
-
-                <div class="col-12 col-lg-5 toggel-text">
-                    <p>We pride the Eazyprint brand on quality. Why would you settle for anything less? Eazyprint's product range offers anything from soft and comfy apparel to the latest trendy accessories, all ready for customization.</p>
-                    <p>We welcome as much creativity as possible. No minimums, no campaigning, no limits. There is nothing but opportunity waiting for you, here at Eazyprint.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="products__button">
-            <a class="sprd-button ghost ghost--dark" href="#">See All Products</a>
         </div>
     </section>
 
@@ -214,51 +234,19 @@
         </div>
     </section>
 
-    <section class="creators">
+  
+	<section class="endTeaser">
         <div class="container">
-            <h2 class="h1 text-center">Featured Creators</h2>
-            <div class="row">
-
-                <div class="col-6 col-lg-3 creators__item">
-                    <div class="creators__image">
-                        <img src="<?php echo base_url('images/')?>testimonials3" alt="Zack D'Ulisse">
-                    </div>
-                    <div class="creators__text">
-                        <strong>Zack D'Ulisse</strong>
-                        <br>Partner Since 2012
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 creators__item">
-                    <div class="creators__image">
-                        <img src="<?php echo base_url('images/')?>testimonials2" alt="Jeff Rice">
-                    </div>
-                    <div class="creators__text">
-                        <strong>Jeff Rice</strong>
-                        <br>Partner Since 2012
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 creators__item">
-                    <div class="creators__image">
-                        <img src="<?php echo base_url('images/')?>testimonials1" alt="Jeremy Kalgreen">
-                    </div>
-                    <div class="creators__text">
-                        <strong>Jeremy Kalgreen</strong>
-                        <br>Amorphia
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 creators__item">
-                    <div class="creators__image">
-                        <img src="<?php echo base_url('images/')?>testimonials4" alt="Robbert Muurbloempje">
-                    </div>
-                    <div class="creators__text">
-                        <strong>Robbert Muurbloempje</strong>
-                        <br>Thug Life
-                    </div>
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="h1">Ready to Start Selling Your Merch?</h2>
+                    <p>No matter your passion, we'll make it happen.</p>
+                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
+					</div>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="shipping">
         <div class="container">
             <div class="row justify-content-center">
@@ -278,18 +266,7 @@
         </div>
     </section>
 
-    <section class="endTeaser">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-12">
-                    <h2 class="h1">Ready to Start Selling Your Merch?</h2>
-                    <p>No matter your passion, we'll make it happen.</p>
-                    <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint
-					</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 </div>        </main>
 
     <?php $this->load->view("common/footer");?>

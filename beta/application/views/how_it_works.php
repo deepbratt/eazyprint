@@ -281,20 +281,17 @@
             </div>
           </div>
         </section>
-        <section class="endTeaser">
-          <div class="container">
-            <div class="row text-center">
-              <div class="col-12">
-                <h2 class="h1">Ready to Start Selling Your Merch?
-                </h2>
-                <p>No matter your passion, we'll make it happen.
-                </p>
-                <div class="sprd-button secondary" data-lightbox="register-modal">Open a FREE Eazyprint Store
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+		<section class="pricing-end">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-12">
+						<h2 class="h1">Let’s Get Started!</h2>
+						<p>No matter your passion, we'll make it happen.</p>
+						<div class="sprd-button secondary" data-lightbox="register-modal">Start Your Free Shop</div>
+					</div>
+				</div>
+			</div>
+		</section>
       </div>        
     </main>
     <?php $this->load->view("common/footer");?>

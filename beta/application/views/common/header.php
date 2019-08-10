@@ -36,10 +36,10 @@ header .logo img {
                     <a href="<?php echo base_url('how_it_works');?>">How it Works
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="<?php echo base_url('examples');?>">Clients/Vendors
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
               <li>
@@ -128,7 +128,11 @@ header .logo img {
               </a>
             </li>
             <li>
-              <a href="<?php echo base_url('examples');?>">Clients/Vendors
+              <a href="<?php echo base_url('pricing');?>">Pricing
+              </a>
+            </li>
+			 <li>
+              <a href="<?php echo base_url('youtube_merch_maker');?>">YouTube Merchandise Maker
               </a>
             </li>
           </ul>
