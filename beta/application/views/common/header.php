@@ -134,8 +134,8 @@ header .logo img {
           </ul>
         </nav>        
         <div class="logo">
-          <a href="https://www.spreadshop.com">
-            <img src="images/logo.png" title="Spreadshop" alt="Spreadshop">
+          <a href="<?php echo base_url();?>">
+            <img src="<?php echo base_url('images');?>/logo.png" title="EazyPrint" alt="EazyPrint">
           </a>
         </div>
         <nav class="nav-user">

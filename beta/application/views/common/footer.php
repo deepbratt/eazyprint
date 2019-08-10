@@ -1,67 +1,55 @@
 <!-- footer ends -->
-<footer class="footer" style="background: #333;">
+<footer class="footer" style="background: #333;border-top:2px solid #ff9343;">
       <div class="container">
         <div class="footer__page-links row">
           <div class="col-md-3">
-            <h4>CUSTOMER SERVICE
+            <h4 style="color:#ff9343;">ABOUT EAZYPRINT
             </h4>
             <ul>
               <li>
-                <a href="javascript:void(0);">Contact Us
+                <a href="javascript:void(0);">Home
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);">Track Order
+                <a href="javascript:void(0);">How it works
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);">Return Order
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);">Cancel Order
+                <a href="javascript:void(0);">Clients/Vendors
                 </a>
               </li>
             </ul>
           </div>
           <div class="col-md-3">
-            <h4>COMPANY
+            <h4 style="color:#ff9343;">NEW TO EAZYPRINT
             </h4>
             <ul>
               <li>
-                <a href="javascript:void(0);" target="_blank" rel="noopener">About Us
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" target="_blank" rel="noopener">We're Hiring
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" target="_blank" rel="noopener">Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);">Privacy Policy
-                </a>
-              </li>
-			  <li>
-                <a href="javascript:void(0);">Blog
+                <a href="javascript:void(0);" target="_blank" rel="noopener">Pricing
                 </a>
               </li>
             </ul>
           </div>   
 		  <div class="col-md-3">
-            <h4>CONNECT WITH US
+            <h4 style="color:#ff9343;">COMMON USE CASES
             </h4>
             <ul>
 				<li>
-				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-square" style="font-size: 20px;"></i>&nbsp;10B People like this
+					<a href="javascript:void(0);">YouTube Merchandise Maker
+					</a>
+				  </li>
+				  <li>
+					<a href="javascript:void(0);">Sell shirts without inventory
+					</a>
+				  </li>
+				<!-- <li>
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-square" style="color:#ff9343;font-size: 20px;"></i>&nbsp;10B People like this
 				  </a>
 				</li>
 				<li>
-				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram" style="font-size: 20px;"></i>&nbsp;1B Followers
+				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram" style="color:#ff9343;font-size: 20px;"></i>&nbsp;1B Followers
 				  </a>
-				</li>
+				</li> -->
 				<!-- <li>
 				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter-square" style="font-size: 30px;"></i>
 				  </a>
@@ -73,7 +61,8 @@
 			  </ul>
           </div>
 		  <div class="col-md-3">
-            <h4>100% SECURE PAYMENT
+		  	<img src="<?php echo base_url('images');?>/logo-white.png" title="EazyPrint" alt="EazyPrint">
+            <h4 style="color:#ff9343;">100% SECURE PAYMENT
             </h4>
 			<img class="paymentImg" src="<?php echo base_url('images/');?>secure-pay-1560341534.png" title="secure payments" alt="secure payments">
           </div>
