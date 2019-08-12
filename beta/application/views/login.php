@@ -213,12 +213,13 @@ color: #00b2a5 !important;
 				</div>
               <div class="col-md-4 register-right" style="">
 				<div class="form_contain">
-					<h1 style="0 0 .625rem;font-family: Montserrat,sans-serif;font-size: 1.5rem;font-weight: 700;line-height: 1.3;color: #333;">Register now</h1>
+						<h1 style="0 0 .625rem;font-family: Montserrat,sans-serif;font-size: 1.5rem;font-weight: 700;line-height: 1.3;color: #333;">Log-in</h1>
+						<div id="info-text" class="register-shop-owner__back-to-login-info" style="margin: 1.5rem 0 0;">
+							<span> Don't have an account yet?  </span>
+							<a  class="link" href="<?php echo base_url('register');?>" style="color: #00b2a5;text-decoration: none;">Register now</a>
+						</div>
 						<form method="" action>
-							<div id="shop" class="textinput register-shop-owner__shop-name" style="margin: 1.5rem 0 0;position: relative;">
-								<input type="text" name="shop" id="shop-input" class="textinput__input" autofocus="autofocus" placeholder="Shop name">
-								
-							</div>
+							
 							<div id="email" class="textinput register-shop-owner__email" style="position: relative;margin: 1.5rem 0 0;box-sizing: inherit;">
 								<input type="email" name="email" id="email-input" class="textinput__input" autofocus="autofocus" placeholder="Email">
 								
@@ -235,19 +236,11 @@ color: #00b2a5 !important;
 							<input type="password" id="password" name="password" class="textinput__input" autofocus="autofocus" placeholder="New password">
 							
 						</div>
-						<div class="textinput register-shop-owner__repeat-password" style="margin-bottom: 0;position: relative;margin: 1.5rem 0;">
-							<input type="password" id="reEnteredPassword" name="reEnteredPassword" class="textinput__input" autofocus="autofocus" placeholder="Confirm password">
-							
-						</div>
-						<div id="captcha-container" class="register-shop-owner__captcha" style="max-width: calc(100vw - 3rem);overflow: hidden;margin: 1.5rem 0;width: 100%;">
-							<div id="captcha" class="g-recaptcha captcha-placeholder" data-sitekey="6LeRuowUAAAAALscfGRnDzSK8lQ59U4TRt6PTXhB" style="transform-origin: left top;width: 304px;"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeRuowUAAAAALscfGRnDzSK8lQ59U4TRt6PTXhB&amp;co=aHR0cHM6Ly9hY2NvdW50cy5zcHJlYWRzaGlydC5jb206NDQz&amp;hl=en&amp;v=v1563777128698&amp;size=normal&amp;cb=n2ptktuz3nbw" role="presentation" name="a-xzh6gjbihudk" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="304" height="78" frameborder="0"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
-						</div>
+					
+					
 						<button type="submit" name="register-submit" id="register-submit" class="register-shop-owner__cta button button--main button--large" value="Register" style="color:#fff;background-color: #009e94;font-size:15px;text-align:center;">Get Started Now</button>
 				</form>
-				<div id="info-text" class="register-shop-owner__back-to-login-info" style="margin: 1.5rem 0 0;">
-					<span>Already have an account?</span>
-					<a id="loginLink" class="link" href="<?php echo base_url('login');?>" style="color: #00b2a5;text-decoration: none;">Log in here</a>
-				</div>
+			
 				</div>
             </div>
         </section>
