@@ -10,7 +10,7 @@
         <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w"> -->
 		<?php $this->load->view("common/metalinks");?>
     </head>
-    <body class="sprd-responsive-cnt">
+    <body class="sprd-responsive-cnt" style="">
 	<?php $this->load->view("common/header");?>
         <main>
             
