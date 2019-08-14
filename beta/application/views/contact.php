@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <title>Contact Us | Eazyprint
     </title>
-    <meta name="description" content="With Eazyprint you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
+    <meta name="description" content="">
     <meta name="title" content="Contact Us | Eazyprint">
-    <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-    <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<?php $this->load->view("common/metalinks");?> 

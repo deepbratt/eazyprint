@@ -4,10 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
         <meta charset="utf-8">
         <title>Sell shirts online without inventory | Open a free shop with Spreadshop</title>
-        <meta name="description" content="Start a free print on-demand shop and sell custom printed apparel from your own free shop. Easy website integration, no minimums, award-winning customer service">
-        <!-- <meta name="title" content="Sell shirts online without inventory | Open a free shop with Spreadshop">
-        <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-        <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w"> -->
+        <meta name="description" content="">
+       <meta name="title" content="Sell shirts online without inventory | Eazyprint">
+        
 		<?php $this->load->view("common/metalinks");?>
       </head>
     <body class="sprd-responsive-cnt">

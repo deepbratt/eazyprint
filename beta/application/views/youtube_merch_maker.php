@@ -4,10 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, minimal-ui">
         <meta charset="utf-8">
         <title>Merchandise maker for Youtubers | Eazyprint</title>
-        <meta name="description" content="Open your own free print-on-demand shop and make money off your YouTube channel by selling merchandise. We handle inventory, shipping and customer service for you.">
+        <meta name="description" content="">
         <meta name="title" content="Merchandise maker for Youtubers | Eazyprint">
-        <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-        <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w"> -->
+        
 		<?php $this->load->view("common/metalinks");?>
     </head>
     <body class="sprd-responsive-cnt" style="">

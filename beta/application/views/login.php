@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <title>Create and sell print on demand merchandise | Eazyprint
     </title>
-    <meta name="description" content="With Eazyprint you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
+    <meta name="description" content="">
     <meta name="title" content="Create and sell print on demand merchandise | Eazyprint">
-    <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-    <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">-->
+    
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<style>
 	.register{
 
@@ -173,6 +172,30 @@ color: #00b2a5 !important;
     cursor: pointer;
     position: relative;
 }
+.checkbox__checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+        border-top-color: rgb(153, 153, 153);
+        border-right-color: rgb(153, 153, 153);
+        border-bottom-color: rgb(153, 153, 153);
+        border-left-color: rgb(153, 153, 153);
+    background-color: #fff;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+.checkbox {
+    cursor: pointer;
+    font-size: .875rem;
+}
+.login__rememberMe a {
+    text-align: right !important;
+    font-size: .875rem;
+    margin-top: 1rem;
+}
 
 	</style>
 	<?php $this->load->view("common/metalinks");?> 
@@ -185,39 +208,19 @@ color: #00b2a5 !important;
           <div class="container register col-md-10 col-md-offset-1" >
                 <div class="row" style="height:auto;">
 				<div class="col-md-8 register-left" >
-					<div class="col-md-11 col-md-offset-1" style="display: flex;flex-direction: column;justify-content: center;margin: 100px auto 140px;background: #fff;box-sizing: border-box;">
-						<h1 class="text-center">Register for Your Own Shop Now</h1>
-							<div class="description ">
-							<div >
-								<svg class="icon" style="" viewBox="0 0 32 32"><path id="" d="M25.501 27.508a1 1 0 0 1-1 1H4.503a1 1 0 0 1-1-1V11.49a1 1 0 0 1 1-1h17v-2h-17a3.003 3.003 0 0 0-3 3v16.017a3.003 3.003 0 0 0 3 3H24.5a3.003 3.003 0 0 0 3-3v-12.97h-2z" fill-rule="evenodd"></path><path d="M30.916 11.926v-6.86h-6.86v2h3.627L20.38 14.37a1 1 0 0 0-.293.686l-.076 3.574-6.783-6.835a1 1 0 0 0-1.71.7l-.03 6.604-6.195 6.204 1.416 1.414 6.485-6.495a1.003 1.003 0 0 0 .292-.703l.02-4.604 6.745 6.796a1 1 0 0 0 1.71-.683l.117-5.528 6.838-6.84v3.265z" fill-rule="evenodd"></path><path d="M19 5.01h2v2h-2zM29 16h2v2h-2zM14 3h2v2h-2z"></path></svg>
-								<p style="width: 100%;font-size: 16px;
-								font-family: Roboto,Arial,Helvetica,Corbel,Calibri,Trebuchet MS,sans-serif;color: #404040;
-								letter-spacing: .02em;">Highest Commission in the Industry</p>
-							</div> 
-							<div>
-								<svg class="icon" viewBox="0 0 32 32"><path d="M7 21.12V2H5v19.12a4 4 0 0 0 0 7.71V30h2v-1.16a4 4 0 0 0 0-7.71zM6 27a2 2 0 1 1 2-2 2 2 0 0 1-2 2zM17 5.17V2h-2v3.17a4 4 0 0 0 0 7.71V30h2V12.89a4 4 0 0 0 0-7.71zM16 11a2 2 0 1 1 2-2 2 2 0 0 1-2 2zM30 16a4 4 0 0 0-3-3.86V2h-2v10.15a4 4 0 0 0 0 7.71V30h2V19.86A4 4 0 0 0 30 16zm-4 2a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"></path></svg> 
-								<p style="width: 100%;font-size: 16px;
-								font-family: Roboto,Arial,Helvetica,Corbel,Calibri,Trebuchet MS,sans-serif;color: #404040;
-								letter-spacing: .02em;">Control Your Shop's Look &amp; Feel</p>
-							</div> 
-							<div>
-								<div class="icon-container" style="position: relative;">
-									<svg class="icon" viewBox="0 0 32 32"><path d="M30.805 10.081L23.313 2.59l-5.115.022.008 1.004a2.363 2.363 0 0 1-.679 1.699 2.12 2.12 0 0 1-1.512.638 2.348 2.348 0 0 1-2.27-2.362l-.017-.98-5.194-.02-7.273 7.273L5.999 14.6 8 12.599v14.31a3.003 3.003 0 0 0 3 3h9.986a3.003 3.003 0 0 0 3-3v-14.17l2.081 2.08zm-8.819-1.138v17.966a1 1 0 0 1-1 1H11a1 1 0 0 1-1-1V8.943H8v.828l-2.001 2-1.91-1.908 5.27-5.27 2.51.01a4.323 4.323 0 0 0 4.146 3.349 4.108 4.108 0 0 0 2.932-1.229 4.306 4.306 0 0 0 1.155-2.12l2.386-.01 5.489 5.488-1.91 1.91-2.08-2.08v-.968z"></path></svg></div> 
-									<p style="width: 100%;font-size: 16px;
-								font-family: Roboto,Arial,Helvetica,Corbel,Calibri,Trebuchet MS,sans-serif;color: #404040;
-								letter-spacing: .02em;">Choose Which Products You Sell</p>
-								</div>
-							</div>
+					<div class="col-md-10 col-md-offset-1" style="display: flex;flex-direction: column;justify-content: center;margin: 100px auto 140px;background: #fff;box-sizing: border-box;">
+						<h1 class="text-center">Log in to your account</h1>
+					
 					</div>
-					<input type="hidden" name="" value="Login"/><br/>
+				
 				</div>
               <div class="col-md-4 register-right" style="">
 				<div class="form_contain">
-						<h1 style="0 0 .625rem;font-family: Montserrat,sans-serif;font-size: 1.5rem;font-weight: 700;line-height: 1.3;color: #333;">Log-in</h1>
-						<div id="info-text" class="register-shop-owner__back-to-login-info" style="margin: 1.5rem 0 0;">
-							<span> Don't have an account yet?  </span>
-							<a  class="link" href="<?php echo base_url('register');?>" style="color: #00b2a5;text-decoration: none;">Register now</a>
-						</div>
+					<h1 style="0 0 .625rem;font-family: Montserrat,sans-serif;font-size: 1.5rem;font-weight: 700;line-height: 1.3;color: #333;">Log-in</h1>
+					<div id="info-text" class="register-shop-owner__back-to-login-info" style="margin: 1.5rem 0 0;">
+						<span>Don't have an account yet?</span>
+						<a id="loginLink" class="link" href="<?php echo base_url('register');?>" style="color: #00b2a5;text-decoration: none;">Register now</a>
+					</div>
 						<form method="" action>
 							
 							<div id="email" class="textinput register-shop-owner__email" style="position: relative;margin: 1.5rem 0 0;box-sizing: inherit;">
@@ -236,8 +239,20 @@ color: #00b2a5 !important;
 							<input type="password" id="password" name="password" class="textinput__input" autofocus="autofocus" placeholder="New password">
 							
 						</div>
-					
-					
+						
+						<div class="login__rememberMe" style="width: 100%;display: flex;flex-wrap: wrap;margin: 1.5rem 0;">
+							<label class="checkbox" style="width: 100%;display: flex;cursor: pointer;font-size: .875rem;">
+								<input class="checkbox__input" type="checkbox" value="true" id="rememberMeCheckbox" name="rememberMe" checked="checked" style="display:none;">
+								<div class="checkbox__checkmark" style="border-color: #00b2a5;">
+									<svg viewBox="0 0 16 16" fill="currentColor">
+										<path d="M13.3 3.1l-7.1 7-3.5-3.5L1.3 8l4.9 4.9 8.5-8.4z"></path>
+									</svg>
+								</div>
+								<span>Stay signed in</span>
+							</label>
+							<a id="forgotPasswordLink" class="link link--bold" href="#" style="font-weight: 700;color: #00b2a5;text-decoration: none;">Forgot your password?</a>
+						</div>
+				
 						<button type="submit" name="register-submit" id="register-submit" class="register-shop-owner__cta button button--main button--large" value="Register" style="color:#fff;background-color: #009e94;font-size:15px;text-align:center;">Get Started Now</button>
 				</form>
 			

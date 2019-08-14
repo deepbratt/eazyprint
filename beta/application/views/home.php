@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <title>Create and sell print on demand merchandise | Eazyprint
     </title>
-    <meta name="description" content="With Eazyprint you can create free online shop in no time. Make and sell custom merchandise on social media or start your own t-shirt business with no hassles.">
+    <meta name="description" content="">
     <meta name="title" content="Create and sell print on demand merchandise | Eazyprint">
-    <!-- <meta name="p:domain_verify" content="0d7c551a1fbc4df58c9e10c7dc141603">
-    <meta name="google-site-verification" content="pziWEIF-g6PO5yOvN5UBz1ow0RQUndIxZr3ZFVkqi-w">-->
+ 
 	<?php $this->load->view("common/metalinks");?> 
   </head>
   <body class="sprd-responsive-cnt">

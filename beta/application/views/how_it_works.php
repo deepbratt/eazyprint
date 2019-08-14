@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>How Eazyprint works | Eazyprint
     </title>
-    <meta name="description" content="How does Eazyprint work? We are happy to explain! Sell merch, make money, we’ll do everything else. Open a free online shop today!">
+    <meta name="description" content="">
     <meta name="title" content="How Eazyprint works | Eazyprint">
     <?php $this->load->view("common/metalinks");?>
   </head>
