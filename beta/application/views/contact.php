@@ -9,6 +9,14 @@
     <meta name="title" content="Contact Us | Eazyprint">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+	.error_msg{
+		font-size:15px;
+		color:red;
+		margin-top:3px;
+		display:none;
+	}
+	</style>
 	<?php $this->load->view("common/metalinks");?> 
   </head>
   <body class="sprd-responsive-cnt">
@@ -23,49 +31,70 @@
                 </div>
             </div>
         </section>
-        <section class="ressources">
+        <section class="ressources" id="Contact_form" style="padding:50px 0;">
+		
+		
           <div class="container">
+		    <?php
+			  if($this->session->flashdata('success')){
+			?>
+			<div class="alert alert-success" style="margin-top:30px;"> <strong><?php echo $this->session->flashdata('success');?></strong> </div>
+			<?php
+			}
+			?>
             <div class="row align-content-center justify-content-between">
               <div class="col-12 col-lg-6 col-xl-6">
-                  <form method="post">
-				  	<div class="col-md-12">
-						<div class="col-md-6" style="float:left">
+                  <form method="post" action="<?php echo base_url('contact/send_email');?>">
+				  	<div class="row">
+						<div class="col-md-6">
 							<div class="form-group">
-							  <label for="name">Full Name</label>
+							  <label for="name">Full Name(<span style="color:red;font-weight:bold;">*</span>)</label>
 							  <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+							  <span class="error_msg" id="name_error">
+								Enter your full name
+							  </span>
 							</div>
 						</div>
-						<div class="col-md-6" style="float:right">
+						<div class="col-md-6">
 							<div class="form-group">
-							  <label for="email">Email</label>
+							  <label for="email">Email(<span style="color:red;font-weight:bold;">*</span>)</label>
 							  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+							  <span class="error_msg" id="email_error">
+								Enter a valid email id
+							  </span>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="col-md-6" style="float:left">
+					<div class="row">
+						<div class="col-md-6">
 							<div class="form-group">
-							  <label for="name">Phone</label>
+							  <label for="name">Phone(<span style="color:red;font-weight:bold;">*</span>)</label>
 							  <input type="number" class="form-control" id="number" placeholder="Enter phone number" name="number">
+							  <span class="error_msg" id="phone_error">
+								Enter a valid phone number
+							  </span>
 							</div>
 						</div>
-						<div class="col-md-6" style="float:right">
+						<div class="col-md-6">
 							<div class="form-group">
 							  <label for="subject">Subject</label>
 							  <input type="text" class="form-control" id="subject" placeholder="Enter a subject" name="subject">
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="col-md-12" style="float:left">
+					<div class="row">
+						<div class="col-md-12">
 							<div class="form-group">
-							  <label for="message">Message</label>
+							  <label for="message">Message(<span style="color:red;font-weight:bold;">*</span>)</label>
 							  <textarea class="form-control" id="message" placeholder="Type your message" name="message" style="height:150px;"></textarea>
+							  <span class="error_msg" id="message_error">
+								Enter your message(charecters must contain 20 charecters atleast)
+							  </span>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="col-md-12" style="float:left">
+					<div class="row">
+						<div class="col-md-12">
 							<div class="form-group">
 							  <button type="submit" class="sprd-button secondary" style="height: 37px;padding: 11px;">Send</button>
 							</div>
@@ -120,4 +149,68 @@
     </main>
 	<?php $this->load->view("common/footer");?>
   </body>
+  <script>
+	$("form").submit(function(e){
+		var name = $('#name').val();
+		var email = $('#email').val();
+		var number = $('#number').val();
+		var message = $('#message').val();
+		if(name == ''){
+			$('#name_error').show();
+			var a = 1;
+			e.preventDefault();
+		}
+		var emailReg  = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if( !emailReg.test( email ) || email == '' ) {
+			$('#email_error').show();
+			var b = 1;
+			e.preventDefault();
+			
+		} 
+		if(number == '' || number.length != 10){
+			$('#phone_error').show();
+			var c = 1;
+			e.preventDefault();
+		}
+		if(message == '' || message.length < 20){
+			$('#message_error').show();
+			var d = 1;
+			e.preventDefault();
+		}
+		if(a != 1 && b != 1 && c != 1 && d != 1)
+		{
+			$("form").unbind('submit');
+		}else{
+			$('html, body').animate({
+				scrollTop: $("#Contact_form").offset().top
+			}, 1000);
+		}
+		
+	});
+
+	setInterval(function(){
+		check_vakidation() 
+	}, 2000);
+
+	function check_vakidation(){
+		var name = $('#name').val();
+		var email = $('#email').val();
+		var number = $('#number').val();
+		var message = $('#message').val();
+
+		if(name != ''){
+			$('#name_error').hide();
+		}
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if(emailReg.test( email ) && email != '' ) {
+			$('#email_error').hide();
+		}
+		if(number.length == 10){
+			$('#phone_error').hide();
+		}
+		if(message.length > 19){
+			$('#message_error').hide();
+		}
+	}
+</script>
 </html>
