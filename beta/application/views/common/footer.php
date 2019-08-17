@@ -18,18 +18,7 @@
                 <a href="javascript:void(0);">Clients/Vendors
                 </a>
               </li>
-			   <li>
-                <a href="javascript:void(0);">Home
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);">How it works
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void(0);">Clients/Vendors
-                </a>
-              </li>
+		
             </ul>
           </div>
           <div class="col-md-3">
@@ -41,17 +30,14 @@
                 </a>
               </li>
 			   <li>
-                <a href="javascript:void(0);">Home
+                <a href="javascript:void(0);">Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);">How it works
+                <a href="javascript:void(0);">Terms And Condition
                 </a>
               </li>
-              <li>
-                <a href="javascript:void(0);">Clients/Vendors
-                </a>
-              </li>
+              
             </ul>
           </div>   
 		  <div class="col-md-3">
