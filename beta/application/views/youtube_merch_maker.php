@@ -165,7 +165,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="promote__text">Spreadshop Success Guide</div>
+                    <div class="promote__text">Eazyprint Success Guide</div>
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">

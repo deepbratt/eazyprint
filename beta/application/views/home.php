@@ -299,7 +299,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_ChefShirts" data-src="<?php echo base_url('images/')?>spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_ChefShirts" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_ChefShirts" data-src="<?php echo base_url('images/')?>spotlight_ChefShirts" alt="Spotlight Chef Shirts">                                                
                             <div>
                               <h3>Chef Shirts
                               </h3>
@@ -319,7 +319,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_HighFrontier" data-src="<?php echo base_url('images/')?>spotlight_HighFrontier" alt="Spotlight The High Frontier">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_HighFrontier" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_HighFrontier" alt="Spotlight The High Frontier">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_HighFrontier" data-src="<?php echo base_url('images/')?>spotlight_HighFrontier" alt="Spotlight The High Frontier">                                                
                             <div>
                               <h3>The High Frontier
                               </h3>
@@ -339,7 +339,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_LittleAdventure" data-src="<?php echo base_url('images/')?>spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_LittleAdventure" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_LittleAdventure" data-src="<?php echo base_url('images/')?>spotlight_LittleAdventure" alt="Spotlight Little Adventures">                                                
                             <div>
                               <h3>Little Adventures
                               </h3>
@@ -359,7 +359,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_DadsLife" data-src="<?php echo base_url('images/')?>spotlight_DadsLife" alt="Spotlight Dad’s Life">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_DadsLife" data-src="//www.spreadshop.com/content/f_auto,q_60,w_200/pages/homepage/spotlight_DadsLife" alt="Spotlight Dad’s Life">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_DadsLife" data-src="<?php echo base_url('images/')?>spotlight_DadsLife" alt="Spotlight Dad’s Life">                                                
                             <div>
                               <h3>Dad's Life
                               </h3>
@@ -379,7 +379,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Waldogs" data-src="<?php echo base_url('images/')?>spotlight_Waldogs" alt="Spotlight Waldogs">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_Waldogs" data-src="#" alt="Spotlight Waldogs">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_Waldogs" data-src="#" alt="Spotlight Waldogs">                                                
                             <div>
                               <h3>Waldogs
                               </h3>
@@ -399,7 +399,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_DangerEcole" data-src="<?php echo base_url('images/')?>spotlight_DangerEcole" alt="Spotlight Danger Ecole">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_DangerEcole" data-src="#" alt="Spotlight Danger Ecole">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_DangerEcole" data-src="#" alt="Spotlight Danger Ecole">                                                
                             <div>
                               <h3>Danger Ecole
                               </h3>
@@ -419,7 +419,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Nektarinchen" data-src="<?php echo base_url('images/')?>spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_Nektarinchen" data-src="#" alt="Spotlight Gscheade Leibal">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_Nektarinchen" data-src="#" alt="Spotlight Gscheade Leibal">                                                
                             <div>
                               <h3>Gscheade Leibal
                               </h3>
@@ -439,7 +439,7 @@
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Amorphia" data-src="<?php echo base_url('images/')?>spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                        
                         <div class="spotlight__card-text">
                           <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="images/spotlight_Amorphia" data-src="#" alt="Spotlight Amorphia Apparel">                                                
+                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_Amorphia" data-src="#" alt="Spotlight Amorphia Apparel">                                                
                             <div>
                               <h3>Amorphia Apparel
                               </h3>

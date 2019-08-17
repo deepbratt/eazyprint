@@ -100,7 +100,7 @@
                     <img class=" lazyload" src="<?php echo base_url();?>images/pricing-icon3" data-src="<?php echo base_url();?>images/pricing-icon3" alt="Promotions for your customers">                </div>
                 <div class="col-12 col-md-5 order-md-1 align-self-center">
                     <h2>Promotions for your customers</h2>
-                    <p>What’s better than having lots of customers? Having lots of loyal customers. With Spreadshop's monthly shop promotions, they’ll keep coming back for more while your customer base continues to grow! Plus, Eazyprint covers the money your customers are saving, so nothing is coming out of your pocket.</p>
+                    <p>What’s better than having lots of customers? Having lots of loyal customers. With Eazyprint's monthly shop promotions, they’ll keep coming back for more while your customer base continues to grow! Plus, Eazyprint covers the money your customers are saving, so nothing is coming out of your pocket.</p>
                 </div>
             </div>
             <div class="row justify-content-center">

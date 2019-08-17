@@ -265,7 +265,7 @@
                     <div class="col-12 col-md-6">
                       <h3>Mobile-Friendly Shop System
                       </h3>
-                      <p>Spreadshop's platform adapts to any device. Your customers can browse and buy from your online shop using any mobile phone or tablet with ease.
+                      <p>Eazyprint's platform adapts to any device. Your customers can browse and buy from your online shop using any mobile phone or tablet with ease.
                       </p>
                        <h3>Quality Print Results
                       </h3>
