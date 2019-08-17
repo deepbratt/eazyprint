@@ -7,11 +7,11 @@
             </h4>
             <ul>
               <li>
-                <a href="javascript:void(0);">Home
+                <a href="<?php echo base_url('');?>">Home
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);">How it works
+                <a href="<?php echo base_url('how_it_works');?>">How it works
                 </a>
               </li>
               <li>
@@ -26,15 +26,15 @@
             </h4>
             <ul>
               <li>
-                <a href="javascript:void(0);" target="_blank" rel="noopener">Pricing
+                <a href="<?php echo base_url('pricing');?>" target="_blank" rel="noopener">Pricing
                 </a>
               </li>
 			   <li>
-                <a href="javascript:void(0);">Privacy Policy
+                <a href="<?php echo base_url('privacy');?>">Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0);">Terms And Condition
+                <a href="<?php echo base_url('terms');?>">Terms And Condition
                 </a>
               </li>
               
