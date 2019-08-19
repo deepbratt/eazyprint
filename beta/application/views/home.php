@@ -422,13 +422,13 @@
                           <div class="spotlight__mobile-flex">
                             <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_Amorphia" data-src="#" alt="Spotlight Amorphia Apparel">                                                
                             <div>
-                              <h3>Amorphia Apparel
+                              <h3>Clickrstop 
                               </h3>
                               <small>Eazyprint Partner since 2006
                               </small>
                             </div>
                           </div>
-                          <blockquote>Jeremy Kalgreem, the mastermind behind Amorphia Apparel, has written a true success story during an 11-year long Spreadshirt journey.
+                          <blockquote>Jeremy Kalgreem, the mastermind behind Apparel, has written a true success story during an 11-year long Eazyprint journey.
                           </blockquote>
                           <a href="#" target="_blank" rel="noopener">Read Full Interview
                           </a>
