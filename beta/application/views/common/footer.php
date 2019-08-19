@@ -1,13 +1,13 @@
 <!-- footer ends -->
 <footer class="footer" style="background: #333;border-top:2px solid #ff9343;">
-      <div class="container" style="margin-bottom:20px;">
+      <div class="container" >
         <div class="footer__page-links row">
           <div class="col-md-3">
             <h4 style="color:#ff9343;">ABOUT EAZYPRINT
             </h4>
             <ul>
               <li>
-                <a href="<?php echo base_url('');?>">Home
+                <a href="<?php echo base_url('home');?>">Home
                 </a>
               </li>
               <li>
@@ -16,6 +16,10 @@
               </li>
               <li>
                 <a href="javascript:void(0);">Clients/Vendors
+                </a>
+              </li>
+			  <li>
+                <a href="<?php echo base_url('contact');?>">Contact us
                 </a>
               </li>
 		
@@ -52,22 +56,22 @@
 					<a href="javascript:void(0);">Sell shirts without inventory
 					</a>
 				  </li>
-				<!-- <li>
+				 <li>
 				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-facebook-square" style="color:#ff9343;font-size: 20px;"></i>&nbsp;10B People like this
 				  </a>
 				</li>
 				<li>
 				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-instagram" style="color:#ff9343;font-size: 20px;"></i>&nbsp;1B Followers
 				  </a>
-				</li> -->
+				</li>
 				<!-- <li>
 				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-twitter-square" style="font-size: 30px;"></i>
 				  </a>
-				</li>
+				</li> 
 				<li>
 				  <a href="javascript:void(0);" target="_blank"><i class="fab fa-youtube-square" style="font-size: 30px;"></i>
 				  </a>
-				</li> -->
+				</li>-->
 			  </ul>
           </div>
 		  <div class="col-md-3">
@@ -80,7 +84,7 @@
         </div>
    
       </div>
-      <div class="footer__social-links">
+      <!-- <div class="footer__social-links">
         <div class="container">
           <ul>
             <li class="twitter">
@@ -105,7 +109,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
  
     </footer>   
 	

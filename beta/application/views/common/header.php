@@ -47,7 +47,10 @@ header .nav-user__login_it a::before {
                     <a href="<?php echo base_url('how_it_works');?>">How it Works
                     </a>
                   </li>
-                 
+                  <li>
+                    <a href="<?php echo base_url('contact');?>">Contact us
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li>
