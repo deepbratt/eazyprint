@@ -21,6 +21,7 @@ class Contact extends CI_Controller {
 		$subject = $this->input->post('subject');
 		$message = $this->input->post('message');
 
+		//mail to admin starts
 		$this->load->library('email');
 		$this->email->set_mailtype("html");
 		$this->email->from('sales@eazyprint.com', 'EazyPrint');
@@ -31,7 +32,23 @@ class Contact extends CI_Controller {
 		$this->email->message($message_data);    
 
 		$mail_send = $this->email->send();
+		//mail to admin ends
+
 		if($mail_send){
+
+			//mail to user starts
+			$this->load->library('email');
+			$this->email->set_mailtype("html");
+			$this->email->from('support@eazyprint.com', 'EazyPrint');
+			$this->email->to($email); 
+			$message_user = $this->email_template->send_user_query($name);
+			
+			$this->email->subject('Thank You');
+			$this->email->message($message_user);    
+
+			$mail_send_user = $this->email->send();
+			//mail to user ends
+
 			$this->session->set_flashdata("success", "Thank you for contacting us! We will get back to you soon.");
 			redirect('contact');
 		}

@@ -23,7 +23,7 @@
 	<?php $this->load->view("common/header");?>
     <main>
       <div id="spreadshop-home" data-tracking="Spreadshop-Homepage" style="">
-        <section class="assortment-teaser" style="background: #333 url(//www.spreadshop.com/content/f_auto,q_70/pages/assortment/teaser) no-repeat center;">
+        <section class="assortment-teaser" style="background: #333 url(<?php echo base_url('images/teaser');?>) no-repeat center;">
             <div class="container text-center">
                 <div class="assortment-teaser__text-wrapper" style="padding-bottom: 35px !important;">
                     <h1 style="padding-top: 20px;color:white;">Sell Your Art on Hundreds of Products</h1>
