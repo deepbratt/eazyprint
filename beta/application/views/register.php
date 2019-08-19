@@ -18,7 +18,7 @@
 .register-left{
     text-align: center;
     color: #fff;
-    background:url("//image.spreadshirtmedia.net/content/q_auto,f_auto,h_550/CMS/SSP/hero_image_desktop");
+    background:url("<?php echo base_url('images/hero_image_desktop (1).webp');?>");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position-x: -100px;
