@@ -414,26 +414,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="spotlight__card">
-                        <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Nektarinchen" data-src="<?php echo base_url('images/')?>spotlight_Nektarinchen" alt="Spotlight Gscheade Leibal">                                        
-                        <div class="spotlight__card-text">
-                          <div class="spotlight__mobile-flex">
-                            <img class="d-lg-none lazyload" src="<?php echo base_url('images/')?>spotlight_Nektarinchen" data-src="#" alt="Spotlight Gscheade Leibal">                                                
-                            <div>
-                              <h3>Gscheade Leibal
-                              </h3>
-                              <small>Eazyprint Partner since 2006
-                              </small>
-                            </div>
-                          </div>
-                          <blockquote>One of the most successful shops, Gscheade Leibal, is owned by Nektarinchen and her boyfriend who embrace the peculiarities of the Austrian dialect.
-                          </blockquote>
-                          <a href="#" target="_blank" rel="noopener">Read Full Interview
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+               
                     <div class="swiper-slide">
                       <div class="spotlight__card">
                         <img class="d-none d-lg-block lazyload" src="<?php echo base_url('images/')?>spotlight_Amorphia" data-src="<?php echo base_url('images/')?>spotlight_Amorphia" alt="Spotlight Amorphia Apparel">                                        
