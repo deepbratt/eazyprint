@@ -67,7 +67,6 @@
 					<a href="javascript:void(0);">Email
 					</a>
 				  </li>
-<<<<<<< HEAD
 				  <li>
 					<a href="javascript:void(0);">Enquiry
 					</a>
