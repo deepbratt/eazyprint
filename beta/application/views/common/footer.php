@@ -22,7 +22,7 @@
                 <a href="<?php echo base_url('contact');?>">Contact us
                 </a>
               </li>
-		
+
             </ul>
           </div>
           <div class="col-md-3">
@@ -42,20 +42,14 @@
                 </a>
               </li>
 			   <li>
-<<<<<<< HEAD
-                <a href="javascript:void(0);">Products
-=======
                 <a href="<?php echo base_url('privacy');?>">Privacy Policy
->>>>>>> 50490a3c4b0dc3bc29350bde66ae40b8d3f53ed8
+
                 </a>
               </li>
 
               <li>
-<<<<<<< HEAD
-                <a href="javascript:void(0);">Get started
-=======
                 <a href="<?php echo base_url('terms');?>">Terms And Condition
->>>>>>> 50490a3c4b0dc3bc29350bde66ae40b8d3f53ed8
+
                 </a>
               </li>
 
