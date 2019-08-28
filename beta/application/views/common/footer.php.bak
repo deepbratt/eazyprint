@@ -107,6 +107,35 @@
 			<img class="paymentImg" src="<?php echo base_url('images/');?>secure-pay-1560341534.png" title="secure payments" alt="secure payments" style="width: 100%;">
           </div>
         </div>
+        <!-- <div>
+          <div class="language-switcher">
+            <div class="language-switcher__active-locale">
+              <span class="icon icon--us">English
+              </span>
+            </div>
+            <ul class="language-switcher__locale-list">
+              <li>
+                <a class="icon icon--us" href="/">English
+                </a>
+              </li>
+              <li>
+                <a class="icon icon--de" href="/de/">Deutsch
+                </a>
+              </li>
+              <li>
+                <a class="icon icon--fr" href="/fr/">Français
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__sprd-logo footer__sprd-logo--desktop">
+            <div>powered by
+            </div>
+            <a href="//www.spreadshirt.com" target="_blank" rel="noopener">
+              <img src="https://www.spreadshop.com/content/assets/spreadshirt_logo" alt="Spreadshirt Logo">
+            </a>
+          </div>
+        </div> -->
       </div>
 
     </footer>   

@@ -4,7 +4,7 @@ header .logo img {
 }
 </style>
 <header>
-      <div class="container" style="border-bottom:2px solid #ff9343;">
+      <div class="container" style="border-bottom:1px solid #ff9343;">
         <div class="menu-layer js-menu-layer">
         </div>
         <div class="menu-button js-menu-button">
