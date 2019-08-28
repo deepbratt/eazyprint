@@ -156,7 +156,7 @@
             <h2 class="h1 text-center">Promote Your Merch</h2>
             <div class="row">
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="https://www.spreadshirt.com/blog/tag/shop-marketing/">
+                    <a href="#">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -165,11 +165,11 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="promote__text">Spreadshop Success Guide</div>
+                    <div class="promote__text">Eazyprint Success Guide</div>
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="https://www.spreadshirt.com/blog">
+                    <a href="#">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -181,7 +181,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="https://www.spreadshirt.com/blog/2016/11/21/placeit-customizable-advertising-material-for-your-shop/">
+                    <a href="#">
                     <div class="promote__image">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <g>
@@ -193,7 +193,7 @@
                     </a>
                 </div>
                 <div class="col-6 col-lg-3 promote__item text-center">
-                    <a href="https://www.spreadshirt.com/blog/2014/08/13/google-adwords-tips-for-partners/">
+                    <a href="#">
                         <div class="promote__image">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <g>
